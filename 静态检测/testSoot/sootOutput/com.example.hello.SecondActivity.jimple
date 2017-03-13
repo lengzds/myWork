@@ -1,0 +1,78 @@
+public class com.example.hello.SecondActivity extends android.app.Activity
+{
+
+    public void <init>()
+    {
+        com.example.hello.SecondActivity $r0;
+
+        $r0 := @this: com.example.hello.SecondActivity;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        return;
+    }
+
+    protected void onCreate(android.os.Bundle)
+    {
+        com.example.hello.SecondActivity $r0;
+        android.os.Bundle $r1;
+        android.widget.TextView $r2;
+
+        $r0 := @this: com.example.hello.SecondActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("TEST APP", "[1] android.app.Activity onCreate");
+
+        $r2 = new android.widget.TextView;
+
+        specialinvoke $r2.<android.widget.TextView: void <init>(android.content.Context)>($r0);
+
+        virtualinvoke $r2.<android.widget.TextView: void setText(java.lang.CharSequence)>("\u7487\u98ce\u5063\u9351\u7ed8\u5bdc\u6769\u65bf\u6d16\u95bf\ufffd");
+
+        virtualinvoke $r0.<com.example.hello.SecondActivity: void setContentView(android.view.View)>($r2);
+
+        return;
+    }
+
+    public void onDestroy()
+    {
+        com.example.hello.SecondActivity $r0;
+
+        $r0 := @this: com.example.hello.SecondActivity;
+
+        specialinvoke $r0.<android.app.Activity: void onDestroy()>();
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("TEST APP", "[7] android.app.Activity onDestroy");
+
+        return;
+    }
+
+    public void onRestart()
+    {
+        com.example.hello.SecondActivity $r0;
+
+        $r0 := @this: com.example.hello.SecondActivity;
+
+        specialinvoke $r0.<android.app.Activity: void onRestart()>();
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("TEST APP", "[2] android.app.Activity onRestart");
+
+        return;
+    }
+
+    public void onResume()
+    {
+        com.example.hello.SecondActivity $r0;
+
+        $r0 := @this: com.example.hello.SecondActivity;
+
+        specialinvoke $r0.<android.app.Activity: void onResume()>();
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("TEST APP", "[4] android.app.Activity onResume");
+
+        return;
+    }
+}

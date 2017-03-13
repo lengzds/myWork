@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/main" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/info_text_size" android:layout_gravity="center_vertical" android:id="@id/lblFileSystem" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="!string/filesystem_label" android:layout_weight="@string/info_text_weight" />
+        <Button android:textSize="@dimen/mount_button_text_size" android:id="@id/buttonMount" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="33.0dip" android:layout_marginLeft="@dimen/mount_button_margin" android:text="!string/remount_rw" />
+    </LinearLayout>
+    <ListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="0.0dip" android:drawSelectorOnTop="true" android:layout_weight="1.0" />
+    <LinearLayout android:orientation="vertical" android:id="@id/rootAdvert" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/dataFolderDesc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="!string/data_folder_desc" />
+        <TextView android:id="@id/rootAdText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="!string/root_explorer_ad" />
+        <Button android:layout_gravity="center_horizontal" android:id="@id/buttonDownload" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="!string/download_re" />
+    </LinearLayout>
+    <TextView android:id="@id/noRootMessage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="!string/no_root_message_data" />
+    <GridView android:id="@id/iconGrid" android:padding="10.0dip" android:visibility="gone" android:clipChildren="true" android:clipToPadding="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:horizontalSpacing="10.0dip" android:verticalSpacing="30.0dip" android:stretchMode="columnWidth" android:numColumns="4" android:layout_weight="1.0" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/pasteLayout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/buttonPaste" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="0.0dip" android:text="!string/paste" android:layout_weight="1.0" />
+        <Button android:id="@id/buttonCancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="0.0dip" android:text="!string/cancel" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/extractLayout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/buttonExtract" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="0.0dip" android:text="!string/paste" android:layout_weight="1.0" />
+        <Button android:id="@id/buttonCancelExtract" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="0.0dip" android:text="!string/cancel" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/multiSelectLayout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <Button android:textSize="@dimen/copy_multi_text_size" android:layout_gravity="top" android:id="@id/buttonCopy" android:layout_width="wrap_content" android:layout_height="37.0dip" android:layout_marginRight="0.0dip" android:text="!string/copy" android:layout_weight="1.0" />
+            <Button android:textSize="@dimen/move_multi_text_size" android:layout_gravity="top" android:id="@id/buttonMove" android:layout_width="wrap_content" android:layout_height="37.0dip" android:layout_marginRight="0.0dip" android:text="!string/move" android:layout_weight="1.0" />
+            <Button android:textSize="@dimen/delete_multi_text_size" android:layout_gravity="top" android:id="@id/buttonDelete" android:layout_width="wrap_content" android:layout_height="37.0dip" android:layout_marginRight="0.0dip" android:text="!string/delete" android:layout_weight="1.0" />
+            <Button android:textSize="@dimen/zip_multi_text_size" android:layout_gravity="top" android:id="@id/buttonZip" android:layout_width="wrap_content" android:layout_height="37.0dip" android:layout_marginRight="0.0dip" android:text="!string/zip" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <Button android:textSize="@dimen/select_all_text_size" android:layout_gravity="top" android:id="@id/buttonSelectAll" android:layout_width="wrap_content" android:layout_height="37.0dip" android:layout_marginRight="0.0dip" android:text="!string/select_all" android:layout_weight="1.0" />
+            <Button android:textSize="@dimen/select_none_text_size" android:layout_gravity="top" android:id="@id/buttonSelectNone" android:layout_width="wrap_content" android:layout_height="37.0dip" android:layout_marginRight="0.0dip" android:text="!string/select_none" android:layout_weight="1.0" />
+            <Button android:textSize="@dimen/tar_multi_text_size" android:layout_gravity="top" android:id="@id/buttonTar" android:layout_width="wrap_content" android:layout_height="37.0dip" android:layout_marginRight="0.0dip" android:text="!string/tar" android:layout_weight="1.0" />
+            <Button android:textSize="@dimen/cancel_multi_text_size" android:layout_gravity="top" android:id="@id/buttonCancelMulti" android:layout_width="wrap_content" android:layout_height="37.0dip" android:layout_marginRight="0.0dip" android:text="!string/cancel" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

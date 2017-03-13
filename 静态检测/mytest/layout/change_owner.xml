@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/textSelectOwner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginBottom="10.0dip" android:text="!string/select_owner" />
+    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip">
+        <TableRow android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_gravity="center_vertical" android:id="@id/textOwner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="!string/owner" />
+            <Spinner android:id="@id/spinOwner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="2.0" />
+        </TableRow>
+        <TableRow android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_gravity="center_vertical" android:id="@id/textGroup" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="!string/group" />
+            <Spinner android:id="@id/spinGroup" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="2.0" />
+        </TableRow>
+    </TableLayout>
+    <CheckBox android:textSize="@dimen/permissions_text_size" android:id="@id/chkRecursive" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="3.0dip" android:text="!string/recursive_checkbox_text" />
+    <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:id="@id/buttonOK" android:layout_width="80.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="10.0dip" android:text="!string/ok" android:layout_toRightOf="@id/row3" android:layout_below="@id/chkSetuid" />
+        <Button android:id="@id/buttonCancel" android:layout_width="@dimen/chown_cancel_width" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="10.0dip" android:text="!string/cancel" android:layout_toRightOf="@id/buttonOK" android:layout_below="@id/chkSetuid" />
+    </LinearLayout>
+</LinearLayout>
