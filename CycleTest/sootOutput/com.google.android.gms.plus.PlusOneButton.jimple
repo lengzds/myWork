@@ -1,0 +1,259 @@
+public final class com.google.android.gms.plus.PlusOneButton extends android.widget.FrameLayout
+{
+    private android.view.View a;
+    private int b;
+    private int c;
+    private java.lang.String d;
+    private int e;
+    private com.google.android.gms.plus.PlusOneButton$OnPlusOneClickListener f;
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        com.google.android.gms.plus.PlusOneButton $r0;
+        android.content.Context $r1;
+        android.util.AttributeSet $r2;
+        byte $b0, $b1;
+        java.lang.String $r3, $r4;
+        boolean $z0;
+
+        $r0 := @this: com.google.android.gms.plus.PlusOneButton;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: android.util.AttributeSet;
+
+        $b0 = 2;
+
+        specialinvoke $r0.<android.widget.FrameLayout: void <init>(android.content.Context,android.util.AttributeSet)>($r1, $r2);
+
+        $r3 = staticinvoke <com.google.android.gms.internal.hq: java.lang.String a(java.lang.String,java.lang.String,android.content.Context,android.util.AttributeSet,boolean,boolean,java.lang.String)>("http://schemas.android.com/apk/lib/com.google.android.gms.plus", "size", $r1, $r2, 1, 0, "PlusOneButton");
+
+        $r4 = "SMALL";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r3);
+
+        if $z0 == 0 goto label3;
+
+        $b1 = 0;
+
+     label1:
+        $r0.<com.google.android.gms.plus.PlusOneButton: int b> = $b1;
+
+        $r3 = staticinvoke <com.google.android.gms.internal.hq: java.lang.String a(java.lang.String,java.lang.String,android.content.Context,android.util.AttributeSet,boolean,boolean,java.lang.String)>("http://schemas.android.com/apk/lib/com.google.android.gms.plus", "annotation", $r1, $r2, 1, 0, "PlusOneButton");
+
+        $r4 = "INLINE";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r3);
+
+        if $z0 == 0 goto label6;
+
+     label2:
+        $r0.<com.google.android.gms.plus.PlusOneButton: int c> = $b0;
+
+        $r0.<com.google.android.gms.plus.PlusOneButton: int e> = -1;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.plus.PlusOneButton: android.content.Context getContext()>();
+
+        specialinvoke $r0.<com.google.android.gms.plus.PlusOneButton: void z(android.content.Context)>($r1);
+
+        $z0 = virtualinvoke $r0.<com.google.android.gms.plus.PlusOneButton: boolean isInEditMode()>();
+
+        if $z0 == 0 goto label8;
+
+        return;
+
+     label3:
+        $r4 = "MEDIUM";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r3);
+
+        if $z0 == 0 goto label4;
+
+        $b1 = 1;
+
+        goto label1;
+
+     label4:
+        $r4 = "TALL";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r3);
+
+        if $z0 == 0 goto label5;
+
+        $b1 = 2;
+
+        goto label1;
+
+     label5:
+        $b1 = 3;
+
+        goto label1;
+
+     label6:
+        $r4 = "NONE";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r3);
+
+        if $z0 == 0 goto label7;
+
+        $b0 = 0;
+
+        goto label2;
+
+     label7:
+        $b0 = 1;
+
+        goto label2;
+
+     label8:
+        return;
+    }
+
+    static android.view.View a(com.google.android.gms.plus.PlusOneButton)
+    {
+        com.google.android.gms.plus.PlusOneButton $r0;
+        android.view.View r1;
+
+        $r0 := @parameter0: com.google.android.gms.plus.PlusOneButton;
+
+        r1 = $r0.<com.google.android.gms.plus.PlusOneButton: android.view.View a>;
+
+        return r1;
+    }
+
+    static int b(com.google.android.gms.plus.PlusOneButton)
+    {
+        com.google.android.gms.plus.PlusOneButton $r0;
+        int i0;
+
+        $r0 := @parameter0: com.google.android.gms.plus.PlusOneButton;
+
+        i0 = $r0.<com.google.android.gms.plus.PlusOneButton: int e>;
+
+        return i0;
+    }
+
+    private void z(android.content.Context)
+    {
+        com.google.android.gms.plus.PlusOneButton $r0;
+        android.content.Context $r1;
+        int $i0, $i1, $i2;
+        java.lang.String $r2;
+        android.view.View $r3;
+        com.google.android.gms.plus.PlusOneButton$OnPlusOneClickListener $r4;
+
+        $r0 := @this: com.google.android.gms.plus.PlusOneButton;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r3 = $r0.<com.google.android.gms.plus.PlusOneButton: android.view.View a>;
+
+        if $r3 == null goto label1;
+
+        $r3 = $r0.<com.google.android.gms.plus.PlusOneButton: android.view.View a>;
+
+        virtualinvoke $r0.<com.google.android.gms.plus.PlusOneButton: void removeView(android.view.View)>($r3);
+
+     label1:
+        $i2 = $r0.<com.google.android.gms.plus.PlusOneButton: int b>;
+
+        $i0 = $r0.<com.google.android.gms.plus.PlusOneButton: int c>;
+
+        $r2 = $r0.<com.google.android.gms.plus.PlusOneButton: java.lang.String d>;
+
+        $i1 = $r0.<com.google.android.gms.plus.PlusOneButton: int e>;
+
+        $r3 = staticinvoke <com.google.android.gms.plus.internal.g: android.view.View a(android.content.Context,int,int,java.lang.String,int)>($r1, $i2, $i0, $r2, $i1);
+
+        $r0.<com.google.android.gms.plus.PlusOneButton: android.view.View a> = $r3;
+
+        $r4 = $r0.<com.google.android.gms.plus.PlusOneButton: com.google.android.gms.plus.PlusOneButton$OnPlusOneClickListener f>;
+
+        virtualinvoke $r0.<com.google.android.gms.plus.PlusOneButton: void setOnPlusOneClickListener(com.google.android.gms.plus.PlusOneButton$OnPlusOneClickListener)>($r4);
+
+        $r3 = $r0.<com.google.android.gms.plus.PlusOneButton: android.view.View a>;
+
+        virtualinvoke $r0.<com.google.android.gms.plus.PlusOneButton: void addView(android.view.View)>($r3);
+
+        return;
+    }
+
+    protected final void onLayout(boolean, int, int, int, int)
+    {
+        com.google.android.gms.plus.PlusOneButton $r0;
+        boolean $z0;
+        int $i0, $i1, $i2, $i3;
+        android.view.View $r1;
+
+        $r0 := @this: com.google.android.gms.plus.PlusOneButton;
+
+        $z0 := @parameter0: boolean;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 := @parameter3: int;
+
+        $i3 := @parameter4: int;
+
+        $r1 = $r0.<com.google.android.gms.plus.PlusOneButton: android.view.View a>;
+
+        $i0 = $i2 - $i0;
+
+        $i1 = $i3 - $i1;
+
+        virtualinvoke $r1.<android.view.View: void layout(int,int,int,int)>(0, 0, $i0, $i1);
+
+        return;
+    }
+
+    protected final void onMeasure(int, int)
+    {
+        com.google.android.gms.plus.PlusOneButton $r0;
+        int $i0, $i1;
+        android.view.View $r1;
+
+        $r0 := @this: com.google.android.gms.plus.PlusOneButton;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r1 = $r0.<com.google.android.gms.plus.PlusOneButton: android.view.View a>;
+
+        virtualinvoke $r0.<com.google.android.gms.plus.PlusOneButton: void measureChild(android.view.View,int,int)>($r1, $i0, $i1);
+
+        $i0 = virtualinvoke $r1.<android.view.View: int getMeasuredWidth()>();
+
+        $i1 = virtualinvoke $r1.<android.view.View: int getMeasuredHeight()>();
+
+        virtualinvoke $r0.<com.google.android.gms.plus.PlusOneButton: void setMeasuredDimension(int,int)>($i0, $i1);
+
+        return;
+    }
+
+    public final void setOnPlusOneClickListener(com.google.android.gms.plus.PlusOneButton$OnPlusOneClickListener)
+    {
+        com.google.android.gms.plus.PlusOneButton $r0;
+        com.google.android.gms.plus.PlusOneButton$OnPlusOneClickListener $r1;
+        android.view.View $r2;
+        com.google.android.gms.plus.PlusOneButton$DefaultOnPlusOneClickListener $r3;
+
+        $r0 := @this: com.google.android.gms.plus.PlusOneButton;
+
+        $r1 := @parameter0: com.google.android.gms.plus.PlusOneButton$OnPlusOneClickListener;
+
+        $r0.<com.google.android.gms.plus.PlusOneButton: com.google.android.gms.plus.PlusOneButton$OnPlusOneClickListener f> = $r1;
+
+        $r2 = $r0.<com.google.android.gms.plus.PlusOneButton: android.view.View a>;
+
+        $r3 = new com.google.android.gms.plus.PlusOneButton$DefaultOnPlusOneClickListener;
+
+        specialinvoke $r3.<com.google.android.gms.plus.PlusOneButton$DefaultOnPlusOneClickListener: void <init>(com.google.android.gms.plus.PlusOneButton,com.google.android.gms.plus.PlusOneButton$OnPlusOneClickListener)>($r0, $r1);
+
+        virtualinvoke $r2.<android.view.View: void setOnClickListener(android.view.View$OnClickListener)>($r3);
+
+        return;
+    }
+}

@@ -1,0 +1,1847 @@
+public class com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector extends java.lang.Object
+{
+    protected final com.fasterxml.jackson.databind.AnnotationIntrospector _annotationIntrospector;
+    protected java.util.LinkedList _anyGetters;
+    protected java.util.LinkedList _anySetters;
+    protected final com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef;
+    protected final com.fasterxml.jackson.databind.cfg.MapperConfig _config;
+    protected java.util.LinkedList _creatorProperties;
+    protected final boolean _forSerialization;
+    protected java.util.HashSet _ignoredPropertyNames;
+    protected java.util.LinkedHashMap _injectables;
+    protected java.util.LinkedList _jsonValueGetters;
+    protected final java.lang.String _mutatorPrefix;
+    protected final java.util.LinkedHashMap _properties;
+    protected final com.fasterxml.jackson.databind.JavaType _type;
+    protected final com.fasterxml.jackson.databind.introspect.VisibilityChecker _visibilityChecker;
+
+    protected void <init>(com.fasterxml.jackson.databind.cfg.MapperConfig, boolean, com.fasterxml.jackson.databind.JavaType, com.fasterxml.jackson.databind.introspect.AnnotatedClass, java.lang.String)
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r1;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r3;
+        java.lang.String $r4;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r5;
+        java.util.LinkedHashMap $r6;
+        com.fasterxml.jackson.databind.introspect.VisibilityChecker $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        $z0 := @parameter1: boolean;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.JavaType;
+
+        $r3 := @parameter3: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r4 := @parameter4: java.lang.String;
+
+        $r5 = null;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r6 = new java.util.LinkedHashMap;
+
+        specialinvoke $r6.<java.util.LinkedHashMap: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties> = $r6;
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _creatorProperties> = null;
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anyGetters> = null;
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anySetters> = null;
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _jsonValueGetters> = null;
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: boolean _forSerialization> = $z0;
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.JavaType _type> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef> = $r3;
+
+        if $r4 != null goto label1;
+
+        $r4 = "set";
+
+     label1:
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.lang.String _mutatorPrefix> = $r4;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.cfg.MapperConfig: boolean isAnnotationProcessingEnabled()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.AnnotationIntrospector getAnnotationIntrospector()>();
+
+     label2:
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.AnnotationIntrospector _annotationIntrospector> = $r5;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.AnnotationIntrospector _annotationIntrospector>;
+
+        if $r5 != null goto label3;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.introspect.VisibilityChecker getDefaultVisibilityChecker()>();
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.VisibilityChecker _visibilityChecker> = $r7;
+
+        return;
+
+     label3:
+        $r5 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.AnnotationIntrospector _annotationIntrospector>;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.introspect.VisibilityChecker getDefaultVisibilityChecker()>();
+
+        $r7 = virtualinvoke $r5.<com.fasterxml.jackson.databind.AnnotationIntrospector: com.fasterxml.jackson.databind.introspect.VisibilityChecker findAutoDetectVisibility(com.fasterxml.jackson.databind.introspect.AnnotatedClass,com.fasterxml.jackson.databind.introspect.VisibilityChecker)>($r3, $r7);
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.VisibilityChecker _visibilityChecker> = $r7;
+
+        return;
+    }
+
+    private void _addIgnored(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        java.util.HashSet $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: boolean _forSerialization>;
+
+        if $z0 != 0 goto label2;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.HashSet _ignoredPropertyNames>;
+
+        if $r2 != null goto label1;
+
+        $r2 = new java.util.HashSet;
+
+        specialinvoke $r2.<java.util.HashSet: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.HashSet _ignoredPropertyNames> = $r2;
+
+     label1:
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.HashSet _ignoredPropertyNames>;
+
+        virtualinvoke $r2.<java.util.HashSet: boolean add(java.lang.Object)>($r1);
+
+     label2:
+        return;
+    }
+
+    protected void _addCreators()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r2;
+        java.util.List $r3;
+        java.util.Iterator $r4;
+        boolean $z0;
+        java.lang.Object $r5;
+        com.fasterxml.jackson.databind.introspect.AnnotatedConstructor $r6;
+        java.util.LinkedList $r7;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r8;
+        java.lang.String $r9;
+        com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder $r10;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.AnnotationIntrospector _annotationIntrospector>;
+
+        if $r1 != null goto label01;
+
+        return;
+
+     label01:
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef>;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.util.List getConstructors()>();
+
+        $r4 = interfaceinvoke $r3.<java.util.List: java.util.Iterator iterator()>();
+
+     label02:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label06;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (com.fasterxml.jackson.databind.introspect.AnnotatedConstructor) $r5;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _creatorProperties>;
+
+        if $r7 != null goto label03;
+
+        $r7 = new java.util.LinkedList;
+
+        specialinvoke $r7.<java.util.LinkedList: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _creatorProperties> = $r7;
+
+     label03:
+        $i0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.AnnotatedConstructor: int getParameterCount()>();
+
+        $i1 = 0;
+
+     label04:
+        if $i1 >= $i0 goto label02;
+
+        $r8 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.AnnotatedConstructor: com.fasterxml.jackson.databind.introspect.AnnotatedParameter getParameter(int)>($i1);
+
+        $r9 = virtualinvoke $r1.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.String findDeserializationName(com.fasterxml.jackson.databind.introspect.AnnotatedParameter)>($r8);
+
+        if $r9 == null goto label05;
+
+        $r10 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder _property(java.lang.String)>($r9);
+
+        virtualinvoke $r10.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: void addCtor(com.fasterxml.jackson.databind.introspect.AnnotatedParameter,java.lang.String,boolean,boolean)>($r8, $r9, 1, 0);
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _creatorProperties>;
+
+        virtualinvoke $r7.<java.util.LinkedList: boolean add(java.lang.Object)>($r10);
+
+     label05:
+        $i1 = $i1 + 1;
+
+        goto label04;
+
+     label06:
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef>;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.util.List getStaticMethods()>();
+
+        $r4 = interfaceinvoke $r3.<java.util.List: java.util.Iterator iterator()>();
+
+     label07:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label11;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r11 = (com.fasterxml.jackson.databind.introspect.AnnotatedMethod) $r5;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _creatorProperties>;
+
+        if $r7 != null goto label08;
+
+        $r7 = new java.util.LinkedList;
+
+        specialinvoke $r7.<java.util.LinkedList: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _creatorProperties> = $r7;
+
+     label08:
+        $i0 = virtualinvoke $r11.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: int getParameterCount()>();
+
+        $i1 = 0;
+
+     label09:
+        if $i1 >= $i0 goto label07;
+
+        $r8 = virtualinvoke $r11.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: com.fasterxml.jackson.databind.introspect.AnnotatedParameter getParameter(int)>($i1);
+
+        $r9 = virtualinvoke $r1.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.String findDeserializationName(com.fasterxml.jackson.databind.introspect.AnnotatedParameter)>($r8);
+
+        if $r9 == null goto label10;
+
+        $r10 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder _property(java.lang.String)>($r9);
+
+        virtualinvoke $r10.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: void addCtor(com.fasterxml.jackson.databind.introspect.AnnotatedParameter,java.lang.String,boolean,boolean)>($r8, $r9, 1, 0);
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _creatorProperties>;
+
+        virtualinvoke $r7.<java.util.LinkedList: boolean add(java.lang.Object)>($r10);
+
+     label10:
+        $i1 = $i1 + 1;
+
+        goto label09;
+
+     label11:
+        return;
+    }
+
+    protected void _addFields()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r2;
+        java.lang.Iterable $r3;
+        java.util.Iterator $r4;
+        boolean $z0, $z1;
+        java.lang.Object $r5;
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r6;
+        java.lang.String $r7, $r8, $r9;
+        com.fasterxml.jackson.databind.introspect.VisibilityChecker $r10;
+        com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.AnnotationIntrospector _annotationIntrospector>;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef>;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.Iterable fields()>();
+
+        $r4 = interfaceinvoke $r3.<java.lang.Iterable: java.util.Iterator iterator()>();
+
+     label01:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label11;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (com.fasterxml.jackson.databind.introspect.AnnotatedField) $r5;
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.String getName()>();
+
+        if $r1 != null goto label07;
+
+        $r8 = null;
+
+     label02:
+        $r9 = "";
+
+        $z0 = virtualinvoke $r9.<java.lang.String: boolean equals(java.lang.Object)>($r8);
+
+        if $z0 == 0 goto label13;
+
+        $r8 = $r7;
+
+     label03:
+        if $r8 == null goto label09;
+
+        $z0 = 1;
+
+     label04:
+        if $z0 != 0 goto label12;
+
+        $r10 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.VisibilityChecker _visibilityChecker>;
+
+        $z0 = interfaceinvoke $r10.<com.fasterxml.jackson.databind.introspect.VisibilityChecker: boolean isFieldVisible(com.fasterxml.jackson.databind.introspect.AnnotatedField)>($r6);
+
+     label05:
+        if $r1 == null goto label10;
+
+        $z1 = virtualinvoke $r1.<com.fasterxml.jackson.databind.AnnotationIntrospector: boolean hasIgnoreMarker(com.fasterxml.jackson.databind.introspect.AnnotatedMember)>($r6);
+
+        if $z1 == 0 goto label10;
+
+        $z1 = 1;
+
+     label06:
+        $r11 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder _property(java.lang.String)>($r7);
+
+        virtualinvoke $r11.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: void addField(com.fasterxml.jackson.databind.introspect.AnnotatedField,java.lang.String,boolean,boolean)>($r6, $r8, $z0, $z1);
+
+        goto label01;
+
+     label07:
+        $z0 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: boolean _forSerialization>;
+
+        if $z0 == 0 goto label08;
+
+        $r8 = virtualinvoke $r1.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.String findSerializationName(com.fasterxml.jackson.databind.introspect.AnnotatedField)>($r6);
+
+        goto label02;
+
+     label08:
+        $r8 = virtualinvoke $r1.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.String findDeserializationName(com.fasterxml.jackson.databind.introspect.AnnotatedField)>($r6);
+
+        goto label02;
+
+     label09:
+        $z0 = 0;
+
+        goto label04;
+
+     label10:
+        $z1 = 0;
+
+        goto label06;
+
+     label11:
+        return;
+
+     label12:
+        goto label05;
+
+     label13:
+        goto label03;
+    }
+
+    protected void _addGetterMethod(com.fasterxml.jackson.databind.introspect.AnnotatedMethod, com.fasterxml.jackson.databind.AnnotationIntrospector)
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r1;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r2;
+        boolean $z0, $z1;
+        java.util.LinkedList $r3;
+        java.lang.String $r4, $r5, $r8;
+        com.fasterxml.jackson.databind.introspect.VisibilityChecker $r6;
+        com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder $r7;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.AnnotationIntrospector;
+
+        if $r2 == null goto label04;
+
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.AnnotationIntrospector: boolean hasAnyGetterAnnotation(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)>($r1);
+
+        if $z0 == 0 goto label02;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anyGetters>;
+
+        if $r3 != null goto label01;
+
+        $r3 = new java.util.LinkedList;
+
+        specialinvoke $r3.<java.util.LinkedList: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anyGetters> = $r3;
+
+     label01:
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anyGetters>;
+
+        virtualinvoke $r3.<java.util.LinkedList: boolean add(java.lang.Object)>($r1);
+
+        return;
+
+     label02:
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.AnnotationIntrospector: boolean hasAsValueAnnotation(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)>($r1);
+
+        if $z0 == 0 goto label04;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _jsonValueGetters>;
+
+        if $r3 != null goto label03;
+
+        $r3 = new java.util.LinkedList;
+
+        specialinvoke $r3.<java.util.LinkedList: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _jsonValueGetters> = $r3;
+
+     label03:
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _jsonValueGetters>;
+
+        virtualinvoke $r3.<java.util.LinkedList: boolean add(java.lang.Object)>($r1);
+
+        return;
+
+     label04:
+        if $r2 != null goto label08;
+
+        $r4 = null;
+
+     label05:
+        if $r4 != null goto label10;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.String getName()>();
+
+        $r5 = staticinvoke <com.fasterxml.jackson.databind.util.BeanUtil: java.lang.String okNameForRegularGetter(com.fasterxml.jackson.databind.introspect.AnnotatedMethod,java.lang.String)>($r1, $r5);
+
+        if $r5 != null goto label09;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.String getName()>();
+
+        $r5 = staticinvoke <com.fasterxml.jackson.databind.util.BeanUtil: java.lang.String okNameForIsGetter(com.fasterxml.jackson.databind.introspect.AnnotatedMethod,java.lang.String)>($r1, $r5);
+
+        if $r5 == null goto label14;
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.VisibilityChecker _visibilityChecker>;
+
+        $z0 = interfaceinvoke $r6.<com.fasterxml.jackson.databind.introspect.VisibilityChecker: boolean isIsGetterVisible(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)>($r1);
+
+     label06:
+        if $r2 != null goto label13;
+
+        $z1 = 0;
+
+     label07:
+        $r7 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder _property(java.lang.String)>($r5);
+
+        virtualinvoke $r7.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: void addGetter(com.fasterxml.jackson.databind.introspect.AnnotatedMethod,java.lang.String,boolean,boolean)>($r1, $r4, $z0, $z1);
+
+        return;
+
+     label08:
+        $r4 = virtualinvoke $r2.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.String findSerializationName(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)>($r1);
+
+        goto label05;
+
+     label09:
+        $r6 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.VisibilityChecker _visibilityChecker>;
+
+        $z0 = interfaceinvoke $r6.<com.fasterxml.jackson.databind.introspect.VisibilityChecker: boolean isGetterVisible(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)>($r1);
+
+        goto label06;
+
+     label10:
+        $r5 = staticinvoke <com.fasterxml.jackson.databind.util.BeanUtil: java.lang.String okNameForGetter(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)>($r1);
+
+        $r8 = $r5;
+
+        if $r5 != null goto label11;
+
+        $r8 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.String getName()>();
+
+     label11:
+        $i0 = virtualinvoke $r4.<java.lang.String: int length()>();
+
+        if $i0 != 0 goto label12;
+
+        $r4 = $r8;
+
+     label12:
+        $z0 = 1;
+
+        $r5 = $r8;
+
+        goto label06;
+
+     label13:
+        $z1 = virtualinvoke $r2.<com.fasterxml.jackson.databind.AnnotationIntrospector: boolean hasIgnoreMarker(com.fasterxml.jackson.databind.introspect.AnnotatedMember)>($r1);
+
+        goto label07;
+
+     label14:
+        return;
+    }
+
+    protected void _addInjectables()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r2;
+        java.lang.Iterable $r3;
+        java.util.Iterator $r4;
+        boolean $z0;
+        java.lang.Object $r5;
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r6;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r7;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.AnnotationIntrospector _annotationIntrospector>;
+
+        if $r1 != null goto label1;
+
+        return;
+
+     label1:
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef>;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.Iterable fields()>();
+
+        $r4 = interfaceinvoke $r3.<java.lang.Iterable: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (com.fasterxml.jackson.databind.introspect.AnnotatedField) $r5;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.Object findInjectableValueId(com.fasterxml.jackson.databind.introspect.AnnotatedMember)>($r6);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _doAddInjectable(java.lang.Object,com.fasterxml.jackson.databind.introspect.AnnotatedMember)>($r5, $r6);
+
+        goto label2;
+
+     label3:
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef>;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.Iterable memberMethods()>();
+
+        $r4 = interfaceinvoke $r3.<java.lang.Iterable: java.util.Iterator iterator()>();
+
+     label4:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label5;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r7 = (com.fasterxml.jackson.databind.introspect.AnnotatedMethod) $r5;
+
+        $i0 = virtualinvoke $r7.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: int getParameterCount()>();
+
+        if $i0 != 1 goto label4;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.Object findInjectableValueId(com.fasterxml.jackson.databind.introspect.AnnotatedMember)>($r7);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _doAddInjectable(java.lang.Object,com.fasterxml.jackson.databind.introspect.AnnotatedMember)>($r5, $r7);
+
+        goto label4;
+
+     label5:
+        return;
+    }
+
+    protected void _addMethods()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r2;
+        java.lang.Iterable $r3;
+        java.util.Iterator $r4;
+        boolean $z0;
+        java.lang.Object $r5;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r6;
+        int $i0;
+        java.util.LinkedList $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.AnnotationIntrospector _annotationIntrospector>;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef>;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.Iterable memberMethods()>();
+
+        $r4 = interfaceinvoke $r3.<java.lang.Iterable: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label5;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (com.fasterxml.jackson.databind.introspect.AnnotatedMethod) $r5;
+
+        $i0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: int getParameterCount()>();
+
+        if $i0 != 0 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _addGetterMethod(com.fasterxml.jackson.databind.introspect.AnnotatedMethod,com.fasterxml.jackson.databind.AnnotationIntrospector)>($r6, $r1);
+
+        goto label1;
+
+     label2:
+        if $i0 != 1 goto label3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _addSetterMethod(com.fasterxml.jackson.databind.introspect.AnnotatedMethod,com.fasterxml.jackson.databind.AnnotationIntrospector)>($r6, $r1);
+
+        goto label1;
+
+     label3:
+        if $i0 != 2 goto label1;
+
+        if $r1 == null goto label1;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.AnnotationIntrospector: boolean hasAnySetterAnnotation(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)>($r6);
+
+        if $z0 == 0 goto label1;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anySetters>;
+
+        if $r7 != null goto label4;
+
+        $r7 = new java.util.LinkedList;
+
+        specialinvoke $r7.<java.util.LinkedList: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anySetters> = $r7;
+
+     label4:
+        $r7 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anySetters>;
+
+        virtualinvoke $r7.<java.util.LinkedList: boolean add(java.lang.Object)>($r6);
+
+        goto label1;
+
+     label5:
+        return;
+    }
+
+    protected void _addSetterMethod(com.fasterxml.jackson.databind.introspect.AnnotatedMethod, com.fasterxml.jackson.databind.AnnotationIntrospector)
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r1;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r2;
+        java.lang.String $r3, $r4, $r7;
+        com.fasterxml.jackson.databind.introspect.VisibilityChecker $r5;
+        boolean $z0, $z1;
+        com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder $r6;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.AnnotationIntrospector;
+
+        if $r2 != null goto label2;
+
+        $r3 = null;
+
+     label1:
+        if $r3 != null goto label6;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.lang.String _mutatorPrefix>;
+
+        $r4 = staticinvoke <com.fasterxml.jackson.databind.util.BeanUtil: java.lang.String okNameForMutator(com.fasterxml.jackson.databind.introspect.AnnotatedMethod,java.lang.String)>($r1, $r4);
+
+        if $r4 != null goto label3;
+
+        return;
+
+     label2:
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.String findDeserializationName(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)>($r1);
+
+        goto label1;
+
+     label3:
+        $r5 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.VisibilityChecker _visibilityChecker>;
+
+        $z0 = interfaceinvoke $r5.<com.fasterxml.jackson.databind.introspect.VisibilityChecker: boolean isSetterVisible(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)>($r1);
+
+     label4:
+        if $r2 != null goto label9;
+
+        $z1 = 0;
+
+     label5:
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder _property(java.lang.String)>($r4);
+
+        virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: void addSetter(com.fasterxml.jackson.databind.introspect.AnnotatedMethod,java.lang.String,boolean,boolean)>($r1, $r3, $z0, $z1);
+
+        return;
+
+     label6:
+        $r4 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.lang.String _mutatorPrefix>;
+
+        $r4 = staticinvoke <com.fasterxml.jackson.databind.util.BeanUtil: java.lang.String okNameForMutator(com.fasterxml.jackson.databind.introspect.AnnotatedMethod,java.lang.String)>($r1, $r4);
+
+        $r7 = $r4;
+
+        if $r4 != null goto label7;
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.String getName()>();
+
+     label7:
+        $i0 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        if $i0 != 0 goto label8;
+
+        $r3 = $r7;
+
+     label8:
+        $z0 = 1;
+
+        $r4 = $r7;
+
+        goto label4;
+
+     label9:
+        $z1 = virtualinvoke $r2.<com.fasterxml.jackson.databind.AnnotationIntrospector: boolean hasIgnoreMarker(com.fasterxml.jackson.databind.introspect.AnnotatedMember)>($r1);
+
+        goto label5;
+    }
+
+    protected void _doAddInjectable(java.lang.Object, com.fasterxml.jackson.databind.introspect.AnnotatedMember)
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.lang.Object $r1, $r5;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r2;
+        java.lang.IllegalArgumentException $r3;
+        java.util.LinkedHashMap $r4;
+        java.lang.String $r6, $r8;
+        java.lang.StringBuilder $r7;
+        java.lang.Class $r9;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        if $r1 != null goto label1;
+
+        return;
+
+     label1:
+        $r4 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _injectables>;
+
+        if $r4 != null goto label2;
+
+        $r4 = new java.util.LinkedHashMap;
+
+        specialinvoke $r4.<java.util.LinkedHashMap: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _injectables> = $r4;
+
+     label2:
+        $r4 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _injectables>;
+
+        $r5 = virtualinvoke $r4.<java.util.LinkedHashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        $r2 = (com.fasterxml.jackson.databind.introspect.AnnotatedMember) $r5;
+
+        if $r2 == null goto label5;
+
+        if $r1 != null goto label4;
+
+        $r6 = "[null]";
+
+     label3:
+        $r3 = new java.lang.IllegalArgumentException;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>("Duplicate injectable value with id \'");
+
+        $r8 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r1);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' (of type ");
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r6 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r6);
+
+        throw $r3;
+
+     label4:
+        $r9 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r6 = virtualinvoke $r9.<java.lang.Class: java.lang.String getName()>();
+
+        goto label3;
+
+     label5:
+        return;
+    }
+
+    protected com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder _property(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        java.lang.Object $r2;
+        java.util.LinkedHashMap $r3;
+        com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder $r4;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $r2 = virtualinvoke $r3.<java.util.LinkedHashMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r4 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder) $r2;
+
+        if $r4 != null goto label1;
+
+        $r4 = new com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.AnnotationIntrospector _annotationIntrospector>;
+
+        $z0 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: boolean _forSerialization>;
+
+        specialinvoke $r4.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: void <init>(java.lang.String,com.fasterxml.jackson.databind.AnnotationIntrospector,boolean)>($r1, $r5, $z0);
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        virtualinvoke $r3.<java.util.LinkedHashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r4);
+
+     label1:
+        return $r4;
+    }
+
+    protected void _removeUnwantedProperties()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.util.LinkedHashMap $r1;
+        java.util.Set $r2;
+        java.util.Iterator $r3;
+        boolean $z0;
+        java.lang.Object $r4;
+        java.util.Map$Entry $r5;
+        com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder $r6;
+        java.lang.String $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $r2 = virtualinvoke $r1.<java.util.LinkedHashMap: java.util.Set entrySet()>();
+
+        $r3 = interfaceinvoke $r2.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label5;
+
+        $r4 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (java.util.Map$Entry) $r4;
+
+        $r4 = interfaceinvoke $r5.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r6 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder) $r4;
+
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: boolean anyVisible()>();
+
+        if $z0 != 0 goto label2;
+
+        interfaceinvoke $r3.<java.util.Iterator: void remove()>();
+
+        goto label1;
+
+     label2:
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: boolean anyIgnorals()>();
+
+        if $z0 == 0 goto label4;
+
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: boolean isExplicitlyIncluded()>();
+
+        if $z0 != 0 goto label3;
+
+        interfaceinvoke $r3.<java.util.Iterator: void remove()>();
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: java.lang.String getName()>();
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _addIgnored(java.lang.String)>($r7);
+
+        goto label1;
+
+     label3:
+        virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: void removeIgnored()>();
+
+        $z0 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: boolean _forSerialization>;
+
+        if $z0 != 0 goto label4;
+
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: boolean couldDeserialize()>();
+
+        if $z0 != 0 goto label4;
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: java.lang.String getName()>();
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _addIgnored(java.lang.String)>($r7);
+
+     label4:
+        virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: void removeNonVisible()>();
+
+        goto label1;
+
+     label5:
+        return;
+    }
+
+    protected void _renameProperties()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.util.LinkedHashMap $r1;
+        java.util.Set $r2;
+        java.util.Iterator $r3;
+        java.util.LinkedList $r4;
+        boolean $z0;
+        java.lang.Object $r5;
+        java.util.Map$Entry $r6;
+        com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder $r7, $r9;
+        java.lang.String $r8;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $r2 = virtualinvoke $r1.<java.util.LinkedHashMap: java.util.Set entrySet()>();
+
+        $r3 = interfaceinvoke $r2.<java.util.Set: java.util.Iterator iterator()>();
+
+        $r4 = null;
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r5 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (java.util.Map$Entry) $r5;
+
+        $r5 = interfaceinvoke $r6.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r7 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder) $r5;
+
+        $r8 = virtualinvoke $r7.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: java.lang.String findNewName()>();
+
+        if $r8 == null goto label1;
+
+        if $r4 != null goto label2;
+
+        $r4 = new java.util.LinkedList;
+
+        specialinvoke $r4.<java.util.LinkedList: void <init>()>();
+
+     label2:
+        $r7 = virtualinvoke $r7.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder withName(java.lang.String)>($r8);
+
+        virtualinvoke $r4.<java.util.LinkedList: boolean add(java.lang.Object)>($r7);
+
+        interfaceinvoke $r3.<java.util.Iterator: void remove()>();
+
+        goto label1;
+
+     label3:
+        if $r4 == null goto label6;
+
+        $r3 = virtualinvoke $r4.<java.util.LinkedList: java.util.Iterator iterator()>();
+
+     label4:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label6;
+
+        $r5 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r7 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder) $r5;
+
+        $r8 = virtualinvoke $r7.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: java.lang.String getName()>();
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $r5 = virtualinvoke $r1.<java.util.LinkedHashMap: java.lang.Object get(java.lang.Object)>($r8);
+
+        $r9 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder) $r5;
+
+        if $r9 != null goto label5;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        virtualinvoke $r1.<java.util.LinkedHashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r8, $r7);
+
+        goto label4;
+
+     label5:
+        virtualinvoke $r9.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: void addAll(com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder)>($r7);
+
+        goto label4;
+
+     label6:
+        return;
+    }
+
+    protected void _renameUsing(com.fasterxml.jackson.databind.PropertyNamingStrategy)
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        com.fasterxml.jackson.databind.PropertyNamingStrategy $r1;
+        int $i0, $i1;
+        java.util.LinkedHashMap $r2;
+        java.util.Collection $r3;
+        com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder[] $r4;
+        java.lang.Object[] $r5;
+        com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder $r6, $r12;
+        java.lang.String $r7, $r10;
+        boolean $z0;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r8;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r9;
+        java.lang.Object $r11;
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r13;
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r14;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.PropertyNamingStrategy;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $r3 = virtualinvoke $r2.<java.util.LinkedHashMap: java.util.Collection values()>();
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $i0 = virtualinvoke $r2.<java.util.LinkedHashMap: int size()>();
+
+        $r4 = newarray (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder)[$i0];
+
+        $r5 = interfaceinvoke $r3.<java.util.Collection: java.lang.Object[] toArray(java.lang.Object[])>($r4);
+
+        $r4 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder[]) $r5;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        virtualinvoke $r2.<java.util.LinkedHashMap: void clear()>();
+
+        $i0 = lengthof $r4;
+
+        $i1 = 0;
+
+     label01:
+        if $i1 >= $i0 goto label11;
+
+        $r6 = $r4[$i1];
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: java.lang.String getName()>();
+
+        $z0 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: boolean _forSerialization>;
+
+        if $z0 == 0 goto label06;
+
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: boolean hasGetter()>();
+
+        if $z0 == 0 goto label05;
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $r9 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: com.fasterxml.jackson.databind.introspect.AnnotatedMethod getGetter()>();
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.PropertyNamingStrategy: java.lang.String nameForGetterMethod(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.introspect.AnnotatedMethod,java.lang.String)>($r8, $r9, $r7);
+
+     label02:
+        $r10 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: java.lang.String getName()>();
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equals(java.lang.Object)>($r10);
+
+        if $z0 != 0 goto label03;
+
+        $r6 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder withName(java.lang.String)>($r7);
+
+     label03:
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $r11 = virtualinvoke $r2.<java.util.LinkedHashMap: java.lang.Object get(java.lang.Object)>($r7);
+
+        $r12 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder) $r11;
+
+        if $r12 != null goto label10;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        virtualinvoke $r2.<java.util.LinkedHashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r7, $r6);
+
+     label04:
+        $i1 = $i1 + 1;
+
+        goto label01;
+
+     label05:
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: boolean hasField()>();
+
+        if $z0 == 0 goto label12;
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $r13 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: com.fasterxml.jackson.databind.introspect.AnnotatedField getField()>();
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.PropertyNamingStrategy: java.lang.String nameForField(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.introspect.AnnotatedField,java.lang.String)>($r8, $r13, $r7);
+
+        goto label02;
+
+     label06:
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: boolean hasSetter()>();
+
+        if $z0 == 0 goto label07;
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $r9 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: com.fasterxml.jackson.databind.introspect.AnnotatedMethod getSetter()>();
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.PropertyNamingStrategy: java.lang.String nameForSetterMethod(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.introspect.AnnotatedMethod,java.lang.String)>($r8, $r9, $r7);
+
+        goto label02;
+
+     label07:
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: boolean hasConstructorParameter()>();
+
+        if $z0 == 0 goto label08;
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $r14 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: com.fasterxml.jackson.databind.introspect.AnnotatedParameter getConstructorParameter()>();
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.PropertyNamingStrategy: java.lang.String nameForConstructorParameter(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.introspect.AnnotatedParameter,java.lang.String)>($r8, $r14, $r7);
+
+        goto label02;
+
+     label08:
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: boolean hasField()>();
+
+        if $z0 == 0 goto label09;
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $r13 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: com.fasterxml.jackson.databind.introspect.AnnotatedField getField()>();
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.PropertyNamingStrategy: java.lang.String nameForField(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.introspect.AnnotatedField,java.lang.String)>($r8, $r13, $r7);
+
+        goto label02;
+
+     label09:
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: boolean hasGetter()>();
+
+        if $z0 == 0 goto label12;
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $r9 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: com.fasterxml.jackson.databind.introspect.AnnotatedMethod getGetter()>();
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.PropertyNamingStrategy: java.lang.String nameForGetterMethod(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.introspect.AnnotatedMethod,java.lang.String)>($r8, $r9, $r7);
+
+        goto label02;
+
+     label10:
+        virtualinvoke $r12.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: void addAll(com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder)>($r6);
+
+        goto label04;
+
+     label11:
+        return;
+
+     label12:
+        goto label02;
+    }
+
+    protected void _sortProperties()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.util.LinkedHashMap $r1, $r15;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r2;
+        java.lang.Boolean $r3;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r4;
+        boolean $z0;
+        java.lang.String[] $r5;
+        java.util.LinkedList $r6;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r7;
+        java.util.TreeMap $r8;
+        java.util.AbstractMap $r9;
+        java.util.Collection $r10;
+        java.util.Iterator $r11;
+        java.lang.Object $r12;
+        com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder $r13, $r16;
+        java.lang.String $r14, $r17;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.AnnotationIntrospector _annotationIntrospector>;
+
+        if $r2 != null goto label04;
+
+        $r3 = null;
+
+     label01:
+        if $r3 != null goto label05;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $z0 = virtualinvoke $r4.<com.fasterxml.jackson.databind.cfg.MapperConfig: boolean shouldSortPropertiesAlphabetically()>();
+
+     label02:
+        if $r2 != null goto label06;
+
+        $r5 = null;
+
+     label03:
+        if $z0 != 0 goto label07;
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _creatorProperties>;
+
+        if $r6 != null goto label07;
+
+        if $r5 != null goto label07;
+
+        return;
+
+     label04:
+        $r7 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef>;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.Boolean findSerializationSortAlphabetically(com.fasterxml.jackson.databind.introspect.AnnotatedClass)>($r7);
+
+        goto label01;
+
+     label05:
+        $z0 = virtualinvoke $r3.<java.lang.Boolean: boolean booleanValue()>();
+
+        goto label02;
+
+     label06:
+        $r7 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef>;
+
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.String[] findSerializationPropertyOrder(com.fasterxml.jackson.databind.introspect.AnnotatedClass)>($r7);
+
+        goto label03;
+
+     label07:
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $i0 = virtualinvoke $r1.<java.util.LinkedHashMap: int size()>();
+
+        if $z0 == 0 goto label10;
+
+        $r8 = new java.util.TreeMap;
+
+        specialinvoke $r8.<java.util.TreeMap: void <init>()>();
+
+        $r9 = $r8;
+
+     label08:
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $r10 = virtualinvoke $r1.<java.util.LinkedHashMap: java.util.Collection values()>();
+
+        $r11 = interfaceinvoke $r10.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label09:
+        $z0 = interfaceinvoke $r11.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label11;
+
+        $r12 = interfaceinvoke $r11.<java.util.Iterator: java.lang.Object next()>();
+
+        $r13 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder) $r12;
+
+        $r14 = virtualinvoke $r13.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: java.lang.String getName()>();
+
+        interfaceinvoke $r9.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r14, $r13);
+
+        goto label09;
+
+     label10:
+        $r1 = new java.util.LinkedHashMap;
+
+        $i1 = $i0 + $i0;
+
+        specialinvoke $r1.<java.util.LinkedHashMap: void <init>(int)>($i1);
+
+        $r9 = $r1;
+
+        goto label08;
+
+     label11:
+        $r1 = new java.util.LinkedHashMap;
+
+        $i0 = $i0 + $i0;
+
+        specialinvoke $r1.<java.util.LinkedHashMap: void <init>(int)>($i0);
+
+        if $r5 == null goto label16;
+
+        $i0 = lengthof $r5;
+
+        $i1 = 0;
+
+     label12:
+        if $i1 >= $i0 goto label16;
+
+        $r14 = $r5[$i1];
+
+        $r12 = interfaceinvoke $r9.<java.util.Map: java.lang.Object get(java.lang.Object)>($r14);
+
+        $r13 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder) $r12;
+
+        if $r13 != null goto label19;
+
+        $r15 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $r10 = virtualinvoke $r15.<java.util.LinkedHashMap: java.util.Collection values()>();
+
+        $r11 = interfaceinvoke $r10.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label13:
+        $z0 = interfaceinvoke $r11.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label19;
+
+        $r12 = interfaceinvoke $r11.<java.util.Iterator: java.lang.Object next()>();
+
+        $r16 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder) $r12;
+
+        $r17 = virtualinvoke $r16.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: java.lang.String getInternalName()>();
+
+        $z0 = virtualinvoke $r14.<java.lang.String: boolean equals(java.lang.Object)>($r17);
+
+        if $z0 == 0 goto label13;
+
+        $r14 = virtualinvoke $r16.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: java.lang.String getName()>();
+
+        $r13 = $r16;
+
+     label14:
+        if $r13 == null goto label15;
+
+        interfaceinvoke $r1.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r14, $r13);
+
+     label15:
+        $i1 = $i1 + 1;
+
+        goto label12;
+
+     label16:
+        $r6 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _creatorProperties>;
+
+        if $r6 == null goto label18;
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _creatorProperties>;
+
+        $r11 = virtualinvoke $r6.<java.util.LinkedList: java.util.Iterator iterator()>();
+
+     label17:
+        $z0 = interfaceinvoke $r11.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label18;
+
+        $r12 = interfaceinvoke $r11.<java.util.Iterator: java.lang.Object next()>();
+
+        $r13 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder) $r12;
+
+        $r14 = virtualinvoke $r13.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: java.lang.String getName()>();
+
+        interfaceinvoke $r1.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r14, $r13);
+
+        goto label17;
+
+     label18:
+        interfaceinvoke $r1.<java.util.Map: void putAll(java.util.Map)>($r9);
+
+        $r15 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        virtualinvoke $r15.<java.util.LinkedHashMap: void clear()>();
+
+        $r15 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        virtualinvoke $r15.<java.util.LinkedHashMap: void putAll(java.util.Map)>($r1);
+
+        return;
+
+     label19:
+        goto label14;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector collect()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        boolean $z0;
+        java.util.LinkedHashMap $r1;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r2;
+        com.fasterxml.jackson.databind.PropertyNamingStrategy $r3;
+        java.util.Collection $r4;
+        java.util.Iterator $r5;
+        java.lang.Object $r6;
+        com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        virtualinvoke $r1.<java.util.LinkedHashMap: void clear()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _addFields()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _addMethods()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _addCreators()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _addInjectables()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _removeUnwantedProperties()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _renameProperties()>();
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.PropertyNamingStrategy getPropertyNamingStrategy()>();
+
+        if $r3 == null goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _renameUsing(com.fasterxml.jackson.databind.PropertyNamingStrategy)>($r3);
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $r4 = virtualinvoke $r1.<java.util.LinkedHashMap: java.util.Collection values()>();
+
+        $r5 = interfaceinvoke $r4.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r6 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r7 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder) $r6;
+
+        virtualinvoke $r7.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: void trimByVisibility()>();
+
+        goto label2;
+
+     label3:
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $r4 = virtualinvoke $r1.<java.util.LinkedHashMap: java.util.Collection values()>();
+
+        $r5 = interfaceinvoke $r4.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label4:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label5;
+
+        $r6 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r7 = (com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder) $r6;
+
+        $z0 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: boolean _forSerialization>;
+
+        virtualinvoke $r7.<com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder: void mergeAnnotations(boolean)>($z0);
+
+        goto label4;
+
+     label5:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void _sortProperties()>();
+
+        return $r0;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedMember getAnyGetter()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.util.LinkedList $r1;
+        int $i0;
+        java.lang.StringBuilder $r2;
+        java.lang.Object $r3;
+        java.lang.String $r4;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anyGetters>;
+
+        if $r1 == null goto label2;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anyGetters>;
+
+        $i0 = virtualinvoke $r1.<java.util.LinkedList: int size()>();
+
+        if $i0 <= 1 goto label1;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("Multiple \'any-getters\' defined (");
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anyGetters>;
+
+        $r3 = virtualinvoke $r1.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" vs ");
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anyGetters>;
+
+        $r3 = virtualinvoke $r1.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void reportProblem(java.lang.String)>($r4);
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anyGetters>;
+
+        $r3 = virtualinvoke $r1.<java.util.LinkedList: java.lang.Object getFirst()>();
+
+        $r5 = (com.fasterxml.jackson.databind.introspect.AnnotatedMember) $r3;
+
+        return $r5;
+
+     label2:
+        return null;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedMethod getAnySetterMethod()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.util.LinkedList $r1;
+        int $i0;
+        java.lang.StringBuilder $r2;
+        java.lang.Object $r3;
+        java.lang.String $r4;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anySetters>;
+
+        if $r1 == null goto label2;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anySetters>;
+
+        $i0 = virtualinvoke $r1.<java.util.LinkedList: int size()>();
+
+        if $i0 <= 1 goto label1;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("Multiple \'any-setters\' defined (");
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anySetters>;
+
+        $r3 = virtualinvoke $r1.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" vs ");
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anySetters>;
+
+        $r3 = virtualinvoke $r1.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void reportProblem(java.lang.String)>($r4);
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _anySetters>;
+
+        $r3 = virtualinvoke $r1.<java.util.LinkedList: java.lang.Object getFirst()>();
+
+        $r5 = (com.fasterxml.jackson.databind.introspect.AnnotatedMethod) $r3;
+
+        return $r5;
+
+     label2:
+        return null;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedClass getClassDef()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef>;
+
+        return r1;
+    }
+
+    public com.fasterxml.jackson.databind.cfg.MapperConfig getConfig()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        com.fasterxml.jackson.databind.cfg.MapperConfig r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        return r1;
+    }
+
+    public java.util.Set getIgnoredPropertyNames()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.util.HashSet r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.HashSet _ignoredPropertyNames>;
+
+        return r1;
+    }
+
+    public java.util.Map getInjectables()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.util.LinkedHashMap r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _injectables>;
+
+        return r1;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedMethod getJsonValueMethod()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.util.LinkedList $r1;
+        int $i0;
+        java.lang.StringBuilder $r2;
+        java.lang.Object $r3;
+        java.lang.String $r4;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _jsonValueGetters>;
+
+        if $r1 == null goto label2;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _jsonValueGetters>;
+
+        $i0 = virtualinvoke $r1.<java.util.LinkedList: int size()>();
+
+        if $i0 <= 1 goto label1;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("Multiple value properties defined (");
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _jsonValueGetters>;
+
+        $r3 = virtualinvoke $r1.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" vs ");
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _jsonValueGetters>;
+
+        $r3 = virtualinvoke $r1.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: void reportProblem(java.lang.String)>($r4);
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedList _jsonValueGetters>;
+
+        $r3 = virtualinvoke $r1.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        $r5 = (com.fasterxml.jackson.databind.introspect.AnnotatedMethod) $r3;
+
+        return $r5;
+
+     label2:
+        return null;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.ObjectIdInfo getObjectIdInfo()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        com.fasterxml.jackson.databind.introspect.ObjectIdInfo $r2;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.AnnotationIntrospector _annotationIntrospector>;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.AnnotationIntrospector _annotationIntrospector>;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef>;
+
+        $r2 = virtualinvoke $r3.<com.fasterxml.jackson.databind.AnnotationIntrospector: com.fasterxml.jackson.databind.introspect.ObjectIdInfo findObjectIdInfo(com.fasterxml.jackson.databind.introspect.Annotated)>($r1);
+
+        return $r2;
+    }
+
+    public java.util.List getProperties()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.util.ArrayList $r1;
+        java.util.Collection $r2;
+        java.util.LinkedHashMap $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 = new java.util.ArrayList;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: java.util.LinkedHashMap _properties>;
+
+        $r2 = virtualinvoke $r3.<java.util.LinkedHashMap: java.util.Collection values()>();
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>(java.util.Collection)>($r2);
+
+        return $r1;
+    }
+
+    public com.fasterxml.jackson.databind.JavaType getType()
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        com.fasterxml.jackson.databind.JavaType r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.JavaType _type>;
+
+        return r1;
+    }
+
+    protected void reportProblem(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector $r0;
+        java.lang.String $r1;
+        java.lang.IllegalArgumentException $r2;
+        java.lang.StringBuilder $r3;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new java.lang.IllegalArgumentException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Problem with definition of ");
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector: com.fasterxml.jackson.databind.introspect.AnnotatedClass _classDef>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r1);
+
+        throw $r2;
+    }
+}

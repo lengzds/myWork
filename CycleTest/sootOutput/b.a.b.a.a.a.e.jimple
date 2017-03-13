@@ -1,0 +1,157 @@
+public final class b.a.b.a.a.a.e extends b.a.b.a.a.a.a
+{
+    private final java.io.InputStream a;
+    private final java.lang.String b;
+
+    public void <init>(java.io.InputStream, java.lang.String)
+    {
+        b.a.b.a.a.a.e $r0;
+        java.io.InputStream $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: b.a.b.a.a.a.e;
+
+        $r1 := @parameter0: java.io.InputStream;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<b.a.b.a.a.a.e: void <init>(java.io.InputStream,java.lang.String,java.lang.String)>($r1, "application/octet-stream", $r2);
+
+        return;
+    }
+
+    private void <init>(java.io.InputStream, java.lang.String, java.lang.String)
+    {
+        b.a.b.a.a.a.e $r0;
+        java.io.InputStream $r1;
+        java.lang.String $r2, $r3;
+        java.lang.IllegalArgumentException $r4;
+
+        $r0 := @this: b.a.b.a.a.a.e;
+
+        $r1 := @parameter0: java.io.InputStream;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 := @parameter2: java.lang.String;
+
+        specialinvoke $r0.<b.a.b.a.a.a.a: void <init>(java.lang.String)>($r2);
+
+        if $r1 != null goto label1;
+
+        $r4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Input stream may not be null");
+
+        throw $r4;
+
+     label1:
+        $r0.<b.a.b.a.a.a.e: java.io.InputStream a> = $r1;
+
+        $r0.<b.a.b.a.a.a.e: java.lang.String b> = $r3;
+
+        return;
+    }
+
+    public final void a(java.io.OutputStream)
+    {
+        b.a.b.a.a.a.e $r0;
+        java.io.OutputStream $r1;
+        int $i0;
+        java.lang.IllegalArgumentException $r2;
+        byte[] $r3;
+        java.io.InputStream $r4;
+        java.lang.Throwable $r5;
+
+        $r0 := @this: b.a.b.a.a.a.e;
+
+        $r1 := @parameter0: java.io.OutputStream;
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Output stream may not be null");
+
+        throw $r2;
+
+     label1:
+        $r3 = newarray (byte)[4096];
+
+     label2:
+        $r4 = $r0.<b.a.b.a.a.a.e: java.io.InputStream a>;
+
+        $i0 = virtualinvoke $r4.<java.io.InputStream: int read(byte[])>($r3);
+
+     label3:
+        if $i0 == -1 goto label7;
+
+     label4:
+        virtualinvoke $r1.<java.io.OutputStream: void write(byte[],int,int)>($r3, 0, $i0);
+
+     label5:
+        goto label2;
+
+     label6:
+        $r5 := @caughtexception;
+
+        $r4 = $r0.<b.a.b.a.a.a.e: java.io.InputStream a>;
+
+        virtualinvoke $r4.<java.io.InputStream: void close()>();
+
+        throw $r5;
+
+     label7:
+        virtualinvoke $r1.<java.io.OutputStream: void flush()>();
+
+     label8:
+        $r4 = $r0.<b.a.b.a.a.a.e: java.io.InputStream a>;
+
+        virtualinvoke $r4.<java.io.InputStream: void close()>();
+
+        return;
+
+        catch java.lang.Throwable from label1 to label3 with label6;
+        catch java.lang.Throwable from label4 to label5 with label6;
+        catch java.lang.Throwable from label7 to label8 with label6;
+    }
+
+    public final java.lang.String b()
+    {
+        b.a.b.a.a.a.e $r0;
+        java.lang.String r1;
+
+        $r0 := @this: b.a.b.a.a.a.e;
+
+        r1 = $r0.<b.a.b.a.a.a.e: java.lang.String b>;
+
+        return r1;
+    }
+
+    public final java.lang.String c()
+    {
+        b.a.b.a.a.a.e $r0;
+
+        $r0 := @this: b.a.b.a.a.a.e;
+
+        return null;
+    }
+
+    public final java.lang.String d()
+    {
+        b.a.b.a.a.a.e $r0;
+
+        $r0 := @this: b.a.b.a.a.a.e;
+
+        return "binary";
+    }
+
+    public final long e()
+    {
+        b.a.b.a.a.a.e $r0;
+
+        $r0 := @this: b.a.b.a.a.a.e;
+
+        return -1L;
+    }
+}

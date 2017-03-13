@@ -1,0 +1,129 @@
+public class com.fasterxml.jackson.databind.ser.AnyGetterWriter extends java.lang.Object
+{
+    protected final com.fasterxml.jackson.databind.introspect.AnnotatedMember _accessor;
+    protected final com.fasterxml.jackson.databind.BeanProperty _property;
+    protected com.fasterxml.jackson.databind.ser.std.MapSerializer _serializer;
+
+    public void <init>(com.fasterxml.jackson.databind.BeanProperty, com.fasterxml.jackson.databind.introspect.AnnotatedMember, com.fasterxml.jackson.databind.ser.std.MapSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.AnyGetterWriter $r0;
+        com.fasterxml.jackson.databind.BeanProperty $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r2;
+        com.fasterxml.jackson.databind.ser.std.MapSerializer $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.AnyGetterWriter;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.ser.std.MapSerializer;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.ser.AnyGetterWriter: com.fasterxml.jackson.databind.introspect.AnnotatedMember _accessor> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.ser.AnyGetterWriter: com.fasterxml.jackson.databind.BeanProperty _property> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.ser.AnyGetterWriter: com.fasterxml.jackson.databind.ser.std.MapSerializer _serializer> = $r3;
+
+        return;
+    }
+
+    public void getAndSerialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.AnyGetterWriter $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r4;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JsonMappingException $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r7;
+        java.lang.Class $r8;
+        com.fasterxml.jackson.databind.ser.std.MapSerializer $r9;
+        java.util.Map $r10;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.AnyGetterWriter;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.AnyGetterWriter: com.fasterxml.jackson.databind.introspect.AnnotatedMember _accessor>;
+
+        $r1 = virtualinvoke $r4.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.Object getValue(java.lang.Object)>($r1);
+
+        if $r1 != null goto label1;
+
+        return;
+
+     label1:
+        $z0 = $r1 instanceof java.util.Map;
+
+        if $z0 != 0 goto label2;
+
+        $r5 = new com.fasterxml.jackson.databind.JsonMappingException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("Value returned by \'any-getter\' (");
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.AnyGetterWriter: com.fasterxml.jackson.databind.introspect.AnnotatedMember _accessor>;
+
+        $r7 = virtualinvoke $r4.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.String getName()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("()) not java.util.Map but ");
+
+        $r8 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r7 = virtualinvoke $r8.<java.lang.Class: java.lang.String getName()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<com.fasterxml.jackson.databind.JsonMappingException: void <init>(java.lang.String)>($r7);
+
+        throw $r5;
+
+     label2:
+        $r9 = $r0.<com.fasterxml.jackson.databind.ser.AnyGetterWriter: com.fasterxml.jackson.databind.ser.std.MapSerializer _serializer>;
+
+        $r10 = (java.util.Map) $r1;
+
+        virtualinvoke $r9.<com.fasterxml.jackson.databind.ser.std.MapSerializer: void serializeFields(java.util.Map,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r10, $r2, $r3);
+
+        return;
+    }
+
+    public void resolve(com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.AnyGetterWriter $r0;
+        com.fasterxml.jackson.databind.SerializerProvider $r1;
+        com.fasterxml.jackson.databind.BeanProperty $r2;
+        com.fasterxml.jackson.databind.JsonSerializer $r3;
+        com.fasterxml.jackson.databind.ser.std.MapSerializer $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.AnyGetterWriter;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.AnyGetterWriter: com.fasterxml.jackson.databind.ser.std.MapSerializer _serializer>;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.ser.AnyGetterWriter: com.fasterxml.jackson.databind.BeanProperty _property>;
+
+        $r3 = virtualinvoke $r4.<com.fasterxml.jackson.databind.ser.std.MapSerializer: com.fasterxml.jackson.databind.JsonSerializer createContextual(com.fasterxml.jackson.databind.SerializerProvider,com.fasterxml.jackson.databind.BeanProperty)>($r1, $r2);
+
+        $r4 = (com.fasterxml.jackson.databind.ser.std.MapSerializer) $r3;
+
+        $r0.<com.fasterxml.jackson.databind.ser.AnyGetterWriter: com.fasterxml.jackson.databind.ser.std.MapSerializer _serializer> = $r4;
+
+        return;
+    }
+}

@@ -1,0 +1,267 @@
+public abstract class com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer extends com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer implements com.fasterxml.jackson.databind.deser.ContextualDeserializer
+{
+    protected final java.text.DateFormat _customFormat;
+    protected final java.lang.String _formatString;
+
+    protected void <init>(com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer, java.text.DateFormat, java.lang.String)
+    {
+        com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer $r0, $r1;
+        java.text.DateFormat $r2;
+        java.lang.String $r3;
+        java.lang.Class $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer;
+
+        $r2 := @parameter1: java.text.DateFormat;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r4 = $r1.<com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer: java.lang.Class _valueClass>;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer: void <init>(java.lang.Class)>($r4);
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer: java.text.DateFormat _customFormat> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer: java.lang.String _formatString> = $r3;
+
+        return;
+    }
+
+    protected void <init>(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer $r0;
+        java.lang.Class $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer: void <init>(java.lang.Class)>($r1);
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer: java.text.DateFormat _customFormat> = null;
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer: java.lang.String _formatString> = null;
+
+        return;
+    }
+
+    protected java.util.Date _parseDate(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.text.DateFormat $r3, $r10;
+        java.lang.IllegalArgumentException $r4;
+        com.fasterxml.jackson.core.JsonToken $r5, $r6;
+        java.lang.String $r7;
+        int $i0;
+        java.lang.Object $r8;
+        java.util.Date $r9;
+        java.lang.Throwable $r11;
+        java.text.ParseException $r12;
+        java.lang.StringBuilder $r13;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer: java.text.DateFormat _customFormat>;
+
+        if $r3 == null goto label10;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $r6 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        if $r5 != $r6 goto label10;
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.String getText()>();
+
+        $r7 = virtualinvoke $r7.<java.lang.String: java.lang.String trim()>();
+
+        $i0 = virtualinvoke $r7.<java.lang.String: int length()>();
+
+        if $i0 != 0 goto label01;
+
+        $r8 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer: java.lang.Object getEmptyValue()>();
+
+        $r9 = (java.util.Date) $r8;
+
+        return $r9;
+
+     label01:
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer: java.text.DateFormat _customFormat>;
+
+        entermonitor $r3;
+
+     label02:
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer: java.text.DateFormat _customFormat>;
+
+     label03:
+        $r9 = virtualinvoke $r10.<java.text.DateFormat: java.util.Date parse(java.lang.String)>($r7);
+
+     label04:
+        exitmonitor $r3;
+
+     label05:
+        return $r9;
+
+     label06:
+        $r11 := @caughtexception;
+
+        exitmonitor $r3;
+
+     label07:
+        throw $r11;
+
+     label08:
+        $r12 := @caughtexception;
+
+     label09:
+        $r4 = new java.lang.IllegalArgumentException;
+
+        $r13 = new java.lang.StringBuilder;
+
+        specialinvoke $r13.<java.lang.StringBuilder: void <init>(java.lang.String)>("Failed to parse Date value \'");
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' (format: \"");
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer: java.lang.String _formatString>;
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"): ");
+
+        $r7 = virtualinvoke $r12.<java.text.ParseException: java.lang.String getMessage()>();
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r7 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r7);
+
+        throw $r4;
+
+     label10:
+        $r9 = specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer: java.util.Date _parseDate(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r9;
+
+        catch java.text.ParseException from label03 to label04 with label08;
+        catch java.lang.Throwable from label02 to label04 with label06;
+        catch java.lang.Throwable from label04 to label05 with label06;
+        catch java.lang.Throwable from label06 to label07 with label06;
+        catch java.lang.Throwable from label09 to label10 with label06;
+    }
+
+    public com.fasterxml.jackson.databind.JsonDeserializer createContextual(com.fasterxml.jackson.databind.DeserializationContext, com.fasterxml.jackson.databind.BeanProperty)
+    {
+        com.fasterxml.jackson.databind.DeserializationContext $r0;
+        com.fasterxml.jackson.databind.BeanProperty $r1;
+        com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer $r2;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r3;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r4;
+        com.fasterxml.jackson.'annotation'.JsonFormat$Value $r5;
+        java.util.TimeZone $r6;
+        java.lang.String $r7;
+        int $i0;
+        java.util.Locale $r8, $r9;
+        java.text.SimpleDateFormat $r10;
+        com.fasterxml.jackson.databind.DeserializationConfig $r11;
+        java.text.DateFormat $r12;
+        java.lang.Class $r13;
+        com.fasterxml.jackson.databind.util.StdDateFormat $r14;
+        java.lang.Object $r15;
+
+        $r2 := @this: com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.BeanProperty;
+
+        if $r1 == null goto label7;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.AnnotationIntrospector getAnnotationIntrospector()>();
+
+        $r4 = interfaceinvoke $r1.<com.fasterxml.jackson.databind.BeanProperty: com.fasterxml.jackson.databind.introspect.AnnotatedMember getMember()>();
+
+        $r5 = virtualinvoke $r3.<com.fasterxml.jackson.databind.AnnotationIntrospector: com.fasterxml.jackson.'annotation'.JsonFormat$Value findFormat(com.fasterxml.jackson.databind.introspect.AnnotatedMember)>($r4);
+
+        if $r5 == null goto label7;
+
+        $r6 = virtualinvoke $r5.<com.fasterxml.jackson.'annotation'.JsonFormat$Value: java.util.TimeZone getTimeZone()>();
+
+        $r7 = virtualinvoke $r5.<com.fasterxml.jackson.'annotation'.JsonFormat$Value: java.lang.String getPattern()>();
+
+        $i0 = virtualinvoke $r7.<java.lang.String: int length()>();
+
+        if $i0 <= 0 goto label3;
+
+        $r8 = virtualinvoke $r5.<com.fasterxml.jackson.'annotation'.JsonFormat$Value: java.util.Locale getLocale()>();
+
+        $r9 = $r8;
+
+        if $r8 != null goto label1;
+
+        $r9 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationContext: java.util.Locale getLocale()>();
+
+     label1:
+        $r10 = new java.text.SimpleDateFormat;
+
+        specialinvoke $r10.<java.text.SimpleDateFormat: void <init>(java.lang.String,java.util.Locale)>($r7, $r9);
+
+        if $r6 != null goto label6;
+
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationContext: java.util.TimeZone getTimeZone()>();
+
+     label2:
+        virtualinvoke $r10.<java.text.SimpleDateFormat: void setTimeZone(java.util.TimeZone)>($r6);
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer: com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer withDateFormat(java.text.DateFormat,java.lang.String)>($r10, $r7);
+
+        return $r2;
+
+     label3:
+        if $r6 == null goto label7;
+
+        $r11 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig getConfig()>();
+
+        $r12 = virtualinvoke $r11.<com.fasterxml.jackson.databind.DeserializationConfig: java.text.DateFormat getDateFormat()>();
+
+        $r13 = virtualinvoke $r12.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r13 != class "com/fasterxml/jackson/databind/util/StdDateFormat" goto label5;
+
+        $r14 = (com.fasterxml.jackson.databind.util.StdDateFormat) $r12;
+
+        $r12 = virtualinvoke $r14.<com.fasterxml.jackson.databind.util.StdDateFormat: com.fasterxml.jackson.databind.util.StdDateFormat withTimeZone(java.util.TimeZone)>($r6);
+
+     label4:
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer: com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer withDateFormat(java.text.DateFormat,java.lang.String)>($r12, $r7);
+
+        return $r2;
+
+     label5:
+        $r15 = virtualinvoke $r12.<java.text.DateFormat: java.lang.Object clone()>();
+
+        $r12 = (java.text.DateFormat) $r15;
+
+        virtualinvoke $r12.<java.text.DateFormat: void setTimeZone(java.util.TimeZone)>($r6);
+
+        goto label4;
+
+     label6:
+        goto label2;
+
+     label7:
+        return $r2;
+    }
+
+    protected abstract com.fasterxml.jackson.databind.deser.std.DateDeserializers$DateBasedDeserializer withDateFormat(java.text.DateFormat, java.lang.String);
+}

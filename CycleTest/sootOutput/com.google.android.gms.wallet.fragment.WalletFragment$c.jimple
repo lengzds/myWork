@@ -1,0 +1,325 @@
+class com.google.android.gms.wallet.fragment.WalletFragment$c extends com.google.android.gms.dynamic.a implements android.view.View$OnClickListener
+{
+    final com.google.android.gms.wallet.fragment.WalletFragment a;
+
+    private void <init>(com.google.android.gms.wallet.fragment.WalletFragment)
+    {
+        com.google.android.gms.wallet.fragment.WalletFragment$c $r0;
+        com.google.android.gms.wallet.fragment.WalletFragment $r1;
+
+        $r0 := @this: com.google.android.gms.wallet.fragment.WalletFragment$c;
+
+        $r1 := @parameter0: com.google.android.gms.wallet.fragment.WalletFragment;
+
+        $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a> = $r1;
+
+        specialinvoke $r0.<com.google.android.gms.dynamic.a: void <init>()>();
+
+        return;
+    }
+
+    void <init>(com.google.android.gms.wallet.fragment.WalletFragment, byte)
+    {
+        com.google.android.gms.wallet.fragment.WalletFragment$c $r0;
+        com.google.android.gms.wallet.fragment.WalletFragment $r1;
+        byte $b0;
+
+        $r0 := @this: com.google.android.gms.wallet.fragment.WalletFragment$c;
+
+        $r1 := @parameter0: com.google.android.gms.wallet.fragment.WalletFragment;
+
+        $b0 := @parameter1: byte;
+
+        specialinvoke $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: void <init>(com.google.android.gms.wallet.fragment.WalletFragment)>($r1);
+
+        return;
+    }
+
+    protected final void a(android.widget.FrameLayout)
+    {
+        com.google.android.gms.wallet.fragment.WalletFragment$c $r0;
+        android.widget.FrameLayout $r1;
+        android.widget.Button $r2;
+        int $i0, $i1, $i2;
+        com.google.android.gms.wallet.fragment.WalletFragment $r3;
+        android.app.Fragment $r4;
+        android.app.Activity $r5;
+        com.google.android.gms.wallet.fragment.WalletFragmentOptions $r6;
+        com.google.android.gms.wallet.fragment.WalletFragmentStyle $r7;
+        android.content.res.Resources $r8;
+        android.util.DisplayMetrics $r9;
+        android.view.ViewGroup$LayoutParams $r10;
+
+        $r0 := @this: com.google.android.gms.wallet.fragment.WalletFragment$c;
+
+        $r1 := @parameter0: android.widget.FrameLayout;
+
+        $i0 = -1;
+
+        $i1 = -2;
+
+        $r2 = new android.widget.Button;
+
+        $r3 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r4 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: android.app.Fragment a(com.google.android.gms.wallet.fragment.WalletFragment)>($r3);
+
+        $r5 = virtualinvoke $r4.<android.app.Fragment: android.app.Activity getActivity()>();
+
+        specialinvoke $r2.<android.widget.Button: void <init>(android.content.Context)>($r5);
+
+        $i2 = <com.google.android.gms.R$string: int u>;
+
+        virtualinvoke $r2.<android.widget.Button: void setText(int)>($i2);
+
+        $r3 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r6 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragmentOptions e(com.google.android.gms.wallet.fragment.WalletFragment)>($r3);
+
+        if $r6 == null goto label1;
+
+        $r3 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r6 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragmentOptions e(com.google.android.gms.wallet.fragment.WalletFragment)>($r3);
+
+        $r7 = virtualinvoke $r6.<com.google.android.gms.wallet.fragment.WalletFragmentOptions: com.google.android.gms.wallet.fragment.WalletFragmentStyle getFragmentStyle()>();
+
+        if $r7 == null goto label1;
+
+        $r3 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r4 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: android.app.Fragment a(com.google.android.gms.wallet.fragment.WalletFragment)>($r3);
+
+        $r8 = virtualinvoke $r4.<android.app.Fragment: android.content.res.Resources getResources()>();
+
+        $r9 = virtualinvoke $r8.<android.content.res.Resources: android.util.DisplayMetrics getDisplayMetrics()>();
+
+        $i0 = virtualinvoke $r7.<com.google.android.gms.wallet.fragment.WalletFragmentStyle: int a(java.lang.String,android.util.DisplayMetrics,int)>("buyButtonWidth", $r9, -1);
+
+        $i1 = virtualinvoke $r7.<com.google.android.gms.wallet.fragment.WalletFragmentStyle: int a(java.lang.String,android.util.DisplayMetrics,int)>("buyButtonHeight", $r9, -2);
+
+     label1:
+        $r10 = new android.view.ViewGroup$LayoutParams;
+
+        specialinvoke $r10.<android.view.ViewGroup$LayoutParams: void <init>(int,int)>($i0, $i1);
+
+        virtualinvoke $r2.<android.widget.Button: void setLayoutParams(android.view.ViewGroup$LayoutParams)>($r10);
+
+        virtualinvoke $r2.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r0);
+
+        virtualinvoke $r1.<android.widget.FrameLayout: void addView(android.view.View)>($r2);
+
+        return;
+    }
+
+    protected final void a(com.google.android.gms.dynamic.f)
+    {
+        com.google.android.gms.wallet.fragment.WalletFragment$c $r0;
+        com.google.android.gms.dynamic.f $r1;
+        com.google.android.gms.wallet.fragment.WalletFragment $r2;
+        android.app.Fragment $r3;
+        android.app.Activity $r4;
+        com.google.android.gms.wallet.fragment.WalletFragment$b $r5;
+        boolean $z0;
+        com.google.android.gms.dynamic.b $r6;
+        com.google.android.gms.wallet.fragment.WalletFragmentOptions $r7;
+        com.google.android.gms.wallet.fragment.WalletFragment$a $r8;
+        com.google.android.gms.internal.ll $r9;
+        com.google.android.gms.wallet.fragment.WalletFragmentInitParams $r10;
+        com.google.android.gms.wallet.MaskedWalletRequest $r11;
+        com.google.android.gms.wallet.MaskedWallet $r12;
+        java.lang.Boolean $r13;
+        com.google.android.gms.common.GooglePlayServicesNotAvailableException $r14;
+
+        $r0 := @this: com.google.android.gms.wallet.fragment.WalletFragment$c;
+
+        $r1 := @parameter0: com.google.android.gms.dynamic.f;
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r3 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: android.app.Fragment a(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        $r4 = virtualinvoke $r3.<android.app.Fragment: android.app.Activity getActivity()>();
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r5 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragment$b b(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        if $r5 != null goto label15;
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $z0 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: boolean c(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        if $z0 == 0 goto label15;
+
+        if $r4 == null goto label15;
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+     label01:
+        $r6 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.dynamic.b d(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+     label02:
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+     label03:
+        $r7 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragmentOptions e(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+     label04:
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+     label05:
+        $r8 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragment$a f(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        $r9 = staticinvoke <com.google.android.gms.internal.lt: com.google.android.gms.internal.ll a(android.app.Activity,com.google.android.gms.dynamic.c,com.google.android.gms.wallet.fragment.WalletFragmentOptions,com.google.android.gms.internal.lm)>($r4, $r6, $r7, $r8);
+
+     label06:
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r5 = new com.google.android.gms.wallet.fragment.WalletFragment$b;
+
+     label07:
+        specialinvoke $r5.<com.google.android.gms.wallet.fragment.WalletFragment$b: void <init>(com.google.android.gms.internal.ll,byte)>($r9, 0);
+
+        staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragment$b a(com.google.android.gms.wallet.fragment.WalletFragment,com.google.android.gms.wallet.fragment.WalletFragment$b)>($r2, $r5);
+
+     label08:
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+     label09:
+        staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragmentOptions g(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+     label10:
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r5 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragment$b b(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        interfaceinvoke $r1.<com.google.android.gms.dynamic.f: void a(com.google.android.gms.dynamic.LifecycleDelegate)>($r5);
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r10 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragmentInitParams h(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        if $r10 == null goto label11;
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r5 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragment$b b(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r10 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragmentInitParams h(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment$b: void a(com.google.android.gms.wallet.fragment.WalletFragment$b,com.google.android.gms.wallet.fragment.WalletFragmentInitParams)>($r5, $r10);
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragmentInitParams i(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+     label11:
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r11 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.MaskedWalletRequest j(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        if $r11 == null goto label12;
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r5 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragment$b b(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r11 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.MaskedWalletRequest j(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment$b: void a(com.google.android.gms.wallet.fragment.WalletFragment$b,com.google.android.gms.wallet.MaskedWalletRequest)>($r5, $r11);
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.MaskedWalletRequest k(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+     label12:
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r12 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.MaskedWallet l(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        if $r12 == null goto label13;
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r5 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragment$b b(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r12 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.MaskedWallet l(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment$b: void a(com.google.android.gms.wallet.fragment.WalletFragment$b,com.google.android.gms.wallet.MaskedWallet)>($r5, $r12);
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.MaskedWallet m(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+     label13:
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r13 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: java.lang.Boolean n(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        if $r13 == null goto label15;
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r5 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: com.google.android.gms.wallet.fragment.WalletFragment$b b(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r13 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: java.lang.Boolean n(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        $z0 = virtualinvoke $r13.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment$b: void a(com.google.android.gms.wallet.fragment.WalletFragment$b,boolean)>($r5, $z0);
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: java.lang.Boolean o(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        return;
+
+     label14:
+        $r14 := @caughtexception;
+
+     label15:
+        return;
+
+        catch com.google.android.gms.common.GooglePlayServicesNotAvailableException from label01 to label02 with label14;
+        catch com.google.android.gms.common.GooglePlayServicesNotAvailableException from label03 to label04 with label14;
+        catch com.google.android.gms.common.GooglePlayServicesNotAvailableException from label05 to label06 with label14;
+        catch com.google.android.gms.common.GooglePlayServicesNotAvailableException from label07 to label08 with label14;
+        catch com.google.android.gms.common.GooglePlayServicesNotAvailableException from label09 to label10 with label14;
+    }
+
+    public void onClick(android.view.View)
+    {
+        com.google.android.gms.wallet.fragment.WalletFragment$c $r0;
+        android.view.View $r1;
+        com.google.android.gms.wallet.fragment.WalletFragment $r2;
+        android.app.Fragment $r3;
+        android.app.Activity $r4;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.wallet.fragment.WalletFragment$c;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r2 = $r0.<com.google.android.gms.wallet.fragment.WalletFragment$c: com.google.android.gms.wallet.fragment.WalletFragment a>;
+
+        $r3 = staticinvoke <com.google.android.gms.wallet.fragment.WalletFragment: android.app.Fragment a(com.google.android.gms.wallet.fragment.WalletFragment)>($r2);
+
+        $r4 = virtualinvoke $r3.<android.app.Fragment: android.app.Activity getActivity()>();
+
+        $i0 = staticinvoke <com.google.android.gms.common.GooglePlayServicesUtil: int isGooglePlayServicesAvailable(android.content.Context)>($r4);
+
+        staticinvoke <com.google.android.gms.common.GooglePlayServicesUtil: boolean showErrorDialogFragment(int,android.app.Activity,int)>($i0, $r4, -1);
+
+        return;
+    }
+}

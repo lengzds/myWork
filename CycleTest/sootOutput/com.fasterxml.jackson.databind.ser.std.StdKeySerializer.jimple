@@ -1,0 +1,64 @@
+public class com.fasterxml.jackson.databind.ser.std.StdKeySerializer extends com.fasterxml.jackson.databind.ser.std.StdSerializer
+{
+    static final com.fasterxml.jackson.databind.ser.std.StdKeySerializer instace;
+
+    static void <clinit>()
+    {
+        com.fasterxml.jackson.databind.ser.std.StdKeySerializer $r0;
+
+        $r0 = new com.fasterxml.jackson.databind.ser.std.StdKeySerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdKeySerializer: void <init>()>();
+
+        <com.fasterxml.jackson.databind.ser.std.StdKeySerializer: com.fasterxml.jackson.databind.ser.std.StdKeySerializer instace> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.ser.std.StdKeySerializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdKeySerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdSerializer: void <init>(java.lang.Class)>(class "java/lang/Object");
+
+        return;
+    }
+
+    public void serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.StdKeySerializer $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        java.lang.String $r3;
+        java.lang.Object $r4;
+        boolean $z0;
+        java.util.Date $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdKeySerializer;
+
+        $r4 := @parameter0: java.lang.Object;
+
+        $r1 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $z0 = $r4 instanceof java.util.Date;
+
+        if $z0 == 0 goto label1;
+
+        $r5 = (java.util.Date) $r4;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.databind.SerializerProvider: void defaultSerializeDateKey(java.util.Date,com.fasterxml.jackson.core.JsonGenerator)>($r5, $r1);
+
+        return;
+
+     label1:
+        $r3 = virtualinvoke $r4.<java.lang.Object: java.lang.String toString()>();
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeFieldName(java.lang.String)>($r3);
+
+        return;
+    }
+}

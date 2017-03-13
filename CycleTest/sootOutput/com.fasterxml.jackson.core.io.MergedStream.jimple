@@ -1,0 +1,380 @@
+public final class com.fasterxml.jackson.core.io.MergedStream extends java.io.InputStream
+{
+    byte[] _buffer;
+    protected final com.fasterxml.jackson.core.io.IOContext _context;
+    final int _end;
+    final java.io.InputStream _in;
+    int _ptr;
+
+    public void <init>(com.fasterxml.jackson.core.io.IOContext, java.io.InputStream, byte[], int, int)
+    {
+        com.fasterxml.jackson.core.io.MergedStream $r0;
+        com.fasterxml.jackson.core.io.IOContext $r1;
+        java.io.InputStream $r2;
+        byte[] $r3;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.MergedStream;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.io.IOContext;
+
+        $r2 := @parameter1: java.io.InputStream;
+
+        $r3 := @parameter2: byte[];
+
+        $i0 := @parameter3: int;
+
+        $i1 := @parameter4: int;
+
+        specialinvoke $r0.<java.io.InputStream: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.core.io.MergedStream: com.fasterxml.jackson.core.io.IOContext _context> = $r1;
+
+        $r0.<com.fasterxml.jackson.core.io.MergedStream: java.io.InputStream _in> = $r2;
+
+        $r0.<com.fasterxml.jackson.core.io.MergedStream: byte[] _buffer> = $r3;
+
+        $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr> = $i0;
+
+        $r0.<com.fasterxml.jackson.core.io.MergedStream: int _end> = $i1;
+
+        return;
+    }
+
+    private void freeMergedBuffer()
+    {
+        com.fasterxml.jackson.core.io.MergedStream $r0;
+        byte[] $r1;
+        com.fasterxml.jackson.core.io.IOContext $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.MergedStream;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: byte[] _buffer>;
+
+        if $r1 == null goto label1;
+
+        $r0.<com.fasterxml.jackson.core.io.MergedStream: byte[] _buffer> = null;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: com.fasterxml.jackson.core.io.IOContext _context>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: com.fasterxml.jackson.core.io.IOContext _context>;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.io.IOContext: void releaseReadIOBuffer(byte[])>($r1);
+
+     label1:
+        return;
+    }
+
+    public final int available()
+    {
+        com.fasterxml.jackson.core.io.MergedStream $r0;
+        int $i0, $i1;
+        byte[] $r1;
+        java.io.InputStream $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.MergedStream;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: byte[] _buffer>;
+
+        if $r1 == null goto label1;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _end>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr>;
+
+        $i0 = $i1 - $i0;
+
+        return $i0;
+
+     label1:
+        $r2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: java.io.InputStream _in>;
+
+        $i0 = virtualinvoke $r2.<java.io.InputStream: int available()>();
+
+        return $i0;
+    }
+
+    public final void close()
+    {
+        com.fasterxml.jackson.core.io.MergedStream $r0;
+        java.io.InputStream $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.MergedStream;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.io.MergedStream: void freeMergedBuffer()>();
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: java.io.InputStream _in>;
+
+        virtualinvoke $r1.<java.io.InputStream: void close()>();
+
+        return;
+    }
+
+    public final void mark(int)
+    {
+        com.fasterxml.jackson.core.io.MergedStream $r0;
+        int $i0;
+        byte[] $r1;
+        java.io.InputStream $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.MergedStream;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: byte[] _buffer>;
+
+        if $r1 != null goto label1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: java.io.InputStream _in>;
+
+        virtualinvoke $r2.<java.io.InputStream: void mark(int)>($i0);
+
+     label1:
+        return;
+    }
+
+    public final boolean markSupported()
+    {
+        com.fasterxml.jackson.core.io.MergedStream $r0;
+        boolean $z0;
+        byte[] $r1;
+        java.io.InputStream $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.MergedStream;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: byte[] _buffer>;
+
+        if $r1 != null goto label1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: java.io.InputStream _in>;
+
+        $z0 = virtualinvoke $r2.<java.io.InputStream: boolean markSupported()>();
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final int read()
+    {
+        com.fasterxml.jackson.core.io.MergedStream $r0;
+        int $i0, $i1;
+        byte[] $r1;
+        byte $b2;
+        short $s3;
+        java.io.InputStream $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.MergedStream;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: byte[] _buffer>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: byte[] _buffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr> = $i1;
+
+        $b2 = $r1[$i0];
+
+        $s3 = $b2 & 255;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _end>;
+
+        if $i0 < $i1 goto label2;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.io.MergedStream: void freeMergedBuffer()>();
+
+        return $s3;
+
+     label1:
+        $r2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: java.io.InputStream _in>;
+
+        $i0 = virtualinvoke $r2.<java.io.InputStream: int read()>();
+
+        return $i0;
+
+     label2:
+        return $s3;
+    }
+
+    public final int read(byte[])
+    {
+        com.fasterxml.jackson.core.io.MergedStream $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.MergedStream;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 = lengthof $r1;
+
+        $i0 = virtualinvoke $r0.<com.fasterxml.jackson.core.io.MergedStream: int read(byte[],int,int)>($r1, 0, $i0);
+
+        return $i0;
+    }
+
+    public final int read(byte[], int, int)
+    {
+        com.fasterxml.jackson.core.io.MergedStream $r0;
+        byte[] $r1, $r2;
+        int $i0, $i1, $i2, $i3;
+        java.io.InputStream $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.MergedStream;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: byte[] _buffer>;
+
+        if $r2 == null goto label2;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _end>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr>;
+
+        $i2 = $i2 - $i3;
+
+        if $i1 <= $i2 goto label1;
+
+        $i1 = $i2;
+
+     label1:
+        $r2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: byte[] _buffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r2, $i2, $r1, $i0, $i1);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr>;
+
+        $i0 = $i0 + $i1;
+
+        $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr> = $i0;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _end>;
+
+        if $i0 < $i2 goto label3;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.io.MergedStream: void freeMergedBuffer()>();
+
+        return $i1;
+
+     label2:
+        $r3 = $r0.<com.fasterxml.jackson.core.io.MergedStream: java.io.InputStream _in>;
+
+        $i0 = virtualinvoke $r3.<java.io.InputStream: int read(byte[],int,int)>($r1, $i0, $i1);
+
+        return $i0;
+
+     label3:
+        return $i1;
+    }
+
+    public final void reset()
+    {
+        com.fasterxml.jackson.core.io.MergedStream $r0;
+        byte[] $r1;
+        java.io.InputStream $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.MergedStream;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: byte[] _buffer>;
+
+        if $r1 != null goto label1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: java.io.InputStream _in>;
+
+        virtualinvoke $r2.<java.io.InputStream: void reset()>();
+
+     label1:
+        return;
+    }
+
+    public final long skip(long)
+    {
+        com.fasterxml.jackson.core.io.MergedStream $r0;
+        long $l0, $l3, $l5;
+        byte[] $r1;
+        int $i1, $i2;
+        byte $b4;
+        java.io.InputStream $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.MergedStream;
+
+        $l0 := @parameter0: long;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: byte[] _buffer>;
+
+        if $r1 == null goto label4;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _end>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr>;
+
+        $i1 = $i1 - $i2;
+
+        $l3 = (long) $i1;
+
+        $b4 = $l3 cmp $l0;
+
+        if $b4 <= 0 goto label1;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr>;
+
+        $i2 = (int) $l0;
+
+        $i1 = $i1 + $i2;
+
+        $r0.<com.fasterxml.jackson.core.io.MergedStream: int _ptr> = $i1;
+
+        return $l0;
+
+     label1:
+        specialinvoke $r0.<com.fasterxml.jackson.core.io.MergedStream: void freeMergedBuffer()>();
+
+        $l3 = (long) $i1;
+
+        $l3 = $l3 + 0L;
+
+        $l5 = (long) $i1;
+
+        $l0 = $l0 - $l5;
+
+     label2:
+        $b4 = $l0 cmp 0L;
+
+        if $b4 <= 0 goto label3;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.io.MergedStream: java.io.InputStream _in>;
+
+        $l0 = virtualinvoke $r2.<java.io.InputStream: long skip(long)>($l0);
+
+        $l3 = $l3 + $l0;
+
+     label3:
+        return $l3;
+
+     label4:
+        $l3 = 0L;
+
+        goto label2;
+    }
+}

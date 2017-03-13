@@ -1,0 +1,889 @@
+public final class com.google.android.gms.games.multiplayer.ParticipantEntity extends com.google.android.gms.games.internal.GamesDowngradeableSafeParcel implements com.google.android.gms.games.multiplayer.Participant
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    private final int a;
+    private final java.lang.String b;
+    private final java.lang.String c;
+    private final android.net.Uri d;
+    private final android.net.Uri e;
+    private final int f;
+    private final java.lang.String g;
+    private final boolean h;
+    private final com.google.android.gms.games.PlayerEntity i;
+    private final int j;
+    private final com.google.android.gms.games.multiplayer.ParticipantResult k;
+    private final java.lang.String l;
+    private final java.lang.String m;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity$ParticipantEntityCreatorCompat $r0;
+
+        $r0 = new com.google.android.gms.games.multiplayer.ParticipantEntity$ParticipantEntityCreatorCompat;
+
+        specialinvoke $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity$ParticipantEntityCreatorCompat: void <init>()>();
+
+        <com.google.android.gms.games.multiplayer.ParticipantEntity: android.os.Parcelable$Creator CREATOR> = $r0;
+
+        return;
+    }
+
+    void <init>(int, java.lang.String, java.lang.String, android.net.Uri, android.net.Uri, int, java.lang.String, boolean, com.google.android.gms.games.PlayerEntity, int, com.google.android.gms.games.multiplayer.ParticipantResult, java.lang.String, java.lang.String)
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        int $i0, $i1, $i2;
+        java.lang.String $r1, $r2, $r5, $r8, $r9;
+        android.net.Uri $r3, $r4;
+        boolean $z0;
+        com.google.android.gms.games.PlayerEntity $r6;
+        com.google.android.gms.games.multiplayer.ParticipantResult $r7;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r3 := @parameter3: android.net.Uri;
+
+        $r4 := @parameter4: android.net.Uri;
+
+        $i1 := @parameter5: int;
+
+        $r5 := @parameter6: java.lang.String;
+
+        $z0 := @parameter7: boolean;
+
+        $r6 := @parameter8: com.google.android.gms.games.PlayerEntity;
+
+        $i2 := @parameter9: int;
+
+        $r7 := @parameter10: com.google.android.gms.games.multiplayer.ParticipantResult;
+
+        $r8 := @parameter11: java.lang.String;
+
+        $r9 := @parameter12: java.lang.String;
+
+        specialinvoke $r0.<com.google.android.gms.games.internal.GamesDowngradeableSafeParcel: void <init>()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: int a> = $i0;
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String b> = $r1;
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String c> = $r2;
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: android.net.Uri d> = $r3;
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: android.net.Uri e> = $r4;
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: int f> = $i1;
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String g> = $r5;
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: boolean h> = $z0;
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i> = $r6;
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: int j> = $i2;
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.multiplayer.ParticipantResult k> = $r7;
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String l> = $r8;
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String m> = $r9;
+
+        return;
+    }
+
+    public void <init>(com.google.android.gms.games.multiplayer.Participant)
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        com.google.android.gms.games.multiplayer.Participant $r1;
+        java.lang.String $r2;
+        android.net.Uri $r3;
+        int $i0;
+        boolean $z0;
+        com.google.android.gms.games.Player $r4;
+        com.google.android.gms.games.PlayerEntity $r5;
+        com.google.android.gms.games.multiplayer.ParticipantResult $r6;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        $r1 := @parameter0: com.google.android.gms.games.multiplayer.Participant;
+
+        specialinvoke $r0.<com.google.android.gms.games.internal.GamesDowngradeableSafeParcel: void <init>()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: int a> = 3;
+
+        $r2 = interfaceinvoke $r1.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getParticipantId()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String b> = $r2;
+
+        $r2 = interfaceinvoke $r1.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getDisplayName()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String c> = $r2;
+
+        $r3 = interfaceinvoke $r1.<com.google.android.gms.games.multiplayer.Participant: android.net.Uri getIconImageUri()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: android.net.Uri d> = $r3;
+
+        $r3 = interfaceinvoke $r1.<com.google.android.gms.games.multiplayer.Participant: android.net.Uri getHiResImageUri()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: android.net.Uri e> = $r3;
+
+        $i0 = interfaceinvoke $r1.<com.google.android.gms.games.multiplayer.Participant: int getStatus()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: int f> = $i0;
+
+        $r2 = interfaceinvoke $r1.<com.google.android.gms.games.multiplayer.Participant: java.lang.String gR()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String g> = $r2;
+
+        $z0 = interfaceinvoke $r1.<com.google.android.gms.games.multiplayer.Participant: boolean isConnectedToRoom()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: boolean h> = $z0;
+
+        $r4 = interfaceinvoke $r1.<com.google.android.gms.games.multiplayer.Participant: com.google.android.gms.games.Player getPlayer()>();
+
+        if $r4 != null goto label2;
+
+        $r5 = null;
+
+     label1:
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i> = $r5;
+
+        $i0 = interfaceinvoke $r1.<com.google.android.gms.games.multiplayer.Participant: int getCapabilities()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: int j> = $i0;
+
+        $r6 = interfaceinvoke $r1.<com.google.android.gms.games.multiplayer.Participant: com.google.android.gms.games.multiplayer.ParticipantResult getResult()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.multiplayer.ParticipantResult k> = $r6;
+
+        $r2 = interfaceinvoke $r1.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getIconImageUrl()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String l> = $r2;
+
+        $r2 = interfaceinvoke $r1.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getHiResImageUrl()>();
+
+        $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String m> = $r2;
+
+        return;
+
+     label2:
+        $r5 = new com.google.android.gms.games.PlayerEntity;
+
+        specialinvoke $r5.<com.google.android.gms.games.PlayerEntity: void <init>(com.google.android.gms.games.Player)>($r4);
+
+        goto label1;
+    }
+
+    static int a(com.google.android.gms.games.multiplayer.Participant)
+    {
+        com.google.android.gms.games.multiplayer.Participant $r0;
+        java.lang.Object[] $r1;
+        com.google.android.gms.games.Player $r2;
+        int $i0;
+        java.lang.Integer $r3;
+        java.lang.String $r4;
+        boolean $z0;
+        java.lang.Boolean $r5;
+        android.net.Uri $r6;
+        com.google.android.gms.games.multiplayer.ParticipantResult $r7;
+
+        $r0 := @parameter0: com.google.android.gms.games.multiplayer.Participant;
+
+        $r1 = newarray (java.lang.Object)[10];
+
+        $r2 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: com.google.android.gms.games.Player getPlayer()>();
+
+        $r1[0] = $r2;
+
+        $i0 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: int getStatus()>();
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1[1] = $r3;
+
+        $r4 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: java.lang.String gR()>();
+
+        $r1[2] = $r4;
+
+        $z0 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: boolean isConnectedToRoom()>();
+
+        $r5 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        $r1[3] = $r5;
+
+        $r4 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getDisplayName()>();
+
+        $r1[4] = $r4;
+
+        $r6 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: android.net.Uri getIconImageUri()>();
+
+        $r1[5] = $r6;
+
+        $r6 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: android.net.Uri getHiResImageUri()>();
+
+        $r1[6] = $r6;
+
+        $i0 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: int getCapabilities()>();
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1[7] = $r3;
+
+        $r7 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: com.google.android.gms.games.multiplayer.ParticipantResult getResult()>();
+
+        $r1[8] = $r7;
+
+        $r4 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getParticipantId()>();
+
+        $r1[9] = $r4;
+
+        $i0 = staticinvoke <com.google.android.gms.internal.hl: int hashCode(java.lang.Object[])>($r1);
+
+        return $i0;
+    }
+
+    static java.lang.Integer a()
+    {
+        java.lang.Integer $r0;
+
+        $r0 = staticinvoke <com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.Integer b()>();
+
+        return $r0;
+    }
+
+    static boolean a(com.google.android.gms.games.multiplayer.Participant, java.lang.Object)
+    {
+        com.google.android.gms.games.multiplayer.Participant $r0, $r2;
+        java.lang.Object $r1;
+        boolean $z0;
+        com.google.android.gms.games.Player $r3, $r4;
+        int $i0;
+        java.lang.Integer $r5, $r6;
+        java.lang.String $r7, $r8;
+        java.lang.Boolean $r9, $r10;
+        android.net.Uri $r11, $r12;
+        com.google.android.gms.games.multiplayer.ParticipantResult $r13, $r14;
+
+        $r0 := @parameter0: com.google.android.gms.games.multiplayer.Participant;
+
+        $r1 := @parameter1: java.lang.Object;
+
+        $z0 = $r1 instanceof com.google.android.gms.games.multiplayer.Participant;
+
+        if $z0 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        if $r0 != $r1 goto label2;
+
+        return 1;
+
+     label2:
+        $r2 = (com.google.android.gms.games.multiplayer.Participant) $r1;
+
+        $r3 = interfaceinvoke $r2.<com.google.android.gms.games.multiplayer.Participant: com.google.android.gms.games.Player getPlayer()>();
+
+        $r4 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: com.google.android.gms.games.Player getPlayer()>();
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r3, $r4);
+
+        if $z0 == 0 goto label3;
+
+        $i0 = interfaceinvoke $r2.<com.google.android.gms.games.multiplayer.Participant: int getStatus()>();
+
+        $r5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $i0 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: int getStatus()>();
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r5, $r6);
+
+        if $z0 == 0 goto label3;
+
+        $r7 = interfaceinvoke $r2.<com.google.android.gms.games.multiplayer.Participant: java.lang.String gR()>();
+
+        $r8 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: java.lang.String gR()>();
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r7, $r8);
+
+        if $z0 == 0 goto label3;
+
+        $z0 = interfaceinvoke $r2.<com.google.android.gms.games.multiplayer.Participant: boolean isConnectedToRoom()>();
+
+        $r9 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        $z0 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: boolean isConnectedToRoom()>();
+
+        $r10 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r9, $r10);
+
+        if $z0 == 0 goto label3;
+
+        $r7 = interfaceinvoke $r2.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getDisplayName()>();
+
+        $r8 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getDisplayName()>();
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r7, $r8);
+
+        if $z0 == 0 goto label3;
+
+        $r11 = interfaceinvoke $r2.<com.google.android.gms.games.multiplayer.Participant: android.net.Uri getIconImageUri()>();
+
+        $r12 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: android.net.Uri getIconImageUri()>();
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r11, $r12);
+
+        if $z0 == 0 goto label3;
+
+        $r11 = interfaceinvoke $r2.<com.google.android.gms.games.multiplayer.Participant: android.net.Uri getHiResImageUri()>();
+
+        $r12 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: android.net.Uri getHiResImageUri()>();
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r11, $r12);
+
+        if $z0 == 0 goto label3;
+
+        $i0 = interfaceinvoke $r2.<com.google.android.gms.games.multiplayer.Participant: int getCapabilities()>();
+
+        $r5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $i0 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: int getCapabilities()>();
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r5, $r6);
+
+        if $z0 == 0 goto label3;
+
+        $r13 = interfaceinvoke $r2.<com.google.android.gms.games.multiplayer.Participant: com.google.android.gms.games.multiplayer.ParticipantResult getResult()>();
+
+        $r14 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: com.google.android.gms.games.multiplayer.ParticipantResult getResult()>();
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r13, $r14);
+
+        if $z0 == 0 goto label3;
+
+        $r7 = interfaceinvoke $r2.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getParticipantId()>();
+
+        $r8 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getParticipantId()>();
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r7, $r8);
+
+        if $z0 == 0 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    static boolean a(java.lang.Integer)
+    {
+        java.lang.Integer $r0;
+        boolean $z0;
+
+        $r0 := @parameter0: java.lang.Integer;
+
+        $z0 = staticinvoke <com.google.android.gms.games.multiplayer.ParticipantEntity: boolean b(java.lang.Integer)>($r0);
+
+        return $z0;
+    }
+
+    static boolean a(java.lang.String)
+    {
+        java.lang.String $r0;
+        boolean $z0;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $z0 = staticinvoke <com.google.android.gms.games.multiplayer.ParticipantEntity: boolean b(java.lang.String)>($r0);
+
+        return $z0;
+    }
+
+    static java.lang.String b(com.google.android.gms.games.multiplayer.Participant)
+    {
+        com.google.android.gms.games.multiplayer.Participant $r0;
+        com.google.android.gms.internal.hl$a $r1;
+        java.lang.String $r2;
+        com.google.android.gms.games.Player $r3;
+        int $i0;
+        java.lang.Integer $r4;
+        boolean $z0;
+        java.lang.Boolean $r5;
+        android.net.Uri $r6;
+        com.google.android.gms.games.multiplayer.ParticipantResult $r7;
+
+        $r0 := @parameter0: com.google.android.gms.games.multiplayer.Participant;
+
+        $r1 = staticinvoke <com.google.android.gms.internal.hl: com.google.android.gms.internal.hl$a e(java.lang.Object)>($r0);
+
+        $r2 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getParticipantId()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("ParticipantId", $r2);
+
+        $r3 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: com.google.android.gms.games.Player getPlayer()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("Player", $r3);
+
+        $i0 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: int getStatus()>();
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("Status", $r4);
+
+        $r2 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: java.lang.String gR()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("ClientAddress", $r2);
+
+        $z0 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: boolean isConnectedToRoom()>();
+
+        $r5 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("ConnectedToRoom", $r5);
+
+        $r2 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getDisplayName()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("DisplayName", $r2);
+
+        $r6 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: android.net.Uri getIconImageUri()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("IconImage", $r6);
+
+        $r2 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getIconImageUrl()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("IconImageUrl", $r2);
+
+        $r6 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: android.net.Uri getHiResImageUri()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("HiResImage", $r6);
+
+        $r2 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: java.lang.String getHiResImageUrl()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("HiResImageUrl", $r2);
+
+        $i0 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: int getCapabilities()>();
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("Capabilities", $r4);
+
+        $r7 = interfaceinvoke $r0.<com.google.android.gms.games.multiplayer.Participant: com.google.android.gms.games.multiplayer.ParticipantResult getResult()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("Result", $r7);
+
+        $r2 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public final int describeContents()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        return 0;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $z0 = staticinvoke <com.google.android.gms.games.multiplayer.ParticipantEntity: boolean a(com.google.android.gms.games.multiplayer.Participant,java.lang.Object)>($r0, $r1);
+
+        return $z0;
+    }
+
+    public final com.google.android.gms.games.multiplayer.Participant freeze()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        return $r0;
+    }
+
+    public final volatile java.lang.Object freeze()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        com.google.android.gms.games.multiplayer.Participant $r1;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.multiplayer.Participant freeze()>();
+
+        return $r1;
+    }
+
+    public final java.lang.String gR()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        r1 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String g>;
+
+        return r1;
+    }
+
+    public final int getCapabilities()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        i0 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: int j>;
+
+        return i0;
+    }
+
+    public final java.lang.String getDisplayName()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        java.lang.String $r1;
+        com.google.android.gms.games.PlayerEntity $r2;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        $r2 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        if $r2 != null goto label1;
+
+        $r1 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String c>;
+
+        return $r1;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        $r1 = virtualinvoke $r2.<com.google.android.gms.games.PlayerEntity: java.lang.String getDisplayName()>();
+
+        return $r1;
+    }
+
+    public final android.net.Uri getHiResImageUri()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        android.net.Uri $r1;
+        com.google.android.gms.games.PlayerEntity $r2;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        $r2 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        if $r2 != null goto label1;
+
+        $r1 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: android.net.Uri e>;
+
+        return $r1;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        $r1 = virtualinvoke $r2.<com.google.android.gms.games.PlayerEntity: android.net.Uri getHiResImageUri()>();
+
+        return $r1;
+    }
+
+    public final java.lang.String getHiResImageUrl()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        java.lang.String $r1;
+        com.google.android.gms.games.PlayerEntity $r2;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        $r2 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        if $r2 != null goto label1;
+
+        $r1 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String m>;
+
+        return $r1;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        $r1 = virtualinvoke $r2.<com.google.android.gms.games.PlayerEntity: java.lang.String getHiResImageUrl()>();
+
+        return $r1;
+    }
+
+    public final android.net.Uri getIconImageUri()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        android.net.Uri $r1;
+        com.google.android.gms.games.PlayerEntity $r2;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        $r2 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        if $r2 != null goto label1;
+
+        $r1 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: android.net.Uri d>;
+
+        return $r1;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        $r1 = virtualinvoke $r2.<com.google.android.gms.games.PlayerEntity: android.net.Uri getIconImageUri()>();
+
+        return $r1;
+    }
+
+    public final java.lang.String getIconImageUrl()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        java.lang.String $r1;
+        com.google.android.gms.games.PlayerEntity $r2;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        $r2 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        if $r2 != null goto label1;
+
+        $r1 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String l>;
+
+        return $r1;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        $r1 = virtualinvoke $r2.<com.google.android.gms.games.PlayerEntity: java.lang.String getIconImageUrl()>();
+
+        return $r1;
+    }
+
+    public final java.lang.String getParticipantId()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        r1 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String b>;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.games.Player getPlayer()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        com.google.android.gms.games.PlayerEntity r1;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        r1 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.games.multiplayer.ParticipantResult getResult()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        com.google.android.gms.games.multiplayer.ParticipantResult r1;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        r1 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.multiplayer.ParticipantResult k>;
+
+        return r1;
+    }
+
+    public final int getStatus()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        i0 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: int f>;
+
+        return i0;
+    }
+
+    public final int getVersionCode()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        i0 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: int a>;
+
+        return i0;
+    }
+
+    public final int hashCode()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        $i0 = staticinvoke <com.google.android.gms.games.multiplayer.ParticipantEntity: int a(com.google.android.gms.games.multiplayer.Participant)>($r0);
+
+        return $i0;
+    }
+
+    public final boolean isConnectedToRoom()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        boolean z0;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        z0 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: boolean h>;
+
+        return z0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        $r1 = staticinvoke <com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String b(com.google.android.gms.games.multiplayer.Participant)>($r0);
+
+        return $r1;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.games.multiplayer.ParticipantEntity $r0;
+        android.os.Parcel $r1;
+        int $i0, $i2;
+        java.lang.String $r2, $r3;
+        byte $b1, $b3;
+        boolean $z0;
+        android.net.Uri $r4;
+        com.google.android.gms.games.PlayerEntity $r5;
+
+        $r0 := @this: com.google.android.gms.games.multiplayer.ParticipantEntity;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        $r2 = null;
+
+        $b1 = 0;
+
+        $z0 = virtualinvoke $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: boolean c()>();
+
+        if $z0 != 0 goto label01;
+
+        staticinvoke <com.google.android.gms.games.multiplayer.ParticipantEntityCreator: void a(com.google.android.gms.games.multiplayer.ParticipantEntity,android.os.Parcel,int)>($r0, $r1, $i0);
+
+        return;
+
+     label01:
+        $r3 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String b>;
+
+        virtualinvoke $r1.<android.os.Parcel: void writeString(java.lang.String)>($r3);
+
+        $r3 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String c>;
+
+        virtualinvoke $r1.<android.os.Parcel: void writeString(java.lang.String)>($r3);
+
+        $r4 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: android.net.Uri d>;
+
+        if $r4 != null goto label06;
+
+        $r3 = null;
+
+     label02:
+        virtualinvoke $r1.<android.os.Parcel: void writeString(java.lang.String)>($r3);
+
+        $r4 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: android.net.Uri e>;
+
+        if $r4 != null goto label07;
+
+     label03:
+        virtualinvoke $r1.<android.os.Parcel: void writeString(java.lang.String)>($r2);
+
+        $i2 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: int f>;
+
+        virtualinvoke $r1.<android.os.Parcel: void writeInt(int)>($i2);
+
+        $r2 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: java.lang.String g>;
+
+        virtualinvoke $r1.<android.os.Parcel: void writeString(java.lang.String)>($r2);
+
+        $z0 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: boolean h>;
+
+        if $z0 == 0 goto label08;
+
+        $b3 = 1;
+
+     label04:
+        virtualinvoke $r1.<android.os.Parcel: void writeInt(int)>($b3);
+
+        $r5 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        if $r5 != null goto label09;
+
+     label05:
+        virtualinvoke $r1.<android.os.Parcel: void writeInt(int)>($b1);
+
+        $r5 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        if $r5 == null goto label10;
+
+        $r5 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: com.google.android.gms.games.PlayerEntity i>;
+
+        virtualinvoke $r5.<com.google.android.gms.games.PlayerEntity: void writeToParcel(android.os.Parcel,int)>($r1, $i0);
+
+        return;
+
+     label06:
+        $r4 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: android.net.Uri d>;
+
+        $r3 = virtualinvoke $r4.<android.net.Uri: java.lang.String toString()>();
+
+        goto label02;
+
+     label07:
+        $r4 = $r0.<com.google.android.gms.games.multiplayer.ParticipantEntity: android.net.Uri e>;
+
+        $r2 = virtualinvoke $r4.<android.net.Uri: java.lang.String toString()>();
+
+        goto label03;
+
+     label08:
+        $b3 = 0;
+
+        goto label04;
+
+     label09:
+        $b1 = 1;
+
+        goto label05;
+
+     label10:
+        return;
+    }
+}

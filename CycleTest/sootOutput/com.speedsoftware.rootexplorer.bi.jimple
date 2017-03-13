@@ -1,0 +1,806 @@
+public final class com.speedsoftware.rootexplorer.bi extends java.lang.Object implements java.io.Serializable
+{
+    public static int a;
+    private final java.lang.String b;
+    private java.lang.String c;
+    private java.lang.String d;
+    private java.lang.String e;
+    private java.util.ArrayList f;
+    private boolean g;
+    private boolean h;
+    private android.content.Context i;
+    private final java.lang.String j;
+
+    public void <init>(java.lang.String, java.lang.String, java.lang.String, android.content.Context)
+    {
+        com.speedsoftware.rootexplorer.bi $r0;
+        java.lang.String $r1, $r2, $r4, $r8;
+        android.content.Context $r3;
+        android.database.Cursor $r5;
+        java.util.ArrayList $r6;
+        java.io.File $r7;
+        boolean $z0;
+        com.speedsoftware.rootexplorer.ay $r9;
+        android.database.sqlite.SQLiteDatabase $r10;
+        android.database.sqlite.SQLiteException $r11, $r12, $r14;
+        java.lang.StringBuilder $r13;
+        java.lang.Throwable $r15, $r16;
+        com.speedsoftware.rootexplorer.bk $r17;
+        java.lang.Exception $r18, $r19, $r20, $r21;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bi;
+
+        $r4 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r3 := @parameter3: android.content.Context;
+
+        $r5 = null;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.bi: java.lang.String b> = "Database";
+
+        $r6 = new java.util.ArrayList;
+
+        specialinvoke $r6.<java.util.ArrayList: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.bi: java.util.ArrayList f> = $r6;
+
+        $r0.<com.speedsoftware.rootexplorer.bi: boolean g> = 0;
+
+        $r0.<com.speedsoftware.rootexplorer.bi: java.lang.String j> = "unable to open database file (code 14):";
+
+        $r0.<com.speedsoftware.rootexplorer.bi: android.content.Context i> = $r3;
+
+        $r0.<com.speedsoftware.rootexplorer.bi: java.lang.String c> = $r4;
+
+        $r0.<com.speedsoftware.rootexplorer.bi: java.lang.String d> = $r1;
+
+        $r0.<com.speedsoftware.rootexplorer.bi: java.lang.String e> = $r2;
+
+        $r7 = staticinvoke <android.os.Environment: java.io.File getExternalStorageDirectory()>();
+
+        $r8 = virtualinvoke $r7.<java.io.File: java.lang.String getAbsolutePath()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean startsWith(java.lang.String)>($r8);
+
+        if $z0 != 0 goto label26;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r2);
+
+        if $z0 == 0 goto label26;
+
+        $z0 = 1;
+
+     label01:
+        $r0.<com.speedsoftware.rootexplorer.bi: boolean h> = $z0;
+
+     label02:
+        $r9 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.ay aT>;
+
+     label03:
+        if $r9 != null goto label05;
+
+     label04:
+        staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: void b()>();
+
+     label05:
+        $z0 = $r0.<com.speedsoftware.rootexplorer.bi: boolean h>;
+
+     label06:
+        if $z0 != 0 goto label11;
+
+     label07:
+        $r9 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.ay aT>;
+
+        $z0 = virtualinvoke $r9.<com.speedsoftware.rootexplorer.ay: boolean b()>();
+
+     label08:
+        if $z0 != 0 goto label10;
+
+     label09:
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.bi: void b()>();
+
+     label10:
+        $r9 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.ay aT>;
+
+        virtualinvoke $r9.<com.speedsoftware.rootexplorer.ay: boolean a(java.lang.String)>($r1);
+
+     label11:
+        $r10 = null;
+
+     label12:
+        $r10 = staticinvoke <android.database.sqlite.SQLiteDatabase: android.database.sqlite.SQLiteDatabase openDatabase(java.lang.String,android.database.sqlite.SQLiteDatabase$CursorFactory,int)>($r4, null, 17);
+
+     label13:
+        $z0 = 0;
+
+     label14:
+        if $z0 != 0 goto label12;
+
+     label15:
+        $r5 = virtualinvoke $r10.<android.database.sqlite.SQLiteDatabase: android.database.Cursor query(java.lang.String,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,java.lang.String,java.lang.String)>("sqlite_master", null, "type in(\'table\',\'view\')", null, null, null, "name");
+
+     label16:
+        interfaceinvoke $r5.<android.database.Cursor: boolean moveToFirst()>();
+
+     label17:
+        $z0 = interfaceinvoke $r5.<android.database.Cursor: boolean isAfterLast()>();
+
+     label18:
+        if $z0 == 0 goto label58;
+
+     label19:
+        interfaceinvoke $r5.<android.database.Cursor: boolean moveToFirst()>();
+
+     label20:
+        $z0 = interfaceinvoke $r5.<android.database.Cursor: boolean isAfterLast()>();
+
+     label21:
+        if $z0 == 0 goto label64;
+
+        if $r5 == null goto label23;
+
+        $z0 = interfaceinvoke $r5.<android.database.Cursor: boolean isClosed()>();
+
+        if $z0 != 0 goto label23;
+
+     label22:
+        interfaceinvoke $r5.<android.database.Cursor: void close()>();
+
+     label23:
+        if $r10 == null goto label25;
+
+        $z0 = virtualinvoke $r10.<android.database.sqlite.SQLiteDatabase: boolean isOpen()>();
+
+        if $z0 == 0 goto label25;
+
+     label24:
+        virtualinvoke $r10.<android.database.sqlite.SQLiteDatabase: void close()>();
+
+     label25:
+        $z0 = $r0.<com.speedsoftware.rootexplorer.bi: boolean h>;
+
+        if $z0 != 0 goto label71;
+
+        $r9 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.ay aT>;
+
+        virtualinvoke $r9.<com.speedsoftware.rootexplorer.ay: boolean a(java.lang.String)>($r2);
+
+        return;
+
+     label26:
+        $z0 = 0;
+
+        goto label01;
+
+     label27:
+        $r11 := @caughtexception;
+
+     label28:
+        $r9 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.ay aT>;
+
+        $z0 = virtualinvoke $r9.<com.speedsoftware.rootexplorer.ay: boolean b()>();
+
+     label29:
+        if $z0 != 0 goto label34;
+
+     label30:
+        $r1 = virtualinvoke $r11.<android.database.sqlite.SQLiteException: java.lang.String getMessage()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean contains(java.lang.CharSequence)>("code 14");
+
+     label31:
+        if $z0 == 0 goto label34;
+
+     label32:
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.bi: void b()>();
+
+     label33:
+        $z0 = 1;
+
+        goto label14;
+
+     label34:
+        $r10 = staticinvoke <android.database.sqlite.SQLiteDatabase: android.database.sqlite.SQLiteDatabase openDatabase(java.lang.String,android.database.sqlite.SQLiteDatabase$CursorFactory,int)>($r4, null, 16);
+
+     label35:
+        $z0 = 0;
+
+        goto label14;
+
+     label36:
+        $r12 := @caughtexception;
+
+     label37:
+        $r1 = virtualinvoke $r12.<android.database.sqlite.SQLiteException: java.lang.String getMessage()>();
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("unable to open database file (code 14):");
+
+     label38:
+        if $z0 == 0 goto label57;
+
+     label39:
+        $r7 = new java.io.File;
+
+     label40:
+        specialinvoke $r7.<java.io.File: void <init>(java.lang.String)>($r4);
+
+        $r1 = virtualinvoke $r7.<java.io.File: java.lang.String getParent()>();
+
+     label41:
+        if $r1 == null goto label43;
+
+     label42:
+        $r4 = virtualinvoke $r7.<java.io.File: java.lang.String getParent()>();
+
+     label43:
+        $r13 = new java.lang.StringBuilder;
+
+     label44:
+        specialinvoke $r13.<java.lang.StringBuilder: void <init>(java.lang.String)>("restorecon -R -v \"");
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        $r4 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label45:
+        $r9 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.ay aT>;
+
+     label46:
+        virtualinvoke $r9.<com.speedsoftware.rootexplorer.ay: com.speedsoftware.rootexplorer.ba b(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r10.<android.database.sqlite.SQLiteDatabase: android.database.Cursor query(java.lang.String,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,java.lang.String,java.lang.String)>("sqlite_master", null, "type in(\'table\',\'view\')", null, null, null, "name");
+
+     label47:
+        goto label16;
+
+     label48:
+        $r14 := @caughtexception;
+
+     label49:
+        throw $r14;
+
+     label50:
+        $r15 := @caughtexception;
+
+        $r16 = $r15;
+
+     label51:
+        if $r5 == null goto label53;
+
+        $z0 = interfaceinvoke $r5.<android.database.Cursor: boolean isClosed()>();
+
+        if $z0 != 0 goto label53;
+
+     label52:
+        interfaceinvoke $r5.<android.database.Cursor: void close()>();
+
+     label53:
+        if $r10 == null goto label55;
+
+        $z0 = virtualinvoke $r10.<android.database.sqlite.SQLiteDatabase: boolean isOpen()>();
+
+        if $z0 == 0 goto label55;
+
+     label54:
+        virtualinvoke $r10.<android.database.sqlite.SQLiteDatabase: void close()>();
+
+     label55:
+        $z0 = $r0.<com.speedsoftware.rootexplorer.bi: boolean h>;
+
+        if $z0 != 0 goto label56;
+
+        $r9 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.ay aT>;
+
+        virtualinvoke $r9.<com.speedsoftware.rootexplorer.ay: boolean a(java.lang.String)>($r2);
+
+     label56:
+        throw $r16;
+
+     label57:
+        throw $r12;
+
+     label58:
+        $r4 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>(1);
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>("android_metadata");
+
+     label59:
+        if $z0 == 0 goto label62;
+
+     label60:
+        $r0.<com.speedsoftware.rootexplorer.bi: boolean g> = 1;
+
+     label61:
+        goto label19;
+
+     label62:
+        interfaceinvoke $r5.<android.database.Cursor: boolean moveToNext()>();
+
+     label63:
+        goto label17;
+
+     label64:
+        $r6 = $r0.<com.speedsoftware.rootexplorer.bi: java.util.ArrayList f>;
+
+        $r17 = new com.speedsoftware.rootexplorer.bk;
+
+        $r4 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>(1);
+
+        $r1 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>(4);
+
+        $r8 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>(0);
+
+        specialinvoke $r17.<com.speedsoftware.rootexplorer.bk: void <init>(com.speedsoftware.rootexplorer.bi,java.lang.String,java.lang.String,java.lang.String)>($r0, $r4, $r1, $r8);
+
+        virtualinvoke $r6.<java.util.ArrayList: boolean add(java.lang.Object)>($r17);
+
+        interfaceinvoke $r5.<android.database.Cursor: boolean moveToNext()>();
+
+     label65:
+        goto label20;
+
+     label66:
+        $r18 := @caughtexception;
+
+        goto label53;
+
+     label67:
+        $r19 := @caughtexception;
+
+        goto label55;
+
+     label68:
+        $r20 := @caughtexception;
+
+        goto label23;
+
+     label69:
+        $r21 := @caughtexception;
+
+        goto label25;
+
+     label70:
+        $r16 := @caughtexception;
+
+        $r10 = null;
+
+        goto label51;
+
+     label71:
+        return;
+
+        catch java.lang.Throwable from label02 to label03 with label70;
+        catch java.lang.Throwable from label04 to label06 with label70;
+        catch java.lang.Throwable from label07 to label08 with label70;
+        catch java.lang.Throwable from label09 to label11 with label70;
+        catch android.database.sqlite.SQLiteException from label12 to label13 with label27;
+        catch java.lang.Throwable from label12 to label13 with label50;
+        catch android.database.sqlite.SQLiteException from label15 to label16 with label36;
+        catch java.lang.Throwable from label15 to label16 with label50;
+        catch java.lang.Throwable from label16 to label18 with label50;
+        catch java.lang.Throwable from label19 to label21 with label50;
+        catch java.lang.Exception from label22 to label23 with label68;
+        catch java.lang.Exception from label24 to label25 with label69;
+        catch java.lang.Throwable from label28 to label29 with label50;
+        catch java.lang.Throwable from label30 to label31 with label50;
+        catch java.lang.Throwable from label32 to label33 with label50;
+        catch java.lang.Throwable from label34 to label35 with label50;
+        catch java.lang.Throwable from label37 to label38 with label50;
+        catch android.database.sqlite.SQLiteException from label40 to label41 with label48;
+        catch android.database.sqlite.SQLiteException from label42 to label43 with label48;
+        catch android.database.sqlite.SQLiteException from label44 to label45 with label48;
+        catch android.database.sqlite.SQLiteException from label46 to label47 with label48;
+        catch java.lang.Throwable from label39 to label41 with label50;
+        catch java.lang.Throwable from label42 to label43 with label50;
+        catch java.lang.Throwable from label43 to label47 with label50;
+        catch java.lang.Throwable from label49 to label50 with label50;
+        catch java.lang.Exception from label52 to label53 with label66;
+        catch java.lang.Exception from label54 to label55 with label67;
+        catch java.lang.Throwable from label57 to label59 with label50;
+        catch java.lang.Throwable from label60 to label61 with label50;
+        catch java.lang.Throwable from label62 to label63 with label50;
+        catch java.lang.Throwable from label64 to label65 with label50;
+    }
+
+    static boolean a(com.speedsoftware.rootexplorer.bi)
+    {
+        com.speedsoftware.rootexplorer.bi $r0;
+        boolean z0;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.bi;
+
+        z0 = $r0.<com.speedsoftware.rootexplorer.bi: boolean g>;
+
+        return z0;
+    }
+
+    static java.lang.String b(com.speedsoftware.rootexplorer.bi)
+    {
+        com.speedsoftware.rootexplorer.bi $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.bi;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.bi: java.lang.String c>;
+
+        return r1;
+    }
+
+    private void b()
+    {
+        com.speedsoftware.rootexplorer.bi $r0;
+        boolean $z0;
+        java.lang.String $r1, $r3;
+        android.content.Context $r2;
+        byte[] $r4;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bi;
+
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z0 == 0 goto label2;
+
+        $r1 = new java.lang.String;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bi: android.content.Context i>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bi: android.content.Context i>;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r3);
+
+     label1:
+        $r4 = newarray (byte)[43];
+
+        $r4[0] = 86;
+
+        $r4[1] = 105;
+
+        $r4[2] = 101;
+
+        $r4[3] = 119;
+
+        $r4[4] = 68;
+
+        $r4[5] = 97;
+
+        $r4[6] = 116;
+
+        $r4[7] = 97;
+
+        $r4[8] = 98;
+
+        $r4[9] = 97;
+
+        $r4[10] = 115;
+
+        $r4[11] = 101;
+
+        $r4[12] = 46;
+
+        $r4[13] = 65;
+
+        $r4[14] = 116;
+
+        $r4[15] = 116;
+
+        $r4[16] = 101;
+
+        $r4[17] = 109;
+
+        $r4[18] = 112;
+
+        $r4[19] = 116;
+
+        $r4[20] = 84;
+
+        $r4[21] = 111;
+
+        $r4[22] = 71;
+
+        $r4[23] = 97;
+
+        $r4[24] = 105;
+
+        $r4[25] = 110;
+
+        $r4[26] = 82;
+
+        $r4[27] = 111;
+
+        $r4[28] = 111;
+
+        $r4[29] = 116;
+
+        $r4[30] = 65;
+
+        $r4[31] = 99;
+
+        $r4[32] = 99;
+
+        $r4[33] = 101;
+
+        $r4[34] = 115;
+
+        $r4[35] = 115;
+
+        $r4[36] = 58;
+
+        $r4[37] = 32;
+
+        $r4[38] = 83;
+
+        $r4[39] = 116;
+
+        $r4[40] = 97;
+
+        $r4[41] = 114;
+
+        $r4[42] = 116;
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r4);
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r1);
+
+     label2:
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z0 == 0 goto label4;
+
+        $r1 = new java.lang.String;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bi: android.content.Context i>;
+
+        if $r2 == null goto label3;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bi: android.content.Context i>;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r3);
+
+     label3:
+        $r4 = newarray (byte)[44];
+
+        $r4[0] = 86;
+
+        $r4[1] = 105;
+
+        $r4[2] = 101;
+
+        $r4[3] = 119;
+
+        $r4[4] = 68;
+
+        $r4[5] = 97;
+
+        $r4[6] = 116;
+
+        $r4[7] = 97;
+
+        $r4[8] = 98;
+
+        $r4[9] = 97;
+
+        $r4[10] = 115;
+
+        $r4[11] = 101;
+
+        $r4[12] = 46;
+
+        $r4[13] = 65;
+
+        $r4[14] = 116;
+
+        $r4[15] = 116;
+
+        $r4[16] = 101;
+
+        $r4[17] = 109;
+
+        $r4[18] = 112;
+
+        $r4[19] = 116;
+
+        $r4[20] = 84;
+
+        $r4[21] = 111;
+
+        $r4[22] = 71;
+
+        $r4[23] = 97;
+
+        $r4[24] = 105;
+
+        $r4[25] = 110;
+
+        $r4[26] = 82;
+
+        $r4[27] = 111;
+
+        $r4[28] = 111;
+
+        $r4[29] = 116;
+
+        $r4[30] = 65;
+
+        $r4[31] = 99;
+
+        $r4[32] = 99;
+
+        $r4[33] = 101;
+
+        $r4[34] = 115;
+
+        $r4[35] = 115;
+
+        $r4[36] = 58;
+
+        $r4[37] = 32;
+
+        $r4[38] = 70;
+
+        $r4[39] = 105;
+
+        $r4[40] = 110;
+
+        $r4[41] = 105;
+
+        $r4[42] = 115;
+
+        $r4[43] = 104;
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r4);
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r1);
+
+     label4:
+        return;
+    }
+
+    static boolean c(com.speedsoftware.rootexplorer.bi)
+    {
+        com.speedsoftware.rootexplorer.bi $r0;
+        boolean z0;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.bi;
+
+        z0 = $r0.<com.speedsoftware.rootexplorer.bi: boolean h>;
+
+        return z0;
+    }
+
+    static java.lang.String d(com.speedsoftware.rootexplorer.bi)
+    {
+        com.speedsoftware.rootexplorer.bi $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.bi;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.bi: java.lang.String e>;
+
+        return r1;
+    }
+
+    static java.lang.String e(com.speedsoftware.rootexplorer.bi)
+    {
+        com.speedsoftware.rootexplorer.bi $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.bi;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.bi: java.lang.String d>;
+
+        return r1;
+    }
+
+    public final com.speedsoftware.rootexplorer.bk a(java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.bi $r0;
+        java.lang.String $r1, $r6;
+        java.util.ArrayList $r2;
+        java.util.Iterator $r3;
+        boolean $z0;
+        java.lang.Object $r4;
+        com.speedsoftware.rootexplorer.bk $r5;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bi;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bi: java.util.ArrayList f>;
+
+        $r3 = virtualinvoke $r2.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label2;
+
+        return null;
+
+     label2:
+        $r4 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (com.speedsoftware.rootexplorer.bk) $r4;
+
+        $r6 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bk: java.lang.String d()>();
+
+        $i0 = virtualinvoke $r6.<java.lang.String: int compareTo(java.lang.String)>($r1);
+
+        if $i0 != 0 goto label1;
+
+        return $r5;
+    }
+
+    public final java.util.ArrayList a()
+    {
+        com.speedsoftware.rootexplorer.bi $r0;
+        java.util.ArrayList r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bi;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.bi: java.util.ArrayList f>;
+
+        return r1;
+    }
+
+    public final int b(java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.bi $r0;
+        java.lang.String $r1, $r5;
+        int $i0, $i1;
+        java.util.ArrayList $r2;
+        java.lang.Object $r3;
+        com.speedsoftware.rootexplorer.bk $r4;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bi;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 = 0;
+
+     label1:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bi: java.util.ArrayList f>;
+
+        $i1 = virtualinvoke $r2.<java.util.ArrayList: int size()>();
+
+        if $i0 < $i1 goto label2;
+
+        return -1;
+
+     label2:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bi: java.util.ArrayList f>;
+
+        $r3 = virtualinvoke $r2.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r4 = (com.speedsoftware.rootexplorer.bk) $r3;
+
+        $r5 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.bk: java.lang.String d()>();
+
+        $i1 = virtualinvoke $r5.<java.lang.String: int compareTo(java.lang.String)>($r1);
+
+        if $i1 == 0 goto label3;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label3:
+        return $i0;
+    }
+}

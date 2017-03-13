@@ -1,0 +1,108 @@
+final class com.speedsoftware.rootexplorer.iu extends java.lang.Object implements java.lang.Runnable
+{
+    final com.speedsoftware.rootexplorer.ge a;
+
+    void <init>(com.speedsoftware.rootexplorer.ge)
+    {
+        com.speedsoftware.rootexplorer.iu $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.iu;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r0.<com.speedsoftware.rootexplorer.iu: com.speedsoftware.rootexplorer.ge a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.iu $r0;
+        com.speedsoftware.rootexplorer.lf $r1, $r2;
+        com.speedsoftware.rootexplorer.ge $r3;
+        java.lang.String $r4, $r6;
+        com.speedsoftware.rootexplorer.bn $r5;
+        boolean $z0;
+        android.app.Activity $r7;
+        int $i0;
+        byte[] $r8;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.iu;
+
+        $r1 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.lf aR>;
+
+        $r2 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf a>;
+
+        if $r1 == $r2 goto label1;
+
+        $r1 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.lf aR>;
+
+        $r2 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf b>;
+
+        if $r1 == $r2 goto label1;
+
+        $r1 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.lf aR>;
+
+        $r2 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf e>;
+
+        if $r1 != $r2 goto label5;
+
+     label1:
+        $r3 = $r0.<com.speedsoftware.rootexplorer.iu: com.speedsoftware.rootexplorer.ge a>;
+
+        $r4 = $r3.<com.speedsoftware.rootexplorer.ge: java.lang.String aM>;
+
+        $r5 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.bn aC>;
+
+        $r6 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: java.lang.String ae()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean startsWith(java.lang.String)>($r6);
+
+        if $z0 == 0 goto label4;
+
+        $r4 = new java.lang.String;
+
+        $r7 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        if $r7 != null goto label3;
+
+        $i0 = 0;
+
+     label2:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cB(int)>($i0);
+
+        specialinvoke $r4.<java.lang.String: void <init>(byte[])>($r8);
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void t(java.lang.String)>($r4);
+
+        return;
+
+     label3:
+        $r7 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r6 = virtualinvoke $r7.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+        goto label2;
+
+     label4:
+        $r3 = $r0.<com.speedsoftware.rootexplorer.iu: com.speedsoftware.rootexplorer.ge a>;
+
+        $r5 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.bn aC>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void g(com.speedsoftware.rootexplorer.ge,com.speedsoftware.rootexplorer.bn)>($r3, $r5);
+
+        return;
+
+     label5:
+        $r3 = $r0.<com.speedsoftware.rootexplorer.iu: com.speedsoftware.rootexplorer.ge a>;
+
+        virtualinvoke $r3.<com.speedsoftware.rootexplorer.ge: void E()>();
+
+        return;
+    }
+}

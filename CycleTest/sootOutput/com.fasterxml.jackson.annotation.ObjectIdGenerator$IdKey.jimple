@@ -1,0 +1,124 @@
+public final class com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey extends java.lang.Object
+{
+    private final int hashCode;
+    private final java.lang.Object key;
+    private final java.lang.Class scope;
+    private final java.lang.Class type;
+
+    public void <init>(java.lang.Class, java.lang.Class, java.lang.Object)
+    {
+        com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey $r0;
+        java.lang.Class $r1, $r2;
+        java.lang.Object $r3;
+        int $i0, $i1;
+        java.lang.String $r4;
+
+        $r0 := @this: com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r3 := @parameter2: java.lang.Object;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey: java.lang.Class type> = $r1;
+
+        $r0.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey: java.lang.Class scope> = $r2;
+
+        $r0.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey: java.lang.Object key> = $r3;
+
+        $i0 = virtualinvoke $r3.<java.lang.Object: int hashCode()>();
+
+        $r4 = virtualinvoke $r1.<java.lang.Class: java.lang.String getName()>();
+
+        $i1 = virtualinvoke $r4.<java.lang.String: int hashCode()>();
+
+        $i0 = $i0 + $i1;
+
+        if $r2 == null goto label1;
+
+        $r4 = virtualinvoke $r2.<java.lang.Class: java.lang.String getName()>();
+
+        $i1 = virtualinvoke $r4.<java.lang.String: int hashCode()>();
+
+        $i0 = $i0 ^ $i1;
+
+     label1:
+        $r0.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey: int hashCode> = $i0;
+
+        return;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey $r0, $r4;
+        java.lang.Object $r1, $r5;
+        java.lang.Class $r2, $r3;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r1 != $r0 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 != null goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r2 == $r3 goto label3;
+
+        return 0;
+
+     label3:
+        $r4 = (com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey) $r1;
+
+        $r1 = $r4.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey: java.lang.Object key>;
+
+        $r5 = $r0.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey: java.lang.Object key>;
+
+        $z0 = virtualinvoke $r1.<java.lang.Object: boolean equals(java.lang.Object)>($r5);
+
+        if $z0 == 0 goto label4;
+
+        $r2 = $r4.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey: java.lang.Class type>;
+
+        $r3 = $r0.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey: java.lang.Class type>;
+
+        if $r2 != $r3 goto label4;
+
+        $r2 = $r4.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey: java.lang.Class scope>;
+
+        $r3 = $r0.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey: java.lang.Class scope>;
+
+        if $r2 == $r3 goto label5;
+
+     label4:
+        return 0;
+
+     label5:
+        return 1;
+    }
+
+    public final int hashCode()
+    {
+        com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey $r0;
+        int i0;
+
+        $r0 := @this: com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey;
+
+        i0 = $r0.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey: int hashCode>;
+
+        return i0;
+    }
+}

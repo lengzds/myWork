@@ -1,0 +1,98 @@
+final class a.d.ci extends a.d.at
+{
+    int S;
+    private a.d.bj T;
+    private int U;
+    int a;
+
+    void <init>(a.d.bj)
+    {
+        a.d.ci $r0;
+        a.d.bj $r1;
+
+        $r0 := @this: a.d.ci;
+
+        $r1 := @parameter0: a.d.bj;
+
+        specialinvoke $r0.<a.d.at: void <init>()>();
+
+        $r0.<a.d.ci: a.d.bj T> = $r1;
+
+        return;
+    }
+
+    final int a(byte[], int)
+    {
+        a.d.ci $r0;
+        byte[] $r1;
+        int $i0, $i1;
+
+        $r0 := @this: a.d.ci;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = staticinvoke <a.d.ci: int d(byte[],int)>($r1, $i0);
+
+        $r0.<a.d.ci: int S> = $i1;
+
+        $i0 = $i0 + 2;
+
+        $i1 = staticinvoke <a.d.ci: int d(byte[],int)>($r1, $i0);
+
+        $r0.<a.d.ci: int U> = $i1;
+
+        $i0 = $i0 + 2;
+
+        $i0 = staticinvoke <a.d.ci: int d(byte[],int)>($r1, $i0);
+
+        $r0.<a.d.ci: int a> = $i0;
+
+        return 6;
+    }
+
+    final int a(byte[], int, int)
+    {
+        a.d.ci $r0;
+        byte[] $r1;
+        int $i0, $i1;
+
+        $r0 := @this: a.d.ci;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        return 0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.ci $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+
+        $r0 := @this: a.d.ci;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("TransPeekNamedPipeResponse[");
+
+        $r3 = specialinvoke $r0.<a.d.at: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

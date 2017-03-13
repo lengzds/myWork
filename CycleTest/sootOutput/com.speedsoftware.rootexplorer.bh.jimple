@@ -1,0 +1,180 @@
+final class com.speedsoftware.rootexplorer.bh extends android.view.ScaleGestureDetector$SimpleOnScaleGestureListener
+{
+    final com.speedsoftware.rootexplorer.DataGrid a;
+
+    private void <init>(com.speedsoftware.rootexplorer.DataGrid)
+    {
+        com.speedsoftware.rootexplorer.bh $r0;
+        com.speedsoftware.rootexplorer.DataGrid $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bh;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.DataGrid;
+
+        $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a> = $r1;
+
+        specialinvoke $r0.<android.view.ScaleGestureDetector$SimpleOnScaleGestureListener: void <init>()>();
+
+        return;
+    }
+
+    void <init>(com.speedsoftware.rootexplorer.DataGrid, byte)
+    {
+        com.speedsoftware.rootexplorer.bh $r0;
+        com.speedsoftware.rootexplorer.DataGrid $r1;
+        byte $b0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bh;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.DataGrid;
+
+        $b0 := @parameter1: byte;
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.bh: void <init>(com.speedsoftware.rootexplorer.DataGrid)>($r1);
+
+        return;
+    }
+
+    public final boolean onScale(android.view.ScaleGestureDetector)
+    {
+        com.speedsoftware.rootexplorer.bh $r0;
+        android.view.ScaleGestureDetector $r1;
+        float $f0, $f1, $f2;
+        com.speedsoftware.rootexplorer.DataGrid $r2, $r3;
+        byte $b0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bh;
+
+        $r1 := @parameter0: android.view.ScaleGestureDetector;
+
+        $f0 = 2.0F;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.DataGrid: void p(com.speedsoftware.rootexplorer.DataGrid)>($r2);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $f1 = staticinvoke <com.speedsoftware.rootexplorer.DataGrid: float q(com.speedsoftware.rootexplorer.DataGrid)>($r2);
+
+        $f2 = virtualinvoke $r1.<android.view.ScaleGestureDetector: float getScaleFactor()>();
+
+        $f1 = $f1 * $f2;
+
+        $b0 = $f1 cmpl 2.0F;
+
+        if $b0 <= 0 goto label5;
+
+     label1:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $f1 = staticinvoke <com.speedsoftware.rootexplorer.DataGrid: float q(com.speedsoftware.rootexplorer.DataGrid)>($r2);
+
+        $b0 = $f0 cmpl $f1;
+
+        if $b0 == 0 goto label4;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.DataGrid: void c(com.speedsoftware.rootexplorer.DataGrid,float)>($r2, $f0);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.DataGrid: void r(com.speedsoftware.rootexplorer.DataGrid)>($r2);
+
+        $f0 = virtualinvoke $r1.<android.view.ScaleGestureDetector: float getFocusX()>();
+
+        $f1 = virtualinvoke $r1.<android.view.ScaleGestureDetector: float getFocusX()>();
+
+        $f2 = virtualinvoke $r1.<android.view.ScaleGestureDetector: float getScaleFactor()>();
+
+        $f1 = $f1 / $f2;
+
+        $f0 = $f0 - $f1;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $f1 = staticinvoke <com.speedsoftware.rootexplorer.DataGrid: float s(com.speedsoftware.rootexplorer.DataGrid)>($r3);
+
+        $f2 = virtualinvoke $r1.<android.view.ScaleGestureDetector: float getScaleFactor()>();
+
+        $f1 = $f1 * $f2;
+
+        $f0 = $f0 + $f1;
+
+        staticinvoke <com.speedsoftware.rootexplorer.DataGrid: void a(com.speedsoftware.rootexplorer.DataGrid,float)>($r2, $f0);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $f0 = staticinvoke <com.speedsoftware.rootexplorer.DataGrid: float s(com.speedsoftware.rootexplorer.DataGrid)>($r2);
+
+        $b0 = $f0 cmpg 0.0F;
+
+        if $b0 >= 0 goto label2;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.DataGrid: void a(com.speedsoftware.rootexplorer.DataGrid,float)>($r2, 0.0F);
+
+     label2:
+        $f0 = virtualinvoke $r1.<android.view.ScaleGestureDetector: float getFocusY()>();
+
+        $f1 = virtualinvoke $r1.<android.view.ScaleGestureDetector: float getFocusY()>();
+
+        $f2 = virtualinvoke $r1.<android.view.ScaleGestureDetector: float getScaleFactor()>();
+
+        $f1 = $f1 / $f2;
+
+        $f0 = $f0 - $f1;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $f1 = staticinvoke <com.speedsoftware.rootexplorer.DataGrid: float t(com.speedsoftware.rootexplorer.DataGrid)>($r3);
+
+        $f2 = virtualinvoke $r1.<android.view.ScaleGestureDetector: float getScaleFactor()>();
+
+        $f1 = $f1 * $f2;
+
+        $f0 = $f0 + $f1;
+
+        staticinvoke <com.speedsoftware.rootexplorer.DataGrid: void b(com.speedsoftware.rootexplorer.DataGrid,float)>($r2, $f0);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $f0 = staticinvoke <com.speedsoftware.rootexplorer.DataGrid: float t(com.speedsoftware.rootexplorer.DataGrid)>($r2);
+
+        $b0 = $f0 cmpg 0.0F;
+
+        if $b0 >= 0 goto label3;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.DataGrid: void b(com.speedsoftware.rootexplorer.DataGrid,float)>($r2, 0.0F);
+
+     label3:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bh: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        virtualinvoke $r2.<com.speedsoftware.rootexplorer.DataGrid: void invalidate()>();
+
+     label4:
+        return 1;
+
+     label5:
+        $b0 = $f1 cmpg 0.5F;
+
+        if $b0 >= 0 goto label6;
+
+        $f0 = 0.5F;
+
+        goto label1;
+
+     label6:
+        $f0 = $f1;
+
+        goto label1;
+    }
+}

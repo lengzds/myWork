@@ -1,0 +1,58 @@
+class com.google.android.gms.internal.y extends java.lang.Object implements com.google.android.gms.internal.aa
+{
+    private com.google.android.gms.internal.ey a;
+
+    public void <init>(com.google.android.gms.internal.ey)
+    {
+        com.google.android.gms.internal.y $r0;
+        com.google.android.gms.internal.ey $r1;
+
+        $r0 := @this: com.google.android.gms.internal.y;
+
+        $r1 := @parameter0: com.google.android.gms.internal.ey;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.internal.y: com.google.android.gms.internal.ey a> = $r1;
+
+        return;
+    }
+
+    public void a(com.google.android.gms.internal.ad, boolean)
+    {
+        com.google.android.gms.internal.y $r0;
+        com.google.android.gms.internal.ad $r1;
+        boolean $z0;
+        java.util.HashMap $r2;
+        java.lang.String $r3;
+        com.google.android.gms.internal.ey $r4;
+
+        $r0 := @this: com.google.android.gms.internal.y;
+
+        $r1 := @parameter0: com.google.android.gms.internal.ad;
+
+        $z0 := @parameter1: boolean;
+
+        $r2 = new java.util.HashMap;
+
+        specialinvoke $r2.<java.util.HashMap: void <init>()>();
+
+        if $z0 == 0 goto label2;
+
+        $r3 = "1";
+
+     label1:
+        interfaceinvoke $r2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("isVisible", $r3);
+
+        $r4 = $r0.<com.google.android.gms.internal.y: com.google.android.gms.internal.ey a>;
+
+        virtualinvoke $r4.<com.google.android.gms.internal.ey: void a(java.lang.String,java.util.Map)>("onAdVisibilityChanged", $r2);
+
+        return;
+
+     label2:
+        $r3 = "0";
+
+        goto label1;
+    }
+}

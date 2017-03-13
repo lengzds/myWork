@@ -1,0 +1,356 @@
+class com.google.android.gms.tagmanager.dg extends java.lang.Number implements java.lang.Comparable
+{
+    private double a;
+    private long b;
+    private boolean c;
+
+    private void <init>(long)
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        long $l0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $l0 := @parameter0: long;
+
+        specialinvoke $r0.<java.lang.Number: void <init>()>();
+
+        $r0.<com.google.android.gms.tagmanager.dg: long b> = $l0;
+
+        $r0.<com.google.android.gms.tagmanager.dg: boolean c> = 1;
+
+        return;
+    }
+
+    public static com.google.android.gms.tagmanager.dg z(long)
+    {
+        long $l0;
+        com.google.android.gms.tagmanager.dg $r0;
+
+        $l0 := @parameter0: long;
+
+        $r0 = new com.google.android.gms.tagmanager.dg;
+
+        specialinvoke $r0.<com.google.android.gms.tagmanager.dg: void <init>(long)>($l0);
+
+        return $r0;
+    }
+
+    public int a(com.google.android.gms.tagmanager.dg)
+    {
+        com.google.android.gms.tagmanager.dg $r0, $r1;
+        boolean $z0;
+        java.lang.Long $r2, $r3;
+        long $l0;
+        int $i1;
+        double $d0, $d1;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $r1 := @parameter0: com.google.android.gms.tagmanager.dg;
+
+        $z0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: boolean mO()>();
+
+        if $z0 == 0 goto label1;
+
+        $z0 = virtualinvoke $r1.<com.google.android.gms.tagmanager.dg: boolean mO()>();
+
+        if $z0 == 0 goto label1;
+
+        $r2 = new java.lang.Long;
+
+        $l0 = $r0.<com.google.android.gms.tagmanager.dg: long b>;
+
+        specialinvoke $r2.<java.lang.Long: void <init>(long)>($l0);
+
+        $l0 = $r1.<com.google.android.gms.tagmanager.dg: long b>;
+
+        $r3 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l0);
+
+        $i1 = virtualinvoke $r2.<java.lang.Long: int compareTo(java.lang.Long)>($r3);
+
+        return $i1;
+
+     label1:
+        $d0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: double doubleValue()>();
+
+        $d1 = virtualinvoke $r1.<com.google.android.gms.tagmanager.dg: double doubleValue()>();
+
+        $i1 = staticinvoke <java.lang.Double: int compare(double,double)>($d0, $d1);
+
+        return $i1;
+    }
+
+    public byte byteValue()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        long $l0;
+        int $i1;
+        byte $b2;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $l0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: long longValue()>();
+
+        $i1 = (int) $l0;
+
+        $b2 = (byte) $i1;
+
+        return $b2;
+    }
+
+    public int compareTo(java.lang.Object)
+    {
+        com.google.android.gms.tagmanager.dg $r0, $r2;
+        int $i0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (com.google.android.gms.tagmanager.dg) $r1;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: int a(com.google.android.gms.tagmanager.dg)>($r2);
+
+        return $i0;
+    }
+
+    public double doubleValue()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        boolean $z0;
+        long $l0;
+        double $d0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $z0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: boolean mO()>();
+
+        if $z0 == 0 goto label1;
+
+        $l0 = $r0.<com.google.android.gms.tagmanager.dg: long b>;
+
+        $d0 = (double) $l0;
+
+        return $d0;
+
+     label1:
+        $d0 = $r0.<com.google.android.gms.tagmanager.dg: double a>;
+
+        return $d0;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.tagmanager.dg $r0, $r2;
+        int $i0;
+        java.lang.Object $r1;
+        boolean $z0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $z0 = $r1 instanceof com.google.android.gms.tagmanager.dg;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = (com.google.android.gms.tagmanager.dg) $r1;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: int a(com.google.android.gms.tagmanager.dg)>($r2);
+
+        if $i0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public float floatValue()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        double $d0;
+        float $f0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $d0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: double doubleValue()>();
+
+        $f0 = (float) $d0;
+
+        return $f0;
+    }
+
+    public int hashCode()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        java.lang.Long $r1;
+        long $l0;
+        int $i1;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $r1 = new java.lang.Long;
+
+        $l0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: long longValue()>();
+
+        specialinvoke $r1.<java.lang.Long: void <init>(long)>($l0);
+
+        $i1 = virtualinvoke $r1.<java.lang.Long: int hashCode()>();
+
+        return $i1;
+    }
+
+    public int intValue()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: int mQ()>();
+
+        return $i0;
+    }
+
+    public long longValue()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        long $l0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $l0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: long mP()>();
+
+        return $l0;
+    }
+
+    public boolean mN()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        boolean $z0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $z0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: boolean mO()>();
+
+        if $z0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean mO()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        boolean z0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        z0 = $r0.<com.google.android.gms.tagmanager.dg: boolean c>;
+
+        return z0;
+    }
+
+    public long mP()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        boolean $z0;
+        double $d0;
+        long $l0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $z0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: boolean mO()>();
+
+        if $z0 == 0 goto label1;
+
+        $l0 = $r0.<com.google.android.gms.tagmanager.dg: long b>;
+
+        return $l0;
+
+     label1:
+        $d0 = $r0.<com.google.android.gms.tagmanager.dg: double a>;
+
+        $l0 = (long) $d0;
+
+        return $l0;
+    }
+
+    public int mQ()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        long $l0;
+        int $i1;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $l0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: long longValue()>();
+
+        $i1 = (int) $l0;
+
+        return $i1;
+    }
+
+    public short mR()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        long $l0;
+        int $i1;
+        short $s2;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $l0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: long longValue()>();
+
+        $i1 = (int) $l0;
+
+        $s2 = (short) $i1;
+
+        return $s2;
+    }
+
+    public short shortValue()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        short $s0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $s0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: short mR()>();
+
+        return $s0;
+    }
+
+    public java.lang.String toString()
+    {
+        com.google.android.gms.tagmanager.dg $r0;
+        boolean $z0;
+        long $l0;
+        java.lang.String $r1;
+        double $d0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.dg;
+
+        $z0 = virtualinvoke $r0.<com.google.android.gms.tagmanager.dg: boolean mO()>();
+
+        if $z0 == 0 goto label1;
+
+        $l0 = $r0.<com.google.android.gms.tagmanager.dg: long b>;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.String toString(long)>($l0);
+
+        return $r1;
+
+     label1:
+        $d0 = $r0.<com.google.android.gms.tagmanager.dg: double a>;
+
+        $r1 = staticinvoke <java.lang.Double: java.lang.String toString(double)>($d0);
+
+        return $r1;
+    }
+}

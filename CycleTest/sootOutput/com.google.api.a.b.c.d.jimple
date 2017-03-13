@@ -1,0 +1,194 @@
+class com.google.api.a.b.c.d extends java.lang.Object implements com.google.api.a.c.ac, com.google.api.a.c.r
+{
+    static final java.util.logging.Logger a;
+    private final com.google.api.a.b.c.a b;
+    private final com.google.api.a.c.r c;
+    private final com.google.api.a.c.ac d;
+
+    static void <clinit>()
+    {
+        java.lang.Class $r0;
+        java.lang.String $r1;
+        java.util.logging.Logger $r2;
+
+        $r0 = class "com/google/api/a/b/c/d";
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = staticinvoke <java.util.logging.Logger: java.util.logging.Logger getLogger(java.lang.String)>($r1);
+
+        <com.google.api.a.b.c.d: java.util.logging.Logger a> = $r2;
+
+        return;
+    }
+
+    public void <init>(com.google.api.a.b.c.a, com.google.api.a.c.t)
+    {
+        com.google.api.a.b.c.d $r0;
+        com.google.api.a.b.c.a $r1;
+        com.google.api.a.c.t $r2;
+        java.lang.Object $r3;
+        com.google.api.a.c.r $r4;
+        com.google.api.a.c.ac $r5;
+
+        $r0 := @this: com.google.api.a.b.c.d;
+
+        $r1 := @parameter0: com.google.api.a.b.c.a;
+
+        $r2 := @parameter1: com.google.api.a.c.t;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r3 = staticinvoke <com.google.api.a.e.a.a.a.a.b: java.lang.Object a(java.lang.Object)>($r1);
+
+        $r1 = (com.google.api.a.b.c.a) $r3;
+
+        $r0.<com.google.api.a.b.c.d: com.google.api.a.b.c.a b> = $r1;
+
+        $r4 = virtualinvoke $r2.<com.google.api.a.c.t: com.google.api.a.c.r j()>();
+
+        $r0.<com.google.api.a.b.c.d: com.google.api.a.c.r c> = $r4;
+
+        $r5 = virtualinvoke $r2.<com.google.api.a.c.t: com.google.api.a.c.ac i()>();
+
+        $r0.<com.google.api.a.b.c.d: com.google.api.a.c.ac d> = $r5;
+
+        virtualinvoke $r2.<com.google.api.a.c.t: com.google.api.a.c.t a(com.google.api.a.c.r)>($r0);
+
+        virtualinvoke $r2.<com.google.api.a.c.t: com.google.api.a.c.t a(com.google.api.a.c.ac)>($r0);
+
+        return;
+    }
+
+    public final boolean a(com.google.api.a.c.t, com.google.api.a.c.w, boolean)
+    {
+        com.google.api.a.b.c.d $r0;
+        com.google.api.a.c.t $r1;
+        com.google.api.a.c.w $r2;
+        boolean $z0, $z1;
+        java.util.logging.Level $r3;
+        com.google.api.a.c.ac $r4;
+        int $i0;
+        com.google.api.a.b.c.a $r5;
+        java.io.IOException $r6;
+        java.util.logging.Logger $r7;
+
+        $r0 := @this: com.google.api.a.b.c.d;
+
+        $r1 := @parameter0: com.google.api.a.c.t;
+
+        $r2 := @parameter1: com.google.api.a.c.w;
+
+        $z0 := @parameter2: boolean;
+
+        $r4 = $r0.<com.google.api.a.b.c.d: com.google.api.a.c.ac d>;
+
+        if $r4 == null goto label4;
+
+        $r4 = $r0.<com.google.api.a.b.c.d: com.google.api.a.c.ac d>;
+
+        $z1 = interfaceinvoke $r4.<com.google.api.a.c.ac: boolean a(com.google.api.a.c.t,com.google.api.a.c.w,boolean)>($r1, $r2, $z0);
+
+        if $z1 == 0 goto label4;
+
+        $z1 = 1;
+
+     label1:
+        if $z1 == 0 goto label6;
+
+        if $z0 == 0 goto label6;
+
+        $i0 = virtualinvoke $r2.<com.google.api.a.c.w: int d()>();
+
+        $i0 = $i0 / 100;
+
+        if $i0 != 5 goto label6;
+
+        $r5 = $r0.<com.google.api.a.b.c.d: com.google.api.a.b.c.a b>;
+
+     label2:
+        virtualinvoke $r5.<com.google.api.a.b.c.a: void a()>();
+
+     label3:
+        return $z1;
+
+     label4:
+        $z1 = 0;
+
+        goto label1;
+
+     label5:
+        $r6 := @caughtexception;
+
+        $r7 = <com.google.api.a.b.c.d: java.util.logging.Logger a>;
+
+        $r3 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r7.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r3, "exception thrown while calling server callback", $r6);
+
+     label6:
+        return $z1;
+
+        catch java.io.IOException from label2 to label3 with label5;
+    }
+
+    public final boolean a(com.google.api.a.c.t, boolean)
+    {
+        com.google.api.a.b.c.d $r0;
+        com.google.api.a.c.t $r1;
+        boolean $z0;
+        java.util.logging.Logger $r2;
+        java.util.logging.Level $r3;
+        com.google.api.a.c.r $r4;
+        com.google.api.a.b.c.a $r5;
+        java.io.IOException $r6;
+
+        $r0 := @this: com.google.api.a.b.c.d;
+
+        $r1 := @parameter0: com.google.api.a.c.t;
+
+        $z0 := @parameter1: boolean;
+
+        $r4 = $r0.<com.google.api.a.b.c.d: com.google.api.a.c.r c>;
+
+        if $r4 == null goto label4;
+
+        $r4 = $r0.<com.google.api.a.b.c.d: com.google.api.a.c.r c>;
+
+        $z0 = interfaceinvoke $r4.<com.google.api.a.c.r: boolean a(com.google.api.a.c.t,boolean)>($r1, $z0);
+
+        if $z0 == 0 goto label4;
+
+        $z0 = 1;
+
+     label1:
+        if $z0 == 0 goto label6;
+
+        $r5 = $r0.<com.google.api.a.b.c.d: com.google.api.a.b.c.a b>;
+
+     label2:
+        virtualinvoke $r5.<com.google.api.a.b.c.a: void a()>();
+
+     label3:
+        return $z0;
+
+     label4:
+        $z0 = 0;
+
+        goto label1;
+
+     label5:
+        $r6 := @caughtexception;
+
+        $r2 = <com.google.api.a.b.c.d: java.util.logging.Logger a>;
+
+        $r3 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r2.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r3, "exception thrown while calling server callback", $r6);
+
+     label6:
+        return $z0;
+
+        catch java.io.IOException from label2 to label3 with label5;
+    }
+}

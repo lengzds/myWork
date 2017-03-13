@@ -1,0 +1,62 @@
+public class com.google.android.gms.tagmanager.Container extends java.lang.Object
+{
+    private final java.lang.String a;
+    private com.google.android.gms.tagmanager.cs b;
+
+    private com.google.android.gms.tagmanager.cs li()
+    {
+        com.google.android.gms.tagmanager.Container $r0;
+        java.lang.Throwable $r1;
+        com.google.android.gms.tagmanager.cs r2;
+
+        $r0 := @this: com.google.android.gms.tagmanager.Container;
+
+        entermonitor $r0;
+
+     label1:
+        r2 = $r0.<com.google.android.gms.tagmanager.Container: com.google.android.gms.tagmanager.cs b>;
+
+     label2:
+        exitmonitor $r0;
+
+        return r2;
+
+     label3:
+        $r1 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r1;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    final void a(java.lang.String)
+    {
+        com.google.android.gms.tagmanager.Container $r0;
+        java.lang.String $r1;
+        com.google.android.gms.tagmanager.cs $r2;
+
+        $r0 := @this: com.google.android.gms.tagmanager.Container;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = specialinvoke $r0.<com.google.android.gms.tagmanager.Container: com.google.android.gms.tagmanager.cs li()>();
+
+        virtualinvoke $r2.<com.google.android.gms.tagmanager.cs: void bH(java.lang.String)>($r1);
+
+        return;
+    }
+
+    public java.lang.String getContainerId()
+    {
+        com.google.android.gms.tagmanager.Container $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.android.gms.tagmanager.Container;
+
+        r1 = $r0.<com.google.android.gms.tagmanager.Container: java.lang.String a>;
+
+        return r1;
+    }
+}

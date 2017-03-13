@@ -1,0 +1,104 @@
+final class com.speedsoftware.rootexplorer.ib extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.speedsoftware.rootexplorer.ge a;
+    private final com.speedsoftware.rootexplorer.bn b;
+
+    void <init>(com.speedsoftware.rootexplorer.ge, com.speedsoftware.rootexplorer.bn)
+    {
+        com.speedsoftware.rootexplorer.ib $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+        com.speedsoftware.rootexplorer.bn $r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ib;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r2 := @parameter1: com.speedsoftware.rootexplorer.bn;
+
+        $r0.<com.speedsoftware.rootexplorer.ib: com.speedsoftware.rootexplorer.ge a> = $r1;
+
+        $r0.<com.speedsoftware.rootexplorer.ib: com.speedsoftware.rootexplorer.bn b> = $r2;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void onClick(android.content.DialogInterface, int)
+    {
+        com.speedsoftware.rootexplorer.ib $r0;
+        android.content.DialogInterface $r1;
+        int $i0;
+        android.content.Intent $r2;
+        android.content.Context $r3;
+        com.speedsoftware.rootexplorer.bn $r4;
+        android.net.Uri $r5;
+        long $l1;
+        java.lang.String $r6;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ib;
+
+        $r1 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        $r2 = new android.content.Intent;
+
+        $r3 = <com.speedsoftware.rootexplorer.ge: android.content.Context r>;
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r3, class "com/speedsoftware/rootexplorer/DisplayText");
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.ib: com.speedsoftware.rootexplorer.bn b>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r5 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.bn: android.net.Uri ay()>();
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent setData(android.net.Uri)>($r5);
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.ib: com.speedsoftware.rootexplorer.bn b>;
+
+        $l1 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.bn: long Q()>();
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,long)>("size", $l1);
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.ib: com.speedsoftware.rootexplorer.bn b>;
+
+        $r6 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.bn: java.lang.String O()>();
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("permissions", $r6);
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,boolean)>("edit_mode", 0);
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.ib: com.speedsoftware.rootexplorer.bn b>;
+
+        $r6 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.bn: java.lang.String P()>();
+
+        $i0 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+        if $i0 != 9 goto label1;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.ib: com.speedsoftware.rootexplorer.bn b>;
+
+        $i0 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.bn: int aC()>();
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,int)>("chmod_value", $i0);
+
+     label1:
+        $r4 = $r0.<com.speedsoftware.rootexplorer.ib: com.speedsoftware.rootexplorer.bn b>;
+
+        $r6 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.bn: java.lang.String ak()>();
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("owner", $r6);
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.ib: com.speedsoftware.rootexplorer.bn b>;
+
+        $r6 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.bn: java.lang.String al()>();
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("group", $r6);
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void a(android.content.Intent)>($r2);
+
+        return;
+    }
+}

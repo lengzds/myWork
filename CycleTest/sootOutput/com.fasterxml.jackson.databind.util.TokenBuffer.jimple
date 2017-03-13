@@ -1,0 +1,1421 @@
+public class com.fasterxml.jackson.databind.util.TokenBuffer extends com.fasterxml.jackson.core.JsonGenerator
+{
+    protected static final int DEFAULT_PARSER_FEATURES;
+    protected int _appendOffset;
+    protected boolean _closed;
+    protected com.fasterxml.jackson.databind.util.TokenBuffer$Segment _first;
+    protected int _generatorFeatures;
+    protected com.fasterxml.jackson.databind.util.TokenBuffer$Segment _last;
+    protected com.fasterxml.jackson.core.ObjectCodec _objectCodec;
+    protected com.fasterxml.jackson.core.json.JsonWriteContext _writeContext;
+
+    static void <clinit>()
+    {
+        int $i0;
+
+        $i0 = staticinvoke <com.fasterxml.jackson.core.JsonParser$Feature: int collectDefaults()>();
+
+        <com.fasterxml.jackson.databind.util.TokenBuffer: int DEFAULT_PARSER_FEATURES> = $i0;
+
+        return;
+    }
+
+    public void <init>(com.fasterxml.jackson.core.ObjectCodec)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.ObjectCodec $r1;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r2;
+        int $i0;
+        com.fasterxml.jackson.databind.util.TokenBuffer$Segment $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.ObjectCodec;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.JsonGenerator: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.ObjectCodec _objectCodec> = $r1;
+
+        $i0 = <com.fasterxml.jackson.databind.util.TokenBuffer: int DEFAULT_PARSER_FEATURES>;
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: int _generatorFeatures> = $i0;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext createRootContext()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext> = $r2;
+
+        $r3 = new com.fasterxml.jackson.databind.util.TokenBuffer$Segment;
+
+        specialinvoke $r3.<com.fasterxml.jackson.databind.util.TokenBuffer$Segment: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.databind.util.TokenBuffer$Segment _last> = $r3;
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.databind.util.TokenBuffer$Segment _first> = $r3;
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: int _appendOffset> = 0;
+
+        return;
+    }
+
+    protected final void _append(com.fasterxml.jackson.core.JsonToken)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.JsonToken $r1;
+        int $i0;
+        com.fasterxml.jackson.databind.util.TokenBuffer$Segment $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonToken;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.databind.util.TokenBuffer$Segment _last>;
+
+        $i0 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: int _appendOffset>;
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.databind.util.TokenBuffer$Segment: com.fasterxml.jackson.databind.util.TokenBuffer$Segment append(int,com.fasterxml.jackson.core.JsonToken)>($i0, $r1);
+
+        if $r2 != null goto label1;
+
+        $i0 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: int _appendOffset>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: int _appendOffset> = $i0;
+
+        return;
+
+     label1:
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.databind.util.TokenBuffer$Segment _last> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: int _appendOffset> = 1;
+
+        return;
+    }
+
+    protected final void _append(com.fasterxml.jackson.core.JsonToken, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.JsonToken $r1;
+        java.lang.Object $r2;
+        int $i0;
+        com.fasterxml.jackson.databind.util.TokenBuffer$Segment $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonToken;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.databind.util.TokenBuffer$Segment _last>;
+
+        $i0 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: int _appendOffset>;
+
+        $r3 = virtualinvoke $r3.<com.fasterxml.jackson.databind.util.TokenBuffer$Segment: com.fasterxml.jackson.databind.util.TokenBuffer$Segment append(int,com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($i0, $r1, $r2);
+
+        if $r3 != null goto label1;
+
+        $i0 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: int _appendOffset>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: int _appendOffset> = $i0;
+
+        return;
+
+     label1:
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.databind.util.TokenBuffer$Segment _last> = $r3;
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: int _appendOffset> = 1;
+
+        return;
+    }
+
+    protected void _reportUnsupportedOperation()
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        java.lang.UnsupportedOperationException $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r1.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>("Called operation not supported for TokenBuffer");
+
+        throw $r1;
+    }
+
+    public com.fasterxml.jackson.databind.util.TokenBuffer append(com.fasterxml.jackson.databind.util.TokenBuffer)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0, $r1;
+        com.fasterxml.jackson.core.JsonParser $r2;
+        com.fasterxml.jackson.core.JsonToken $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.JsonParser asParser()>();
+
+     label1:
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        if $r3 == null goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void copyCurrentEvent(com.fasterxml.jackson.core.JsonParser)>($r2);
+
+        goto label1;
+
+     label2:
+        return $r0;
+    }
+
+    public com.fasterxml.jackson.core.JsonParser asParser()
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.core.ObjectCodec $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.ObjectCodec _objectCodec>;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.JsonParser asParser(com.fasterxml.jackson.core.ObjectCodec)>($r2);
+
+        return $r1;
+    }
+
+    public com.fasterxml.jackson.core.JsonParser asParser(com.fasterxml.jackson.core.JsonParser)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.util.TokenBuffer$Parser $r2;
+        com.fasterxml.jackson.databind.util.TokenBuffer$Segment $r3;
+        com.fasterxml.jackson.core.ObjectCodec $r4;
+        com.fasterxml.jackson.core.JsonLocation $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 = new com.fasterxml.jackson.databind.util.TokenBuffer$Parser;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.databind.util.TokenBuffer$Segment _first>;
+
+        $r4 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.ObjectCodec getCodec()>();
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.util.TokenBuffer$Parser: void <init>(com.fasterxml.jackson.databind.util.TokenBuffer$Segment,com.fasterxml.jackson.core.ObjectCodec)>($r3, $r4);
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonLocation getTokenLocation()>();
+
+        virtualinvoke $r2.<com.fasterxml.jackson.databind.util.TokenBuffer$Parser: void setLocation(com.fasterxml.jackson.core.JsonLocation)>($r5);
+
+        return $r2;
+    }
+
+    public com.fasterxml.jackson.core.JsonParser asParser(com.fasterxml.jackson.core.ObjectCodec)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.ObjectCodec $r1;
+        com.fasterxml.jackson.databind.util.TokenBuffer$Parser $r2;
+        com.fasterxml.jackson.databind.util.TokenBuffer$Segment $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.ObjectCodec;
+
+        $r2 = new com.fasterxml.jackson.databind.util.TokenBuffer$Parser;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.databind.util.TokenBuffer$Segment _first>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.util.TokenBuffer$Parser: void <init>(com.fasterxml.jackson.databind.util.TokenBuffer$Segment,com.fasterxml.jackson.core.ObjectCodec)>($r3, $r1);
+
+        return $r2;
+    }
+
+    public void close()
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: boolean _closed> = 1;
+
+        return;
+    }
+
+    public void copyCurrentEvent(com.fasterxml.jackson.core.JsonParser)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        int[] $r2;
+        com.fasterxml.jackson.core.JsonToken $r3;
+        int $i0, $i1;
+        java.lang.RuntimeException $r4;
+        java.lang.String $r5;
+        boolean $z0;
+        char[] $r6;
+        com.fasterxml.jackson.core.JsonParser$NumberType $r7;
+        long $l2;
+        java.math.BigInteger $r8;
+        double $d0;
+        java.math.BigDecimal $r9;
+        float $f0;
+        java.lang.Object $r10;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 = <com.fasterxml.jackson.databind.util.TokenBuffer$1: int[] $SwitchMap$com$fasterxml$jackson$core$JsonToken>;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $i0 = virtualinvoke $r3.<com.fasterxml.jackson.core.JsonToken: int ordinal()>();
+
+        $i0 = $r2[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label02;
+            case 2: goto label03;
+            case 3: goto label04;
+            case 4: goto label05;
+            case 5: goto label06;
+            case 6: goto label07;
+            case 7: goto label09;
+            case 8: goto label13;
+            case 9: goto label17;
+            case 10: goto label18;
+            case 11: goto label19;
+            case 12: goto label20;
+            default: goto label01;
+        };
+
+     label01:
+        $r4 = new java.lang.RuntimeException;
+
+        specialinvoke $r4.<java.lang.RuntimeException: void <init>(java.lang.String)>("Internal error: should never end up through this code path");
+
+        throw $r4;
+
+     label02:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeStartObject()>();
+
+        return;
+
+     label03:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeEndObject()>();
+
+        return;
+
+     label04:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeStartArray()>();
+
+        return;
+
+     label05:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeEndArray()>();
+
+        return;
+
+     label06:
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.String getCurrentName()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeFieldName(java.lang.String)>($r5);
+
+        return;
+
+     label07:
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: boolean hasTextCharacters()>();
+
+        if $z0 == 0 goto label08;
+
+        $r6 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: char[] getTextCharacters()>();
+
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: int getTextOffset()>();
+
+        $i1 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: int getTextLength()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeString(char[],int,int)>($r6, $i0, $i1);
+
+        return;
+
+     label08:
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.String getText()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeString(java.lang.String)>($r5);
+
+        return;
+
+     label09:
+        $r2 = <com.fasterxml.jackson.databind.util.TokenBuffer$1: int[] $SwitchMap$com$fasterxml$jackson$core$JsonParser$NumberType>;
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonParser$NumberType getNumberType()>();
+
+        $i0 = virtualinvoke $r7.<com.fasterxml.jackson.core.JsonParser$NumberType: int ordinal()>();
+
+        $i0 = $r2[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label11;
+            case 2: goto label12;
+            default: goto label10;
+        };
+
+     label10:
+        $l2 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: long getLongValue()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeNumber(long)>($l2);
+
+        return;
+
+     label11:
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: int getIntValue()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeNumber(int)>($i0);
+
+        return;
+
+     label12:
+        $r8 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.math.BigInteger getBigIntegerValue()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeNumber(java.math.BigInteger)>($r8);
+
+        return;
+
+     label13:
+        $r2 = <com.fasterxml.jackson.databind.util.TokenBuffer$1: int[] $SwitchMap$com$fasterxml$jackson$core$JsonParser$NumberType>;
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonParser$NumberType getNumberType()>();
+
+        $i0 = virtualinvoke $r7.<com.fasterxml.jackson.core.JsonParser$NumberType: int ordinal()>();
+
+        $i0 = $r2[$i0];
+
+        lookupswitch($i0)
+        {
+            case 3: goto label15;
+            case 4: goto label16;
+            default: goto label14;
+        };
+
+     label14:
+        $d0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: double getDoubleValue()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeNumber(double)>($d0);
+
+        return;
+
+     label15:
+        $r9 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.math.BigDecimal getDecimalValue()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeNumber(java.math.BigDecimal)>($r9);
+
+        return;
+
+     label16:
+        $f0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: float getFloatValue()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeNumber(float)>($f0);
+
+        return;
+
+     label17:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeBoolean(boolean)>(1);
+
+        return;
+
+     label18:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeBoolean(boolean)>(0);
+
+        return;
+
+     label19:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeNull()>();
+
+        return;
+
+     label20:
+        $r10 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.Object getEmbeddedObject()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeObject(java.lang.Object)>($r10);
+
+        return;
+    }
+
+    public void copyCurrentStructure(com.fasterxml.jackson.core.JsonParser)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.core.JsonToken $r2, $r3, $r4;
+        java.lang.String $r5;
+        int[] $r6;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $r3 = $r2;
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken FIELD_NAME>;
+
+        if $r2 != $r4 goto label1;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.String getCurrentName()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeFieldName(java.lang.String)>($r5);
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+     label1:
+        $r6 = <com.fasterxml.jackson.databind.util.TokenBuffer$1: int[] $SwitchMap$com$fasterxml$jackson$core$JsonToken>;
+
+        $i0 = virtualinvoke $r3.<com.fasterxml.jackson.core.JsonToken: int ordinal()>();
+
+        $i0 = $r6[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label6;
+            case 2: goto label2;
+            case 3: goto label3;
+            default: goto label2;
+        };
+
+     label2:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void copyCurrentEvent(com.fasterxml.jackson.core.JsonParser)>($r1);
+
+        return;
+
+     label3:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeStartArray()>();
+
+     label4:
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        $r3 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken END_ARRAY>;
+
+        if $r2 == $r3 goto label5;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void copyCurrentStructure(com.fasterxml.jackson.core.JsonParser)>($r1);
+
+        goto label4;
+
+     label5:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeEndArray()>();
+
+        return;
+
+     label6:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeStartObject()>();
+
+     label7:
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        $r3 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken END_OBJECT>;
+
+        if $r2 == $r3 goto label8;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void copyCurrentStructure(com.fasterxml.jackson.core.JsonParser)>($r1);
+
+        goto label7;
+
+     label8:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeEndObject()>();
+
+        return;
+    }
+
+    public void flush()
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        return;
+    }
+
+    public void serialize(com.fasterxml.jackson.core.JsonGenerator)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.util.TokenBuffer$Segment $r2;
+        int $i0, $i1;
+        com.fasterxml.jackson.core.JsonToken $r3;
+        int[] $r4;
+        java.lang.RuntimeException $r5;
+        java.lang.Object $r6;
+        boolean $z0;
+        com.fasterxml.jackson.core.SerializableString $r7;
+        java.lang.String $r8;
+        java.lang.Number $r9;
+        java.math.BigInteger $r10;
+        long $l2;
+        java.math.BigDecimal $r11;
+        java.lang.Float $r12;
+        float $f0;
+        java.lang.Double $r13;
+        double $d0;
+        com.fasterxml.jackson.core.JsonGenerationException $r14;
+        java.lang.StringBuilder $r15;
+        java.lang.Class $r16;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonGenerator;
+
+        $i0 = -1;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.databind.util.TokenBuffer$Segment _first>;
+
+     label01:
+        $i0 = $i0 + 1;
+
+        if $i0 < 16 goto label26;
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.databind.util.TokenBuffer$Segment: com.fasterxml.jackson.databind.util.TokenBuffer$Segment next()>();
+
+        if $r2 == null goto label25;
+
+        $i0 = 0;
+
+     label02:
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.util.TokenBuffer$Segment: com.fasterxml.jackson.core.JsonToken type(int)>($i0);
+
+        if $r3 == null goto label27;
+
+        $r4 = <com.fasterxml.jackson.databind.util.TokenBuffer$1: int[] $SwitchMap$com$fasterxml$jackson$core$JsonToken>;
+
+        $i1 = virtualinvoke $r3.<com.fasterxml.jackson.core.JsonToken: int ordinal()>();
+
+        $i1 = $r4[$i1];
+
+        lookupswitch($i1)
+        {
+            case 1: goto label04;
+            case 2: goto label05;
+            case 3: goto label06;
+            case 4: goto label07;
+            case 5: goto label08;
+            case 6: goto label10;
+            case 7: goto label12;
+            case 8: goto label15;
+            case 9: goto label21;
+            case 10: goto label22;
+            case 11: goto label23;
+            case 12: goto label24;
+            default: goto label03;
+        };
+
+     label03:
+        $r5 = new java.lang.RuntimeException;
+
+        specialinvoke $r5.<java.lang.RuntimeException: void <init>(java.lang.String)>("Internal error: should never end up through this code path");
+
+        throw $r5;
+
+     label04:
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeStartObject()>();
+
+        goto label01;
+
+     label05:
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeEndObject()>();
+
+        goto label01;
+
+     label06:
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeStartArray()>();
+
+        goto label01;
+
+     label07:
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeEndArray()>();
+
+        goto label01;
+
+     label08:
+        $r6 = virtualinvoke $r2.<com.fasterxml.jackson.databind.util.TokenBuffer$Segment: java.lang.Object get(int)>($i0);
+
+        $z0 = $r6 instanceof com.fasterxml.jackson.core.SerializableString;
+
+        if $z0 == 0 goto label09;
+
+        $r7 = (com.fasterxml.jackson.core.SerializableString) $r6;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeFieldName(com.fasterxml.jackson.core.SerializableString)>($r7);
+
+        goto label01;
+
+     label09:
+        $r8 = (java.lang.String) $r6;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeFieldName(java.lang.String)>($r8);
+
+        goto label01;
+
+     label10:
+        $r6 = virtualinvoke $r2.<com.fasterxml.jackson.databind.util.TokenBuffer$Segment: java.lang.Object get(int)>($i0);
+
+        $z0 = $r6 instanceof com.fasterxml.jackson.core.SerializableString;
+
+        if $z0 == 0 goto label11;
+
+        $r7 = (com.fasterxml.jackson.core.SerializableString) $r6;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeString(com.fasterxml.jackson.core.SerializableString)>($r7);
+
+        goto label01;
+
+     label11:
+        $r8 = (java.lang.String) $r6;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeString(java.lang.String)>($r8);
+
+        goto label01;
+
+     label12:
+        $r6 = virtualinvoke $r2.<com.fasterxml.jackson.databind.util.TokenBuffer$Segment: java.lang.Object get(int)>($i0);
+
+        $r9 = (java.lang.Number) $r6;
+
+        $z0 = $r9 instanceof java.math.BigInteger;
+
+        if $z0 == 0 goto label13;
+
+        $r10 = (java.math.BigInteger) $r9;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeNumber(java.math.BigInteger)>($r10);
+
+        goto label01;
+
+     label13:
+        $z0 = $r9 instanceof java.lang.Long;
+
+        if $z0 == 0 goto label14;
+
+        $l2 = virtualinvoke $r9.<java.lang.Number: long longValue()>();
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeNumber(long)>($l2);
+
+        goto label01;
+
+     label14:
+        $i1 = virtualinvoke $r9.<java.lang.Number: int intValue()>();
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeNumber(int)>($i1);
+
+        goto label01;
+
+     label15:
+        $r6 = virtualinvoke $r2.<com.fasterxml.jackson.databind.util.TokenBuffer$Segment: java.lang.Object get(int)>($i0);
+
+        $z0 = $r6 instanceof java.math.BigDecimal;
+
+        if $z0 == 0 goto label16;
+
+        $r11 = (java.math.BigDecimal) $r6;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeNumber(java.math.BigDecimal)>($r11);
+
+        goto label01;
+
+     label16:
+        $z0 = $r6 instanceof java.lang.Float;
+
+        if $z0 == 0 goto label17;
+
+        $r12 = (java.lang.Float) $r6;
+
+        $f0 = virtualinvoke $r12.<java.lang.Float: float floatValue()>();
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeNumber(float)>($f0);
+
+        goto label01;
+
+     label17:
+        $z0 = $r6 instanceof java.lang.Double;
+
+        if $z0 == 0 goto label18;
+
+        $r13 = (java.lang.Double) $r6;
+
+        $d0 = virtualinvoke $r13.<java.lang.Double: double doubleValue()>();
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeNumber(double)>($d0);
+
+        goto label01;
+
+     label18:
+        if $r6 != null goto label19;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeNull()>();
+
+        goto label01;
+
+     label19:
+        $z0 = $r6 instanceof java.lang.String;
+
+        if $z0 == 0 goto label20;
+
+        $r8 = (java.lang.String) $r6;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeNumber(java.lang.String)>($r8);
+
+        goto label01;
+
+     label20:
+        $r14 = new com.fasterxml.jackson.core.JsonGenerationException;
+
+        $r15 = new java.lang.StringBuilder;
+
+        specialinvoke $r15.<java.lang.StringBuilder: void <init>(java.lang.String)>("Unrecognized value type for VALUE_NUMBER_FLOAT: ");
+
+        $r16 = virtualinvoke $r6.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r8 = virtualinvoke $r16.<java.lang.Class: java.lang.String getName()>();
+
+        $r15 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r15 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", can not serialize");
+
+        $r8 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r14.<com.fasterxml.jackson.core.JsonGenerationException: void <init>(java.lang.String)>($r8);
+
+        throw $r14;
+
+     label21:
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeBoolean(boolean)>(1);
+
+        goto label01;
+
+     label22:
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeBoolean(boolean)>(0);
+
+        goto label01;
+
+     label23:
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeNull()>();
+
+        goto label01;
+
+     label24:
+        $r6 = virtualinvoke $r2.<com.fasterxml.jackson.databind.util.TokenBuffer$Segment: java.lang.Object get(int)>($i0);
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeObject(java.lang.Object)>($r6);
+
+        goto label01;
+
+     label25:
+        return;
+
+     label26:
+        goto label02;
+
+     label27:
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        java.lang.StringBuilder $r1, $r4;
+        com.fasterxml.jackson.core.JsonParser $r2;
+        int $i0;
+        com.fasterxml.jackson.core.JsonToken $r3, $r6;
+        java.lang.String $r5;
+        java.io.IOException $r7;
+        java.lang.IllegalStateException $r8;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[TokenBuffer: ");
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.JsonParser asParser()>();
+
+        $i0 = 0;
+
+     label01:
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+     label02:
+        if $r3 != null goto label04;
+
+        if $i0 < 100 goto label03;
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ... (truncated ");
+
+        $i0 = $i0 + -100;
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" entries)");
+
+     label03:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(93);
+
+        $r5 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r5;
+
+     label04:
+        if $i0 >= 100 goto label09;
+
+        if $i0 <= 0 goto label06;
+
+     label05:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", ");
+
+     label06:
+        $r5 = virtualinvoke $r3.<com.fasterxml.jackson.core.JsonToken: java.lang.String toString()>();
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+     label07:
+        $r6 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken FIELD_NAME>;
+
+        if $r3 != $r6 goto label09;
+
+     label08:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(40);
+
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.core.JsonParser: java.lang.String getCurrentName()>();
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(41);
+
+     label09:
+        $i0 = $i0 + 1;
+
+        goto label01;
+
+     label10:
+        $r7 := @caughtexception;
+
+        $r8 = new java.lang.IllegalStateException;
+
+        specialinvoke $r8.<java.lang.IllegalStateException: void <init>(java.lang.Throwable)>($r7);
+
+        throw $r8;
+
+        catch java.io.IOException from label01 to label02 with label10;
+        catch java.io.IOException from label05 to label07 with label10;
+        catch java.io.IOException from label08 to label09 with label10;
+    }
+
+    public com.fasterxml.jackson.core.JsonGenerator useDefaultPrettyPrinter()
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        return $r0;
+    }
+
+    public void writeBinary(com.fasterxml.jackson.core.Base64Variant, byte[], int, int)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.Base64Variant $r1;
+        byte[] $r2, $r3;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.Base64Variant;
+
+        $r2 := @parameter1: byte[];
+
+        $i0 := @parameter2: int;
+
+        $i1 := @parameter3: int;
+
+        $r3 = newarray (byte)[$i1];
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r2, $i0, $r3, 0, $i1);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeObject(java.lang.Object)>($r3);
+
+        return;
+    }
+
+    public void writeBoolean(boolean)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        boolean $z0;
+        com.fasterxml.jackson.core.JsonToken $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $z0 := @parameter0: boolean;
+
+        if $z0 == 0 goto label2;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_TRUE>;
+
+     label1:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken)>($r1);
+
+        return;
+
+     label2:
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_FALSE>;
+
+        goto label1;
+    }
+
+    public final void writeEndArray()
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r1;
+        com.fasterxml.jackson.core.JsonToken $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken END_ARRAY>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken)>($r2);
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $r1 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext getParent()>();
+
+        if $r1 == null goto label1;
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext> = $r1;
+
+     label1:
+        return;
+    }
+
+    public final void writeEndObject()
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r1;
+        com.fasterxml.jackson.core.JsonToken $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken END_OBJECT>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken)>($r2);
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $r1 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext getParent()>();
+
+        if $r1 == null goto label1;
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext> = $r1;
+
+     label1:
+        return;
+    }
+
+    public void writeFieldName(com.fasterxml.jackson.core.SerializableString)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.SerializableString $r1;
+        java.lang.String $r2;
+        com.fasterxml.jackson.core.JsonToken $r3;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.SerializableString;
+
+        $r3 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken FIELD_NAME>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($r3, $r1);
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $r2 = interfaceinvoke $r1.<com.fasterxml.jackson.core.SerializableString: java.lang.String getValue()>();
+
+        virtualinvoke $r4.<com.fasterxml.jackson.core.json.JsonWriteContext: int writeFieldName(java.lang.String)>($r2);
+
+        return;
+    }
+
+    public final void writeFieldName(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.core.JsonToken $r2;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken FIELD_NAME>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($r2, $r1);
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonWriteContext: int writeFieldName(java.lang.String)>($r1);
+
+        return;
+    }
+
+    public void writeNull()
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.JsonToken $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NULL>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken)>($r1);
+
+        return;
+    }
+
+    public void writeNumber(double)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        double $d0;
+        com.fasterxml.jackson.core.JsonToken $r1;
+        java.lang.Double $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $d0 := @parameter0: double;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_FLOAT>;
+
+        $r2 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>($d0);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($r1, $r2);
+
+        return;
+    }
+
+    public void writeNumber(float)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        float $f0;
+        com.fasterxml.jackson.core.JsonToken $r1;
+        java.lang.Float $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $f0 := @parameter0: float;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_FLOAT>;
+
+        $r2 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>($f0);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($r1, $r2);
+
+        return;
+    }
+
+    public void writeNumber(int)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        int $i0;
+        com.fasterxml.jackson.core.JsonToken $r1;
+        java.lang.Integer $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $i0 := @parameter0: int;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_INT>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($r1, $r2);
+
+        return;
+    }
+
+    public void writeNumber(long)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        long $l0;
+        com.fasterxml.jackson.core.JsonToken $r1;
+        java.lang.Long $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $l0 := @parameter0: long;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_INT>;
+
+        $r2 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l0);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($r1, $r2);
+
+        return;
+    }
+
+    public void writeNumber(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.core.JsonToken $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_FLOAT>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($r2, $r1);
+
+        return;
+    }
+
+    public void writeNumber(java.math.BigDecimal)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        java.math.BigDecimal $r1;
+        com.fasterxml.jackson.core.JsonToken $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: java.math.BigDecimal;
+
+        if $r1 != null goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeNull()>();
+
+        return;
+
+     label1:
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_FLOAT>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($r2, $r1);
+
+        return;
+    }
+
+    public void writeNumber(java.math.BigInteger)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        java.math.BigInteger $r1;
+        com.fasterxml.jackson.core.JsonToken $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: java.math.BigInteger;
+
+        if $r1 != null goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeNull()>();
+
+        return;
+
+     label1:
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_INT>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($r2, $r1);
+
+        return;
+    }
+
+    public void writeObject(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonToken $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_EMBEDDED_OBJECT>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($r2, $r1);
+
+        return;
+    }
+
+    public void writeRaw(char)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        char $c0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $c0 := @parameter0: char;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _reportUnsupportedOperation()>();
+
+        return;
+    }
+
+    public void writeRaw(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _reportUnsupportedOperation()>();
+
+        return;
+    }
+
+    public void writeRaw(char[], int, int)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        char[] $r1;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _reportUnsupportedOperation()>();
+
+        return;
+    }
+
+    public void writeRawValue(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _reportUnsupportedOperation()>();
+
+        return;
+    }
+
+    public final void writeStartArray()
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r1;
+        com.fasterxml.jackson.core.JsonToken $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken START_ARRAY>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken)>($r2);
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $r1 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext createChildArrayContext()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext> = $r1;
+
+        return;
+    }
+
+    public final void writeStartObject()
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r1;
+        com.fasterxml.jackson.core.JsonToken $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken START_OBJECT>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken)>($r2);
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $r1 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext createChildObjectContext()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext> = $r1;
+
+        return;
+    }
+
+    public void writeString(com.fasterxml.jackson.core.SerializableString)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        com.fasterxml.jackson.core.SerializableString $r1;
+        com.fasterxml.jackson.core.JsonToken $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.SerializableString;
+
+        if $r1 != null goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeNull()>();
+
+        return;
+
+     label1:
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($r2, $r1);
+
+        return;
+    }
+
+    public void writeString(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.core.JsonToken $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        if $r1 != null goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeNull()>();
+
+        return;
+
+     label1:
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void _append(com.fasterxml.jackson.core.JsonToken,java.lang.Object)>($r2, $r1);
+
+        return;
+    }
+
+    public void writeString(char[], int, int)
+    {
+        com.fasterxml.jackson.databind.util.TokenBuffer $r0;
+        char[] $r1;
+        int $i0, $i1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r1 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r2 = new java.lang.String;
+
+        specialinvoke $r2.<java.lang.String: void <init>(char[],int,int)>($r1, $i0, $i1);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeString(java.lang.String)>($r2);
+
+        return;
+    }
+}

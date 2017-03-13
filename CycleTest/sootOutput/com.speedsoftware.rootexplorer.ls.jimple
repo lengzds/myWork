@@ -1,0 +1,191 @@
+final class com.speedsoftware.rootexplorer.ls extends java.lang.Object implements com.speedsoftware.rootexplorer.lb
+{
+    com.speedsoftware.rootexplorer.bn a;
+    android.view.ActionMode b;
+    final com.speedsoftware.rootexplorer.ge c;
+
+    void <init>(com.speedsoftware.rootexplorer.ge, com.speedsoftware.rootexplorer.bn, android.view.ActionMode)
+    {
+        com.speedsoftware.rootexplorer.ls $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+        com.speedsoftware.rootexplorer.bn $r2;
+        android.view.ActionMode $r3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ls;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r2 := @parameter1: com.speedsoftware.rootexplorer.bn;
+
+        $r3 := @parameter2: android.view.ActionMode;
+
+        $r0.<com.speedsoftware.rootexplorer.ls: com.speedsoftware.rootexplorer.ge c> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.ls: com.speedsoftware.rootexplorer.bn a> = $r2;
+
+        $r0.<com.speedsoftware.rootexplorer.ls: android.view.ActionMode b> = $r3;
+
+        return;
+    }
+
+    static com.speedsoftware.rootexplorer.ge a(com.speedsoftware.rootexplorer.ls)
+    {
+        com.speedsoftware.rootexplorer.ls $r0;
+        com.speedsoftware.rootexplorer.ge r1;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.ls;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.ls: com.speedsoftware.rootexplorer.ge c>;
+
+        return r1;
+    }
+
+    public final void a()
+    {
+        com.speedsoftware.rootexplorer.ls $r0;
+        int $i0, $i1;
+        android.view.ActionMode $r1;
+        android.app.Activity $r2;
+        android.content.SharedPreferences $r3;
+        boolean $z0;
+        com.speedsoftware.rootexplorer.ge $r4;
+        com.speedsoftware.rootexplorer.bn $r5;
+        android.app.AlertDialog$Builder $r6;
+        java.lang.String $r7, $r9;
+        byte[] $r8;
+        com.speedsoftware.rootexplorer.lt $r10;
+        android.app.AlertDialog $r11;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ls;
+
+        $i0 = 0;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ls: android.view.ActionMode b>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ls: android.view.ActionMode b>;
+
+        virtualinvoke $r1.<android.view.ActionMode: void finish()>();
+
+     label1:
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r3 = virtualinvoke $r2.<android.app.Activity: android.content.SharedPreferences getPreferences(int)>(0);
+
+        $z0 = interfaceinvoke $r3.<android.content.SharedPreferences: boolean getBoolean(java.lang.String,boolean)>("context_warning_accepted", 0);
+
+        if $z0 == 0 goto label2;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.ls: com.speedsoftware.rootexplorer.ge c>;
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.ls: com.speedsoftware.rootexplorer.bn a>;
+
+        virtualinvoke $r4.<com.speedsoftware.rootexplorer.ge: void m(com.speedsoftware.rootexplorer.bn)>($r5);
+
+        return;
+
+     label2:
+        $r6 = new android.app.AlertDialog$Builder;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        specialinvoke $r6.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r2);
+
+        $r7 = new java.lang.String;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        if $r2 != null goto label7;
+
+        $i1 = 0;
+
+     label3:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cQ(int)>($i1);
+
+        specialinvoke $r7.<java.lang.String: void <init>(byte[])>($r8);
+
+        $r6 = virtualinvoke $r6.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setTitle(java.lang.CharSequence)>($r7);
+
+        $r7 = new java.lang.String;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        if $r2 == null goto label4;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r9 = virtualinvoke $r2.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r9);
+
+     label4:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] h()>();
+
+        specialinvoke $r7.<java.lang.String: void <init>(byte[])>($r8);
+
+        $r6 = virtualinvoke $r6.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>($r7);
+
+        $r7 = new java.lang.String;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        if $r2 == null goto label5;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r9 = virtualinvoke $r2.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r9);
+
+     label5:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] C()>();
+
+        specialinvoke $r7.<java.lang.String: void <init>(byte[])>($r8);
+
+        $r10 = new com.speedsoftware.rootexplorer.lt;
+
+        specialinvoke $r10.<com.speedsoftware.rootexplorer.lt: void <init>(com.speedsoftware.rootexplorer.ls)>($r0);
+
+        $r6 = virtualinvoke $r6.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>($r7, $r10);
+
+        $r7 = new java.lang.String;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        if $r2 != null goto label8;
+
+     label6:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] bX(int)>($i0);
+
+        specialinvoke $r7.<java.lang.String: void <init>(byte[])>($r8);
+
+        $r6 = virtualinvoke $r6.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setNegativeButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>($r7, null);
+
+        $r11 = virtualinvoke $r6.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r11.<android.app.AlertDialog: void show()>();
+
+        return;
+
+     label7:
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r9 = virtualinvoke $r2.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r9);
+
+        goto label3;
+
+     label8:
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r9 = virtualinvoke $r2.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r9);
+
+        goto label6;
+    }
+}

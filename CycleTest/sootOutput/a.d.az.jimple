@@ -1,0 +1,118 @@
+final class a.d.az extends a.d.b
+{
+    long b;
+
+    void <init>()
+    {
+        a.d.az $r0;
+
+        $r0 := @this: a.d.az;
+
+        specialinvoke $r0.<a.d.b: void <init>()>();
+
+        return;
+    }
+
+    final int i(byte[], int)
+    {
+        a.d.az $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.az;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int j(byte[], int)
+    {
+        a.d.az $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.az;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int k(byte[], int)
+    {
+        a.d.az $r0;
+        byte[] $r1;
+        int $i0;
+        long $l1;
+
+        $r0 := @this: a.d.az;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i0 = staticinvoke <a.d.az: int d(byte[],int)>($r1, $i0);
+
+        $l1 = (long) $i0;
+
+        $l1 = $l1 & 65535L;
+
+        $r0.<a.d.az: long b> = $l1;
+
+        return 8;
+    }
+
+    final int l(byte[], int)
+    {
+        a.d.az $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.az;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.az $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+        long $l0;
+
+        $r0 := @this: a.d.az;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("SmbComWriteAndXResponse[");
+
+        $r3 = specialinvoke $r0.<a.d.b: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",count=");
+
+        $l0 = $r0.<a.d.az: long b>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

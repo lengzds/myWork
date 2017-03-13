@@ -1,0 +1,140 @@
+public final class com.fasterxml.jackson.databind.node.DoubleNode extends com.fasterxml.jackson.databind.node.NumericNode
+{
+    protected final double _value;
+
+    public void <init>(double)
+    {
+        com.fasterxml.jackson.databind.node.DoubleNode $r0;
+        double $d0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.DoubleNode;
+
+        $d0 := @parameter0: double;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.node.NumericNode: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.node.DoubleNode: double _value> = $d0;
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.databind.node.DoubleNode valueOf(double)
+    {
+        double $d0;
+        com.fasterxml.jackson.databind.node.DoubleNode $r0;
+
+        $d0 := @parameter0: double;
+
+        $r0 = new com.fasterxml.jackson.databind.node.DoubleNode;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.node.DoubleNode: void <init>(double)>($d0);
+
+        return $r0;
+    }
+
+    public final java.lang.String asText()
+    {
+        com.fasterxml.jackson.databind.node.DoubleNode $r0;
+        java.lang.String $r1;
+        double $d0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.DoubleNode;
+
+        $d0 = $r0.<com.fasterxml.jackson.databind.node.DoubleNode: double _value>;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: java.lang.String toString(double)>($d0);
+
+        return $r1;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.node.DoubleNode $r0, $r4;
+        double $d0, $d1;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+        byte $b0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.DoubleNode;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r1 != $r0 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 != null goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r2 == $r3 goto label3;
+
+        return 0;
+
+     label3:
+        $r4 = (com.fasterxml.jackson.databind.node.DoubleNode) $r1;
+
+        $d1 = $r4.<com.fasterxml.jackson.databind.node.DoubleNode: double _value>;
+
+        $d0 = $r0.<com.fasterxml.jackson.databind.node.DoubleNode: double _value>;
+
+        $b0 = $d1 cmpl $d0;
+
+        if $b0 == 0 goto label4;
+
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    public final int hashCode()
+    {
+        com.fasterxml.jackson.databind.node.DoubleNode $r0;
+        int $i0, $i2;
+        long $l1;
+        double $d0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.DoubleNode;
+
+        $d0 = $r0.<com.fasterxml.jackson.databind.node.DoubleNode: double _value>;
+
+        $l1 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>($d0);
+
+        $i0 = (int) $l1;
+
+        $l1 = $l1 >> 32;
+
+        $i2 = (int) $l1;
+
+        $i0 = $i2 ^ $i0;
+
+        return $i0;
+    }
+
+    public final void serialize(com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.node.DoubleNode $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        double $d0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.DoubleNode;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $d0 = $r0.<com.fasterxml.jackson.databind.node.DoubleNode: double _value>;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeNumber(double)>($d0);
+
+        return;
+    }
+}

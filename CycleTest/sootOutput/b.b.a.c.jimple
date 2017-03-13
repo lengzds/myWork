@@ -1,0 +1,125 @@
+public final class b.b.a.c extends java.util.HashMap implements b.b.a.b, java.util.Map
+{
+
+    public void <init>()
+    {
+        b.b.a.c $r0;
+
+        $r0 := @this: b.b.a.c;
+
+        specialinvoke $r0.<java.util.HashMap: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.String a(java.util.Map)
+    {
+        java.util.Map $r0;
+        java.lang.StringBuffer $r1, $r7;
+        boolean $z0, $z1;
+        java.util.Set $r2;
+        java.util.Iterator $r3;
+        java.lang.Object $r4;
+        java.util.Map$Entry $r5;
+        java.lang.String $r6;
+
+        $r0 := @parameter0: java.util.Map;
+
+        if $r0 != null goto label1;
+
+        return "null";
+
+     label1:
+        $r1 = new java.lang.StringBuffer;
+
+        specialinvoke $r1.<java.lang.StringBuffer: void <init>()>();
+
+        $z0 = 1;
+
+        $r2 = interfaceinvoke $r0.<java.util.Map: java.util.Set entrySet()>();
+
+        $r3 = interfaceinvoke $r2.<java.util.Set: java.util.Iterator iterator()>();
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(123);
+
+     label2:
+        $z1 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z1 == 0 goto label7;
+
+        if $z0 == 0 goto label5;
+
+        $z0 = 0;
+
+     label3:
+        $r4 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (java.util.Map$Entry) $r4;
+
+        $r4 = interfaceinvoke $r5.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r6 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r4);
+
+        $r4 = interfaceinvoke $r5.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(34);
+
+        if $r6 != null goto label6;
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>("null");
+
+     label4:
+        $r7 = virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(34);
+
+        virtualinvoke $r7.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(58);
+
+        $r6 = staticinvoke <b.b.a.d: java.lang.String a(java.lang.Object)>($r4);
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($r6);
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        goto label2;
+
+     label5:
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(44);
+
+        goto label3;
+
+     label6:
+        staticinvoke <b.b.a.d: void a(java.lang.String,java.lang.StringBuffer)>($r6, $r1);
+
+        goto label4;
+
+     label7:
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(125);
+
+        $r6 = virtualinvoke $r1.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        return $r6;
+    }
+
+    public final java.lang.String a()
+    {
+        b.b.a.c $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: b.b.a.c;
+
+        $r1 = staticinvoke <b.b.a.c: java.lang.String a(java.util.Map)>($r0);
+
+        return $r1;
+    }
+
+    public final java.lang.String toString()
+    {
+        b.b.a.c $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: b.b.a.c;
+
+        $r1 = staticinvoke <b.b.a.c: java.lang.String a(java.util.Map)>($r0);
+
+        return $r1;
+    }
+}

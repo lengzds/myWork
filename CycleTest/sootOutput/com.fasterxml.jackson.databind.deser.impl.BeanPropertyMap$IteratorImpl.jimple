@@ -1,0 +1,154 @@
+final class com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl extends java.lang.Object implements java.util.Iterator
+{
+    private final com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket[] _buckets;
+    private com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket _currentBucket;
+    private int _nextBucketIndex;
+
+    public void <init>(com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket[])
+    {
+        com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl $r0;
+        com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket[] $r1;
+        int $i0, $i1, $i2;
+        com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket[];
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket[] _buckets> = $r1;
+
+        $i1 = 0;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket[] _buckets>;
+
+        $i0 = lengthof $r1;
+
+     label1:
+        if $i1 >= $i0 goto label4;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket[] _buckets>;
+
+        $i2 = $i1 + 1;
+
+        $r2 = $r1[$i1];
+
+        if $r2 == null goto label3;
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket _currentBucket> = $r2;
+
+     label2:
+        $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: int _nextBucketIndex> = $i2;
+
+        return;
+
+     label3:
+        $i1 = $i2;
+
+        goto label1;
+
+     label4:
+        $i2 = $i1;
+
+        goto label2;
+    }
+
+    public final boolean hasNext()
+    {
+        com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl $r0;
+        com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket _currentBucket>;
+
+        if $r1 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final com.fasterxml.jackson.databind.deser.SettableBeanProperty next()
+    {
+        com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl $r0;
+        com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket $r1, $r3;
+        java.util.NoSuchElementException $r2;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket[] $r4;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket _currentBucket>;
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.util.NoSuchElementException;
+
+        specialinvoke $r2.<java.util.NoSuchElementException: void <init>()>();
+
+        throw $r2;
+
+     label1:
+        $r3 = $r1.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket next>;
+
+     label2:
+        if $r3 != null goto label3;
+
+        $i0 = $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: int _nextBucketIndex>;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket[] _buckets>;
+
+        $i1 = lengthof $r4;
+
+        if $i0 >= $i1 goto label3;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket[] _buckets>;
+
+        $i0 = $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: int _nextBucketIndex>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: int _nextBucketIndex> = $i1;
+
+        $r3 = $r4[$i0];
+
+        goto label2;
+
+     label3:
+        $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket _currentBucket> = $r3;
+
+        r5 = $r1.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$Bucket: com.fasterxml.jackson.databind.deser.SettableBeanProperty value>;
+
+        return r5;
+    }
+
+    public final volatile java.lang.Object next()
+    {
+        com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl $r0;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl: com.fasterxml.jackson.databind.deser.SettableBeanProperty next()>();
+
+        return $r1;
+    }
+
+    public final void remove()
+    {
+        com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl $r0;
+        java.lang.UnsupportedOperationException $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap$IteratorImpl;
+
+        $r1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r1.<java.lang.UnsupportedOperationException: void <init>()>();
+
+        throw $r1;
+    }
+}

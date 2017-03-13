@@ -1,0 +1,67 @@
+public class com.fasterxml.jackson.databind.ser.std.RawSerializer extends com.fasterxml.jackson.databind.ser.std.StdSerializer
+{
+
+    public void <init>(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.ser.std.RawSerializer $r0;
+        java.lang.Class $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.RawSerializer;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdSerializer: void <init>(java.lang.Class,boolean)>($r1, 0);
+
+        return;
+    }
+
+    public void serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.RawSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.RawSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = virtualinvoke $r1.<java.lang.Object: java.lang.String toString()>();
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeRawValue(java.lang.String)>($r4);
+
+        return;
+    }
+
+    public void serializeWithType(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.std.RawSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.RawSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypePrefixForScalar(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.RawSerializer: void serialize(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r1, $r2, $r3);
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypeSuffixForScalar(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        return;
+    }
+}

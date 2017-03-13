@@ -1,0 +1,285 @@
+final class com.google.api.a.f.l extends java.io.FilterInputStream
+{
+    private long a;
+    private long b;
+
+    void <init>(java.io.InputStream, long)
+    {
+        com.google.api.a.f.l $r0;
+        java.io.InputStream $r1;
+        long $l0;
+        byte $b1;
+        boolean $z0;
+
+        $r0 := @this: com.google.api.a.f.l;
+
+        $r1 := @parameter0: java.io.InputStream;
+
+        $l0 := @parameter1: long;
+
+        specialinvoke $r0.<java.io.FilterInputStream: void <init>(java.io.InputStream)>($r1);
+
+        $r0.<com.google.api.a.f.l: long b> = -1L;
+
+        staticinvoke <com.google.api.a.e.a.a.a.a.b: java.lang.Object a(java.lang.Object)>($r1);
+
+        $b1 = $l0 cmp 0L;
+
+        if $b1 < 0 goto label2;
+
+        $z0 = 1;
+
+     label1:
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, "limit must be non-negative");
+
+        $r0.<com.google.api.a.f.l: long a> = $l0;
+
+        return;
+
+     label2:
+        $z0 = 0;
+
+        goto label1;
+    }
+
+    public final int available()
+    {
+        com.google.api.a.f.l $r0;
+        long $l0, $l2;
+        java.io.InputStream $r1;
+        int $i1;
+
+        $r0 := @this: com.google.api.a.f.l;
+
+        $r1 = $r0.<com.google.api.a.f.l: java.io.InputStream in>;
+
+        $i1 = virtualinvoke $r1.<java.io.InputStream: int available()>();
+
+        $l2 = (long) $i1;
+
+        $l0 = $r0.<com.google.api.a.f.l: long a>;
+
+        $l0 = staticinvoke <java.lang.Math: long min(long,long)>($l2, $l0);
+
+        $i1 = (int) $l0;
+
+        return $i1;
+    }
+
+    public final void mark(int)
+    {
+        com.google.api.a.f.l $r0;
+        int $i0;
+        java.io.InputStream $r1;
+        long $l1;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: com.google.api.a.f.l;
+
+        $i0 := @parameter0: int;
+
+        entermonitor $r0;
+
+     label1:
+        $r1 = $r0.<com.google.api.a.f.l: java.io.InputStream in>;
+
+        virtualinvoke $r1.<java.io.InputStream: void mark(int)>($i0);
+
+        $l1 = $r0.<com.google.api.a.f.l: long a>;
+
+        $r0.<com.google.api.a.f.l: long b> = $l1;
+
+     label2:
+        exitmonitor $r0;
+
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public final int read()
+    {
+        com.google.api.a.f.l $r0;
+        int $i0;
+        long $l1;
+        byte $b2;
+        java.io.InputStream $r1;
+
+        $r0 := @this: com.google.api.a.f.l;
+
+        $l1 = $r0.<com.google.api.a.f.l: long a>;
+
+        $b2 = $l1 cmp 0L;
+
+        if $b2 != 0 goto label1;
+
+        return -1;
+
+     label1:
+        $r1 = $r0.<com.google.api.a.f.l: java.io.InputStream in>;
+
+        $i0 = virtualinvoke $r1.<java.io.InputStream: int read()>();
+
+        if $i0 == -1 goto label2;
+
+        $l1 = $r0.<com.google.api.a.f.l: long a>;
+
+        $l1 = $l1 - 1L;
+
+        $r0.<com.google.api.a.f.l: long a> = $l1;
+
+     label2:
+        return $i0;
+    }
+
+    public final int read(byte[], int, int)
+    {
+        com.google.api.a.f.l $r0;
+        byte[] $r1;
+        int $i0, $i1;
+        long $l2, $l4;
+        byte $b3;
+        java.io.InputStream $r2;
+
+        $r0 := @this: com.google.api.a.f.l;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $l2 = $r0.<com.google.api.a.f.l: long a>;
+
+        $b3 = $l2 cmp 0L;
+
+        if $b3 != 0 goto label1;
+
+        return -1;
+
+     label1:
+        $l2 = (long) $i1;
+
+        $l4 = $r0.<com.google.api.a.f.l: long a>;
+
+        $l2 = staticinvoke <java.lang.Math: long min(long,long)>($l2, $l4);
+
+        $i1 = (int) $l2;
+
+        $r2 = $r0.<com.google.api.a.f.l: java.io.InputStream in>;
+
+        $i0 = virtualinvoke $r2.<java.io.InputStream: int read(byte[],int,int)>($r1, $i0, $i1);
+
+        if $i0 == -1 goto label2;
+
+        $l2 = $r0.<com.google.api.a.f.l: long a>;
+
+        $l4 = (long) $i0;
+
+        $l2 = $l2 - $l4;
+
+        $r0.<com.google.api.a.f.l: long a> = $l2;
+
+     label2:
+        return $i0;
+    }
+
+    public final void reset()
+    {
+        com.google.api.a.f.l $r0;
+        boolean $z0;
+        java.io.InputStream $r1;
+        java.io.IOException $r2;
+        java.lang.Throwable $r3;
+        long $l0;
+        byte $b1;
+
+        $r0 := @this: com.google.api.a.f.l;
+
+        entermonitor $r0;
+
+     label1:
+        $r1 = $r0.<com.google.api.a.f.l: java.io.InputStream in>;
+
+        $z0 = virtualinvoke $r1.<java.io.InputStream: boolean markSupported()>();
+
+        if $z0 != 0 goto label3;
+
+        $r2 = new java.io.IOException;
+
+        specialinvoke $r2.<java.io.IOException: void <init>(java.lang.String)>("Mark not supported");
+
+        throw $r2;
+
+     label2:
+        $r3 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r3;
+
+     label3:
+        $l0 = $r0.<com.google.api.a.f.l: long b>;
+
+        $b1 = $l0 cmp -1L;
+
+        if $b1 != 0 goto label4;
+
+        $r2 = new java.io.IOException;
+
+        specialinvoke $r2.<java.io.IOException: void <init>(java.lang.String)>("Mark not set");
+
+        throw $r2;
+
+     label4:
+        $r1 = $r0.<com.google.api.a.f.l: java.io.InputStream in>;
+
+        virtualinvoke $r1.<java.io.InputStream: void reset()>();
+
+        $l0 = $r0.<com.google.api.a.f.l: long b>;
+
+        $r0.<com.google.api.a.f.l: long a> = $l0;
+
+     label5:
+        exitmonitor $r0;
+
+        return;
+
+        catch java.lang.Throwable from label1 to label2 with label2;
+        catch java.lang.Throwable from label3 to label5 with label2;
+    }
+
+    public final long skip(long)
+    {
+        com.google.api.a.f.l $r0;
+        long $l0, $l1;
+        java.io.InputStream $r1;
+
+        $r0 := @this: com.google.api.a.f.l;
+
+        $l0 := @parameter0: long;
+
+        $l1 = $r0.<com.google.api.a.f.l: long a>;
+
+        $l0 = staticinvoke <java.lang.Math: long min(long,long)>($l0, $l1);
+
+        $r1 = $r0.<com.google.api.a.f.l: java.io.InputStream in>;
+
+        $l0 = virtualinvoke $r1.<java.io.InputStream: long skip(long)>($l0);
+
+        $l1 = $r0.<com.google.api.a.f.l: long a>;
+
+        $l1 = $l1 - $l0;
+
+        $r0.<com.google.api.a.f.l: long a> = $l1;
+
+        return $l0;
+    }
+}

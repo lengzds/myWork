@@ -1,0 +1,102 @@
+final class com.speedsoftware.rootexplorer.gs extends java.lang.Thread
+{
+    final com.speedsoftware.rootexplorer.ge a;
+
+    void <init>(com.speedsoftware.rootexplorer.ge)
+    {
+        com.speedsoftware.rootexplorer.gs $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.gs;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r0.<com.speedsoftware.rootexplorer.gs: com.speedsoftware.rootexplorer.ge a> = $r1;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.gs $r0;
+        long $l0, $l1;
+        com.speedsoftware.rootexplorer.ge $r1;
+        boolean $z0;
+        byte $b2;
+        java.lang.Exception $r2;
+        java.lang.InterruptedException $r3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.gs;
+
+     label01:
+        staticinvoke <java.lang.Thread: void sleep(long)>(350L);
+
+     label02:
+        staticinvoke <com.speedsoftware.rootexplorer.ge: long aj()>();
+
+     label03:
+        $l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.gs: com.speedsoftware.rootexplorer.ge a>;
+
+        $l1 = staticinvoke <com.speedsoftware.rootexplorer.ge: long a(com.speedsoftware.rootexplorer.ge)>($r1);
+
+     label04:
+        $l0 = $l0 - $l1;
+
+     label05:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.gs: com.speedsoftware.rootexplorer.ge a>;
+
+        $z0 = staticinvoke <com.speedsoftware.rootexplorer.ge: boolean b(com.speedsoftware.rootexplorer.ge)>($r1);
+
+     label06:
+        if $z0 != 0 goto label10;
+
+     label07:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.gs: com.speedsoftware.rootexplorer.ge a>;
+
+        $l1 = staticinvoke <com.speedsoftware.rootexplorer.ge: long a(com.speedsoftware.rootexplorer.ge)>($r1);
+
+     label08:
+        $b2 = $l1 cmp -1L;
+
+        if $b2 <= 0 goto label10;
+
+        $b2 = $l0 cmp 200L;
+
+        if $b2 <= 0 goto label10;
+
+     label09:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.gs: com.speedsoftware.rootexplorer.ge a>;
+
+        $r1.<com.speedsoftware.rootexplorer.ge: boolean t> = 0;
+
+     label10:
+        staticinvoke <java.lang.Thread: void sleep(long)>(100L);
+
+     label11:
+        goto label03;
+
+     label12:
+        $r2 := @caughtexception;
+
+        virtualinvoke $r2.<java.lang.Exception: void printStackTrace()>();
+
+        goto label03;
+
+     label13:
+        $r3 := @caughtexception;
+
+        virtualinvoke $r3.<java.lang.InterruptedException: void printStackTrace()>();
+
+        goto label02;
+
+        catch java.lang.InterruptedException from label01 to label02 with label13;
+        catch java.lang.Exception from label03 to label04 with label12;
+        catch java.lang.Exception from label05 to label06 with label12;
+        catch java.lang.Exception from label07 to label08 with label12;
+        catch java.lang.Exception from label09 to label11 with label12;
+    }
+}

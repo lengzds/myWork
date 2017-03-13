@@ -1,0 +1,539 @@
+public final class com.google.android.gms.internal.eb extends java.lang.Object
+{
+    private java.lang.String a;
+    private java.lang.String b;
+    private java.lang.String c;
+    private java.util.List d;
+    private java.lang.String e;
+    private java.lang.String f;
+    private java.util.List g;
+    private long h;
+    private boolean i;
+    private final long j;
+    private java.util.List k;
+    private long l;
+    private int m;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.eb $r0;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.internal.eb: long h> = -1L;
+
+        $r0.<com.google.android.gms.internal.eb: boolean i> = 0;
+
+        $r0.<com.google.android.gms.internal.eb: long j> = -1L;
+
+        $r0.<com.google.android.gms.internal.eb: long l> = -1L;
+
+        $r0.<com.google.android.gms.internal.eb: int m> = -1;
+
+        return;
+    }
+
+    private static java.lang.String a(java.util.Map, java.lang.String)
+    {
+        java.util.Map $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        java.util.List $r3;
+        boolean $z0;
+
+        $r0 := @parameter0: java.util.Map;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 = interfaceinvoke $r0.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r3 = (java.util.List) $r2;
+
+        if $r3 == null goto label1;
+
+        $z0 = interfaceinvoke $r3.<java.util.List: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = interfaceinvoke $r3.<java.util.List: java.lang.Object get(int)>(0);
+
+        $r1 = (java.lang.String) $r2;
+
+        return $r1;
+
+     label1:
+        return null;
+    }
+
+    private static long b(java.util.Map, java.lang.String)
+    {
+        java.util.Map $r0;
+        java.lang.String $r1, $r4;
+        java.lang.Object $r2;
+        java.util.List $r3;
+        boolean $z0;
+        float $f0;
+        long $l0;
+        java.lang.NumberFormatException $r5;
+        java.lang.StringBuilder $r6;
+
+        $r0 := @parameter0: java.util.Map;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 = interfaceinvoke $r0.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r3 = (java.util.List) $r2;
+
+        if $r3 == null goto label4;
+
+        $z0 = interfaceinvoke $r3.<java.util.List: boolean isEmpty()>();
+
+        if $z0 != 0 goto label4;
+
+        $r2 = interfaceinvoke $r3.<java.util.List: java.lang.Object get(int)>(0);
+
+        $r4 = (java.lang.String) $r2;
+
+     label1:
+        $f0 = staticinvoke <java.lang.Float: float parseFloat(java.lang.String)>($r4);
+
+     label2:
+        $f0 = $f0 * 1000.0F;
+
+        $l0 = (long) $f0;
+
+        return $l0;
+
+     label3:
+        $r5 := @caughtexception;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("Could not parse float from ");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" header: ");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>($r1);
+
+     label4:
+        return -1L;
+
+        catch java.lang.NumberFormatException from label1 to label2 with label3;
+    }
+
+    private static java.util.List c(java.util.Map, java.lang.String)
+    {
+        java.util.Map $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        java.util.List $r3;
+        boolean $z0;
+        java.lang.String[] $r4;
+
+        $r0 := @parameter0: java.util.Map;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 = interfaceinvoke $r0.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r3 = (java.util.List) $r2;
+
+        if $r3 == null goto label1;
+
+        $z0 = interfaceinvoke $r3.<java.util.List: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = interfaceinvoke $r3.<java.util.List: java.lang.Object get(int)>(0);
+
+        $r1 = (java.lang.String) $r2;
+
+        if $r1 == null goto label1;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String trim()>();
+
+        $r4 = virtualinvoke $r1.<java.lang.String: java.lang.String[] split(java.lang.String)>("\\s+");
+
+        $r3 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r4);
+
+        return $r3;
+
+     label1:
+        return null;
+    }
+
+    private void e(java.util.Map)
+    {
+        com.google.android.gms.internal.eb $r0;
+        java.util.Map $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $r1 := @parameter0: java.util.Map;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.eb: java.lang.String a(java.util.Map,java.lang.String)>($r1, "X-Afma-Ad-Size");
+
+        $r0.<com.google.android.gms.internal.eb: java.lang.String a> = $r2;
+
+        return;
+    }
+
+    private void f(java.util.Map)
+    {
+        com.google.android.gms.internal.eb $r0;
+        java.util.Map $r1;
+        java.util.List $r2;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $r1 := @parameter0: java.util.Map;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.eb: java.util.List c(java.util.Map,java.lang.String)>($r1, "X-Afma-Click-Tracking-Urls");
+
+        if $r2 == null goto label1;
+
+        $r0.<com.google.android.gms.internal.eb: java.util.List d> = $r2;
+
+     label1:
+        return;
+    }
+
+    private void g(java.util.Map)
+    {
+        com.google.android.gms.internal.eb $r0;
+        java.util.Map $r1;
+        java.lang.Object $r2;
+        java.util.List $r3;
+        boolean $z0;
+        java.lang.String $r4;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $r1 := @parameter0: java.util.Map;
+
+        $r2 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("X-Afma-Debug-Dialog");
+
+        $r3 = (java.util.List) $r2;
+
+        if $r3 == null goto label1;
+
+        $z0 = interfaceinvoke $r3.<java.util.List: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = interfaceinvoke $r3.<java.util.List: java.lang.Object get(int)>(0);
+
+        $r4 = (java.lang.String) $r2;
+
+        $r0.<com.google.android.gms.internal.eb: java.lang.String e> = $r4;
+
+     label1:
+        return;
+    }
+
+    private void h(java.util.Map)
+    {
+        com.google.android.gms.internal.eb $r0;
+        java.util.Map $r1;
+        java.util.List $r2;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $r1 := @parameter0: java.util.Map;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.eb: java.util.List c(java.util.Map,java.lang.String)>($r1, "X-Afma-Tracking-Urls");
+
+        if $r2 == null goto label1;
+
+        $r0.<com.google.android.gms.internal.eb: java.util.List g> = $r2;
+
+     label1:
+        return;
+    }
+
+    private void i(java.util.Map)
+    {
+        com.google.android.gms.internal.eb $r0;
+        java.util.Map $r1;
+        long $l0;
+        byte $b1;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $r1 := @parameter0: java.util.Map;
+
+        $l0 = staticinvoke <com.google.android.gms.internal.eb: long b(java.util.Map,java.lang.String)>($r1, "X-Afma-Interstitial-Timeout");
+
+        $b1 = $l0 cmp -1L;
+
+        if $b1 == 0 goto label1;
+
+        $r0.<com.google.android.gms.internal.eb: long h> = $l0;
+
+     label1:
+        return;
+    }
+
+    private void j(java.util.Map)
+    {
+        com.google.android.gms.internal.eb $r0;
+        java.util.Map $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $r1 := @parameter0: java.util.Map;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.eb: java.lang.String a(java.util.Map,java.lang.String)>($r1, "X-Afma-ActiveView");
+
+        $r0.<com.google.android.gms.internal.eb: java.lang.String f> = $r2;
+
+        return;
+    }
+
+    private void k(java.util.Map)
+    {
+        com.google.android.gms.internal.eb $r0;
+        java.util.Map $r1;
+        java.lang.Object $r2;
+        java.util.List $r3;
+        boolean $z0;
+        java.lang.String $r4;
+        java.lang.Boolean $r5;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $r1 := @parameter0: java.util.Map;
+
+        $r2 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("X-Afma-Mediation");
+
+        $r3 = (java.util.List) $r2;
+
+        if $r3 == null goto label1;
+
+        $z0 = interfaceinvoke $r3.<java.util.List: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = interfaceinvoke $r3.<java.util.List: java.lang.Object get(int)>(0);
+
+        $r4 = (java.lang.String) $r2;
+
+        $r5 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(java.lang.String)>($r4);
+
+        $z0 = virtualinvoke $r5.<java.lang.Boolean: boolean booleanValue()>();
+
+        $r0.<com.google.android.gms.internal.eb: boolean i> = $z0;
+
+     label1:
+        return;
+    }
+
+    private void l(java.util.Map)
+    {
+        com.google.android.gms.internal.eb $r0;
+        java.util.Map $r1;
+        java.util.List $r2;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $r1 := @parameter0: java.util.Map;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.eb: java.util.List c(java.util.Map,java.lang.String)>($r1, "X-Afma-Manual-Tracking-Urls");
+
+        if $r2 == null goto label1;
+
+        $r0.<com.google.android.gms.internal.eb: java.util.List k> = $r2;
+
+     label1:
+        return;
+    }
+
+    private void m(java.util.Map)
+    {
+        com.google.android.gms.internal.eb $r0;
+        java.util.Map $r1;
+        long $l0;
+        byte $b1;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $r1 := @parameter0: java.util.Map;
+
+        $l0 = staticinvoke <com.google.android.gms.internal.eb: long b(java.util.Map,java.lang.String)>($r1, "X-Afma-Refresh-Rate");
+
+        $b1 = $l0 cmp -1L;
+
+        if $b1 == 0 goto label1;
+
+        $r0.<com.google.android.gms.internal.eb: long l> = $l0;
+
+     label1:
+        return;
+    }
+
+    private void n(java.util.Map)
+    {
+        com.google.android.gms.internal.eb $r0;
+        java.util.Map $r1;
+        java.lang.Object $r2;
+        java.util.List $r3;
+        boolean $z0;
+        java.lang.String $r4, $r5;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $r1 := @parameter0: java.util.Map;
+
+        $r2 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("X-Afma-Orientation");
+
+        $r3 = (java.util.List) $r2;
+
+        if $r3 == null goto label2;
+
+        $z0 = interfaceinvoke $r3.<java.util.List: boolean isEmpty()>();
+
+        if $z0 != 0 goto label2;
+
+        $r2 = interfaceinvoke $r3.<java.util.List: java.lang.Object get(int)>(0);
+
+        $r4 = (java.lang.String) $r2;
+
+        $r5 = "portrait";
+
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r4);
+
+        if $z0 == 0 goto label1;
+
+        $i0 = staticinvoke <com.google.android.gms.internal.ep: int bN()>();
+
+        $r0.<com.google.android.gms.internal.eb: int m> = $i0;
+
+        return;
+
+     label1:
+        $r5 = "landscape";
+
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r4);
+
+        if $z0 == 0 goto label2;
+
+        $i0 = staticinvoke <com.google.android.gms.internal.ep: int bM()>();
+
+        $r0.<com.google.android.gms.internal.eb: int m> = $i0;
+
+     label2:
+        return;
+    }
+
+    public final void a(java.lang.String, java.util.Map, java.lang.String)
+    {
+        com.google.android.gms.internal.eb $r0;
+        java.lang.String $r1, $r3;
+        java.util.Map $r2;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.util.Map;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r0.<com.google.android.gms.internal.eb: java.lang.String b> = $r1;
+
+        $r0.<com.google.android.gms.internal.eb: java.lang.String c> = $r3;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.eb: void d(java.util.Map)>($r2);
+
+        return;
+    }
+
+    public final void d(java.util.Map)
+    {
+        com.google.android.gms.internal.eb $r0;
+        java.util.Map $r1;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $r1 := @parameter0: java.util.Map;
+
+        specialinvoke $r0.<com.google.android.gms.internal.eb: void e(java.util.Map)>($r1);
+
+        specialinvoke $r0.<com.google.android.gms.internal.eb: void f(java.util.Map)>($r1);
+
+        specialinvoke $r0.<com.google.android.gms.internal.eb: void g(java.util.Map)>($r1);
+
+        specialinvoke $r0.<com.google.android.gms.internal.eb: void h(java.util.Map)>($r1);
+
+        specialinvoke $r0.<com.google.android.gms.internal.eb: void i(java.util.Map)>($r1);
+
+        specialinvoke $r0.<com.google.android.gms.internal.eb: void k(java.util.Map)>($r1);
+
+        specialinvoke $r0.<com.google.android.gms.internal.eb: void l(java.util.Map)>($r1);
+
+        specialinvoke $r0.<com.google.android.gms.internal.eb: void m(java.util.Map)>($r1);
+
+        specialinvoke $r0.<com.google.android.gms.internal.eb: void n(java.util.Map)>($r1);
+
+        specialinvoke $r0.<com.google.android.gms.internal.eb: void j(java.util.Map)>($r1);
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.dv i(long)
+    {
+        com.google.android.gms.internal.eb $r0;
+        long $l0, $l1, $l2;
+        com.google.android.gms.internal.dv $r1;
+        java.lang.String $r2, $r3, $r7, $r8, $r9;
+        java.util.List $r4, $r5, $r6;
+        boolean $z0;
+        int $i3;
+
+        $r0 := @this: com.google.android.gms.internal.eb;
+
+        $l0 := @parameter0: long;
+
+        $r1 = new com.google.android.gms.internal.dv;
+
+        $r2 = $r0.<com.google.android.gms.internal.eb: java.lang.String b>;
+
+        $r3 = $r0.<com.google.android.gms.internal.eb: java.lang.String c>;
+
+        $r4 = $r0.<com.google.android.gms.internal.eb: java.util.List d>;
+
+        $r5 = $r0.<com.google.android.gms.internal.eb: java.util.List g>;
+
+        $l1 = $r0.<com.google.android.gms.internal.eb: long h>;
+
+        $z0 = $r0.<com.google.android.gms.internal.eb: boolean i>;
+
+        $r6 = $r0.<com.google.android.gms.internal.eb: java.util.List k>;
+
+        $l2 = $r0.<com.google.android.gms.internal.eb: long l>;
+
+        $i3 = $r0.<com.google.android.gms.internal.eb: int m>;
+
+        $r7 = $r0.<com.google.android.gms.internal.eb: java.lang.String a>;
+
+        $r8 = $r0.<com.google.android.gms.internal.eb: java.lang.String e>;
+
+        $r9 = $r0.<com.google.android.gms.internal.eb: java.lang.String f>;
+
+        specialinvoke $r1.<com.google.android.gms.internal.dv: void <init>(java.lang.String,java.lang.String,java.util.List,java.util.List,long,boolean,long,java.util.List,long,int,java.lang.String,long,java.lang.String,java.lang.String)>($r2, $r3, $r4, $r5, $l1, $z0, -1L, $r6, $l2, $i3, $r7, $l0, $r8, $r9);
+
+        return $r1;
+    }
+}

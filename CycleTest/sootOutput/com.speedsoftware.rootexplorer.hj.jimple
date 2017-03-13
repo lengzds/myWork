@@ -1,0 +1,168 @@
+final class com.speedsoftware.rootexplorer.hj extends java.lang.Thread
+{
+
+    void <init>()
+    {
+        com.speedsoftware.rootexplorer.hj $r0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.hj;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.hj $r0;
+        java.io.File[] $r1;
+        int $i0, $i1, $i2, $i3;
+        java.io.File $r2;
+        java.lang.String $r3;
+        boolean $z0;
+        long $l4, $l5;
+        byte $b6;
+        java.lang.Exception $r4;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.hj;
+
+     label01:
+        $r1 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.io.File[] k()>();
+
+        $i0 = lengthof $r1;
+
+     label02:
+        if $i0 <= 3 goto label20;
+
+        $i1 = 0;
+
+        $i0 = -1;
+
+        $i2 = -1;
+
+     label03:
+        $i3 = lengthof $r1;
+
+     label04:
+        if $i1 < $i3 goto label07;
+
+        if $i2 == -1 goto label20;
+
+        if $i0 == -1 goto label20;
+
+        $i1 = 0;
+
+     label05:
+        $i3 = lengthof $r1;
+
+     label06:
+        if $i1 < $i3 goto label15;
+
+        return;
+
+     label07:
+        $r2 = $r1[$i1];
+
+        $r3 = virtualinvoke $r2.<java.io.File: java.lang.String getName()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>("smb.log");
+
+     label08:
+        if $z0 != 0 goto label09;
+
+        if $i2 != -1 goto label10;
+
+        $i2 = $i1;
+
+     label09:
+        $i1 = $i1 + 1;
+
+        goto label03;
+
+     label10:
+        $r2 = $r1[$i1];
+
+        $l4 = virtualinvoke $r2.<java.io.File: long lastModified()>();
+
+        $r2 = $r1[$i2];
+
+        $l5 = virtualinvoke $r2.<java.io.File: long lastModified()>();
+
+     label11:
+        $b6 = $l4 cmp $l5;
+
+        if $b6 <= 0 goto label12;
+
+        $i0 = $i2;
+
+        $i2 = $i1;
+
+        goto label09;
+
+     label12:
+        if $i0 != -1 goto label13;
+
+        $i0 = $i1;
+
+        goto label09;
+
+     label13:
+        $r2 = $r1[$i1];
+
+        $l4 = virtualinvoke $r2.<java.io.File: long lastModified()>();
+
+        $r2 = $r1[$i0];
+
+        $l5 = virtualinvoke $r2.<java.io.File: long lastModified()>();
+
+     label14:
+        $b6 = $l4 cmp $l5;
+
+        if $b6 <= 0 goto label09;
+
+        $i0 = $i1;
+
+        goto label09;
+
+     label15:
+        $r2 = $r1[$i1];
+
+        $r3 = virtualinvoke $r2.<java.io.File: java.lang.String getName()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>("smb.log");
+
+     label16:
+        if $z0 != 0 goto label18;
+
+        if $i1 == $i2 goto label18;
+
+        if $i1 == $i0 goto label18;
+
+     label17:
+        $r2 = $r1[$i1];
+
+        virtualinvoke $r2.<java.io.File: boolean delete()>();
+
+     label18:
+        $i1 = $i1 + 1;
+
+        goto label05;
+
+     label19:
+        $r4 := @caughtexception;
+
+        virtualinvoke $r4.<java.lang.Exception: void printStackTrace()>();
+
+     label20:
+        return;
+
+        catch java.lang.Exception from label01 to label02 with label19;
+        catch java.lang.Exception from label03 to label04 with label19;
+        catch java.lang.Exception from label05 to label06 with label19;
+        catch java.lang.Exception from label07 to label08 with label19;
+        catch java.lang.Exception from label10 to label11 with label19;
+        catch java.lang.Exception from label13 to label14 with label19;
+        catch java.lang.Exception from label15 to label16 with label19;
+        catch java.lang.Exception from label17 to label18 with label19;
+    }
+}

@@ -1,0 +1,363 @@
+public class com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver extends com.fasterxml.jackson.databind.jsontype.SubtypeResolver
+{
+    protected java.util.LinkedHashSet _registeredSubtypes;
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.jsontype.SubtypeResolver: void <init>()>();
+
+        return;
+    }
+
+    protected void _collectAndResolve(com.fasterxml.jackson.databind.introspect.AnnotatedClass, com.fasterxml.jackson.databind.jsontype.NamedType, com.fasterxml.jackson.databind.cfg.MapperConfig, com.fasterxml.jackson.databind.AnnotationIntrospector, java.util.HashMap)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r2;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r3;
+        java.util.HashMap $r4;
+        com.fasterxml.jackson.databind.jsontype.NamedType $r5, $r7;
+        boolean $z0;
+        java.lang.String $r6;
+        java.lang.Class $r8;
+        java.lang.Object $r9;
+        java.util.List $r10;
+        java.util.Iterator $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r5 := @parameter1: com.fasterxml.jackson.databind.jsontype.NamedType;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        $r3 := @parameter3: com.fasterxml.jackson.databind.AnnotationIntrospector;
+
+        $r4 := @parameter4: java.util.HashMap;
+
+        $z0 = virtualinvoke $r5.<com.fasterxml.jackson.databind.jsontype.NamedType: boolean hasName()>();
+
+        if $z0 != 0 goto label1;
+
+        $r6 = virtualinvoke $r3.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.String findTypeName(com.fasterxml.jackson.databind.introspect.AnnotatedClass)>($r1);
+
+        if $r6 == null goto label1;
+
+        $r7 = new com.fasterxml.jackson.databind.jsontype.NamedType;
+
+        $r8 = virtualinvoke $r5.<com.fasterxml.jackson.databind.jsontype.NamedType: java.lang.Class getType()>();
+
+        specialinvoke $r7.<com.fasterxml.jackson.databind.jsontype.NamedType: void <init>(java.lang.Class,java.lang.String)>($r8, $r6);
+
+        $r5 = $r7;
+
+     label1:
+        $z0 = virtualinvoke $r4.<java.util.HashMap: boolean containsKey(java.lang.Object)>($r5);
+
+        if $z0 == 0 goto label2;
+
+        $z0 = virtualinvoke $r5.<com.fasterxml.jackson.databind.jsontype.NamedType: boolean hasName()>();
+
+        if $z0 == 0 goto label6;
+
+        $r9 = virtualinvoke $r4.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r5);
+
+        $r7 = (com.fasterxml.jackson.databind.jsontype.NamedType) $r9;
+
+        $z0 = virtualinvoke $r7.<com.fasterxml.jackson.databind.jsontype.NamedType: boolean hasName()>();
+
+        if $z0 != 0 goto label6;
+
+        virtualinvoke $r4.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r5, $r5);
+
+        return;
+
+     label2:
+        virtualinvoke $r4.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r5, $r5);
+
+        $r10 = virtualinvoke $r3.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.util.List findSubtypes(com.fasterxml.jackson.databind.introspect.Annotated)>($r1);
+
+        if $r10 == null goto label6;
+
+        $z0 = interfaceinvoke $r10.<java.util.Collection: boolean isEmpty()>();
+
+        if $z0 != 0 goto label6;
+
+        $r11 = interfaceinvoke $r10.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label3:
+        $z0 = interfaceinvoke $r11.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label6;
+
+        $r9 = interfaceinvoke $r11.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (com.fasterxml.jackson.databind.jsontype.NamedType) $r9;
+
+        $r8 = virtualinvoke $r5.<com.fasterxml.jackson.databind.jsontype.NamedType: java.lang.Class getType()>();
+
+        $r1 = staticinvoke <com.fasterxml.jackson.databind.introspect.AnnotatedClass: com.fasterxml.jackson.databind.introspect.AnnotatedClass constructWithoutSuperTypes(java.lang.Class,com.fasterxml.jackson.databind.AnnotationIntrospector,com.fasterxml.jackson.databind.introspect.ClassIntrospector$MixInResolver)>($r8, $r3, $r2);
+
+        $z0 = virtualinvoke $r5.<com.fasterxml.jackson.databind.jsontype.NamedType: boolean hasName()>();
+
+        if $z0 != 0 goto label5;
+
+        $r7 = new com.fasterxml.jackson.databind.jsontype.NamedType;
+
+        $r8 = virtualinvoke $r5.<com.fasterxml.jackson.databind.jsontype.NamedType: java.lang.Class getType()>();
+
+        $r6 = virtualinvoke $r3.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.String findTypeName(com.fasterxml.jackson.databind.introspect.AnnotatedClass)>($r1);
+
+        specialinvoke $r7.<com.fasterxml.jackson.databind.jsontype.NamedType: void <init>(java.lang.Class,java.lang.String)>($r8, $r6);
+
+     label4:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: void _collectAndResolve(com.fasterxml.jackson.databind.introspect.AnnotatedClass,com.fasterxml.jackson.databind.jsontype.NamedType,com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.AnnotationIntrospector,java.util.HashMap)>($r1, $r7, $r2, $r3, $r4);
+
+        goto label3;
+
+     label5:
+        $r7 = $r5;
+
+        goto label4;
+
+     label6:
+        return;
+    }
+
+    public java.util.Collection collectAndResolveSubtypes(com.fasterxml.jackson.databind.introspect.AnnotatedClass, com.fasterxml.jackson.databind.cfg.MapperConfig, com.fasterxml.jackson.databind.AnnotationIntrospector)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1, $r11;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r2;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r3;
+        java.util.HashMap $r4;
+        java.util.LinkedHashSet $r5;
+        java.lang.Class $r6, $r10;
+        java.util.Iterator $r7;
+        boolean $z0;
+        java.lang.Object $r8;
+        com.fasterxml.jackson.databind.jsontype.NamedType $r9;
+        java.util.ArrayList $r12;
+        java.util.Collection $r13;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.AnnotationIntrospector;
+
+        $r4 = new java.util.HashMap;
+
+        specialinvoke $r4.<java.util.HashMap: void <init>()>();
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: java.util.LinkedHashSet _registeredSubtypes>;
+
+        if $r5 == null goto label2;
+
+        $r6 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.Class getRawType()>();
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: java.util.LinkedHashSet _registeredSubtypes>;
+
+        $r7 = virtualinvoke $r5.<java.util.LinkedHashSet: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r7.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r8 = interfaceinvoke $r7.<java.util.Iterator: java.lang.Object next()>();
+
+        $r9 = (com.fasterxml.jackson.databind.jsontype.NamedType) $r8;
+
+        $r10 = virtualinvoke $r9.<com.fasterxml.jackson.databind.jsontype.NamedType: java.lang.Class getType()>();
+
+        $z0 = virtualinvoke $r6.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r10);
+
+        if $z0 == 0 goto label1;
+
+        $r10 = virtualinvoke $r9.<com.fasterxml.jackson.databind.jsontype.NamedType: java.lang.Class getType()>();
+
+        $r11 = staticinvoke <com.fasterxml.jackson.databind.introspect.AnnotatedClass: com.fasterxml.jackson.databind.introspect.AnnotatedClass constructWithoutSuperTypes(java.lang.Class,com.fasterxml.jackson.databind.AnnotationIntrospector,com.fasterxml.jackson.databind.introspect.ClassIntrospector$MixInResolver)>($r10, $r3, $r2);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: void _collectAndResolve(com.fasterxml.jackson.databind.introspect.AnnotatedClass,com.fasterxml.jackson.databind.jsontype.NamedType,com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.AnnotationIntrospector,java.util.HashMap)>($r11, $r9, $r2, $r3, $r4);
+
+        goto label1;
+
+     label2:
+        $r9 = new com.fasterxml.jackson.databind.jsontype.NamedType;
+
+        $r6 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.Class getRawType()>();
+
+        specialinvoke $r9.<com.fasterxml.jackson.databind.jsontype.NamedType: void <init>(java.lang.Class,java.lang.String)>($r6, null);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: void _collectAndResolve(com.fasterxml.jackson.databind.introspect.AnnotatedClass,com.fasterxml.jackson.databind.jsontype.NamedType,com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.AnnotationIntrospector,java.util.HashMap)>($r1, $r9, $r2, $r3, $r4);
+
+        $r12 = new java.util.ArrayList;
+
+        $r13 = virtualinvoke $r4.<java.util.HashMap: java.util.Collection values()>();
+
+        specialinvoke $r12.<java.util.ArrayList: void <init>(java.util.Collection)>($r13);
+
+        return $r12;
+    }
+
+    public java.util.Collection collectAndResolveSubtypes(com.fasterxml.jackson.databind.introspect.AnnotatedMember, com.fasterxml.jackson.databind.cfg.MapperConfig, com.fasterxml.jackson.databind.AnnotationIntrospector)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r2;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r3;
+        java.util.HashMap $r4;
+        java.util.LinkedHashSet $r5;
+        java.lang.Class $r6, $r10;
+        java.util.Iterator $r7;
+        boolean $z0;
+        java.lang.Object $r8;
+        com.fasterxml.jackson.databind.jsontype.NamedType $r9;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r11;
+        java.util.List $r12;
+        java.util.ArrayList $r13;
+        java.util.Collection $r14;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.AnnotationIntrospector;
+
+        $r4 = new java.util.HashMap;
+
+        specialinvoke $r4.<java.util.HashMap: void <init>()>();
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: java.util.LinkedHashSet _registeredSubtypes>;
+
+        if $r5 == null goto label2;
+
+        $r6 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.Class getRawType()>();
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: java.util.LinkedHashSet _registeredSubtypes>;
+
+        $r7 = virtualinvoke $r5.<java.util.LinkedHashSet: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r7.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r8 = interfaceinvoke $r7.<java.util.Iterator: java.lang.Object next()>();
+
+        $r9 = (com.fasterxml.jackson.databind.jsontype.NamedType) $r8;
+
+        $r10 = virtualinvoke $r9.<com.fasterxml.jackson.databind.jsontype.NamedType: java.lang.Class getType()>();
+
+        $z0 = virtualinvoke $r6.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r10);
+
+        if $z0 == 0 goto label1;
+
+        $r10 = virtualinvoke $r9.<com.fasterxml.jackson.databind.jsontype.NamedType: java.lang.Class getType()>();
+
+        $r11 = staticinvoke <com.fasterxml.jackson.databind.introspect.AnnotatedClass: com.fasterxml.jackson.databind.introspect.AnnotatedClass constructWithoutSuperTypes(java.lang.Class,com.fasterxml.jackson.databind.AnnotationIntrospector,com.fasterxml.jackson.databind.introspect.ClassIntrospector$MixInResolver)>($r10, $r3, $r2);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: void _collectAndResolve(com.fasterxml.jackson.databind.introspect.AnnotatedClass,com.fasterxml.jackson.databind.jsontype.NamedType,com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.AnnotationIntrospector,java.util.HashMap)>($r11, $r9, $r2, $r3, $r4);
+
+        goto label1;
+
+     label2:
+        $r12 = virtualinvoke $r3.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.util.List findSubtypes(com.fasterxml.jackson.databind.introspect.Annotated)>($r1);
+
+        if $r12 == null goto label4;
+
+        $r7 = interfaceinvoke $r12.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label3:
+        $z0 = interfaceinvoke $r7.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label4;
+
+        $r8 = interfaceinvoke $r7.<java.util.Iterator: java.lang.Object next()>();
+
+        $r9 = (com.fasterxml.jackson.databind.jsontype.NamedType) $r8;
+
+        $r6 = virtualinvoke $r9.<com.fasterxml.jackson.databind.jsontype.NamedType: java.lang.Class getType()>();
+
+        $r11 = staticinvoke <com.fasterxml.jackson.databind.introspect.AnnotatedClass: com.fasterxml.jackson.databind.introspect.AnnotatedClass constructWithoutSuperTypes(java.lang.Class,com.fasterxml.jackson.databind.AnnotationIntrospector,com.fasterxml.jackson.databind.introspect.ClassIntrospector$MixInResolver)>($r6, $r3, $r2);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: void _collectAndResolve(com.fasterxml.jackson.databind.introspect.AnnotatedClass,com.fasterxml.jackson.databind.jsontype.NamedType,com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.AnnotationIntrospector,java.util.HashMap)>($r11, $r9, $r2, $r3, $r4);
+
+        goto label3;
+
+     label4:
+        $r9 = new com.fasterxml.jackson.databind.jsontype.NamedType;
+
+        $r6 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.Class getRawType()>();
+
+        specialinvoke $r9.<com.fasterxml.jackson.databind.jsontype.NamedType: void <init>(java.lang.Class,java.lang.String)>($r6, null);
+
+        $r6 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.Class getRawType()>();
+
+        $r11 = staticinvoke <com.fasterxml.jackson.databind.introspect.AnnotatedClass: com.fasterxml.jackson.databind.introspect.AnnotatedClass constructWithoutSuperTypes(java.lang.Class,com.fasterxml.jackson.databind.AnnotationIntrospector,com.fasterxml.jackson.databind.introspect.ClassIntrospector$MixInResolver)>($r6, $r3, $r2);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: void _collectAndResolve(com.fasterxml.jackson.databind.introspect.AnnotatedClass,com.fasterxml.jackson.databind.jsontype.NamedType,com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.AnnotationIntrospector,java.util.HashMap)>($r11, $r9, $r2, $r3, $r4);
+
+        $r13 = new java.util.ArrayList;
+
+        $r14 = virtualinvoke $r4.<java.util.HashMap: java.util.Collection values()>();
+
+        specialinvoke $r13.<java.util.ArrayList: void <init>(java.util.Collection)>($r14);
+
+        return $r13;
+    }
+
+    public transient void registerSubtypes(com.fasterxml.jackson.databind.jsontype.NamedType[])
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver $r0;
+        com.fasterxml.jackson.databind.jsontype.NamedType[] $r1;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.jsontype.NamedType $r2;
+        java.util.LinkedHashSet $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.jsontype.NamedType[];
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: java.util.LinkedHashSet _registeredSubtypes>;
+
+        if $r3 != null goto label1;
+
+        $r3 = new java.util.LinkedHashSet;
+
+        specialinvoke $r3.<java.util.LinkedHashSet: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: java.util.LinkedHashSet _registeredSubtypes> = $r3;
+
+     label1:
+        $i0 = lengthof $r1;
+
+        $i1 = 0;
+
+     label2:
+        if $i1 >= $i0 goto label3;
+
+        $r2 = $r1[$i1];
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver: java.util.LinkedHashSet _registeredSubtypes>;
+
+        virtualinvoke $r3.<java.util.LinkedHashSet: boolean add(java.lang.Object)>($r2);
+
+        $i1 = $i1 + 1;
+
+        goto label2;
+
+     label3:
+        return;
+    }
+}

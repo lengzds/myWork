@@ -1,0 +1,277 @@
+final class a.d.bp extends a.d.as
+{
+    static final int a;
+    static final int b;
+    private int aA;
+    private int aB;
+    private java.lang.String aC;
+    private int c;
+    private int d;
+
+    static void <clinit>()
+    {
+        int $i0;
+
+        $i0 = staticinvoke <a.a: int a(java.lang.String,int)>("jcifs.smb.client.listSize", 65535);
+
+        <a.d.bp: int a> = $i0;
+
+        $i0 = staticinvoke <a.a: int a(java.lang.String,int)>("jcifs.smb.client.listCount", 200);
+
+        <a.d.bp: int b> = $i0;
+
+        return;
+    }
+
+    void <init>(java.lang.String, java.lang.String)
+    {
+        a.d.bp $r0;
+        java.lang.String $r1, $r2;
+        boolean $z0;
+        int $i0;
+        java.lang.StringBuilder $r3;
+
+        $r0 := @this: a.d.bp;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<a.d.as: void <init>()>();
+
+        $r0.<a.d.bp: int aB> = 0;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>("\\");
+
+        if $z0 == 0 goto label2;
+
+        $r0.<a.d.bp: java.lang.String A> = $r1;
+
+     label1:
+        $r0.<a.d.bp: java.lang.String aC> = $r2;
+
+        $r0.<a.d.bp: int c> = 22;
+
+        $r0.<a.d.bp: byte g> = 50;
+
+        $r0.<a.d.bp: byte S> = 1;
+
+        $r0.<a.d.bp: int d> = 0;
+
+        $r0.<a.d.bp: int aA> = 260;
+
+        $r0.<a.d.bp: int M> = 0;
+
+        $r0.<a.d.bp: int N> = 10;
+
+        $i0 = <a.d.bp: int a>;
+
+        $r0.<a.d.bp: int O> = $i0;
+
+        $r0.<a.d.bp: byte P> = 0;
+
+        return;
+
+     label2:
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\");
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0.<a.d.bp: java.lang.String A> = $r1;
+
+        goto label1;
+    }
+
+    final int a(byte[], int)
+    {
+        a.d.bp $r0;
+        byte[] $r1;
+        int $i0, $i1;
+        byte $b2;
+
+        $r0 := @this: a.d.bp;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = $i0 + 1;
+
+        $b2 = $r0.<a.d.bp: byte S>;
+
+        $r1[$i0] = $b2;
+
+        $r1[$i1] = 0;
+
+        return 2;
+    }
+
+    final int b(byte[], int)
+    {
+        a.d.bp $r0;
+        byte[] $r1;
+        int $i0, $i1, $i3;
+        long $l2;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: a.d.bp;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = $r0.<a.d.bp: int c>;
+
+        $l2 = (long) $i1;
+
+        staticinvoke <a.d.bp: void a(long,byte[],int)>($l2, $r1, $i0);
+
+        $i1 = $i0 + 2;
+
+        $i3 = <a.d.bp: int b>;
+
+        $l2 = (long) $i3;
+
+        staticinvoke <a.d.bp: void a(long,byte[],int)>($l2, $r1, $i1);
+
+        $i1 = $i1 + 2;
+
+        $i3 = $r0.<a.d.bp: int d>;
+
+        $l2 = (long) $i3;
+
+        staticinvoke <a.d.bp: void a(long,byte[],int)>($l2, $r1, $i1);
+
+        $i1 = $i1 + 2;
+
+        $i3 = $r0.<a.d.bp: int aA>;
+
+        $l2 = (long) $i3;
+
+        staticinvoke <a.d.bp: void a(long,byte[],int)>($l2, $r1, $i1);
+
+        $i1 = $i1 + 2;
+
+        $i3 = $r0.<a.d.bp: int aB>;
+
+        $l2 = (long) $i3;
+
+        staticinvoke <a.d.bp: void b(long,byte[],int)>($l2, $r1, $i1);
+
+        $i1 = $i1 + 4;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = $r0.<a.d.bp: java.lang.String A>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = $r0.<a.d.bp: java.lang.String aC>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $i3 = virtualinvoke $r0.<a.d.bp: int a(java.lang.String,byte[],int)>($r3, $r1, $i1);
+
+        $i1 = $i1 + $i3;
+
+        $i0 = $i1 - $i0;
+
+        return $i0;
+    }
+
+    final int c(byte[], int)
+    {
+        a.d.bp $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.bp;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.bp $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+        int $i0;
+
+        $r0 := @this: a.d.bp;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("Trans2FindFirst2[");
+
+        $r3 = specialinvoke $r0.<a.d.as: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",searchAttributes=0x");
+
+        $i0 = $r0.<a.d.bp: int c>;
+
+        $r3 = staticinvoke <a.e.d: java.lang.String a(int,int)>($i0, 2);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",searchCount=");
+
+        $i0 = <a.d.bp: int b>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",flags=0x");
+
+        $i0 = $r0.<a.d.bp: int d>;
+
+        $r3 = staticinvoke <a.e.d: java.lang.String a(int,int)>($i0, 2);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",informationLevel=0x");
+
+        $i0 = $r0.<a.d.bp: int aA>;
+
+        $r3 = staticinvoke <a.e.d: java.lang.String a(int,int)>($i0, 3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",searchStorageType=");
+
+        $i0 = $r0.<a.d.bp: int aB>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",filename=");
+
+        $r3 = $r0.<a.d.bp: java.lang.String A>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

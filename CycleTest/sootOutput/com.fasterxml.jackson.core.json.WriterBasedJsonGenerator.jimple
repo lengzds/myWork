@@ -1,0 +1,4275 @@
+public final class com.fasterxml.jackson.core.json.WriterBasedJsonGenerator extends com.fasterxml.jackson.core.base.GeneratorBase
+{
+    protected static final char[] HEX_CHARS;
+    protected static final int[] sOutputEscapes;
+    protected com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes;
+    protected com.fasterxml.jackson.core.SerializableString _currentEscape;
+    protected char[] _entityBuffer;
+    protected final com.fasterxml.jackson.core.io.IOContext _ioContext;
+    protected int _maximumNonEscapedChar;
+    protected char[] _outputBuffer;
+    protected int _outputEnd;
+    protected int[] _outputEscapes;
+    protected int _outputHead;
+    protected int _outputTail;
+    protected final java.io.Writer _writer;
+
+    static void <clinit>()
+    {
+        char[] $r0;
+        int[] $r1;
+
+        $r0 = staticinvoke <com.fasterxml.jackson.core.io.CharTypes: char[] copyHexChars()>();
+
+        <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS> = $r0;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.core.io.CharTypes: int[] get7BitOutputEscapes()>();
+
+        <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] sOutputEscapes> = $r1;
+
+        return;
+    }
+
+    public void <init>(com.fasterxml.jackson.core.io.IOContext, int, com.fasterxml.jackson.core.ObjectCodec, java.io.Writer)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        com.fasterxml.jackson.core.io.IOContext $r1;
+        int $i0;
+        com.fasterxml.jackson.core.ObjectCodec $r2;
+        java.io.Writer $r3;
+        int[] $r4;
+        char[] $r5;
+        com.fasterxml.jackson.core.JsonGenerator$Feature $r6;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.io.IOContext;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: com.fasterxml.jackson.core.ObjectCodec;
+
+        $r3 := @parameter3: java.io.Writer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.base.GeneratorBase: void <init>(int,com.fasterxml.jackson.core.ObjectCodec)>($i0, $r2);
+
+        $r4 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] sOutputEscapes>;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] _outputEscapes> = $r4;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead> = 0;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = 0;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.IOContext _ioContext> = $r1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer> = $r3;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.core.io.IOContext: char[] allocConcatBuffer()>();
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer> = $r5;
+
+        $r5 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = lengthof $r5;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd> = $i0;
+
+        $r6 = <com.fasterxml.jackson.core.JsonGenerator$Feature: com.fasterxml.jackson.core.JsonGenerator$Feature ESCAPE_NON_ASCII>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean isEnabled(com.fasterxml.jackson.core.JsonGenerator$Feature)>($r6);
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.JsonGenerator setHighestNonEscapedChar(int)>(127);
+
+     label1:
+        return;
+    }
+
+    private char[] _allocateEntityBuffer()
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        char[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 = newarray (char)[14];
+
+        $r1[0] = 92;
+
+        $r1[2] = 92;
+
+        $r1[3] = 117;
+
+        $r1[4] = 48;
+
+        $r1[5] = 48;
+
+        $r1[8] = 92;
+
+        $r1[9] = 117;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _entityBuffer> = $r1;
+
+        return $r1;
+    }
+
+    private final void _appendCharacterEscape(char, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        int $i0, $i3, $i4;
+        char $c1, $c2, $c5;
+        char[] $r1, $r2;
+        com.fasterxml.jackson.core.SerializableString $r3;
+        com.fasterxml.jackson.core.io.CharacterEscapes $r4;
+        java.lang.String $r5;
+        java.io.Writer $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $c2 := @parameter0: char;
+
+        $i0 := @parameter1: int;
+
+        if $i0 < 0 goto label2;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i3 = $i3 + 2;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i3 <= $i4 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i4 = $i3 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i4;
+
+        $r1[$i3] = 92;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i4 = $i3 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i4;
+
+        $c2 = (char) $i0;
+
+        $r1[$i3] = $c2;
+
+        return;
+
+     label2:
+        if $i0 == -2 goto label6;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i0 + 2;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 <= $i3 goto label3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label3:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i3 = $i0 + 1;
+
+        $r1[$i0] = 92;
+
+        $i0 = $i3 + 1;
+
+        $r1[$i3] = 117;
+
+        if $c2 <= 255 goto label5;
+
+        $c5 = $c2 >> 8;
+
+        $c5 = $c5 & 255;
+
+        $i3 = $i0 + 1;
+
+        $r2 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c1 = $c5 >> 4;
+
+        $c1 = $r2[$c1];
+
+        $r1[$i0] = $c1;
+
+        $i0 = $i3 + 1;
+
+        $r2 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c5 = $c5 & 15;
+
+        $c5 = $r2[$c5];
+
+        $r1[$i3] = $c5;
+
+        $c2 = $c2 & 255;
+
+        $c2 = (char) $c2;
+
+     label4:
+        $i3 = $i0 + 1;
+
+        $r2 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c5 = $c2 >> 4;
+
+        $c5 = $r2[$c5];
+
+        $r1[$i0] = $c5;
+
+        $r2 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c2 = $c2 & 15;
+
+        $c2 = $r2[$c2];
+
+        $r1[$i3] = $c2;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i3;
+
+        return;
+
+     label5:
+        $i3 = $i0 + 1;
+
+        $r1[$i0] = 48;
+
+        $i0 = $i3 + 1;
+
+        $r1[$i3] = 48;
+
+        goto label4;
+
+     label6:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.SerializableString _currentEscape>;
+
+        if $r3 != null goto label8;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes>;
+
+        $r3 = virtualinvoke $r4.<com.fasterxml.jackson.core.io.CharacterEscapes: com.fasterxml.jackson.core.SerializableString getEscapeSequence(int)>($c2);
+
+        $r5 = interfaceinvoke $r3.<com.fasterxml.jackson.core.SerializableString: java.lang.String getValue()>();
+
+     label7:
+        $i0 = virtualinvoke $r5.<java.lang.String: int length()>();
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i3 = $i3 + $i0;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i3 <= $i4 goto label9;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 <= $i3 goto label9;
+
+        $r6 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r6.<java.io.Writer: void write(java.lang.String)>($r5);
+
+        return;
+
+     label8:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.SerializableString _currentEscape>;
+
+        $r5 = interfaceinvoke $r3.<com.fasterxml.jackson.core.SerializableString: java.lang.String getValue()>();
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.SerializableString _currentEscape> = null;
+
+        goto label7;
+
+     label9:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        virtualinvoke $r5.<java.lang.String: void getChars(int,int,char[],int)>(0, $i0, $r1, $i3);
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i3 + $i0;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i0;
+
+        return;
+    }
+
+    private final int _prependOrWriteCharacterEscape(char[], int, int, char, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        char[] $r1, $r3;
+        int $i0, $i1, $i2;
+        char $c3, $c4, $c5;
+        java.io.Writer $r2;
+        com.fasterxml.jackson.core.SerializableString $r4;
+        com.fasterxml.jackson.core.io.CharacterEscapes $r5;
+        java.lang.String $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: char[];
+
+        $i2 := @parameter1: int;
+
+        $i0 := @parameter2: int;
+
+        $c3 := @parameter3: char;
+
+        $i1 := @parameter4: int;
+
+        if $i1 < 0 goto label03;
+
+        if $i2 <= 1 goto label01;
+
+        if $i2 >= $i0 goto label01;
+
+        $i2 = $i2 + -2;
+
+        $r1[$i2] = 92;
+
+        $i0 = $i2 + 1;
+
+        $c3 = (char) $i1;
+
+        $r1[$i0] = $c3;
+
+        return $i2;
+
+     label01:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _entityBuffer>;
+
+        if $r1 != null goto label02;
+
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _allocateEntityBuffer()>();
+
+     label02:
+        $c3 = (char) $i1;
+
+        $r1[1] = $c3;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r2.<java.io.Writer: void write(char[],int,int)>($r1, 0, 2);
+
+        return $i2;
+
+     label03:
+        if $i1 == -2 goto label09;
+
+        if $i2 <= 5 goto label06;
+
+        if $i2 >= $i0 goto label06;
+
+        $i2 = $i2 + -6;
+
+        $i0 = $i2 + 1;
+
+        $r1[$i2] = 92;
+
+        $i2 = $i0 + 1;
+
+        $r1[$i0] = 117;
+
+        if $c3 <= 255 goto label05;
+
+        $c4 = $c3 >> 8;
+
+        $c4 = $c4 & 255;
+
+        $i0 = $i2 + 1;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c5 = $c4 >> 4;
+
+        $c5 = $r3[$c5];
+
+        $r1[$i2] = $c5;
+
+        $i2 = $i0 + 1;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c4 = $c4 & 15;
+
+        $c4 = $r3[$c4];
+
+        $r1[$i0] = $c4;
+
+        $c3 = $c3 & 255;
+
+        $c3 = (char) $c3;
+
+     label04:
+        $i0 = $i2 + 1;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c4 = $c3 >> 4;
+
+        $c4 = $r3[$c4];
+
+        $r1[$i2] = $c4;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c3 = $c3 & 15;
+
+        $c3 = $r3[$c3];
+
+        $r1[$i0] = $c3;
+
+        $i2 = $i0 + -5;
+
+        return $i2;
+
+     label05:
+        $i0 = $i2 + 1;
+
+        $r1[$i2] = 48;
+
+        $i2 = $i0 + 1;
+
+        $r1[$i0] = 48;
+
+        goto label04;
+
+     label06:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _entityBuffer>;
+
+        if $r1 != null goto label07;
+
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _allocateEntityBuffer()>();
+
+     label07:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead> = $i0;
+
+        if $c3 <= 255 goto label08;
+
+        $c4 = $c3 >> 8;
+
+        $c4 = $c4 & 255;
+
+        $c3 = $c3 & 255;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c5 = $c4 >> 4;
+
+        $c5 = $r3[$c5];
+
+        $r1[10] = $c5;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c4 = $c4 & 15;
+
+        $c4 = $r3[$c4];
+
+        $r1[11] = $c4;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c4 = $c3 >> 4;
+
+        $c4 = $r3[$c4];
+
+        $r1[12] = $c4;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c3 = $c3 & 15;
+
+        $c3 = $r3[$c3];
+
+        $r1[13] = $c3;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r2.<java.io.Writer: void write(char[],int,int)>($r1, 8, 6);
+
+        return $i2;
+
+     label08:
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c4 = $c3 >> 4;
+
+        $c4 = $r3[$c4];
+
+        $r1[6] = $c4;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c3 = $c3 & 15;
+
+        $c3 = $r3[$c3];
+
+        $r1[7] = $c3;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r2.<java.io.Writer: void write(char[],int,int)>($r1, 2, 6);
+
+        return $i2;
+
+     label09:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.SerializableString _currentEscape>;
+
+        if $r4 != null goto label11;
+
+        $r5 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes>;
+
+        $r4 = virtualinvoke $r5.<com.fasterxml.jackson.core.io.CharacterEscapes: com.fasterxml.jackson.core.SerializableString getEscapeSequence(int)>($c3);
+
+        $r6 = interfaceinvoke $r4.<com.fasterxml.jackson.core.SerializableString: java.lang.String getValue()>();
+
+     label10:
+        $i1 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+        if $i2 < $i1 goto label12;
+
+        if $i2 >= $i0 goto label12;
+
+        $i2 = $i2 - $i1;
+
+        virtualinvoke $r6.<java.lang.String: void getChars(int,int,char[],int)>(0, $i1, $r1, $i2);
+
+        return $i2;
+
+     label11:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.SerializableString _currentEscape>;
+
+        $r6 = interfaceinvoke $r4.<com.fasterxml.jackson.core.SerializableString: java.lang.String getValue()>();
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.SerializableString _currentEscape> = null;
+
+        goto label10;
+
+     label12:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r2.<java.io.Writer: void write(java.lang.String)>($r6);
+
+        return $i2;
+    }
+
+    private final void _prependOrWriteCharacterEscape(char, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        int $i0, $i2, $i3;
+        char $c1, $c4, $c5;
+        char[] $r1, $r3;
+        java.io.Writer $r2;
+        com.fasterxml.jackson.core.SerializableString $r4;
+        com.fasterxml.jackson.core.io.CharacterEscapes $r5;
+        java.lang.String $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $c1 := @parameter0: char;
+
+        $i0 := @parameter1: int;
+
+        if $i0 < 0 goto label03;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        if $i2 < 2 goto label01;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i2 = $i2 + -2;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead> = $i2;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i3 = $i2 + 1;
+
+        $r1[$i2] = 92;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $c1 = (char) $i0;
+
+        $r1[$i3] = $c1;
+
+        return;
+
+     label01:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _entityBuffer>;
+
+        if $r1 != null goto label02;
+
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _allocateEntityBuffer()>();
+
+     label02:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead> = $i2;
+
+        $c1 = (char) $i0;
+
+        $r1[1] = $c1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r2.<java.io.Writer: void write(char[],int,int)>($r1, 0, 2);
+
+        return;
+
+     label03:
+        if $i0 == -2 goto label09;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        if $i0 < 6 goto label06;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i0 + -6;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead> = $i0;
+
+        $r1[$i0] = 92;
+
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 117;
+
+        if $c1 <= 255 goto label05;
+
+        $c4 = $c1 >> 8;
+
+        $c4 = $c4 & 255;
+
+        $i0 = $i0 + 1;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c5 = $c4 >> 4;
+
+        $c5 = $r3[$c5];
+
+        $r1[$i0] = $c5;
+
+        $i0 = $i0 + 1;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c4 = $c4 & 15;
+
+        $c4 = $r3[$c4];
+
+        $r1[$i0] = $c4;
+
+        $c1 = $c1 & 255;
+
+        $c1 = (char) $c1;
+
+     label04:
+        $i0 = $i0 + 1;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c4 = $c1 >> 4;
+
+        $c4 = $r3[$c4];
+
+        $r1[$i0] = $c4;
+
+        $i0 = $i0 + 1;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c1 = $c1 & 15;
+
+        $c1 = $r3[$c1];
+
+        $r1[$i0] = $c1;
+
+        return;
+
+     label05:
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 48;
+
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 48;
+
+        goto label04;
+
+     label06:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _entityBuffer>;
+
+        if $r1 != null goto label07;
+
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _allocateEntityBuffer()>();
+
+     label07:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead> = $i0;
+
+        if $c1 <= 255 goto label08;
+
+        $c4 = $c1 >> 8;
+
+        $c4 = $c4 & 255;
+
+        $c1 = $c1 & 255;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c5 = $c4 >> 4;
+
+        $c5 = $r3[$c5];
+
+        $r1[10] = $c5;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c4 = $c4 & 15;
+
+        $c4 = $r3[$c4];
+
+        $r1[11] = $c4;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c4 = $c1 >> 4;
+
+        $c4 = $r3[$c4];
+
+        $r1[12] = $c4;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c1 = $c1 & 15;
+
+        $c1 = $r3[$c1];
+
+        $r1[13] = $c1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r2.<java.io.Writer: void write(char[],int,int)>($r1, 8, 6);
+
+        return;
+
+     label08:
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c4 = $c1 >> 4;
+
+        $c4 = $r3[$c4];
+
+        $r1[6] = $c4;
+
+        $r3 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] HEX_CHARS>;
+
+        $c1 = $c1 & 15;
+
+        $c1 = $r3[$c1];
+
+        $r1[7] = $c1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r2.<java.io.Writer: void write(char[],int,int)>($r1, 2, 6);
+
+        return;
+
+     label09:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.SerializableString _currentEscape>;
+
+        if $r4 != null goto label11;
+
+        $r5 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes>;
+
+        $r4 = virtualinvoke $r5.<com.fasterxml.jackson.core.io.CharacterEscapes: com.fasterxml.jackson.core.SerializableString getEscapeSequence(int)>($c1);
+
+        $r6 = interfaceinvoke $r4.<com.fasterxml.jackson.core.SerializableString: java.lang.String getValue()>();
+
+     label10:
+        $i0 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        if $i2 < $i0 goto label12;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i2 = $i2 - $i0;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead> = $i2;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        virtualinvoke $r6.<java.lang.String: void getChars(int,int,char[],int)>(0, $i0, $r1, $i2);
+
+        return;
+
+     label11:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.SerializableString _currentEscape>;
+
+        $r6 = interfaceinvoke $r4.<com.fasterxml.jackson.core.SerializableString: java.lang.String getValue()>();
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.SerializableString _currentEscape> = null;
+
+        goto label10;
+
+     label12:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead> = $i0;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r2.<java.io.Writer: void write(java.lang.String)>($r6);
+
+        return;
+    }
+
+    private void _writeLongString(java.lang.String)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.String $r1;
+        char[] $r2;
+        int $i0, $i1, $i2, $i3;
+        com.fasterxml.jackson.core.io.CharacterEscapes $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        $i1 = 0;
+
+     label1:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        $i3 = $i1 + $i2;
+
+        if $i3 <= $i0 goto label2;
+
+        $i2 = $i0 - $i1;
+
+     label2:
+        $i3 = $i1 + $i2;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        virtualinvoke $r1.<java.lang.String: void getChars(int,int,char[],int)>($i1, $i3, $r2, 0);
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes>;
+
+        if $r3 == null goto label4;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeSegmentCustom(int)>($i2);
+
+     label3:
+        $i1 = $i1 + $i2;
+
+        if $i1 < $i0 goto label1;
+
+        return;
+
+     label4:
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar>;
+
+        if $i3 == 0 goto label5;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar>;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeSegmentASCII(int,int)>($i2, $i3);
+
+        goto label3;
+
+     label5:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeSegment(int)>($i2);
+
+        goto label3;
+    }
+
+    private final void _writeNull()
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        int $i0, $i1;
+        char[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i0 + 4;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $r1[$i0] = 110;
+
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 117;
+
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 108;
+
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 108;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i0;
+
+        return;
+    }
+
+    private final void _writeQuotedInt(int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        int $i0, $i1, $i2;
+        char[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $i0 := @parameter0: int;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i1 + 13;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i1 < $i2 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i2;
+
+        $r1[$i1] = 34;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputInt(int,char[],int)>($i0, $r1, $i1);
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i0;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r1[$i0] = 34;
+
+        return;
+    }
+
+    private final void _writeQuotedLong(long)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        long $l0;
+        int $i1, $i2;
+        char[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $l0 := @parameter0: long;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i1 + 23;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i1 < $i2 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i2;
+
+        $r1[$i1] = 34;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputLong(long,char[],int)>($l0, $r1, $i1);
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i2;
+
+        $r1[$i1] = 34;
+
+        return;
+    }
+
+    private final void _writeQuotedRaw(java.lang.Object)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.Object $r1;
+        java.lang.String $r2;
+        int $i0, $i1;
+        char[] $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r3[$i0] = 34;
+
+        $r2 = virtualinvoke $r1.<java.lang.Object: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeRaw(java.lang.String)>($r2);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r3[$i0] = 34;
+
+        return;
+    }
+
+    private final void _writeSegment(int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        int $i0, $i2, $i3, $i4, $i5;
+        char $c1;
+        int[] $r1;
+        char[] $r2;
+        java.io.Writer $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $i0 := @parameter0: int;
+
+        $i4 = 0;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] _outputEscapes>;
+
+        $i2 = lengthof $r1;
+
+        $i3 = 0;
+
+     label1:
+        if $i4 >= $i0 goto label6;
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $c1 = $r2[$i4];
+
+        if $c1 >= $i2 goto label3;
+
+        $i5 = $r1[$c1];
+
+        if $i5 != 0 goto label4;
+
+     label3:
+        $i4 = $i4 + 1;
+
+        if $i4 < $i0 goto label2;
+
+     label4:
+        $i5 = $i4 - $i3;
+
+        if $i5 <= 0 goto label5;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        virtualinvoke $r3.<java.io.Writer: void write(char[],int,int)>($r2, $i3, $i5);
+
+        if $i4 >= $i0 goto label6;
+
+     label5:
+        $i4 = $i4 + 1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i3 = $r1[$c1];
+
+        $i3 = specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _prependOrWriteCharacterEscape(char[],int,int,char,int)>($r2, $i4, $i0, $c1, $i3);
+
+        goto label1;
+
+     label6:
+        return;
+    }
+
+    private final void _writeSegmentASCII(int, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        int $i0, $i1, $i3, $i4, $i5, $i6, $i7;
+        char $c2;
+        int[] $r1;
+        char[] $r2;
+        java.io.Writer $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $i3 = 0;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] _outputEscapes>;
+
+        $i4 = lengthof $r1;
+
+        $i5 = $i1 + 1;
+
+        $i4 = staticinvoke <java.lang.Math: int min(int,int)>($i4, $i5);
+
+        $i6 = 0;
+
+        $i5 = 0;
+
+     label1:
+        if $i5 >= $i0 goto label7;
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $c2 = $r2[$i5];
+
+        if $c2 >= $i4 goto label5;
+
+        $i3 = $r1[$c2];
+
+        if $i3 == 0 goto label6;
+
+     label3:
+        $i7 = $i5 - $i6;
+
+        if $i7 <= 0 goto label4;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        virtualinvoke $r3.<java.io.Writer: void write(char[],int,int)>($r2, $i6, $i7);
+
+        if $i5 >= $i0 goto label7;
+
+     label4:
+        $i5 = $i5 + 1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i6 = specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _prependOrWriteCharacterEscape(char[],int,int,char,int)>($r2, $i5, $i0, $c2, $i3);
+
+        goto label1;
+
+     label5:
+        if $c2 <= $i1 goto label6;
+
+        $i3 = -1;
+
+        goto label3;
+
+     label6:
+        $i5 = $i5 + 1;
+
+        if $i5 < $i0 goto label2;
+
+        goto label3;
+
+     label7:
+        return;
+    }
+
+    private final void _writeSegmentCustom(int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        int $i0, $i2, $i3, $i4, $i5, $i6, $i7;
+        char $c1;
+        int[] $r1;
+        com.fasterxml.jackson.core.io.CharacterEscapes $r2;
+        char[] $r3;
+        java.io.Writer $r4;
+        com.fasterxml.jackson.core.SerializableString $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $i0 := @parameter0: int;
+
+        $i2 = 0;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] _outputEscapes>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar>;
+
+        if $i3 > 0 goto label06;
+
+        $i3 = 65535;
+
+     label01:
+        $i4 = lengthof $r1;
+
+        $i5 = $i3 + 1;
+
+        $i4 = staticinvoke <java.lang.Math: int min(int,int)>($i4, $i5);
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes>;
+
+        $i6 = 0;
+
+        $i5 = 0;
+
+     label02:
+        if $i2 >= $i0 goto label10;
+
+     label03:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $c1 = $r3[$i2];
+
+        if $c1 >= $i4 goto label07;
+
+        $i5 = $r1[$c1];
+
+        if $i5 == 0 goto label09;
+
+     label04:
+        $i7 = $i2 - $i6;
+
+        if $i7 <= 0 goto label05;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        virtualinvoke $r4.<java.io.Writer: void write(char[],int,int)>($r3, $i6, $i7);
+
+        if $i2 >= $i0 goto label10;
+
+     label05:
+        $i2 = $i2 + 1;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i6 = specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _prependOrWriteCharacterEscape(char[],int,int,char,int)>($r3, $i2, $i0, $c1, $i5);
+
+        goto label02;
+
+     label06:
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar>;
+
+        goto label01;
+
+     label07:
+        if $c1 <= $i3 goto label08;
+
+        $i5 = -1;
+
+        goto label04;
+
+     label08:
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.core.io.CharacterEscapes: com.fasterxml.jackson.core.SerializableString getEscapeSequence(int)>($c1);
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.SerializableString _currentEscape> = $r5;
+
+        if $r5 == null goto label09;
+
+        $i5 = -2;
+
+        goto label04;
+
+     label09:
+        $i2 = $i2 + 1;
+
+        if $i2 < $i0 goto label03;
+
+        goto label04;
+
+     label10:
+        return;
+    }
+
+    private void _writeString(java.lang.String)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.String $r1;
+        int $i0, $i1, $i2;
+        char[] $r2;
+        com.fasterxml.jackson.core.io.CharacterEscapes $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i1 <= $i0 goto label1;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeLongString(java.lang.String)>($r1);
+
+        return;
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i0 + $i1;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 <= $i2 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        virtualinvoke $r1.<java.lang.String: void getChars(int,int,char[],int)>(0, $i1, $r2, $i0);
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes>;
+
+        if $r3 == null goto label3;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeStringCustom(int)>($i1);
+
+        return;
+
+     label3:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar>;
+
+        if $i0 == 0 goto label4;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar>;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeStringASCII(int,int)>($i1, $i0);
+
+        return;
+
+     label4:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeString2(int)>($i1);
+
+        return;
+    }
+
+    private final void _writeString(char[], int, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        char[] $r1, $r4;
+        int $i0, $i1, $i2, $i3, $i5, $i6, $i7;
+        int[] $r2;
+        com.fasterxml.jackson.core.io.CharacterEscapes $r3;
+        char $c4;
+        java.io.Writer $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes>;
+
+        if $r3 == null goto label01;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeStringCustom(char[],int,int)>($r1, $i0, $i1);
+
+        return;
+
+     label01:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar>;
+
+        if $i2 == 0 goto label02;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar>;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeStringASCII(char[],int,int,int)>($r1, $i0, $i1, $i2);
+
+        return;
+
+     label02:
+        $i1 = $i1 + $i0;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] _outputEscapes>;
+
+        $i2 = lengthof $r2;
+
+        $i3 = $i0;
+
+     label03:
+        if $i3 >= $i1 goto label10;
+
+        $i0 = $i3;
+
+     label04:
+        $c4 = $r1[$i0];
+
+        if $c4 >= $i2 goto label05;
+
+        $i5 = $r2[$c4];
+
+        if $i5 != 0 goto label06;
+
+     label05:
+        $i0 = $i0 + 1;
+
+        if $i0 < $i1 goto label04;
+
+     label06:
+        $i5 = $i0 - $i3;
+
+        if $i5 >= 32 goto label09;
+
+        $i6 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i6 = $i6 + $i5;
+
+        $i7 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i6 <= $i7 goto label07;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label07:
+        if $i5 <= 0 goto label08;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i6 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r1, $i3, $r4, $i6, $i5);
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i3 = $i3 + $i5;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i3;
+
+     label08:
+        if $i0 >= $i1 goto label10;
+
+        $i3 = $i0 + 1;
+
+        $c4 = $r1[$i0];
+
+        $i0 = $r2[$c4];
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _appendCharacterEscape(char,int)>($c4, $i0);
+
+        goto label03;
+
+     label09:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+        $r5 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r5.<java.io.Writer: void write(char[],int,int)>($r1, $i3, $i5);
+
+        goto label08;
+
+     label10:
+        return;
+    }
+
+    private void _writeString2(int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        int $i0, $i1, $i2, $i4;
+        int[] $r1;
+        char[] $r2;
+        char $c3;
+        java.io.Writer $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $i0 := @parameter0: int;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i2 = $i2 + $i0;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] _outputEscapes>;
+
+        $i0 = lengthof $r1;
+
+     label1:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        if $i1 >= $i2 goto label6;
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $c3 = $r2[$i1];
+
+        if $c3 >= $i0 goto label3;
+
+        $i1 = $r1[$c3];
+
+        if $i1 != 0 goto label4;
+
+     label3:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        if $i1 < $i2 goto label2;
+
+        return;
+
+     label4:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead>;
+
+        $i4 = $i1 - $i4;
+
+        if $i4 <= 0 goto label5;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead>;
+
+        virtualinvoke $r3.<java.io.Writer: void write(char[],int,int)>($r2, $i1, $i4);
+
+     label5:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i4 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i4;
+
+        $c3 = $r2[$i1];
+
+        $i1 = $r1[$c3];
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _prependOrWriteCharacterEscape(char,int)>($c3, $i1);
+
+        goto label1;
+
+     label6:
+        return;
+    }
+
+    private void _writeStringASCII(int, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        int $i0, $i1, $i2, $i3, $i4, $i6;
+        int[] $r1;
+        char[] $r2;
+        char $c5;
+        java.io.Writer $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i3 + $i0;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] _outputEscapes>;
+
+        $i3 = lengthof $r1;
+
+        $i4 = $i1 + 1;
+
+        $i3 = staticinvoke <java.lang.Math: int min(int,int)>($i3, $i4);
+
+     label1:
+        $i4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        if $i4 >= $i0 goto label7;
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $c5 = $r2[$i4];
+
+        if $c5 >= $i3 goto label5;
+
+        $i4 = $r1[$c5];
+
+        if $i4 == 0 goto label6;
+
+     label3:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i6 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead>;
+
+        $i6 = $i2 - $i6;
+
+        if $i6 <= 0 goto label4;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead>;
+
+        virtualinvoke $r3.<java.io.Writer: void write(char[],int,int)>($r2, $i2, $i6);
+
+     label4:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i2 = $i2 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i2;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _prependOrWriteCharacterEscape(char,int)>($c5, $i4);
+
+        goto label1;
+
+     label5:
+        if $c5 <= $i1 goto label6;
+
+        $i4 = -1;
+
+        goto label3;
+
+     label6:
+        $i4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i4 = $i4 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i4;
+
+        if $i4 < $i0 goto label2;
+
+     label7:
+        return;
+    }
+
+    private final void _writeStringASCII(char[], int, int, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        char[] $r1, $r3;
+        int $i0, $i1, $i2, $i4, $i5, $i6, $i7, $i8, $i9;
+        int[] $r2;
+        char $c3;
+        java.io.Writer $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 := @parameter3: int;
+
+        $i1 = $i1 + $i0;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] _outputEscapes>;
+
+        $i5 = lengthof $r2;
+
+        $i6 = $i2 + 1;
+
+        $i5 = staticinvoke <java.lang.Math: int min(int,int)>($i5, $i6);
+
+        $i6 = 0;
+
+        $i7 = $i0;
+
+     label1:
+        if $i7 >= $i1 goto label9;
+
+        $i0 = $i7;
+
+     label2:
+        $c3 = $r1[$i0];
+
+        if $c3 >= $i5 goto label6;
+
+        $i6 = $r2[$c3];
+
+        if $i6 == 0 goto label7;
+
+     label3:
+        $i4 = $i0 - $i7;
+
+        if $i4 >= 32 goto label8;
+
+        $i8 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i8 = $i8 + $i4;
+
+        $i9 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i8 <= $i9 goto label4;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label4:
+        if $i4 <= 0 goto label5;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i8 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r1, $i7, $r3, $i8, $i4);
+
+        $i7 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i4 = $i7 + $i4;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i4;
+
+     label5:
+        if $i0 >= $i1 goto label9;
+
+        $i7 = $i0 + 1;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _appendCharacterEscape(char,int)>($c3, $i6);
+
+        goto label1;
+
+     label6:
+        if $c3 <= $i2 goto label7;
+
+        $i6 = -1;
+
+        goto label3;
+
+     label7:
+        $i0 = $i0 + 1;
+
+        if $i0 < $i1 goto label2;
+
+        goto label3;
+
+     label8:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r4.<java.io.Writer: void write(char[],int,int)>($r1, $i7, $i4);
+
+        goto label5;
+
+     label9:
+        return;
+    }
+
+    private void _writeStringCustom(int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        int $i0, $i1, $i2, $i3, $i4, $i6;
+        int[] $r1;
+        com.fasterxml.jackson.core.io.CharacterEscapes $r2;
+        char[] $r3;
+        char $c5;
+        java.io.Writer $r4;
+        com.fasterxml.jackson.core.SerializableString $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $i0 := @parameter0: int;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i2 + $i0;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] _outputEscapes>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar>;
+
+        if $i2 > 0 goto label06;
+
+        $i2 = 65535;
+
+     label01:
+        $i3 = lengthof $r1;
+
+        $i4 = $i2 + 1;
+
+        $i3 = staticinvoke <java.lang.Math: int min(int,int)>($i3, $i4);
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes>;
+
+     label02:
+        $i4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        if $i4 >= $i0 goto label10;
+
+     label03:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $c5 = $r3[$i4];
+
+        if $c5 >= $i3 goto label07;
+
+        $i4 = $r1[$c5];
+
+        if $i4 == 0 goto label09;
+
+     label04:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i6 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead>;
+
+        $i6 = $i1 - $i6;
+
+        if $i6 <= 0 goto label05;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead>;
+
+        virtualinvoke $r4.<java.io.Writer: void write(char[],int,int)>($r3, $i1, $i6);
+
+     label05:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _prependOrWriteCharacterEscape(char,int)>($c5, $i4);
+
+        goto label02;
+
+     label06:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar>;
+
+        goto label01;
+
+     label07:
+        if $c5 <= $i2 goto label08;
+
+        $i4 = -1;
+
+        goto label04;
+
+     label08:
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.core.io.CharacterEscapes: com.fasterxml.jackson.core.SerializableString getEscapeSequence(int)>($c5);
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.SerializableString _currentEscape> = $r5;
+
+        if $r5 == null goto label09;
+
+        $i4 = -2;
+
+        goto label04;
+
+     label09:
+        $i4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i4 = $i4 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i4;
+
+        if $i4 < $i0 goto label03;
+
+     label10:
+        return;
+    }
+
+    private final void _writeStringCustom(char[], int, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        char[] $r1, $r4;
+        int $i0, $i1, $i3, $i4, $i5, $i6, $i7, $i8, $i9;
+        int[] $r2;
+        com.fasterxml.jackson.core.io.CharacterEscapes $r3;
+        char $c2;
+        com.fasterxml.jackson.core.SerializableString $r5;
+        java.io.Writer $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i1 = $i1 + $i0;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] _outputEscapes>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar>;
+
+        if $i3 > 0 goto label07;
+
+        $i3 = 65535;
+
+     label01:
+        $i4 = lengthof $r2;
+
+        $i5 = $i3 + 1;
+
+        $i4 = staticinvoke <java.lang.Math: int min(int,int)>($i4, $i5);
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes>;
+
+        $i5 = 0;
+
+        $i6 = $i0;
+
+     label02:
+        if $i6 >= $i1 goto label12;
+
+        $i0 = $i6;
+
+     label03:
+        $c2 = $r1[$i0];
+
+        if $c2 >= $i4 goto label08;
+
+        $i5 = $r2[$c2];
+
+        if $i5 == 0 goto label10;
+
+     label04:
+        $i7 = $i0 - $i6;
+
+        if $i7 >= 32 goto label11;
+
+        $i8 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i8 = $i8 + $i7;
+
+        $i9 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i8 <= $i9 goto label05;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label05:
+        if $i7 <= 0 goto label06;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i8 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r1, $i6, $r4, $i8, $i7);
+
+        $i6 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i7 = $i6 + $i7;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i7;
+
+     label06:
+        if $i0 >= $i1 goto label12;
+
+        $i6 = $i0 + 1;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _appendCharacterEscape(char,int)>($c2, $i5);
+
+        goto label02;
+
+     label07:
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar>;
+
+        goto label01;
+
+     label08:
+        if $c2 <= $i3 goto label09;
+
+        $i5 = -1;
+
+        goto label04;
+
+     label09:
+        $r5 = virtualinvoke $r3.<com.fasterxml.jackson.core.io.CharacterEscapes: com.fasterxml.jackson.core.SerializableString getEscapeSequence(int)>($c2);
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.SerializableString _currentEscape> = $r5;
+
+        if $r5 == null goto label10;
+
+        $i5 = -2;
+
+        goto label04;
+
+     label10:
+        $i0 = $i0 + 1;
+
+        if $i0 < $i1 goto label03;
+
+        goto label04;
+
+     label11:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+        $r6 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r6.<java.io.Writer: void write(char[],int,int)>($r1, $i6, $i7);
+
+        goto label06;
+
+     label12:
+        return;
+    }
+
+    private void writeRawLong(java.lang.String)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.String $r1;
+        char[] $r2;
+        int $i0, $i1, $i2, $i3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i1 - $i0;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        virtualinvoke $r1.<java.lang.String: void getChars(int,int,char[],int)>(0, $i1, $r2, $i0);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i0 + $i1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i0;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        $i0 = $i0 - $i1;
+
+     label1:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 <= $i2 goto label2;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        $i3 = $i1 + $i2;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        virtualinvoke $r1.<java.lang.String: void getChars(int,int,char[],int)>($i1, $i3, $r2, 0);
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead> = 0;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+        $i1 = $i1 + $i2;
+
+        $i0 = $i0 - $i2;
+
+        goto label1;
+
+     label2:
+        $i2 = $i1 + $i0;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        virtualinvoke $r1.<java.lang.String: void getChars(int,int,char[],int)>($i1, $i2, $r2, 0);
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead> = 0;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i0;
+
+        return;
+    }
+
+    protected final void _flushBuffer()
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        char[] $r1;
+        int $i0, $i1;
+        java.io.Writer $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead>;
+
+        $i0 = $i0 - $i1;
+
+        if $i0 <= 0 goto label1;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead>;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputHead> = 0;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = 0;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        virtualinvoke $r2.<java.io.Writer: void write(char[],int,int)>($r1, $i1, $i0);
+
+     label1:
+        return;
+    }
+
+    protected final void _releaseBuffers()
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        char[] $r1;
+        com.fasterxml.jackson.core.io.IOContext $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        if $r1 == null goto label1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer> = null;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.IOContext _ioContext>;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.io.IOContext: void releaseConcatBuffer(char[])>($r1);
+
+     label1:
+        return;
+    }
+
+    protected final void _verifyPrettyValueWrite(java.lang.String, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.String $r1;
+        int $i0;
+        com.fasterxml.jackson.core.PrettyPrinter $r2;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r3;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label5;
+            case 1: goto label2;
+            case 2: goto label3;
+            case 3: goto label4;
+            default: goto label1;
+        };
+
+     label1:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _cantHappen()>();
+
+        return;
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        interfaceinvoke $r2.<com.fasterxml.jackson.core.PrettyPrinter: void writeArrayValueSeparator(com.fasterxml.jackson.core.JsonGenerator)>($r0);
+
+        return;
+
+     label3:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        interfaceinvoke $r2.<com.fasterxml.jackson.core.PrettyPrinter: void writeObjectFieldValueSeparator(com.fasterxml.jackson.core.JsonGenerator)>($r0);
+
+        return;
+
+     label4:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        interfaceinvoke $r2.<com.fasterxml.jackson.core.PrettyPrinter: void writeRootValueSeparator(com.fasterxml.jackson.core.JsonGenerator)>($r0);
+
+        return;
+
+     label5:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonWriteContext: boolean inArray()>();
+
+        if $z0 == 0 goto label6;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        interfaceinvoke $r2.<com.fasterxml.jackson.core.PrettyPrinter: void beforeArrayValues(com.fasterxml.jackson.core.JsonGenerator)>($r0);
+
+        return;
+
+     label6:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonWriteContext: boolean inObject()>();
+
+        if $z0 == 0 goto label7;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        interfaceinvoke $r2.<com.fasterxml.jackson.core.PrettyPrinter: void beforeObjectEntries(com.fasterxml.jackson.core.JsonGenerator)>($r0);
+
+     label7:
+        return;
+    }
+
+    protected final void _verifyValueWrite(java.lang.String)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.String $r1, $r4;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r2;
+        int $i0, $i2;
+        java.lang.StringBuilder $r3;
+        com.fasterxml.jackson.core.PrettyPrinter $r5;
+        char $c1;
+        char[] $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $i0 = virtualinvoke $r2.<com.fasterxml.jackson.core.json.JsonWriteContext: int writeValue()>();
+
+        if $i0 != 5 goto label1;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Can not ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", expecting field name");
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _reportError(java.lang.String)>($r4);
+
+     label1:
+        $r5 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        if $r5 != null goto label8;
+
+        lookupswitch($i0)
+        {
+            case 1: goto label3;
+            case 2: goto label6;
+            case 3: goto label7;
+            default: goto label2;
+        };
+
+     label2:
+        return;
+
+     label3:
+        $c1 = 44;
+
+     label4:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i2 goto label5;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label5:
+        $r6 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $r6[$i0] = $c1;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i0;
+
+        return;
+
+     label6:
+        $c1 = 58;
+
+        goto label4;
+
+     label7:
+        $c1 = 32;
+
+        goto label4;
+
+     label8:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyPrettyValueWrite(java.lang.String,int)>($r1, $i0);
+
+        return;
+    }
+
+    protected final void _writeBinary(com.fasterxml.jackson.core.Base64Variant, byte[], int, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        com.fasterxml.jackson.core.Base64Variant $r1;
+        byte[] $r2;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6;
+        byte $b7;
+        short $s8;
+        char[] $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.Base64Variant;
+
+        $r2 := @parameter1: byte[];
+
+        $i1 := @parameter2: int;
+
+        $i0 := @parameter3: int;
+
+        $i2 = $i0 + -3;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        $i3 = $i3 + -6;
+
+        $i4 = virtualinvoke $r1.<com.fasterxml.jackson.core.Base64Variant: int getMaxLineLength()>();
+
+        $i4 = $i4 >> 2;
+
+     label1:
+        if $i1 > $i2 goto label3;
+
+        $i5 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        if $i5 <= $i3 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $i6 = $i1 + 1;
+
+        $b7 = $r2[$i1];
+
+        $i1 = $b7 << 8;
+
+        $i5 = $i6 + 1;
+
+        $b7 = $r2[$i6];
+
+        $s8 = $b7 & 255;
+
+        $i1 = $s8 | $i1;
+
+        $i6 = $i1 << 8;
+
+        $i1 = $i5 + 1;
+
+        $b7 = $r2[$i5];
+
+        $s8 = $b7 & 255;
+
+        $i5 = $i6 | $s8;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i6 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i5 = virtualinvoke $r1.<com.fasterxml.jackson.core.Base64Variant: int encodeBase64Chunk(int,char[],int)>($i5, $r3, $i6);
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i5;
+
+        $i4 = $i4 + -1;
+
+        if $i4 > 0 goto label1;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i5 = $i4 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i5;
+
+        $r3[$i4] = 92;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i5 = $i4 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i5;
+
+        $r3[$i4] = 110;
+
+        $i4 = virtualinvoke $r1.<com.fasterxml.jackson.core.Base64Variant: int getMaxLineLength()>();
+
+        $i4 = $i4 >> 2;
+
+        goto label1;
+
+     label3:
+        $i0 = $i0 - $i1;
+
+        if $i0 <= 0 goto label6;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        if $i2 <= $i3 goto label4;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label4:
+        $i3 = $i1 + 1;
+
+        $b7 = $r2[$i1];
+
+        $i1 = $b7 << 16;
+
+        if $i0 != 2 goto label5;
+
+        $b7 = $r2[$i3];
+
+        $s8 = $b7 & 255;
+
+        $i3 = $s8 << 8;
+
+        $i1 = $i1 | $i3;
+
+     label5:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = virtualinvoke $r1.<com.fasterxml.jackson.core.Base64Variant: int encodeBase64Partial(int,int,char[],int)>($i1, $i0, $r3, $i3);
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+     label6:
+        return;
+    }
+
+    public final void _writeFieldName(com.fasterxml.jackson.core.SerializableString, boolean)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        com.fasterxml.jackson.core.SerializableString $r1;
+        boolean $z0;
+        com.fasterxml.jackson.core.PrettyPrinter $r2;
+        int $i0, $i1, $i2;
+        char[] $r3, $r5;
+        com.fasterxml.jackson.core.JsonGenerator$Feature $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.SerializableString;
+
+        $z0 := @parameter1: boolean;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        if $r2 == null goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writePPFieldName(com.fasterxml.jackson.core.SerializableString,boolean)>($r1, $z0);
+
+        return;
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i0 + 1;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        if $z0 == 0 goto label3;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r3[$i0] = 44;
+
+     label3:
+        $r3 = interfaceinvoke $r1.<com.fasterxml.jackson.core.SerializableString: char[] asQuotedChars()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonGenerator$Feature: com.fasterxml.jackson.core.JsonGenerator$Feature QUOTE_FIELD_NAMES>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean isEnabled(com.fasterxml.jackson.core.JsonGenerator$Feature)>($r4);
+
+        if $z0 != 0 goto label4;
+
+        $i0 = lengthof $r3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeRaw(char[],int,int)>($r3, 0, $i0);
+
+        return;
+
+     label4:
+        $r5 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r5[$i0] = 34;
+
+        $i0 = lengthof $r3;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i1 + $i0;
+
+        $i1 = $i1 + 1;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i1 < $i2 goto label6;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeRaw(char[],int,int)>($r3, 0, $i0);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label5;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label5:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r3[$i0] = 34;
+
+        return;
+
+     label6:
+        $r5 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r3, 0, $r5, $i1, $i0);
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i1 + $i0;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i0;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r3[$i0] = 34;
+
+        return;
+    }
+
+    protected final void _writeFieldName(java.lang.String, boolean)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        com.fasterxml.jackson.core.PrettyPrinter $r2;
+        int $i0, $i1;
+        char[] $r3;
+        com.fasterxml.jackson.core.JsonGenerator$Feature $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 := @parameter1: boolean;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        if $r2 == null goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writePPFieldName(java.lang.String,boolean)>($r1, $z0);
+
+        return;
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i0 + 1;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        if $z0 == 0 goto label3;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r3[$i0] = 44;
+
+     label3:
+        $r4 = <com.fasterxml.jackson.core.JsonGenerator$Feature: com.fasterxml.jackson.core.JsonGenerator$Feature QUOTE_FIELD_NAMES>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean isEnabled(com.fasterxml.jackson.core.JsonGenerator$Feature)>($r4);
+
+        if $z0 != 0 goto label4;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeString(java.lang.String)>($r1);
+
+        return;
+
+     label4:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r3[$i0] = 34;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeString(java.lang.String)>($r1);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label5;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label5:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r3[$i0] = 34;
+
+        return;
+    }
+
+    protected final void _writePPFieldName(com.fasterxml.jackson.core.SerializableString, boolean)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        com.fasterxml.jackson.core.SerializableString $r1;
+        boolean $z0;
+        int $i0, $i1;
+        com.fasterxml.jackson.core.PrettyPrinter $r2;
+        char[] $r3, $r5;
+        com.fasterxml.jackson.core.JsonGenerator$Feature $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.SerializableString;
+
+        $z0 := @parameter1: boolean;
+
+        if $z0 == 0 goto label4;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        interfaceinvoke $r2.<com.fasterxml.jackson.core.PrettyPrinter: void writeObjectEntrySeparator(com.fasterxml.jackson.core.JsonGenerator)>($r0);
+
+     label1:
+        $r3 = interfaceinvoke $r1.<com.fasterxml.jackson.core.SerializableString: char[] asQuotedChars()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonGenerator$Feature: com.fasterxml.jackson.core.JsonGenerator$Feature QUOTE_FIELD_NAMES>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean isEnabled(com.fasterxml.jackson.core.JsonGenerator$Feature)>($r4);
+
+        if $z0 == 0 goto label5;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $r5 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i0;
+
+        $r5[$i1] = 34;
+
+        $i0 = lengthof $r3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeRaw(char[],int,int)>($r3, 0, $i0);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label3:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r3[$i0] = 34;
+
+        return;
+
+     label4:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        interfaceinvoke $r2.<com.fasterxml.jackson.core.PrettyPrinter: void beforeObjectEntries(com.fasterxml.jackson.core.JsonGenerator)>($r0);
+
+        goto label1;
+
+     label5:
+        $i0 = lengthof $r3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeRaw(char[],int,int)>($r3, 0, $i0);
+
+        return;
+    }
+
+    protected final void _writePPFieldName(java.lang.String, boolean)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        com.fasterxml.jackson.core.PrettyPrinter $r2;
+        com.fasterxml.jackson.core.JsonGenerator$Feature $r3;
+        int $i0, $i1;
+        char[] $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 := @parameter1: boolean;
+
+        if $z0 == 0 goto label4;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        interfaceinvoke $r2.<com.fasterxml.jackson.core.PrettyPrinter: void writeObjectEntrySeparator(com.fasterxml.jackson.core.JsonGenerator)>($r0);
+
+     label1:
+        $r3 = <com.fasterxml.jackson.core.JsonGenerator$Feature: com.fasterxml.jackson.core.JsonGenerator$Feature QUOTE_FIELD_NAMES>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean isEnabled(com.fasterxml.jackson.core.JsonGenerator$Feature)>($r3);
+
+        if $z0 == 0 goto label5;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r4[$i0] = 34;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeString(java.lang.String)>($r1);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label3:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r4[$i0] = 34;
+
+        return;
+
+     label4:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        interfaceinvoke $r2.<com.fasterxml.jackson.core.PrettyPrinter: void beforeObjectEntries(com.fasterxml.jackson.core.JsonGenerator)>($r0);
+
+        goto label1;
+
+     label5:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeString(java.lang.String)>($r1);
+
+        return;
+    }
+
+    public final void close()
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        char[] $r1;
+        com.fasterxml.jackson.core.JsonGenerator$Feature $r2;
+        boolean $z0;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r3;
+        java.io.Writer $r4;
+        com.fasterxml.jackson.core.io.IOContext $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.base.GeneratorBase: void close()>();
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        if $r1 == null goto label3;
+
+        $r2 = <com.fasterxml.jackson.core.JsonGenerator$Feature: com.fasterxml.jackson.core.JsonGenerator$Feature AUTO_CLOSE_JSON_CONTENT>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean isEnabled(com.fasterxml.jackson.core.JsonGenerator$Feature)>($r2);
+
+        if $z0 == 0 goto label3;
+
+     label1:
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext getOutputContext()>();
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.core.JsonStreamContext: boolean inArray()>();
+
+        if $z0 == 0 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeEndArray()>();
+
+        goto label1;
+
+     label2:
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.core.JsonStreamContext: boolean inObject()>();
+
+        if $z0 == 0 goto label3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeEndObject()>();
+
+        goto label1;
+
+     label3:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        if $r4 == null goto label5;
+
+        $r5 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.IOContext _ioContext>;
+
+        $z0 = virtualinvoke $r5.<com.fasterxml.jackson.core.io.IOContext: boolean isResourceManaged()>();
+
+        if $z0 != 0 goto label4;
+
+        $r2 = <com.fasterxml.jackson.core.JsonGenerator$Feature: com.fasterxml.jackson.core.JsonGenerator$Feature AUTO_CLOSE_TARGET>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean isEnabled(com.fasterxml.jackson.core.JsonGenerator$Feature)>($r2);
+
+        if $z0 == 0 goto label6;
+
+     label4:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r4.<java.io.Writer: void close()>();
+
+     label5:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _releaseBuffers()>();
+
+        return;
+
+     label6:
+        $r2 = <com.fasterxml.jackson.core.JsonGenerator$Feature: com.fasterxml.jackson.core.JsonGenerator$Feature FLUSH_PASSED_TO_STREAM>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean isEnabled(com.fasterxml.jackson.core.JsonGenerator$Feature)>($r2);
+
+        if $z0 == 0 goto label5;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r4.<java.io.Writer: void flush()>();
+
+        goto label5;
+    }
+
+    public final void flush()
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        boolean $z0;
+        java.io.Writer $r1;
+        com.fasterxml.jackson.core.JsonGenerator$Feature $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        if $r1 == null goto label1;
+
+        $r2 = <com.fasterxml.jackson.core.JsonGenerator$Feature: com.fasterxml.jackson.core.JsonGenerator$Feature FLUSH_PASSED_TO_STREAM>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean isEnabled(com.fasterxml.jackson.core.JsonGenerator$Feature)>($r2);
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r1.<java.io.Writer: void flush()>();
+
+     label1:
+        return;
+    }
+
+    public final com.fasterxml.jackson.core.JsonGenerator setCharacterEscapes(com.fasterxml.jackson.core.io.CharacterEscapes)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        com.fasterxml.jackson.core.io.CharacterEscapes $r1;
+        int[] $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.io.CharacterEscapes;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes> = $r1;
+
+        if $r1 != null goto label1;
+
+        $r2 = <com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] sOutputEscapes>;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] _outputEscapes> = $r2;
+
+        return $r0;
+
+     label1:
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.core.io.CharacterEscapes: int[] getEscapeCodesForAscii()>();
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int[] _outputEscapes> = $r2;
+
+        return $r0;
+    }
+
+    public final com.fasterxml.jackson.core.JsonGenerator setHighestNonEscapedChar(int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $i0 := @parameter0: int;
+
+        if $i0 >= 0 goto label1;
+
+        $i0 = 0;
+
+     label1:
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _maximumNonEscapedChar> = $i0;
+
+        return $r0;
+    }
+
+    public final void writeBinary(com.fasterxml.jackson.core.Base64Variant, byte[], int, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        com.fasterxml.jackson.core.Base64Variant $r1;
+        byte[] $r2;
+        int $i0, $i1, $i2, $i3;
+        char[] $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.Base64Variant;
+
+        $r2 := @parameter1: byte[];
+
+        $i0 := @parameter2: int;
+
+        $i1 := @parameter3: int;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write binary value");
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i2 < $i3 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i3 = $i2 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i3;
+
+        $r3[$i2] = 34;
+
+        $i1 = $i0 + $i1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeBinary(com.fasterxml.jackson.core.Base64Variant,byte[],int,int)>($r1, $r2, $i0, $i1);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r3[$i0] = 34;
+
+        return;
+    }
+
+    public final void writeBoolean(boolean)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        boolean $z0;
+        int $i0, $i1;
+        char[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $z0 := @parameter0: boolean;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write boolean value");
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i0 + 5;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        if $z0 == 0 goto label3;
+
+        $r1[$i0] = 116;
+
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 114;
+
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 117;
+
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 101;
+
+     label2:
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i0;
+
+        return;
+
+     label3:
+        $r1[$i0] = 102;
+
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 97;
+
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 108;
+
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 115;
+
+        $i0 = $i0 + 1;
+
+        $r1[$i0] = 101;
+
+        goto label2;
+    }
+
+    public final void writeEndArray()
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r1;
+        boolean $z0;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r3;
+        com.fasterxml.jackson.core.PrettyPrinter $r4;
+        int $i0, $i1;
+        char[] $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: boolean inArray()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("Current context not an ARRAY but ");
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: java.lang.String getTypeDesc()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _reportError(java.lang.String)>($r3);
+
+     label1:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        if $r4 == null goto label3;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: int getEntryCount()>();
+
+        interfaceinvoke $r4.<com.fasterxml.jackson.core.PrettyPrinter: void writeEndArray(com.fasterxml.jackson.core.JsonGenerator,int)>($r0, $i0);
+
+     label2:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $r1 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext getParent()>();
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext> = $r1;
+
+        return;
+
+     label3:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label4;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label4:
+        $r5 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r5[$i0] = 93;
+
+        goto label2;
+    }
+
+    public final void writeEndObject()
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r1;
+        boolean $z0;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r3;
+        com.fasterxml.jackson.core.PrettyPrinter $r4;
+        int $i0, $i1;
+        char[] $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: boolean inObject()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("Current context not an object but ");
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: java.lang.String getTypeDesc()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _reportError(java.lang.String)>($r3);
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $r1 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext getParent()>();
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext> = $r1;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        if $r4 == null goto label2;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: int getEntryCount()>();
+
+        interfaceinvoke $r4.<com.fasterxml.jackson.core.PrettyPrinter: void writeEndObject(com.fasterxml.jackson.core.JsonGenerator,int)>($r0, $i0);
+
+        return;
+
+     label2:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label3:
+        $r5 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r5[$i0] = 125;
+
+        return;
+    }
+
+    public final void writeFieldName(com.fasterxml.jackson.core.SerializableString)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        com.fasterxml.jackson.core.SerializableString $r1;
+        boolean $z0;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r2;
+        java.lang.String $r3;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.SerializableString;
+
+        $z0 = 1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $r3 = interfaceinvoke $r1.<com.fasterxml.jackson.core.SerializableString: java.lang.String getValue()>();
+
+        $i0 = virtualinvoke $r2.<com.fasterxml.jackson.core.json.JsonWriteContext: int writeFieldName(java.lang.String)>($r3);
+
+        if $i0 != 4 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _reportError(java.lang.String)>("Can not write a field name, expecting a value");
+
+     label1:
+        if $i0 != 1 goto label3;
+
+     label2:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeFieldName(com.fasterxml.jackson.core.SerializableString,boolean)>($r1, $z0);
+
+        return;
+
+     label3:
+        $z0 = 0;
+
+        goto label2;
+    }
+
+    public final void writeFieldName(java.lang.String)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.String $r1;
+        int $i0;
+        boolean $z0;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 = 1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $i0 = virtualinvoke $r2.<com.fasterxml.jackson.core.json.JsonWriteContext: int writeFieldName(java.lang.String)>($r1);
+
+        if $i0 != 4 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _reportError(java.lang.String)>("Can not write a field name, expecting a value");
+
+     label1:
+        if $i0 != 1 goto label3;
+
+     label2:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeFieldName(java.lang.String,boolean)>($r1, $z0);
+
+        return;
+
+     label3:
+        $z0 = 0;
+
+        goto label2;
+    }
+
+    public final void writeNull()
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write null value");
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeNull()>();
+
+        return;
+    }
+
+    public final void writeNumber(double)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        double $d0;
+        boolean $z0;
+        com.fasterxml.jackson.core.JsonGenerator$Feature $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $d0 := @parameter0: double;
+
+        $z0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean _cfgNumbersAsStrings>;
+
+        if $z0 != 0 goto label2;
+
+        $z0 = staticinvoke <java.lang.Double: boolean isNaN(double)>($d0);
+
+        if $z0 != 0 goto label1;
+
+        $z0 = staticinvoke <java.lang.Double: boolean isInfinite(double)>($d0);
+
+        if $z0 == 0 goto label3;
+
+     label1:
+        $r1 = <com.fasterxml.jackson.core.JsonGenerator$Feature: com.fasterxml.jackson.core.JsonGenerator$Feature QUOTE_NON_NUMERIC_NUMBERS>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean isEnabled(com.fasterxml.jackson.core.JsonGenerator$Feature)>($r1);
+
+        if $z0 == 0 goto label3;
+
+     label2:
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(double)>($d0);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeString(java.lang.String)>($r2);
+
+        return;
+
+     label3:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write number");
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(double)>($d0);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeRaw(java.lang.String)>($r2);
+
+        return;
+    }
+
+    public final void writeNumber(float)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        float $f0;
+        boolean $z0;
+        com.fasterxml.jackson.core.JsonGenerator$Feature $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $f0 := @parameter0: float;
+
+        $z0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean _cfgNumbersAsStrings>;
+
+        if $z0 != 0 goto label2;
+
+        $z0 = staticinvoke <java.lang.Float: boolean isNaN(float)>($f0);
+
+        if $z0 != 0 goto label1;
+
+        $z0 = staticinvoke <java.lang.Float: boolean isInfinite(float)>($f0);
+
+        if $z0 == 0 goto label3;
+
+     label1:
+        $r1 = <com.fasterxml.jackson.core.JsonGenerator$Feature: com.fasterxml.jackson.core.JsonGenerator$Feature QUOTE_NON_NUMERIC_NUMBERS>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean isEnabled(com.fasterxml.jackson.core.JsonGenerator$Feature)>($r1);
+
+        if $z0 == 0 goto label3;
+
+     label2:
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(float)>($f0);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeString(java.lang.String)>($r2);
+
+        return;
+
+     label3:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write number");
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(float)>($f0);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeRaw(java.lang.String)>($r2);
+
+        return;
+    }
+
+    public final void writeNumber(int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        int $i0, $i1, $i2;
+        boolean $z0;
+        char[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $i0 := @parameter0: int;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write number");
+
+        $z0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean _cfgNumbersAsStrings>;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeQuotedInt(int)>($i0);
+
+        return;
+
+     label1:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i1 + 11;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i1 < $i2 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputInt(int,char[],int)>($i0, $r1, $i1);
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i0;
+
+        return;
+    }
+
+    public final void writeNumber(long)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        long $l0;
+        int $i1, $i2;
+        boolean $z0;
+        char[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $l0 := @parameter0: long;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write number");
+
+        $z0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean _cfgNumbersAsStrings>;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeQuotedLong(long)>($l0);
+
+        return;
+
+     label1:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i1 + 21;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i1 < $i2 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputLong(long,char[],int)>($l0, $r1, $i1);
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        return;
+    }
+
+    public final void writeNumber(java.lang.String)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.String $r1;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write number");
+
+        $z0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean _cfgNumbersAsStrings>;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeQuotedRaw(java.lang.Object)>($r1);
+
+        return;
+
+     label1:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeRaw(java.lang.String)>($r1);
+
+        return;
+    }
+
+    public final void writeNumber(java.math.BigDecimal)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.math.BigDecimal $r1;
+        java.lang.String $r2;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.math.BigDecimal;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write number");
+
+        if $r1 != null goto label1;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeNull()>();
+
+        return;
+
+     label1:
+        $z0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean _cfgNumbersAsStrings>;
+
+        if $z0 == 0 goto label2;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeQuotedRaw(java.lang.Object)>($r1);
+
+        return;
+
+     label2:
+        $r2 = virtualinvoke $r1.<java.math.BigDecimal: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeRaw(java.lang.String)>($r2);
+
+        return;
+    }
+
+    public final void writeNumber(java.math.BigInteger)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.math.BigInteger $r1;
+        java.lang.String $r2;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.math.BigInteger;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write number");
+
+        if $r1 != null goto label1;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeNull()>();
+
+        return;
+
+     label1:
+        $z0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: boolean _cfgNumbersAsStrings>;
+
+        if $z0 == 0 goto label2;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeQuotedRaw(java.lang.Object)>($r1);
+
+        return;
+
+     label2:
+        $r2 = virtualinvoke $r1.<java.math.BigInteger: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeRaw(java.lang.String)>($r2);
+
+        return;
+    }
+
+    public final void writeRaw(char)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        char $c0;
+        int $i1, $i2;
+        char[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $c0 := @parameter0: char;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i1 < $i2 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i2 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r1[$i2] = $c0;
+
+        return;
+    }
+
+    public final void writeRaw(java.lang.String)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.String $r1;
+        int $i0, $i1, $i2;
+        char[] $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i0 - $i2;
+
+        if $i0 != 0 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i0 - $i2;
+
+     label1:
+        if $i0 < $i1 goto label2;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        virtualinvoke $r1.<java.lang.String: void getChars(int,int,char[],int)>(0, $i1, $r2, $i0);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + $i1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        return;
+
+     label2:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeRawLong(java.lang.String)>($r1);
+
+        return;
+    }
+
+    public final void writeRaw(char[], int, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        char[] $r1, $r2;
+        int $i0, $i1, $i2, $i3;
+        java.io.Writer $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        if $i1 >= 32 goto label2;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i2 = $i2 - $i3;
+
+        if $i1 <= $i2 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label1:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r1, $i0, $r2, $i2, $i1);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i0 + $i1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i0;
+
+        return;
+
+     label2:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r3.<java.io.Writer: void write(char[],int,int)>($r1, $i0, $i1);
+
+        return;
+    }
+
+    public final void writeStartArray()
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r1;
+        com.fasterxml.jackson.core.PrettyPrinter $r2;
+        int $i0, $i1;
+        char[] $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("start an array");
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $r1 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext createChildArrayContext()>();
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext> = $r1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        interfaceinvoke $r2.<com.fasterxml.jackson.core.PrettyPrinter: void writeStartArray(com.fasterxml.jackson.core.JsonGenerator)>($r0);
+
+        return;
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r3[$i0] = 91;
+
+        return;
+    }
+
+    public final void writeStartObject()
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        com.fasterxml.jackson.core.json.JsonWriteContext $r1;
+        com.fasterxml.jackson.core.PrettyPrinter $r2;
+        int $i0, $i1;
+        char[] $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("start an object");
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext>;
+
+        $r1 = virtualinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext createChildObjectContext()>();
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.json.JsonWriteContext _writeContext> = $r1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.PrettyPrinter _cfgPrettyPrinter>;
+
+        interfaceinvoke $r2.<com.fasterxml.jackson.core.PrettyPrinter: void writeStartObject(com.fasterxml.jackson.core.JsonGenerator)>($r0);
+
+        return;
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r3[$i0] = 123;
+
+        return;
+    }
+
+    public final void writeString(com.fasterxml.jackson.core.SerializableString)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        com.fasterxml.jackson.core.SerializableString $r1;
+        char[] $r2, $r3;
+        int $i0, $i1, $i2;
+        java.io.Writer $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.SerializableString;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write text value");
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label1:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r2[$i0] = 34;
+
+        $r2 = interfaceinvoke $r1.<com.fasterxml.jackson.core.SerializableString: char[] asQuotedChars()>();
+
+        $i0 = lengthof $r2;
+
+        if $i0 >= 32 goto label5;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i1 - $i2;
+
+        if $i0 <= $i1 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r2, 0, $r3, $i1, $i0);
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i0 = $i1 + $i0;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i0;
+
+     label3:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label4;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label4:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r2[$i0] = 34;
+
+        return;
+
+     label5:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: java.io.Writer _writer>;
+
+        virtualinvoke $r4.<java.io.Writer: void write(char[],int,int)>($r2, 0, $i0);
+
+        goto label3;
+    }
+
+    public final void writeString(java.lang.String)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+        char[] $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write text value");
+
+        if $r1 != null goto label1;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeNull()>();
+
+        return;
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r2[$i0] = 34;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeString(java.lang.String)>($r1);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label3:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r2[$i0] = 34;
+
+        return;
+    }
+
+    public final void writeString(char[], int, int)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        char[] $r1, $r2;
+        int $i0, $i1, $i2, $i3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _verifyValueWrite(java.lang.String)>("write text value");
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i2 < $i3 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label1:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i3 = $i2 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i3;
+
+        $r2[$i2] = 34;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _writeString(char[],int,int)>($r1, $i0, $i1);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void _flushBuffer()>();
+
+     label2:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: char[] _outputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: int _outputTail> = $i1;
+
+        $r1[$i0] = 34;
+
+        return;
+    }
+
+    public final void writeStringField(java.lang.String, java.lang.String)
+    {
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r0;
+        java.lang.String $r1, $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeFieldName(java.lang.String)>($r1);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void writeString(java.lang.String)>($r2);
+
+        return;
+    }
+}

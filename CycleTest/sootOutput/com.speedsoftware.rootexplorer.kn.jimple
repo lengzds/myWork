@@ -1,0 +1,584 @@
+final class com.speedsoftware.rootexplorer.kn extends java.lang.Thread
+{
+    com.speedsoftware.rootexplorer.bn a;
+    java.lang.String b;
+    int c;
+    boolean d;
+    final com.speedsoftware.rootexplorer.ge e;
+
+    void <init>(com.speedsoftware.rootexplorer.ge, com.speedsoftware.rootexplorer.bn, java.lang.String, int)
+    {
+        com.speedsoftware.rootexplorer.kn $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+        com.speedsoftware.rootexplorer.bn $r2;
+        java.lang.String $r3;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.kn;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r2 := @parameter1: com.speedsoftware.rootexplorer.bn;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $i0 := @parameter3: int;
+
+        $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.ge e> = $r1;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.bn a> = $r2;
+
+        $r0.<com.speedsoftware.rootexplorer.kn: java.lang.String b> = $r3;
+
+        $r0.<com.speedsoftware.rootexplorer.kn: int c> = $i0;
+
+        $r0.<com.speedsoftware.rootexplorer.kn: boolean d> = 1;
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.kn $r0;
+        java.util.ArrayList $r1;
+        java.util.HashMap $r2;
+        com.speedsoftware.a.b $r3, $r7;
+        java.lang.String $r4, $r5, $r19, $r20, $r23;
+        int $i0, $i1;
+        com.speedsoftware.rootexplorer.bn $r6;
+        com.speedsoftware.rootexplorer.ge $r8;
+        com.speedsoftware.rootexplorer.e $r9;
+        android.os.Handler $r10;
+        com.speedsoftware.rootexplorer.ku $r11;
+        boolean $z0, $z1;
+        java.lang.StringBuilder $r12;
+        java.util.List $r13;
+        java.util.Iterator $r14;
+        com.speedsoftware.rootexplorer.ki $r15;
+        java.lang.Exception $r16, $r26, $r28, $r30, $r33, $r34;
+        java.lang.Object $r17;
+        com.speedsoftware.a.o $r18;
+        char $c2;
+        java.lang.String[] $r21;
+        java.util.Date $r22;
+        long $l3;
+        android.app.Activity $r24;
+        byte[] $r25;
+        java.lang.Runnable $r27;
+        java.lang.Throwable $r29, $r31, $r32;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.kn;
+
+        $r3 = null;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+     label01:
+        $r4 = $r0.<com.speedsoftware.rootexplorer.kn: java.lang.String b>;
+
+        $r4 = virtualinvoke $r4.<java.lang.String: java.lang.String replace(char,char)>(47, 92);
+
+        $i0 = virtualinvoke $r4.<java.lang.String: int length()>();
+
+     label02:
+        if $i0 != 0 goto label12;
+
+        $r5 = "";
+
+     label03:
+        $r2 = new java.util.HashMap;
+
+     label04:
+        specialinvoke $r2.<java.util.HashMap: void <init>()>();
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.bn a>;
+
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.ge: com.speedsoftware.a.b q(com.speedsoftware.rootexplorer.bn)>($r6);
+
+     label05:
+        $r7 = $r3;
+
+        if $r3 != null goto label15;
+
+     label06:
+        virtualinvoke $r3.<com.speedsoftware.a.b: void close()>();
+
+        $r8 = $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.ge e>;
+
+     label07:
+        $r9 = <com.speedsoftware.rootexplorer.e: com.speedsoftware.rootexplorer.e d>;
+
+     label08:
+        $r8.<com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.e cl> = $r9;
+
+     label09:
+        $r10 = <com.speedsoftware.rootexplorer.ge: android.os.Handler s>;
+
+        $r11 = new com.speedsoftware.rootexplorer.ku;
+
+     label10:
+        $r8 = $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.ge e>;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.kn: java.lang.String b>;
+
+        $i0 = $r0.<com.speedsoftware.rootexplorer.kn: int c>;
+
+        $z0 = $r0.<com.speedsoftware.rootexplorer.kn: boolean d>;
+
+        specialinvoke $r11.<com.speedsoftware.rootexplorer.ku: void <init>(com.speedsoftware.rootexplorer.ge,java.lang.String,int,boolean,java.util.ArrayList)>($r8, $r4, $i0, $z0, $r1);
+
+        virtualinvoke $r10.<android.os.Handler: boolean post(java.lang.Runnable)>($r11);
+
+     label11:
+        return;
+
+     label12:
+        $r12 = new java.lang.StringBuilder;
+
+     label13:
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r4);
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\");
+
+        $r5 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label14:
+        goto label03;
+
+     label15:
+        $r13 = virtualinvoke $r3.<com.speedsoftware.a.b: java.util.List c()>();
+
+        $r14 = interfaceinvoke $r13.<java.util.List: java.util.Iterator iterator()>();
+
+     label16:
+        $z0 = interfaceinvoke $r14.<java.util.Iterator: boolean hasNext()>();
+
+     label17:
+        if $z0 != 0 goto label30;
+
+     label18:
+        $r15 = new com.speedsoftware.rootexplorer.ki;
+
+     label19:
+        $r8 = $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.ge e>;
+
+        specialinvoke $r15.<com.speedsoftware.rootexplorer.ki: void <init>(com.speedsoftware.rootexplorer.ge)>($r8);
+
+        staticinvoke <java.util.Collections: void sort(java.util.List,java.util.Comparator)>($r1, $r15);
+
+     label20:
+        $i0 = 0;
+
+     label21:
+        $i1 = virtualinvoke $r1.<java.util.ArrayList: int size()>();
+
+     label22:
+        if $i0 < $i1 goto label89;
+
+     label23:
+        virtualinvoke $r3.<com.speedsoftware.a.b: void close()>();
+
+        $r8 = $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.ge e>;
+
+     label24:
+        $r9 = <com.speedsoftware.rootexplorer.e: com.speedsoftware.rootexplorer.e d>;
+
+     label25:
+        $r8.<com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.e cl> = $r9;
+
+     label26:
+        $r10 = <com.speedsoftware.rootexplorer.ge: android.os.Handler s>;
+
+        $r11 = new com.speedsoftware.rootexplorer.ku;
+
+     label27:
+        $r8 = $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.ge e>;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.kn: java.lang.String b>;
+
+        $i0 = $r0.<com.speedsoftware.rootexplorer.kn: int c>;
+
+        $z0 = $r0.<com.speedsoftware.rootexplorer.kn: boolean d>;
+
+        specialinvoke $r11.<com.speedsoftware.rootexplorer.ku: void <init>(com.speedsoftware.rootexplorer.ge,java.lang.String,int,boolean,java.util.ArrayList)>($r8, $r4, $i0, $z0, $r1);
+
+        virtualinvoke $r10.<android.os.Handler: boolean post(java.lang.Runnable)>($r11);
+
+     label28:
+        return;
+
+     label29:
+        $r16 := @caughtexception;
+
+        return;
+
+     label30:
+        $r17 = interfaceinvoke $r14.<java.util.Iterator: java.lang.Object next()>();
+
+        $r18 = (com.speedsoftware.a.o) $r17;
+
+        $r19 = virtualinvoke $r18.<com.speedsoftware.a.o: java.lang.String l()>();
+
+     label31:
+        $r20 = $r19;
+
+     label32:
+        $c2 = virtualinvoke $r19.<java.lang.String: char charAt(int)>(0);
+
+     label33:
+        if $c2 != 92 goto label36;
+
+     label34:
+        $r19 = virtualinvoke $r19.<java.lang.String: java.lang.String substring(int)>(1);
+
+     label35:
+        $r20 = $r19;
+
+     label36:
+        $r21 = virtualinvoke $r20.<java.lang.String: java.lang.String[] split(java.lang.String)>("\\\\");
+
+     label37:
+        $i0 = lengthof $r21;
+
+     label38:
+        $i1 = $r0.<com.speedsoftware.rootexplorer.kn: int c>;
+
+     label39:
+        $i1 = $i1 + 1;
+
+        if $i0 < $i1 goto label16;
+
+     label40:
+        $z0 = virtualinvoke $r20.<java.lang.String: boolean startsWith(java.lang.String)>($r5);
+
+     label41:
+        if $z0 == 0 goto label16;
+
+     label42:
+        $i0 = $r0.<com.speedsoftware.rootexplorer.kn: int c>;
+
+     label43:
+        $r19 = $r21[$i0];
+
+     label44:
+        $r22 = virtualinvoke $r18.<com.speedsoftware.a.o: java.util.Date m()>();
+
+     label45:
+        $r20 = "-";
+
+        $z0 = 0;
+
+     label46:
+        $i0 = lengthof $r21;
+
+     label47:
+        $i1 = $r0.<com.speedsoftware.rootexplorer.kn: int c>;
+
+     label48:
+        $i1 = $i1 + 1;
+
+        if $i0 != $i1 goto label52;
+
+        $z0 = 1;
+
+     label49:
+        $z1 = virtualinvoke $r18.<com.speedsoftware.a.o: boolean u()>();
+
+     label50:
+        if $z1 == 0 goto label52;
+
+        $r20 = "d";
+
+     label51:
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r19, null);
+
+     label52:
+        if $z0 == 0 goto label16;
+
+     label53:
+        $r6 = new com.speedsoftware.rootexplorer.bn;
+
+     label54:
+        $r23 = virtualinvoke $r4.<java.lang.String: java.lang.String replace(char,char)>(92, 47);
+
+        $l3 = virtualinvoke $r18.<com.speedsoftware.a.o: long q()>();
+
+     label55:
+        $i0 = (int) $l3;
+
+        $l3 = (long) $i0;
+
+     label56:
+        specialinvoke $r6.<com.speedsoftware.rootexplorer.bn: void <init>(java.lang.String,java.lang.String,java.lang.String,long,java.util.Date)>($r23, $r19, $r20, $l3, $r22);
+
+        $r8 = $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.ge e>;
+
+        $z0 = $r8.<com.speedsoftware.rootexplorer.ge: boolean aH>;
+
+     label57:
+        if $z0 == 0 goto label75;
+
+     label58:
+        $r19 = new java.lang.String;
+
+     label59:
+        $r24 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+     label60:
+        if $r24 != null goto label73;
+
+        $i0 = 0;
+
+     label61:
+        $r25 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] ea(int)>($i0);
+
+        specialinvoke $r19.<java.lang.String: void <init>(byte[])>($r25);
+
+        virtualinvoke $r6.<com.speedsoftware.rootexplorer.bn: void q(java.lang.String)>($r19);
+
+     label62:
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r6);
+
+     label63:
+        goto label16;
+
+     label64:
+        $r26 := @caughtexception;
+
+     label65:
+        $r10 = <com.speedsoftware.rootexplorer.ge: android.os.Handler s>;
+
+        $r8 = $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.ge e>;
+
+        $r27 = $r8.<com.speedsoftware.rootexplorer.ge: java.lang.Runnable cn>;
+
+        virtualinvoke $r10.<android.os.Handler: boolean post(java.lang.Runnable)>($r27);
+
+     label66:
+        virtualinvoke $r3.<com.speedsoftware.a.b: void close()>();
+
+        $r8 = $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.ge e>;
+
+     label67:
+        $r9 = <com.speedsoftware.rootexplorer.e: com.speedsoftware.rootexplorer.e d>;
+
+     label68:
+        $r8.<com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.e cl> = $r9;
+
+     label69:
+        $r10 = <com.speedsoftware.rootexplorer.ge: android.os.Handler s>;
+
+        $r11 = new com.speedsoftware.rootexplorer.ku;
+
+     label70:
+        $r8 = $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.ge e>;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.kn: java.lang.String b>;
+
+        $i0 = $r0.<com.speedsoftware.rootexplorer.kn: int c>;
+
+        $z0 = $r0.<com.speedsoftware.rootexplorer.kn: boolean d>;
+
+        specialinvoke $r11.<com.speedsoftware.rootexplorer.ku: void <init>(com.speedsoftware.rootexplorer.ge,java.lang.String,int,boolean,java.util.ArrayList)>($r8, $r4, $i0, $z0, $r1);
+
+        virtualinvoke $r10.<android.os.Handler: boolean post(java.lang.Runnable)>($r11);
+
+     label71:
+        return;
+
+     label72:
+        $r28 := @caughtexception;
+
+        return;
+
+     label73:
+        $r24 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r20 = virtualinvoke $r24.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r20);
+
+     label74:
+        goto label61;
+
+     label75:
+        $r19 = new java.lang.String;
+
+     label76:
+        $r24 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+     label77:
+        if $r24 != null goto label87;
+
+        $i0 = 0;
+
+     label78:
+        $r25 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] dx(int)>($i0);
+
+        specialinvoke $r19.<java.lang.String: void <init>(byte[])>($r25);
+
+        virtualinvoke $r6.<com.speedsoftware.rootexplorer.bn: void p(java.lang.String)>($r19);
+
+     label79:
+        goto label62;
+
+     label80:
+        $r29 := @caughtexception;
+
+     label81:
+        virtualinvoke $r7.<com.speedsoftware.a.b: void close()>();
+
+        $r8 = $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.ge e>;
+
+     label82:
+        $r9 = <com.speedsoftware.rootexplorer.e: com.speedsoftware.rootexplorer.e d>;
+
+     label83:
+        $r8.<com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.e cl> = $r9;
+
+     label84:
+        $r10 = <com.speedsoftware.rootexplorer.ge: android.os.Handler s>;
+
+        $r11 = new com.speedsoftware.rootexplorer.ku;
+
+     label85:
+        $r8 = $r0.<com.speedsoftware.rootexplorer.kn: com.speedsoftware.rootexplorer.ge e>;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.kn: java.lang.String b>;
+
+        $i0 = $r0.<com.speedsoftware.rootexplorer.kn: int c>;
+
+        $z0 = $r0.<com.speedsoftware.rootexplorer.kn: boolean d>;
+
+        specialinvoke $r11.<com.speedsoftware.rootexplorer.ku: void <init>(com.speedsoftware.rootexplorer.ge,java.lang.String,int,boolean,java.util.ArrayList)>($r8, $r4, $i0, $z0, $r1);
+
+        virtualinvoke $r10.<android.os.Handler: boolean post(java.lang.Runnable)>($r11);
+
+     label86:
+        throw $r29;
+
+     label87:
+        $r24 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r20 = virtualinvoke $r24.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r20);
+
+     label88:
+        goto label78;
+
+     label89:
+        $r17 = virtualinvoke $r1.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r6 = (com.speedsoftware.rootexplorer.bn) $r17;
+
+        virtualinvoke $r6.<com.speedsoftware.rootexplorer.bn: void a(int)>($i0);
+
+     label90:
+        $i0 = $i0 + 1;
+
+        goto label21;
+
+     label91:
+        $r30 := @caughtexception;
+
+        goto label86;
+
+     label92:
+        $r31 := @caughtexception;
+
+        $r29 = $r31;
+
+        $r7 = null;
+
+        goto label81;
+
+     label93:
+        $r32 := @caughtexception;
+
+        $r29 = $r32;
+
+        $r7 = $r3;
+
+        goto label81;
+
+     label94:
+        $r33 := @caughtexception;
+
+        goto label65;
+
+     label95:
+        $r34 := @caughtexception;
+
+        return;
+
+        catch java.lang.Exception from label01 to label02 with label94;
+        catch java.lang.Exception from label04 to label05 with label94;
+        catch java.lang.Throwable from label01 to label02 with label92;
+        catch java.lang.Throwable from label03 to label05 with label92;
+        catch java.lang.Exception from label06 to label07 with label95;
+        catch java.lang.Exception from label08 to label09 with label95;
+        catch java.lang.Exception from label10 to label11 with label95;
+        catch java.lang.Exception from label13 to label14 with label94;
+        catch java.lang.Throwable from label12 to label14 with label92;
+        catch java.lang.Exception from label15 to label17 with label64;
+        catch java.lang.Exception from label19 to label20 with label64;
+        catch java.lang.Exception from label21 to label22 with label64;
+        catch java.lang.Throwable from label15 to label17 with label80;
+        catch java.lang.Throwable from label18 to label20 with label80;
+        catch java.lang.Throwable from label21 to label22 with label80;
+        catch java.lang.Exception from label23 to label24 with label29;
+        catch java.lang.Exception from label25 to label26 with label29;
+        catch java.lang.Exception from label27 to label28 with label29;
+        catch java.lang.Exception from label30 to label31 with label64;
+        catch java.lang.Exception from label32 to label33 with label64;
+        catch java.lang.Exception from label34 to label35 with label64;
+        catch java.lang.Exception from label36 to label39 with label64;
+        catch java.lang.Exception from label40 to label41 with label64;
+        catch java.lang.Exception from label42 to label45 with label64;
+        catch java.lang.Exception from label46 to label48 with label64;
+        catch java.lang.Exception from label49 to label50 with label64;
+        catch java.lang.Exception from label51 to label52 with label64;
+        catch java.lang.Exception from label54 to label55 with label64;
+        catch java.lang.Exception from label56 to label57 with label64;
+        catch java.lang.Exception from label59 to label60 with label64;
+        catch java.lang.Exception from label61 to label63 with label64;
+        catch java.lang.Throwable from label30 to label31 with label80;
+        catch java.lang.Throwable from label32 to label33 with label80;
+        catch java.lang.Throwable from label34 to label35 with label80;
+        catch java.lang.Throwable from label36 to label37 with label80;
+        catch java.lang.Throwable from label38 to label39 with label80;
+        catch java.lang.Throwable from label40 to label41 with label80;
+        catch java.lang.Throwable from label42 to label43 with label80;
+        catch java.lang.Throwable from label44 to label45 with label80;
+        catch java.lang.Throwable from label47 to label48 with label80;
+        catch java.lang.Throwable from label49 to label50 with label80;
+        catch java.lang.Throwable from label51 to label52 with label80;
+        catch java.lang.Throwable from label53 to label57 with label80;
+        catch java.lang.Throwable from label58 to label60 with label80;
+        catch java.lang.Throwable from label61 to label63 with label80;
+        catch java.lang.Throwable from label65 to label66 with label93;
+        catch java.lang.Exception from label66 to label67 with label72;
+        catch java.lang.Exception from label68 to label69 with label72;
+        catch java.lang.Exception from label70 to label71 with label72;
+        catch java.lang.Exception from label73 to label74 with label64;
+        catch java.lang.Exception from label76 to label77 with label64;
+        catch java.lang.Exception from label78 to label79 with label64;
+        catch java.lang.Throwable from label73 to label74 with label80;
+        catch java.lang.Throwable from label75 to label77 with label80;
+        catch java.lang.Throwable from label78 to label79 with label80;
+        catch java.lang.Exception from label81 to label82 with label91;
+        catch java.lang.Exception from label83 to label84 with label91;
+        catch java.lang.Exception from label85 to label86 with label91;
+        catch java.lang.Exception from label87 to label88 with label64;
+        catch java.lang.Exception from label89 to label90 with label64;
+        catch java.lang.Throwable from label87 to label88 with label80;
+        catch java.lang.Throwable from label89 to label90 with label80;
+    }
+}

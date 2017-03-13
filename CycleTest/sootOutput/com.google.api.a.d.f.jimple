@@ -1,0 +1,143 @@
+public final class com.google.api.a.d.f extends java.lang.Object implements com.google.api.a.f.am
+{
+    private final com.google.api.a.d.d a;
+    private final java.util.Set b;
+
+    protected void <init>(com.google.api.a.d.g)
+    {
+        com.google.api.a.d.f $r0;
+        com.google.api.a.d.g $r1;
+        java.util.Collection $r2;
+        com.google.api.a.d.d $r3;
+        java.util.HashSet $r4;
+
+        $r0 := @this: com.google.api.a.d.f;
+
+        $r1 := @parameter0: com.google.api.a.d.g;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r3 = $r1.<com.google.api.a.d.g: com.google.api.a.d.d a>;
+
+        $r0.<com.google.api.a.d.f: com.google.api.a.d.d a> = $r3;
+
+        $r4 = new java.util.HashSet;
+
+        $r2 = $r1.<com.google.api.a.d.g: java.util.Collection b>;
+
+        specialinvoke $r4.<java.util.HashSet: void <init>(java.util.Collection)>($r2);
+
+        $r0.<com.google.api.a.d.f: java.util.Set b> = $r4;
+
+        return;
+    }
+
+    public final com.google.api.a.d.d a()
+    {
+        com.google.api.a.d.f $r0;
+        com.google.api.a.d.d r1;
+
+        $r0 := @this: com.google.api.a.d.f;
+
+        r1 = $r0.<com.google.api.a.d.f: com.google.api.a.d.d a>;
+
+        return r1;
+    }
+
+    public final java.lang.Object a(java.io.InputStream, java.nio.charset.Charset, java.lang.Class)
+    {
+        com.google.api.a.d.f $r0;
+        java.io.InputStream $r1;
+        java.nio.charset.Charset $r2;
+        java.lang.Class $r3;
+        java.util.Set $r4;
+        boolean $z0, $z1;
+        com.google.api.a.d.d $r5;
+        com.google.api.a.d.h $r6;
+        java.lang.String $r7;
+        com.google.api.a.d.m $r8, $r9;
+        java.lang.Object[] $r10;
+        java.lang.Object $r11;
+        java.lang.Throwable $r12;
+
+        $r0 := @this: com.google.api.a.d.f;
+
+        $r1 := @parameter0: java.io.InputStream;
+
+        $r2 := @parameter1: java.nio.charset.Charset;
+
+        $r3 := @parameter2: java.lang.Class;
+
+        $z0 = 1;
+
+        $r5 = $r0.<com.google.api.a.d.f: com.google.api.a.d.d a>;
+
+        $r6 = virtualinvoke $r5.<com.google.api.a.d.d: com.google.api.a.d.h a(java.io.InputStream,java.nio.charset.Charset)>($r1, $r2);
+
+        $r4 = $r0.<com.google.api.a.d.f: java.util.Set b>;
+
+        $z1 = interfaceinvoke $r4.<java.util.Set: boolean isEmpty()>();
+
+        if $z1 != 0 goto label6;
+
+     label1:
+        $r4 = $r0.<com.google.api.a.d.f: java.util.Set b>;
+
+        $r7 = virtualinvoke $r6.<com.google.api.a.d.h: java.lang.String a(java.util.Set)>($r4);
+
+     label2:
+        if $r7 == null goto label7;
+
+     label3:
+        $r8 = virtualinvoke $r6.<com.google.api.a.d.h: com.google.api.a.d.m d()>();
+
+        $r9 = <com.google.api.a.d.m: com.google.api.a.d.m d>;
+
+     label4:
+        if $r8 == $r9 goto label7;
+
+     label5:
+        $r10 = newarray (java.lang.Object)[1];
+
+        $r4 = $r0.<com.google.api.a.d.f: java.util.Set b>;
+
+        $r10[0] = $r4;
+
+        staticinvoke <com.google.api.a.e.a.a.a.a.b: void a(boolean,java.lang.String,java.lang.Object[])>($z0, "wrapper key(s) not found: %s", $r10);
+
+     label6:
+        $r11 = virtualinvoke $r6.<com.google.api.a.d.h: java.lang.Object a(java.lang.reflect.Type)>($r3);
+
+        return $r11;
+
+     label7:
+        $z0 = 0;
+
+        goto label5;
+
+     label8:
+        $r12 := @caughtexception;
+
+        virtualinvoke $r6.<com.google.api.a.d.h: void b()>();
+
+        throw $r12;
+
+        catch java.lang.Throwable from label1 to label2 with label8;
+        catch java.lang.Throwable from label3 to label4 with label8;
+        catch java.lang.Throwable from label5 to label6 with label8;
+    }
+
+    public final java.util.Set b()
+    {
+        com.google.api.a.d.f $r0;
+        java.util.Set $r1;
+
+        $r0 := @this: com.google.api.a.d.f;
+
+        $r1 = $r0.<com.google.api.a.d.f: java.util.Set b>;
+
+        $r1 = staticinvoke <java.util.Collections: java.util.Set unmodifiableSet(java.util.Set)>($r1);
+
+        return $r1;
+    }
+}

@@ -1,0 +1,85 @@
+public final class com.dropbox.client2.n extends org.apache.http.entity.HttpEntityWrapper
+{
+    private final com.dropbox.client2.m a;
+    private final long b;
+
+    public void <init>(org.apache.http.HttpEntity, com.dropbox.client2.m)
+    {
+        com.dropbox.client2.n $r0;
+        org.apache.http.HttpEntity $r1;
+        com.dropbox.client2.m $r2;
+        long $l0;
+        java.lang.IllegalArgumentException $r3;
+
+        $r0 := @this: com.dropbox.client2.n;
+
+        $r1 := @parameter0: org.apache.http.HttpEntity;
+
+        $r2 := @parameter1: com.dropbox.client2.m;
+
+        specialinvoke $r0.<org.apache.http.entity.HttpEntityWrapper: void <init>(org.apache.http.HttpEntity)>($r1);
+
+        if $r2 != null goto label1;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("\'listener\' is null");
+
+        throw $r3;
+
+     label1:
+        $r0.<com.dropbox.client2.n: com.dropbox.client2.m a> = $r2;
+
+        $l0 = interfaceinvoke $r1.<org.apache.http.HttpEntity: long getContentLength()>();
+
+        $r0.<com.dropbox.client2.n: long b> = $l0;
+
+        return;
+    }
+
+    static com.dropbox.client2.m a(com.dropbox.client2.n)
+    {
+        com.dropbox.client2.n $r0;
+        com.dropbox.client2.m r1;
+
+        $r0 := @parameter0: com.dropbox.client2.n;
+
+        r1 = $r0.<com.dropbox.client2.n: com.dropbox.client2.m a>;
+
+        return r1;
+    }
+
+    static long b(com.dropbox.client2.n)
+    {
+        com.dropbox.client2.n $r0;
+        long l0;
+
+        $r0 := @parameter0: com.dropbox.client2.n;
+
+        l0 = $r0.<com.dropbox.client2.n: long b>;
+
+        return l0;
+    }
+
+    public final void writeTo(java.io.OutputStream)
+    {
+        com.dropbox.client2.n $r0;
+        java.io.OutputStream $r1;
+        org.apache.http.HttpEntity $r2;
+        com.dropbox.client2.o $r3;
+
+        $r0 := @this: com.dropbox.client2.n;
+
+        $r1 := @parameter0: java.io.OutputStream;
+
+        $r2 = $r0.<com.dropbox.client2.n: org.apache.http.HttpEntity wrappedEntity>;
+
+        $r3 = new com.dropbox.client2.o;
+
+        specialinvoke $r3.<com.dropbox.client2.o: void <init>(com.dropbox.client2.n,java.io.OutputStream)>($r0, $r1);
+
+        interfaceinvoke $r2.<org.apache.http.HttpEntity: void writeTo(java.io.OutputStream)>($r3);
+
+        return;
+    }
+}

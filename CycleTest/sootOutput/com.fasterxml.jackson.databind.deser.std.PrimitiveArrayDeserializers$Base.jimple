@@ -1,0 +1,38 @@
+abstract class com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$Base extends com.fasterxml.jackson.databind.deser.std.StdDeserializer
+{
+
+    protected void <init>(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$Base $r0;
+        java.lang.Class $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$Base;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdDeserializer: void <init>(java.lang.Class)>($r1);
+
+        return;
+    }
+
+    public java.lang.Object deserializeWithType(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, com.fasterxml.jackson.databind.jsontype.TypeDeserializer)
+    {
+        com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$Base $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeDeserializer $r3;
+        java.lang.Object $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$Base;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.jsontype.TypeDeserializer;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.databind.jsontype.TypeDeserializer: java.lang.Object deserializeTypedFromArray(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r4;
+    }
+}

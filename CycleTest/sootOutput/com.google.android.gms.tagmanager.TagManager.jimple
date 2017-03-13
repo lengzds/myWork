@@ -1,0 +1,345 @@
+public class com.google.android.gms.tagmanager.TagManager extends java.lang.Object
+{
+    private static com.google.android.gms.tagmanager.TagManager f;
+    private final com.google.android.gms.tagmanager.TagManager$a a;
+    private final android.content.Context b;
+    private final com.google.android.gms.tagmanager.DataLayer c;
+    private final java.util.concurrent.ConcurrentMap d;
+    private final com.google.android.gms.tagmanager.r e;
+
+    private void <init>(android.content.Context, com.google.android.gms.tagmanager.TagManager$a, com.google.android.gms.tagmanager.DataLayer)
+    {
+        com.google.android.gms.tagmanager.TagManager $r0;
+        android.content.Context $r1;
+        com.google.android.gms.tagmanager.TagManager$a $r2;
+        com.google.android.gms.tagmanager.DataLayer $r3;
+        java.lang.NullPointerException $r4;
+        java.util.concurrent.ConcurrentHashMap $r5;
+        com.google.android.gms.tagmanager.TagManager$1 $r6;
+        com.google.android.gms.tagmanager.d $r7;
+        com.google.android.gms.tagmanager.r $r8;
+
+        $r0 := @this: com.google.android.gms.tagmanager.TagManager;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: com.google.android.gms.tagmanager.TagManager$a;
+
+        $r3 := @parameter2: com.google.android.gms.tagmanager.DataLayer;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        if $r1 != null goto label1;
+
+        $r4 = new java.lang.NullPointerException;
+
+        specialinvoke $r4.<java.lang.NullPointerException: void <init>(java.lang.String)>("context cannot be null");
+
+        throw $r4;
+
+     label1:
+        $r1 = virtualinvoke $r1.<android.content.Context: android.content.Context getApplicationContext()>();
+
+        $r0.<com.google.android.gms.tagmanager.TagManager: android.content.Context b> = $r1;
+
+        $r0.<com.google.android.gms.tagmanager.TagManager: com.google.android.gms.tagmanager.TagManager$a a> = $r2;
+
+        $r5 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $r5.<java.util.concurrent.ConcurrentHashMap: void <init>()>();
+
+        $r0.<com.google.android.gms.tagmanager.TagManager: java.util.concurrent.ConcurrentMap d> = $r5;
+
+        $r0.<com.google.android.gms.tagmanager.TagManager: com.google.android.gms.tagmanager.DataLayer c> = $r3;
+
+        $r3 = $r0.<com.google.android.gms.tagmanager.TagManager: com.google.android.gms.tagmanager.DataLayer c>;
+
+        $r6 = new com.google.android.gms.tagmanager.TagManager$1;
+
+        specialinvoke $r6.<com.google.android.gms.tagmanager.TagManager$1: void <init>(com.google.android.gms.tagmanager.TagManager)>($r0);
+
+        virtualinvoke $r3.<com.google.android.gms.tagmanager.DataLayer: void a(com.google.android.gms.tagmanager.DataLayer$b)>($r6);
+
+        $r3 = $r0.<com.google.android.gms.tagmanager.TagManager: com.google.android.gms.tagmanager.DataLayer c>;
+
+        $r7 = new com.google.android.gms.tagmanager.d;
+
+        $r1 = $r0.<com.google.android.gms.tagmanager.TagManager: android.content.Context b>;
+
+        specialinvoke $r7.<com.google.android.gms.tagmanager.d: void <init>(android.content.Context)>($r1);
+
+        virtualinvoke $r3.<com.google.android.gms.tagmanager.DataLayer: void a(com.google.android.gms.tagmanager.DataLayer$b)>($r7);
+
+        $r8 = new com.google.android.gms.tagmanager.r;
+
+        specialinvoke $r8.<com.google.android.gms.tagmanager.r: void <init>()>();
+
+        $r0.<com.google.android.gms.tagmanager.TagManager: com.google.android.gms.tagmanager.r e> = $r8;
+
+        return;
+    }
+
+    static void a(com.google.android.gms.tagmanager.TagManager, java.lang.String)
+    {
+        com.google.android.gms.tagmanager.TagManager $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: com.google.android.gms.tagmanager.TagManager;
+
+        $r1 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<com.google.android.gms.tagmanager.TagManager: void cl(java.lang.String)>($r1);
+
+        return;
+    }
+
+    private void cl(java.lang.String)
+    {
+        com.google.android.gms.tagmanager.TagManager $r0;
+        java.lang.String $r1;
+        java.util.concurrent.ConcurrentMap $r2;
+        java.util.Set $r3;
+        java.util.Iterator $r4;
+        boolean $z0;
+        java.lang.Object $r5;
+        com.google.android.gms.tagmanager.n $r6;
+
+        $r0 := @this: com.google.android.gms.tagmanager.TagManager;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = $r0.<com.google.android.gms.tagmanager.TagManager: java.util.concurrent.ConcurrentMap d>;
+
+        $r3 = interfaceinvoke $r2.<java.util.concurrent.ConcurrentMap: java.util.Set keySet()>();
+
+        $r4 = interfaceinvoke $r3.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (com.google.android.gms.tagmanager.n) $r5;
+
+        virtualinvoke $r6.<com.google.android.gms.tagmanager.n: void bH(java.lang.String)>($r1);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public static com.google.android.gms.tagmanager.TagManager getInstance(android.content.Context)
+    {
+        android.content.Context $r0;
+        com.google.android.gms.tagmanager.v $r1;
+        com.google.android.gms.tagmanager.TagManager $r2;
+        com.google.android.gms.tagmanager.DataLayer $r3;
+        java.lang.NullPointerException $r4;
+        java.lang.Throwable $r5;
+        com.google.android.gms.tagmanager.TagManager$2 $r6;
+
+        $r0 := @parameter0: android.content.Context;
+
+        entermonitor class "com/google/android/gms/tagmanager/TagManager";
+
+     label1:
+        $r2 = <com.google.android.gms.tagmanager.TagManager: com.google.android.gms.tagmanager.TagManager f>;
+
+        if $r2 != null goto label4;
+
+        if $r0 != null goto label3;
+
+        staticinvoke <com.google.android.gms.tagmanager.bh: void A(java.lang.String)>("TagManager.getInstance requires non-null context.");
+
+        $r4 = new java.lang.NullPointerException;
+
+        specialinvoke $r4.<java.lang.NullPointerException: void <init>()>();
+
+        throw $r4;
+
+     label2:
+        $r5 := @caughtexception;
+
+        exitmonitor class "com/google/android/gms/tagmanager/TagManager";
+
+        throw $r5;
+
+     label3:
+        $r6 = new com.google.android.gms.tagmanager.TagManager$2;
+
+        specialinvoke $r6.<com.google.android.gms.tagmanager.TagManager$2: void <init>()>();
+
+        $r1 = new com.google.android.gms.tagmanager.v;
+
+        specialinvoke $r1.<com.google.android.gms.tagmanager.v: void <init>(android.content.Context)>($r0);
+
+        $r2 = new com.google.android.gms.tagmanager.TagManager;
+
+        $r3 = new com.google.android.gms.tagmanager.DataLayer;
+
+        specialinvoke $r3.<com.google.android.gms.tagmanager.DataLayer: void <init>(com.google.android.gms.tagmanager.DataLayer$c)>($r1);
+
+        specialinvoke $r2.<com.google.android.gms.tagmanager.TagManager: void <init>(android.content.Context,com.google.android.gms.tagmanager.TagManager$a,com.google.android.gms.tagmanager.DataLayer)>($r0, $r6, $r3);
+
+        <com.google.android.gms.tagmanager.TagManager: com.google.android.gms.tagmanager.TagManager f> = $r2;
+
+     label4:
+        $r2 = <com.google.android.gms.tagmanager.TagManager: com.google.android.gms.tagmanager.TagManager f>;
+
+        exitmonitor class "com/google/android/gms/tagmanager/TagManager";
+
+     label5:
+        return $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label2;
+        catch java.lang.Throwable from label3 to label5 with label2;
+    }
+
+    final boolean a(android.net.Uri)
+    {
+        com.google.android.gms.tagmanager.TagManager $r0;
+        android.net.Uri $r1;
+        com.google.android.gms.tagmanager.cd $r2;
+        boolean $z0;
+        java.lang.String $r3, $r11;
+        int[] $r4;
+        com.google.android.gms.tagmanager.cd$a $r5;
+        int $i0;
+        java.util.concurrent.ConcurrentMap $r6;
+        java.util.Set $r7;
+        java.util.Iterator $r8;
+        java.lang.Object $r9;
+        com.google.android.gms.tagmanager.n $r10;
+        java.lang.Throwable $r12;
+
+        $r0 := @this: com.google.android.gms.tagmanager.TagManager;
+
+        $r1 := @parameter0: android.net.Uri;
+
+        entermonitor $r0;
+
+     label01:
+        $r2 = staticinvoke <com.google.android.gms.tagmanager.cd: com.google.android.gms.tagmanager.cd a()>();
+
+        $z0 = virtualinvoke $r2.<com.google.android.gms.tagmanager.cd: boolean a(android.net.Uri)>($r1);
+
+        if $z0 == 0 goto label13;
+
+        $r3 = virtualinvoke $r2.<com.google.android.gms.tagmanager.cd: java.lang.String d()>();
+
+        $r4 = <com.google.android.gms.tagmanager.TagManager$3: int[] a>;
+
+        $r5 = virtualinvoke $r2.<com.google.android.gms.tagmanager.cd: com.google.android.gms.tagmanager.cd$a b()>();
+
+        $i0 = virtualinvoke $r5.<com.google.android.gms.tagmanager.cd$a: int ordinal()>();
+
+        $i0 = $r4[$i0];
+
+     label02:
+        lookupswitch($i0)
+        {
+            case 1: goto label05;
+            case 2: goto label09;
+            case 3: goto label09;
+            default: goto label03;
+        };
+
+     label03:
+        $z0 = 1;
+
+     label04:
+        exitmonitor $r0;
+
+        return $z0;
+
+     label05:
+        $r6 = $r0.<com.google.android.gms.tagmanager.TagManager: java.util.concurrent.ConcurrentMap d>;
+
+        $r7 = interfaceinvoke $r6.<java.util.concurrent.ConcurrentMap: java.util.Set keySet()>();
+
+        $r8 = interfaceinvoke $r7.<java.util.Set: java.util.Iterator iterator()>();
+
+     label06:
+        $z0 = interfaceinvoke $r8.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label03;
+
+        $r9 = interfaceinvoke $r8.<java.util.Iterator: java.lang.Object next()>();
+
+        $r10 = (com.google.android.gms.tagmanager.n) $r9;
+
+        $r11 = virtualinvoke $r10.<com.google.android.gms.tagmanager.n: java.lang.String a()>();
+
+        $z0 = virtualinvoke $r11.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label06;
+
+        virtualinvoke $r10.<com.google.android.gms.tagmanager.n: void a(java.lang.String)>(null);
+
+        virtualinvoke $r10.<com.google.android.gms.tagmanager.n: void refresh()>();
+
+     label07:
+        goto label06;
+
+     label08:
+        $r12 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r12;
+
+     label09:
+        $r6 = $r0.<com.google.android.gms.tagmanager.TagManager: java.util.concurrent.ConcurrentMap d>;
+
+        $r7 = interfaceinvoke $r6.<java.util.concurrent.ConcurrentMap: java.util.Set keySet()>();
+
+        $r8 = interfaceinvoke $r7.<java.util.Set: java.util.Iterator iterator()>();
+
+     label10:
+        $z0 = interfaceinvoke $r8.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label03;
+
+        $r9 = interfaceinvoke $r8.<java.util.Iterator: java.lang.Object next()>();
+
+        $r10 = (com.google.android.gms.tagmanager.n) $r9;
+
+        $r11 = virtualinvoke $r10.<com.google.android.gms.tagmanager.n: java.lang.String a()>();
+
+        $z0 = virtualinvoke $r11.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label11;
+
+        $r11 = virtualinvoke $r2.<com.google.android.gms.tagmanager.cd: java.lang.String c()>();
+
+        virtualinvoke $r10.<com.google.android.gms.tagmanager.n: void a(java.lang.String)>($r11);
+
+        virtualinvoke $r10.<com.google.android.gms.tagmanager.n: void refresh()>();
+
+        goto label10;
+
+     label11:
+        $r11 = virtualinvoke $r10.<com.google.android.gms.tagmanager.n: java.lang.String b()>();
+
+        if $r11 == null goto label10;
+
+        virtualinvoke $r10.<com.google.android.gms.tagmanager.n: void a(java.lang.String)>(null);
+
+        virtualinvoke $r10.<com.google.android.gms.tagmanager.n: void refresh()>();
+
+     label12:
+        goto label10;
+
+     label13:
+        $z0 = 0;
+
+        goto label04;
+
+        catch java.lang.Throwable from label01 to label02 with label08;
+        catch java.lang.Throwable from label05 to label07 with label08;
+        catch java.lang.Throwable from label09 to label12 with label08;
+    }
+}

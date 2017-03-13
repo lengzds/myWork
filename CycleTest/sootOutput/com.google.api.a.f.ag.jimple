@@ -1,0 +1,94 @@
+public final class com.google.api.a.f.ag extends java.io.FilterInputStream
+{
+    private final com.google.api.a.f.af a;
+
+    public void <init>(java.io.InputStream, java.util.logging.Logger, java.util.logging.Level, int)
+    {
+        com.google.api.a.f.ag $r0;
+        java.io.InputStream $r1;
+        java.util.logging.Logger $r2;
+        java.util.logging.Level $r3;
+        int $i0;
+        com.google.api.a.f.af $r4;
+
+        $r0 := @this: com.google.api.a.f.ag;
+
+        $r1 := @parameter0: java.io.InputStream;
+
+        $r2 := @parameter1: java.util.logging.Logger;
+
+        $r3 := @parameter2: java.util.logging.Level;
+
+        $i0 := @parameter3: int;
+
+        specialinvoke $r0.<java.io.FilterInputStream: void <init>(java.io.InputStream)>($r1);
+
+        $r4 = new com.google.api.a.f.af;
+
+        specialinvoke $r4.<com.google.api.a.f.af: void <init>(java.util.logging.Logger,java.util.logging.Level,int)>($r2, $r3, $i0);
+
+        $r0.<com.google.api.a.f.ag: com.google.api.a.f.af a> = $r4;
+
+        return;
+    }
+
+    public final void close()
+    {
+        com.google.api.a.f.ag $r0;
+        com.google.api.a.f.af $r1;
+
+        $r0 := @this: com.google.api.a.f.ag;
+
+        $r1 = $r0.<com.google.api.a.f.ag: com.google.api.a.f.af a>;
+
+        virtualinvoke $r1.<com.google.api.a.f.af: void close()>();
+
+        specialinvoke $r0.<java.io.FilterInputStream: void close()>();
+
+        return;
+    }
+
+    public final int read()
+    {
+        com.google.api.a.f.ag $r0;
+        com.google.api.a.f.af $r1;
+        int $i0;
+
+        $r0 := @this: com.google.api.a.f.ag;
+
+        $i0 = specialinvoke $r0.<java.io.FilterInputStream: int read()>();
+
+        $r1 = $r0.<com.google.api.a.f.ag: com.google.api.a.f.af a>;
+
+        virtualinvoke $r1.<com.google.api.a.f.af: void write(int)>($i0);
+
+        return $i0;
+    }
+
+    public final int read(byte[], int, int)
+    {
+        com.google.api.a.f.ag $r0;
+        byte[] $r1;
+        int $i0, $i1;
+        com.google.api.a.f.af $r2;
+
+        $r0 := @this: com.google.api.a.f.ag;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i1 = specialinvoke $r0.<java.io.FilterInputStream: int read(byte[],int,int)>($r1, $i0, $i1);
+
+        if $i1 <= 0 goto label1;
+
+        $r2 = $r0.<com.google.api.a.f.ag: com.google.api.a.f.af a>;
+
+        virtualinvoke $r2.<com.google.api.a.f.af: void write(byte[],int,int)>($r1, $i0, $i1);
+
+     label1:
+        return $i1;
+    }
+}

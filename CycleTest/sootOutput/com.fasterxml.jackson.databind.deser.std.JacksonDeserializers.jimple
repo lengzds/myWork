@@ -1,0 +1,51 @@
+public class com.fasterxml.jackson.databind.deser.std.JacksonDeserializers extends java.lang.Object
+{
+
+    public static com.fasterxml.jackson.databind.deser.std.StdDeserializer[] all()
+    {
+        com.fasterxml.jackson.databind.deser.std.StdDeserializer[] $r0;
+        com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JavaTypeDeserializer $r1;
+        com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$TokenBufferDeserializer $r2;
+
+        $r0 = newarray (com.fasterxml.jackson.databind.deser.std.StdDeserializer)[2];
+
+        $r1 = new com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JavaTypeDeserializer;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JavaTypeDeserializer: void <init>()>();
+
+        $r0[0] = $r1;
+
+        $r2 = new com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$TokenBufferDeserializer;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$TokenBufferDeserializer: void <init>()>();
+
+        $r0[1] = $r2;
+
+        return $r0;
+    }
+
+    public static com.fasterxml.jackson.databind.deser.ValueInstantiator findValueInstantiator(com.fasterxml.jackson.databind.DeserializationConfig, com.fasterxml.jackson.databind.BeanDescription)
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        com.fasterxml.jackson.databind.BeanDescription $r1;
+        java.lang.Class $r2;
+        com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator $r3;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.BeanDescription;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.BeanDescription: java.lang.Class getBeanClass()>();
+
+        if $r2 != class "com/fasterxml/jackson/core/JsonLocation" goto label1;
+
+        $r3 = new com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator;
+
+        specialinvoke $r3.<com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator: void <init>()>();
+
+        return $r3;
+
+     label1:
+        return null;
+    }
+}

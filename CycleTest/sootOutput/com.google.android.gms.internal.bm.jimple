@@ -1,0 +1,106 @@
+public final class com.google.android.gms.internal.bm extends java.lang.Object
+{
+    public final java.lang.String a;
+    public final java.lang.String b;
+    public final java.util.List c;
+    public final java.lang.String d;
+    public final java.lang.String e;
+    public final java.util.List f;
+    public final java.lang.String g;
+
+    public void <init>(org.json.JSONObject)
+    {
+        com.google.android.gms.internal.bm $r0;
+        org.json.JSONObject $r1, $r7;
+        java.util.ArrayList $r2;
+        java.lang.String $r3, $r4;
+        org.json.JSONArray $r5;
+        int $i0, $i1;
+        java.util.List $r6;
+
+        $r0 := @this: com.google.android.gms.internal.bm;
+
+        $r1 := @parameter0: org.json.JSONObject;
+
+        $r3 = null;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r4 = virtualinvoke $r1.<org.json.JSONObject: java.lang.String getString(java.lang.String)>("id");
+
+        $r0.<com.google.android.gms.internal.bm: java.lang.String b> = $r4;
+
+        $r5 = virtualinvoke $r1.<org.json.JSONObject: org.json.JSONArray getJSONArray(java.lang.String)>("adapters");
+
+        $r2 = new java.util.ArrayList;
+
+        $i0 = virtualinvoke $r5.<org.json.JSONArray: int length()>();
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>(int)>($i0);
+
+        $i0 = 0;
+
+     label1:
+        $i1 = virtualinvoke $r5.<org.json.JSONArray: int length()>();
+
+        if $i0 >= $i1 goto label2;
+
+        $r4 = virtualinvoke $r5.<org.json.JSONArray: java.lang.String getString(int)>($i0);
+
+        interfaceinvoke $r2.<java.util.List: boolean add(java.lang.Object)>($r4);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        $r6 = staticinvoke <java.util.Collections: java.util.List unmodifiableList(java.util.List)>($r2);
+
+        $r0.<com.google.android.gms.internal.bm: java.util.List c> = $r6;
+
+        $r4 = virtualinvoke $r1.<org.json.JSONObject: java.lang.String optString(java.lang.String,java.lang.String)>("allocation_id", null);
+
+        $r0.<com.google.android.gms.internal.bm: java.lang.String d> = $r4;
+
+        $r6 = staticinvoke <com.google.android.gms.internal.bs: java.util.List a(org.json.JSONObject,java.lang.String)>($r1, "imp_urls");
+
+        $r0.<com.google.android.gms.internal.bm: java.util.List f> = $r6;
+
+        $r7 = virtualinvoke $r1.<org.json.JSONObject: org.json.JSONObject optJSONObject(java.lang.String)>("ad");
+
+        if $r7 == null goto label6;
+
+        $r4 = virtualinvoke $r7.<org.json.JSONObject: java.lang.String toString()>();
+
+     label3:
+        $r0.<com.google.android.gms.internal.bm: java.lang.String a> = $r4;
+
+        $r1 = virtualinvoke $r1.<org.json.JSONObject: org.json.JSONObject optJSONObject(java.lang.String)>("data");
+
+        if $r1 == null goto label7;
+
+        $r4 = virtualinvoke $r1.<org.json.JSONObject: java.lang.String toString()>();
+
+     label4:
+        $r0.<com.google.android.gms.internal.bm: java.lang.String g> = $r4;
+
+        if $r1 == null goto label5;
+
+        $r3 = virtualinvoke $r1.<org.json.JSONObject: java.lang.String optString(java.lang.String)>("class_name");
+
+     label5:
+        $r0.<com.google.android.gms.internal.bm: java.lang.String e> = $r3;
+
+        return;
+
+     label6:
+        $r4 = null;
+
+        goto label3;
+
+     label7:
+        $r4 = null;
+
+        goto label4;
+    }
+}

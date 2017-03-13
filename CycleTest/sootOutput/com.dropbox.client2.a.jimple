@@ -1,0 +1,921 @@
+public final class com.dropbox.client2.a extends java.lang.Object
+{
+    public static final java.lang.String a;
+    protected final com.dropbox.client2.c.m b;
+
+    static void <clinit>()
+    {
+        <com.dropbox.client2.a: java.lang.String a> = "1.6.2";
+
+        <com.dropbox.client2.a: java.lang.String a> = "1.6.2";
+
+        return;
+    }
+
+    public void <init>(com.dropbox.client2.c.m)
+    {
+        com.dropbox.client2.a $r0;
+        com.dropbox.client2.c.m $r1;
+        java.lang.IllegalArgumentException $r2;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        $r1 := @parameter0: com.dropbox.client2.c.m;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Session must not be null.");
+
+        throw $r2;
+
+     label1:
+        $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b> = $r1;
+
+        return;
+    }
+
+    protected static boolean a(java.util.Map, java.lang.String)
+    {
+        java.util.Map $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        java.lang.Object $r2;
+        java.lang.Boolean $r3;
+
+        $r0 := @parameter0: java.util.Map;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 = interfaceinvoke $r0.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        if $r2 == null goto label1;
+
+        $z0 = $r2 instanceof java.lang.Boolean;
+
+        if $z0 == 0 goto label1;
+
+        $r3 = (java.lang.Boolean) $r2;
+
+        $z0 = virtualinvoke $r3.<java.lang.Boolean: boolean booleanValue()>();
+
+        return $z0;
+
+     label1:
+        return 0;
+    }
+
+    protected static long b(java.util.Map, java.lang.String)
+    {
+        java.util.Map $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        boolean $z0;
+        java.lang.Number $r3;
+        long $l0;
+
+        $r0 := @parameter0: java.util.Map;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 = interfaceinvoke $r0.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        if $r2 == null goto label2;
+
+        $z0 = $r2 instanceof java.lang.Number;
+
+        if $z0 == 0 goto label1;
+
+        $r3 = (java.lang.Number) $r2;
+
+        $l0 = virtualinvoke $r3.<java.lang.Number: long longValue()>();
+
+        return $l0;
+
+     label1:
+        $z0 = $r2 instanceof java.lang.String;
+
+        if $z0 == 0 goto label2;
+
+        $r1 = (java.lang.String) $r2;
+
+        $l0 = staticinvoke <java.lang.Long: long parseLong(java.lang.String,int)>($r1, 16);
+
+        return $l0;
+
+     label2:
+        return 0L;
+    }
+
+    private void c()
+    {
+        com.dropbox.client2.a $r0;
+        boolean $z0;
+        com.dropbox.client2.c.m $r1;
+        com.dropbox.client2.a.i $r2;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        $r1 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $z0 = interfaceinvoke $r1.<com.dropbox.client2.c.m: boolean e()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new com.dropbox.client2.a.i;
+
+        specialinvoke $r2.<com.dropbox.client2.a.i: void <init>()>();
+
+        throw $r2;
+
+     label1:
+        return;
+    }
+
+    public final com.dropbox.client2.c.m a()
+    {
+        com.dropbox.client2.a $r0;
+        com.dropbox.client2.c.m r1;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        r1 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        return r1;
+    }
+
+    public final com.dropbox.client2.e a(java.lang.String)
+    {
+        com.dropbox.client2.a $r0;
+        java.lang.String $r1, $r7;
+        boolean $z0;
+        java.lang.StringBuilder $r2;
+        com.dropbox.client2.c.m $r3;
+        com.dropbox.client2.c.n $r4;
+        java.lang.String[] $r5;
+        java.util.Locale $r6;
+        org.apache.http.client.methods.HttpGet $r8;
+        org.apache.http.HttpResponse $r9;
+        com.dropbox.client2.e $r10;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<com.dropbox.client2.a: void c()>();
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("/");
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("/");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label1:
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("/files/");
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r4 = interfaceinvoke $r3.<com.dropbox.client2.c.m: com.dropbox.client2.c.n c()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5 = newarray (java.lang.String)[4];
+
+        $r5[0] = "rev";
+
+        $r5[1] = null;
+
+        $r5[2] = "locale";
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r6 = interfaceinvoke $r3.<com.dropbox.client2.c.m: java.util.Locale d()>();
+
+        $r7 = virtualinvoke $r6.<java.util.Locale: java.lang.String toString()>();
+
+        $r5[3] = $r7;
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r7 = interfaceinvoke $r3.<com.dropbox.client2.c.m: java.lang.String i()>();
+
+        $r1 = staticinvoke <com.dropbox.client2.p: java.lang.String a(java.lang.String,java.lang.String,java.lang.String[])>($r7, $r1, $r5);
+
+        $r8 = new org.apache.http.client.methods.HttpGet;
+
+        specialinvoke $r8.<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>($r1);
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        interfaceinvoke $r3.<com.dropbox.client2.c.m: void a(org.apache.http.HttpRequest)>($r8);
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r9 = staticinvoke <com.dropbox.client2.p: org.apache.http.HttpResponse a(com.dropbox.client2.c.m,org.apache.http.client.methods.HttpUriRequest)>($r3, $r8);
+
+        $r10 = new com.dropbox.client2.e;
+
+        specialinvoke $r10.<com.dropbox.client2.e: void <init>(org.apache.http.client.methods.HttpUriRequest,org.apache.http.HttpResponse)>($r8, $r9);
+
+        return $r10;
+    }
+
+    public final com.dropbox.client2.e a(java.lang.String, com.dropbox.client2.k, com.dropbox.client2.j)
+    {
+        com.dropbox.client2.a $r0;
+        java.lang.String $r1, $r8;
+        com.dropbox.client2.k $r2;
+        com.dropbox.client2.j $r3;
+        com.dropbox.client2.c.m $r4;
+        java.lang.StringBuilder $r5;
+        com.dropbox.client2.c.n $r6;
+        java.lang.String[] $r7;
+        java.util.Locale $r9;
+        com.dropbox.client2.q $r10;
+        com.dropbox.client2.i $r11;
+        com.dropbox.client2.e $r12;
+        org.apache.http.client.methods.HttpUriRequest $r13;
+        org.apache.http.HttpResponse $r14;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.dropbox.client2.k;
+
+        $r3 := @parameter2: com.dropbox.client2.j;
+
+        specialinvoke $r0.<com.dropbox.client2.a: void c()>();
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("/thumbnails/");
+
+        $r4 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r6 = interfaceinvoke $r4.<com.dropbox.client2.c.m: com.dropbox.client2.c.n c()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r6);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r7 = newarray (java.lang.String)[6];
+
+        $r7[0] = "size";
+
+        $r8 = virtualinvoke $r2.<com.dropbox.client2.k: java.lang.String a()>();
+
+        $r7[1] = $r8;
+
+        $r7[2] = "format";
+
+        $r8 = virtualinvoke $r3.<com.dropbox.client2.j: java.lang.String toString()>();
+
+        $r7[3] = $r8;
+
+        $r7[4] = "locale";
+
+        $r4 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r9 = interfaceinvoke $r4.<com.dropbox.client2.c.m: java.util.Locale d()>();
+
+        $r8 = virtualinvoke $r9.<java.util.Locale: java.lang.String toString()>();
+
+        $r7[5] = $r8;
+
+        $r10 = <com.dropbox.client2.q: com.dropbox.client2.q a>;
+
+        $r4 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r8 = interfaceinvoke $r4.<com.dropbox.client2.c.m: java.lang.String i()>();
+
+        $r4 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r11 = staticinvoke <com.dropbox.client2.p: com.dropbox.client2.i b(com.dropbox.client2.q,java.lang.String,java.lang.String,java.lang.String[],com.dropbox.client2.c.m)>($r10, $r8, $r1, $r7, $r4);
+
+        $r12 = new com.dropbox.client2.e;
+
+        $r13 = $r11.<com.dropbox.client2.i: org.apache.http.client.methods.HttpUriRequest a>;
+
+        $r14 = $r11.<com.dropbox.client2.i: org.apache.http.HttpResponse b>;
+
+        specialinvoke $r12.<com.dropbox.client2.e: void <init>(org.apache.http.client.methods.HttpUriRequest,org.apache.http.HttpResponse)>($r13, $r14);
+
+        return $r12;
+    }
+
+    public final com.dropbox.client2.g a(java.lang.String, java.lang.String)
+    {
+        com.dropbox.client2.a $r0;
+        java.lang.String $r1, $r2, $r6;
+        com.dropbox.client2.c.m $r3;
+        java.lang.String[] $r4;
+        com.dropbox.client2.c.n $r5;
+        java.util.Locale $r7;
+        com.dropbox.client2.q $r8;
+        java.lang.Object $r9;
+        java.util.Map $r10;
+        com.dropbox.client2.g $r11;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<com.dropbox.client2.a: void c()>();
+
+        $r4 = newarray (java.lang.String)[8];
+
+        $r4[0] = "root";
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r5 = interfaceinvoke $r3.<com.dropbox.client2.c.m: com.dropbox.client2.c.n c()>();
+
+        $r6 = virtualinvoke $r5.<com.dropbox.client2.c.n: java.lang.String toString()>();
+
+        $r4[1] = $r6;
+
+        $r4[2] = "from_path";
+
+        $r4[3] = $r1;
+
+        $r4[4] = "to_path";
+
+        $r4[5] = $r2;
+
+        $r4[6] = "locale";
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r7 = interfaceinvoke $r3.<com.dropbox.client2.c.m: java.util.Locale d()>();
+
+        $r1 = virtualinvoke $r7.<java.util.Locale: java.lang.String toString()>();
+
+        $r4[7] = $r1;
+
+        $r8 = <com.dropbox.client2.q: com.dropbox.client2.q b>;
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r1 = interfaceinvoke $r3.<com.dropbox.client2.c.m: java.lang.String h()>();
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r9 = staticinvoke <com.dropbox.client2.p: java.lang.Object a(com.dropbox.client2.q,java.lang.String,java.lang.String,java.lang.String[],com.dropbox.client2.c.m)>($r8, $r1, "/fileops/move", $r4, $r3);
+
+        $r10 = (java.util.Map) $r9;
+
+        $r11 = new com.dropbox.client2.g;
+
+        specialinvoke $r11.<com.dropbox.client2.g: void <init>(java.util.Map)>($r10);
+
+        return $r11;
+    }
+
+    public final com.dropbox.client2.l a(java.lang.String, java.io.InputStream, long, com.dropbox.client2.m)
+    {
+        com.dropbox.client2.a $r0;
+        java.io.InputStream $r1;
+        long $l0;
+        com.dropbox.client2.m $r2;
+        java.lang.String $r3, $r9;
+        boolean $z0;
+        java.lang.StringBuilder $r5, r16;
+        com.dropbox.client2.c.m $r6;
+        com.dropbox.client2.c.n $r7;
+        java.lang.String[] $r8;
+        java.util.Locale $r10;
+        org.apache.http.HttpEntity $r13;
+        java.lang.IllegalArgumentException r15;
+        org.apache.http.client.methods.HttpPut r17;
+        org.apache.http.entity.InputStreamEntity r18;
+        com.dropbox.client2.n r19;
+        com.dropbox.client2.c r20;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        $r3 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.io.InputStream;
+
+        $l0 := @parameter2: long;
+
+        $r2 := @parameter3: com.dropbox.client2.m;
+
+        if $r3 == null goto label1;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        r15 = new java.lang.IllegalArgumentException;
+
+        specialinvoke r15.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("path is null or empty.");
+
+        throw r15;
+
+     label2:
+        specialinvoke $r0.<com.dropbox.client2.a: void c()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean startsWith(java.lang.String)>("/");
+
+        if $z0 != 0 goto label3;
+
+        r16 = new java.lang.StringBuilder;
+
+        specialinvoke r16.<java.lang.StringBuilder: void <init>(java.lang.String)>("/");
+
+        $r5 = virtualinvoke r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label3:
+        r16 = new java.lang.StringBuilder;
+
+        specialinvoke r16.<java.lang.StringBuilder: void <init>(java.lang.String)>("/files_put/");
+
+        $r6 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r7 = interfaceinvoke $r6.<com.dropbox.client2.c.m: com.dropbox.client2.c.n c()>();
+
+        $r5 = virtualinvoke r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r7);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r8 = newarray (java.lang.String)[6];
+
+        $r8[0] = "overwrite";
+
+        $r9 = staticinvoke <java.lang.String: java.lang.String valueOf(boolean)>(1);
+
+        $r8[1] = $r9;
+
+        $r8[2] = "parent_rev";
+
+        $r8[3] = "";
+
+        $r8[4] = "locale";
+
+        $r6 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r10 = interfaceinvoke $r6.<com.dropbox.client2.c.m: java.util.Locale d()>();
+
+        $r9 = virtualinvoke $r10.<java.util.Locale: java.lang.String toString()>();
+
+        $r8[5] = $r9;
+
+        $r6 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r9 = interfaceinvoke $r6.<com.dropbox.client2.c.m: java.lang.String i()>();
+
+        $r3 = staticinvoke <com.dropbox.client2.p: java.lang.String a(java.lang.String,java.lang.String,java.lang.String[])>($r9, $r3, $r8);
+
+        r17 = new org.apache.http.client.methods.HttpPut;
+
+        specialinvoke r17.<org.apache.http.client.methods.HttpPut: void <init>(java.lang.String)>($r3);
+
+        $r6 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        interfaceinvoke $r6.<com.dropbox.client2.c.m: void a(org.apache.http.HttpRequest)>(r17);
+
+        r18 = new org.apache.http.entity.InputStreamEntity;
+
+        specialinvoke r18.<org.apache.http.entity.InputStreamEntity: void <init>(java.io.InputStream,long)>($r1, $l0);
+
+        virtualinvoke r18.<org.apache.http.entity.InputStreamEntity: void setContentEncoding(java.lang.String)>("application/octet-stream");
+
+        virtualinvoke r18.<org.apache.http.entity.InputStreamEntity: void setChunked(boolean)>(0);
+
+        if $r2 == null goto label5;
+
+        r19 = new com.dropbox.client2.n;
+
+        $r13 = r19;
+
+        specialinvoke r19.<com.dropbox.client2.n: void <init>(org.apache.http.HttpEntity,com.dropbox.client2.m)>(r18, $r2);
+
+     label4:
+        virtualinvoke r17.<org.apache.http.client.methods.HttpPut: void setEntity(org.apache.http.HttpEntity)>($r13);
+
+        r20 = new com.dropbox.client2.c;
+
+        $r6 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        specialinvoke r20.<com.dropbox.client2.c: void <init>(org.apache.http.client.methods.HttpUriRequest,com.dropbox.client2.c.m)>(r17, $r6);
+
+        return r20;
+
+     label5:
+        $r13 = r18;
+
+        goto label4;
+    }
+
+    public final com.dropbox.client2.b b()
+    {
+        com.dropbox.client2.a $r0;
+        com.dropbox.client2.q $r1;
+        com.dropbox.client2.c.m $r2;
+        java.lang.String $r3, $r6;
+        java.lang.String[] $r4;
+        java.util.Locale $r5;
+        java.lang.Object $r7;
+        java.util.Map $r8;
+        com.dropbox.client2.b $r9;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        specialinvoke $r0.<com.dropbox.client2.a: void c()>();
+
+        $r1 = <com.dropbox.client2.q: com.dropbox.client2.q a>;
+
+        $r2 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r3 = interfaceinvoke $r2.<com.dropbox.client2.c.m: java.lang.String h()>();
+
+        $r4 = newarray (java.lang.String)[2];
+
+        $r4[0] = "locale";
+
+        $r2 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r5 = interfaceinvoke $r2.<com.dropbox.client2.c.m: java.util.Locale d()>();
+
+        $r6 = virtualinvoke $r5.<java.util.Locale: java.lang.String toString()>();
+
+        $r4[1] = $r6;
+
+        $r2 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r7 = staticinvoke <com.dropbox.client2.p: java.lang.Object a(com.dropbox.client2.q,java.lang.String,java.lang.String,java.lang.String[],com.dropbox.client2.c.m)>($r1, $r3, "/account/info", $r4, $r2);
+
+        $r8 = (java.util.Map) $r7;
+
+        $r9 = new com.dropbox.client2.b;
+
+        specialinvoke $r9.<com.dropbox.client2.b: void <init>(java.util.Map)>($r8);
+
+        return $r9;
+    }
+
+    public final com.dropbox.client2.g b(java.lang.String)
+    {
+        com.dropbox.client2.a $r0;
+        java.lang.String $r1, $r3;
+        java.lang.String[] $r2;
+        com.dropbox.client2.c.m $r4;
+        java.util.Locale $r5;
+        java.lang.StringBuilder $r6;
+        com.dropbox.client2.c.n $r7;
+        com.dropbox.client2.q $r8;
+        java.lang.Object $r9;
+        java.util.Map $r10;
+        com.dropbox.client2.g $r11;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<com.dropbox.client2.a: void c()>();
+
+        $r2 = newarray (java.lang.String)[10];
+
+        $r2[0] = "file_limit";
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>(25000);
+
+        $r2[1] = $r3;
+
+        $r2[2] = "hash";
+
+        $r2[3] = null;
+
+        $r2[4] = "list";
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String valueOf(boolean)>(1);
+
+        $r2[5] = $r3;
+
+        $r2[6] = "rev";
+
+        $r2[7] = null;
+
+        $r2[8] = "locale";
+
+        $r4 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r5 = interfaceinvoke $r4.<com.dropbox.client2.c.m: java.util.Locale d()>();
+
+        $r3 = virtualinvoke $r5.<java.util.Locale: java.lang.String toString()>();
+
+        $r2[9] = $r3;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("/metadata/");
+
+        $r4 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r7 = interfaceinvoke $r4.<com.dropbox.client2.c.m: com.dropbox.client2.c.n c()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r7);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r8 = <com.dropbox.client2.q: com.dropbox.client2.q a>;
+
+        $r4 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r3 = interfaceinvoke $r4.<com.dropbox.client2.c.m: java.lang.String h()>();
+
+        $r4 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r9 = staticinvoke <com.dropbox.client2.p: java.lang.Object a(com.dropbox.client2.q,java.lang.String,java.lang.String,java.lang.String[],com.dropbox.client2.c.m)>($r8, $r3, $r1, $r2, $r4);
+
+        $r10 = (java.util.Map) $r9;
+
+        $r11 = new com.dropbox.client2.g;
+
+        specialinvoke $r11.<com.dropbox.client2.g: void <init>(java.util.Map)>($r10);
+
+        return $r11;
+    }
+
+    public final com.dropbox.client2.g b(java.lang.String, java.lang.String)
+    {
+        com.dropbox.client2.a $r0;
+        java.lang.String $r1, $r2, $r6;
+        com.dropbox.client2.c.m $r3;
+        java.lang.String[] $r4;
+        com.dropbox.client2.c.n $r5;
+        java.util.Locale $r7;
+        com.dropbox.client2.q $r8;
+        java.lang.Object $r9;
+        java.util.Map $r10;
+        com.dropbox.client2.g $r11;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<com.dropbox.client2.a: void c()>();
+
+        $r4 = newarray (java.lang.String)[8];
+
+        $r4[0] = "root";
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r5 = interfaceinvoke $r3.<com.dropbox.client2.c.m: com.dropbox.client2.c.n c()>();
+
+        $r6 = virtualinvoke $r5.<com.dropbox.client2.c.n: java.lang.String toString()>();
+
+        $r4[1] = $r6;
+
+        $r4[2] = "from_path";
+
+        $r4[3] = $r1;
+
+        $r4[4] = "to_path";
+
+        $r4[5] = $r2;
+
+        $r4[6] = "locale";
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r7 = interfaceinvoke $r3.<com.dropbox.client2.c.m: java.util.Locale d()>();
+
+        $r1 = virtualinvoke $r7.<java.util.Locale: java.lang.String toString()>();
+
+        $r4[7] = $r1;
+
+        $r8 = <com.dropbox.client2.q: com.dropbox.client2.q b>;
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r1 = interfaceinvoke $r3.<com.dropbox.client2.c.m: java.lang.String h()>();
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r9 = staticinvoke <com.dropbox.client2.p: java.lang.Object a(com.dropbox.client2.q,java.lang.String,java.lang.String,java.lang.String[],com.dropbox.client2.c.m)>($r8, $r1, "/fileops/copy", $r4, $r3);
+
+        $r10 = (java.util.Map) $r9;
+
+        $r11 = new com.dropbox.client2.g;
+
+        specialinvoke $r11.<com.dropbox.client2.g: void <init>(java.util.Map)>($r10);
+
+        return $r11;
+    }
+
+    public final com.dropbox.client2.g c(java.lang.String)
+    {
+        com.dropbox.client2.a $r0;
+        java.lang.String $r1, $r5;
+        com.dropbox.client2.c.m $r2;
+        java.lang.String[] $r3;
+        com.dropbox.client2.c.n $r4;
+        java.util.Locale $r6;
+        com.dropbox.client2.q $r7;
+        java.lang.Object $r8;
+        java.util.Map $r9;
+        com.dropbox.client2.g $r10;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<com.dropbox.client2.a: void c()>();
+
+        $r3 = newarray (java.lang.String)[6];
+
+        $r3[0] = "root";
+
+        $r2 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r4 = interfaceinvoke $r2.<com.dropbox.client2.c.m: com.dropbox.client2.c.n c()>();
+
+        $r5 = virtualinvoke $r4.<com.dropbox.client2.c.n: java.lang.String toString()>();
+
+        $r3[1] = $r5;
+
+        $r3[2] = "path";
+
+        $r3[3] = $r1;
+
+        $r3[4] = "locale";
+
+        $r2 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r6 = interfaceinvoke $r2.<com.dropbox.client2.c.m: java.util.Locale d()>();
+
+        $r1 = virtualinvoke $r6.<java.util.Locale: java.lang.String toString()>();
+
+        $r3[5] = $r1;
+
+        $r7 = <com.dropbox.client2.q: com.dropbox.client2.q b>;
+
+        $r2 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r1 = interfaceinvoke $r2.<com.dropbox.client2.c.m: java.lang.String h()>();
+
+        $r2 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r8 = staticinvoke <com.dropbox.client2.p: java.lang.Object a(com.dropbox.client2.q,java.lang.String,java.lang.String,java.lang.String[],com.dropbox.client2.c.m)>($r7, $r1, "/fileops/create_folder", $r3, $r2);
+
+        $r9 = (java.util.Map) $r8;
+
+        $r10 = new com.dropbox.client2.g;
+
+        specialinvoke $r10.<com.dropbox.client2.g: void <init>(java.util.Map)>($r9);
+
+        return $r10;
+    }
+
+    public final void d(java.lang.String)
+    {
+        com.dropbox.client2.a $r0;
+        java.lang.String $r1, $r5;
+        com.dropbox.client2.c.m $r2;
+        java.lang.String[] $r3;
+        com.dropbox.client2.c.n $r4;
+        java.util.Locale $r6;
+        com.dropbox.client2.q $r7;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<com.dropbox.client2.a: void c()>();
+
+        $r3 = newarray (java.lang.String)[6];
+
+        $r3[0] = "root";
+
+        $r2 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r4 = interfaceinvoke $r2.<com.dropbox.client2.c.m: com.dropbox.client2.c.n c()>();
+
+        $r5 = virtualinvoke $r4.<com.dropbox.client2.c.n: java.lang.String toString()>();
+
+        $r3[1] = $r5;
+
+        $r3[2] = "path";
+
+        $r3[3] = $r1;
+
+        $r3[4] = "locale";
+
+        $r2 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r6 = interfaceinvoke $r2.<com.dropbox.client2.c.m: java.util.Locale d()>();
+
+        $r1 = virtualinvoke $r6.<java.util.Locale: java.lang.String toString()>();
+
+        $r3[5] = $r1;
+
+        $r7 = <com.dropbox.client2.q: com.dropbox.client2.q b>;
+
+        $r2 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r1 = interfaceinvoke $r2.<com.dropbox.client2.c.m: java.lang.String h()>();
+
+        $r2 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        staticinvoke <com.dropbox.client2.p: java.lang.Object a(com.dropbox.client2.q,java.lang.String,java.lang.String,java.lang.String[],com.dropbox.client2.c.m)>($r7, $r1, "/fileops/delete", $r3, $r2);
+
+        return;
+    }
+
+    public final com.dropbox.client2.f e(java.lang.String)
+    {
+        com.dropbox.client2.a $r0;
+        java.lang.String $r1, $r6, $r9;
+        java.lang.StringBuilder $r2;
+        com.dropbox.client2.c.m $r3;
+        com.dropbox.client2.c.n $r4;
+        com.dropbox.client2.q $r5;
+        java.lang.String[] $r7;
+        java.util.Locale $r8;
+        java.lang.Object $r10;
+        java.util.Map $r11;
+        com.dropbox.client2.f $r12;
+
+        $r0 := @this: com.dropbox.client2.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<com.dropbox.client2.a: void c()>();
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("/media/");
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r4 = interfaceinvoke $r3.<com.dropbox.client2.c.m: com.dropbox.client2.c.n c()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5 = <com.dropbox.client2.q: com.dropbox.client2.q a>;
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r6 = interfaceinvoke $r3.<com.dropbox.client2.c.m: java.lang.String h()>();
+
+        $r7 = newarray (java.lang.String)[2];
+
+        $r7[0] = "locale";
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r8 = interfaceinvoke $r3.<com.dropbox.client2.c.m: java.util.Locale d()>();
+
+        $r9 = virtualinvoke $r8.<java.util.Locale: java.lang.String toString()>();
+
+        $r7[1] = $r9;
+
+        $r3 = $r0.<com.dropbox.client2.a: com.dropbox.client2.c.m b>;
+
+        $r10 = staticinvoke <com.dropbox.client2.p: java.lang.Object a(com.dropbox.client2.q,java.lang.String,java.lang.String,java.lang.String[],com.dropbox.client2.c.m)>($r5, $r6, $r1, $r7, $r3);
+
+        $r11 = (java.util.Map) $r10;
+
+        $r12 = new com.dropbox.client2.f;
+
+        specialinvoke $r12.<com.dropbox.client2.f: void <init>(java.util.Map,byte)>($r11, 0);
+
+        return $r12;
+    }
+}

@@ -1,0 +1,72 @@
+public final class a.e.e extends java.io.PrintStream
+{
+    public static int a;
+    private static a.e.e b;
+
+    static void <clinit>()
+    {
+        <a.e.e: int a> = 1;
+
+        return;
+    }
+
+    private void <init>(java.io.PrintStream)
+    {
+        a.e.e $r0;
+        java.io.PrintStream $r1;
+
+        $r0 := @this: a.e.e;
+
+        $r1 := @parameter0: java.io.PrintStream;
+
+        specialinvoke $r0.<java.io.PrintStream: void <init>(java.io.OutputStream)>($r1);
+
+        return;
+    }
+
+    public static a.e.e a()
+    {
+        a.e.e $r0;
+        java.io.PrintStream $r1;
+
+        $r0 = <a.e.e: a.e.e b>;
+
+        if $r0 != null goto label1;
+
+        $r1 = <java.lang.System: java.io.PrintStream err>;
+
+        staticinvoke <a.e.e: void a(java.io.PrintStream)>($r1);
+
+     label1:
+        $r0 = <a.e.e: a.e.e b>;
+
+        return $r0;
+    }
+
+    public static void a(int)
+    {
+        int $i0;
+
+        $i0 := @parameter0: int;
+
+        <a.e.e: int a> = $i0;
+
+        return;
+    }
+
+    public static void a(java.io.PrintStream)
+    {
+        java.io.PrintStream $r0;
+        a.e.e $r1;
+
+        $r0 := @parameter0: java.io.PrintStream;
+
+        $r1 = new a.e.e;
+
+        specialinvoke $r1.<a.e.e: void <init>(java.io.PrintStream)>($r0);
+
+        <a.e.e: a.e.e b> = $r1;
+
+        return;
+    }
+}

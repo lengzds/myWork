@@ -1,0 +1,52 @@
+public final class com.google.api.a.c.h extends java.lang.Object implements com.google.api.a.c.l
+{
+
+    public void <init>()
+    {
+        com.google.api.a.c.h $r0;
+
+        $r0 := @this: com.google.api.a.c.h;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final java.lang.String a()
+    {
+        com.google.api.a.c.h $r0;
+
+        $r0 := @this: com.google.api.a.c.h;
+
+        return "gzip";
+    }
+
+    public final void a(com.google.api.a.f.ar, java.io.OutputStream)
+    {
+        com.google.api.a.c.h $r0;
+        com.google.api.a.f.ar $r1;
+        java.io.OutputStream $r2;
+        com.google.api.a.c.i $r3;
+        java.util.zip.GZIPOutputStream $r4;
+
+        $r0 := @this: com.google.api.a.c.h;
+
+        $r1 := @parameter0: com.google.api.a.f.ar;
+
+        $r2 := @parameter1: java.io.OutputStream;
+
+        $r3 = new com.google.api.a.c.i;
+
+        specialinvoke $r3.<com.google.api.a.c.i: void <init>(com.google.api.a.c.h,java.io.OutputStream)>($r0, $r2);
+
+        $r4 = new java.util.zip.GZIPOutputStream;
+
+        specialinvoke $r4.<java.util.zip.GZIPOutputStream: void <init>(java.io.OutputStream)>($r3);
+
+        interfaceinvoke $r1.<com.google.api.a.f.ar: void a(java.io.OutputStream)>($r4);
+
+        virtualinvoke $r4.<java.util.zip.GZIPOutputStream: void close()>();
+
+        return;
+    }
+}

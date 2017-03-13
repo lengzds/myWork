@@ -1,0 +1,125 @@
+public final class a.e.a.d extends java.io.IOException
+{
+    private java.lang.Throwable a;
+
+    public void <init>()
+    {
+        a.e.a.d $r0;
+
+        $r0 := @this: a.e.a.d;
+
+        specialinvoke $r0.<java.io.IOException: void <init>()>();
+
+        return;
+    }
+
+    public void <init>(java.lang.String)
+    {
+        a.e.a.d $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: a.e.a.d;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<java.io.IOException: void <init>(java.lang.String)>($r1);
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.lang.Throwable)
+    {
+        a.e.a.d $r0;
+        java.lang.String $r1;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: a.e.a.d;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Throwable;
+
+        specialinvoke $r0.<java.io.IOException: void <init>(java.lang.String)>($r1);
+
+        $r0.<a.e.a.d: java.lang.Throwable a> = $r2;
+
+        return;
+    }
+
+    public void <init>(java.lang.Throwable)
+    {
+        a.e.a.d $r0;
+        java.lang.Throwable $r1;
+
+        $r0 := @this: a.e.a.d;
+
+        $r1 := @parameter0: java.lang.Throwable;
+
+        specialinvoke $r0.<java.io.IOException: void <init>()>();
+
+        $r0.<a.e.a.d: java.lang.Throwable a> = $r1;
+
+        return;
+    }
+
+    public final java.lang.Throwable a()
+    {
+        a.e.a.d $r0;
+        java.lang.Throwable r1;
+
+        $r0 := @this: a.e.a.d;
+
+        r1 = $r0.<a.e.a.d: java.lang.Throwable a>;
+
+        return r1;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.e.a.d $r0;
+        java.lang.Throwable $r1;
+        java.io.StringWriter $r2;
+        java.io.PrintWriter $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: a.e.a.d;
+
+        $r1 = $r0.<a.e.a.d: java.lang.Throwable a>;
+
+        if $r1 == null goto label1;
+
+        $r2 = new java.io.StringWriter;
+
+        specialinvoke $r2.<java.io.StringWriter: void <init>()>();
+
+        $r3 = new java.io.PrintWriter;
+
+        specialinvoke $r3.<java.io.PrintWriter: void <init>(java.io.Writer)>($r2);
+
+        $r1 = $r0.<a.e.a.d: java.lang.Throwable a>;
+
+        virtualinvoke $r1.<java.lang.Throwable: void printStackTrace(java.io.PrintWriter)>($r3);
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = specialinvoke $r0.<java.io.IOException: java.lang.String toString()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r5;
+
+     label1:
+        $r5 = specialinvoke $r0.<java.io.IOException: java.lang.String toString()>();
+
+        return $r5;
+    }
+}

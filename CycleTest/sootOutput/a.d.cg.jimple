@@ -1,0 +1,122 @@
+final class a.d.cg extends a.d.at
+{
+    private a.d.bj a;
+
+    void <init>(a.d.bj)
+    {
+        a.d.cg $r0;
+        a.d.bj $r1;
+
+        $r0 := @this: a.d.cg;
+
+        $r1 := @parameter0: a.d.bj;
+
+        specialinvoke $r0.<a.d.at: void <init>()>();
+
+        $r0.<a.d.cg: a.d.bj a> = $r1;
+
+        return;
+    }
+
+    final int a(byte[], int)
+    {
+        a.d.cg $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.cg;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int a(byte[], int, int)
+    {
+        a.d.cg $r0;
+        byte[] $r1;
+        int $i0, $i1;
+        java.lang.Object $r2, $r6;
+        a.d.bj $r3;
+        java.io.InputStream $r4;
+        a.d.cn $r5;
+        java.lang.Throwable $r7;
+
+        $r0 := @this: a.d.cg;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r3 = $r0.<a.d.cg: a.d.bj a>;
+
+        $r4 = $r3.<a.d.bj: java.io.InputStream p>;
+
+        if $r4 == null goto label4;
+
+        $r3 = $r0.<a.d.cg: a.d.bj a>;
+
+        $r4 = $r3.<a.d.bj: java.io.InputStream p>;
+
+        $r5 = (a.d.cn) $r4;
+
+        $r2 = $r5.<a.d.cn: java.lang.Object b>;
+
+        entermonitor $r2;
+
+     label1:
+        virtualinvoke $r5.<a.d.cn: int b(byte[],int,int)>($r1, $i0, $i1);
+
+        $r6 = $r5.<a.d.cn: java.lang.Object b>;
+
+        virtualinvoke $r6.<java.lang.Object: void notify()>();
+
+        exitmonitor $r2;
+
+     label2:
+        return $i1;
+
+     label3:
+        $r7 := @caughtexception;
+
+        exitmonitor $r2;
+
+        throw $r7;
+
+     label4:
+        return $i1;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.cg $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+
+        $r0 := @this: a.d.cg;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("TransCallNamedPipeResponse[");
+
+        $r3 = specialinvoke $r0.<a.d.at: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

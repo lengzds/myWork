@@ -1,0 +1,531 @@
+public class com.google.android.gms.internal.ct extends com.google.android.gms.internal.en implements android.content.ServiceConnection
+{
+    private final java.lang.Object a;
+    private boolean b;
+    private android.content.Context c;
+    private com.google.android.gms.internal.dh d;
+    private com.google.android.gms.internal.cs e;
+    private com.google.android.gms.internal.cy f;
+    private java.util.List g;
+    private com.google.android.gms.internal.da h;
+
+    public void <init>(android.content.Context, com.google.android.gms.internal.dh, com.google.android.gms.internal.da)
+    {
+        com.google.android.gms.internal.ct $r0;
+        android.content.Context $r1;
+        com.google.android.gms.internal.dh $r2;
+        com.google.android.gms.internal.da $r3;
+        java.lang.Object $r4;
+        com.google.android.gms.internal.cs $r5;
+        com.google.android.gms.internal.cy $r6;
+        java.util.List $r7;
+
+        $r0 := @this: com.google.android.gms.internal.ct;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: com.google.android.gms.internal.dh;
+
+        $r3 := @parameter2: com.google.android.gms.internal.da;
+
+        specialinvoke $r0.<com.google.android.gms.internal.en: void <init>()>();
+
+        $r4 = new java.lang.Object;
+
+        specialinvoke $r4.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.internal.ct: java.lang.Object a> = $r4;
+
+        $r0.<com.google.android.gms.internal.ct: boolean b> = 0;
+
+        $r0.<com.google.android.gms.internal.ct: java.util.List g> = null;
+
+        $r0.<com.google.android.gms.internal.ct: android.content.Context c> = $r1;
+
+        $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.dh d> = $r2;
+
+        $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.da h> = $r3;
+
+        $r5 = new com.google.android.gms.internal.cs;
+
+        specialinvoke $r5.<com.google.android.gms.internal.cs: void <init>(android.content.Context)>($r1);
+
+        $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.cs e> = $r5;
+
+        $r1 = $r0.<com.google.android.gms.internal.ct: android.content.Context c>;
+
+        $r6 = staticinvoke <com.google.android.gms.internal.cy: com.google.android.gms.internal.cy h(android.content.Context)>($r1);
+
+        $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.cy f> = $r6;
+
+        $r6 = $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.cy f>;
+
+        $r7 = virtualinvoke $r6.<com.google.android.gms.internal.cy: java.util.List d(long)>(10L);
+
+        $r0.<com.google.android.gms.internal.ct: java.util.List g> = $r7;
+
+        return;
+    }
+
+    static com.google.android.gms.internal.da a(com.google.android.gms.internal.ct)
+    {
+        com.google.android.gms.internal.ct $r0;
+        com.google.android.gms.internal.da r1;
+
+        $r0 := @parameter0: com.google.android.gms.internal.ct;
+
+        r1 = $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.da h>;
+
+        return r1;
+    }
+
+    private void a(com.google.android.gms.internal.cw, java.lang.String, java.lang.String)
+    {
+        com.google.android.gms.internal.ct $r0;
+        com.google.android.gms.internal.cw $r1;
+        java.lang.String $r2, $r3;
+        android.content.Intent $r4;
+        android.os.Handler $r5;
+        com.google.android.gms.internal.ct$1 $r6;
+
+        $r0 := @this: com.google.android.gms.internal.ct;
+
+        $r1 := @parameter0: com.google.android.gms.internal.cw;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r4 = new android.content.Intent;
+
+        specialinvoke $r4.<android.content.Intent: void <init>()>();
+
+        virtualinvoke $r4.<android.content.Intent: android.content.Intent putExtra(java.lang.String,int)>("RESPONSE_CODE", 0);
+
+        virtualinvoke $r4.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("INAPP_PURCHASE_DATA", $r2);
+
+        virtualinvoke $r4.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("INAPP_DATA_SIGNATURE", $r3);
+
+        $r5 = <com.google.android.gms.internal.eu: android.os.Handler a>;
+
+        $r6 = new com.google.android.gms.internal.ct$1;
+
+        specialinvoke $r6.<com.google.android.gms.internal.ct$1: void <init>(com.google.android.gms.internal.ct,com.google.android.gms.internal.cw,android.content.Intent)>($r0, $r1, $r4);
+
+        virtualinvoke $r5.<android.os.Handler: boolean post(java.lang.Runnable)>($r6);
+
+        return;
+    }
+
+    static android.content.Context b(com.google.android.gms.internal.ct)
+    {
+        com.google.android.gms.internal.ct $r0;
+        android.content.Context r1;
+
+        $r0 := @parameter0: com.google.android.gms.internal.ct;
+
+        r1 = $r0.<com.google.android.gms.internal.ct: android.content.Context c>;
+
+        return r1;
+    }
+
+    private void b(long)
+    {
+        com.google.android.gms.internal.ct $r0;
+        long $l0;
+        boolean $z0;
+
+        $r0 := @this: com.google.android.gms.internal.ct;
+
+        $l0 := @parameter0: long;
+
+     label1:
+        $z0 = specialinvoke $r0.<com.google.android.gms.internal.ct: boolean c(long)>($l0);
+
+        if $z0 != 0 goto label2;
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>("Timeout waiting for pending transaction to be processed.");
+
+     label2:
+        $z0 = $r0.<com.google.android.gms.internal.ct: boolean b>;
+
+        if $z0 == 0 goto label1;
+
+        return;
+    }
+
+    private void bd()
+    {
+        com.google.android.gms.internal.ct $r0;
+        java.util.HashMap $r1;
+        java.lang.String $r2, $r9, $r14, $r15, $r16, $r17;
+        java.util.List $r3;
+        boolean $z0;
+        java.util.Iterator $r4;
+        java.lang.Object $r5;
+        com.google.android.gms.internal.cw $r6;
+        com.google.android.gms.internal.cs $r7;
+        android.content.Context $r8;
+        android.os.Bundle $r10;
+        int $i0, $i1;
+        java.util.ArrayList $r11, $r12, $r13;
+        java.util.Set $r18;
+        com.google.android.gms.internal.cy $r19;
+
+        $r0 := @this: com.google.android.gms.internal.ct;
+
+        $r3 = $r0.<com.google.android.gms.internal.ct: java.util.List g>;
+
+        $z0 = interfaceinvoke $r3.<java.util.List: boolean isEmpty()>();
+
+        if $z0 == 0 goto label01;
+
+        return;
+
+     label01:
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<java.util.HashMap: void <init>()>();
+
+        $r3 = $r0.<com.google.android.gms.internal.ct: java.util.List g>;
+
+        $r4 = interfaceinvoke $r3.<java.util.List: java.util.Iterator iterator()>();
+
+     label02:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label03;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (com.google.android.gms.internal.cw) $r5;
+
+        $r2 = $r6.<com.google.android.gms.internal.cw: java.lang.String c>;
+
+        virtualinvoke $r1.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r2, $r6);
+
+        goto label02;
+
+     label03:
+        $r2 = null;
+
+     label04:
+        $r7 = $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.cs e>;
+
+        $r8 = $r0.<com.google.android.gms.internal.ct: android.content.Context c>;
+
+        $r9 = virtualinvoke $r8.<android.content.Context: java.lang.String getPackageName()>();
+
+        $r10 = virtualinvoke $r7.<com.google.android.gms.internal.cs: android.os.Bundle b(java.lang.String,java.lang.String)>($r9, $r2);
+
+        if $r10 == null goto label08;
+
+        $i0 = staticinvoke <com.google.android.gms.internal.cz: int a(android.os.Bundle)>($r10);
+
+        if $i0 != 0 goto label08;
+
+        $r11 = virtualinvoke $r10.<android.os.Bundle: java.util.ArrayList getStringArrayList(java.lang.String)>("INAPP_PURCHASE_ITEM_LIST");
+
+        $r12 = virtualinvoke $r10.<android.os.Bundle: java.util.ArrayList getStringArrayList(java.lang.String)>("INAPP_PURCHASE_DATA_LIST");
+
+        $r13 = virtualinvoke $r10.<android.os.Bundle: java.util.ArrayList getStringArrayList(java.lang.String)>("INAPP_DATA_SIGNATURE_LIST");
+
+        $r9 = virtualinvoke $r10.<android.os.Bundle: java.lang.String getString(java.lang.String)>("INAPP_CONTINUATION_TOKEN");
+
+        $i0 = 0;
+
+     label05:
+        $i1 = virtualinvoke $r11.<java.util.ArrayList: int size()>();
+
+        if $i0 >= $i1 goto label07;
+
+        $r5 = virtualinvoke $r11.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $z0 = virtualinvoke $r1.<java.util.HashMap: boolean containsKey(java.lang.Object)>($r5);
+
+        if $z0 == 0 goto label06;
+
+        $r5 = virtualinvoke $r11.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r14 = (java.lang.String) $r5;
+
+        $r5 = virtualinvoke $r12.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r15 = (java.lang.String) $r5;
+
+        $r5 = virtualinvoke $r13.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r16 = (java.lang.String) $r5;
+
+        $r5 = virtualinvoke $r1.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r14);
+
+        $r6 = (com.google.android.gms.internal.cw) $r5;
+
+        $r17 = staticinvoke <com.google.android.gms.internal.cz: java.lang.String p(java.lang.String)>($r15);
+
+        $r2 = $r6.<com.google.android.gms.internal.cw: java.lang.String b>;
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>($r17);
+
+        if $z0 == 0 goto label06;
+
+        specialinvoke $r0.<com.google.android.gms.internal.ct: void a(com.google.android.gms.internal.cw,java.lang.String,java.lang.String)>($r6, $r15, $r16);
+
+        virtualinvoke $r1.<java.util.HashMap: java.lang.Object remove(java.lang.Object)>($r14);
+
+     label06:
+        $i0 = $i0 + 1;
+
+        goto label05;
+
+     label07:
+        if $r9 == null goto label08;
+
+        $z0 = virtualinvoke $r1.<java.util.HashMap: boolean isEmpty()>();
+
+        if $z0 == 0 goto label10;
+
+     label08:
+        $r18 = virtualinvoke $r1.<java.util.HashMap: java.util.Set keySet()>();
+
+        $r4 = interfaceinvoke $r18.<java.util.Set: java.util.Iterator iterator()>();
+
+     label09:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label11;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r2 = (java.lang.String) $r5;
+
+        $r19 = $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.cy f>;
+
+        $r5 = virtualinvoke $r1.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r2);
+
+        $r6 = (com.google.android.gms.internal.cw) $r5;
+
+        virtualinvoke $r19.<com.google.android.gms.internal.cy: void a(com.google.android.gms.internal.cw)>($r6);
+
+        goto label09;
+
+     label10:
+        $r2 = $r9;
+
+        goto label04;
+
+     label11:
+        return;
+    }
+
+    static com.google.android.gms.internal.dh c(com.google.android.gms.internal.ct)
+    {
+        com.google.android.gms.internal.ct $r0;
+        com.google.android.gms.internal.dh r1;
+
+        $r0 := @parameter0: com.google.android.gms.internal.ct;
+
+        r1 = $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.dh d>;
+
+        return r1;
+    }
+
+    private boolean c(long)
+    {
+        com.google.android.gms.internal.ct $r0;
+        long $l0, $l1;
+        byte $b2;
+        java.lang.Object $r1;
+        java.lang.InterruptedException $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ct;
+
+        $l0 := @parameter0: long;
+
+        $l1 = staticinvoke <android.os.SystemClock: long elapsedRealtime()>();
+
+        $l0 = $l1 - $l0;
+
+        $l0 = 60000L - $l0;
+
+        $b2 = $l0 cmp 0L;
+
+        if $b2 > 0 goto label1;
+
+        return 0;
+
+     label1:
+        $r1 = $r0.<com.google.android.gms.internal.ct: java.lang.Object a>;
+
+     label2:
+        virtualinvoke $r1.<java.lang.Object: void wait(long)>($l0);
+
+     label3:
+        return 1;
+
+     label4:
+        $r2 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>("waitWithTimeout_lock interrupted");
+
+        goto label3;
+
+        catch java.lang.InterruptedException from label2 to label3 with label4;
+    }
+
+    public void bc()
+    {
+        com.google.android.gms.internal.ct $r0;
+        java.lang.Object $r1;
+        long $l0;
+        android.content.Context $r2;
+        android.content.Intent $r3;
+        com.google.android.gms.internal.cs $r4;
+        java.lang.Throwable $r5;
+
+        $r0 := @this: com.google.android.gms.internal.ct;
+
+        $r1 = $r0.<com.google.android.gms.internal.ct: java.lang.Object a>;
+
+        entermonitor $r1;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.internal.ct: android.content.Context c>;
+
+        $r3 = new android.content.Intent;
+
+        specialinvoke $r3.<android.content.Intent: void <init>(java.lang.String)>("com.android.vending.billing.InAppBillingService.BIND");
+
+        virtualinvoke $r2.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>($r3, $r0, 1);
+
+        $l0 = staticinvoke <android.os.SystemClock: long elapsedRealtime()>();
+
+        specialinvoke $r0.<com.google.android.gms.internal.ct: void b(long)>($l0);
+
+        $r2 = $r0.<com.google.android.gms.internal.ct: android.content.Context c>;
+
+        virtualinvoke $r2.<android.content.Context: void unbindService(android.content.ServiceConnection)>($r0);
+
+        $r4 = $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.cs e>;
+
+        virtualinvoke $r4.<com.google.android.gms.internal.cs: void destroy()>();
+
+        exitmonitor $r1;
+
+     label2:
+        return;
+
+     label3:
+        $r5 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void onServiceConnected(android.content.ComponentName, android.os.IBinder)
+    {
+        com.google.android.gms.internal.ct $r0;
+        android.content.ComponentName $r1;
+        android.os.IBinder $r2;
+        java.lang.Object $r3, $r5;
+        com.google.android.gms.internal.cs $r4;
+        java.lang.Throwable $r6;
+
+        $r0 := @this: com.google.android.gms.internal.ct;
+
+        $r1 := @parameter0: android.content.ComponentName;
+
+        $r2 := @parameter1: android.os.IBinder;
+
+        $r3 = $r0.<com.google.android.gms.internal.ct: java.lang.Object a>;
+
+        entermonitor $r3;
+
+     label1:
+        $r4 = $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.cs e>;
+
+        virtualinvoke $r4.<com.google.android.gms.internal.cs: void o(android.os.IBinder)>($r2);
+
+        specialinvoke $r0.<com.google.android.gms.internal.ct: void bd()>();
+
+        $r0.<com.google.android.gms.internal.ct: boolean b> = 1;
+
+        $r5 = $r0.<com.google.android.gms.internal.ct: java.lang.Object a>;
+
+        virtualinvoke $r5.<java.lang.Object: void notify()>();
+
+        exitmonitor $r3;
+
+     label2:
+        return;
+
+     label3:
+        $r6 := @caughtexception;
+
+        exitmonitor $r3;
+
+        throw $r6;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void onServiceDisconnected(android.content.ComponentName)
+    {
+        com.google.android.gms.internal.ct $r0;
+        android.content.ComponentName $r1;
+        com.google.android.gms.internal.cs $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ct;
+
+        $r1 := @parameter0: android.content.ComponentName;
+
+        staticinvoke <com.google.android.gms.internal.ev: void B(java.lang.String)>("In-app billing service disconnected.");
+
+        $r2 = $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.cs e>;
+
+        virtualinvoke $r2.<com.google.android.gms.internal.cs: void destroy()>();
+
+        return;
+    }
+
+    public void onStop()
+    {
+        com.google.android.gms.internal.ct $r0;
+        java.lang.Object $r1;
+        android.content.Context $r2;
+        com.google.android.gms.internal.cs $r3;
+        java.lang.Throwable $r4;
+
+        $r0 := @this: com.google.android.gms.internal.ct;
+
+        $r1 = $r0.<com.google.android.gms.internal.ct: java.lang.Object a>;
+
+        entermonitor $r1;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.internal.ct: android.content.Context c>;
+
+        virtualinvoke $r2.<android.content.Context: void unbindService(android.content.ServiceConnection)>($r0);
+
+        $r3 = $r0.<com.google.android.gms.internal.ct: com.google.android.gms.internal.cs e>;
+
+        virtualinvoke $r3.<com.google.android.gms.internal.cs: void destroy()>();
+
+        exitmonitor $r1;
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

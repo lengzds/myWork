@@ -1,0 +1,384 @@
+public final class com.fasterxml.jackson.databind.type.CollectionType extends com.fasterxml.jackson.databind.type.CollectionLikeType
+{
+
+    private void <init>(java.lang.Class, com.fasterxml.jackson.databind.JavaType, java.lang.Object, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        java.lang.Object $r3, $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JavaType;
+
+        $r3 := @parameter2: java.lang.Object;
+
+        $r4 := @parameter3: java.lang.Object;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.type.CollectionLikeType: void <init>(java.lang.Class,com.fasterxml.jackson.databind.JavaType,java.lang.Object,java.lang.Object)>($r1, $r2, $r3, $r4);
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.databind.type.CollectionType construct(java.lang.Class, com.fasterxml.jackson.databind.JavaType)
+    {
+        java.lang.Class $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        com.fasterxml.jackson.databind.type.CollectionType $r2;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 = new com.fasterxml.jackson.databind.type.CollectionType;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.type.CollectionType: void <init>(java.lang.Class,com.fasterxml.jackson.databind.JavaType,java.lang.Object,java.lang.Object)>($r0, $r1, null, null);
+
+        return $r2;
+    }
+
+    protected final com.fasterxml.jackson.databind.JavaType _narrow(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0, $r2;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.JavaType $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 = new com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.JavaType _elementType>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.type.CollectionType: void <init>(java.lang.Class,com.fasterxml.jackson.databind.JavaType,java.lang.Object,java.lang.Object)>($r1, $r3, null, null);
+
+        return $r2;
+    }
+
+    public final com.fasterxml.jackson.databind.JavaType narrowContentsBy(java.lang.Class)
+    {
+        java.lang.Class $r0, $r1;
+        java.lang.Object $r2, $r3;
+        com.fasterxml.jackson.databind.type.CollectionType $r4, $r6;
+        com.fasterxml.jackson.databind.JavaType $r5;
+
+        $r4 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r5 = $r4.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.JavaType _elementType>;
+
+        $r1 = virtualinvoke $r5.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        if $r0 != $r1 goto label1;
+
+        return $r4;
+
+     label1:
+        $r6 = new com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 = $r4.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Class _class>;
+
+        $r5 = $r4.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.JavaType _elementType>;
+
+        $r5 = virtualinvoke $r5.<com.fasterxml.jackson.databind.JavaType: com.fasterxml.jackson.databind.JavaType narrowBy(java.lang.Class)>($r0);
+
+        $r2 = $r4.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Object _valueHandler>;
+
+        $r3 = $r4.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Object _typeHandler>;
+
+        specialinvoke $r6.<com.fasterxml.jackson.databind.type.CollectionType: void <init>(java.lang.Class,com.fasterxml.jackson.databind.JavaType,java.lang.Object,java.lang.Object)>($r1, $r5, $r2, $r3);
+
+        return $r6;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.Class $r2;
+        java.lang.String $r3;
+        com.fasterxml.jackson.databind.JavaType $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("[collection type; class ");
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Class _class>;
+
+        $r3 = virtualinvoke $r2.<java.lang.Class: java.lang.String getName()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", contains ");
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.JavaType _elementType>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r3;
+    }
+
+    public final com.fasterxml.jackson.databind.JavaType widenContentsBy(java.lang.Class)
+    {
+        java.lang.Class $r0, $r1;
+        java.lang.Object $r2, $r3;
+        com.fasterxml.jackson.databind.type.CollectionType $r4, $r6;
+        com.fasterxml.jackson.databind.JavaType $r5;
+
+        $r4 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r5 = $r4.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.JavaType _elementType>;
+
+        $r1 = virtualinvoke $r5.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        if $r0 != $r1 goto label1;
+
+        return $r4;
+
+     label1:
+        $r6 = new com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 = $r4.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Class _class>;
+
+        $r5 = $r4.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.JavaType _elementType>;
+
+        $r5 = virtualinvoke $r5.<com.fasterxml.jackson.databind.JavaType: com.fasterxml.jackson.databind.JavaType widenBy(java.lang.Class)>($r0);
+
+        $r2 = $r4.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Object _valueHandler>;
+
+        $r3 = $r4.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Object _typeHandler>;
+
+        specialinvoke $r6.<com.fasterxml.jackson.databind.type.CollectionType: void <init>(java.lang.Class,com.fasterxml.jackson.databind.JavaType,java.lang.Object,java.lang.Object)>($r1, $r5, $r2, $r3);
+
+        return $r6;
+    }
+
+    public final volatile com.fasterxml.jackson.databind.JavaType withContentTypeHandler(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType withContentTypeHandler(java.lang.Object)>($r1);
+
+        return $r0;
+    }
+
+    public final volatile com.fasterxml.jackson.databind.type.CollectionLikeType withContentTypeHandler(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType withContentTypeHandler(java.lang.Object)>($r1);
+
+        return $r0;
+    }
+
+    public final com.fasterxml.jackson.databind.type.CollectionType withContentTypeHandler(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0, $r2;
+        java.lang.Object $r1, $r4;
+        java.lang.Class $r3;
+        com.fasterxml.jackson.databind.JavaType $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = new com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Class _class>;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.JavaType _elementType>;
+
+        $r5 = virtualinvoke $r5.<com.fasterxml.jackson.databind.JavaType: com.fasterxml.jackson.databind.JavaType withTypeHandler(java.lang.Object)>($r1);
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Object _valueHandler>;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Object _typeHandler>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.type.CollectionType: void <init>(java.lang.Class,com.fasterxml.jackson.databind.JavaType,java.lang.Object,java.lang.Object)>($r3, $r5, $r1, $r4);
+
+        return $r2;
+    }
+
+    public final volatile com.fasterxml.jackson.databind.JavaType withContentValueHandler(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType withContentValueHandler(java.lang.Object)>($r1);
+
+        return $r0;
+    }
+
+    public final volatile com.fasterxml.jackson.databind.type.CollectionLikeType withContentValueHandler(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType withContentValueHandler(java.lang.Object)>($r1);
+
+        return $r0;
+    }
+
+    public final com.fasterxml.jackson.databind.type.CollectionType withContentValueHandler(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0, $r2;
+        java.lang.Object $r1, $r4;
+        java.lang.Class $r3;
+        com.fasterxml.jackson.databind.JavaType $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = new com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Class _class>;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.JavaType _elementType>;
+
+        $r5 = virtualinvoke $r5.<com.fasterxml.jackson.databind.JavaType: com.fasterxml.jackson.databind.JavaType withValueHandler(java.lang.Object)>($r1);
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Object _valueHandler>;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Object _typeHandler>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.type.CollectionType: void <init>(java.lang.Class,com.fasterxml.jackson.databind.JavaType,java.lang.Object,java.lang.Object)>($r3, $r5, $r1, $r4);
+
+        return $r2;
+    }
+
+    public final volatile com.fasterxml.jackson.databind.JavaType withTypeHandler(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType withTypeHandler(java.lang.Object)>($r1);
+
+        return $r0;
+    }
+
+    public final volatile com.fasterxml.jackson.databind.type.CollectionLikeType withTypeHandler(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType withTypeHandler(java.lang.Object)>($r1);
+
+        return $r0;
+    }
+
+    public final com.fasterxml.jackson.databind.type.CollectionType withTypeHandler(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0, $r2;
+        java.lang.Object $r1, $r5;
+        java.lang.Class $r3;
+        com.fasterxml.jackson.databind.JavaType $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = new com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Class _class>;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.JavaType _elementType>;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Object _valueHandler>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.type.CollectionType: void <init>(java.lang.Class,com.fasterxml.jackson.databind.JavaType,java.lang.Object,java.lang.Object)>($r3, $r4, $r5, $r1);
+
+        return $r2;
+    }
+
+    public final volatile com.fasterxml.jackson.databind.JavaType withValueHandler(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType withValueHandler(java.lang.Object)>($r1);
+
+        return $r0;
+    }
+
+    public final volatile com.fasterxml.jackson.databind.type.CollectionLikeType withValueHandler(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType withValueHandler(java.lang.Object)>($r1);
+
+        return $r0;
+    }
+
+    public final com.fasterxml.jackson.databind.type.CollectionType withValueHandler(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.CollectionType $r0, $r2;
+        java.lang.Object $r1, $r5;
+        java.lang.Class $r3;
+        com.fasterxml.jackson.databind.JavaType $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = new com.fasterxml.jackson.databind.type.CollectionType;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Class _class>;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.JavaType _elementType>;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.Object _typeHandler>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.type.CollectionType: void <init>(java.lang.Class,com.fasterxml.jackson.databind.JavaType,java.lang.Object,java.lang.Object)>($r3, $r4, $r1, $r5);
+
+        return $r2;
+    }
+}

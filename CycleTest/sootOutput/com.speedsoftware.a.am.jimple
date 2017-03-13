@@ -1,0 +1,162 @@
+public final class com.speedsoftware.a.am extends java.lang.Object
+{
+
+    public static final short a(byte[], int)
+    {
+        byte[] $r0;
+        int $i0, $i1;
+        byte $b2;
+        short $s3, $s4;
+
+        $r0 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = $i0 + 1;
+
+        $b2 = $r0[$i1];
+
+        $s3 = $b2 & 255;
+
+        $i1 = $s3 + 0;
+
+        $s3 = (short) $i1;
+
+        $i1 = $s3 << 8;
+
+        $s3 = (short) $i1;
+
+        $b2 = $r0[$i0];
+
+        $s4 = $b2 & 255;
+
+        $i0 = $s3 + $s4;
+
+        $s3 = (short) $i0;
+
+        return $s3;
+    }
+
+    public static final void a(byte[], int, int)
+    {
+        byte[] $r0;
+        int $i0, $i1, $i2, $i3;
+        byte $b4;
+
+        $r0 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 = $i0 + 3;
+
+        $i3 = $i1 >>> 24;
+
+        $b4 = (byte) $i3;
+
+        $r0[$i2] = $b4;
+
+        $i2 = $i0 + 2;
+
+        $i3 = $i1 >>> 16;
+
+        $b4 = (byte) $i3;
+
+        $r0[$i2] = $b4;
+
+        $i2 = $i0 + 1;
+
+        $i3 = $i1 >>> 8;
+
+        $b4 = (byte) $i3;
+
+        $r0[$i2] = $b4;
+
+        $i1 = $i1 & 255;
+
+        $b4 = (byte) $i1;
+
+        $r0[$i0] = $b4;
+
+        return;
+    }
+
+    public static final void a(byte[], int, short)
+    {
+        byte[] $r0;
+        int $i0, $i2;
+        short $s1, $s3;
+        byte $b4;
+
+        $r0 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $s1 := @parameter2: short;
+
+        $i2 = $i0 + 1;
+
+        $s3 = $s1 >>> 8;
+
+        $b4 = (byte) $s3;
+
+        $r0[$i2] = $b4;
+
+        $s1 = $s1 & 255;
+
+        $b4 = (byte) $s1;
+
+        $r0[$i0] = $b4;
+
+        return;
+    }
+
+    public static final int b(byte[], int)
+    {
+        byte[] $r0;
+        int $i0, $i1, $i4;
+        byte $b2;
+        short $s3;
+
+        $r0 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = $i0 + 3;
+
+        $b2 = $r0[$i1];
+
+        $s3 = $b2 & 255;
+
+        $i1 = $s3 << 24;
+
+        $i4 = $i0 + 2;
+
+        $b2 = $r0[$i4];
+
+        $s3 = $b2 & 255;
+
+        $i4 = $s3 << 16;
+
+        $i1 = $i1 | $i4;
+
+        $i4 = $i0 + 1;
+
+        $b2 = $r0[$i4];
+
+        $s3 = $b2 & 255;
+
+        $i4 = $s3 << 8;
+
+        $i1 = $i1 | $i4;
+
+        $b2 = $r0[$i0];
+
+        $s3 = $b2 & 255;
+
+        $i0 = $i1 | $s3;
+
+        return $i0;
+    }
+}

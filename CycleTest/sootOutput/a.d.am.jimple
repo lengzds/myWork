@@ -1,0 +1,228 @@
+final class a.d.am extends a.d.u implements a.d.j
+{
+    private int a;
+    private long b;
+    private long c;
+    private int d;
+
+    void <init>(long)
+    {
+        a.d.am $r0;
+        long $l0;
+
+        $r0 := @this: a.d.am;
+
+        $l0 := @parameter0: long;
+
+        specialinvoke $r0.<a.d.u: void <init>()>();
+
+        $r0.<a.d.am: int a> = 0;
+
+        $r0.<a.d.am: long b> = 0L;
+
+        $r0.<a.d.am: int d> = 0;
+
+        $r0.<a.d.am: long c> = $l0;
+
+        $r0.<a.d.am: byte g> = 8;
+
+        return;
+    }
+
+    public final int a()
+    {
+        a.d.am $r0;
+        int i0;
+
+        $r0 := @this: a.d.am;
+
+        i0 = $r0.<a.d.am: int a>;
+
+        return i0;
+    }
+
+    public final long b()
+    {
+        a.d.am $r0;
+        long $l0, $l1;
+
+        $r0 := @this: a.d.am;
+
+        $l1 = $r0.<a.d.am: long b>;
+
+        $l0 = $r0.<a.d.am: long c>;
+
+        $l0 = $l1 + $l0;
+
+        return $l0;
+    }
+
+    public final long c()
+    {
+        a.d.am $r0;
+        long $l0, $l1;
+
+        $r0 := @this: a.d.am;
+
+        $l1 = $r0.<a.d.am: long b>;
+
+        $l0 = $r0.<a.d.am: long c>;
+
+        $l0 = $l1 + $l0;
+
+        return $l0;
+    }
+
+    public final long d()
+    {
+        a.d.am $r0;
+        int $i0;
+        long $l1;
+
+        $r0 := @this: a.d.am;
+
+        $i0 = $r0.<a.d.am: int d>;
+
+        $l1 = (long) $i0;
+
+        return $l1;
+    }
+
+    final int i(byte[], int)
+    {
+        a.d.am $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.am;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int j(byte[], int)
+    {
+        a.d.am $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.am;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int k(byte[], int)
+    {
+        a.d.am $r0;
+        byte[] $r1;
+        int $i0, $i1;
+        long $l2;
+
+        $r0 := @this: a.d.am;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = $r0.<a.d.am: int r>;
+
+        if $i1 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        $i1 = staticinvoke <a.d.am: int d(byte[],int)>($r1, $i0);
+
+        $r0.<a.d.am: int a> = $i1;
+
+        $i0 = $i0 + 2;
+
+        $l2 = staticinvoke <a.d.am: long h(byte[],int)>($r1, $i0);
+
+        $r0.<a.d.am: long b> = $l2;
+
+        $i0 = $i0 + 4;
+
+        $i0 = staticinvoke <a.d.am: int e(byte[],int)>($r1, $i0);
+
+        $r0.<a.d.am: int d> = $i0;
+
+        return 20;
+    }
+
+    final int l(byte[], int)
+    {
+        a.d.am $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.am;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.am $r0;
+        java.lang.String $r1, $r3;
+        long $l0;
+        java.lang.StringBuilder $r2;
+        int $i1;
+        java.util.Date $r4;
+
+        $r0 := @this: a.d.am;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("SmbComQueryInformationResponse[");
+
+        $r3 = specialinvoke $r0.<a.d.u: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",fileAttributes=0x");
+
+        $i1 = $r0.<a.d.am: int a>;
+
+        $r3 = staticinvoke <a.e.d: java.lang.String a(int,int)>($i1, 4);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",lastWriteTime=");
+
+        $r4 = new java.util.Date;
+
+        $l0 = $r0.<a.d.am: long b>;
+
+        specialinvoke $r4.<java.util.Date: void <init>(long)>($l0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",fileSize=");
+
+        $i1 = $r0.<a.d.am: int d>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

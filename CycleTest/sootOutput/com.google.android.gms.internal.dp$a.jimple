@@ -1,0 +1,332 @@
+public final class com.google.android.gms.internal.dp$a extends android.os.AsyncTask
+{
+    final com.google.android.gms.internal.dp a;
+    private final android.webkit.WebView b;
+    private android.graphics.Bitmap c;
+
+    public void <init>(com.google.android.gms.internal.dp, android.webkit.WebView)
+    {
+        com.google.android.gms.internal.dp$a $r0;
+        com.google.android.gms.internal.dp $r1;
+        android.webkit.WebView $r2;
+
+        $r0 := @this: com.google.android.gms.internal.dp$a;
+
+        $r1 := @parameter0: com.google.android.gms.internal.dp;
+
+        $r2 := @parameter1: android.webkit.WebView;
+
+        $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a> = $r1;
+
+        specialinvoke $r0.<android.os.AsyncTask: void <init>()>();
+
+        $r0.<com.google.android.gms.internal.dp$a: android.webkit.WebView b> = $r2;
+
+        return;
+    }
+
+    private transient java.lang.Boolean a$5f8445a4()
+    {
+        com.google.android.gms.internal.dp$a $r0;
+        android.graphics.Bitmap $r1;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        java.lang.Boolean $r2;
+        double $d0, $d1;
+        byte $b6;
+        boolean $z0;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: com.google.android.gms.internal.dp$a;
+
+        entermonitor $r0;
+
+     label01:
+        $r1 = $r0.<com.google.android.gms.internal.dp$a: android.graphics.Bitmap c>;
+
+        $i0 = virtualinvoke $r1.<android.graphics.Bitmap: int getWidth()>();
+
+        $r1 = $r0.<com.google.android.gms.internal.dp$a: android.graphics.Bitmap c>;
+
+        $i1 = virtualinvoke $r1.<android.graphics.Bitmap: int getHeight()>();
+
+        if $i0 == 0 goto label02;
+
+        if $i1 != 0 goto label04;
+
+     label02:
+        $r2 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+     label03:
+        exitmonitor $r0;
+
+        return $r2;
+
+     label04:
+        $i2 = 0;
+
+        $i3 = 0;
+
+     label05:
+        if $i2 >= $i0 goto label10;
+
+        $i4 = 0;
+
+     label06:
+        if $i4 >= $i1 goto label09;
+
+     label07:
+        $r1 = $r0.<com.google.android.gms.internal.dp$a: android.graphics.Bitmap c>;
+
+        $i5 = virtualinvoke $r1.<android.graphics.Bitmap: int getPixel(int,int)>($i2, $i4);
+
+        if $i5 == 0 goto label08;
+
+        $i3 = $i3 + 1;
+
+     label08:
+        $i4 = $i4 + 10;
+
+        goto label06;
+
+     label09:
+        $i2 = $i2 + 10;
+
+        goto label05;
+
+     label10:
+        $d0 = (double) $i3;
+
+        $i0 = $i0 * $i1;
+
+        $d1 = (double) $i0;
+
+        $d1 = $d1 / 100.0;
+
+        $d0 = $d0 / $d1;
+
+        $b6 = $d0 cmpl 0.1;
+
+        if $b6 <= 0 goto label13;
+
+        $z0 = 1;
+
+     label11:
+        $r2 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+     label12:
+        goto label03;
+
+     label13:
+        $z0 = 0;
+
+        goto label11;
+
+     label14:
+        $r3 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label01 to label03 with label14;
+        catch java.lang.Throwable from label07 to label12 with label14;
+    }
+
+    protected final java.lang.Object doInBackground(java.lang.Object[])
+    {
+        com.google.android.gms.internal.dp$a $r0;
+        java.lang.Object[] $r1;
+        java.lang.Boolean $r2;
+
+        $r0 := @this: com.google.android.gms.internal.dp$a;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $r2 = specialinvoke $r0.<com.google.android.gms.internal.dp$a: java.lang.Boolean a$5f8445a4()>();
+
+        return $r2;
+    }
+
+    protected final void onPostExecute(java.lang.Object)
+    {
+        com.google.android.gms.internal.dp$a $r0;
+        java.lang.Object $r1;
+        java.lang.Boolean $r2;
+        com.google.android.gms.internal.dp $r3, $r7;
+        boolean $z0;
+        long $l0;
+        byte $b1;
+        com.google.android.gms.internal.ez$a $r4;
+        com.google.android.gms.internal.ey $r5;
+        android.os.Handler $r6;
+
+        $r0 := @this: com.google.android.gms.internal.dp$a;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.lang.Boolean) $r1;
+
+        $r3 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        staticinvoke <com.google.android.gms.internal.dp: long c(com.google.android.gms.internal.dp)>($r3);
+
+        $z0 = virtualinvoke $r2.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $z0 = virtualinvoke $r3.<com.google.android.gms.internal.dp: boolean bl()>();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $l0 = staticinvoke <com.google.android.gms.internal.dp: long d(com.google.android.gms.internal.dp)>($r3);
+
+        $b1 = $l0 cmp 0L;
+
+        if $b1 > 0 goto label2;
+
+     label1:
+        $r3 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $z0 = virtualinvoke $r2.<java.lang.Boolean: boolean booleanValue()>();
+
+        $r3.<com.google.android.gms.internal.dp: boolean c> = $z0;
+
+        $r3 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $r4 = staticinvoke <com.google.android.gms.internal.dp: com.google.android.gms.internal.ez$a e(com.google.android.gms.internal.dp)>($r3);
+
+        $r3 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $r5 = $r3.<com.google.android.gms.internal.dp: com.google.android.gms.internal.ey a>;
+
+        interfaceinvoke $r4.<com.google.android.gms.internal.ez$a: void a(com.google.android.gms.internal.ey)>($r5);
+
+        return;
+
+     label2:
+        $r3 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $l0 = staticinvoke <com.google.android.gms.internal.dp: long d(com.google.android.gms.internal.dp)>($r3);
+
+        $b1 = $l0 cmp 0L;
+
+        if $b1 <= 0 goto label4;
+
+        $z0 = staticinvoke <com.google.android.gms.internal.ev: boolean p(int)>(2);
+
+        if $z0 == 0 goto label3;
+
+        staticinvoke <com.google.android.gms.internal.ev: void z(java.lang.String)>("Ad not detected, scheduling another run.");
+
+     label3:
+        $r3 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $r6 = staticinvoke <com.google.android.gms.internal.dp: android.os.Handler g(com.google.android.gms.internal.dp)>($r3);
+
+        $r3 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $r7 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $l0 = staticinvoke <com.google.android.gms.internal.dp: long f(com.google.android.gms.internal.dp)>($r7);
+
+        virtualinvoke $r6.<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>($r3, $l0);
+
+     label4:
+        return;
+    }
+
+    protected final void onPreExecute()
+    {
+        com.google.android.gms.internal.dp$a $r0;
+        com.google.android.gms.internal.dp $r1;
+        int $i0, $i1;
+        android.graphics.Bitmap$Config $r2;
+        android.graphics.Bitmap $r3;
+        android.webkit.WebView $r4;
+        android.graphics.Canvas $r5;
+        java.lang.Throwable $r6;
+
+        $r0 := @this: com.google.android.gms.internal.dp$a;
+
+        entermonitor $r0;
+
+     label1:
+        $r1 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $i0 = staticinvoke <com.google.android.gms.internal.dp: int a(com.google.android.gms.internal.dp)>($r1);
+
+        $r1 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $i1 = staticinvoke <com.google.android.gms.internal.dp: int b(com.google.android.gms.internal.dp)>($r1);
+
+        $r2 = <android.graphics.Bitmap$Config: android.graphics.Bitmap$Config ARGB_8888>;
+
+        $r3 = staticinvoke <android.graphics.Bitmap: android.graphics.Bitmap createBitmap(int,int,android.graphics.Bitmap$Config)>($i0, $i1, $r2);
+
+        $r0.<com.google.android.gms.internal.dp$a: android.graphics.Bitmap c> = $r3;
+
+        $r4 = $r0.<com.google.android.gms.internal.dp$a: android.webkit.WebView b>;
+
+        virtualinvoke $r4.<android.webkit.WebView: void setVisibility(int)>(0);
+
+        $r4 = $r0.<com.google.android.gms.internal.dp$a: android.webkit.WebView b>;
+
+        $r1 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $i0 = staticinvoke <com.google.android.gms.internal.dp: int a(com.google.android.gms.internal.dp)>($r1);
+
+        $i0 = staticinvoke <android.view.View$MeasureSpec: int makeMeasureSpec(int,int)>($i0, 0);
+
+        $r1 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $i1 = staticinvoke <com.google.android.gms.internal.dp: int b(com.google.android.gms.internal.dp)>($r1);
+
+        $i1 = staticinvoke <android.view.View$MeasureSpec: int makeMeasureSpec(int,int)>($i1, 0);
+
+        virtualinvoke $r4.<android.webkit.WebView: void measure(int,int)>($i0, $i1);
+
+        $r4 = $r0.<com.google.android.gms.internal.dp$a: android.webkit.WebView b>;
+
+        $r1 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $i0 = staticinvoke <com.google.android.gms.internal.dp: int a(com.google.android.gms.internal.dp)>($r1);
+
+        $r1 = $r0.<com.google.android.gms.internal.dp$a: com.google.android.gms.internal.dp a>;
+
+        $i1 = staticinvoke <com.google.android.gms.internal.dp: int b(com.google.android.gms.internal.dp)>($r1);
+
+        virtualinvoke $r4.<android.webkit.WebView: void layout(int,int,int,int)>(0, 0, $i0, $i1);
+
+        $r5 = new android.graphics.Canvas;
+
+        $r3 = $r0.<com.google.android.gms.internal.dp$a: android.graphics.Bitmap c>;
+
+        specialinvoke $r5.<android.graphics.Canvas: void <init>(android.graphics.Bitmap)>($r3);
+
+        $r4 = $r0.<com.google.android.gms.internal.dp$a: android.webkit.WebView b>;
+
+        virtualinvoke $r4.<android.webkit.WebView: void draw(android.graphics.Canvas)>($r5);
+
+        $r4 = $r0.<com.google.android.gms.internal.dp$a: android.webkit.WebView b>;
+
+        virtualinvoke $r4.<android.webkit.WebView: void invalidate()>();
+
+     label2:
+        exitmonitor $r0;
+
+        return;
+
+     label3:
+        $r6 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r6;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

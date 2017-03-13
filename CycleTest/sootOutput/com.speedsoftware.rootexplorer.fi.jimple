@@ -1,0 +1,75 @@
+final class com.speedsoftware.rootexplorer.fi extends com.google.android.gms.ads.AdListener
+{
+    final com.speedsoftware.rootexplorer.RootExplorer a;
+
+    void <init>(com.speedsoftware.rootexplorer.RootExplorer)
+    {
+        com.speedsoftware.rootexplorer.fi $r0;
+        com.speedsoftware.rootexplorer.RootExplorer $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fi;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.RootExplorer;
+
+        $r0.<com.speedsoftware.rootexplorer.fi: com.speedsoftware.rootexplorer.RootExplorer a> = $r1;
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdListener: void <init>()>();
+
+        return;
+    }
+
+    public final void onAdFailedToLoad(int)
+    {
+        com.speedsoftware.rootexplorer.fi $r0;
+        int $i0;
+        com.speedsoftware.rootexplorer.RootExplorer $r1;
+        com.google.android.gms.ads.AdView $r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fi;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdListener: void onAdFailedToLoad(int)>($i0);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fi: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: com.google.android.gms.ads.AdView j(com.speedsoftware.rootexplorer.RootExplorer)>($r1);
+
+        if $r2 == null goto label1;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fi: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: com.google.android.gms.ads.AdView j(com.speedsoftware.rootexplorer.RootExplorer)>($r1);
+
+        virtualinvoke $r2.<com.google.android.gms.ads.AdView: void setVisibility(int)>(8);
+
+     label1:
+        return;
+    }
+
+    public final void onAdLoaded()
+    {
+        com.speedsoftware.rootexplorer.fi $r0;
+        com.speedsoftware.rootexplorer.RootExplorer $r1;
+        com.google.android.gms.ads.AdView $r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fi;
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdListener: void onAdLoaded()>();
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fi: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: com.google.android.gms.ads.AdView j(com.speedsoftware.rootexplorer.RootExplorer)>($r1);
+
+        if $r2 == null goto label1;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fi: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: com.google.android.gms.ads.AdView j(com.speedsoftware.rootexplorer.RootExplorer)>($r1);
+
+        virtualinvoke $r2.<com.google.android.gms.ads.AdView: void setVisibility(int)>(0);
+
+     label1:
+        return;
+    }
+}

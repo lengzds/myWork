@@ -1,0 +1,551 @@
+public final class com.speedsoftware.rootexplorer.bm extends com.speedsoftware.rootexplorer.dy implements com.speedsoftware.rootexplorer.cm
+{
+    private java.util.ArrayList A;
+    private com.speedsoftware.rootexplorer.bn a;
+
+    public void <init>(com.speedsoftware.rootexplorer.BackgroundWorker, long, com.speedsoftware.rootexplorer.ay, com.speedsoftware.rootexplorer.bn, java.lang.String, com.speedsoftware.rootexplorer.bn, com.speedsoftware.rootexplorer.cf, java.util.ArrayList, java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.bm $r0;
+        com.speedsoftware.rootexplorer.BackgroundWorker $r1;
+        long $l0;
+        com.speedsoftware.rootexplorer.ay $r2;
+        com.speedsoftware.rootexplorer.bn $r3, $r5;
+        java.lang.String $r4, $r8;
+        com.speedsoftware.rootexplorer.cf $r6;
+        java.util.ArrayList $r7, $r9;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bm;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        $l0 := @parameter1: long;
+
+        $r2 := @parameter2: com.speedsoftware.rootexplorer.ay;
+
+        $r3 := @parameter3: com.speedsoftware.rootexplorer.bn;
+
+        $r4 := @parameter4: java.lang.String;
+
+        $r5 := @parameter5: com.speedsoftware.rootexplorer.bn;
+
+        $r6 := @parameter6: com.speedsoftware.rootexplorer.cf;
+
+        $r7 := @parameter7: java.util.ArrayList;
+
+        $r8 := @parameter8: java.lang.String;
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.dy: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String)>($r1, $l0, $r2, $r4, $r5, $r6, $r7, $r8);
+
+        $r9 = new java.util.ArrayList;
+
+        specialinvoke $r9.<java.util.ArrayList: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.bm: java.util.ArrayList A> = $r9;
+
+        virtualinvoke $r3.<com.speedsoftware.rootexplorer.bn: void a(java.util.ArrayList)>($r7);
+
+        $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.bn a> = $r3;
+
+        return;
+    }
+
+    final void a()
+    {
+        com.speedsoftware.rootexplorer.bm $r0;
+        int $i0, $i1;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2, $r10;
+        com.speedsoftware.rootexplorer.BackgroundWorker $r3;
+        byte[] $r4;
+        com.speedsoftware.rootexplorer.bn $r5;
+        com.speedsoftware.rootexplorer.cf $r6;
+        com.speedsoftware.rootexplorer.ay $r7;
+        boolean $z0;
+        com.speedsoftware.rootexplorer.eb $r8;
+        java.util.ArrayList $r9;
+        java.lang.Exception $r11;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bm;
+
+        $i0 = 0;
+
+        $r1 = new java.lang.StringBuilder;
+
+        $r2 = new java.lang.String;
+
+     label01:
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+     label02:
+        if $r3 != null goto label11;
+
+        $i1 = 0;
+
+     label03:
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] do(int)>($i1);
+
+        specialinvoke $r2.<java.lang.String: void <init>(byte[])>($r4);
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r2);
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" &ELAPSED_TIME");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0.<com.speedsoftware.rootexplorer.bm: java.lang.String l> = $r2;
+
+        $r0.<com.speedsoftware.rootexplorer.bm: java.lang.String m> = "";
+
+     label04:
+        $r1 = new java.lang.StringBuilder;
+
+        $r2 = new java.lang.String;
+
+     label05:
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+     label06:
+        if $r3 != null goto label13;
+
+     label07:
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] bd(int)>($i0);
+
+        specialinvoke $r2.<java.lang.String: void <init>(byte[])>($r4);
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r2);
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("...");
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.bn a>;
+
+        $r2 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: java.lang.String ae()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0.<com.speedsoftware.rootexplorer.bm: java.lang.String n> = $r2;
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.bn a>;
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.cf h>;
+
+        virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: void a(com.speedsoftware.rootexplorer.cf)>($r6);
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.bn a>;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bm: java.lang.String f>;
+
+        virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: void v(java.lang.String)>($r2);
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.bn a>;
+
+        $r7 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.ay i>;
+
+        virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: void a(com.speedsoftware.rootexplorer.ay)>($r7);
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.bn a>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: void i(android.content.Context)>($r3);
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.bn a>;
+
+        $z0 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: boolean y()>();
+
+     label08:
+        if $z0 == 0 goto label15;
+
+        $r8 = <com.speedsoftware.rootexplorer.eb: com.speedsoftware.rootexplorer.eb c>;
+
+     label09:
+        $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.eb d> = $r8;
+
+        $r9 = $r0.<com.speedsoftware.rootexplorer.bm: java.util.ArrayList A>;
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.bn a>;
+
+        virtualinvoke $r9.<java.util.ArrayList: boolean add(java.lang.Object)>($r5);
+
+     label10:
+        return;
+
+     label11:
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        $r10 = virtualinvoke $r3.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.String getString(int)>(2131034157);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r10);
+
+     label12:
+        goto label03;
+
+     label13:
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        $r10 = virtualinvoke $r3.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r10);
+
+     label14:
+        goto label07;
+
+     label15:
+        $r8 = <com.speedsoftware.rootexplorer.eb: com.speedsoftware.rootexplorer.eb d>;
+
+     label16:
+        $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.eb d> = $r8;
+
+     label17:
+        return;
+
+     label18:
+        $r11 := @caughtexception;
+
+        $r8 = <com.speedsoftware.rootexplorer.eb: com.speedsoftware.rootexplorer.eb d>;
+
+        $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.eb d> = $r8;
+
+        return;
+
+        catch java.lang.Exception from label01 to label02 with label18;
+        catch java.lang.Exception from label03 to label04 with label18;
+        catch java.lang.Exception from label05 to label06 with label18;
+        catch java.lang.Exception from label07 to label08 with label18;
+        catch java.lang.Exception from label09 to label10 with label18;
+        catch java.lang.Exception from label11 to label12 with label18;
+        catch java.lang.Exception from label13 to label14 with label18;
+        catch java.lang.Exception from label16 to label17 with label18;
+    }
+
+    public final void a(android.content.Context)
+    {
+        com.speedsoftware.rootexplorer.bm $r0;
+        android.content.Context $r1, $r7;
+        com.speedsoftware.rootexplorer.RootExplorer $r2;
+        com.speedsoftware.rootexplorer.s $r3;
+        com.speedsoftware.rootexplorer.eb $r4, $r5;
+        int $i0;
+        java.lang.String $r6, $r8;
+        boolean $z0;
+        java.util.ArrayList $r9;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bm;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 = <com.speedsoftware.rootexplorer.RootExplorer: com.speedsoftware.rootexplorer.RootExplorer b>;
+
+        if $r2 == null goto label2;
+
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.s t()>();
+
+        if $r3 == null goto label2;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.eb d>;
+
+        $r5 = <com.speedsoftware.rootexplorer.eb: com.speedsoftware.rootexplorer.eb d>;
+
+        if $r4 != $r5 goto label1;
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 19 goto label3;
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 >= 21 goto label3;
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.bm: java.lang.String f>;
+
+        $r7 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.bm: android.content.Context r()>();
+
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: java.lang.String a(android.content.Context)>($r7);
+
+        $z0 = virtualinvoke $r6.<java.lang.String: boolean startsWith(java.lang.String)>($r8);
+
+        if $z0 == 0 goto label3;
+
+        $r6 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.bm: java.lang.String f()>();
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.bm: android.content.Context r()>();
+
+        $r8 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.bm: java.lang.String u()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.s: void a(java.lang.String,java.lang.String)>($r6, $r8);
+
+     label1:
+        $r9 = $r0.<com.speedsoftware.rootexplorer.bm: java.util.ArrayList A>;
+
+        $i0 = virtualinvoke $r9.<java.util.ArrayList: int size()>();
+
+        if $i0 <= 0 goto label2;
+
+        $r9 = $r0.<com.speedsoftware.rootexplorer.bm: java.util.ArrayList A>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.s: void c(java.util.ArrayList)>($r9);
+
+     label2:
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.dy: void a(android.content.Context)>($r1);
+
+        return;
+
+     label3:
+        $r6 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.bm: java.lang.String f()>();
+
+        $r8 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.bm: java.lang.String g()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.s: void a(java.lang.String,java.lang.String)>($r6, $r8);
+
+        goto label1;
+    }
+
+    final java.lang.String b()
+    {
+        com.speedsoftware.rootexplorer.bm $r0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bm;
+
+        return "Root_Explorer_Delete";
+    }
+
+    protected final java.lang.String d()
+    {
+        com.speedsoftware.rootexplorer.bm $r0;
+        java.lang.String $r1, $r4;
+        com.speedsoftware.rootexplorer.BackgroundWorker $r2;
+        int $i0;
+        byte[] $r3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bm;
+
+        $r1 = new java.lang.String;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        if $r2 != null goto label2;
+
+        $i0 = 0;
+
+     label1:
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] bd(int)>($i0);
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r3);
+
+        return $r1;
+
+     label2:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        $r4 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r4);
+
+        goto label1;
+    }
+
+    protected final java.lang.String e()
+    {
+        com.speedsoftware.rootexplorer.bm $r0;
+        java.lang.String $r1, $r6;
+        com.speedsoftware.rootexplorer.BackgroundWorker $r2;
+        int $i0;
+        byte[] $r3;
+        java.lang.Object[] $r4;
+        com.speedsoftware.rootexplorer.bn $r5;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bm;
+
+        $r1 = new java.lang.String;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        if $r2 != null goto label2;
+
+        $i0 = 0;
+
+     label1:
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cb(int)>($i0);
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r3);
+
+        $r4 = newarray (java.lang.Object)[2];
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.bn a>;
+
+        $r6 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: java.lang.String N()>();
+
+        $r4[0] = $r6;
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.bn a>;
+
+        $r6 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: java.lang.String ab()>();
+
+        $r4[1] = $r6;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>($r1, $r4);
+
+        return $r1;
+
+     label2:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        $r6 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+        goto label1;
+    }
+
+    protected final java.lang.String f()
+    {
+        com.speedsoftware.rootexplorer.bm $r0;
+        int $i0;
+        com.speedsoftware.rootexplorer.eb $r1, $r2;
+        java.lang.String $r3, $r6;
+        com.speedsoftware.rootexplorer.BackgroundWorker $r4;
+        byte[] $r5;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bm;
+
+        $i0 = 0;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.eb d>;
+
+        $r2 = <com.speedsoftware.rootexplorer.eb: com.speedsoftware.rootexplorer.eb c>;
+
+        if $r1 != $r2 goto label3;
+
+        $r3 = new java.lang.String;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        if $r4 != null goto label2;
+
+     label1:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] aw(int)>($i0);
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r5);
+
+        return $r3;
+
+     label2:
+        $r4 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        $r6 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+        goto label1;
+
+     label3:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.eb d>;
+
+        $r2 = <com.speedsoftware.rootexplorer.eb: com.speedsoftware.rootexplorer.eb d>;
+
+        if $r1 != $r2 goto label6;
+
+        $r3 = new java.lang.String;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        if $r4 != null goto label5;
+
+     label4:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] ds(int)>($i0);
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r5);
+
+        return $r3;
+
+     label5:
+        $r4 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        $r6 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+        goto label4;
+
+     label6:
+        $r3 = new java.lang.String;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        if $r4 != null goto label8;
+
+     label7:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] dr(int)>($i0);
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r5);
+
+        return $r3;
+
+     label8:
+        $r4 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        $r6 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+        goto label7;
+    }
+
+    protected final java.lang.String g()
+    {
+        com.speedsoftware.rootexplorer.bm $r0;
+        java.lang.String $r1, $r6;
+        com.speedsoftware.rootexplorer.BackgroundWorker $r2;
+        int $i0;
+        byte[] $r3;
+        java.lang.Object[] $r4;
+        com.speedsoftware.rootexplorer.bn $r5;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bm;
+
+        $r1 = new java.lang.String;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        if $r2 != null goto label2;
+
+        $i0 = 0;
+
+     label1:
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cb(int)>($i0);
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r3);
+
+        $r4 = newarray (java.lang.Object)[2];
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.bn a>;
+
+        $r6 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: java.lang.String N()>();
+
+        $r4[0] = $r6;
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.bn a>;
+
+        $r6 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: java.lang.String ab()>();
+
+        $r4[1] = $r6;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>($r1, $r4);
+
+        return $r1;
+
+     label2:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.bm: com.speedsoftware.rootexplorer.BackgroundWorker c>;
+
+        $r6 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+        goto label1;
+    }
+}

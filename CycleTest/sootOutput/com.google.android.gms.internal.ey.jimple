@@ -1,0 +1,1360 @@
+public class com.google.android.gms.internal.ey extends android.webkit.WebView implements android.webkit.DownloadListener
+{
+    private final com.google.android.gms.internal.ez a;
+    private final com.google.android.gms.internal.ey$a b;
+    private final java.lang.Object c;
+    private final com.google.android.gms.internal.l d;
+    private final com.google.android.gms.internal.ew e;
+    private com.google.android.gms.internal.cg f;
+    private com.google.android.gms.internal.am g;
+    private boolean h;
+    private boolean i;
+    private boolean j;
+    private final android.view.WindowManager k;
+
+    private void <init>(com.google.android.gms.internal.ey$a, com.google.android.gms.internal.am, boolean, boolean, com.google.android.gms.internal.l, com.google.android.gms.internal.ew)
+    {
+        com.google.android.gms.internal.ey $r0;
+        com.google.android.gms.internal.ey$a $r1;
+        com.google.android.gms.internal.am $r2;
+        boolean $z0, $z1;
+        com.google.android.gms.internal.l $r3;
+        com.google.android.gms.internal.ew $r4;
+        java.lang.Object $r5;
+        android.content.Context $r6;
+        android.view.WindowManager $r7;
+        android.webkit.WebSettings $r8;
+        java.lang.String $r9;
+        int $i0;
+        com.google.android.gms.internal.fb $r10;
+        com.google.android.gms.internal.ez $r11;
+        com.google.android.gms.internal.fc $r12;
+        com.google.android.gms.internal.fa $r13;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 := @parameter0: com.google.android.gms.internal.ey$a;
+
+        $r2 := @parameter1: com.google.android.gms.internal.am;
+
+        $z0 := @parameter2: boolean;
+
+        $z1 := @parameter3: boolean;
+
+        $r3 := @parameter4: com.google.android.gms.internal.l;
+
+        $r4 := @parameter5: com.google.android.gms.internal.ew;
+
+        specialinvoke $r0.<android.webkit.WebView: void <init>(android.content.Context)>($r1);
+
+        $r5 = new java.lang.Object;
+
+        specialinvoke $r5.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.internal.ey: java.lang.Object c> = $r5;
+
+        $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ey$a b> = $r1;
+
+        $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.am g> = $r2;
+
+        $r0.<com.google.android.gms.internal.ey: boolean h> = $z0;
+
+        $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.l d> = $r3;
+
+        $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ew e> = $r4;
+
+        $r6 = virtualinvoke $r0.<com.google.android.gms.internal.ey: android.content.Context getContext()>();
+
+        $r5 = virtualinvoke $r6.<android.content.Context: java.lang.Object getSystemService(java.lang.String)>("window");
+
+        $r7 = (android.view.WindowManager) $r5;
+
+        $r0.<com.google.android.gms.internal.ey: android.view.WindowManager k> = $r7;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void setBackgroundColor(int)>(0);
+
+        $r8 = virtualinvoke $r0.<com.google.android.gms.internal.ey: android.webkit.WebSettings getSettings()>();
+
+        virtualinvoke $r8.<android.webkit.WebSettings: void setJavaScriptEnabled(boolean)>(1);
+
+        virtualinvoke $r8.<android.webkit.WebSettings: void setSavePassword(boolean)>(0);
+
+        virtualinvoke $r8.<android.webkit.WebSettings: void setSupportMultipleWindows(boolean)>(1);
+
+        virtualinvoke $r8.<android.webkit.WebSettings: void setJavaScriptCanOpenWindowsAutomatically(boolean)>(1);
+
+        $r9 = $r4.<com.google.android.gms.internal.ew: java.lang.String b>;
+
+        staticinvoke <com.google.android.gms.internal.ep: void a(android.content.Context,java.lang.String,android.webkit.WebSettings)>($r1, $r9, $r8);
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 17 goto label4;
+
+        $r6 = virtualinvoke $r0.<com.google.android.gms.internal.ey: android.content.Context getContext()>();
+
+        staticinvoke <com.google.android.gms.internal.es: void a(android.content.Context,android.webkit.WebSettings)>($r6, $r8);
+
+     label1:
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void setDownloadListener(android.webkit.DownloadListener)>($r0);
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 11 goto label5;
+
+        $r10 = new com.google.android.gms.internal.fb;
+
+        specialinvoke $r10.<com.google.android.gms.internal.fb: void <init>(com.google.android.gms.internal.ey,boolean)>($r0, $z1);
+
+        $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ez a> = $r10;
+
+     label2:
+        $r11 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ez a>;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void setWebViewClient(android.webkit.WebViewClient)>($r11);
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 14 goto label6;
+
+        $r12 = new com.google.android.gms.internal.fc;
+
+        specialinvoke $r12.<com.google.android.gms.internal.fc: void <init>(com.google.android.gms.internal.ey)>($r0);
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void setWebChromeClient(android.webkit.WebChromeClient)>($r12);
+
+     label3:
+        specialinvoke $r0.<com.google.android.gms.internal.ey: void cb()>();
+
+        return;
+
+     label4:
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 11 goto label1;
+
+        $r6 = virtualinvoke $r0.<com.google.android.gms.internal.ey: android.content.Context getContext()>();
+
+        staticinvoke <com.google.android.gms.internal.er: void a(android.content.Context,android.webkit.WebSettings)>($r6, $r8);
+
+        goto label1;
+
+     label5:
+        $r11 = new com.google.android.gms.internal.ez;
+
+        specialinvoke $r11.<com.google.android.gms.internal.ez: void <init>(com.google.android.gms.internal.ey,boolean)>($r0, $z1);
+
+        $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ez a> = $r11;
+
+        goto label2;
+
+     label6:
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 11 goto label3;
+
+        $r13 = new com.google.android.gms.internal.fa;
+
+        specialinvoke $r13.<com.google.android.gms.internal.fa: void <init>(com.google.android.gms.internal.ey)>($r0);
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void setWebChromeClient(android.webkit.WebChromeClient)>($r13);
+
+        goto label3;
+    }
+
+    private void E(java.lang.String)
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        boolean $z0;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r2;
+
+     label1:
+        $z0 = virtualinvoke $r0.<com.google.android.gms.internal.ey: boolean isDestroyed()>();
+
+        if $z0 != 0 goto label4;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void loadUrl(java.lang.String)>($r1);
+
+     label2:
+        exitmonitor $r2;
+
+     label3:
+        return;
+
+     label4:
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>("The webview is destroyed. Ignoring action.");
+
+     label5:
+        goto label2;
+
+     label6:
+        $r3 := @caughtexception;
+
+        exitmonitor $r2;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label3 with label6;
+        catch java.lang.Throwable from label4 to label5 with label6;
+    }
+
+    public static com.google.android.gms.internal.ey a(android.content.Context, com.google.android.gms.internal.am, boolean, boolean, com.google.android.gms.internal.l, com.google.android.gms.internal.ew)
+    {
+        android.content.Context $r0;
+        com.google.android.gms.internal.am $r1;
+        boolean $z0, $z1;
+        com.google.android.gms.internal.l $r2;
+        com.google.android.gms.internal.ew $r3;
+        com.google.android.gms.internal.ey $r4;
+        com.google.android.gms.internal.ey$a $r5;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 := @parameter1: com.google.android.gms.internal.am;
+
+        $z0 := @parameter2: boolean;
+
+        $z1 := @parameter3: boolean;
+
+        $r2 := @parameter4: com.google.android.gms.internal.l;
+
+        $r3 := @parameter5: com.google.android.gms.internal.ew;
+
+        $r5 = new com.google.android.gms.internal.ey$a;
+
+        specialinvoke $r5.<com.google.android.gms.internal.ey$a: void <init>(android.content.Context)>($r0);
+
+        $r4 = new com.google.android.gms.internal.ey;
+
+        specialinvoke $r4.<com.google.android.gms.internal.ey: void <init>(com.google.android.gms.internal.ey$a,com.google.android.gms.internal.am,boolean,boolean,com.google.android.gms.internal.l,com.google.android.gms.internal.ew)>($r5, $r1, $z0, $z1, $r2, $r3);
+
+        return $r4;
+    }
+
+    private void cb()
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        com.google.android.gms.internal.am $r2;
+        int $i0;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r1;
+
+     label01:
+        $z0 = $r0.<com.google.android.gms.internal.ey: boolean h>;
+
+        if $z0 != 0 goto label02;
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.am g>;
+
+        $z0 = $r2.<com.google.android.gms.internal.am: boolean e>;
+
+        if $z0 == 0 goto label08;
+
+     label02:
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 >= 14 goto label05;
+
+        staticinvoke <com.google.android.gms.internal.ev: void z(java.lang.String)>("Disabling hardware acceleration on an overlay.");
+
+        specialinvoke $r0.<com.google.android.gms.internal.ey: void cc()>();
+
+     label03:
+        exitmonitor $r1;
+
+     label04:
+        return;
+
+     label05:
+        staticinvoke <com.google.android.gms.internal.ev: void z(java.lang.String)>("Enabling hardware acceleration on an overlay.");
+
+        specialinvoke $r0.<com.google.android.gms.internal.ey: void cd()>();
+
+     label06:
+        goto label03;
+
+     label07:
+        $r3 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r3;
+
+     label08:
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 >= 18 goto label09;
+
+        staticinvoke <com.google.android.gms.internal.ev: void z(java.lang.String)>("Disabling hardware acceleration on an AdView.");
+
+        specialinvoke $r0.<com.google.android.gms.internal.ey: void cc()>();
+
+        goto label03;
+
+     label09:
+        staticinvoke <com.google.android.gms.internal.ev: void z(java.lang.String)>("Enabling hardware acceleration on an AdView.");
+
+        specialinvoke $r0.<com.google.android.gms.internal.ey: void cd()>();
+
+     label10:
+        goto label03;
+
+        catch java.lang.Throwable from label01 to label04 with label07;
+        catch java.lang.Throwable from label05 to label06 with label07;
+        catch java.lang.Throwable from label08 to label10 with label07;
+    }
+
+    private void cc()
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        int $i0;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r1;
+
+     label1:
+        $z0 = $r0.<com.google.android.gms.internal.ey: boolean i>;
+
+        if $z0 != 0 goto label2;
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 11 goto label2;
+
+        staticinvoke <com.google.android.gms.internal.er: void d(android.view.View)>($r0);
+
+     label2:
+        $r0.<com.google.android.gms.internal.ey: boolean i> = 1;
+
+        exitmonitor $r1;
+
+     label3:
+        return;
+
+     label4:
+        $r2 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+    }
+
+    private void cd()
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        int $i0;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r1;
+
+     label1:
+        $z0 = $r0.<com.google.android.gms.internal.ey: boolean i>;
+
+        if $z0 == 0 goto label2;
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 11 goto label2;
+
+        staticinvoke <com.google.android.gms.internal.er: void e(android.view.View)>($r0);
+
+     label2:
+        $r0.<com.google.android.gms.internal.ey: boolean i> = 0;
+
+        exitmonitor $r1;
+
+     label3:
+        return;
+
+     label4:
+        $r2 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+    }
+
+    public com.google.android.gms.internal.am Q()
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.Object $r1;
+        java.lang.Throwable $r2;
+        com.google.android.gms.internal.am r3;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r1;
+
+     label1:
+        r3 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.am g>;
+
+        exitmonitor $r1;
+
+     label2:
+        return r3;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void a(android.content.Context, com.google.android.gms.internal.am)
+    {
+        com.google.android.gms.internal.ey $r0;
+        android.content.Context $r1;
+        com.google.android.gms.internal.am $r2;
+        java.lang.Object $r3;
+        com.google.android.gms.internal.ey$a $r4;
+        com.google.android.gms.internal.ez $r5;
+        java.lang.Throwable $r6;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: com.google.android.gms.internal.am;
+
+        $r3 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r3;
+
+     label1:
+        $r4 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ey$a b>;
+
+        virtualinvoke $r4.<com.google.android.gms.internal.ey$a: void setBaseContext(android.content.Context)>($r1);
+
+        $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.cg f> = null;
+
+        $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.am g> = $r2;
+
+        $r0.<com.google.android.gms.internal.ey: boolean h> = 0;
+
+        staticinvoke <com.google.android.gms.internal.ep: void b(android.webkit.WebView)>($r0);
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void loadUrl(java.lang.String)>("about:blank");
+
+        $r5 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ez a>;
+
+        virtualinvoke $r5.<com.google.android.gms.internal.ez: void reset()>();
+
+        exitmonitor $r3;
+
+     label2:
+        return;
+
+     label3:
+        $r6 := @caughtexception;
+
+        exitmonitor $r3;
+
+        throw $r6;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void a(com.google.android.gms.internal.am)
+    {
+        com.google.android.gms.internal.ey $r0;
+        com.google.android.gms.internal.am $r1;
+        java.lang.Throwable $r2;
+        java.lang.Object $r3;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 := @parameter0: com.google.android.gms.internal.am;
+
+        $r3 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r3;
+
+     label1:
+        $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.am g> = $r1;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void requestLayout()>();
+
+        exitmonitor $r3;
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor $r3;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void a(com.google.android.gms.internal.cg)
+    {
+        com.google.android.gms.internal.ey $r0;
+        com.google.android.gms.internal.cg $r1;
+        java.lang.Throwable $r2;
+        java.lang.Object $r3;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 := @parameter0: com.google.android.gms.internal.cg;
+
+        $r3 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r3;
+
+     label1:
+        $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.cg f> = $r1;
+
+        exitmonitor $r3;
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor $r3;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void a(java.lang.String, java.util.Map)
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.String $r1;
+        java.util.Map $r2;
+        org.json.JSONObject $r3;
+        org.json.JSONException $r4;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.util.Map;
+
+     label1:
+        $r3 = staticinvoke <com.google.android.gms.internal.ep: org.json.JSONObject o(java.util.Map)>($r2);
+
+     label2:
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void b(java.lang.String,org.json.JSONObject)>($r1, $r3);
+
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>("Could not convert parameters to JSON.");
+
+        return;
+
+        catch org.json.JSONException from label1 to label2 with label3;
+    }
+
+    public void a(java.lang.String, org.json.JSONObject)
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.String $r1, $r4;
+        java.lang.StringBuilder $r2, $r5;
+        org.json.JSONObject $r3;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 := @parameter1: org.json.JSONObject;
+
+        if $r3 != null goto label1;
+
+        $r3 = new org.json.JSONObject;
+
+        specialinvoke $r3.<org.json.JSONObject: void <init>()>();
+
+     label1:
+        $r4 = virtualinvoke $r3.<org.json.JSONObject: java.lang.String toString()>();
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("javascript:");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("(");
+
+        $r1 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(");");
+
+        $r1 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<com.google.android.gms.internal.ey: void E(java.lang.String)>($r1);
+
+        return;
+    }
+
+    public void b(java.lang.String, org.json.JSONObject)
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.String $r1, $r4;
+        java.lang.StringBuilder $r2, $r5;
+        org.json.JSONObject $r3;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 := @parameter1: org.json.JSONObject;
+
+        if $r3 != null goto label1;
+
+        $r3 = new org.json.JSONObject;
+
+        specialinvoke $r3.<org.json.JSONObject: void <init>()>();
+
+     label1:
+        $r4 = virtualinvoke $r3.<org.json.JSONObject: java.lang.String toString()>();
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("javascript:AFMA_ReceiveMessage(\'");
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(");");
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Dispatching AFMA event: ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r1 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.internal.ev: void C(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<com.google.android.gms.internal.ey: void E(java.lang.String)>($r1);
+
+        return;
+    }
+
+    public void bS()
+    {
+        com.google.android.gms.internal.ey $r0;
+        com.google.android.gms.internal.ez $r1;
+        boolean $z0;
+        android.util.DisplayMetrics $r2;
+        android.view.WindowManager $r3;
+        android.view.Display $r4;
+        android.content.Context $r5;
+        int $i0, $i1, $i2;
+        float $f0, $f1;
+        org.json.JSONObject $r6;
+        double $d0;
+        org.json.JSONException $r7;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ez bW()>();
+
+        $z0 = virtualinvoke $r1.<com.google.android.gms.internal.ez: boolean ce()>();
+
+        if $z0 != 0 goto label1;
+
+        return;
+
+     label1:
+        $r2 = new android.util.DisplayMetrics;
+
+        specialinvoke $r2.<android.util.DisplayMetrics: void <init>()>();
+
+        $r3 = $r0.<com.google.android.gms.internal.ey: android.view.WindowManager k>;
+
+        $r4 = interfaceinvoke $r3.<android.view.WindowManager: android.view.Display getDefaultDisplay()>();
+
+        virtualinvoke $r4.<android.view.Display: void getMetrics(android.util.DisplayMetrics)>($r2);
+
+        $r5 = virtualinvoke $r0.<com.google.android.gms.internal.ey: android.content.Context getContext()>();
+
+        $i0 = staticinvoke <com.google.android.gms.internal.ep: int m(android.content.Context)>($r5);
+
+        $i1 = $r2.<android.util.DisplayMetrics: int densityDpi>;
+
+        $f0 = (float) $i1;
+
+        $f0 = 160.0F / $f0;
+
+        $i1 = $r2.<android.util.DisplayMetrics: int widthPixels>;
+
+        $f1 = (float) $i1;
+
+        $f1 = $f1 * $f0;
+
+        $i1 = (int) $f1;
+
+        $i2 = $r2.<android.util.DisplayMetrics: int heightPixels>;
+
+        $i0 = $i2 - $i0;
+
+        $f1 = (float) $i0;
+
+        $f0 = $f1 * $f0;
+
+        $i0 = (int) $f0;
+
+        $r6 = new org.json.JSONObject;
+
+     label2:
+        specialinvoke $r6.<org.json.JSONObject: void <init>()>();
+
+        $r6 = virtualinvoke $r6.<org.json.JSONObject: org.json.JSONObject put(java.lang.String,int)>("width", $i1);
+
+        $r6 = virtualinvoke $r6.<org.json.JSONObject: org.json.JSONObject put(java.lang.String,int)>("height", $i0);
+
+     label3:
+        $f0 = $r2.<android.util.DisplayMetrics: float density>;
+
+        $d0 = (double) $f0;
+
+     label4:
+        $r6 = virtualinvoke $r6.<org.json.JSONObject: org.json.JSONObject put(java.lang.String,double)>("density", $d0);
+
+        $i0 = virtualinvoke $r4.<android.view.Display: int getRotation()>();
+
+        $r6 = virtualinvoke $r6.<org.json.JSONObject: org.json.JSONObject put(java.lang.String,int)>("rotation", $i0);
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void b(java.lang.String,org.json.JSONObject)>("onScreenInfoChanged", $r6);
+
+     label5:
+        return;
+
+     label6:
+        $r7 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void b(java.lang.String,java.lang.Throwable)>("Error occured while obtaining screen information.", $r7);
+
+        return;
+
+        catch org.json.JSONException from label2 to label3 with label6;
+        catch org.json.JSONException from label4 to label5 with label6;
+    }
+
+    public void bT()
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.util.HashMap $r1;
+        com.google.android.gms.internal.ew $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<java.util.HashMap: void <init>(int)>(1);
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ew e>;
+
+        $r3 = $r2.<com.google.android.gms.internal.ew: java.lang.String b>;
+
+        virtualinvoke $r1.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("version", $r3);
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void a(java.lang.String,java.util.Map)>("onhide", $r1);
+
+        return;
+    }
+
+    public void bU()
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.util.HashMap $r1;
+        com.google.android.gms.internal.ew $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<java.util.HashMap: void <init>(int)>(1);
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ew e>;
+
+        $r3 = $r2.<com.google.android.gms.internal.ew: java.lang.String b>;
+
+        virtualinvoke $r1.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("version", $r3);
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void a(java.lang.String,java.util.Map)>("onshow", $r1);
+
+        return;
+    }
+
+    public com.google.android.gms.internal.cg bV()
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.Object $r1;
+        java.lang.Throwable $r2;
+        com.google.android.gms.internal.cg r3;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r1;
+
+     label1:
+        r3 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.cg f>;
+
+        exitmonitor $r1;
+
+     label2:
+        return r3;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public com.google.android.gms.internal.ez bW()
+    {
+        com.google.android.gms.internal.ey $r0;
+        com.google.android.gms.internal.ez r1;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        r1 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ez a>;
+
+        return r1;
+    }
+
+    public com.google.android.gms.internal.l bX()
+    {
+        com.google.android.gms.internal.ey $r0;
+        com.google.android.gms.internal.l r1;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        r1 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.l d>;
+
+        return r1;
+    }
+
+    public com.google.android.gms.internal.ew bY()
+    {
+        com.google.android.gms.internal.ey $r0;
+        com.google.android.gms.internal.ew r1;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        r1 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ew e>;
+
+        return r1;
+    }
+
+    public boolean bZ()
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.Object $r1;
+        java.lang.Throwable $r2;
+        boolean z0;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r1;
+
+     label1:
+        z0 = $r0.<com.google.android.gms.internal.ey: boolean h>;
+
+        exitmonitor $r1;
+
+     label2:
+        return z0;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public android.content.Context ca()
+    {
+        com.google.android.gms.internal.ey $r0;
+        android.content.Context $r1;
+        com.google.android.gms.internal.ey$a $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ey$a b>;
+
+        $r1 = virtualinvoke $r2.<com.google.android.gms.internal.ey$a: android.content.Context ca()>();
+
+        return $r1;
+    }
+
+    public void destroy()
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.Object $r1;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r1;
+
+     label1:
+        specialinvoke $r0.<android.webkit.WebView: void destroy()>();
+
+        $r0.<com.google.android.gms.internal.ey: boolean j> = 1;
+
+        exitmonitor $r1;
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public boolean isDestroyed()
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.Object $r1;
+        java.lang.Throwable $r2;
+        boolean z0;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r1;
+
+     label1:
+        z0 = $r0.<com.google.android.gms.internal.ey: boolean j>;
+
+        exitmonitor $r1;
+
+     label2:
+        return z0;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void onDownloadStart(java.lang.String, java.lang.String, java.lang.String, java.lang.String, long)
+    {
+        com.google.android.gms.internal.ey $r0;
+        java.lang.String $r1, $r2, $r3, $r4;
+        long $l0;
+        android.content.Intent $r5;
+        android.net.Uri $r6;
+        android.content.Context $r7;
+        android.content.ActivityNotFoundException $r8;
+        java.lang.StringBuilder $r9;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r4 := @parameter3: java.lang.String;
+
+        $l0 := @parameter4: long;
+
+        $r5 = new android.content.Intent;
+
+     label1:
+        specialinvoke $r5.<android.content.Intent: void <init>(java.lang.String)>("android.intent.action.VIEW");
+
+        $r6 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>($r1);
+
+        virtualinvoke $r5.<android.content.Intent: android.content.Intent setDataAndType(android.net.Uri,java.lang.String)>($r6, $r4);
+
+        $r7 = virtualinvoke $r0.<com.google.android.gms.internal.ey: android.content.Context getContext()>();
+
+        virtualinvoke $r7.<android.content.Context: void startActivity(android.content.Intent)>($r5);
+
+     label2:
+        return;
+
+     label3:
+        $r8 := @caughtexception;
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>("Couldn\'t find an Activity to view url/mimetype: ");
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" / ");
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r1 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.internal.ev: void z(java.lang.String)>($r1);
+
+        return;
+
+        catch android.content.ActivityNotFoundException from label1 to label2 with label3;
+    }
+
+    protected void onMeasure(int, int)
+    {
+        com.google.android.gms.internal.ey $r0;
+        int $i0, $i1, $i2, $i3, $i4;
+        java.lang.Object $r1;
+        boolean $z0;
+        com.google.android.gms.internal.am $r2;
+        com.google.android.gms.internal.ey$a $r3;
+        android.content.res.Resources $r4;
+        android.util.DisplayMetrics $r5;
+        float $f0, $f1;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r7;
+        java.lang.Throwable $r8;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $i2 = 2147483647;
+
+        $r1 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r1;
+
+     label01:
+        $z0 = virtualinvoke $r0.<com.google.android.gms.internal.ey: boolean isInEditMode()>();
+
+        if $z0 != 0 goto label02;
+
+        $z0 = $r0.<com.google.android.gms.internal.ey: boolean h>;
+
+        if $z0 == 0 goto label04;
+
+     label02:
+        specialinvoke $r0.<android.webkit.WebView: void onMeasure(int,int)>($i0, $i1);
+
+        exitmonitor $r1;
+
+     label03:
+        return;
+
+     label04:
+        $i3 = staticinvoke <android.view.View$MeasureSpec: int getMode(int)>($i0);
+
+        $i0 = staticinvoke <android.view.View$MeasureSpec: int getSize(int)>($i0);
+
+        $i4 = staticinvoke <android.view.View$MeasureSpec: int getMode(int)>($i1);
+
+        $i1 = staticinvoke <android.view.View$MeasureSpec: int getSize(int)>($i1);
+
+        if $i3 == -2147483648 goto label05;
+
+        if $i3 != 1073741824 goto label17;
+
+     label05:
+        $i3 = $i0;
+
+     label06:
+        if $i4 == -2147483648 goto label07;
+
+        if $i4 != 1073741824 goto label08;
+
+     label07:
+        $i2 = $i1;
+
+     label08:
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.am g>;
+
+        $i4 = $r2.<com.google.android.gms.internal.am: int g>;
+
+        if $i4 > $i3 goto label09;
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.am g>;
+
+        $i3 = $r2.<com.google.android.gms.internal.am: int d>;
+
+        if $i3 <= $i2 goto label14;
+
+     label09:
+        $r3 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ey$a b>;
+
+        $r4 = virtualinvoke $r3.<com.google.android.gms.internal.ey$a: android.content.res.Resources getResources()>();
+
+        $r5 = virtualinvoke $r4.<android.content.res.Resources: android.util.DisplayMetrics getDisplayMetrics()>();
+
+        $f0 = $r5.<android.util.DisplayMetrics: float density>;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("Not enough space to show ad. Needs ");
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.am g>;
+
+        $i2 = $r2.<com.google.android.gms.internal.am: int g>;
+
+        $f1 = (float) $i2;
+
+        $f1 = $f1 / $f0;
+
+        $i2 = (int) $f1;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i2);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("x");
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.am g>;
+
+        $i2 = $r2.<com.google.android.gms.internal.am: int d>;
+
+        $f1 = (float) $i2;
+
+        $f1 = $f1 / $f0;
+
+        $i2 = (int) $f1;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i2);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" dp, but only has ");
+
+        $f1 = (float) $i0;
+
+        $f1 = $f1 / $f0;
+
+        $i0 = (int) $f1;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("x");
+
+        $f1 = (float) $i1;
+
+        $f0 = $f1 / $f0;
+
+        $i0 = (int) $f0;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" dp.");
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>($r7);
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.internal.ey: int getVisibility()>();
+
+        if $i0 == 8 goto label10;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void setVisibility(int)>(4);
+
+     label10:
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void setMeasuredDimension(int,int)>(0, 0);
+
+     label11:
+        exitmonitor $r1;
+
+     label12:
+        return;
+
+     label13:
+        $r8 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r8;
+
+     label14:
+        $i0 = virtualinvoke $r0.<com.google.android.gms.internal.ey: int getVisibility()>();
+
+        if $i0 == 8 goto label15;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void setVisibility(int)>(0);
+
+     label15:
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.am g>;
+
+        $i0 = $r2.<com.google.android.gms.internal.am: int g>;
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.am g>;
+
+        $i1 = $r2.<com.google.android.gms.internal.am: int d>;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ey: void setMeasuredDimension(int,int)>($i0, $i1);
+
+     label16:
+        goto label11;
+
+     label17:
+        $i3 = 2147483647;
+
+        goto label06;
+
+        catch java.lang.Throwable from label01 to label03 with label13;
+        catch java.lang.Throwable from label04 to label12 with label13;
+        catch java.lang.Throwable from label14 to label16 with label13;
+    }
+
+    public boolean onTouchEvent(android.view.MotionEvent)
+    {
+        com.google.android.gms.internal.ey $r0;
+        android.view.MotionEvent $r1;
+        boolean $z0;
+        com.google.android.gms.internal.l $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 := @parameter0: android.view.MotionEvent;
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.l d>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.l d>;
+
+        virtualinvoke $r2.<com.google.android.gms.internal.l: void a(android.view.MotionEvent)>($r1);
+
+     label1:
+        $z0 = specialinvoke $r0.<android.webkit.WebView: boolean onTouchEvent(android.view.MotionEvent)>($r1);
+
+        return $z0;
+    }
+
+    public void q(boolean)
+    {
+        com.google.android.gms.internal.ey $r0;
+        boolean $z0;
+        java.lang.Throwable $r1;
+        java.lang.Object $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $z0 := @parameter0: boolean;
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: java.lang.Object c>;
+
+        entermonitor $r2;
+
+     label1:
+        $r0.<com.google.android.gms.internal.ey: boolean h> = $z0;
+
+        specialinvoke $r0.<com.google.android.gms.internal.ey: void cb()>();
+
+        exitmonitor $r2;
+
+     label2:
+        return;
+
+     label3:
+        $r1 := @caughtexception;
+
+        exitmonitor $r2;
+
+        throw $r1;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void setContext(android.content.Context)
+    {
+        com.google.android.gms.internal.ey $r0;
+        android.content.Context $r1;
+        com.google.android.gms.internal.ey$a $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ey;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 = $r0.<com.google.android.gms.internal.ey: com.google.android.gms.internal.ey$a b>;
+
+        virtualinvoke $r2.<com.google.android.gms.internal.ey$a: void setBaseContext(android.content.Context)>($r1);
+
+        return;
+    }
+}

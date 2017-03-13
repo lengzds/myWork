@@ -1,0 +1,79 @@
+public final class com.dropbox.client2.a.h extends java.lang.Object
+{
+    public java.lang.String a;
+    public java.lang.String b;
+    public java.util.Map c;
+
+    public void <init>(java.util.Map)
+    {
+        com.dropbox.client2.a.h $r0;
+        java.util.Map $r1, $r4;
+        boolean $z0;
+        java.lang.Object $r2;
+        java.lang.String $r3;
+        java.util.Collection $r5;
+        java.util.Iterator $r6;
+
+        $r0 := @this: com.dropbox.client2.a.h;
+
+        $r1 := @parameter0: java.util.Map;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.dropbox.client2.a.h: java.util.Map c> = $r1;
+
+        $r2 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("error");
+
+        $z0 = $r2 instanceof java.lang.String;
+
+        if $z0 == 0 goto label2;
+
+        $r3 = (java.lang.String) $r2;
+
+        $r0.<com.dropbox.client2.a.h: java.lang.String a> = $r3;
+
+     label1:
+        $r2 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("user_error");
+
+        $z0 = $r2 instanceof java.lang.String;
+
+        if $z0 == 0 goto label4;
+
+        $r3 = (java.lang.String) $r2;
+
+        $r0.<com.dropbox.client2.a.h: java.lang.String b> = $r3;
+
+        return;
+
+     label2:
+        $z0 = $r2 instanceof java.util.Map;
+
+        if $z0 == 0 goto label1;
+
+        $r4 = (java.util.Map) $r2;
+
+        $r5 = interfaceinvoke $r4.<java.util.Map: java.util.Collection values()>();
+
+        $r6 = interfaceinvoke $r5.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label3:
+        $z0 = interfaceinvoke $r6.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label1;
+
+        $r2 = interfaceinvoke $r6.<java.util.Iterator: java.lang.Object next()>();
+
+        $z0 = $r2 instanceof java.lang.String;
+
+        if $z0 == 0 goto label3;
+
+        $r3 = (java.lang.String) $r2;
+
+        $r0.<com.dropbox.client2.a.h: java.lang.String a> = $r3;
+
+        goto label3;
+
+     label4:
+        return;
+    }
+}

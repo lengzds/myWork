@@ -1,0 +1,165 @@
+public final class a.a.a.p extends a.a.b.d
+{
+    public int a;
+    public a.a.a.n[] b;
+
+    public void <init>()
+    {
+        a.a.a.p $r0;
+
+        $r0 := @this: a.a.a.p;
+
+        specialinvoke $r0.<a.a.b.d: void <init>()>();
+
+        return;
+    }
+
+    public final void e(a.a.b.a)
+    {
+        a.a.a.p $r0;
+        a.a.b.a $r1;
+        int $i0, $i1, $i2;
+        a.a.a.n[] $r2;
+        a.a.a.n $r3;
+
+        $r0 := @this: a.a.a.p;
+
+        $r1 := @parameter0: a.a.b.a;
+
+        virtualinvoke $r1.<a.a.b.a: int d(int)>(4);
+
+        $i0 = $r0.<a.a.a.p: int a>;
+
+        virtualinvoke $r1.<a.a.b.a: void g(int)>($i0);
+
+        $r2 = $r0.<a.a.a.p: a.a.a.n[] b>;
+
+        virtualinvoke $r1.<a.a.b.a: void a(java.lang.Object)>($r2);
+
+        $r2 = $r0.<a.a.a.p: a.a.a.n[] b>;
+
+        if $r2 == null goto label2;
+
+        $r1 = $r1.<a.a.b.a: a.a.b.a e>;
+
+        $i0 = $r0.<a.a.a.p: int a>;
+
+        virtualinvoke $r1.<a.a.b.a: void g(int)>($i0);
+
+        $i1 = $r1.<a.a.b.a: int c>;
+
+        $i2 = $i0 * 12;
+
+        virtualinvoke $r1.<a.a.b.a: void c(int)>($i2);
+
+        $r1 = virtualinvoke $r1.<a.a.b.a: a.a.b.a a(int)>($i1);
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label2;
+
+        $r2 = $r0.<a.a.a.p: a.a.a.n[] b>;
+
+        $r3 = $r2[$i1];
+
+        virtualinvoke $r3.<a.a.a.n: void e(a.a.b.a)>($r1);
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public final void f(a.a.b.a)
+    {
+        a.a.a.p $r0;
+        a.a.b.a $r1;
+        a.a.a.n $r2;
+        int $i0, $i1, $i2;
+        a.a.a.n[] $r3;
+        a.a.b.b $r4;
+
+        $r0 := @this: a.a.a.p;
+
+        $r1 := @parameter0: a.a.b.a;
+
+        virtualinvoke $r1.<a.a.b.a: int d(int)>(4);
+
+        $i0 = virtualinvoke $r1.<a.a.b.a: int d()>();
+
+        $r0.<a.a.a.p: int a> = $i0;
+
+        $i0 = virtualinvoke $r1.<a.a.b.a: int d()>();
+
+        if $i0 == 0 goto label6;
+
+        $r1 = $r1.<a.a.b.a: a.a.b.a e>;
+
+        $i0 = virtualinvoke $r1.<a.a.b.a: int d()>();
+
+        $i1 = $r1.<a.a.b.a: int c>;
+
+        $i2 = $i0 * 12;
+
+        virtualinvoke $r1.<a.a.b.a: void c(int)>($i2);
+
+        $r3 = $r0.<a.a.a.p: a.a.a.n[] b>;
+
+        if $r3 != null goto label3;
+
+        if $i0 < 0 goto label1;
+
+        if $i0 <= 65535 goto label2;
+
+     label1:
+        $r4 = new a.a.b.b;
+
+        specialinvoke $r4.<a.a.b.b: void <init>(java.lang.String)>("invalid array conformance");
+
+        throw $r4;
+
+     label2:
+        $r3 = newarray (a.a.a.n)[$i0];
+
+        $r0.<a.a.a.p: a.a.a.n[] b> = $r3;
+
+     label3:
+        $r1 = virtualinvoke $r1.<a.a.b.a: a.a.b.a a(int)>($i1);
+
+        $i1 = 0;
+
+     label4:
+        if $i1 >= $i0 goto label6;
+
+        $r3 = $r0.<a.a.a.p: a.a.a.n[] b>;
+
+        $r2 = $r3[$i1];
+
+        if $r2 != null goto label5;
+
+        $r3 = $r0.<a.a.a.p: a.a.a.n[] b>;
+
+        $r2 = new a.a.a.n;
+
+        specialinvoke $r2.<a.a.a.n: void <init>()>();
+
+        $r3[$i1] = $r2;
+
+     label5:
+        $r3 = $r0.<a.a.a.p: a.a.a.n[] b>;
+
+        $r2 = $r3[$i1];
+
+        virtualinvoke $r2.<a.a.a.n: void f(a.a.b.a)>($r1);
+
+        $i1 = $i1 + 1;
+
+        goto label4;
+
+     label6:
+        return;
+    }
+}

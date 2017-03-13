@@ -1,0 +1,595 @@
+public abstract class com.dropbox.client2.c.a extends java.lang.Object implements com.dropbox.client2.c.m
+{
+    private final com.dropbox.client2.c.n a;
+    private final com.dropbox.client2.c.l b;
+    private com.dropbox.client2.c.k c;
+    private java.lang.String d;
+    private org.apache.http.client.HttpClient e;
+
+    public void <init>(com.dropbox.client2.c.l, com.dropbox.client2.c.n)
+    {
+        com.dropbox.client2.c.a $r0;
+        com.dropbox.client2.c.l $r1;
+        com.dropbox.client2.c.n $r2;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        $r1 := @parameter0: com.dropbox.client2.c.l;
+
+        $r2 := @parameter1: com.dropbox.client2.c.n;
+
+        specialinvoke $r0.<com.dropbox.client2.c.a: void <init>(com.dropbox.client2.c.l,com.dropbox.client2.c.n,com.dropbox.client2.c.k)>($r1, $r2, null);
+
+        return;
+    }
+
+    public void <init>(com.dropbox.client2.c.l, com.dropbox.client2.c.n, com.dropbox.client2.c.k)
+    {
+        com.dropbox.client2.c.a $r0;
+        com.dropbox.client2.c.l $r1;
+        com.dropbox.client2.c.n $r2;
+        com.dropbox.client2.c.k $r3;
+        java.lang.IllegalArgumentException $r4;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        $r1 := @parameter0: com.dropbox.client2.c.l;
+
+        $r2 := @parameter1: com.dropbox.client2.c.n;
+
+        $r3 := @parameter2: com.dropbox.client2.c.k;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.dropbox.client2.c.a: com.dropbox.client2.c.k c> = null;
+
+        $r0.<com.dropbox.client2.c.a: java.lang.String d> = null;
+
+        $r0.<com.dropbox.client2.c.a: org.apache.http.client.HttpClient e> = null;
+
+        if $r1 != null goto label1;
+
+        $r4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("\'appKeyPair\' must be non-null");
+
+        throw $r4;
+
+     label1:
+        if $r2 != null goto label2;
+
+        $r4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("\'type\' must be non-null");
+
+        throw $r4;
+
+     label2:
+        $r0.<com.dropbox.client2.c.a: com.dropbox.client2.c.l b> = $r1;
+
+        $r0.<com.dropbox.client2.c.a: com.dropbox.client2.c.n a> = $r2;
+
+        $r0.<com.dropbox.client2.c.a: com.dropbox.client2.c.k c> = $r3;
+
+        return;
+    }
+
+    private static java.lang.String b(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.lang.AssertionError $r1;
+        java.io.UnsupportedEncodingException $r2;
+
+        $r0 := @parameter0: java.lang.String;
+
+     label1:
+        $r0 = staticinvoke <java.net.URLEncoder: java.lang.String encode(java.lang.String,java.lang.String)>($r0, "UTF-8");
+
+     label2:
+        return $r0;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r1 = new java.lang.AssertionError;
+
+        specialinvoke $r1.<java.lang.AssertionError: void <init>(java.lang.Object)>("UTF-8 isn\'t available");
+
+        virtualinvoke $r1.<java.lang.AssertionError: java.lang.Throwable initCause(java.lang.Throwable)>($r2);
+
+        throw $r1;
+
+        catch java.io.UnsupportedEncodingException from label1 to label2 with label3;
+    }
+
+    public final com.dropbox.client2.c.l a()
+    {
+        com.dropbox.client2.c.a $r0;
+        com.dropbox.client2.c.l r1;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        r1 = $r0.<com.dropbox.client2.c.a: com.dropbox.client2.c.l b>;
+
+        return r1;
+    }
+
+    public final void a(com.dropbox.client2.c.k)
+    {
+        com.dropbox.client2.c.a $r0;
+        com.dropbox.client2.c.k $r1;
+        java.lang.IllegalArgumentException $r2;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        $r1 := @parameter0: com.dropbox.client2.c.k;
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("\'oauth1AccessToken\' must be non-null");
+
+        throw $r2;
+
+     label1:
+        $r0.<com.dropbox.client2.c.a: com.dropbox.client2.c.k c> = $r1;
+
+        $r0.<com.dropbox.client2.c.a: java.lang.String d> = null;
+
+        return;
+    }
+
+    public final void a(java.lang.String)
+    {
+        com.dropbox.client2.c.a $r0;
+        java.lang.String $r1;
+        java.lang.IllegalArgumentException $r2;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("\'oauth2AccessToken\' must be non-null");
+
+        throw $r2;
+
+     label1:
+        $r0.<com.dropbox.client2.c.a: java.lang.String d> = $r1;
+
+        $r0.<com.dropbox.client2.c.a: com.dropbox.client2.c.k c> = null;
+
+        return;
+    }
+
+    public final void a(org.apache.http.HttpRequest)
+    {
+        com.dropbox.client2.c.a $r0;
+        org.apache.http.HttpRequest $r1;
+        java.lang.StringBuilder $r2, $r6;
+        java.lang.String $r3;
+        com.dropbox.client2.c.l $r4;
+        com.dropbox.client2.c.k $r5;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        $r1 := @parameter0: org.apache.http.HttpRequest;
+
+        $r3 = $r0.<com.dropbox.client2.c.a: java.lang.String d>;
+
+        if $r3 == null goto label2;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("Bearer ");
+
+        $r3 = $r0.<com.dropbox.client2.c.a: java.lang.String d>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label1:
+        interfaceinvoke $r1.<org.apache.http.HttpRequest: void addHeader(java.lang.String,java.lang.String)>("Authorization", $r3);
+
+        return;
+
+     label2:
+        $r4 = $r0.<com.dropbox.client2.c.a: com.dropbox.client2.c.l b>;
+
+        $r5 = $r0.<com.dropbox.client2.c.a: com.dropbox.client2.c.k c>;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("OAuth oauth_version=\"1.0\"");
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", oauth_signature_method=\"PLAINTEXT\"");
+
+        $r6 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", oauth_consumer_key=\"");
+
+        $r3 = $r4.<com.dropbox.client2.c.l: java.lang.String a>;
+
+        $r3 = staticinvoke <com.dropbox.client2.c.a: java.lang.String b(java.lang.String)>($r3);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        if $r5 == null goto label4;
+
+        $r6 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", oauth_token=\"");
+
+        $r3 = $r5.<com.dropbox.client2.c.k: java.lang.String a>;
+
+        $r3 = staticinvoke <com.dropbox.client2.c.a: java.lang.String b(java.lang.String)>($r3);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = $r4.<com.dropbox.client2.c.l: java.lang.String b>;
+
+        $r3 = staticinvoke <com.dropbox.client2.c.a: java.lang.String b(java.lang.String)>($r3);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&");
+
+        $r3 = $r5.<com.dropbox.client2.c.k: java.lang.String b>;
+
+        $r3 = staticinvoke <com.dropbox.client2.c.a: java.lang.String b(java.lang.String)>($r3);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label3:
+        $r6 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", oauth_signature=\"");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label1;
+
+     label4:
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = $r4.<com.dropbox.client2.c.l: java.lang.String b>;
+
+        $r3 = staticinvoke <com.dropbox.client2.c.a: java.lang.String b(java.lang.String)>($r3);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&");
+
+        $r3 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label3;
+    }
+
+    public final void a(org.apache.http.client.methods.HttpUriRequest)
+    {
+        com.dropbox.client2.c.a $r0;
+        org.apache.http.client.methods.HttpUriRequest $r1;
+        org.apache.http.params.HttpParams $r2;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        $r1 := @parameter0: org.apache.http.client.methods.HttpUriRequest;
+
+        $r2 = interfaceinvoke $r1.<org.apache.http.client.methods.HttpUriRequest: org.apache.http.params.HttpParams getParams()>();
+
+        staticinvoke <org.apache.http.params.HttpConnectionParams: void setSoTimeout(org.apache.http.params.HttpParams,int)>($r2, 30000);
+
+        staticinvoke <org.apache.http.params.HttpConnectionParams: void setConnectionTimeout(org.apache.http.params.HttpParams,int)>($r2, 30000);
+
+        return;
+    }
+
+    public final com.dropbox.client2.c.k b()
+    {
+        com.dropbox.client2.c.a $r0;
+        com.dropbox.client2.c.k r1;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        r1 = $r0.<com.dropbox.client2.c.a: com.dropbox.client2.c.k c>;
+
+        return r1;
+    }
+
+    public final com.dropbox.client2.c.n c()
+    {
+        com.dropbox.client2.c.a $r0;
+        com.dropbox.client2.c.n r1;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        r1 = $r0.<com.dropbox.client2.c.a: com.dropbox.client2.c.n a>;
+
+        return r1;
+    }
+
+    public final java.util.Locale d()
+    {
+        com.dropbox.client2.c.a $r0;
+        java.util.Locale r1;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        r1 = <java.util.Locale: java.util.Locale ENGLISH>;
+
+        return r1;
+    }
+
+    public final boolean e()
+    {
+        com.dropbox.client2.c.a $r0;
+        com.dropbox.client2.c.k $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        $r1 = $r0.<com.dropbox.client2.c.a: com.dropbox.client2.c.k c>;
+
+        if $r1 != null goto label1;
+
+        $r2 = $r0.<com.dropbox.client2.c.a: java.lang.String d>;
+
+        if $r2 == null goto label2;
+
+     label1:
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public final com.dropbox.client2.c.o f()
+    {
+        com.dropbox.client2.c.a $r0;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        entermonitor $r0;
+
+        exitmonitor $r0;
+
+        return null;
+    }
+
+    public final org.apache.http.client.HttpClient g()
+    {
+        com.dropbox.client2.c.a $r0;
+        org.apache.http.client.HttpClient $r1;
+        org.apache.http.params.BasicHttpParams $r2;
+        com.dropbox.client2.c.b $r3;
+        com.dropbox.client2.r $r4;
+        org.apache.http.conn.scheme.SchemeRegistry $r5;
+        org.apache.http.conn.scheme.Scheme $r6;
+        org.apache.http.conn.scheme.PlainSocketFactory $r7;
+        com.dropbox.client2.c.f $r8;
+        java.lang.StringBuilder $r9;
+        java.lang.String $r10;
+        com.dropbox.client2.c.c $r11;
+        com.dropbox.client2.c.d $r12;
+        com.dropbox.client2.c.e $r13;
+        java.security.KeyManagementException $r14;
+        java.lang.RuntimeException $r15;
+        java.lang.Throwable $r16;
+        java.security.UnrecoverableKeyException $r17;
+        java.security.NoSuchAlgorithmException $r18;
+        java.security.KeyStoreException $r19;
+        java.security.cert.CertificateException $r20;
+        java.io.IOException $r21;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        entermonitor $r0;
+
+     label01:
+        $r1 = $r0.<com.dropbox.client2.c.a: org.apache.http.client.HttpClient e>;
+
+        if $r1 != null goto label05;
+
+        $r2 = new org.apache.http.params.BasicHttpParams;
+
+        specialinvoke $r2.<org.apache.http.params.BasicHttpParams: void <init>()>();
+
+        $r3 = new com.dropbox.client2.c.b;
+
+        specialinvoke $r3.<com.dropbox.client2.c.b: void <init>(com.dropbox.client2.c.a)>($r0);
+
+        staticinvoke <org.apache.http.conn.params.ConnManagerParams: void setMaxConnectionsPerRoute(org.apache.http.params.HttpParams,org.apache.http.conn.params.ConnPerRoute)>($r2, $r3);
+
+        staticinvoke <org.apache.http.conn.params.ConnManagerParams: void setMaxTotalConnections(org.apache.http.params.HttpParams,int)>($r2, 20);
+
+     label02:
+        $r4 = new com.dropbox.client2.r;
+
+     label03:
+        specialinvoke $r4.<com.dropbox.client2.r: void <init>()>();
+
+     label04:
+        $r5 = new org.apache.http.conn.scheme.SchemeRegistry;
+
+        specialinvoke $r5.<org.apache.http.conn.scheme.SchemeRegistry: void <init>()>();
+
+        $r6 = new org.apache.http.conn.scheme.Scheme;
+
+        $r7 = staticinvoke <org.apache.http.conn.scheme.PlainSocketFactory: org.apache.http.conn.scheme.PlainSocketFactory getSocketFactory()>();
+
+        specialinvoke $r6.<org.apache.http.conn.scheme.Scheme: void <init>(java.lang.String,org.apache.http.conn.scheme.SocketFactory,int)>("http", $r7, 80);
+
+        virtualinvoke $r5.<org.apache.http.conn.scheme.SchemeRegistry: org.apache.http.conn.scheme.Scheme register(org.apache.http.conn.scheme.Scheme)>($r6);
+
+        $r6 = new org.apache.http.conn.scheme.Scheme;
+
+        specialinvoke $r6.<org.apache.http.conn.scheme.Scheme: void <init>(java.lang.String,org.apache.http.conn.scheme.SocketFactory,int)>("https", $r4, 443);
+
+        virtualinvoke $r5.<org.apache.http.conn.scheme.SchemeRegistry: org.apache.http.conn.scheme.Scheme register(org.apache.http.conn.scheme.Scheme)>($r6);
+
+        $r8 = new com.dropbox.client2.c.f;
+
+        specialinvoke $r8.<com.dropbox.client2.c.f: void <init>(org.apache.http.params.HttpParams,org.apache.http.conn.scheme.SchemeRegistry)>($r2, $r5);
+
+        $r2 = new org.apache.http.params.BasicHttpParams;
+
+        specialinvoke $r2.<org.apache.http.params.BasicHttpParams: void <init>()>();
+
+        staticinvoke <org.apache.http.params.HttpConnectionParams: void setConnectionTimeout(org.apache.http.params.HttpParams,int)>($r2, 30000);
+
+        staticinvoke <org.apache.http.params.HttpConnectionParams: void setSoTimeout(org.apache.http.params.HttpParams,int)>($r2, 30000);
+
+        staticinvoke <org.apache.http.params.HttpConnectionParams: void setSocketBufferSize(org.apache.http.params.HttpParams,int)>($r2, 8192);
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>("OfficialDropboxJavaSDK/");
+
+        $r10 = <com.dropbox.client2.a: java.lang.String a>;
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r10);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.apache.http.params.HttpProtocolParams: void setUserAgent(org.apache.http.params.HttpParams,java.lang.String)>($r2, $r10);
+
+        $r11 = new com.dropbox.client2.c.c;
+
+        specialinvoke $r11.<com.dropbox.client2.c.c: void <init>(com.dropbox.client2.c.a,org.apache.http.conn.ClientConnectionManager,org.apache.http.params.HttpParams)>($r0, $r8, $r2);
+
+        $r12 = new com.dropbox.client2.c.d;
+
+        specialinvoke $r12.<com.dropbox.client2.c.d: void <init>(com.dropbox.client2.c.a)>($r0);
+
+        virtualinvoke $r11.<org.apache.http.impl.client.DefaultHttpClient: void addRequestInterceptor(org.apache.http.HttpRequestInterceptor)>($r12);
+
+        $r13 = new com.dropbox.client2.c.e;
+
+        specialinvoke $r13.<com.dropbox.client2.c.e: void <init>(com.dropbox.client2.c.a)>($r0);
+
+        virtualinvoke $r11.<org.apache.http.impl.client.DefaultHttpClient: void addResponseInterceptor(org.apache.http.HttpResponseInterceptor)>($r13);
+
+        $r0.<com.dropbox.client2.c.a: org.apache.http.client.HttpClient e> = $r11;
+
+     label05:
+        $r1 = $r0.<com.dropbox.client2.c.a: org.apache.http.client.HttpClient e>;
+
+     label06:
+        exitmonitor $r0;
+
+        return $r1;
+
+     label07:
+        $r14 := @caughtexception;
+
+     label08:
+        $r15 = new java.lang.RuntimeException;
+
+        specialinvoke $r15.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($r14);
+
+        throw $r15;
+
+     label09:
+        $r16 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r16;
+
+     label10:
+        $r17 := @caughtexception;
+
+     label11:
+        $r15 = new java.lang.RuntimeException;
+
+        specialinvoke $r15.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($r17);
+
+        throw $r15;
+
+     label12:
+        $r18 := @caughtexception;
+
+        $r15 = new java.lang.RuntimeException;
+
+        specialinvoke $r15.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($r18);
+
+        throw $r15;
+
+     label13:
+        $r19 := @caughtexception;
+
+        $r15 = new java.lang.RuntimeException;
+
+        specialinvoke $r15.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($r19);
+
+        throw $r15;
+
+     label14:
+        $r20 := @caughtexception;
+
+        $r15 = new java.lang.RuntimeException;
+
+        specialinvoke $r15.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($r20);
+
+        throw $r15;
+
+     label15:
+        $r21 := @caughtexception;
+
+        $r15 = new java.lang.RuntimeException;
+
+        specialinvoke $r15.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($r21);
+
+        throw $r15;
+
+     label16:
+        nop;
+
+        catch java.lang.Throwable from label01 to label02 with label09;
+        catch java.security.KeyManagementException from label03 to label04 with label07;
+        catch java.security.UnrecoverableKeyException from label03 to label04 with label10;
+        catch java.security.NoSuchAlgorithmException from label03 to label04 with label12;
+        catch java.security.KeyStoreException from label03 to label04 with label13;
+        catch java.security.cert.CertificateException from label03 to label04 with label14;
+        catch java.io.IOException from label03 to label04 with label15;
+        catch java.lang.Throwable from label02 to label04 with label09;
+        catch java.lang.Throwable from label04 to label06 with label09;
+        catch java.lang.Throwable from label08 to label09 with label09;
+        catch java.lang.Throwable from label11 to label16 with label09;
+    }
+
+    public final java.lang.String h()
+    {
+        com.dropbox.client2.c.a $r0;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        return "api.dropbox.com";
+    }
+
+    public final java.lang.String i()
+    {
+        com.dropbox.client2.c.a $r0;
+
+        $r0 := @this: com.dropbox.client2.c.a;
+
+        return "api-content.dropbox.com";
+    }
+}

@@ -1,0 +1,128 @@
+public abstract class com.google.android.gms.internal.mb extends com.google.android.gms.internal.mf
+{
+    protected java.util.List m;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.mb $r0;
+
+        $r0 := @this: com.google.android.gms.internal.mb;
+
+        specialinvoke $r0.<com.google.android.gms.internal.mf: void <init>()>();
+
+        return;
+    }
+
+    protected int a()
+    {
+        com.google.android.gms.internal.mb $r0;
+        java.util.List $r1;
+        int $i0, $i1, $i2, $i3;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.mh $r3;
+        byte[] $r4;
+
+        $r0 := @this: com.google.android.gms.internal.mb;
+
+        $r1 = $r0.<com.google.android.gms.internal.mb: java.util.List m>;
+
+        if $r1 != null goto label3;
+
+        $i0 = 0;
+
+     label1:
+        $i1 = 0;
+
+        $i2 = 0;
+
+     label2:
+        if $i1 >= $i0 goto label4;
+
+        $r1 = $r0.<com.google.android.gms.internal.mb: java.util.List m>;
+
+        $r2 = interfaceinvoke $r1.<java.util.List: java.lang.Object get(int)>($i1);
+
+        $r3 = (com.google.android.gms.internal.mh) $r2;
+
+        $i3 = $r3.<com.google.android.gms.internal.mh: int a>;
+
+        $i3 = staticinvoke <com.google.android.gms.internal.ma: int eJ(int)>($i3);
+
+        $i2 = $i2 + $i3;
+
+        $r4 = $r3.<com.google.android.gms.internal.mh: byte[] b>;
+
+        $i3 = lengthof $r4;
+
+        $i2 = $i2 + $i3;
+
+        $i1 = $i1 + 1;
+
+        goto label2;
+
+     label3:
+        $r1 = $r0.<com.google.android.gms.internal.mb: java.util.List m>;
+
+        $i0 = interfaceinvoke $r1.<java.util.List: int size()>();
+
+        goto label1;
+
+     label4:
+        return $i2;
+    }
+
+    public void a(com.google.android.gms.internal.ma)
+    {
+        com.google.android.gms.internal.mb $r0;
+        com.google.android.gms.internal.ma $r1;
+        int $i0, $i1, $i2;
+        java.util.List $r2;
+        java.lang.Object $r3;
+        com.google.android.gms.internal.mh $r4;
+        byte[] $r5;
+
+        $r0 := @this: com.google.android.gms.internal.mb;
+
+        $r1 := @parameter0: com.google.android.gms.internal.ma;
+
+        $r2 = $r0.<com.google.android.gms.internal.mb: java.util.List m>;
+
+        if $r2 != null goto label3;
+
+        $i1 = 0;
+
+     label1:
+        $i2 = 0;
+
+     label2:
+        if $i2 >= $i1 goto label4;
+
+        $r2 = $r0.<com.google.android.gms.internal.mb: java.util.List m>;
+
+        $r3 = interfaceinvoke $r2.<java.util.List: java.lang.Object get(int)>($i2);
+
+        $r4 = (com.google.android.gms.internal.mh) $r3;
+
+        $i0 = $r4.<com.google.android.gms.internal.mh: int a>;
+
+        virtualinvoke $r1.<com.google.android.gms.internal.ma: void eI(int)>($i0);
+
+        $r5 = $r4.<com.google.android.gms.internal.mh: byte[] b>;
+
+        virtualinvoke $r1.<com.google.android.gms.internal.ma: void t(byte[])>($r5);
+
+        $i2 = $i2 + 1;
+
+        goto label2;
+
+     label3:
+        $r2 = $r0.<com.google.android.gms.internal.mb: java.util.List m>;
+
+        $i1 = interfaceinvoke $r2.<java.util.List: int size()>();
+
+        goto label1;
+
+     label4:
+        return;
+    }
+}

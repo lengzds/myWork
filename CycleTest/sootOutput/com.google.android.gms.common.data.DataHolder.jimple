@@ -1,0 +1,869 @@
+public final class com.google.android.gms.common.data.DataHolder extends java.lang.Object implements com.google.android.gms.common.internal.safeparcel.SafeParcelable
+{
+    public static final com.google.android.gms.common.data.f CREATOR;
+    private static final com.google.android.gms.common.data.DataHolder$a l;
+    android.os.Bundle a;
+    int[] b;
+    int c;
+    boolean d;
+    private final int e;
+    private final java.lang.String[] f;
+    private final android.database.CursorWindow[] g;
+    private final int h;
+    private final android.os.Bundle i;
+    private java.lang.Object j;
+    private boolean k;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.common.data.f $r0;
+        com.google.android.gms.common.data.DataHolder$1 $r1;
+        java.lang.String[] $r2;
+
+        $r0 = new com.google.android.gms.common.data.f;
+
+        specialinvoke $r0.<com.google.android.gms.common.data.f: void <init>()>();
+
+        <com.google.android.gms.common.data.DataHolder: com.google.android.gms.common.data.f CREATOR> = $r0;
+
+        $r1 = new com.google.android.gms.common.data.DataHolder$1;
+
+        $r2 = newarray (java.lang.String)[0];
+
+        specialinvoke $r1.<com.google.android.gms.common.data.DataHolder$1: void <init>(java.lang.String[])>($r2);
+
+        <com.google.android.gms.common.data.DataHolder: com.google.android.gms.common.data.DataHolder$a l> = $r1;
+
+        return;
+    }
+
+    void <init>(int, java.lang.String[], android.database.CursorWindow[], int, android.os.Bundle)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        int $i0, $i1;
+        java.lang.String[] $r1;
+        android.database.CursorWindow[] $r2;
+        android.os.Bundle $r3;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: java.lang.String[];
+
+        $r2 := @parameter2: android.database.CursorWindow[];
+
+        $i1 := @parameter3: int;
+
+        $r3 := @parameter4: android.os.Bundle;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.common.data.DataHolder: boolean d> = 0;
+
+        $r0.<com.google.android.gms.common.data.DataHolder: boolean k> = 1;
+
+        $r0.<com.google.android.gms.common.data.DataHolder: int e> = $i0;
+
+        $r0.<com.google.android.gms.common.data.DataHolder: java.lang.String[] f> = $r1;
+
+        $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g> = $r2;
+
+        $r0.<com.google.android.gms.common.data.DataHolder: int h> = $i1;
+
+        $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle i> = $r3;
+
+        return;
+    }
+
+    private void e(java.lang.String, int)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+        android.os.Bundle $r2;
+        boolean $z0;
+        java.lang.IllegalArgumentException $r3;
+        java.lang.StringBuilder $r4;
+        android.database.CursorIndexOutOfBoundsException $r5;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle a>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle a>;
+
+        $z0 = virtualinvoke $r2.<android.os.Bundle: boolean containsKey(java.lang.String)>($r1);
+
+        if $z0 != 0 goto label2;
+
+     label1:
+        $r3 = new java.lang.IllegalArgumentException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("No such column: ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r1);
+
+        throw $r3;
+
+     label2:
+        $z0 = virtualinvoke $r0.<com.google.android.gms.common.data.DataHolder: boolean isClosed()>();
+
+        if $z0 == 0 goto label3;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Buffer is closed.");
+
+        throw $r3;
+
+     label3:
+        if $i0 < 0 goto label4;
+
+        $i1 = $r0.<com.google.android.gms.common.data.DataHolder: int c>;
+
+        if $i0 < $i1 goto label5;
+
+     label4:
+        $r5 = new android.database.CursorIndexOutOfBoundsException;
+
+        $i1 = $r0.<com.google.android.gms.common.data.DataHolder: int c>;
+
+        specialinvoke $r5.<android.database.CursorIndexOutOfBoundsException: void <init>(int,int)>($i0, $i1);
+
+        throw $r5;
+
+     label5:
+        return;
+    }
+
+    final int a()
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        i0 = $r0.<com.google.android.gms.common.data.DataHolder: int e>;
+
+        return i0;
+    }
+
+    public final long a(java.lang.String, int, int)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+        android.database.CursorWindow[] $r2;
+        android.database.CursorWindow $r3;
+        android.os.Bundle $r4;
+        long $l2;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        specialinvoke $r0.<com.google.android.gms.common.data.DataHolder: void e(java.lang.String,int)>($r1, $i0);
+
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $r3 = $r2[$i1];
+
+        $r4 = $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle a>;
+
+        $i1 = virtualinvoke $r4.<android.os.Bundle: int getInt(java.lang.String)>($r1);
+
+        $l2 = virtualinvoke $r3.<android.database.CursorWindow: long getLong(int,int)>($i0, $i1);
+
+        return $l2;
+    }
+
+    public final int ae(int)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        int $i0, $i1, $i2;
+        boolean $z0;
+        int[] $r1;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $i0 := @parameter0: int;
+
+        $i1 = 0;
+
+        if $i0 < 0 goto label4;
+
+        $i2 = $r0.<com.google.android.gms.common.data.DataHolder: int c>;
+
+        if $i0 >= $i2 goto label4;
+
+        $z0 = 1;
+
+     label1:
+        staticinvoke <com.google.android.gms.internal.hn: void A(boolean)>($z0);
+
+     label2:
+        $r1 = $r0.<com.google.android.gms.common.data.DataHolder: int[] b>;
+
+        $i2 = lengthof $r1;
+
+        if $i1 >= $i2 goto label3;
+
+        $r1 = $r0.<com.google.android.gms.common.data.DataHolder: int[] b>;
+
+        $i2 = $r1[$i1];
+
+        if $i0 >= $i2 goto label5;
+
+        $i1 = $i1 + -1;
+
+     label3:
+        $r1 = $r0.<com.google.android.gms.common.data.DataHolder: int[] b>;
+
+        $i0 = lengthof $r1;
+
+        if $i1 != $i0 goto label6;
+
+        $i0 = $i1 + -1;
+
+        return $i0;
+
+     label4:
+        $z0 = 0;
+
+        goto label1;
+
+     label5:
+        $i1 = $i1 + 1;
+
+        goto label2;
+
+     label6:
+        return $i1;
+    }
+
+    public final boolean av(java.lang.String)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        android.os.Bundle $r2;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle a>;
+
+        $z0 = virtualinvoke $r2.<android.os.Bundle: boolean containsKey(java.lang.String)>($r1);
+
+        return $z0;
+    }
+
+    public final int b(java.lang.String, int, int)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+        android.database.CursorWindow[] $r2;
+        android.database.CursorWindow $r3;
+        android.os.Bundle $r4;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        specialinvoke $r0.<com.google.android.gms.common.data.DataHolder: void e(java.lang.String,int)>($r1, $i0);
+
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $r3 = $r2[$i1];
+
+        $r4 = $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle a>;
+
+        $i1 = virtualinvoke $r4.<android.os.Bundle: int getInt(java.lang.String)>($r1);
+
+        $i0 = virtualinvoke $r3.<android.database.CursorWindow: int getInt(int,int)>($i0, $i1);
+
+        return $i0;
+    }
+
+    final java.lang.String[] b()
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        java.lang.String[] r1;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        r1 = $r0.<com.google.android.gms.common.data.DataHolder: java.lang.String[] f>;
+
+        return r1;
+    }
+
+    public final java.lang.String c(java.lang.String, int, int)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+        android.database.CursorWindow[] $r2;
+        android.database.CursorWindow $r3;
+        android.os.Bundle $r4;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        specialinvoke $r0.<com.google.android.gms.common.data.DataHolder: void e(java.lang.String,int)>($r1, $i0);
+
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $r3 = $r2[$i1];
+
+        $r4 = $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle a>;
+
+        $i1 = virtualinvoke $r4.<android.os.Bundle: int getInt(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r3.<android.database.CursorWindow: java.lang.String getString(int,int)>($i0, $i1);
+
+        return $r1;
+    }
+
+    final android.database.CursorWindow[] c()
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        android.database.CursorWindow[] r1;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        r1 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        return r1;
+    }
+
+    public final void close()
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        boolean $z0;
+        int $i0, $i1;
+        android.database.CursorWindow[] $r1;
+        android.database.CursorWindow $r2;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        entermonitor $r0;
+
+     label1:
+        $z0 = $r0.<com.google.android.gms.common.data.DataHolder: boolean d>;
+
+        if $z0 != 0 goto label3;
+
+        $r0.<com.google.android.gms.common.data.DataHolder: boolean d> = 1;
+
+        $i0 = 0;
+
+     label2:
+        $r1 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $i1 = lengthof $r1;
+
+        if $i0 >= $i1 goto label3;
+
+        $r1 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $r2 = $r1[$i0];
+
+        virtualinvoke $r2.<android.database.CursorWindow: void close()>();
+
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label3:
+        exitmonitor $r0;
+
+     label4:
+        return;
+
+     label5:
+        $r3 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label4 with label5;
+    }
+
+    public final boolean d(java.lang.String, int, int)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+        android.database.CursorWindow[] $r2;
+        android.database.CursorWindow $r3;
+        android.os.Bundle $r4;
+        long $l2;
+        java.lang.Long $r5;
+        byte $b3;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        specialinvoke $r0.<com.google.android.gms.common.data.DataHolder: void e(java.lang.String,int)>($r1, $i0);
+
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $r3 = $r2[$i1];
+
+        $r4 = $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle a>;
+
+        $i1 = virtualinvoke $r4.<android.os.Bundle: int getInt(java.lang.String)>($r1);
+
+        $l2 = virtualinvoke $r3.<android.database.CursorWindow: long getLong(int,int)>($i0, $i1);
+
+        $r5 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l2);
+
+        $l2 = virtualinvoke $r5.<java.lang.Long: long longValue()>();
+
+        $b3 = $l2 cmp 1L;
+
+        if $b3 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final int describeContents()
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        return 0;
+    }
+
+    public final float e(java.lang.String, int, int)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+        android.database.CursorWindow[] $r2;
+        android.database.CursorWindow $r3;
+        android.os.Bundle $r4;
+        float $f0;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        specialinvoke $r0.<com.google.android.gms.common.data.DataHolder: void e(java.lang.String,int)>($r1, $i0);
+
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $r3 = $r2[$i1];
+
+        $r4 = $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle a>;
+
+        $i1 = virtualinvoke $r4.<android.os.Bundle: int getInt(java.lang.String)>($r1);
+
+        $f0 = virtualinvoke $r3.<android.database.CursorWindow: float getFloat(int,int)>($i0, $i1);
+
+        return $f0;
+    }
+
+    public final android.os.Bundle eP()
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        android.os.Bundle r1;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        r1 = $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle i>;
+
+        return r1;
+    }
+
+    public final void eR()
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        int $i0, $i1, $i2, $i3;
+        android.os.Bundle $r1;
+        java.lang.String[] $r2;
+        java.lang.String $r3;
+        android.database.CursorWindow[] $r4;
+        int[] $r5;
+        android.database.CursorWindow $r6;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $i0 = 0;
+
+        $r1 = new android.os.Bundle;
+
+        specialinvoke $r1.<android.os.Bundle: void <init>()>();
+
+        $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle a> = $r1;
+
+        $i1 = 0;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: java.lang.String[] f>;
+
+        $i2 = lengthof $r2;
+
+        if $i1 >= $i2 goto label2;
+
+        $r1 = $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle a>;
+
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: java.lang.String[] f>;
+
+        $r3 = $r2[$i1];
+
+        virtualinvoke $r1.<android.os.Bundle: void putInt(java.lang.String,int)>($r3, $i1);
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label2:
+        $r4 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $i1 = lengthof $r4;
+
+        $r5 = newarray (int)[$i1];
+
+        $r0.<com.google.android.gms.common.data.DataHolder: int[] b> = $r5;
+
+        $i1 = 0;
+
+     label3:
+        $r4 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $i2 = lengthof $r4;
+
+        if $i0 >= $i2 goto label4;
+
+        $r5 = $r0.<com.google.android.gms.common.data.DataHolder: int[] b>;
+
+        $r5[$i0] = $i1;
+
+        $r4 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $r6 = $r4[$i0];
+
+        $i2 = virtualinvoke $r6.<android.database.CursorWindow: int getStartPosition()>();
+
+        $i2 = $i1 - $i2;
+
+        $r4 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $r6 = $r4[$i0];
+
+        $i3 = virtualinvoke $r6.<android.database.CursorWindow: int getNumRows()>();
+
+        $i2 = $i3 - $i2;
+
+        $i1 = $i1 + $i2;
+
+        $i0 = $i0 + 1;
+
+        goto label3;
+
+     label4:
+        $r0.<com.google.android.gms.common.data.DataHolder: int c> = $i1;
+
+        return;
+    }
+
+    public final byte[] f(java.lang.String, int, int)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+        android.database.CursorWindow[] $r2;
+        android.database.CursorWindow $r3;
+        android.os.Bundle $r4;
+        byte[] $r5;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        specialinvoke $r0.<com.google.android.gms.common.data.DataHolder: void e(java.lang.String,int)>($r1, $i0);
+
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $r3 = $r2[$i1];
+
+        $r4 = $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle a>;
+
+        $i1 = virtualinvoke $r4.<android.os.Bundle: int getInt(java.lang.String)>($r1);
+
+        $r5 = virtualinvoke $r3.<android.database.CursorWindow: byte[] getBlob(int,int)>($i0, $i1);
+
+        return $r5;
+    }
+
+    protected final void finalize()
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        boolean $z0;
+        android.database.CursorWindow[] $r1;
+        int $i0;
+        java.lang.Object $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r4;
+        java.lang.Throwable $r5;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+     label01:
+        $z0 = $r0.<com.google.android.gms.common.data.DataHolder: boolean k>;
+
+     label02:
+        if $z0 == 0 goto label11;
+
+     label03:
+        $r1 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $i0 = lengthof $r1;
+
+     label04:
+        if $i0 <= 0 goto label11;
+
+     label05:
+        $z0 = virtualinvoke $r0.<com.google.android.gms.common.data.DataHolder: boolean isClosed()>();
+
+     label06:
+        if $z0 != 0 goto label11;
+
+     label07:
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: java.lang.Object j>;
+
+     label08:
+        if $r2 != null goto label12;
+
+     label09:
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("internal object: ");
+
+        $r4 = virtualinvoke $r0.<java.lang.Object: java.lang.String toString()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label10:
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Internal data leak within a DataBuffer object detected!  Be sure to explicitly call close() on all DataBuffer extending objects when you are done with them. (");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("DataBuffer", $r4);
+
+        virtualinvoke $r0.<com.google.android.gms.common.data.DataHolder: void close()>();
+
+     label11:
+        specialinvoke $r0.<java.lang.Object: void finalize()>();
+
+        return;
+
+     label12:
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: java.lang.Object j>;
+
+        $r4 = virtualinvoke $r2.<java.lang.Object: java.lang.String toString()>();
+
+     label13:
+        goto label10;
+
+     label14:
+        $r5 := @caughtexception;
+
+        specialinvoke $r0.<java.lang.Object: void finalize()>();
+
+        throw $r5;
+
+        catch java.lang.Throwable from label01 to label02 with label14;
+        catch java.lang.Throwable from label03 to label04 with label14;
+        catch java.lang.Throwable from label05 to label06 with label14;
+        catch java.lang.Throwable from label07 to label08 with label14;
+        catch java.lang.Throwable from label09 to label10 with label14;
+        catch java.lang.Throwable from label10 to label11 with label14;
+        catch java.lang.Throwable from label12 to label13 with label14;
+    }
+
+    public final android.net.Uri g(java.lang.String, int, int)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+        android.net.Uri $r2;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.common.data.DataHolder: java.lang.String c(java.lang.String,int,int)>($r1, $i0, $i1);
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>($r1);
+
+        return $r2;
+    }
+
+    public final int getCount()
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        i0 = $r0.<com.google.android.gms.common.data.DataHolder: int c>;
+
+        return i0;
+    }
+
+    public final int getStatusCode()
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        i0 = $r0.<com.google.android.gms.common.data.DataHolder: int h>;
+
+        return i0;
+    }
+
+    public final boolean h(java.lang.String, int, int)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+        android.database.CursorWindow[] $r2;
+        android.database.CursorWindow $r3;
+        android.os.Bundle $r4;
+        boolean $z0;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        specialinvoke $r0.<com.google.android.gms.common.data.DataHolder: void e(java.lang.String,int)>($r1, $i0);
+
+        $r2 = $r0.<com.google.android.gms.common.data.DataHolder: android.database.CursorWindow[] g>;
+
+        $r3 = $r2[$i1];
+
+        $r4 = $r0.<com.google.android.gms.common.data.DataHolder: android.os.Bundle a>;
+
+        $i1 = virtualinvoke $r4.<android.os.Bundle: int getInt(java.lang.String)>($r1);
+
+        $z0 = virtualinvoke $r3.<android.database.CursorWindow: boolean isNull(int,int)>($i0, $i1);
+
+        return $z0;
+    }
+
+    public final boolean isClosed()
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        java.lang.Throwable $r1;
+        boolean z0;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        entermonitor $r0;
+
+     label1:
+        z0 = $r0.<com.google.android.gms.common.data.DataHolder: boolean d>;
+
+        exitmonitor $r0;
+
+     label2:
+        return z0;
+
+     label3:
+        $r1 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r1;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.common.data.DataHolder $r0;
+        android.os.Parcel $r1;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.common.data.DataHolder;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        staticinvoke <com.google.android.gms.common.data.f: void a(com.google.android.gms.common.data.DataHolder,android.os.Parcel,int)>($r0, $r1, $i0);
+
+        return;
+    }
+}

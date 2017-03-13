@@ -1,0 +1,258 @@
+public final class com.google.api.a.b.a.a.b.a.a extends java.lang.Object implements com.google.api.a.c.v
+{
+    final android.content.Context a;
+    final java.lang.String b;
+    private final com.google.api.a.b.a.a.a.a c;
+    private java.lang.String d;
+    private android.accounts.Account e;
+    private com.google.api.a.f.ap f;
+    private com.google.api.a.f.g g;
+
+    private void <init>(android.content.Context, java.lang.String)
+    {
+        com.google.api.a.b.a.a.b.a.a $r0;
+        android.content.Context $r1;
+        java.lang.String $r2;
+        com.google.api.a.f.ap $r3;
+        com.google.api.a.b.a.a.a.a $r4;
+
+        $r0 := @this: com.google.api.a.b.a.a.b.a.a;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r3 = <com.google.api.a.f.ap: com.google.api.a.f.ap a>;
+
+        $r0.<com.google.api.a.b.a.a.b.a.a: com.google.api.a.f.ap f> = $r3;
+
+        $r4 = new com.google.api.a.b.a.a.a.a;
+
+        specialinvoke $r4.<com.google.api.a.b.a.a.a.a: void <init>(android.content.Context)>($r1);
+
+        $r0.<com.google.api.a.b.a.a.b.a.a: com.google.api.a.b.a.a.a.a c> = $r4;
+
+        $r0.<com.google.api.a.b.a.a.b.a.a: android.content.Context a> = $r1;
+
+        $r0.<com.google.api.a.b.a.a.b.a.a: java.lang.String b> = $r2;
+
+        return;
+    }
+
+    public static com.google.api.a.b.a.a.b.a.a a(android.content.Context, java.util.Collection)
+    {
+        android.content.Context $r0;
+        java.util.Collection $r1;
+        java.util.Iterator $r2;
+        boolean $z0;
+        java.lang.StringBuilder $r3;
+        com.google.api.a.f.ad $r4;
+        java.lang.String $r5;
+        com.google.api.a.b.a.a.b.a.a $r6;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 := @parameter1: java.util.Collection;
+
+        if $r1 == null goto label2;
+
+        $r2 = interfaceinvoke $r1.<java.util.Collection: java.util.Iterator iterator()>();
+
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $z0 = 1;
+
+     label1:
+        staticinvoke <com.google.api.a.f.ao: void a(boolean)>($z0);
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("oauth2: ");
+
+        $r4 = staticinvoke <com.google.api.a.f.ad: com.google.api.a.f.ad a()>();
+
+        $r5 = virtualinvoke $r4.<com.google.api.a.f.ad: java.lang.String a(java.lang.Iterable)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r6 = new com.google.api.a.b.a.a.b.a.a;
+
+        specialinvoke $r6.<com.google.api.a.b.a.a.b.a.a: void <init>(android.content.Context,java.lang.String)>($r0, $r5);
+
+        return $r6;
+
+     label2:
+        $z0 = 0;
+
+        goto label1;
+    }
+
+    public final com.google.api.a.b.a.a.b.a.a a(java.lang.String)
+    {
+        com.google.api.a.b.a.a.b.a.a $r0;
+        android.accounts.Account $r1;
+        java.lang.String $r2;
+        com.google.api.a.b.a.a.a.a $r3;
+
+        $r0 := @this: com.google.api.a.b.a.a.b.a.a;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r3 = $r0.<com.google.api.a.b.a.a.b.a.a: com.google.api.a.b.a.a.a.a c>;
+
+        $r1 = virtualinvoke $r3.<com.google.api.a.b.a.a.a.a: android.accounts.Account a(java.lang.String)>($r2);
+
+        $r0.<com.google.api.a.b.a.a.b.a.a: android.accounts.Account e> = $r1;
+
+        $r1 = $r0.<com.google.api.a.b.a.a.b.a.a: android.accounts.Account e>;
+
+        if $r1 != null goto label1;
+
+        $r2 = null;
+
+     label1:
+        $r0.<com.google.api.a.b.a.a.b.a.a: java.lang.String d> = $r2;
+
+        return $r0;
+    }
+
+    public final java.lang.String a()
+    {
+        com.google.api.a.b.a.a.b.a.a $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.api.a.b.a.a.b.a.a;
+
+        r1 = $r0.<com.google.api.a.b.a.a.b.a.a: java.lang.String d>;
+
+        return r1;
+    }
+
+    public final void a(com.google.api.a.c.t)
+    {
+        com.google.api.a.b.a.a.b.a.a $r0;
+        com.google.api.a.c.t $r1;
+        com.google.api.a.b.a.a.b.a.b $r2;
+
+        $r0 := @this: com.google.api.a.b.a.a.b.a.a;
+
+        $r1 := @parameter0: com.google.api.a.c.t;
+
+        $r2 = new com.google.api.a.b.a.a.b.a.b;
+
+        specialinvoke $r2.<com.google.api.a.b.a.a.b.a.b: void <init>(com.google.api.a.b.a.a.b.a.a)>($r0);
+
+        virtualinvoke $r1.<com.google.api.a.c.t: com.google.api.a.c.t a(com.google.api.a.c.n)>($r2);
+
+        virtualinvoke $r1.<com.google.api.a.c.t: com.google.api.a.c.t a(com.google.api.a.c.ac)>($r2);
+
+        return;
+    }
+
+    public final android.content.Intent b()
+    {
+        com.google.api.a.b.a.a.b.a.a $r0;
+        java.lang.String[] $r1;
+        android.content.Intent $r2;
+        android.accounts.Account $r3;
+
+        $r0 := @this: com.google.api.a.b.a.a.b.a.a;
+
+        $r3 = $r0.<com.google.api.a.b.a.a.b.a.a: android.accounts.Account e>;
+
+        $r1 = newarray (java.lang.String)[1];
+
+        $r1[0] = "com.google";
+
+        $r2 = staticinvoke <com.google.android.gms.common.AccountPicker: android.content.Intent newChooseAccountIntent(android.accounts.Account,java.util.ArrayList,java.lang.String[],boolean,java.lang.String,java.lang.String,java.lang.String[],android.os.Bundle)>($r3, null, $r1, 1, null, null, null, null);
+
+        return $r2;
+    }
+
+    public final java.lang.String c()
+    {
+        com.google.api.a.b.a.a.b.a.a $r0;
+        com.google.api.a.f.g $r1;
+        android.content.Context $r2;
+        java.lang.String $r3, $r4;
+        java.io.IOException $r5;
+        com.google.api.a.f.ap $r6;
+        long $l0;
+        byte $b1;
+        boolean $z0;
+        java.lang.InterruptedException $r7;
+
+        $r0 := @this: com.google.api.a.b.a.a.b.a.a;
+
+        $r1 = $r0.<com.google.api.a.b.a.a.b.a.a: com.google.api.a.f.g g>;
+
+        if $r1 == null goto label01;
+
+        $r1 = $r0.<com.google.api.a.b.a.a.b.a.a: com.google.api.a.f.g g>;
+
+        interfaceinvoke $r1.<com.google.api.a.f.g: void a()>();
+
+     label01:
+        $r2 = $r0.<com.google.api.a.b.a.a.b.a.a: android.content.Context a>;
+
+        $r3 = $r0.<com.google.api.a.b.a.a.b.a.a: java.lang.String d>;
+
+        $r4 = $r0.<com.google.api.a.b.a.a.b.a.a: java.lang.String b>;
+
+     label02:
+        $r3 = staticinvoke <com.google.android.gms.auth.GoogleAuthUtil: java.lang.String getToken(android.content.Context,java.lang.String,java.lang.String)>($r2, $r3, $r4);
+
+     label03:
+        return $r3;
+
+     label04:
+        $r5 := @caughtexception;
+
+        $r1 = $r0.<com.google.api.a.b.a.a.b.a.a: com.google.api.a.f.g g>;
+
+        if $r1 == null goto label08;
+
+        $r6 = $r0.<com.google.api.a.b.a.a.b.a.a: com.google.api.a.f.ap f>;
+
+        $r1 = $r0.<com.google.api.a.b.a.a.b.a.a: com.google.api.a.f.g g>;
+
+     label05:
+        $l0 = interfaceinvoke $r1.<com.google.api.a.f.g: long b()>();
+
+     label06:
+        $b1 = $l0 cmp -1L;
+
+        if $b1 != 0 goto label10;
+
+        $z0 = 0;
+
+     label07:
+        if $z0 != 0 goto label01;
+
+     label08:
+        throw $r5;
+
+     label09:
+        $r7 := @caughtexception;
+
+        goto label01;
+
+     label10:
+        interfaceinvoke $r6.<com.google.api.a.f.ap: void a(long)>($l0);
+
+     label11:
+        $z0 = 1;
+
+        goto label07;
+
+        catch java.io.IOException from label02 to label03 with label04;
+        catch java.lang.InterruptedException from label05 to label06 with label09;
+        catch java.lang.InterruptedException from label10 to label11 with label09;
+    }
+}

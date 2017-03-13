@@ -1,0 +1,669 @@
+public final class com.speedsoftware.rootexplorer.cn extends java.lang.Object
+{
+    private static android.graphics.Bitmap[] a;
+    private static int[] b;
+
+    static void <clinit>()
+    {
+        android.graphics.Bitmap[] $r0;
+        int[] $r1;
+
+        $r0 = newarray (android.graphics.Bitmap)[17];
+
+        <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a> = $r0;
+
+        $r1 = newarray (int)[17];
+
+        <com.speedsoftware.rootexplorer.cn: int[] b> = $r1;
+
+        return;
+    }
+
+    public static android.graphics.Bitmap a(int)
+    {
+        int $i0;
+        android.graphics.Bitmap[] $r0;
+        android.graphics.Bitmap $r1;
+
+        $i0 := @parameter0: int;
+
+        $r0 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r1 = $r0[$i0];
+
+        return $r1;
+    }
+
+    private static android.graphics.Bitmap a(java.lang.String, android.content.Context, int)
+    {
+        java.lang.String $r0, $r3;
+        android.content.Context $r1;
+        int $i0;
+        java.lang.StringBuilder $r2;
+        java.io.File $r4;
+        boolean $z0;
+        android.graphics.Bitmap $r5;
+        android.content.res.Resources $r6;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: android.content.Context;
+
+        $i0 := @parameter2: int;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("/sdcard/SpeedSoftware/icons/");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r4 = new java.io.File;
+
+        specialinvoke $r4.<java.io.File: void <init>(java.lang.String)>($r3);
+
+        $z0 = virtualinvoke $r4.<java.io.File: boolean exists()>();
+
+        if $z0 == 0 goto label1;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("/sdcard/SpeedSoftware/icons/");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r0 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeFile(java.lang.String)>($r0);
+
+        return $r5;
+
+     label1:
+        $r6 = virtualinvoke $r1.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r5 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r6, $i0);
+
+        return $r5;
+    }
+
+    public static void a(android.content.Context, java.lang.String)
+    {
+        android.content.Context $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        int[] $r2;
+        android.graphics.Bitmap[] $r3;
+        int $i0;
+        android.graphics.Bitmap $r4;
+        android.content.res.Resources $r5;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>("original");
+
+        if $z0 == 0 goto label3;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[0] = 2130837589;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[2] = 2130837623;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[3] = 2130837629;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[4] = 2130837652;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[5] = 2130837656;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[6] = 2130837654;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[7] = 2130837570;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[8] = 2130837510;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[10] = 2130837636;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[11] = 2130837660;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[12] = 2130837573;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[13] = 2130837642;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[1] = 2130837582;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[9] = 2130837514;
+
+     label1:
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>("custom");
+
+        if $z0 == 0 goto label8;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[0];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("html.png", $r0, $i0);
+
+        $r3[0] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[1];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("folder.png", $r0, $i0);
+
+        $r3[1] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[2];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("image.png", $r0, $i0);
+
+        $r3[2] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[3];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("music.png", $r0, $i0);
+
+        $r3[3] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[4];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("text.png", $r0, $i0);
+
+        $r3[4] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[5];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("video.png", $r0, $i0);
+
+        $r3[5] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[6];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("unknown.png", $r0, $i0);
+
+        $r3[6] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[7];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("database.png", $r0, $i0);
+
+        $r3[7] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[8];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("apk.png", $r0, $i0);
+
+        $r3[8] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[9];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("archive.png", $r0, $i0);
+
+        $r3[9] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[10];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("pdf.png", $r0, $i0);
+
+        $r3[10] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[11];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("word.png", $r0, $i0);
+
+        $r3[11] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[12];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("excel.png", $r0, $i0);
+
+        $r3[12] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[13];
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap a(java.lang.String,android.content.Context,int)>("powerpoint.png", $r0, $i0);
+
+        $r3[13] = $r4;
+
+     label2:
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[14] = 2130837647;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[15] = 2130837626;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[16] = 2130837648;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[14];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[14] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[15];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[15] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[16];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[16] = $r4;
+
+        return;
+
+     label3:
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[0] = 2130837588;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[2] = 2130837622;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[3] = 2130837628;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[4] = 2130837651;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[5] = 2130837655;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[6] = 2130837653;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[7] = 2130837569;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[8] = 2130837509;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[10] = 2130837635;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[11] = 2130837659;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[12] = 2130837572;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[13] = 2130837641;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>("blue");
+
+        if $z0 != 0 goto label7;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>("yellow");
+
+        if $z0 == 0 goto label4;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[1] = 2130837584;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[9] = 2130837511;
+
+        goto label1;
+
+     label4:
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>("orange");
+
+        if $z0 == 0 goto label5;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[1] = 2130837581;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[9] = 2130837511;
+
+        goto label1;
+
+     label5:
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>("white");
+
+        if $z0 == 0 goto label6;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[1] = 2130837583;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[9] = 2130837511;
+
+        goto label1;
+
+     label6:
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>("grey");
+
+        if $z0 == 0 goto label7;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[1] = 2130837580;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[9] = 2130837511;
+
+        goto label1;
+
+     label7:
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[1] = 2130837579;
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $r2[9] = 2130837515;
+
+        goto label1;
+
+     label8:
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[0];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[0] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[1];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[1] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[2];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[2] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[3];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[3] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[4];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[4] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[5];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[5] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[6];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[6] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[7];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[7] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[8];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[8] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[9];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[9] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[10];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[10] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[11];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[11] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[12];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[12] = $r4;
+
+        $r3 = <com.speedsoftware.rootexplorer.cn: android.graphics.Bitmap[] a>;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r2[13];
+
+        $r4 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r5, $i0);
+
+        $r3[13] = $r4;
+
+        goto label2;
+    }
+
+    public static int b(int)
+    {
+        int $i0;
+        int[] $r0;
+
+        $i0 := @parameter0: int;
+
+        $r0 = <com.speedsoftware.rootexplorer.cn: int[] b>;
+
+        $i0 = $r0[$i0];
+
+        return $i0;
+    }
+}

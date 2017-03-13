@@ -1,0 +1,251 @@
+final class com.google.api.a.c.a.b extends com.google.api.a.c.af
+{
+    private final org.apache.http.client.methods.HttpRequestBase a;
+    private final org.apache.http.HttpResponse b;
+    private final org.apache.http.Header[] c;
+
+    void <init>(org.apache.http.client.methods.HttpRequestBase, org.apache.http.HttpResponse)
+    {
+        com.google.api.a.c.a.b $r0;
+        org.apache.http.client.methods.HttpRequestBase $r1;
+        org.apache.http.HttpResponse $r2;
+        org.apache.http.Header[] $r3;
+
+        $r0 := @this: com.google.api.a.c.a.b;
+
+        $r1 := @parameter0: org.apache.http.client.methods.HttpRequestBase;
+
+        $r2 := @parameter1: org.apache.http.HttpResponse;
+
+        specialinvoke $r0.<com.google.api.a.c.af: void <init>()>();
+
+        $r0.<com.google.api.a.c.a.b: org.apache.http.client.methods.HttpRequestBase a> = $r1;
+
+        $r0.<com.google.api.a.c.a.b: org.apache.http.HttpResponse b> = $r2;
+
+        $r3 = interfaceinvoke $r2.<org.apache.http.HttpResponse: org.apache.http.Header[] getAllHeaders()>();
+
+        $r0.<com.google.api.a.c.a.b: org.apache.http.Header[] c> = $r3;
+
+        return;
+    }
+
+    public final java.io.InputStream a()
+    {
+        com.google.api.a.c.a.b $r0;
+        org.apache.http.HttpResponse $r1;
+        org.apache.http.HttpEntity $r2;
+        java.io.InputStream $r3;
+
+        $r0 := @this: com.google.api.a.c.a.b;
+
+        $r1 = $r0.<com.google.api.a.c.a.b: org.apache.http.HttpResponse b>;
+
+        $r2 = interfaceinvoke $r1.<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()>();
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $r3 = interfaceinvoke $r2.<org.apache.http.HttpEntity: java.io.InputStream getContent()>();
+
+        return $r3;
+    }
+
+    public final java.lang.String a(int)
+    {
+        com.google.api.a.c.a.b $r0;
+        int $i0;
+        java.lang.String $r1;
+        org.apache.http.Header[] $r2;
+        org.apache.http.Header $r3;
+
+        $r0 := @this: com.google.api.a.c.a.b;
+
+        $i0 := @parameter0: int;
+
+        $r2 = $r0.<com.google.api.a.c.a.b: org.apache.http.Header[] c>;
+
+        $r3 = $r2[$i0];
+
+        $r1 = interfaceinvoke $r3.<org.apache.http.Header: java.lang.String getName()>();
+
+        return $r1;
+    }
+
+    public final java.lang.String b()
+    {
+        com.google.api.a.c.a.b $r0;
+        org.apache.http.HttpResponse $r1;
+        org.apache.http.HttpEntity $r2;
+        org.apache.http.Header $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.google.api.a.c.a.b;
+
+        $r1 = $r0.<com.google.api.a.c.a.b: org.apache.http.HttpResponse b>;
+
+        $r2 = interfaceinvoke $r1.<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()>();
+
+        if $r2 == null goto label1;
+
+        $r3 = interfaceinvoke $r2.<org.apache.http.HttpEntity: org.apache.http.Header getContentEncoding()>();
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<org.apache.http.Header: java.lang.String getValue()>();
+
+        return $r4;
+
+     label1:
+        return null;
+    }
+
+    public final java.lang.String b(int)
+    {
+        com.google.api.a.c.a.b $r0;
+        int $i0;
+        java.lang.String $r1;
+        org.apache.http.Header[] $r2;
+        org.apache.http.Header $r3;
+
+        $r0 := @this: com.google.api.a.c.a.b;
+
+        $i0 := @parameter0: int;
+
+        $r2 = $r0.<com.google.api.a.c.a.b: org.apache.http.Header[] c>;
+
+        $r3 = $r2[$i0];
+
+        $r1 = interfaceinvoke $r3.<org.apache.http.Header: java.lang.String getValue()>();
+
+        return $r1;
+    }
+
+    public final java.lang.String c()
+    {
+        com.google.api.a.c.a.b $r0;
+        org.apache.http.HttpResponse $r1;
+        org.apache.http.HttpEntity $r2;
+        org.apache.http.Header $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.google.api.a.c.a.b;
+
+        $r1 = $r0.<com.google.api.a.c.a.b: org.apache.http.HttpResponse b>;
+
+        $r2 = interfaceinvoke $r1.<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()>();
+
+        if $r2 == null goto label1;
+
+        $r3 = interfaceinvoke $r2.<org.apache.http.HttpEntity: org.apache.http.Header getContentType()>();
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<org.apache.http.Header: java.lang.String getValue()>();
+
+        return $r4;
+
+     label1:
+        return null;
+    }
+
+    public final java.lang.String d()
+    {
+        com.google.api.a.c.a.b $r0;
+        org.apache.http.HttpResponse $r1;
+        org.apache.http.StatusLine $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.google.api.a.c.a.b;
+
+        $r1 = $r0.<com.google.api.a.c.a.b: org.apache.http.HttpResponse b>;
+
+        $r2 = interfaceinvoke $r1.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $r3 = virtualinvoke $r2.<java.lang.Object: java.lang.String toString()>();
+
+        return $r3;
+    }
+
+    public final int e()
+    {
+        com.google.api.a.c.a.b $r0;
+        org.apache.http.HttpResponse $r1;
+        org.apache.http.StatusLine $r2;
+        int $i0;
+
+        $r0 := @this: com.google.api.a.c.a.b;
+
+        $r1 = $r0.<com.google.api.a.c.a.b: org.apache.http.HttpResponse b>;
+
+        $r2 = interfaceinvoke $r1.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        if $r2 != null goto label1;
+
+        return 0;
+
+     label1:
+        $i0 = interfaceinvoke $r2.<org.apache.http.StatusLine: int getStatusCode()>();
+
+        return $i0;
+    }
+
+    public final java.lang.String f()
+    {
+        com.google.api.a.c.a.b $r0;
+        org.apache.http.HttpResponse $r1;
+        org.apache.http.StatusLine $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.google.api.a.c.a.b;
+
+        $r1 = $r0.<com.google.api.a.c.a.b: org.apache.http.HttpResponse b>;
+
+        $r2 = interfaceinvoke $r1.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $r3 = interfaceinvoke $r2.<org.apache.http.StatusLine: java.lang.String getReasonPhrase()>();
+
+        return $r3;
+    }
+
+    public final int g()
+    {
+        com.google.api.a.c.a.b $r0;
+        org.apache.http.Header[] $r1;
+        int $i0;
+
+        $r0 := @this: com.google.api.a.c.a.b;
+
+        $r1 = $r0.<com.google.api.a.c.a.b: org.apache.http.Header[] c>;
+
+        $i0 = lengthof $r1;
+
+        return $i0;
+    }
+
+    public final void h()
+    {
+        com.google.api.a.c.a.b $r0;
+        org.apache.http.client.methods.HttpRequestBase $r1;
+
+        $r0 := @this: com.google.api.a.c.a.b;
+
+        $r1 = $r0.<com.google.api.a.c.a.b: org.apache.http.client.methods.HttpRequestBase a>;
+
+        virtualinvoke $r1.<org.apache.http.client.methods.HttpRequestBase: void abort()>();
+
+        return;
+    }
+}

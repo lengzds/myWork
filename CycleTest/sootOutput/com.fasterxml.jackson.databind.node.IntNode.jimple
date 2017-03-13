@@ -1,0 +1,174 @@
+public final class com.fasterxml.jackson.databind.node.IntNode extends com.fasterxml.jackson.databind.node.NumericNode
+{
+    private static final com.fasterxml.jackson.databind.node.IntNode[] CANONICALS;
+    final int _value;
+
+    static void <clinit>()
+    {
+        com.fasterxml.jackson.databind.node.IntNode[] $r0;
+        com.fasterxml.jackson.databind.node.IntNode $r1;
+        int $i0, $i1;
+
+        $r0 = newarray (com.fasterxml.jackson.databind.node.IntNode)[12];
+
+        <com.fasterxml.jackson.databind.node.IntNode: com.fasterxml.jackson.databind.node.IntNode[] CANONICALS> = $r0;
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= 12 goto label2;
+
+        $r0 = <com.fasterxml.jackson.databind.node.IntNode: com.fasterxml.jackson.databind.node.IntNode[] CANONICALS>;
+
+        $r1 = new com.fasterxml.jackson.databind.node.IntNode;
+
+        $i0 = $i1 + -1;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.node.IntNode: void <init>(int)>($i0);
+
+        $r0[$i1] = $r1;
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void <init>(int)
+    {
+        com.fasterxml.jackson.databind.node.IntNode $r0;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.IntNode;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.node.NumericNode: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.node.IntNode: int _value> = $i0;
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.databind.node.IntNode valueOf(int)
+    {
+        int $i0;
+        com.fasterxml.jackson.databind.node.IntNode $r0;
+        com.fasterxml.jackson.databind.node.IntNode[] $r1;
+
+        $i0 := @parameter0: int;
+
+        if $i0 > 10 goto label1;
+
+        if $i0 >= -1 goto label2;
+
+     label1:
+        $r0 = new com.fasterxml.jackson.databind.node.IntNode;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.node.IntNode: void <init>(int)>($i0);
+
+        return $r0;
+
+     label2:
+        $r1 = <com.fasterxml.jackson.databind.node.IntNode: com.fasterxml.jackson.databind.node.IntNode[] CANONICALS>;
+
+        $i0 = $i0 + 1;
+
+        $r0 = $r1[$i0];
+
+        return $r0;
+    }
+
+    public final java.lang.String asText()
+    {
+        com.fasterxml.jackson.databind.node.IntNode $r0;
+        java.lang.String $r1;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.IntNode;
+
+        $i0 = $r0.<com.fasterxml.jackson.databind.node.IntNode: int _value>;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: java.lang.String toString(int)>($i0);
+
+        return $r1;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.node.IntNode $r0, $r4;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.IntNode;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r1 != $r0 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 != null goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r2 == $r3 goto label3;
+
+        return 0;
+
+     label3:
+        $r4 = (com.fasterxml.jackson.databind.node.IntNode) $r1;
+
+        $i0 = $r4.<com.fasterxml.jackson.databind.node.IntNode: int _value>;
+
+        $i1 = $r0.<com.fasterxml.jackson.databind.node.IntNode: int _value>;
+
+        if $i0 == $i1 goto label4;
+
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    public final int hashCode()
+    {
+        com.fasterxml.jackson.databind.node.IntNode $r0;
+        int i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.IntNode;
+
+        i0 = $r0.<com.fasterxml.jackson.databind.node.IntNode: int _value>;
+
+        return i0;
+    }
+
+    public final void serialize(com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.node.IntNode $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.IntNode;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $i0 = $r0.<com.fasterxml.jackson.databind.node.IntNode: int _value>;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeNumber(int)>($i0);
+
+        return;
+    }
+}

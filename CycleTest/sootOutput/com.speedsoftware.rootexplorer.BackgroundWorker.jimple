@@ -1,0 +1,1238 @@
+public class com.speedsoftware.rootexplorer.BackgroundWorker extends android.app.Service
+{
+    static android.media.MediaScannerConnection a;
+    static android.content.Context b;
+    static boolean c;
+    static android.net.wifi.WifiManager$WifiLock d;
+    static int e;
+    static boolean h;
+    final java.lang.Runnable f;
+    final java.lang.Runnable g;
+    private java.util.ArrayList i;
+    private com.speedsoftware.rootexplorer.cm j;
+    private boolean k;
+    private android.os.Handler l;
+    private final android.os.IBinder m;
+
+    static void <clinit>()
+    {
+        <com.speedsoftware.rootexplorer.BackgroundWorker: int e> = -1;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        java.util.ArrayList $r1;
+        android.os.Handler $r2;
+        com.speedsoftware.rootexplorer.i $r3;
+        com.speedsoftware.rootexplorer.f $r4;
+        com.speedsoftware.rootexplorer.g $r5;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        specialinvoke $r0.<android.app.Service: void <init>()>();
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: java.util.ArrayList i> = $r1;
+
+        $r2 = new android.os.Handler;
+
+        specialinvoke $r2.<android.os.Handler: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: android.os.Handler l> = $r2;
+
+        $r3 = new com.speedsoftware.rootexplorer.i;
+
+        specialinvoke $r3.<com.speedsoftware.rootexplorer.i: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker)>($r0);
+
+        $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: android.os.IBinder m> = $r3;
+
+        $r4 = new com.speedsoftware.rootexplorer.f;
+
+        specialinvoke $r4.<com.speedsoftware.rootexplorer.f: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker)>($r0);
+
+        $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.Runnable f> = $r4;
+
+        $r5 = new com.speedsoftware.rootexplorer.g;
+
+        specialinvoke $r5.<com.speedsoftware.rootexplorer.g: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker)>($r0);
+
+        $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.Runnable g> = $r5;
+
+        return;
+    }
+
+    static java.util.ArrayList a(com.speedsoftware.rootexplorer.BackgroundWorker)
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        java.util.ArrayList r1;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: java.util.ArrayList i>;
+
+        return r1;
+    }
+
+    private void a(android.content.Intent)
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        android.content.Intent $r1;
+        com.speedsoftware.rootexplorer.eb $r2, $r14;
+        java.lang.String $r4, $r18, $r19, $r31;
+        com.speedsoftware.rootexplorer.lf $r5, $r8;
+        android.os.Handler $r6;
+        java.lang.Runnable $r7;
+        java.util.ArrayList $r9;
+        java.util.Iterator $r10;
+        boolean $z0, $z1;
+        android.app.NotificationManager $r11;
+        java.lang.Object $r12;
+        com.speedsoftware.rootexplorer.cm $r13;
+        java.lang.InterruptedException $r15;
+        com.speedsoftware.rootexplorer.bn $r16, $r20, $r22;
+        com.speedsoftware.rootexplorer.cf $r17;
+        long $l0;
+        com.speedsoftware.rootexplorer.bn[] $r21;
+        int $i1;
+        java.io.Serializable $r29;
+        com.speedsoftware.rootexplorer.e $r30;
+        com.speedsoftware.rootexplorer.ay r32;
+        com.speedsoftware.rootexplorer.eh r33;
+        com.speedsoftware.rootexplorer.h r34;
+        com.speedsoftware.rootexplorer.ef r35;
+        com.speedsoftware.rootexplorer.ed r36;
+        com.speedsoftware.rootexplorer.ec r37;
+        com.speedsoftware.rootexplorer.ej r38;
+        com.speedsoftware.rootexplorer.bm r39;
+        com.speedsoftware.rootexplorer.bl r40;
+        com.speedsoftware.rootexplorer.ex r41;
+        com.speedsoftware.rootexplorer.ct r42;
+        com.speedsoftware.rootexplorer.c r43;
+        com.speedsoftware.rootexplorer.ce r44;
+        com.speedsoftware.rootexplorer.cb r45;
+        com.speedsoftware.rootexplorer.cc r46;
+        com.speedsoftware.rootexplorer.eu r47;
+        com.speedsoftware.rootexplorer.ax r48;
+        com.speedsoftware.rootexplorer.au r49;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        $r1 := @parameter0: android.content.Intent;
+
+        $r4 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("pending_operation");
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf valueOf(java.lang.String)>($r4);
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: android.os.Handler l>;
+
+        $r7 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.Runnable f>;
+
+        virtualinvoke $r6.<android.os.Handler: void removeCallbacks(java.lang.Runnable)>($r7);
+
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf n>;
+
+        if $r5 != $r8 goto label06;
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: void stopForeground(boolean)>(1);
+
+        <com.speedsoftware.rootexplorer.BackgroundWorker: int e> = -1;
+
+        $r9 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: java.util.ArrayList i>;
+
+        $r10 = virtualinvoke $r9.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label01:
+        $z0 = interfaceinvoke $r10.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label04;
+
+        $r11 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: android.app.NotificationManager b()>();
+
+        virtualinvoke $r11.<android.app.NotificationManager: void cancelAll()>();
+
+        <com.speedsoftware.rootexplorer.BackgroundWorker: boolean c> = 0;
+
+     label02:
+        staticinvoke <java.lang.Thread: void sleep(long)>(1000L);
+
+     label03:
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: void stopSelf()>();
+
+        return;
+
+     label04:
+        $r12 = interfaceinvoke $r10.<java.util.Iterator: java.lang.Object next()>();
+
+        $r13 = (com.speedsoftware.rootexplorer.cm) $r12;
+
+        $r14 = interfaceinvoke $r13.<com.speedsoftware.rootexplorer.cm: com.speedsoftware.rootexplorer.eb k()>();
+
+        $r2 = <com.speedsoftware.rootexplorer.eb: com.speedsoftware.rootexplorer.eb b>;
+
+        if $r14 != $r2 goto label01;
+
+        interfaceinvoke $r13.<com.speedsoftware.rootexplorer.cm: void c()>();
+
+        goto label01;
+
+     label05:
+        $r15 := @caughtexception;
+
+        virtualinvoke $r15.<java.lang.InterruptedException: void printStackTrace()>();
+
+        goto label03;
+
+     label06:
+        $r13 = null;
+
+        $r4 = null;
+
+        $r16 = null;
+
+        $r17 = null;
+
+        $r9 = null;
+
+        $r18 = null;
+
+        r32 = new com.speedsoftware.rootexplorer.ay;
+
+        $r19 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.String getPackageName()>();
+
+        specialinvoke r32.<com.speedsoftware.rootexplorer.ay: void <init>(java.lang.String,android.content.Context)>($r19, $r0);
+
+        $l0 = virtualinvoke $r1.<android.content.Intent: long getLongExtra(java.lang.String,long)>("id", -1L);
+
+        $z0 = virtualinvoke $r1.<android.content.Intent: boolean hasExtra(java.lang.String)>("target_path");
+
+        if $z0 == 0 goto label07;
+
+        $r4 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("target_path");
+
+     label07:
+        $z0 = virtualinvoke $r1.<android.content.Intent: boolean hasExtra(java.lang.String)>("target_path_entry");
+
+        if $z0 != 0 goto label08;
+
+        $z0 = virtualinvoke $r1.<android.content.Intent: boolean hasExtra(java.lang.String)>("target_path_entry_file");
+
+        if $z0 == 0 goto label09;
+
+     label08:
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "target_path_entry");
+
+        $r16 = (com.speedsoftware.rootexplorer.bn) $r12;
+
+     label09:
+        $z0 = virtualinvoke $r1.<android.content.Intent: boolean hasExtra(java.lang.String)>("target_file_system");
+
+        if $z0 == 0 goto label10;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "target_file_system");
+
+        $r17 = (com.speedsoftware.rootexplorer.cf) $r12;
+
+     label10:
+        $z0 = virtualinvoke $r1.<android.content.Intent: boolean hasExtra(java.lang.String)>("file_systems");
+
+        if $z0 == 0 goto label11;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "file_systems");
+
+        $r9 = (java.util.ArrayList) $r12;
+
+     label11:
+        $z0 = virtualinvoke $r1.<android.content.Intent: boolean hasExtra(java.lang.String)>("progress_title");
+
+        if $z0 == 0 goto label12;
+
+        $r18 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("progress_title");
+
+     label12:
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf a>;
+
+        if $r5 == $r8 goto label13;
+
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf c>;
+
+        if $r5 == $r8 goto label13;
+
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf b>;
+
+        if $r5 == $r8 goto label13;
+
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf d>;
+
+        if $r5 == $r8 goto label13;
+
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf e>;
+
+        if $r5 != $r8 goto label21;
+
+     label13:
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "copy_source");
+
+        $r20 = (com.speedsoftware.rootexplorer.bn) $r12;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "copy_source_multi");
+
+        $r21 = (com.speedsoftware.rootexplorer.bn[]) $r12;
+
+        if $r20 == null goto label14;
+
+        $z0 = virtualinvoke $r20.<com.speedsoftware.rootexplorer.bn: boolean aK()>();
+
+        if $z0 != 0 goto label15;
+
+     label14:
+        if $r21 == null goto label17;
+
+        $r22 = $r21[0];
+
+        $z0 = virtualinvoke $r22.<com.speedsoftware.rootexplorer.bn: boolean aK()>();
+
+        if $z0 == 0 goto label17;
+
+     label15:
+        if $r16 == null goto label17;
+
+        $z0 = virtualinvoke $r16.<com.speedsoftware.rootexplorer.bn: boolean aK()>();
+
+        if $z0 == 0 goto label17;
+
+        r33 = new com.speedsoftware.rootexplorer.eh;
+
+        specialinvoke r33.<com.speedsoftware.rootexplorer.eh: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.lf,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.bn[],java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String)>($r0, $l0, r32, $r5, $r20, $r21, $r4, $r16, $r17, $r9, $r18);
+
+        $r13 = r33;
+
+     label16:
+        $r9 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: java.util.ArrayList i>;
+
+        virtualinvoke $r9.<java.util.ArrayList: boolean add(java.lang.Object)>($r13);
+
+        $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: com.speedsoftware.rootexplorer.cm j> = $r13;
+
+        r34 = new com.speedsoftware.rootexplorer.h;
+
+        specialinvoke r34.<com.speedsoftware.rootexplorer.h: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker)>($r0);
+
+        $r13 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: com.speedsoftware.rootexplorer.cm j>;
+
+        interfaceinvoke $r13.<com.speedsoftware.rootexplorer.cm: void a(java.lang.Thread)>(r34);
+
+        virtualinvoke r34.<java.lang.Thread: void start()>();
+
+        return;
+
+     label17:
+        $z0 = virtualinvoke $r16.<com.speedsoftware.rootexplorer.bn: boolean aL()>();
+
+        if $z0 == 0 goto label18;
+
+        r35 = new com.speedsoftware.rootexplorer.ef;
+
+        specialinvoke r35.<com.speedsoftware.rootexplorer.ef: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.lf,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.bn[],java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String)>($r0, $l0, r32, $r5, $r20, $r21, $r4, $r16, $r17, $r9, $r18);
+
+        $r13 = r35;
+
+        goto label16;
+
+     label18:
+        $z0 = virtualinvoke $r16.<com.speedsoftware.rootexplorer.bn: boolean aM()>();
+
+        if $z0 == 0 goto label19;
+
+        r36 = new com.speedsoftware.rootexplorer.ed;
+
+        specialinvoke r36.<com.speedsoftware.rootexplorer.ed: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.lf,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.bn[],java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String)>($r0, $l0, r32, $r5, $r20, $r21, $r4, $r16, $r17, $r9, $r18);
+
+        $r13 = r36;
+
+        goto label16;
+
+     label19:
+        $z0 = virtualinvoke $r16.<com.speedsoftware.rootexplorer.bn: boolean x()>();
+
+        if $z0 == 0 goto label20;
+
+        r37 = new com.speedsoftware.rootexplorer.ec;
+
+        specialinvoke r37.<com.speedsoftware.rootexplorer.ec: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.lf,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.bn[],java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String)>($r0, $l0, r32, $r5, $r20, $r21, $r4, $r16, $r17, $r9, $r18);
+
+        $r13 = r37;
+
+        goto label16;
+
+     label20:
+        r38 = new com.speedsoftware.rootexplorer.ej;
+
+        specialinvoke r38.<com.speedsoftware.rootexplorer.ej: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.lf,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.bn[],java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String)>($r0, $l0, r32, $r5, $r20, $r21, $r4, $r16, $r17, $r9, $r18);
+
+        $r13 = r38;
+
+        goto label16;
+
+     label21:
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf f>;
+
+        if $r5 != $r8 goto label22;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "delete_entry");
+
+        $r20 = (com.speedsoftware.rootexplorer.bn) $r12;
+
+        r39 = new com.speedsoftware.rootexplorer.bm;
+
+        $r13 = r39;
+
+        specialinvoke r39.<com.speedsoftware.rootexplorer.bm: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.bn,java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String)>($r0, $l0, r32, $r20, $r4, $r16, $r17, $r9, $r18);
+
+        goto label16;
+
+     label22:
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf g>;
+
+        if $r5 != $r8 goto label23;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "delete_entries");
+
+        $r21 = (com.speedsoftware.rootexplorer.bn[]) $r12;
+
+        if $r21 == null goto label16;
+
+        r40 = new com.speedsoftware.rootexplorer.bl;
+
+        $r13 = r40;
+
+        specialinvoke r40.<com.speedsoftware.rootexplorer.bl: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.bn[],java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String)>($r0, $l0, r32, $r21, $r4, $r16, $r17, $r9, $r18);
+
+        goto label16;
+
+     label23:
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf l>;
+
+        if $r5 != $r8 goto label24;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "rename_entry");
+
+        $r20 = (com.speedsoftware.rootexplorer.bn) $r12;
+
+        $r19 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("new_name");
+
+        r41 = new com.speedsoftware.rootexplorer.ex;
+
+        $r13 = r41;
+
+        specialinvoke r41.<com.speedsoftware.rootexplorer.ex: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.bn,java.lang.String,java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String)>($r0, $l0, r32, $r20, $r19, $r4, $r16, $r17, $r9, $r18);
+
+        goto label16;
+
+     label24:
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf m>;
+
+        if $r5 != $r8 goto label25;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "parent_entry");
+
+        $r20 = (com.speedsoftware.rootexplorer.bn) $r12;
+
+        $r19 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("folder_name");
+
+        r42 = new com.speedsoftware.rootexplorer.ct;
+
+        $r13 = r42;
+
+        specialinvoke r42.<com.speedsoftware.rootexplorer.ct: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.bn,java.lang.String,java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String)>($r0, $l0, r32, $r20, $r19, $r4, $r16, $r17, $r9, $r18);
+
+        goto label16;
+
+     label25:
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf h>;
+
+        if $r5 != $r8 goto label27;
+
+        $i1 = virtualinvoke $r1.<android.content.Intent: int getIntExtra(java.lang.String,int)>("mode", 0);
+
+        $r29 = virtualinvoke $r1.<android.content.Intent: java.io.Serializable getSerializableExtra(java.lang.String)>("archive_type");
+
+        $r30 = (com.speedsoftware.rootexplorer.e) $r29;
+
+        $r19 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("archive_name");
+
+        if $i1 != 0 goto label26;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "data");
+
+        $r20 = (com.speedsoftware.rootexplorer.bn) $r12;
+
+        r43 = new com.speedsoftware.rootexplorer.c;
+
+        $r13 = r43;
+
+        specialinvoke r43.<com.speedsoftware.rootexplorer.c: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.bn,java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String,com.speedsoftware.rootexplorer.e,java.lang.String)>($r0, $l0, r32, $r20, $r4, $r16, $r17, $r9, $r18, $r30, $r19);
+
+        goto label16;
+
+     label26:
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "selected_entries");
+
+        $r21 = (com.speedsoftware.rootexplorer.bn[]) $r12;
+
+        r43 = new com.speedsoftware.rootexplorer.c;
+
+        $r13 = r43;
+
+        specialinvoke r43.<com.speedsoftware.rootexplorer.c: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.bn[],java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String,com.speedsoftware.rootexplorer.e,java.lang.String)>($r0, $l0, r32, $r21, $r4, $r16, $r17, $r9, $r18, $r30, $r19);
+
+        goto label16;
+
+     label27:
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf i>;
+
+        if $r5 != $r8 goto label28;
+
+        $r29 = virtualinvoke $r1.<android.content.Intent: java.io.Serializable getSerializableExtra(java.lang.String)>("archive_entry");
+
+        $r20 = (com.speedsoftware.rootexplorer.bn) $r29;
+
+        $r29 = virtualinvoke $r1.<android.content.Intent: java.io.Serializable getSerializableExtra(java.lang.String)>("extract_entry");
+
+        $r22 = (com.speedsoftware.rootexplorer.bn) $r29;
+
+        r44 = new com.speedsoftware.rootexplorer.ce;
+
+        $r13 = r44;
+
+        specialinvoke r44.<com.speedsoftware.rootexplorer.ce: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.bn,java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String)>($r0, $l0, r32, $r20, $r22, $r4, $r16, $r17, $r9, $r18);
+
+        goto label16;
+
+     label28:
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf j>;
+
+        if $r5 != $r8 goto label29;
+
+        $r29 = virtualinvoke $r1.<android.content.Intent: java.io.Serializable getSerializableExtra(java.lang.String)>("archive_entry");
+
+        $r20 = (com.speedsoftware.rootexplorer.bn) $r29;
+
+        r45 = new com.speedsoftware.rootexplorer.cb;
+
+        $r13 = r45;
+
+        specialinvoke r45.<com.speedsoftware.rootexplorer.cb: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String,com.speedsoftware.rootexplorer.bn)>($r0, $l0, r32, $r4, $r16, $r17, $r9, $r18, $r20);
+
+        goto label16;
+
+     label29:
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf k>;
+
+        if $r5 != $r8 goto label30;
+
+        $r29 = virtualinvoke $r1.<android.content.Intent: java.io.Serializable getSerializableExtra(java.lang.String)>("archive_entry");
+
+        $r20 = (com.speedsoftware.rootexplorer.bn) $r29;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "extract_entries");
+
+        $r21 = (com.speedsoftware.rootexplorer.bn[]) $r12;
+
+        r46 = new com.speedsoftware.rootexplorer.cc;
+
+        $r13 = r46;
+
+        specialinvoke r46.<com.speedsoftware.rootexplorer.cc: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.bn[],java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String)>($r0, $l0, r32, $r20, $r21, $r4, $r16, $r17, $r9, $r18);
+
+        goto label16;
+
+     label30:
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf o>;
+
+        if $r5 != $r8 goto label31;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "selected_entries");
+
+        $r21 = (com.speedsoftware.rootexplorer.bn[]) $r12;
+
+        $r19 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("new_permissions");
+
+        $z0 = virtualinvoke $r1.<android.content.Intent: boolean getBooleanExtra(java.lang.String,boolean)>("recursive", 0);
+
+        $z1 = virtualinvoke $r1.<android.content.Intent: boolean getBooleanExtra(java.lang.String,boolean)>("no_execute", 0);
+
+        if $r21 == null goto label16;
+
+        r47 = new com.speedsoftware.rootexplorer.eu;
+
+        $r13 = r47;
+
+        specialinvoke r47.<com.speedsoftware.rootexplorer.eu: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.bn[],java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String,java.lang.String,boolean,boolean)>($r0, $l0, r32, $r21, $r4, $r16, $r17, $r9, $r18, $r19, $z0, $z1);
+
+        goto label16;
+
+     label31:
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf p>;
+
+        if $r5 != $r8 goto label32;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "selected_entries");
+
+        $r21 = (com.speedsoftware.rootexplorer.bn[]) $r12;
+
+        $r19 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("new_owner");
+
+        $r31 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("new_group");
+
+        $z0 = virtualinvoke $r1.<android.content.Intent: boolean getBooleanExtra(java.lang.String,boolean)>("recursive", 0);
+
+        if $r21 == null goto label16;
+
+        r48 = new com.speedsoftware.rootexplorer.ax;
+
+        $r13 = r48;
+
+        specialinvoke r48.<com.speedsoftware.rootexplorer.ax: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.bn[],java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String,java.lang.String,java.lang.String,boolean)>($r0, $l0, r32, $r21, $r4, $r16, $r17, $r9, $r18, $r19, $r31, $z0);
+
+        goto label16;
+
+     label32:
+        $r8 = <com.speedsoftware.rootexplorer.lf: com.speedsoftware.rootexplorer.lf q>;
+
+        if $r5 != $r8 goto label16;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Object a(android.content.Intent,java.lang.String)>($r1, "selected_entries");
+
+        $r21 = (com.speedsoftware.rootexplorer.bn[]) $r12;
+
+        $r19 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("se_context");
+
+        $z0 = virtualinvoke $r1.<android.content.Intent: boolean getBooleanExtra(java.lang.String,boolean)>("recursive", 0);
+
+        if $r21 == null goto label16;
+
+        r49 = new com.speedsoftware.rootexplorer.au;
+
+        $r13 = r49;
+
+        specialinvoke r49.<com.speedsoftware.rootexplorer.au: void <init>(com.speedsoftware.rootexplorer.BackgroundWorker,long,com.speedsoftware.rootexplorer.ay,com.speedsoftware.rootexplorer.bn[],java.lang.String,com.speedsoftware.rootexplorer.bn,com.speedsoftware.rootexplorer.cf,java.util.ArrayList,java.lang.String,java.lang.String,boolean)>($r0, $l0, r32, $r21, $r4, $r16, $r17, $r9, $r18, $r19, $z0);
+
+        goto label16;
+
+        catch java.lang.InterruptedException from label02 to label03 with label05;
+    }
+
+    static boolean a(java.lang.String)
+    {
+        java.lang.String $r0, $r2;
+        java.io.File $r1;
+        boolean $z0;
+        android.content.Context $r3;
+        android.media.MediaScannerConnection $r4;
+        int $i0;
+        java.lang.StringBuilder $r5;
+        java.lang.Exception $r6;
+        java.lang.InterruptedException $r7;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 = staticinvoke <android.os.Environment: java.io.File getExternalStorageDirectory()>();
+
+        $r2 = virtualinvoke $r1.<java.io.File: java.lang.String getAbsolutePath()>();
+
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean startsWith(java.lang.String)>($r2);
+
+        if $z0 != 0 goto label01;
+
+        $r3 = <com.speedsoftware.rootexplorer.BackgroundWorker: android.content.Context b>;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: java.lang.String a(android.content.Context)>($r3);
+
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean startsWith(java.lang.String)>($r2);
+
+        if $z0 != 0 goto label01;
+
+        $r2 = <com.speedsoftware.rootexplorer.RootExplorer: java.lang.String y>;
+
+        if $r2 == null goto label07;
+
+        $r2 = <com.speedsoftware.rootexplorer.RootExplorer: java.lang.String y>;
+
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean startsWith(java.lang.String)>($r2);
+
+        if $z0 == 0 goto label07;
+
+     label01:
+        $z0 = 1;
+
+     label02:
+        if $z0 == 0 goto label16;
+
+        $r4 = <com.speedsoftware.rootexplorer.BackgroundWorker: android.media.MediaScannerConnection a>;
+
+        if $r4 == null goto label16;
+
+        $r4 = <com.speedsoftware.rootexplorer.BackgroundWorker: android.media.MediaScannerConnection a>;
+
+        $z0 = virtualinvoke $r4.<android.media.MediaScannerConnection: boolean isConnected()>();
+
+        if $z0 != 0 goto label04;
+
+        $z0 = staticinvoke <com.speedsoftware.rootexplorer.BackgroundWorker: boolean c()>();
+
+        if $z0 == 0 goto label04;
+
+        $i0 = 0;
+
+     label03:
+        if $i0 >= 5 goto label04;
+
+        $r4 = <com.speedsoftware.rootexplorer.BackgroundWorker: android.media.MediaScannerConnection a>;
+
+        $z0 = virtualinvoke $r4.<android.media.MediaScannerConnection: boolean isConnected()>();
+
+        if $z0 == 0 goto label13;
+
+     label04:
+        staticinvoke <android.provider.MediaStore$Files: android.net.Uri getContentUri(java.lang.String)>("external");
+
+        $r4 = <com.speedsoftware.rootexplorer.BackgroundWorker: android.media.MediaScannerConnection a>;
+
+        $z0 = virtualinvoke $r4.<android.media.MediaScannerConnection: boolean isConnected()>();
+
+        if $z0 == 0 goto label16;
+
+        $r4 = <com.speedsoftware.rootexplorer.BackgroundWorker: android.media.MediaScannerConnection a>;
+
+     label05:
+        virtualinvoke $r4.<android.media.MediaScannerConnection: void scanFile(java.lang.String,java.lang.String)>($r0, null);
+
+     label06:
+        return 1;
+
+     label07:
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean startsWith(java.lang.String)>("/sdcard/");
+
+        if $z0 == 0 goto label08;
+
+        $r5 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <android.os.Environment: java.io.File getExternalStorageDirectory()>();
+
+        $r2 = virtualinvoke $r1.<java.io.File: java.lang.String getAbsolutePath()>();
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r2);
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>($r2);
+
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int)>(7);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r0 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $z0 = 1;
+
+        goto label02;
+
+     label08:
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean startsWith(java.lang.String)>("/mnt/sdcard/");
+
+        if $z0 == 0 goto label09;
+
+        $r5 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <android.os.Environment: java.io.File getExternalStorageDirectory()>();
+
+        $r2 = virtualinvoke $r1.<java.io.File: java.lang.String getAbsolutePath()>();
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r2);
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>($r2);
+
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int)>(11);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r0 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $z0 = 1;
+
+        goto label02;
+
+     label09:
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean startsWith(java.lang.String)>("/data/media/");
+
+        if $z0 == 0 goto label10;
+
+        $r5 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <android.os.Environment: java.io.File getExternalStorageDirectory()>();
+
+        $r2 = virtualinvoke $r1.<java.io.File: java.lang.String getAbsolutePath()>();
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r2);
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>($r2);
+
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int)>(11);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r0 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $z0 = 1;
+
+        goto label02;
+
+     label10:
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean startsWith(java.lang.String)>("/storage/sdcard0/");
+
+        if $z0 == 0 goto label11;
+
+        $r5 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <android.os.Environment: java.io.File getExternalStorageDirectory()>();
+
+        $r2 = virtualinvoke $r1.<java.io.File: java.lang.String getAbsolutePath()>();
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r2);
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>($r2);
+
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int)>(16);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r0 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $z0 = 1;
+
+        goto label02;
+
+     label11:
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean startsWith(java.lang.String)>("/storage/emulated/legacy/");
+
+        if $z0 == 0 goto label12;
+
+        $r5 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <android.os.Environment: java.io.File getExternalStorageDirectory()>();
+
+        $r2 = virtualinvoke $r1.<java.io.File: java.lang.String getAbsolutePath()>();
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r2);
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>($r2);
+
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int)>(24);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r0 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $z0 = 1;
+
+        goto label02;
+
+     label12:
+        $z0 = 0;
+
+        goto label02;
+
+     label13:
+        staticinvoke <java.lang.Thread: void sleep(long)>(10L);
+
+     label14:
+        $i0 = $i0 + 1;
+
+        goto label03;
+
+     label15:
+        $r6 := @caughtexception;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Scan failed - ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" - ");
+
+        $r0 = virtualinvoke $r6.<java.lang.Exception: java.lang.String getMessage()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r0 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("BackgroundWorker.ScanFile", $r0);
+
+     label16:
+        return 0;
+
+     label17:
+        $r7 := @caughtexception;
+
+        goto label14;
+
+        catch java.lang.Exception from label05 to label06 with label15;
+        catch java.lang.InterruptedException from label13 to label14 with label17;
+    }
+
+    static com.speedsoftware.rootexplorer.cm b(com.speedsoftware.rootexplorer.BackgroundWorker)
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        com.speedsoftware.rootexplorer.cm r1;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: com.speedsoftware.rootexplorer.cm j>;
+
+        return r1;
+    }
+
+    private static boolean c()
+    {
+        java.lang.String[] $r0, $r1;
+        boolean $z0;
+        android.net.Uri $r2;
+        android.content.Context $r3;
+        android.content.ContentResolver $r4;
+        android.database.Cursor $r5;
+        java.lang.Exception $r6;
+
+        $z0 = <com.speedsoftware.rootexplorer.BackgroundWorker: boolean h>;
+
+        if $z0 == 0 goto label1;
+
+        return 0;
+
+     label1:
+        $r0 = newarray (java.lang.String)[3];
+
+        $r0[0] = "_id";
+
+        $r0[1] = "_data";
+
+        $r0[2] = "title";
+
+        $r1 = newarray (java.lang.String)[1];
+
+        $r1[0] = "xxx";
+
+        $r2 = staticinvoke <android.provider.MediaStore$Files: android.net.Uri getContentUri(java.lang.String)>("external");
+
+     label2:
+        $r3 = <com.speedsoftware.rootexplorer.BackgroundWorker: android.content.Context b>;
+
+     label3:
+        $r4 = virtualinvoke $r3.<android.content.Context: android.content.ContentResolver getContentResolver()>();
+
+        $r5 = virtualinvoke $r4.<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>($r2, $r0, "_data=?", $r1, null);
+
+     label4:
+        if $r5 != null goto label5;
+
+        <com.speedsoftware.rootexplorer.BackgroundWorker: boolean h> = 1;
+
+        return 0;
+
+     label5:
+        interfaceinvoke $r5.<android.database.Cursor: void close()>();
+
+     label6:
+        return 1;
+
+     label7:
+        $r6 := @caughtexception;
+
+        <com.speedsoftware.rootexplorer.BackgroundWorker: boolean h> = 1;
+
+        return 0;
+
+        catch java.lang.Exception from label1 to label2 with label7;
+        catch java.lang.Exception from label3 to label4 with label7;
+        catch java.lang.Exception from label5 to label6 with label7;
+    }
+
+    public final com.speedsoftware.rootexplorer.cm a(long)
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        long $l0, $l1;
+        java.util.ArrayList $r1;
+        java.util.Iterator $r2;
+        boolean $z0;
+        java.lang.Object $r3;
+        com.speedsoftware.rootexplorer.cm $r4;
+        byte $b2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        $l0 := @parameter0: long;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: java.util.ArrayList i>;
+
+        $r2 = virtualinvoke $r1.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label2;
+
+        return null;
+
+     label2:
+        $r3 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r4 = (com.speedsoftware.rootexplorer.cm) $r3;
+
+        $l1 = interfaceinvoke $r4.<com.speedsoftware.rootexplorer.cm: long i()>();
+
+        $b2 = $l1 cmp $l0;
+
+        if $b2 != 0 goto label1;
+
+        return $r4;
+    }
+
+    public final void a()
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        com.speedsoftware.rootexplorer.eb $r1, $r6;
+        boolean $z0;
+        java.util.ArrayList $r2;
+        java.util.Iterator $r3;
+        java.lang.Object $r4;
+        com.speedsoftware.rootexplorer.cm $r5;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        $z0 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: boolean k>;
+
+        if $z0 != 0 goto label5;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: java.util.ArrayList i>;
+
+        $r3 = virtualinvoke $r2.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label3;
+
+        $z0 = 0;
+
+     label2:
+        if $z0 != 0 goto label5;
+
+        <com.speedsoftware.rootexplorer.BackgroundWorker: int e> = -1;
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: void stopSelf()>();
+
+        return;
+
+     label3:
+        $r4 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (com.speedsoftware.rootexplorer.cm) $r4;
+
+        $r6 = interfaceinvoke $r5.<com.speedsoftware.rootexplorer.cm: com.speedsoftware.rootexplorer.eb k()>();
+
+        $r1 = <com.speedsoftware.rootexplorer.eb: com.speedsoftware.rootexplorer.eb b>;
+
+        if $r6 == $r1 goto label4;
+
+        $r1 = interfaceinvoke $r5.<com.speedsoftware.rootexplorer.cm: com.speedsoftware.rootexplorer.eb k()>();
+
+        $r6 = <com.speedsoftware.rootexplorer.eb: com.speedsoftware.rootexplorer.eb a>;
+
+        if $r1 != $r6 goto label1;
+
+     label4:
+        $z0 = 1;
+
+        goto label2;
+
+     label5:
+        return;
+    }
+
+    final android.app.NotificationManager b()
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        java.lang.Object $r1;
+        android.app.NotificationManager $r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        $r1 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.Object getSystemService(java.lang.String)>("notification");
+
+        $r2 = (android.app.NotificationManager) $r1;
+
+        return $r2;
+    }
+
+    public android.os.IBinder onBind(android.content.Intent)
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        android.content.Intent $r1;
+        android.os.IBinder r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        $r1 := @parameter0: android.content.Intent;
+
+        r2 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: android.os.IBinder m>;
+
+        return r2;
+    }
+
+    public void onCreate()
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        android.media.MediaScannerConnection $r1;
+        android.os.Handler $r2;
+        java.lang.Runnable $r3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        specialinvoke $r0.<android.app.Service: void onCreate()>();
+
+        <com.speedsoftware.rootexplorer.BackgroundWorker: android.content.Context b> = $r0;
+
+        $r1 = new android.media.MediaScannerConnection;
+
+        specialinvoke $r1.<android.media.MediaScannerConnection: void <init>(android.content.Context,android.media.MediaScannerConnection$MediaScannerConnectionClient)>($r0, null);
+
+        <com.speedsoftware.rootexplorer.BackgroundWorker: android.media.MediaScannerConnection a> = $r1;
+
+        virtualinvoke $r1.<android.media.MediaScannerConnection: void connect()>();
+
+        <com.speedsoftware.rootexplorer.BackgroundWorker: boolean c> = 1;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: android.os.Handler l>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: java.lang.Runnable f>;
+
+        virtualinvoke $r2.<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>($r3, 1000L);
+
+        return;
+    }
+
+    public void onDestroy()
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        boolean $z0;
+        android.media.MediaScannerConnection $r1;
+        android.net.wifi.WifiManager$WifiLock $r2;
+        java.lang.Exception $r3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        $r1 = <com.speedsoftware.rootexplorer.BackgroundWorker: android.media.MediaScannerConnection a>;
+
+     label1:
+        virtualinvoke $r1.<android.media.MediaScannerConnection: void disconnect()>();
+
+     label2:
+        <com.speedsoftware.rootexplorer.BackgroundWorker: android.content.Context b> = null;
+
+     label3:
+        <com.speedsoftware.rootexplorer.BackgroundWorker: boolean c> = 0;
+
+        $r2 = <com.speedsoftware.rootexplorer.BackgroundWorker: android.net.wifi.WifiManager$WifiLock d>;
+
+        if $r2 == null goto label5;
+
+     label4:
+        $r2 = <com.speedsoftware.rootexplorer.BackgroundWorker: android.net.wifi.WifiManager$WifiLock d>;
+
+        $z0 = virtualinvoke $r2.<android.net.wifi.WifiManager$WifiLock: boolean isHeld()>();
+
+        if $z0 != 0 goto label6;
+
+     label5:
+        specialinvoke $r0.<android.app.Service: void onDestroy()>();
+
+        return;
+
+     label6:
+        $r2 = <com.speedsoftware.rootexplorer.BackgroundWorker: android.net.wifi.WifiManager$WifiLock d>;
+
+        virtualinvoke $r2.<android.net.wifi.WifiManager$WifiLock: void release()>();
+
+        goto label4;
+
+     label7:
+        $r3 := @caughtexception;
+
+        goto label3;
+
+        catch java.lang.Exception from label1 to label2 with label7;
+    }
+
+    public void onStart(android.content.Intent, int)
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        android.content.Intent $r1;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        $r1 := @parameter0: android.content.Intent;
+
+        $i0 := @parameter1: int;
+
+        $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: boolean k> = 1;
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: void a(android.content.Intent)>($r1);
+
+        $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: boolean k> = 0;
+
+        return;
+    }
+
+    public int onStartCommand(android.content.Intent, int, int)
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        android.content.Intent $r1;
+        int $i0, $i1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        $r1 := @parameter0: android.content.Intent;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: boolean k> = 1;
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: void a(android.content.Intent)>($r1);
+
+        $r0.<com.speedsoftware.rootexplorer.BackgroundWorker: boolean k> = 0;
+
+        return 2;
+    }
+
+    public boolean onUnbind(android.content.Intent)
+    {
+        com.speedsoftware.rootexplorer.BackgroundWorker $r0;
+        android.content.Intent $r1;
+        boolean $z0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        $r1 := @parameter0: android.content.Intent;
+
+        $z0 = specialinvoke $r0.<android.app.Service: boolean onUnbind(android.content.Intent)>($r1);
+
+        return $z0;
+    }
+}

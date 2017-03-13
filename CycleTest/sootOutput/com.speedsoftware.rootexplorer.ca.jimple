@@ -1,0 +1,98 @@
+final class com.speedsoftware.rootexplorer.ca extends android.database.sqlite.SQLiteOpenHelper
+{
+    private android.content.Context a;
+
+    void <init>(android.content.Context)
+    {
+        com.speedsoftware.rootexplorer.ca $r0;
+        android.content.Context $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ca;
+
+        $r1 := @parameter0: android.content.Context;
+
+        specialinvoke $r0.<android.database.sqlite.SQLiteOpenHelper: void <init>(android.content.Context,java.lang.String,android.database.sqlite.SQLiteDatabase$CursorFactory,int)>($r1, "explorer.db", null, 6);
+
+        $r0.<com.speedsoftware.rootexplorer.ca: android.content.Context a> = $r1;
+
+        return;
+    }
+
+    public final void onCreate(android.database.sqlite.SQLiteDatabase)
+    {
+        com.speedsoftware.rootexplorer.ca $r0;
+        android.database.sqlite.SQLiteDatabase $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ca;
+
+        $r1 := @parameter0: android.database.sqlite.SQLiteDatabase;
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table bookmarks (_id integer primary key autoincrement, location text not null, name text not null, flags text not null);");
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table thumbnails (_id integer primary key autoincrement, name text not null, image_path text not null, timestamp integer not null, last_checked integer not null);");
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table filesystems (_id integer primary key autoincrement, name text not null, show_mount_button integer not null);");
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table file_mime_types (_id integer primary key autoincrement, action integer not null, key_mime_type text, mime_type text, application text, activity text);");
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table file_extensions (_id integer primary key autoincrement, action integer not null, key_file_extension text, mime_type text, application text, activity text);");
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create unique index ifile_mime_types1 on file_mime_types (key_mime_type)");
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create unique index ifile_extensions1 on file_extensions (key_file_extension)");
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table smb_servers (_id integer primary key autoincrement, display_name text, domain text, server text not null, userid text, password text);");
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table tabs (_id integer primary key autoincrement, tab_no integer not null, label text not null, home_path text not null, last_path text, userid text, password text, path_id text);");
+
+        return;
+    }
+
+    public final void onUpgrade(android.database.sqlite.SQLiteDatabase, int, int)
+    {
+        com.speedsoftware.rootexplorer.ca $r0;
+        android.database.sqlite.SQLiteDatabase $r1;
+        int $i0, $i1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ca;
+
+        $r1 := @parameter0: android.database.sqlite.SQLiteDatabase;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        if $i0 >= 2 goto label1;
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table thumbnails (_id integer primary key autoincrement, name text not null, image_path text not null, timestamp integer not null, last_checked integer not null);");
+
+     label1:
+        if $i0 >= 3 goto label2;
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table filesystems (_id integer primary key autoincrement, name text not null, show_mount_button integer not null);");
+
+     label2:
+        if $i0 >= 4 goto label3;
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table file_mime_types (_id integer primary key autoincrement, action integer not null, key_mime_type text, mime_type text, application text, activity text);");
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table file_extensions (_id integer primary key autoincrement, action integer not null, key_file_extension text, mime_type text, application text, activity text);");
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create unique index ifile_mime_types1 on file_mime_types (key_mime_type)");
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create unique index ifile_extensions1 on file_extensions (key_file_extension)");
+
+     label3:
+        if $i0 >= 5 goto label4;
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table smb_servers (_id integer primary key autoincrement, display_name text, domain text, server text not null, userid text, password text);");
+
+     label4:
+        if $i0 >= 6 goto label5;
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void execSQL(java.lang.String)>("create table tabs (_id integer primary key autoincrement, tab_no integer not null, label text not null, home_path text not null, last_path text, userid text, password text, path_id text);");
+
+     label5:
+        return;
+    }
+}

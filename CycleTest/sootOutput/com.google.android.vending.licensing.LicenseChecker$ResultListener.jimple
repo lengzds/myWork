@@ -1,0 +1,141 @@
+class com.google.android.vending.licensing.LicenseChecker$ResultListener extends com.google.android.vending.licensing.ILicenseResultListener$Stub
+{
+    final com.google.android.vending.licensing.LicenseChecker a;
+    private final com.google.android.vending.licensing.LicenseValidator b;
+    private java.lang.Runnable c;
+
+    public void <init>(com.google.android.vending.licensing.LicenseChecker, com.google.android.vending.licensing.LicenseValidator)
+    {
+        com.google.android.vending.licensing.LicenseChecker$ResultListener $r0;
+        com.google.android.vending.licensing.LicenseChecker $r1;
+        com.google.android.vending.licensing.LicenseValidator $r2;
+        com.google.android.vending.licensing.LicenseChecker$ResultListener$1 $r3;
+
+        $r0 := @this: com.google.android.vending.licensing.LicenseChecker$ResultListener;
+
+        $r1 := @parameter0: com.google.android.vending.licensing.LicenseChecker;
+
+        $r2 := @parameter1: com.google.android.vending.licensing.LicenseValidator;
+
+        $r0.<com.google.android.vending.licensing.LicenseChecker$ResultListener: com.google.android.vending.licensing.LicenseChecker a> = $r1;
+
+        specialinvoke $r0.<com.google.android.vending.licensing.ILicenseResultListener$Stub: void <init>()>();
+
+        $r0.<com.google.android.vending.licensing.LicenseChecker$ResultListener: com.google.android.vending.licensing.LicenseValidator b> = $r2;
+
+        $r3 = new com.google.android.vending.licensing.LicenseChecker$ResultListener$1;
+
+        specialinvoke $r3.<com.google.android.vending.licensing.LicenseChecker$ResultListener$1: void <init>(com.google.android.vending.licensing.LicenseChecker$ResultListener)>($r0);
+
+        $r0.<com.google.android.vending.licensing.LicenseChecker$ResultListener: java.lang.Runnable c> = $r3;
+
+        specialinvoke $r0.<com.google.android.vending.licensing.LicenseChecker$ResultListener: void startTimeout()>();
+
+        return;
+    }
+
+    static com.google.android.vending.licensing.LicenseValidator a(com.google.android.vending.licensing.LicenseChecker$ResultListener)
+    {
+        com.google.android.vending.licensing.LicenseChecker$ResultListener $r0;
+        com.google.android.vending.licensing.LicenseValidator r1;
+
+        $r0 := @parameter0: com.google.android.vending.licensing.LicenseChecker$ResultListener;
+
+        r1 = $r0.<com.google.android.vending.licensing.LicenseChecker$ResultListener: com.google.android.vending.licensing.LicenseValidator b>;
+
+        return r1;
+    }
+
+    static void b(com.google.android.vending.licensing.LicenseChecker$ResultListener)
+    {
+        com.google.android.vending.licensing.LicenseChecker$ResultListener $r0;
+
+        $r0 := @parameter0: com.google.android.vending.licensing.LicenseChecker$ResultListener;
+
+        specialinvoke $r0.<com.google.android.vending.licensing.LicenseChecker$ResultListener: void clearTimeout()>();
+
+        return;
+    }
+
+    static com.google.android.vending.licensing.LicenseChecker c(com.google.android.vending.licensing.LicenseChecker$ResultListener)
+    {
+        com.google.android.vending.licensing.LicenseChecker$ResultListener $r0;
+        com.google.android.vending.licensing.LicenseChecker r1;
+
+        $r0 := @parameter0: com.google.android.vending.licensing.LicenseChecker$ResultListener;
+
+        r1 = $r0.<com.google.android.vending.licensing.LicenseChecker$ResultListener: com.google.android.vending.licensing.LicenseChecker a>;
+
+        return r1;
+    }
+
+    private void clearTimeout()
+    {
+        com.google.android.vending.licensing.LicenseChecker$ResultListener $r0;
+        java.lang.Runnable $r1;
+        android.os.Handler $r2;
+        com.google.android.vending.licensing.LicenseChecker $r3;
+
+        $r0 := @this: com.google.android.vending.licensing.LicenseChecker$ResultListener;
+
+        $r3 = $r0.<com.google.android.vending.licensing.LicenseChecker$ResultListener: com.google.android.vending.licensing.LicenseChecker a>;
+
+        $r2 = staticinvoke <com.google.android.vending.licensing.LicenseChecker: android.os.Handler a(com.google.android.vending.licensing.LicenseChecker)>($r3);
+
+        $r1 = $r0.<com.google.android.vending.licensing.LicenseChecker$ResultListener: java.lang.Runnable c>;
+
+        virtualinvoke $r2.<android.os.Handler: void removeCallbacks(java.lang.Runnable)>($r1);
+
+        return;
+    }
+
+    private void startTimeout()
+    {
+        com.google.android.vending.licensing.LicenseChecker$ResultListener $r0;
+        java.lang.Runnable $r1;
+        android.os.Handler $r2;
+        com.google.android.vending.licensing.LicenseChecker $r3;
+
+        $r0 := @this: com.google.android.vending.licensing.LicenseChecker$ResultListener;
+
+        $r3 = $r0.<com.google.android.vending.licensing.LicenseChecker$ResultListener: com.google.android.vending.licensing.LicenseChecker a>;
+
+        $r2 = staticinvoke <com.google.android.vending.licensing.LicenseChecker: android.os.Handler a(com.google.android.vending.licensing.LicenseChecker)>($r3);
+
+        $r1 = $r0.<com.google.android.vending.licensing.LicenseChecker$ResultListener: java.lang.Runnable c>;
+
+        virtualinvoke $r2.<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>($r1, 10000L);
+
+        return;
+    }
+
+    public void verifyLicense(int, java.lang.String, java.lang.String)
+    {
+        com.google.android.vending.licensing.LicenseChecker$ResultListener $r0;
+        int $i0;
+        java.lang.String $r1, $r2;
+        com.google.android.vending.licensing.LicenseChecker$ResultListener$2 $r3;
+        android.os.Handler $r4;
+        com.google.android.vending.licensing.LicenseChecker $r5;
+
+        $r0 := @this: com.google.android.vending.licensing.LicenseChecker$ResultListener;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r5 = $r0.<com.google.android.vending.licensing.LicenseChecker$ResultListener: com.google.android.vending.licensing.LicenseChecker a>;
+
+        $r4 = staticinvoke <com.google.android.vending.licensing.LicenseChecker: android.os.Handler a(com.google.android.vending.licensing.LicenseChecker)>($r5);
+
+        $r3 = new com.google.android.vending.licensing.LicenseChecker$ResultListener$2;
+
+        specialinvoke $r3.<com.google.android.vending.licensing.LicenseChecker$ResultListener$2: void <init>(com.google.android.vending.licensing.LicenseChecker$ResultListener,int,java.lang.String,java.lang.String)>($r0, $i0, $r1, $r2);
+
+        virtualinvoke $r4.<android.os.Handler: boolean post(java.lang.Runnable)>($r3);
+
+        return;
+    }
+}

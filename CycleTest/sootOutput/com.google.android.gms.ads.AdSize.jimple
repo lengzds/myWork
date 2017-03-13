@@ -1,0 +1,347 @@
+public final class com.google.android.gms.ads.AdSize extends java.lang.Object
+{
+    public static final com.google.android.gms.ads.AdSize a;
+    public static final com.google.android.gms.ads.AdSize b;
+    public static final com.google.android.gms.ads.AdSize c;
+    public static final com.google.android.gms.ads.AdSize d;
+    public static final com.google.android.gms.ads.AdSize e;
+    public static final com.google.android.gms.ads.AdSize f;
+    public static final com.google.android.gms.ads.AdSize g;
+    private final int h;
+    private final int i;
+    private final java.lang.String j;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.ads.AdSize $r0;
+
+        $r0 = new com.google.android.gms.ads.AdSize;
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdSize: void <init>(int,int,java.lang.String)>(320, 50, "320x50_mb");
+
+        <com.google.android.gms.ads.AdSize: com.google.android.gms.ads.AdSize a> = $r0;
+
+        $r0 = new com.google.android.gms.ads.AdSize;
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdSize: void <init>(int,int,java.lang.String)>(468, 60, "468x60_as");
+
+        <com.google.android.gms.ads.AdSize: com.google.android.gms.ads.AdSize b> = $r0;
+
+        $r0 = new com.google.android.gms.ads.AdSize;
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdSize: void <init>(int,int,java.lang.String)>(320, 100, "320x100_as");
+
+        <com.google.android.gms.ads.AdSize: com.google.android.gms.ads.AdSize c> = $r0;
+
+        $r0 = new com.google.android.gms.ads.AdSize;
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdSize: void <init>(int,int,java.lang.String)>(728, 90, "728x90_as");
+
+        <com.google.android.gms.ads.AdSize: com.google.android.gms.ads.AdSize d> = $r0;
+
+        $r0 = new com.google.android.gms.ads.AdSize;
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdSize: void <init>(int,int,java.lang.String)>(300, 250, "300x250_as");
+
+        <com.google.android.gms.ads.AdSize: com.google.android.gms.ads.AdSize e> = $r0;
+
+        $r0 = new com.google.android.gms.ads.AdSize;
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdSize: void <init>(int,int,java.lang.String)>(160, 600, "160x600_as");
+
+        <com.google.android.gms.ads.AdSize: com.google.android.gms.ads.AdSize f> = $r0;
+
+        $r0 = new com.google.android.gms.ads.AdSize;
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdSize: void <init>(int,int,java.lang.String)>(-1, -2, "smart_banner");
+
+        <com.google.android.gms.ads.AdSize: com.google.android.gms.ads.AdSize g> = $r0;
+
+        return;
+    }
+
+    public void <init>(int, int)
+    {
+        com.google.android.gms.ads.AdSize $r0;
+        int $i0, $i1;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.google.android.gms.ads.AdSize;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        if $i0 != -1 goto label3;
+
+        $r2 = "FULL";
+
+     label1:
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("x");
+
+        if $i1 != -2 goto label4;
+
+        $r2 = "AUTO";
+
+     label2:
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("_as");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdSize: void <init>(int,int,java.lang.String)>($i0, $i1, $r2);
+
+        return;
+
+     label3:
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i0);
+
+        goto label1;
+
+     label4:
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i1);
+
+        goto label2;
+    }
+
+    void <init>(int, int, java.lang.String)
+    {
+        com.google.android.gms.ads.AdSize $r0;
+        int $i0, $i1;
+        java.lang.String $r1;
+        java.lang.IllegalArgumentException $r2;
+        java.lang.StringBuilder $r3;
+
+        $r0 := @this: com.google.android.gms.ads.AdSize;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r1 := @parameter2: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        if $i0 >= 0 goto label1;
+
+        if $i0 == -1 goto label1;
+
+        $r2 = new java.lang.IllegalArgumentException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Invalid width for AdSize: ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r1);
+
+        throw $r2;
+
+     label1:
+        if $i1 >= 0 goto label2;
+
+        if $i1 == -2 goto label2;
+
+        $r2 = new java.lang.IllegalArgumentException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Invalid height for AdSize: ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r1);
+
+        throw $r2;
+
+     label2:
+        $r0.<com.google.android.gms.ads.AdSize: int h> = $i0;
+
+        $r0.<com.google.android.gms.ads.AdSize: int i> = $i1;
+
+        $r0.<com.google.android.gms.ads.AdSize: java.lang.String j> = $r1;
+
+        return;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.ads.AdSize $r0, $r2;
+        boolean $z0;
+        java.lang.Object $r1;
+        int $i0, $i1;
+        java.lang.String $r3, $r4;
+
+        $r0 := @this: com.google.android.gms.ads.AdSize;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r1 != $r0 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof com.google.android.gms.ads.AdSize;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = (com.google.android.gms.ads.AdSize) $r1;
+
+        $i0 = $r0.<com.google.android.gms.ads.AdSize: int h>;
+
+        $i1 = $r2.<com.google.android.gms.ads.AdSize: int h>;
+
+        if $i0 != $i1 goto label3;
+
+        $i0 = $r0.<com.google.android.gms.ads.AdSize: int i>;
+
+        $i1 = $r2.<com.google.android.gms.ads.AdSize: int i>;
+
+        if $i0 != $i1 goto label3;
+
+        $r3 = $r0.<com.google.android.gms.ads.AdSize: java.lang.String j>;
+
+        $r4 = $r2.<com.google.android.gms.ads.AdSize: java.lang.String j>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r4);
+
+        if $z0 != 0 goto label4;
+
+     label3:
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    public final int getHeight()
+    {
+        com.google.android.gms.ads.AdSize $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.ads.AdSize;
+
+        i0 = $r0.<com.google.android.gms.ads.AdSize: int i>;
+
+        return i0;
+    }
+
+    public final int getHeightInPixels(android.content.Context)
+    {
+        com.google.android.gms.ads.AdSize $r0;
+        android.content.Context $r1;
+        int $i0;
+        android.content.res.Resources $r2;
+        android.util.DisplayMetrics $r3;
+
+        $r0 := @this: com.google.android.gms.ads.AdSize;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $i0 = $r0.<com.google.android.gms.ads.AdSize: int i>;
+
+        if $i0 != -2 goto label1;
+
+        $r2 = virtualinvoke $r1.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r3 = virtualinvoke $r2.<android.content.res.Resources: android.util.DisplayMetrics getDisplayMetrics()>();
+
+        $i0 = staticinvoke <com.google.android.gms.internal.am: int b(android.util.DisplayMetrics)>($r3);
+
+        return $i0;
+
+     label1:
+        $i0 = $r0.<com.google.android.gms.ads.AdSize: int i>;
+
+        $i0 = staticinvoke <com.google.android.gms.internal.eu: int a(android.content.Context,int)>($r1, $i0);
+
+        return $i0;
+    }
+
+    public final int getWidth()
+    {
+        com.google.android.gms.ads.AdSize $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.ads.AdSize;
+
+        i0 = $r0.<com.google.android.gms.ads.AdSize: int h>;
+
+        return i0;
+    }
+
+    public final int getWidthInPixels(android.content.Context)
+    {
+        com.google.android.gms.ads.AdSize $r0;
+        android.content.Context $r1;
+        int $i0;
+        android.content.res.Resources $r2;
+        android.util.DisplayMetrics $r3;
+
+        $r0 := @this: com.google.android.gms.ads.AdSize;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $i0 = $r0.<com.google.android.gms.ads.AdSize: int h>;
+
+        if $i0 != -1 goto label1;
+
+        $r2 = virtualinvoke $r1.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r3 = virtualinvoke $r2.<android.content.res.Resources: android.util.DisplayMetrics getDisplayMetrics()>();
+
+        $i0 = staticinvoke <com.google.android.gms.internal.am: int a(android.util.DisplayMetrics)>($r3);
+
+        return $i0;
+
+     label1:
+        $i0 = $r0.<com.google.android.gms.ads.AdSize: int h>;
+
+        $i0 = staticinvoke <com.google.android.gms.internal.eu: int a(android.content.Context,int)>($r1, $i0);
+
+        return $i0;
+    }
+
+    public final int hashCode()
+    {
+        com.google.android.gms.ads.AdSize $r0;
+        int $i0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.ads.AdSize;
+
+        $r1 = $r0.<com.google.android.gms.ads.AdSize: java.lang.String j>;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+        return $i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.ads.AdSize $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.android.gms.ads.AdSize;
+
+        r1 = $r0.<com.google.android.gms.ads.AdSize: java.lang.String j>;
+
+        return r1;
+    }
+}

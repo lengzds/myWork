@@ -1,0 +1,120 @@
+public abstract class com.fasterxml.jackson.databind.util.NameTransformer extends java.lang.Object
+{
+    public static final com.fasterxml.jackson.databind.util.NameTransformer NOP;
+
+    static void <clinit>()
+    {
+        com.fasterxml.jackson.databind.util.NameTransformer$1 $r0;
+
+        $r0 = new com.fasterxml.jackson.databind.util.NameTransformer$1;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.util.NameTransformer$1: void <init>()>();
+
+        <com.fasterxml.jackson.databind.util.NameTransformer: com.fasterxml.jackson.databind.util.NameTransformer NOP> = $r0;
+
+        return;
+    }
+
+    protected void <init>()
+    {
+        com.fasterxml.jackson.databind.util.NameTransformer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.NameTransformer;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.databind.util.NameTransformer chainedTransformer(com.fasterxml.jackson.databind.util.NameTransformer, com.fasterxml.jackson.databind.util.NameTransformer)
+    {
+        com.fasterxml.jackson.databind.util.NameTransformer $r0, $r1;
+        com.fasterxml.jackson.databind.util.NameTransformer$Chained $r2;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.util.NameTransformer;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.util.NameTransformer;
+
+        $r2 = new com.fasterxml.jackson.databind.util.NameTransformer$Chained;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.util.NameTransformer$Chained: void <init>(com.fasterxml.jackson.databind.util.NameTransformer,com.fasterxml.jackson.databind.util.NameTransformer)>($r0, $r1);
+
+        return $r2;
+    }
+
+    public static com.fasterxml.jackson.databind.util.NameTransformer simpleTransformer(java.lang.String, java.lang.String)
+    {
+        java.lang.String $r0, $r1;
+        boolean $z0, $z1;
+        int $i0;
+        com.fasterxml.jackson.databind.util.NameTransformer$2 $r2;
+        com.fasterxml.jackson.databind.util.NameTransformer$3 $r3;
+        com.fasterxml.jackson.databind.util.NameTransformer$4 $r4;
+        com.fasterxml.jackson.databind.util.NameTransformer r5;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $z0 = 1;
+
+        if $r0 == null goto label3;
+
+        $i0 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        if $i0 <= 0 goto label3;
+
+        $z1 = 1;
+
+     label1:
+        if $r1 == null goto label4;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        if $i0 <= 0 goto label4;
+
+     label2:
+        if $z1 == 0 goto label6;
+
+        if $z0 == 0 goto label5;
+
+        $r2 = new com.fasterxml.jackson.databind.util.NameTransformer$2;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.util.NameTransformer$2: void <init>(java.lang.String,java.lang.String)>($r0, $r1);
+
+        return $r2;
+
+     label3:
+        $z1 = 0;
+
+        goto label1;
+
+     label4:
+        $z0 = 0;
+
+        goto label2;
+
+     label5:
+        $r3 = new com.fasterxml.jackson.databind.util.NameTransformer$3;
+
+        specialinvoke $r3.<com.fasterxml.jackson.databind.util.NameTransformer$3: void <init>(java.lang.String)>($r0);
+
+        return $r3;
+
+     label6:
+        if $z0 == 0 goto label7;
+
+        $r4 = new com.fasterxml.jackson.databind.util.NameTransformer$4;
+
+        specialinvoke $r4.<com.fasterxml.jackson.databind.util.NameTransformer$4: void <init>(java.lang.String)>($r1);
+
+        return $r4;
+
+     label7:
+        r5 = <com.fasterxml.jackson.databind.util.NameTransformer: com.fasterxml.jackson.databind.util.NameTransformer NOP>;
+
+        return r5;
+    }
+
+    public abstract java.lang.String transform(java.lang.String);
+}

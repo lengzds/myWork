@@ -1,0 +1,408 @@
+final class com.speedsoftware.rootexplorer.cr extends java.lang.Object
+{
+    final com.speedsoftware.rootexplorer.cq a;
+    private byte[] b;
+    private int c;
+
+    void <init>(com.speedsoftware.rootexplorer.cq, int, java.io.InputStream)
+    {
+        com.speedsoftware.rootexplorer.cr $r0;
+        com.speedsoftware.rootexplorer.cq $r1;
+        int $i0;
+        java.io.InputStream $r2;
+        byte[] $r3;
+        java.io.IOException $r4;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cr;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.cq;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.io.InputStream;
+
+        $r0.<com.speedsoftware.rootexplorer.cr: com.speedsoftware.rootexplorer.cq a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.cr: int c> = 0;
+
+        $r3 = newarray (byte)[$i0];
+
+        $r0.<com.speedsoftware.rootexplorer.cr: byte[] b> = $r3;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+     label1:
+        virtualinvoke $r2.<java.io.InputStream: int read(byte[])>($r3);
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        virtualinvoke $r4.<java.io.IOException: void printStackTrace()>();
+
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    final void a(int)
+    {
+        com.speedsoftware.rootexplorer.cr $r0;
+        int $i0, $i1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cr;
+
+        $i0 := @parameter0: int;
+
+        $i1 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i0 = $i1 + $i0;
+
+        $r0.<com.speedsoftware.rootexplorer.cr: int c> = $i0;
+
+        return;
+    }
+
+    final boolean a()
+    {
+        com.speedsoftware.rootexplorer.cr $r0;
+        int $i0, $i1;
+        byte[] $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cr;
+
+        $i0 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i1 = lengthof $r1;
+
+        if $i0 < $i1 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    final int b()
+    {
+        com.speedsoftware.rootexplorer.cr $r0;
+        short $s0, $s4;
+        byte[] $r1;
+        int $i1, $i5, $i6, $i7, $i8;
+        byte $b2, $b3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cr;
+
+        $s0 = 128;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i1 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $b2 = $r1[$i1];
+
+        $b2 = $b2 & 127;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i1 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $b3 = $r1[$i1];
+
+        if $b3 >= 0 goto label5;
+
+        $s4 = 128;
+
+     label1:
+        $i1 = $b2 + $s4;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i5 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i5 = $i5 + 1;
+
+        $b2 = $r1[$i5];
+
+        $b2 = $b2 & 127;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i5 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i5 = $i5 + 1;
+
+        $b3 = $r1[$i5];
+
+        if $b3 >= 0 goto label6;
+
+        $s4 = 128;
+
+     label2:
+        $i5 = $b2 + $s4;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i6 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i6 = $i6 + 2;
+
+        $b2 = $r1[$i6];
+
+        $b2 = $b2 & 127;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i6 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i6 = $i6 + 2;
+
+        $b3 = $r1[$i6];
+
+        if $b3 >= 0 goto label7;
+
+        $s4 = 128;
+
+     label3:
+        $i6 = $s4 + $b2;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i7 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i7 = $i7 + 3;
+
+        $b2 = $r1[$i7];
+
+        $b2 = $b2 & 127;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i7 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i7 = $i7 + 3;
+
+        $b3 = $r1[$i7];
+
+        if $b3 >= 0 goto label8;
+
+     label4:
+        $i7 = $s0 + $b2;
+
+        $i8 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i8 = $i8 + 4;
+
+        $r0.<com.speedsoftware.rootexplorer.cr: int c> = $i8;
+
+        $i5 = $i5 * 256;
+
+        $i1 = $i5 + $i1;
+
+        $i5 = $i6 * 65536;
+
+        $i1 = $i5 + $i1;
+
+        $i5 = $i7 * 16777216;
+
+        $i1 = $i1 + $i5;
+
+        return $i1;
+
+     label5:
+        $s4 = 0;
+
+        goto label1;
+
+     label6:
+        $s4 = 0;
+
+        goto label2;
+
+     label7:
+        $s4 = 0;
+
+        goto label3;
+
+     label8:
+        $s0 = 0;
+
+        goto label4;
+    }
+
+    final int b(int)
+    {
+        com.speedsoftware.rootexplorer.cr $r0;
+        int $i0, $i1;
+        byte[] $r1;
+        byte $b2, $b3;
+        short $s4;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cr;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i1 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i1 = $i1 + $i0;
+
+        $b2 = $r1[$i1];
+
+        $b2 = $b2 & 127;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i1 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i0 = $i1 + $i0;
+
+        $b3 = $r1[$i0];
+
+        if $b3 >= 0 goto label2;
+
+        $s4 = 128;
+
+     label1:
+        $i0 = $s4 + $b2;
+
+        return $i0;
+
+     label2:
+        $s4 = 0;
+
+        goto label1;
+    }
+
+    final int c()
+    {
+        com.speedsoftware.rootexplorer.cr $r0;
+        short $s0, $s4;
+        byte[] $r1;
+        int $i1, $i5, $i6;
+        byte $b2, $b3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cr;
+
+        $s0 = 128;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i1 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $b2 = $r1[$i1];
+
+        $b2 = $b2 & 127;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i1 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $b3 = $r1[$i1];
+
+        if $b3 >= 0 goto label3;
+
+        $s4 = 128;
+
+     label1:
+        $i1 = $s4 + $b2;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i5 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i5 = $i5 + 1;
+
+        $b2 = $r1[$i5];
+
+        $b2 = $b2 & 127;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i5 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i5 = $i5 + 1;
+
+        $b3 = $r1[$i5];
+
+        if $b3 >= 0 goto label4;
+
+     label2:
+        $i5 = $s0 + $b2;
+
+        $i6 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i6 = $i6 + 2;
+
+        $r0.<com.speedsoftware.rootexplorer.cr: int c> = $i6;
+
+        $i5 = $i5 * 256;
+
+        $i1 = $i1 + $i5;
+
+        return $i1;
+
+     label3:
+        $s4 = 0;
+
+        goto label1;
+
+     label4:
+        $s0 = 0;
+
+        goto label2;
+    }
+
+    final java.lang.String c(int)
+    {
+        com.speedsoftware.rootexplorer.cr $r0;
+        int $i0, $i1, $i2;
+        java.lang.String $r1;
+        byte[] $r2;
+        java.io.UnsupportedEncodingException $r3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cr;
+
+        $i0 := @parameter0: int;
+
+        $r1 = new java.lang.String;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cr: byte[] b>;
+
+        $i1 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i2 = $i0 * 2;
+
+     label1:
+        specialinvoke $r1.<java.lang.String: void <init>(byte[],int,int,java.lang.String)>($r2, $i1, $i2, "UTF-16LE");
+
+     label2:
+        $i1 = $r0.<com.speedsoftware.rootexplorer.cr: int c>;
+
+        $i0 = $i0 * 2;
+
+        $i0 = $i0 + 2;
+
+        $i0 = $i1 + $i0;
+
+        $r0.<com.speedsoftware.rootexplorer.cr: int c> = $i0;
+
+        return $r1;
+
+     label3:
+        $r3 := @caughtexception;
+
+        virtualinvoke $r3.<java.io.UnsupportedEncodingException: void printStackTrace()>();
+
+        return "";
+
+        catch java.io.UnsupportedEncodingException from label1 to label2 with label3;
+    }
+}

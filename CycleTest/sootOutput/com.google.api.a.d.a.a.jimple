@@ -1,0 +1,139 @@
+public final class com.google.api.a.d.a.a extends com.google.api.a.d.d
+{
+
+    public void <init>()
+    {
+        com.google.api.a.d.a.a $r0;
+
+        $r0 := @this: com.google.api.a.d.a.a;
+
+        specialinvoke $r0.<com.google.api.a.d.d: void <init>()>();
+
+        return;
+    }
+
+    private com.google.api.a.d.h a(java.io.Reader)
+    {
+        com.google.api.a.d.a.a $r0;
+        java.io.Reader $r1;
+        com.google.api.a.d.a.c $r2;
+        com.google.b.b.a $r3;
+
+        $r0 := @this: com.google.api.a.d.a.a;
+
+        $r1 := @parameter0: java.io.Reader;
+
+        $r2 = new com.google.api.a.d.a.c;
+
+        $r3 = new com.google.b.b.a;
+
+        specialinvoke $r3.<com.google.b.b.a: void <init>(java.io.Reader)>($r1);
+
+        specialinvoke $r2.<com.google.api.a.d.a.c: void <init>(com.google.api.a.d.a.a,com.google.b.b.a)>($r0, $r3);
+
+        return $r2;
+    }
+
+    public final com.google.api.a.d.e a(java.io.OutputStream, java.nio.charset.Charset)
+    {
+        com.google.api.a.d.a.a $r0;
+        java.io.OutputStream $r1;
+        java.nio.charset.Charset $r2;
+        java.io.OutputStreamWriter $r3;
+        com.google.api.a.d.a.b $r4;
+        com.google.b.b.f $r5;
+
+        $r0 := @this: com.google.api.a.d.a.a;
+
+        $r1 := @parameter0: java.io.OutputStream;
+
+        $r2 := @parameter1: java.nio.charset.Charset;
+
+        $r3 = new java.io.OutputStreamWriter;
+
+        specialinvoke $r3.<java.io.OutputStreamWriter: void <init>(java.io.OutputStream,java.nio.charset.Charset)>($r1, $r2);
+
+        $r4 = new com.google.api.a.d.a.b;
+
+        $r5 = new com.google.b.b.f;
+
+        specialinvoke $r5.<com.google.b.b.f: void <init>(java.io.Writer)>($r3);
+
+        specialinvoke $r4.<com.google.api.a.d.a.b: void <init>(com.google.api.a.d.a.a,com.google.b.b.f)>($r0, $r5);
+
+        return $r4;
+    }
+
+    public final com.google.api.a.d.h a(java.io.InputStream)
+    {
+        com.google.api.a.d.a.a $r0;
+        java.io.InputStream $r1;
+        java.nio.charset.Charset $r2;
+        com.google.api.a.d.h $r3;
+        java.io.InputStreamReader $r4;
+
+        $r0 := @this: com.google.api.a.d.a.a;
+
+        $r1 := @parameter0: java.io.InputStream;
+
+        $r4 = new java.io.InputStreamReader;
+
+        $r2 = <com.google.api.a.f.m: java.nio.charset.Charset a>;
+
+        specialinvoke $r4.<java.io.InputStreamReader: void <init>(java.io.InputStream,java.nio.charset.Charset)>($r1, $r2);
+
+        $r3 = specialinvoke $r0.<com.google.api.a.d.a.a: com.google.api.a.d.h a(java.io.Reader)>($r4);
+
+        return $r3;
+    }
+
+    public final com.google.api.a.d.h a(java.io.InputStream, java.nio.charset.Charset)
+    {
+        com.google.api.a.d.a.a $r0;
+        java.io.InputStream $r1;
+        java.nio.charset.Charset $r2;
+        com.google.api.a.d.h $r3;
+        java.io.InputStreamReader $r4;
+
+        $r0 := @this: com.google.api.a.d.a.a;
+
+        $r1 := @parameter0: java.io.InputStream;
+
+        $r2 := @parameter1: java.nio.charset.Charset;
+
+        if $r2 != null goto label1;
+
+        $r3 = virtualinvoke $r0.<com.google.api.a.d.a.a: com.google.api.a.d.h a(java.io.InputStream)>($r1);
+
+        return $r3;
+
+     label1:
+        $r4 = new java.io.InputStreamReader;
+
+        specialinvoke $r4.<java.io.InputStreamReader: void <init>(java.io.InputStream,java.nio.charset.Charset)>($r1, $r2);
+
+        $r3 = specialinvoke $r0.<com.google.api.a.d.a.a: com.google.api.a.d.h a(java.io.Reader)>($r4);
+
+        return $r3;
+    }
+
+    public final com.google.api.a.d.h a(java.lang.String)
+    {
+        com.google.api.a.d.a.a $r0;
+        java.lang.String $r1;
+        com.google.api.a.d.h $r2;
+        java.io.StringReader $r3;
+
+        $r0 := @this: com.google.api.a.d.a.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = new java.io.StringReader;
+
+        specialinvoke $r3.<java.io.StringReader: void <init>(java.lang.String)>($r1);
+
+        $r2 = specialinvoke $r0.<com.google.api.a.d.a.a: com.google.api.a.d.h a(java.io.Reader)>($r3);
+
+        return $r2;
+    }
+}

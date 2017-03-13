@@ -1,0 +1,333 @@
+public final class com.fasterxml.jackson.databind.util.ObjectBuffer extends java.lang.Object
+{
+    private com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferHead;
+    private com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferTail;
+    private int _bufferedEntryCount;
+    private java.lang.Object[] _freeBuffer;
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    protected final void _copyTo(java.lang.Object, int, java.lang.Object[], int)
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer $r0;
+        java.lang.Object $r1;
+        int $i0, $i1, $i2, $i3;
+        java.lang.Object[] $r2, $r4;
+        com.fasterxml.jackson.databind.util.ObjectBuffer$Node $r3;
+        java.lang.IllegalStateException $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.lang.Object[];
+
+        $i1 := @parameter3: int;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferHead>;
+
+        $i3 = 0;
+
+     label1:
+        if $r3 == null goto label2;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.databind.util.ObjectBuffer$Node: java.lang.Object[] getData()>();
+
+        $i2 = lengthof $r4;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r4, 0, $r1, $i3, $i2);
+
+        $i3 = $i3 + $i2;
+
+        $r3 = virtualinvoke $r3.<com.fasterxml.jackson.databind.util.ObjectBuffer$Node: com.fasterxml.jackson.databind.util.ObjectBuffer$Node next()>();
+
+        goto label1;
+
+     label2:
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r2, 0, $r1, $i3, $i1);
+
+        $i1 = $i3 + $i1;
+
+        if $i1 == $i0 goto label3;
+
+        $r5 = new java.lang.IllegalStateException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("Should have gotten ");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" entries, got ");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r7);
+
+        throw $r5;
+
+     label3:
+        return;
+    }
+
+    protected final void _reset()
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer $r0;
+        java.lang.Object[] $r1;
+        com.fasterxml.jackson.databind.util.ObjectBuffer$Node $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferTail>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferTail>;
+
+        $r1 = virtualinvoke $r2.<com.fasterxml.jackson.databind.util.ObjectBuffer$Node: java.lang.Object[] getData()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: java.lang.Object[] _freeBuffer> = $r1;
+
+     label1:
+        $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferTail> = null;
+
+        $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferHead> = null;
+
+        $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: int _bufferedEntryCount> = 0;
+
+        return;
+    }
+
+    public final java.lang.Object[] appendCompletedChunk(java.lang.Object[])
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer $r0;
+        java.lang.Object[] $r1;
+        com.fasterxml.jackson.databind.util.ObjectBuffer$Node $r2, $r3;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $r2 = new com.fasterxml.jackson.databind.util.ObjectBuffer$Node;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.util.ObjectBuffer$Node: void <init>(java.lang.Object[])>($r1);
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferHead>;
+
+        if $r3 != null goto label3;
+
+        $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferTail> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferHead> = $r2;
+
+     label1:
+        $i0 = lengthof $r1;
+
+        $i1 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: int _bufferedEntryCount>;
+
+        $i1 = $i1 + $i0;
+
+        $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: int _bufferedEntryCount> = $i1;
+
+        if $i0 >= 16384 goto label4;
+
+        $i0 = $i0 + $i0;
+
+     label2:
+        $r1 = newarray (java.lang.Object)[$i0];
+
+        return $r1;
+
+     label3:
+        $r3 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferTail>;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.util.ObjectBuffer$Node: void linkNext(com.fasterxml.jackson.databind.util.ObjectBuffer$Node)>($r2);
+
+        $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferTail> = $r2;
+
+        goto label1;
+
+     label4:
+        $i1 = $i0 >> 2;
+
+        $i0 = $i0 + $i1;
+
+        goto label2;
+    }
+
+    public final void completeAndClearBuffer(java.lang.Object[], int, java.util.List)
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer $r0;
+        java.lang.Object[] $r1, $r5;
+        int $i0, $i1, $i2, $i3;
+        java.util.List $r2;
+        java.lang.Object $r3;
+        com.fasterxml.jackson.databind.util.ObjectBuffer$Node $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.util.List;
+
+        $i2 = 0;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _bufferHead>;
+
+     label1:
+        if $r4 == null goto label4;
+
+        $r5 = virtualinvoke $r4.<com.fasterxml.jackson.databind.util.ObjectBuffer$Node: java.lang.Object[] getData()>();
+
+        $i1 = lengthof $r5;
+
+        $i3 = 0;
+
+     label2:
+        if $i3 >= $i1 goto label3;
+
+        $r3 = $r5[$i3];
+
+        interfaceinvoke $r2.<java.util.List: boolean add(java.lang.Object)>($r3);
+
+        $i3 = $i3 + 1;
+
+        goto label2;
+
+     label3:
+        $r4 = virtualinvoke $r4.<com.fasterxml.jackson.databind.util.ObjectBuffer$Node: com.fasterxml.jackson.databind.util.ObjectBuffer$Node next()>();
+
+        goto label1;
+
+     label4:
+        if $i2 >= $i0 goto label5;
+
+        $r3 = $r1[$i2];
+
+        interfaceinvoke $r2.<java.util.List: boolean add(java.lang.Object)>($r3);
+
+        $i2 = $i2 + 1;
+
+        goto label4;
+
+     label5:
+        return;
+    }
+
+    public final java.lang.Object[] completeAndClearBuffer(java.lang.Object[], int)
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer $r0;
+        java.lang.Object[] $r1, $r2;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: int _bufferedEntryCount>;
+
+        $i1 = $i1 + $i0;
+
+        $r2 = newarray (java.lang.Object)[$i1];
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: void _copyTo(java.lang.Object,int,java.lang.Object[],int)>($r2, $i1, $r1, $i0);
+
+        return $r2;
+    }
+
+    public final java.lang.Object[] completeAndClearBuffer(java.lang.Object[], int, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer $r0;
+        java.lang.Object[] $r1, $r4;
+        int $i0, $i1;
+        java.lang.Class $r2;
+        java.lang.Object $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.lang.Class;
+
+        $i1 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: int _bufferedEntryCount>;
+
+        $i1 = $i0 + $i1;
+
+        $r3 = staticinvoke <java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int)>($r2, $i1);
+
+        $r4 = (java.lang.Object[]) $r3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: void _copyTo(java.lang.Object,int,java.lang.Object[],int)>($r4, $i1, $r1, $i0);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: void _reset()>();
+
+        return $r4;
+    }
+
+    public final int initialCapacity()
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer $r0;
+        java.lang.Object[] $r1;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: java.lang.Object[] _freeBuffer>;
+
+        if $r1 != null goto label1;
+
+        return 0;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: java.lang.Object[] _freeBuffer>;
+
+        $i0 = lengthof $r1;
+
+        return $i0;
+    }
+
+    public final java.lang.Object[] resetAndStart()
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer $r0;
+        java.lang.Object[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: void _reset()>();
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: java.lang.Object[] _freeBuffer>;
+
+        if $r1 != null goto label1;
+
+        $r1 = newarray (java.lang.Object)[12];
+
+        return $r1;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer: java.lang.Object[] _freeBuffer>;
+
+        return $r1;
+    }
+}

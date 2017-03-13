@@ -1,0 +1,50 @@
+final class com.speedsoftware.rootexplorer.fe extends java.lang.Thread
+{
+    final com.speedsoftware.rootexplorer.RootExplorer a;
+
+    void <init>(com.speedsoftware.rootexplorer.RootExplorer)
+    {
+        com.speedsoftware.rootexplorer.fe $r0;
+        com.speedsoftware.rootexplorer.RootExplorer $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fe;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.RootExplorer;
+
+        $r0.<com.speedsoftware.rootexplorer.fe: com.speedsoftware.rootexplorer.RootExplorer a> = $r1;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.fe $r0;
+        com.speedsoftware.rootexplorer.RootExplorer $r1;
+        android.content.SharedPreferences $r2;
+        android.content.SharedPreferences$Editor $r3;
+        android.widget.TabHost $r4;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fe;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fe: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r2 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.content.SharedPreferences getPreferences(int)>(0);
+
+        $r3 = interfaceinvoke $r2.<android.content.SharedPreferences: android.content.SharedPreferences$Editor edit()>();
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fe: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r4 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.widget.TabHost f>;
+
+        $i0 = virtualinvoke $r4.<android.widget.TabHost: int getCurrentTab()>();
+
+        interfaceinvoke $r3.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putInt(java.lang.String,int)>("current_tab", $i0);
+
+        interfaceinvoke $r3.<android.content.SharedPreferences$Editor: boolean commit()>();
+
+        return;
+    }
+}

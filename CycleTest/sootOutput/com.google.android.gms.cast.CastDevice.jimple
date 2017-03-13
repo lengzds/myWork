@@ -1,0 +1,400 @@
+public class com.google.android.gms.cast.CastDevice extends java.lang.Object implements com.google.android.gms.common.internal.safeparcel.SafeParcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    java.lang.String a;
+    private final int b;
+    private java.lang.String c;
+    private java.net.Inet4Address d;
+    private java.lang.String e;
+    private java.lang.String f;
+    private java.lang.String g;
+    private int h;
+    private java.util.List i;
+    private int j;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.cast.b $r0;
+
+        $r0 = new com.google.android.gms.cast.b;
+
+        specialinvoke $r0.<com.google.android.gms.cast.b: void <init>()>();
+
+        <com.google.android.gms.cast.CastDevice: android.os.Parcelable$Creator CREATOR> = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        java.util.ArrayList $r1;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        specialinvoke $r0.<com.google.android.gms.cast.CastDevice: void <init>(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,int)>(2, null, null, null, null, null, -1, $r1, 0);
+
+        return;
+    }
+
+    void <init>(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.util.List, int)
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        int $i0, $i1, $i2;
+        java.lang.String $r1, $r2, $r3, $r4, $r5;
+        java.util.List $r6;
+        boolean $z0;
+        java.net.InetAddress $r7;
+        java.net.Inet4Address $r8;
+        java.net.UnknownHostException $r9;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r3 := @parameter3: java.lang.String;
+
+        $r4 := @parameter4: java.lang.String;
+
+        $r5 := @parameter5: java.lang.String;
+
+        $i1 := @parameter6: int;
+
+        $r6 := @parameter7: java.util.List;
+
+        $i2 := @parameter8: int;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.cast.CastDevice: int b> = $i0;
+
+        $r0.<com.google.android.gms.cast.CastDevice: java.lang.String c> = $r1;
+
+        $r0.<com.google.android.gms.cast.CastDevice: java.lang.String a> = $r2;
+
+        $r1 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String a>;
+
+        if $r1 == null goto label3;
+
+        $r1 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String a>;
+
+     label1:
+        $r7 = staticinvoke <java.net.InetAddress: java.net.InetAddress getByName(java.lang.String)>($r1);
+
+     label2:
+        $z0 = $r7 instanceof java.net.Inet4Address;
+
+        if $z0 == 0 goto label3;
+
+        $r8 = (java.net.Inet4Address) $r7;
+
+        $r0.<com.google.android.gms.cast.CastDevice: java.net.Inet4Address d> = $r8;
+
+     label3:
+        $r0.<com.google.android.gms.cast.CastDevice: java.lang.String e> = $r3;
+
+        $r0.<com.google.android.gms.cast.CastDevice: java.lang.String f> = $r4;
+
+        $r0.<com.google.android.gms.cast.CastDevice: java.lang.String g> = $r5;
+
+        $r0.<com.google.android.gms.cast.CastDevice: int h> = $i1;
+
+        $r0.<com.google.android.gms.cast.CastDevice: java.util.List i> = $r6;
+
+        $r0.<com.google.android.gms.cast.CastDevice: int j> = $i2;
+
+        return;
+
+     label4:
+        $r9 := @caughtexception;
+
+        $r0.<com.google.android.gms.cast.CastDevice: java.net.Inet4Address d> = null;
+
+        goto label3;
+
+        catch java.net.UnknownHostException from label1 to label2 with label4;
+    }
+
+    final int a()
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        i0 = $r0.<com.google.android.gms.cast.CastDevice: int b>;
+
+        return i0;
+    }
+
+    public int describeContents()
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        return 0;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.cast.CastDevice $r0, $r2;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.lang.String $r3, $r4;
+        java.net.Inet4Address $r5, $r6;
+        int $i0, $i1;
+        java.util.List $r7, $r8;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r1 != $r0 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof com.google.android.gms.cast.CastDevice;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = (com.google.android.gms.cast.CastDevice) $r1;
+
+        $r3 = virtualinvoke $r0.<com.google.android.gms.cast.CastDevice: java.lang.String getDeviceId()>();
+
+        if $r3 != null goto label3;
+
+        $r3 = virtualinvoke $r2.<com.google.android.gms.cast.CastDevice: java.lang.String getDeviceId()>();
+
+        if $r3 == null goto label5;
+
+        return 0;
+
+     label3:
+        $r3 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String c>;
+
+        $r4 = $r2.<com.google.android.gms.cast.CastDevice: java.lang.String c>;
+
+        $z0 = staticinvoke <com.google.android.gms.internal.gj: boolean a(java.lang.Object,java.lang.Object)>($r3, $r4);
+
+        if $z0 == 0 goto label4;
+
+        $r5 = $r0.<com.google.android.gms.cast.CastDevice: java.net.Inet4Address d>;
+
+        $r6 = $r2.<com.google.android.gms.cast.CastDevice: java.net.Inet4Address d>;
+
+        $z0 = staticinvoke <com.google.android.gms.internal.gj: boolean a(java.lang.Object,java.lang.Object)>($r5, $r6);
+
+        if $z0 == 0 goto label4;
+
+        $r3 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String f>;
+
+        $r4 = $r2.<com.google.android.gms.cast.CastDevice: java.lang.String f>;
+
+        $z0 = staticinvoke <com.google.android.gms.internal.gj: boolean a(java.lang.Object,java.lang.Object)>($r3, $r4);
+
+        if $z0 == 0 goto label4;
+
+        $r3 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String e>;
+
+        $r4 = $r2.<com.google.android.gms.cast.CastDevice: java.lang.String e>;
+
+        $z0 = staticinvoke <com.google.android.gms.internal.gj: boolean a(java.lang.Object,java.lang.Object)>($r3, $r4);
+
+        if $z0 == 0 goto label4;
+
+        $r3 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String g>;
+
+        $r4 = $r2.<com.google.android.gms.cast.CastDevice: java.lang.String g>;
+
+        $z0 = staticinvoke <com.google.android.gms.internal.gj: boolean a(java.lang.Object,java.lang.Object)>($r3, $r4);
+
+        if $z0 == 0 goto label4;
+
+        $i0 = $r0.<com.google.android.gms.cast.CastDevice: int h>;
+
+        $i1 = $r2.<com.google.android.gms.cast.CastDevice: int h>;
+
+        if $i0 != $i1 goto label4;
+
+        $r7 = $r0.<com.google.android.gms.cast.CastDevice: java.util.List i>;
+
+        $r8 = $r2.<com.google.android.gms.cast.CastDevice: java.util.List i>;
+
+        $z0 = staticinvoke <com.google.android.gms.internal.gj: boolean a(java.lang.Object,java.lang.Object)>($r7, $r8);
+
+        if $z0 == 0 goto label4;
+
+        $i0 = $r0.<com.google.android.gms.cast.CastDevice: int j>;
+
+        $i1 = $r2.<com.google.android.gms.cast.CastDevice: int j>;
+
+        if $i0 == $i1 goto label5;
+
+     label4:
+        return 0;
+
+     label5:
+        return 1;
+    }
+
+    public int getCapabilities()
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        i0 = $r0.<com.google.android.gms.cast.CastDevice: int j>;
+
+        return i0;
+    }
+
+    public java.lang.String getDeviceId()
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        r1 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String c>;
+
+        return r1;
+    }
+
+    public java.lang.String getDeviceVersion()
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        r1 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String g>;
+
+        return r1;
+    }
+
+    public java.lang.String getFriendlyName()
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        r1 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String e>;
+
+        return r1;
+    }
+
+    public java.util.List getIcons()
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        java.util.List $r1;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        $r1 = $r0.<com.google.android.gms.cast.CastDevice: java.util.List i>;
+
+        $r1 = staticinvoke <java.util.Collections: java.util.List unmodifiableList(java.util.List)>($r1);
+
+        return $r1;
+    }
+
+    public java.lang.String getModelName()
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        r1 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String f>;
+
+        return r1;
+    }
+
+    public int getServicePort()
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        i0 = $r0.<com.google.android.gms.cast.CastDevice: int h>;
+
+        return i0;
+    }
+
+    public int hashCode()
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        int $i0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        $r1 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String c>;
+
+        if $r1 != null goto label1;
+
+        return 0;
+
+     label1:
+        $r1 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String c>;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+        return $i0;
+    }
+
+    public java.lang.String toString()
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        java.lang.String $r1;
+        java.lang.Object[] $r2;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        $r2 = newarray (java.lang.Object)[2];
+
+        $r1 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String e>;
+
+        $r2[0] = $r1;
+
+        $r1 = $r0.<com.google.android.gms.cast.CastDevice: java.lang.String c>;
+
+        $r2[1] = $r1;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("\"%s\" (%s)", $r2);
+
+        return $r1;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.cast.CastDevice $r0;
+        android.os.Parcel $r1;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.cast.CastDevice;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        staticinvoke <com.google.android.gms.cast.b: void a(com.google.android.gms.cast.CastDevice,android.os.Parcel)>($r0, $r1);
+
+        return;
+    }
+}

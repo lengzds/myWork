@@ -1,0 +1,167 @@
+final class a.d.bu extends a.d.at
+{
+    int S;
+    int T;
+    a.d.bv[] U;
+    int a;
+
+    void <init>()
+    {
+        a.d.bu $r0;
+
+        $r0 := @this: a.d.bu;
+
+        specialinvoke $r0.<a.d.at: void <init>()>();
+
+        $r0.<a.d.bu: byte L> = 16;
+
+        return;
+    }
+
+    final int a(byte[], int)
+    {
+        a.d.bu $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.bu;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int a(byte[], int, int)
+    {
+        a.d.bu $r0;
+        byte[] $r1;
+        int $i0, $i1, $i2, $i3, $i4;
+        a.d.bv $r2;
+        a.d.bv[] $r3;
+
+        $r0 := @this: a.d.bu;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 = staticinvoke <a.d.bu: int d(byte[],int)>($r1, $i0);
+
+        $r0.<a.d.bu: int a> = $i2;
+
+        $i2 = $i0 + 2;
+
+        $i3 = $r0.<a.d.bu: int m>;
+
+        $i3 = $i3 & 32768;
+
+        if $i3 == 0 goto label1;
+
+        $i3 = $r0.<a.d.bu: int a>;
+
+        $i3 = $i3 / 2;
+
+        $r0.<a.d.bu: int a> = $i3;
+
+     label1:
+        $i3 = staticinvoke <a.d.bu: int d(byte[],int)>($r1, $i2);
+
+        $r0.<a.d.bu: int S> = $i3;
+
+        $i2 = $i2 + 2;
+
+        $i3 = staticinvoke <a.d.bu: int d(byte[],int)>($r1, $i2);
+
+        $r0.<a.d.bu: int T> = $i3;
+
+        $i2 = $i2 + 4;
+
+        $i3 = $r0.<a.d.bu: int S>;
+
+        $r3 = newarray (a.d.bv)[$i3];
+
+        $r0.<a.d.bu: a.d.bv[] U> = $r3;
+
+        $i3 = 0;
+
+     label2:
+        $i4 = $r0.<a.d.bu: int S>;
+
+        if $i3 >= $i4 goto label3;
+
+        $r3 = $r0.<a.d.bu: a.d.bv[] U>;
+
+        $r2 = new a.d.bv;
+
+        specialinvoke $r2.<a.d.bv: void <init>(a.d.bu)>($r0);
+
+        $r3[$i3] = $r2;
+
+        $r3 = $r0.<a.d.bu: a.d.bv[] U>;
+
+        $r2 = $r3[$i3];
+
+        $i4 = virtualinvoke $r2.<a.d.bv: int a(byte[],int,int)>($r1, $i2, $i1);
+
+        $i2 = $i2 + $i4;
+
+        $i3 = $i3 + 1;
+
+        goto label2;
+
+     label3:
+        $i0 = $i2 - $i0;
+
+        return $i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.bu $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+        int $i0;
+
+        $r0 := @this: a.d.bu;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("Trans2GetDfsReferralResponse[");
+
+        $r3 = specialinvoke $r0.<a.d.at: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",pathConsumed=");
+
+        $i0 = $r0.<a.d.bu: int a>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",numReferrals=");
+
+        $i0 = $r0.<a.d.bu: int S>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",flags=");
+
+        $i0 = $r0.<a.d.bu: int T>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

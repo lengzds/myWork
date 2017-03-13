@@ -1,0 +1,234 @@
+final class a.c extends java.lang.Thread
+{
+    a.d a;
+    java.lang.String b;
+    java.lang.String c;
+    int d;
+    a.b.g e;
+    java.net.InetAddress f;
+    java.net.UnknownHostException g;
+
+    void <init>(a.d, java.lang.String, int, java.net.InetAddress)
+    {
+        a.c $r0;
+        a.d $r1;
+        java.lang.String $r2, $r5;
+        int $i0;
+        java.net.InetAddress $r3;
+        java.lang.StringBuilder $r4;
+
+        $r0 := @this: a.c;
+
+        $r1 := @parameter0: a.d;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $i0 := @parameter2: int;
+
+        $r3 := @parameter3: java.net.InetAddress;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("JCIFS-QueryThread: ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<java.lang.Thread: void <init>(java.lang.String)>($r5);
+
+        $r0.<a.c: a.b.g e> = null;
+
+        $r0.<a.c: a.d a> = $r1;
+
+        $r0.<a.c: java.lang.String b> = $r2;
+
+        $r0.<a.c: int d> = $i0;
+
+        $r0.<a.c: java.lang.String c> = null;
+
+        $r0.<a.c: java.net.InetAddress f> = $r3;
+
+        return;
+    }
+
+    public final void run()
+    {
+        a.c $r0;
+        java.lang.String $r1, $r2;
+        int $i0;
+        java.net.InetAddress $r3;
+        a.b.g $r4;
+        a.d $r5, $r6;
+        java.lang.Throwable $r7, $r9, $r11, $r12, $r13;
+        java.net.UnknownHostException $r8;
+        java.lang.Exception $r10;
+
+        $r0 := @this: a.c;
+
+     label01:
+        $r1 = $r0.<a.c: java.lang.String b>;
+
+        $i0 = $r0.<a.c: int d>;
+
+        $r2 = $r0.<a.c: java.lang.String c>;
+
+        $r3 = $r0.<a.c: java.net.InetAddress f>;
+
+     label02:
+        $r4 = staticinvoke <a.b.g: a.b.g a(java.lang.String,int,java.lang.String,java.net.InetAddress)>($r1, $i0, $r2, $r3);
+
+     label03:
+        $r0.<a.c: a.b.g e> = $r4;
+
+     label04:
+        $r5 = $r0.<a.c: a.d a>;
+
+        entermonitor $r5;
+
+     label05:
+        $r6 = $r0.<a.c: a.d a>;
+
+        $i0 = $r6.<a.d: int a>;
+
+        $i0 = $i0 + -1;
+
+        $r6.<a.d: int a> = $i0;
+
+        $r6 = $r0.<a.c: a.d a>;
+
+        virtualinvoke $r6.<java.lang.Object: void notify()>();
+
+        exitmonitor $r5;
+
+     label06:
+        return;
+
+     label07:
+        $r7 := @caughtexception;
+
+        exitmonitor $r5;
+
+        throw $r7;
+
+     label08:
+        $r8 := @caughtexception;
+
+     label09:
+        $r0.<a.c: java.net.UnknownHostException g> = $r8;
+
+     label10:
+        $r5 = $r0.<a.c: a.d a>;
+
+        entermonitor $r5;
+
+     label11:
+        $r6 = $r0.<a.c: a.d a>;
+
+        $i0 = $r6.<a.d: int a>;
+
+        $i0 = $i0 + -1;
+
+        $r6.<a.d: int a> = $i0;
+
+        $r6 = $r0.<a.c: a.d a>;
+
+        virtualinvoke $r6.<java.lang.Object: void notify()>();
+
+        exitmonitor $r5;
+
+     label12:
+        return;
+
+     label13:
+        $r9 := @caughtexception;
+
+        exitmonitor $r5;
+
+        throw $r9;
+
+     label14:
+        $r10 := @caughtexception;
+
+     label15:
+        $r8 = new java.net.UnknownHostException;
+
+        $r1 = virtualinvoke $r10.<java.lang.Exception: java.lang.String getMessage()>();
+
+        specialinvoke $r8.<java.net.UnknownHostException: void <init>(java.lang.String)>($r1);
+
+        $r0.<a.c: java.net.UnknownHostException g> = $r8;
+
+     label16:
+        $r5 = $r0.<a.c: a.d a>;
+
+        entermonitor $r5;
+
+     label17:
+        $r6 = $r0.<a.c: a.d a>;
+
+        $i0 = $r6.<a.d: int a>;
+
+        $i0 = $i0 + -1;
+
+        $r6.<a.d: int a> = $i0;
+
+        $r6 = $r0.<a.c: a.d a>;
+
+        virtualinvoke $r6.<java.lang.Object: void notify()>();
+
+        exitmonitor $r5;
+
+     label18:
+        return;
+
+     label19:
+        $r11 := @caughtexception;
+
+        exitmonitor $r5;
+
+        throw $r11;
+
+     label20:
+        $r12 := @caughtexception;
+
+        $r5 = $r0.<a.c: a.d a>;
+
+        entermonitor $r5;
+
+     label21:
+        $r6 = $r0.<a.c: a.d a>;
+
+        $i0 = $r6.<a.d: int a>;
+
+        $i0 = $i0 + -1;
+
+        $r6.<a.d: int a> = $i0;
+
+        $r6 = $r0.<a.c: a.d a>;
+
+        virtualinvoke $r6.<java.lang.Object: void notify()>();
+
+        exitmonitor $r5;
+
+     label22:
+        throw $r12;
+
+     label23:
+        $r13 := @caughtexception;
+
+        exitmonitor $r5;
+
+        throw $r13;
+
+        catch java.net.UnknownHostException from label02 to label03 with label08;
+        catch java.lang.Exception from label01 to label04 with label14;
+        catch java.lang.Throwable from label01 to label04 with label20;
+        catch java.lang.Throwable from label05 to label06 with label07;
+        catch java.lang.Throwable from label09 to label10 with label20;
+        catch java.lang.Throwable from label11 to label12 with label13;
+        catch java.lang.Throwable from label15 to label16 with label20;
+        catch java.lang.Throwable from label17 to label18 with label19;
+        catch java.lang.Throwable from label21 to label22 with label23;
+    }
+}

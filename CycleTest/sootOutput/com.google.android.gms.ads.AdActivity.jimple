@@ -1,0 +1,387 @@
+public final class com.google.android.gms.ads.AdActivity extends android.app.Activity
+{
+    private com.google.android.gms.internal.co a;
+
+    public void <init>()
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        return;
+    }
+
+    private void N()
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+        com.google.android.gms.internal.co $r1;
+        android.os.RemoteException $r2;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+        if $r1 == null goto label4;
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+     label1:
+        interfaceinvoke $r1.<com.google.android.gms.internal.co: void N()>();
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void c(java.lang.String,java.lang.Throwable)>("Could not forward setContentViewSet to ad overlay:", $r2);
+
+     label4:
+        return;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    protected final void onCreate(android.os.Bundle)
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+        android.os.Bundle $r1;
+        com.google.android.gms.internal.co $r2;
+        android.os.RemoteException $r3;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        $r2 = staticinvoke <com.google.android.gms.internal.cn: com.google.android.gms.internal.co a(android.app.Activity)>($r0);
+
+        $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a> = $r2;
+
+        $r2 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+        if $r2 != null goto label1;
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>("Could not create ad overlay.");
+
+        virtualinvoke $r0.<com.google.android.gms.ads.AdActivity: void finish()>();
+
+        return;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+     label2:
+        interfaceinvoke $r2.<com.google.android.gms.internal.co: void onCreate(android.os.Bundle)>($r1);
+
+     label3:
+        return;
+
+     label4:
+        $r3 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void c(java.lang.String,java.lang.Throwable)>("Could not forward onCreate to ad overlay:", $r3);
+
+        virtualinvoke $r0.<com.google.android.gms.ads.AdActivity: void finish()>();
+
+        return;
+
+        catch android.os.RemoteException from label2 to label3 with label4;
+    }
+
+    protected final void onDestroy()
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+        com.google.android.gms.internal.co $r1;
+        android.os.RemoteException $r2;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+        if $r1 == null goto label2;
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+     label1:
+        interfaceinvoke $r1.<com.google.android.gms.internal.co: void onDestroy()>();
+
+     label2:
+        specialinvoke $r0.<android.app.Activity: void onDestroy()>();
+
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void c(java.lang.String,java.lang.Throwable)>("Could not forward onDestroy to ad overlay:", $r2);
+
+        goto label2;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    protected final void onPause()
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+        com.google.android.gms.internal.co $r1;
+        android.os.RemoteException $r2;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+        if $r1 == null goto label2;
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+     label1:
+        interfaceinvoke $r1.<com.google.android.gms.internal.co: void onPause()>();
+
+     label2:
+        specialinvoke $r0.<android.app.Activity: void onPause()>();
+
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void c(java.lang.String,java.lang.Throwable)>("Could not forward onPause to ad overlay:", $r2);
+
+        virtualinvoke $r0.<com.google.android.gms.ads.AdActivity: void finish()>();
+
+        goto label2;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    protected final void onRestart()
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+        com.google.android.gms.internal.co $r1;
+        android.os.RemoteException $r2;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        specialinvoke $r0.<android.app.Activity: void onRestart()>();
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+        if $r1 == null goto label4;
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+     label1:
+        interfaceinvoke $r1.<com.google.android.gms.internal.co: void onRestart()>();
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void c(java.lang.String,java.lang.Throwable)>("Could not forward onRestart to ad overlay:", $r2);
+
+        virtualinvoke $r0.<com.google.android.gms.ads.AdActivity: void finish()>();
+
+     label4:
+        return;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    protected final void onResume()
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+        com.google.android.gms.internal.co $r1;
+        android.os.RemoteException $r2;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        specialinvoke $r0.<android.app.Activity: void onResume()>();
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+        if $r1 == null goto label4;
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+     label1:
+        interfaceinvoke $r1.<com.google.android.gms.internal.co: void onResume()>();
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void c(java.lang.String,java.lang.Throwable)>("Could not forward onResume to ad overlay:", $r2);
+
+        virtualinvoke $r0.<com.google.android.gms.ads.AdActivity: void finish()>();
+
+     label4:
+        return;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    protected final void onSaveInstanceState(android.os.Bundle)
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+        android.os.Bundle $r1;
+        com.google.android.gms.internal.co $r2;
+        android.os.RemoteException $r3;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        $r2 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+        if $r2 == null goto label2;
+
+        $r2 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+     label1:
+        interfaceinvoke $r2.<com.google.android.gms.internal.co: void onSaveInstanceState(android.os.Bundle)>($r1);
+
+     label2:
+        specialinvoke $r0.<android.app.Activity: void onSaveInstanceState(android.os.Bundle)>($r1);
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void c(java.lang.String,java.lang.Throwable)>("Could not forward onSaveInstanceState to ad overlay:", $r3);
+
+        virtualinvoke $r0.<com.google.android.gms.ads.AdActivity: void finish()>();
+
+        goto label2;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    protected final void onStart()
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+        com.google.android.gms.internal.co $r1;
+        android.os.RemoteException $r2;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        specialinvoke $r0.<android.app.Activity: void onStart()>();
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+        if $r1 == null goto label4;
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+     label1:
+        interfaceinvoke $r1.<com.google.android.gms.internal.co: void onStart()>();
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void c(java.lang.String,java.lang.Throwable)>("Could not forward onStart to ad overlay:", $r2);
+
+        virtualinvoke $r0.<com.google.android.gms.ads.AdActivity: void finish()>();
+
+     label4:
+        return;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    protected final void onStop()
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+        com.google.android.gms.internal.co $r1;
+        android.os.RemoteException $r2;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+        if $r1 == null goto label2;
+
+        $r1 = $r0.<com.google.android.gms.ads.AdActivity: com.google.android.gms.internal.co a>;
+
+     label1:
+        interfaceinvoke $r1.<com.google.android.gms.internal.co: void onStop()>();
+
+     label2:
+        specialinvoke $r0.<android.app.Activity: void onStop()>();
+
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void c(java.lang.String,java.lang.Throwable)>("Could not forward onStop to ad overlay:", $r2);
+
+        virtualinvoke $r0.<com.google.android.gms.ads.AdActivity: void finish()>();
+
+        goto label2;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    public final void setContentView(int)
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<android.app.Activity: void setContentView(int)>($i0);
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdActivity: void N()>();
+
+        return;
+    }
+
+    public final void setContentView(android.view.View)
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+        android.view.View $r1;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        $r1 := @parameter0: android.view.View;
+
+        specialinvoke $r0.<android.app.Activity: void setContentView(android.view.View)>($r1);
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdActivity: void N()>();
+
+        return;
+    }
+
+    public final void setContentView(android.view.View, android.view.ViewGroup$LayoutParams)
+    {
+        com.google.android.gms.ads.AdActivity $r0;
+        android.view.View $r1;
+        android.view.ViewGroup$LayoutParams $r2;
+
+        $r0 := @this: com.google.android.gms.ads.AdActivity;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r2 := @parameter1: android.view.ViewGroup$LayoutParams;
+
+        specialinvoke $r0.<android.app.Activity: void setContentView(android.view.View,android.view.ViewGroup$LayoutParams)>($r1, $r2);
+
+        specialinvoke $r0.<com.google.android.gms.ads.AdActivity: void N()>();
+
+        return;
+    }
+}

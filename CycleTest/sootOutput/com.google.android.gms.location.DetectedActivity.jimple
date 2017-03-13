@@ -1,0 +1,143 @@
+public class com.google.android.gms.location.DetectedActivity extends java.lang.Object implements com.google.android.gms.common.internal.safeparcel.SafeParcelable
+{
+    public static final com.google.android.gms.location.DetectedActivityCreator CREATOR;
+    int a;
+    int b;
+    private final int c;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.location.DetectedActivityCreator $r0;
+
+        $r0 = new com.google.android.gms.location.DetectedActivityCreator;
+
+        specialinvoke $r0.<com.google.android.gms.location.DetectedActivityCreator: void <init>()>();
+
+        <com.google.android.gms.location.DetectedActivity: com.google.android.gms.location.DetectedActivityCreator CREATOR> = $r0;
+
+        return;
+    }
+
+    public void <init>(int, int, int)
+    {
+        com.google.android.gms.location.DetectedActivity $r0;
+        int $i0, $i1, $i2;
+
+        $r0 := @this: com.google.android.gms.location.DetectedActivity;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $i2 := @parameter2: int;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.location.DetectedActivity: int c> = $i0;
+
+        $r0.<com.google.android.gms.location.DetectedActivity: int a> = $i1;
+
+        $r0.<com.google.android.gms.location.DetectedActivity: int b> = $i2;
+
+        return;
+    }
+
+    private int cF(int)
+    {
+        com.google.android.gms.location.DetectedActivity $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.location.DetectedActivity;
+
+        $i0 := @parameter0: int;
+
+        if $i0 <= 8 goto label1;
+
+        return 4;
+
+     label1:
+        return $i0;
+    }
+
+    public int describeContents()
+    {
+        com.google.android.gms.location.DetectedActivity $r0;
+
+        $r0 := @this: com.google.android.gms.location.DetectedActivity;
+
+        return 0;
+    }
+
+    public int getType()
+    {
+        com.google.android.gms.location.DetectedActivity $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.location.DetectedActivity;
+
+        $i0 = $r0.<com.google.android.gms.location.DetectedActivity: int a>;
+
+        $i0 = specialinvoke $r0.<com.google.android.gms.location.DetectedActivity: int cF(int)>($i0);
+
+        return $i0;
+    }
+
+    public int getVersionCode()
+    {
+        com.google.android.gms.location.DetectedActivity $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.location.DetectedActivity;
+
+        i0 = $r0.<com.google.android.gms.location.DetectedActivity: int c>;
+
+        return i0;
+    }
+
+    public java.lang.String toString()
+    {
+        com.google.android.gms.location.DetectedActivity $r0;
+        java.lang.StringBuilder $r1;
+        int $i0;
+        java.lang.String $r2;
+
+        $r0 := @this: com.google.android.gms.location.DetectedActivity;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("DetectedActivity [type=");
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.location.DetectedActivity: int getType()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", confidence=");
+
+        $i0 = $r0.<com.google.android.gms.location.DetectedActivity: int b>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.location.DetectedActivity $r0;
+        android.os.Parcel $r1;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.location.DetectedActivity;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        staticinvoke <com.google.android.gms.location.DetectedActivityCreator: void a(com.google.android.gms.location.DetectedActivity,android.os.Parcel)>($r0, $r1);
+
+        return;
+    }
+}

@@ -1,0 +1,452 @@
+final class com.speedsoftware.rootexplorer.dl extends java.lang.Thread
+{
+    final com.speedsoftware.rootexplorer.OpStatusActivity a;
+
+    void <init>(com.speedsoftware.rootexplorer.OpStatusActivity)
+    {
+        com.speedsoftware.rootexplorer.dl $r0;
+        com.speedsoftware.rootexplorer.OpStatusActivity $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.dl;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.OpStatusActivity;
+
+        $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a> = $r1;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.dl $r0;
+        com.speedsoftware.rootexplorer.OpStatusActivity $r1, $r4;
+        boolean $z0, $z1;
+        android.content.Intent $r2;
+        android.content.Context $r3;
+        android.content.ServiceConnection $r5;
+        com.speedsoftware.rootexplorer.BackgroundWorker $r6;
+        long $l0;
+        com.speedsoftware.rootexplorer.cm $r7;
+        android.os.Handler $r8;
+        java.lang.Runnable $r9;
+        java.lang.InterruptedException $r10;
+        com.speedsoftware.rootexplorer.eb $r11, $r12;
+        java.lang.Throwable $r13;
+        java.lang.String $r14, $r15;
+        int $i1, $i2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.dl;
+
+     label01:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: void b(com.speedsoftware.rootexplorer.OpStatusActivity,boolean)>($r1, 1);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: void n(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $z0 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: boolean o(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+     label02:
+        if $z0 != 0 goto label04;
+
+     label03:
+        $r2 = new android.content.Intent;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: android.content.Context k(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r3, class "com/speedsoftware/rootexplorer/BackgroundWorker");
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: android.content.ServiceConnection p(com.speedsoftware.rootexplorer.OpStatusActivity)>($r4);
+
+        virtualinvoke $r1.<com.speedsoftware.rootexplorer.OpStatusActivity: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>($r2, $r5, 1);
+
+     label04:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $z0 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: boolean q(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+     label05:
+        if $z0 != 0 goto label08;
+
+     label06:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $z0 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: boolean r(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+     label07:
+        if $z0 == 0 goto label10;
+
+     label08:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: void b(com.speedsoftware.rootexplorer.OpStatusActivity,boolean)>($r1, 0);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: com.speedsoftware.rootexplorer.BackgroundWorker m(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+        if $r6 == null goto label09;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: com.speedsoftware.rootexplorer.BackgroundWorker m(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+        virtualinvoke $r6.<com.speedsoftware.rootexplorer.BackgroundWorker: void a()>();
+
+     label09:
+        <com.speedsoftware.rootexplorer.OpStatusActivity: long b> = 0L;
+
+        return;
+
+     label10:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label11:
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: com.speedsoftware.rootexplorer.BackgroundWorker m(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+     label12:
+        if $r6 == null goto label24;
+
+     label13:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label14:
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: com.speedsoftware.rootexplorer.BackgroundWorker m(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+     label15:
+        $l0 = <com.speedsoftware.rootexplorer.OpStatusActivity: long b>;
+
+     label16:
+        $r7 = virtualinvoke $r6.<com.speedsoftware.rootexplorer.BackgroundWorker: com.speedsoftware.rootexplorer.cm a(long)>($l0);
+
+     label17:
+        if $r7 != null goto label27;
+
+     label18:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label19:
+        staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: void l(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+     label20:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label21:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: android.os.Handler s(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+     label22:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $r9 = $r1.<com.speedsoftware.rootexplorer.OpStatusActivity: java.lang.Runnable d>;
+
+     label23:
+        virtualinvoke $r8.<android.os.Handler: boolean post(java.lang.Runnable)>($r9);
+
+     label24:
+        staticinvoke <java.lang.Thread: void sleep(long)>(20L);
+
+     label25:
+        goto label04;
+
+     label26:
+        $r10 := @caughtexception;
+
+        goto label04;
+
+     label27:
+        $r11 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: com.speedsoftware.rootexplorer.eb k()>();
+
+     label28:
+        $r12 = <com.speedsoftware.rootexplorer.eb: com.speedsoftware.rootexplorer.eb b>;
+
+     label29:
+        if $r11 == $r12 goto label41;
+
+     label30:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label31:
+        staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: void l(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+     label32:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label33:
+        staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: void a(com.speedsoftware.rootexplorer.OpStatusActivity,com.speedsoftware.rootexplorer.cm)>($r1, $r7);
+
+     label34:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label35:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: android.os.Handler s(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+     label36:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $r9 = $r1.<com.speedsoftware.rootexplorer.OpStatusActivity: java.lang.Runnable e>;
+
+     label37:
+        virtualinvoke $r8.<android.os.Handler: boolean post(java.lang.Runnable)>($r9);
+
+     label38:
+        goto label24;
+
+     label39:
+        $r13 := @caughtexception;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: void b(com.speedsoftware.rootexplorer.OpStatusActivity,boolean)>($r1, 0);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: com.speedsoftware.rootexplorer.BackgroundWorker m(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+        if $r6 == null goto label40;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: com.speedsoftware.rootexplorer.BackgroundWorker m(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+        virtualinvoke $r6.<com.speedsoftware.rootexplorer.BackgroundWorker: void a()>();
+
+     label40:
+        <com.speedsoftware.rootexplorer.OpStatusActivity: long b> = 0L;
+
+        throw $r13;
+
+     label41:
+        $r14 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: java.lang.String n()>();
+
+     label42:
+        if $r14 == null goto label89;
+
+     label43:
+        $r14 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: java.lang.String n()>();
+
+     label44:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label45:
+        $r15 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: java.lang.String b(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+        $z0 = virtualinvoke $r14.<java.lang.String: boolean equals(java.lang.Object)>($r15);
+
+     label46:
+        if $z0 != 0 goto label89;
+
+     label47:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label48:
+        $r14 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: java.lang.String n()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: void a(com.speedsoftware.rootexplorer.OpStatusActivity,java.lang.String)>($r1, $r14);
+
+     label49:
+        $z0 = 1;
+
+     label50:
+        $r14 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: java.lang.String o()>();
+
+     label51:
+        if $r14 == null goto label59;
+
+     label52:
+        $r14 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: java.lang.String o()>();
+
+     label53:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label54:
+        $r15 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: java.lang.String d(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+        $z1 = virtualinvoke $r14.<java.lang.String: boolean equals(java.lang.Object)>($r15);
+
+     label55:
+        if $z1 != 0 goto label59;
+
+     label56:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label57:
+        $r14 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: java.lang.String o()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: void b(com.speedsoftware.rootexplorer.OpStatusActivity,java.lang.String)>($r1, $r14);
+
+     label58:
+        $z0 = 1;
+
+     label59:
+        $r14 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: java.lang.String p()>();
+
+     label60:
+        if $r14 == null goto label68;
+
+     label61:
+        $r14 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: java.lang.String p()>();
+
+     label62:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label63:
+        $r15 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: java.lang.String f(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+        $z1 = virtualinvoke $r14.<java.lang.String: boolean equals(java.lang.Object)>($r15);
+
+     label64:
+        if $z1 != 0 goto label68;
+
+     label65:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label66:
+        $r14 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: java.lang.String p()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: void c(com.speedsoftware.rootexplorer.OpStatusActivity,java.lang.String)>($r1, $r14);
+
+     label67:
+        $z0 = 1;
+
+     label68:
+        $i1 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: int l()>();
+
+     label69:
+        if $i1 <= 0 goto label83;
+
+     label70:
+        $i1 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: int l()>();
+
+     label71:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label72:
+        $i2 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: int h(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+     label73:
+        if $i1 != $i2 goto label78;
+
+     label74:
+        $i1 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: int m()>();
+
+     label75:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label76:
+        $i2 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: int i(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+     label77:
+        if $i1 == $i2 goto label83;
+
+     label78:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label79:
+        $i1 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: int l()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: void a(com.speedsoftware.rootexplorer.OpStatusActivity,int)>($r1, $i1);
+
+     label80:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label81:
+        $i1 = interfaceinvoke $r7.<com.speedsoftware.rootexplorer.cm: int m()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: void b(com.speedsoftware.rootexplorer.OpStatusActivity,int)>($r1, $i1);
+
+     label82:
+        $z0 = 1;
+
+     label83:
+        if $z0 == 0 goto label24;
+
+     label84:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+     label85:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.OpStatusActivity: android.os.Handler s(com.speedsoftware.rootexplorer.OpStatusActivity)>($r1);
+
+     label86:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.dl: com.speedsoftware.rootexplorer.OpStatusActivity a>;
+
+        $r9 = $r1.<com.speedsoftware.rootexplorer.OpStatusActivity: java.lang.Runnable c>;
+
+     label87:
+        virtualinvoke $r8.<android.os.Handler: boolean post(java.lang.Runnable)>($r9);
+
+     label88:
+        goto label24;
+
+     label89:
+        $z0 = 0;
+
+        goto label50;
+
+        catch java.lang.Throwable from label01 to label02 with label39;
+        catch java.lang.Throwable from label03 to label05 with label39;
+        catch java.lang.Throwable from label06 to label07 with label39;
+        catch java.lang.InterruptedException from label11 to label12 with label26;
+        catch java.lang.InterruptedException from label14 to label15 with label26;
+        catch java.lang.InterruptedException from label16 to label17 with label26;
+        catch java.lang.InterruptedException from label19 to label20 with label26;
+        catch java.lang.InterruptedException from label21 to label22 with label26;
+        catch java.lang.InterruptedException from label23 to label25 with label26;
+        catch java.lang.InterruptedException from label27 to label28 with label26;
+        catch java.lang.InterruptedException from label31 to label32 with label26;
+        catch java.lang.InterruptedException from label33 to label34 with label26;
+        catch java.lang.InterruptedException from label35 to label36 with label26;
+        catch java.lang.InterruptedException from label37 to label38 with label26;
+        catch java.lang.Throwable from label10 to label12 with label39;
+        catch java.lang.Throwable from label13 to label17 with label39;
+        catch java.lang.Throwable from label18 to label25 with label39;
+        catch java.lang.Throwable from label27 to label29 with label39;
+        catch java.lang.Throwable from label30 to label38 with label39;
+        catch java.lang.InterruptedException from label41 to label42 with label26;
+        catch java.lang.InterruptedException from label43 to label44 with label26;
+        catch java.lang.InterruptedException from label45 to label46 with label26;
+        catch java.lang.InterruptedException from label48 to label49 with label26;
+        catch java.lang.InterruptedException from label50 to label51 with label26;
+        catch java.lang.InterruptedException from label52 to label53 with label26;
+        catch java.lang.InterruptedException from label54 to label55 with label26;
+        catch java.lang.InterruptedException from label57 to label58 with label26;
+        catch java.lang.InterruptedException from label59 to label60 with label26;
+        catch java.lang.InterruptedException from label61 to label62 with label26;
+        catch java.lang.InterruptedException from label63 to label64 with label26;
+        catch java.lang.InterruptedException from label66 to label67 with label26;
+        catch java.lang.InterruptedException from label68 to label69 with label26;
+        catch java.lang.InterruptedException from label70 to label71 with label26;
+        catch java.lang.InterruptedException from label72 to label73 with label26;
+        catch java.lang.InterruptedException from label74 to label75 with label26;
+        catch java.lang.InterruptedException from label76 to label77 with label26;
+        catch java.lang.InterruptedException from label79 to label80 with label26;
+        catch java.lang.InterruptedException from label81 to label82 with label26;
+        catch java.lang.InterruptedException from label85 to label86 with label26;
+        catch java.lang.InterruptedException from label87 to label88 with label26;
+        catch java.lang.Throwable from label41 to label42 with label39;
+        catch java.lang.Throwable from label43 to label46 with label39;
+        catch java.lang.Throwable from label47 to label49 with label39;
+        catch java.lang.Throwable from label50 to label51 with label39;
+        catch java.lang.Throwable from label52 to label55 with label39;
+        catch java.lang.Throwable from label56 to label58 with label39;
+        catch java.lang.Throwable from label59 to label60 with label39;
+        catch java.lang.Throwable from label61 to label64 with label39;
+        catch java.lang.Throwable from label65 to label67 with label39;
+        catch java.lang.Throwable from label68 to label69 with label39;
+        catch java.lang.Throwable from label70 to label73 with label39;
+        catch java.lang.Throwable from label74 to label77 with label39;
+        catch java.lang.Throwable from label78 to label82 with label39;
+        catch java.lang.Throwable from label84 to label88 with label39;
+    }
+}

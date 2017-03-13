@@ -1,0 +1,77 @@
+final class com.speedsoftware.rootexplorer.me extends java.lang.Object implements android.view.View$OnClickListener
+{
+    final com.speedsoftware.rootexplorer.SQLiteEditorAdvert a;
+
+    void <init>(com.speedsoftware.rootexplorer.SQLiteEditorAdvert)
+    {
+        com.speedsoftware.rootexplorer.me $r0;
+        com.speedsoftware.rootexplorer.SQLiteEditorAdvert $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.me;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.SQLiteEditorAdvert;
+
+        $r0.<com.speedsoftware.rootexplorer.me: com.speedsoftware.rootexplorer.SQLiteEditorAdvert a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void onClick(android.view.View)
+    {
+        com.speedsoftware.rootexplorer.me $r0;
+        android.view.View $r1;
+        com.speedsoftware.rootexplorer.SQLiteEditorAdvert $r2;
+        android.content.Intent $r3;
+        android.content.Context $r4;
+        android.net.Uri $r5;
+        java.lang.String $r6;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.me;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.me: com.speedsoftware.rootexplorer.SQLiteEditorAdvert a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.SQLiteEditorAdvert: void a(com.speedsoftware.rootexplorer.SQLiteEditorAdvert)>($r2);
+
+        $r3 = new android.content.Intent;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.me: com.speedsoftware.rootexplorer.SQLiteEditorAdvert a>;
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.SQLiteEditorAdvert: android.content.Context b(com.speedsoftware.rootexplorer.SQLiteEditorAdvert)>($r2);
+
+        specialinvoke $r3.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r4, class "com/speedsoftware/rootexplorer/ViewDatabase");
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.me: com.speedsoftware.rootexplorer.SQLiteEditorAdvert a>;
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.SQLiteEditorAdvert: android.net.Uri c(com.speedsoftware.rootexplorer.SQLiteEditorAdvert)>($r2);
+
+        virtualinvoke $r3.<android.content.Intent: android.content.Intent setData(android.net.Uri)>($r5);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.me: com.speedsoftware.rootexplorer.SQLiteEditorAdvert a>;
+
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.SQLiteEditorAdvert: java.lang.String d(com.speedsoftware.rootexplorer.SQLiteEditorAdvert)>($r2);
+
+        virtualinvoke $r3.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("permissions", $r6);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.me: com.speedsoftware.rootexplorer.SQLiteEditorAdvert a>;
+
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.SQLiteEditorAdvert: java.lang.String e(com.speedsoftware.rootexplorer.SQLiteEditorAdvert)>($r2);
+
+        virtualinvoke $r3.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("make_writeable_cmd", $r6);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.me: com.speedsoftware.rootexplorer.SQLiteEditorAdvert a>;
+
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.SQLiteEditorAdvert: java.lang.String f(com.speedsoftware.rootexplorer.SQLiteEditorAdvert)>($r2);
+
+        virtualinvoke $r3.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("restore_permissions_cmd", $r6);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.me: com.speedsoftware.rootexplorer.SQLiteEditorAdvert a>;
+
+        virtualinvoke $r2.<com.speedsoftware.rootexplorer.SQLiteEditorAdvert: void startActivityForResult(android.content.Intent,int)>($r3, 0);
+
+        return;
+    }
+}

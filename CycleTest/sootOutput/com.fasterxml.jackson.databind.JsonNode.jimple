@@ -1,0 +1,85 @@
+public abstract class com.fasterxml.jackson.databind.JsonNode extends java.lang.Object implements java.lang.Iterable
+{
+    protected static final java.util.List NO_NODES;
+    protected static final java.util.List NO_STRINGS;
+
+    static void <clinit>()
+    {
+        java.util.List $r0;
+
+        $r0 = staticinvoke <java.util.Collections: java.util.List emptyList()>();
+
+        <com.fasterxml.jackson.databind.JsonNode: java.util.List NO_NODES> = $r0;
+
+        $r0 = staticinvoke <java.util.Collections: java.util.List emptyList()>();
+
+        <com.fasterxml.jackson.databind.JsonNode: java.util.List NO_STRINGS> = $r0;
+
+        return;
+    }
+
+    protected void <init>()
+    {
+        com.fasterxml.jackson.databind.JsonNode $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonNode;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public abstract java.lang.String asText();
+
+    public java.util.Iterator elements()
+    {
+        com.fasterxml.jackson.databind.JsonNode $r0;
+        java.util.Iterator $r1;
+        java.util.List $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonNode;
+
+        $r2 = <com.fasterxml.jackson.databind.JsonNode: java.util.List NO_NODES>;
+
+        $r1 = interfaceinvoke $r2.<java.util.List: java.util.Iterator iterator()>();
+
+        return $r1;
+    }
+
+    public abstract boolean equals(java.lang.Object);
+
+    public com.fasterxml.jackson.databind.JsonNode get(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.JsonNode $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonNode;
+
+        $r1 := @parameter0: java.lang.String;
+
+        return null;
+    }
+
+    public final java.util.Iterator iterator()
+    {
+        com.fasterxml.jackson.databind.JsonNode $r0;
+        java.util.Iterator $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonNode;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.JsonNode: java.util.Iterator elements()>();
+
+        return $r1;
+    }
+
+    public int size()
+    {
+        com.fasterxml.jackson.databind.JsonNode $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonNode;
+
+        return 0;
+    }
+
+    public abstract java.lang.String toString();
+}

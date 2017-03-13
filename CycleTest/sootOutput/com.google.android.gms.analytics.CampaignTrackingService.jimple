@@ -1,0 +1,70 @@
+public class com.google.android.gms.analytics.CampaignTrackingService extends android.app.IntentService
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.analytics.CampaignTrackingService $r0;
+
+        $r0 := @this: com.google.android.gms.analytics.CampaignTrackingService;
+
+        specialinvoke $r0.<android.app.IntentService: void <init>(java.lang.String)>("CampaignIntentService");
+
+        return;
+    }
+
+    public void onHandleIntent(android.content.Intent)
+    {
+        com.google.android.gms.analytics.CampaignTrackingService $r0;
+        android.content.Intent $r1;
+
+        $r0 := @this: com.google.android.gms.analytics.CampaignTrackingService;
+
+        $r1 := @parameter0: android.content.Intent;
+
+        virtualinvoke $r0.<com.google.android.gms.analytics.CampaignTrackingService: void processIntent(android.content.Context,android.content.Intent)>($r0, $r1);
+
+        return;
+    }
+
+    public void processIntent(android.content.Context, android.content.Intent)
+    {
+        com.google.android.gms.analytics.CampaignTrackingService $r0;
+        android.content.Context $r1;
+        android.content.Intent $r2;
+        java.lang.String $r3;
+        java.io.FileOutputStream $r4;
+        byte[] $r5;
+        java.io.IOException $r6;
+
+        $r0 := @this: com.google.android.gms.analytics.CampaignTrackingService;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: android.content.Intent;
+
+        $r3 = virtualinvoke $r2.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("referrer");
+
+     label1:
+        $r4 = virtualinvoke $r1.<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>("gaInstallData", 0);
+
+        $r5 = virtualinvoke $r3.<java.lang.String: byte[] getBytes()>();
+
+        virtualinvoke $r4.<java.io.OutputStream: void write(byte[])>($r5);
+
+        virtualinvoke $r4.<java.io.OutputStream: void close()>();
+
+        staticinvoke <com.google.android.gms.analytics.aa: void C(java.lang.String)>("Stored campaign information.");
+
+     label2:
+        return;
+
+     label3:
+        $r6 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.analytics.aa: void A(java.lang.String)>("Error storing install campaign.");
+
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+}

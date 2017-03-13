@@ -1,0 +1,131 @@
+public class com.google.android.gms.internal.fs extends java.lang.Object implements com.google.android.gms.common.internal.safeparcel.SafeParcelable
+{
+    public static final com.google.android.gms.internal.ft CREATOR;
+    final int a;
+    final com.google.android.gms.internal.fj b;
+    final long c;
+    final int d;
+    public final java.lang.String e;
+    final com.google.android.gms.internal.fh f;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ft $r0;
+
+        $r0 = new com.google.android.gms.internal.ft;
+
+        specialinvoke $r0.<com.google.android.gms.internal.ft: void <init>()>();
+
+        <com.google.android.gms.internal.fs: com.google.android.gms.internal.ft CREATOR> = $r0;
+
+        return;
+    }
+
+    void <init>(int, com.google.android.gms.internal.fj, long, int, java.lang.String, com.google.android.gms.internal.fh)
+    {
+        com.google.android.gms.internal.fs $r0;
+        int $i0, $i2;
+        com.google.android.gms.internal.fj $r1;
+        long $l1;
+        java.lang.String $r2;
+        com.google.android.gms.internal.fh $r3;
+
+        $r0 := @this: com.google.android.gms.internal.fs;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: com.google.android.gms.internal.fj;
+
+        $l1 := @parameter2: long;
+
+        $i2 := @parameter3: int;
+
+        $r2 := @parameter4: java.lang.String;
+
+        $r3 := @parameter5: com.google.android.gms.internal.fh;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.internal.fs: int a> = $i0;
+
+        $r0.<com.google.android.gms.internal.fs: com.google.android.gms.internal.fj b> = $r1;
+
+        $r0.<com.google.android.gms.internal.fs: long c> = $l1;
+
+        $r0.<com.google.android.gms.internal.fs: int d> = $i2;
+
+        $r0.<com.google.android.gms.internal.fs: java.lang.String e> = $r2;
+
+        $r0.<com.google.android.gms.internal.fs: com.google.android.gms.internal.fh f> = $r3;
+
+        return;
+    }
+
+    public int describeContents()
+    {
+        com.google.android.gms.internal.fs $r0;
+        com.google.android.gms.internal.ft $r1;
+
+        $r0 := @this: com.google.android.gms.internal.fs;
+
+        $r1 = <com.google.android.gms.internal.fs: com.google.android.gms.internal.ft CREATOR>;
+
+        return 0;
+    }
+
+    public java.lang.String toString()
+    {
+        com.google.android.gms.internal.fs $r0;
+        long $l0;
+        java.lang.Object[] $r1;
+        com.google.android.gms.internal.fj $r2;
+        java.lang.Long $r3;
+        int $i1;
+        java.lang.Integer $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: com.google.android.gms.internal.fs;
+
+        $r1 = newarray (java.lang.Object)[3];
+
+        $r2 = $r0.<com.google.android.gms.internal.fs: com.google.android.gms.internal.fj b>;
+
+        $r1[0] = $r2;
+
+        $l0 = $r0.<com.google.android.gms.internal.fs: long c>;
+
+        $r3 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l0);
+
+        $r1[1] = $r3;
+
+        $i1 = $r0.<com.google.android.gms.internal.fs: int d>;
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $r1[2] = $r4;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("UsageInfo[documentId=%s, timestamp=%d, usageType=%d]", $r1);
+
+        return $r5;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.internal.fs $r0;
+        android.os.Parcel $r1;
+        int $i0;
+        com.google.android.gms.internal.ft $r2;
+
+        $r0 := @this: com.google.android.gms.internal.fs;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        $r2 = <com.google.android.gms.internal.fs: com.google.android.gms.internal.ft CREATOR>;
+
+        staticinvoke <com.google.android.gms.internal.ft: void a(com.google.android.gms.internal.fs,android.os.Parcel,int)>($r0, $r1, $i0);
+
+        return;
+    }
+}

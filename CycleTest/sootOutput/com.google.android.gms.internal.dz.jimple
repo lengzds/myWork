@@ -1,0 +1,1403 @@
+public final class com.google.android.gms.internal.dz extends java.lang.Object
+{
+    private static final java.text.SimpleDateFormat a;
+
+    static void <clinit>()
+    {
+        java.text.SimpleDateFormat $r0;
+
+        $r0 = new java.text.SimpleDateFormat;
+
+        specialinvoke $r0.<java.text.SimpleDateFormat: void <init>(java.lang.String)>("yyyyMMdd");
+
+        <com.google.android.gms.internal.dz: java.text.SimpleDateFormat a> = $r0;
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.dv a(android.content.Context, com.google.android.gms.internal.dt, java.lang.String)
+    {
+        android.content.Context $r0;
+        com.google.android.gms.internal.dt $r1;
+        java.lang.String $r2, $r4, $r5, $r6, $r7, $r8, $r9, $r10, $r11;
+        long $l0, $l1, $l5;
+        boolean $z0;
+        double $d0;
+        int $i2, $i3, $i4;
+        com.google.android.gms.internal.dv $r12, r21;
+        com.google.android.gms.internal.ew $r13;
+        org.json.JSONArray $r14;
+        java.util.List $r15, $r18, $r19;
+        org.json.JSONException $r16;
+        java.lang.StringBuilder $r17, r23;
+        byte $b6;
+        org.json.JSONObject r20;
+        java.util.LinkedList r22;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 := @parameter1: com.google.android.gms.internal.dt;
+
+        $r2 := @parameter2: java.lang.String;
+
+        r20 = new org.json.JSONObject;
+
+     label01:
+        specialinvoke r20.<org.json.JSONObject: void <init>(java.lang.String)>($r2);
+
+        $r4 = virtualinvoke r20.<org.json.JSONObject: java.lang.String optString(java.lang.String,java.lang.String)>("ad_base_url", null);
+
+     label02:
+        $r5 = $r4;
+
+     label03:
+        $r6 = virtualinvoke r20.<org.json.JSONObject: java.lang.String optString(java.lang.String,java.lang.String)>("ad_url", null);
+
+        $r2 = virtualinvoke r20.<org.json.JSONObject: java.lang.String optString(java.lang.String,java.lang.String)>("ad_size", null);
+
+        $r7 = virtualinvoke r20.<org.json.JSONObject: java.lang.String optString(java.lang.String,java.lang.String)>("ad_html", null);
+
+     label04:
+        $r8 = $r7;
+
+        $l0 = -1L;
+
+     label05:
+        $r9 = virtualinvoke r20.<org.json.JSONObject: java.lang.String optString(java.lang.String,java.lang.String)>("debug_dialog", null);
+
+        $z0 = virtualinvoke r20.<org.json.JSONObject: boolean has(java.lang.String)>("interstitial_timeout");
+
+     label06:
+        if $z0 == 0 goto label22;
+
+     label07:
+        $d0 = virtualinvoke r20.<org.json.JSONObject: double getDouble(java.lang.String)>("interstitial_timeout");
+
+     label08:
+        $d0 = $d0 * 1000.0;
+
+        $l1 = (long) $d0;
+
+     label09:
+        $r10 = virtualinvoke r20.<org.json.JSONObject: java.lang.String optString(java.lang.String,java.lang.String)>("orientation", null);
+
+     label10:
+        $i2 = -1;
+
+        $r11 = "portrait";
+
+     label11:
+        $z0 = virtualinvoke $r11.<java.lang.String: boolean equals(java.lang.Object)>($r10);
+
+     label12:
+        if $z0 == 0 goto label23;
+
+     label13:
+        $i2 = staticinvoke <com.google.android.gms.internal.ep: int bN()>();
+
+     label14:
+        $z0 = staticinvoke <android.text.TextUtils: boolean isEmpty(java.lang.CharSequence)>($r7);
+
+     label15:
+        if $z0 != 0 goto label28;
+
+     label16:
+        $z0 = staticinvoke <android.text.TextUtils: boolean isEmpty(java.lang.CharSequence)>($r4);
+
+     label17:
+        if $z0 == 0 goto label80;
+
+     label18:
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>("Could not parse the mediation config: Missing required ad_base_url field");
+
+     label19:
+        r21 = new com.google.android.gms.internal.dv;
+
+     label20:
+        specialinvoke r21.<com.google.android.gms.internal.dv: void <init>(int)>(0);
+
+     label21:
+        return r21;
+
+     label22:
+        $l1 = -1L;
+
+        goto label09;
+
+     label23:
+        $r11 = "landscape";
+
+     label24:
+        $z0 = virtualinvoke $r11.<java.lang.String: boolean equals(java.lang.Object)>($r10);
+
+     label25:
+        if $z0 == 0 goto label14;
+
+     label26:
+        $i2 = staticinvoke <com.google.android.gms.internal.ep: int bM()>();
+
+     label27:
+        goto label14;
+
+     label28:
+        $z0 = staticinvoke <android.text.TextUtils: boolean isEmpty(java.lang.CharSequence)>($r6);
+
+     label29:
+        if $z0 != 0 goto label41;
+
+        $r13 = $r1.<com.google.android.gms.internal.dt: com.google.android.gms.internal.ew k>;
+
+        $r5 = $r13.<com.google.android.gms.internal.ew: java.lang.String b>;
+
+     label30:
+        $r12 = staticinvoke <com.google.android.gms.internal.dy: com.google.android.gms.internal.dv a(android.content.Context,java.lang.String,java.lang.String,java.lang.String,com.google.android.gms.internal.ec)>($r0, $r5, $r6, null, null);
+
+     label31:
+        $r5 = $r12.<com.google.android.gms.internal.dv: java.lang.String b>;
+
+        $r8 = $r12.<com.google.android.gms.internal.dv: java.lang.String c>;
+
+        $l0 = $r12.<com.google.android.gms.internal.dv: long n>;
+
+     label32:
+        $r14 = virtualinvoke r20.<org.json.JSONObject: org.json.JSONArray optJSONArray(java.lang.String)>("click_urls");
+
+     label33:
+        if $r12 != null goto label46;
+
+        $r15 = null;
+
+     label34:
+        if $r14 == null goto label79;
+
+        if $r15 != null goto label36;
+
+        r22 = new java.util.LinkedList;
+
+        $r15 = r22;
+
+     label35:
+        specialinvoke r22.<java.util.LinkedList: void <init>()>();
+
+     label36:
+        $i3 = 0;
+
+     label37:
+        $i4 = virtualinvoke $r14.<org.json.JSONArray: int length()>();
+
+     label38:
+        if $i3 >= $i4 goto label47;
+
+     label39:
+        $r6 = virtualinvoke $r14.<org.json.JSONArray: java.lang.String getString(int)>($i3);
+
+        interfaceinvoke $r15.<java.util.List: boolean add(java.lang.Object)>($r6);
+
+     label40:
+        $i3 = $i3 + 1;
+
+        goto label37;
+
+     label41:
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>("Could not parse the mediation config: Missing required ad_html or ad_url field.");
+
+     label42:
+        r21 = new com.google.android.gms.internal.dv;
+
+     label43:
+        specialinvoke r21.<com.google.android.gms.internal.dv: void <init>(int)>(0);
+
+     label44:
+        return r21;
+
+     label45:
+        $r16 := @caughtexception;
+
+        r23 = new java.lang.StringBuilder;
+
+        specialinvoke r23.<java.lang.StringBuilder: void <init>(java.lang.String)>("Could not parse the mediation config: ");
+
+        $r2 = virtualinvoke $r16.<org.json.JSONException: java.lang.String getMessage()>();
+
+        $r17 = virtualinvoke r23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>($r2);
+
+        r21 = new com.google.android.gms.internal.dv;
+
+        specialinvoke r21.<com.google.android.gms.internal.dv: void <init>(int)>(0);
+
+        return r21;
+
+     label46:
+        $r15 = $r12.<com.google.android.gms.internal.dv: java.util.List d>;
+
+        goto label34;
+
+     label47:
+        $r14 = virtualinvoke r20.<org.json.JSONObject: org.json.JSONArray optJSONArray(java.lang.String)>("impression_urls");
+
+     label48:
+        if $r12 != null goto label56;
+
+        $r18 = null;
+
+     label49:
+        if $r14 == null goto label78;
+
+        if $r18 != null goto label51;
+
+        r22 = new java.util.LinkedList;
+
+        $r18 = r22;
+
+     label50:
+        specialinvoke r22.<java.util.LinkedList: void <init>()>();
+
+     label51:
+        $i3 = 0;
+
+     label52:
+        $i4 = virtualinvoke $r14.<org.json.JSONArray: int length()>();
+
+     label53:
+        if $i3 >= $i4 goto label57;
+
+     label54:
+        $r6 = virtualinvoke $r14.<org.json.JSONArray: java.lang.String getString(int)>($i3);
+
+        interfaceinvoke $r18.<java.util.List: boolean add(java.lang.Object)>($r6);
+
+     label55:
+        $i3 = $i3 + 1;
+
+        goto label52;
+
+     label56:
+        $r18 = $r12.<com.google.android.gms.internal.dv: java.util.List f>;
+
+        goto label49;
+
+     label57:
+        $r14 = virtualinvoke r20.<org.json.JSONObject: org.json.JSONArray optJSONArray(java.lang.String)>("manual_impression_urls");
+
+     label58:
+        if $r12 != null goto label66;
+
+        $r19 = null;
+
+     label59:
+        if $r14 == null goto label77;
+
+        if $r19 != null goto label61;
+
+        r22 = new java.util.LinkedList;
+
+        $r19 = r22;
+
+     label60:
+        specialinvoke r22.<java.util.LinkedList: void <init>()>();
+
+     label61:
+        $i3 = 0;
+
+     label62:
+        $i4 = virtualinvoke $r14.<org.json.JSONArray: int length()>();
+
+     label63:
+        if $i3 >= $i4 goto label67;
+
+     label64:
+        $r6 = virtualinvoke $r14.<org.json.JSONArray: java.lang.String getString(int)>($i3);
+
+        interfaceinvoke $r19.<java.util.List: boolean add(java.lang.Object)>($r6);
+
+     label65:
+        $i3 = $i3 + 1;
+
+        goto label62;
+
+     label66:
+        $r19 = $r12.<com.google.android.gms.internal.dv: java.util.List j>;
+
+        goto label59;
+
+     label67:
+        if $r12 == null goto label69;
+
+        $i3 = $r12.<com.google.android.gms.internal.dv: int l>;
+
+        if $i3 == -1 goto label68;
+
+        $i2 = $r12.<com.google.android.gms.internal.dv: int l>;
+
+     label68:
+        $l5 = $r12.<com.google.android.gms.internal.dv: long g>;
+
+        $b6 = $l5 cmp 0L;
+
+        if $b6 <= 0 goto label69;
+
+        $l1 = $r12.<com.google.android.gms.internal.dv: long g>;
+
+     label69:
+        $r6 = virtualinvoke r20.<org.json.JSONObject: java.lang.String optString(java.lang.String)>("active_view");
+
+     label70:
+        $r4 = null;
+
+     label71:
+        $z0 = virtualinvoke r20.<org.json.JSONObject: boolean optBoolean(java.lang.String,boolean)>("ad_is_javascript", 0);
+
+     label72:
+        if $z0 == 0 goto label74;
+
+     label73:
+        $r4 = virtualinvoke r20.<org.json.JSONObject: java.lang.String optString(java.lang.String,java.lang.String)>("ad_passback_url", null);
+
+     label74:
+        r21 = new com.google.android.gms.internal.dv;
+
+     label75:
+        specialinvoke r21.<com.google.android.gms.internal.dv: void <init>(java.lang.String,java.lang.String,java.util.List,java.util.List,long,boolean,long,java.util.List,long,int,java.lang.String,long,java.lang.String,boolean,java.lang.String,java.lang.String)>($r5, $r8, $r15, $r18, $l1, 0, -1L, $r19, -1L, $i2, $r2, $l0, $r9, $z0, $r4, $r6);
+
+     label76:
+        return r21;
+
+     label77:
+        goto label67;
+
+     label78:
+        goto label57;
+
+     label79:
+        goto label47;
+
+     label80:
+        $r12 = null;
+
+        goto label32;
+
+        catch org.json.JSONException from label01 to label02 with label45;
+        catch org.json.JSONException from label03 to label04 with label45;
+        catch org.json.JSONException from label05 to label06 with label45;
+        catch org.json.JSONException from label07 to label08 with label45;
+        catch org.json.JSONException from label09 to label10 with label45;
+        catch org.json.JSONException from label11 to label12 with label45;
+        catch org.json.JSONException from label13 to label14 with label45;
+        catch org.json.JSONException from label14 to label15 with label45;
+        catch org.json.JSONException from label16 to label17 with label45;
+        catch org.json.JSONException from label18 to label19 with label45;
+        catch org.json.JSONException from label20 to label21 with label45;
+        catch org.json.JSONException from label24 to label25 with label45;
+        catch org.json.JSONException from label26 to label27 with label45;
+        catch org.json.JSONException from label28 to label29 with label45;
+        catch org.json.JSONException from label30 to label31 with label45;
+        catch org.json.JSONException from label32 to label33 with label45;
+        catch org.json.JSONException from label35 to label36 with label45;
+        catch org.json.JSONException from label37 to label38 with label45;
+        catch org.json.JSONException from label39 to label40 with label45;
+        catch org.json.JSONException from label41 to label42 with label45;
+        catch org.json.JSONException from label43 to label44 with label45;
+        catch org.json.JSONException from label47 to label48 with label45;
+        catch org.json.JSONException from label50 to label51 with label45;
+        catch org.json.JSONException from label52 to label53 with label45;
+        catch org.json.JSONException from label54 to label55 with label45;
+        catch org.json.JSONException from label57 to label58 with label45;
+        catch org.json.JSONException from label60 to label61 with label45;
+        catch org.json.JSONException from label62 to label63 with label45;
+        catch org.json.JSONException from label64 to label65 with label45;
+        catch org.json.JSONException from label69 to label70 with label45;
+        catch org.json.JSONException from label71 to label72 with label45;
+        catch org.json.JSONException from label73 to label74 with label45;
+        catch org.json.JSONException from label75 to label76 with label45;
+    }
+
+    public static java.lang.String a(com.google.android.gms.internal.dt, com.google.android.gms.internal.ed, android.location.Location, java.lang.String)
+    {
+        com.google.android.gms.internal.dt $r0;
+        com.google.android.gms.internal.ed $r1;
+        android.location.Location $r2;
+        java.lang.String $r3, $r6;
+        com.google.android.gms.internal.am[] $r4;
+        int $i0, $i1, $i2;
+        float $f0, $f1;
+        java.util.HashMap $r5;
+        android.os.Bundle $r7;
+        com.google.android.gms.internal.aj $r8;
+        com.google.android.gms.internal.am $r9;
+        java.lang.StringBuilder $r10;
+        android.content.pm.ApplicationInfo $r11;
+        android.content.pm.PackageInfo $r12;
+        java.lang.Integer $r13;
+        com.google.android.gms.internal.ew $r14;
+        boolean $z0;
+        org.json.JSONObject $r15;
+        org.json.JSONException $r16;
+
+        $r0 := @parameter0: com.google.android.gms.internal.dt;
+
+        $r1 := @parameter1: com.google.android.gms.internal.ed;
+
+        $r2 := @parameter2: android.location.Location;
+
+        $r3 := @parameter3: java.lang.String;
+
+        $r5 = new java.util.HashMap;
+
+     label01:
+        specialinvoke $r5.<java.util.HashMap: void <init>()>();
+
+     label02:
+        if $r3 == null goto label06;
+
+     label03:
+        $r6 = virtualinvoke $r3.<java.lang.String: java.lang.String trim()>();
+
+     label04:
+        if $r6 == "" goto label06;
+
+     label05:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("eid", $r3);
+
+     label06:
+        $r7 = $r0.<com.google.android.gms.internal.dt: android.os.Bundle b>;
+
+        if $r7 == null goto label08;
+
+        $r7 = $r0.<com.google.android.gms.internal.dt: android.os.Bundle b>;
+
+     label07:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("ad_pos", $r7);
+
+     label08:
+        $r8 = $r0.<com.google.android.gms.internal.dt: com.google.android.gms.internal.aj c>;
+
+     label09:
+        staticinvoke <com.google.android.gms.internal.dz: void a(java.util.HashMap,com.google.android.gms.internal.aj)>($r5, $r8);
+
+     label10:
+        $r9 = $r0.<com.google.android.gms.internal.dt: com.google.android.gms.internal.am d>;
+
+        $r3 = $r9.<com.google.android.gms.internal.am: java.lang.String b>;
+
+     label11:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("format", $r3);
+
+     label12:
+        $r9 = $r0.<com.google.android.gms.internal.dt: com.google.android.gms.internal.am d>;
+
+        $i0 = $r9.<com.google.android.gms.internal.am: int f>;
+
+        if $i0 != -1 goto label14;
+
+     label13:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("smart_w", "full");
+
+     label14:
+        $r9 = $r0.<com.google.android.gms.internal.dt: com.google.android.gms.internal.am d>;
+
+        $i0 = $r9.<com.google.android.gms.internal.am: int c>;
+
+        if $i0 != -2 goto label16;
+
+     label15:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("smart_h", "auto");
+
+     label16:
+        $r9 = $r0.<com.google.android.gms.internal.dt: com.google.android.gms.internal.am d>;
+
+        $r4 = $r9.<com.google.android.gms.internal.am: com.google.android.gms.internal.am[] h>;
+
+        if $r4 == null goto label31;
+
+        $r10 = new java.lang.StringBuilder;
+
+     label17:
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>()>();
+
+     label18:
+        $r9 = $r0.<com.google.android.gms.internal.dt: com.google.android.gms.internal.am d>;
+
+        $r4 = $r9.<com.google.android.gms.internal.am: com.google.android.gms.internal.am[] h>;
+
+        $i0 = lengthof $r4;
+
+        $i1 = 0;
+
+     label19:
+        if $i1 >= $i0 goto label30;
+
+        $r9 = $r4[$i1];
+
+     label20:
+        $i2 = virtualinvoke $r10.<java.lang.StringBuilder: int length()>();
+
+     label21:
+        if $i2 == 0 goto label23;
+
+     label22:
+        virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("|");
+
+     label23:
+        $i2 = $r9.<com.google.android.gms.internal.am: int f>;
+
+        if $i2 != -1 goto label28;
+
+        $i2 = $r9.<com.google.android.gms.internal.am: int g>;
+
+        $f1 = (float) $i2;
+
+        $f0 = $r1.<com.google.android.gms.internal.ed: float q>;
+
+        $f0 = $f1 / $f0;
+
+        $i2 = (int) $f0;
+
+     label24:
+        virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i2);
+
+        virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("x");
+
+     label25:
+        $i2 = $r9.<com.google.android.gms.internal.am: int c>;
+
+        if $i2 != -2 goto label29;
+
+        $i2 = $r9.<com.google.android.gms.internal.am: int d>;
+
+        $f0 = (float) $i2;
+
+        $f1 = $r1.<com.google.android.gms.internal.ed: float q>;
+
+        $f0 = $f0 / $f1;
+
+        $i2 = (int) $f0;
+
+     label26:
+        virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i2);
+
+     label27:
+        $i1 = $i1 + 1;
+
+        goto label19;
+
+     label28:
+        $i2 = $r9.<com.google.android.gms.internal.am: int f>;
+
+        goto label24;
+
+     label29:
+        $i2 = $r9.<com.google.android.gms.internal.am: int c>;
+
+        goto label26;
+
+     label30:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("sz", $r10);
+
+     label31:
+        $r3 = $r0.<com.google.android.gms.internal.dt: java.lang.String e>;
+
+     label32:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("slotname", $r3);
+
+     label33:
+        $r11 = $r0.<com.google.android.gms.internal.dt: android.content.pm.ApplicationInfo f>;
+
+        $r3 = $r11.<android.content.pm.ApplicationInfo: java.lang.String packageName>;
+
+     label34:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("pn", $r3);
+
+     label35:
+        $r12 = $r0.<com.google.android.gms.internal.dt: android.content.pm.PackageInfo g>;
+
+        if $r12 == null goto label37;
+
+        $r12 = $r0.<com.google.android.gms.internal.dt: android.content.pm.PackageInfo g>;
+
+        $i0 = $r12.<android.content.pm.PackageInfo: int versionCode>;
+
+     label36:
+        $r13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("vc", $r13);
+
+     label37:
+        $r3 = $r0.<com.google.android.gms.internal.dt: java.lang.String h>;
+
+     label38:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("ms", $r3);
+
+     label39:
+        $r3 = $r0.<com.google.android.gms.internal.dt: java.lang.String i>;
+
+     label40:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("seq_num", $r3);
+
+     label41:
+        $r3 = $r0.<com.google.android.gms.internal.dt: java.lang.String j>;
+
+     label42:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("session_id", $r3);
+
+     label43:
+        $r14 = $r0.<com.google.android.gms.internal.dt: com.google.android.gms.internal.ew k>;
+
+        $r3 = $r14.<com.google.android.gms.internal.ew: java.lang.String b>;
+
+     label44:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("js", $r3);
+
+        staticinvoke <com.google.android.gms.internal.dz: void a(java.util.HashMap,com.google.android.gms.internal.ed)>($r5, $r1);
+
+     label45:
+        $r8 = $r0.<com.google.android.gms.internal.dt: com.google.android.gms.internal.aj c>;
+
+        $i0 = $r8.<com.google.android.gms.internal.aj: int a>;
+
+        if $i0 < 2 goto label47;
+
+        $r8 = $r0.<com.google.android.gms.internal.dt: com.google.android.gms.internal.aj c>;
+
+        $r2 = $r8.<com.google.android.gms.internal.aj: android.location.Location k>;
+
+        if $r2 == null goto label47;
+
+        $r8 = $r0.<com.google.android.gms.internal.dt: com.google.android.gms.internal.aj c>;
+
+        $r2 = $r8.<com.google.android.gms.internal.aj: android.location.Location k>;
+
+     label46:
+        staticinvoke <com.google.android.gms.internal.dz: void a(java.util.HashMap,android.location.Location)>($r5, $r2);
+
+     label47:
+        $i0 = $r0.<com.google.android.gms.internal.dt: int a>;
+
+        if $i0 < 2 goto label49;
+
+        $r7 = $r0.<com.google.android.gms.internal.dt: android.os.Bundle l>;
+
+     label48:
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("quality_signals", $r7);
+
+     label49:
+        $z0 = staticinvoke <com.google.android.gms.internal.ev: boolean p(int)>(2);
+
+     label50:
+        if $z0 == 0 goto label54;
+
+     label51:
+        $r15 = staticinvoke <com.google.android.gms.internal.ep: org.json.JSONObject o(java.util.Map)>($r5);
+
+        $r3 = virtualinvoke $r15.<org.json.JSONObject: java.lang.String toString(int)>(2);
+
+     label52:
+        $r10 = new java.lang.StringBuilder;
+
+     label53:
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("Ad Request JSON: ");
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.internal.ev: void C(java.lang.String)>($r3);
+
+     label54:
+        $r15 = staticinvoke <com.google.android.gms.internal.ep: org.json.JSONObject o(java.util.Map)>($r5);
+
+        $r3 = virtualinvoke $r15.<org.json.JSONObject: java.lang.String toString()>();
+
+     label55:
+        return $r3;
+
+     label56:
+        $r16 := @caughtexception;
+
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("Problem serializing ad request to JSON: ");
+
+        $r3 = virtualinvoke $r16.<org.json.JSONException: java.lang.String getMessage()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>($r3);
+
+        return null;
+
+        catch org.json.JSONException from label01 to label02 with label56;
+        catch org.json.JSONException from label03 to label04 with label56;
+        catch org.json.JSONException from label05 to label06 with label56;
+        catch org.json.JSONException from label07 to label08 with label56;
+        catch org.json.JSONException from label09 to label10 with label56;
+        catch org.json.JSONException from label11 to label12 with label56;
+        catch org.json.JSONException from label13 to label14 with label56;
+        catch org.json.JSONException from label15 to label16 with label56;
+        catch org.json.JSONException from label17 to label18 with label56;
+        catch org.json.JSONException from label20 to label21 with label56;
+        catch org.json.JSONException from label22 to label23 with label56;
+        catch org.json.JSONException from label24 to label25 with label56;
+        catch org.json.JSONException from label26 to label27 with label56;
+        catch org.json.JSONException from label30 to label31 with label56;
+        catch org.json.JSONException from label32 to label33 with label56;
+        catch org.json.JSONException from label34 to label35 with label56;
+        catch org.json.JSONException from label36 to label37 with label56;
+        catch org.json.JSONException from label38 to label39 with label56;
+        catch org.json.JSONException from label40 to label41 with label56;
+        catch org.json.JSONException from label42 to label43 with label56;
+        catch org.json.JSONException from label44 to label45 with label56;
+        catch org.json.JSONException from label46 to label47 with label56;
+        catch org.json.JSONException from label48 to label50 with label56;
+        catch org.json.JSONException from label51 to label52 with label56;
+        catch org.json.JSONException from label53 to label55 with label56;
+    }
+
+    private static void a(java.util.HashMap, android.location.Location)
+    {
+        java.util.HashMap $r0, $r2;
+        android.location.Location $r1;
+        float $f0;
+        java.lang.Float $r3;
+        long $l0;
+        java.lang.Long $r4, $r5, $r6;
+        double $d0;
+
+        $r0 := @parameter0: java.util.HashMap;
+
+        $r1 := @parameter1: android.location.Location;
+
+        $r2 = new java.util.HashMap;
+
+        specialinvoke $r2.<java.util.HashMap: void <init>()>();
+
+        $f0 = virtualinvoke $r1.<android.location.Location: float getAccuracy()>();
+
+        $f0 = $f0 * 1000.0F;
+
+        $r3 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>($f0);
+
+        $l0 = virtualinvoke $r1.<android.location.Location: long getTime()>();
+
+        $l0 = $l0 * 1000L;
+
+        $r4 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l0);
+
+        $d0 = virtualinvoke $r1.<android.location.Location: double getLatitude()>();
+
+        $d0 = $d0 * 1.0E7;
+
+        $l0 = (long) $d0;
+
+        $r5 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l0);
+
+        $d0 = virtualinvoke $r1.<android.location.Location: double getLongitude()>();
+
+        $d0 = $d0 * 1.0E7;
+
+        $l0 = (long) $d0;
+
+        $r6 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l0);
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("radius", $r3);
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("lat", $r5);
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("long", $r6);
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("time", $r4);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("uule", $r2);
+
+        return;
+    }
+
+    private static void a(java.util.HashMap, com.google.android.gms.internal.aj)
+    {
+        java.util.HashMap $r0;
+        com.google.android.gms.internal.aj $r1;
+        long $l0;
+        java.lang.String $r2;
+        byte $b1;
+        java.text.SimpleDateFormat $r3;
+        java.util.Date $r4;
+        android.os.Bundle $r5;
+        int $i2;
+        java.lang.Integer $r6;
+        java.util.List $r7;
+        boolean $z0;
+        com.google.android.gms.internal.ax $r8;
+
+        $r0 := @parameter0: java.util.HashMap;
+
+        $r1 := @parameter1: com.google.android.gms.internal.aj;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.em: java.lang.String bK()>();
+
+        if $r2 == null goto label01;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("abf", $r2);
+
+     label01:
+        $l0 = $r1.<com.google.android.gms.internal.aj: long b>;
+
+        $b1 = $l0 cmp -1L;
+
+        if $b1 == 0 goto label02;
+
+        $r3 = <com.google.android.gms.internal.dz: java.text.SimpleDateFormat a>;
+
+        $r4 = new java.util.Date;
+
+        $l0 = $r1.<com.google.android.gms.internal.aj: long b>;
+
+        specialinvoke $r4.<java.util.Date: void <init>(long)>($l0);
+
+        $r2 = virtualinvoke $r3.<java.text.SimpleDateFormat: java.lang.String format(java.util.Date)>($r4);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("cust_age", $r2);
+
+     label02:
+        $r5 = $r1.<com.google.android.gms.internal.aj: android.os.Bundle c>;
+
+        if $r5 == null goto label03;
+
+        $r5 = $r1.<com.google.android.gms.internal.aj: android.os.Bundle c>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("extras", $r5);
+
+     label03:
+        $i2 = $r1.<com.google.android.gms.internal.aj: int d>;
+
+        if $i2 == -1 goto label04;
+
+        $i2 = $r1.<com.google.android.gms.internal.aj: int d>;
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i2);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("cust_gender", $r6);
+
+     label04:
+        $r7 = $r1.<com.google.android.gms.internal.aj: java.util.List e>;
+
+        if $r7 == null goto label05;
+
+        $r7 = $r1.<com.google.android.gms.internal.aj: java.util.List e>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("kw", $r7);
+
+     label05:
+        $i2 = $r1.<com.google.android.gms.internal.aj: int g>;
+
+        if $i2 == -1 goto label06;
+
+        $i2 = $r1.<com.google.android.gms.internal.aj: int g>;
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i2);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("tag_for_child_directed_treatment", $r6);
+
+     label06:
+        $z0 = $r1.<com.google.android.gms.internal.aj: boolean f>;
+
+        if $z0 == 0 goto label07;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("adtest", "on");
+
+     label07:
+        $i2 = $r1.<com.google.android.gms.internal.aj: int a>;
+
+        if $i2 < 2 goto label10;
+
+        $z0 = $r1.<com.google.android.gms.internal.aj: boolean h>;
+
+        if $z0 == 0 goto label08;
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("d_imp_hdr", $r6);
+
+     label08:
+        $r2 = $r1.<com.google.android.gms.internal.aj: java.lang.String i>;
+
+        $z0 = staticinvoke <android.text.TextUtils: boolean isEmpty(java.lang.CharSequence)>($r2);
+
+        if $z0 != 0 goto label09;
+
+        $r2 = $r1.<com.google.android.gms.internal.aj: java.lang.String i>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("ppid", $r2);
+
+     label09:
+        $r8 = $r1.<com.google.android.gms.internal.aj: com.google.android.gms.internal.ax j>;
+
+        if $r8 == null goto label10;
+
+        $r8 = $r1.<com.google.android.gms.internal.aj: com.google.android.gms.internal.ax j>;
+
+        staticinvoke <com.google.android.gms.internal.dz: void a(java.util.HashMap,com.google.android.gms.internal.ax)>($r0, $r8);
+
+     label10:
+        $i2 = $r1.<com.google.android.gms.internal.aj: int a>;
+
+        if $i2 < 3 goto label11;
+
+        $r2 = $r1.<com.google.android.gms.internal.aj: java.lang.String l>;
+
+        if $r2 == null goto label11;
+
+        $r2 = $r1.<com.google.android.gms.internal.aj: java.lang.String l>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("url", $r2);
+
+     label11:
+        return;
+    }
+
+    private static void a(java.util.HashMap, com.google.android.gms.internal.ax)
+    {
+        java.util.HashMap $r0;
+        com.google.android.gms.internal.ax $r1;
+        java.lang.String $r2, $r3;
+        int $i0;
+
+        $r0 := @parameter0: java.util.HashMap;
+
+        $r1 := @parameter1: com.google.android.gms.internal.ax;
+
+        $r2 = null;
+
+        $i0 = $r1.<com.google.android.gms.internal.ax: int b>;
+
+        $i0 = staticinvoke <android.graphics.Color: int alpha(int)>($i0);
+
+        if $i0 == 0 goto label01;
+
+        $i0 = $r1.<com.google.android.gms.internal.ax: int b>;
+
+        $r3 = staticinvoke <com.google.android.gms.internal.dz: java.lang.String o(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("acolor", $r3);
+
+     label01:
+        $i0 = $r1.<com.google.android.gms.internal.ax: int c>;
+
+        $i0 = staticinvoke <android.graphics.Color: int alpha(int)>($i0);
+
+        if $i0 == 0 goto label02;
+
+        $i0 = $r1.<com.google.android.gms.internal.ax: int c>;
+
+        $r3 = staticinvoke <com.google.android.gms.internal.dz: java.lang.String o(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("bgcolor", $r3);
+
+     label02:
+        $i0 = $r1.<com.google.android.gms.internal.ax: int d>;
+
+        $i0 = staticinvoke <android.graphics.Color: int alpha(int)>($i0);
+
+        if $i0 == 0 goto label03;
+
+        $i0 = $r1.<com.google.android.gms.internal.ax: int e>;
+
+        $i0 = staticinvoke <android.graphics.Color: int alpha(int)>($i0);
+
+        if $i0 == 0 goto label03;
+
+        $i0 = $r1.<com.google.android.gms.internal.ax: int d>;
+
+        $r3 = staticinvoke <com.google.android.gms.internal.dz: java.lang.String o(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("gradientto", $r3);
+
+        $i0 = $r1.<com.google.android.gms.internal.ax: int e>;
+
+        $r3 = staticinvoke <com.google.android.gms.internal.dz: java.lang.String o(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("gradientfrom", $r3);
+
+     label03:
+        $i0 = $r1.<com.google.android.gms.internal.ax: int f>;
+
+        $i0 = staticinvoke <android.graphics.Color: int alpha(int)>($i0);
+
+        if $i0 == 0 goto label04;
+
+        $i0 = $r1.<com.google.android.gms.internal.ax: int f>;
+
+        $r3 = staticinvoke <com.google.android.gms.internal.dz: java.lang.String o(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("bcolor", $r3);
+
+     label04:
+        $i0 = $r1.<com.google.android.gms.internal.ax: int g>;
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("bthick", $r3);
+
+        $i0 = $r1.<com.google.android.gms.internal.ax: int h>;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label14;
+            case 1: goto label15;
+            case 2: goto label16;
+            case 3: goto label17;
+            default: goto label05;
+        };
+
+     label05:
+        $r3 = null;
+
+     label06:
+        if $r3 == null goto label07;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("btype", $r3);
+
+     label07:
+        $i0 = $r1.<com.google.android.gms.internal.ax: int i>;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label19;
+            case 1: goto label20;
+            case 2: goto label18;
+            default: goto label08;
+        };
+
+     label08:
+        if $r2 == null goto label09;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("callbuttoncolor", $r2);
+
+     label09:
+        $r2 = $r1.<com.google.android.gms.internal.ax: java.lang.String j>;
+
+        if $r2 == null goto label10;
+
+        $r2 = $r1.<com.google.android.gms.internal.ax: java.lang.String j>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("channel", $r2);
+
+     label10:
+        $i0 = $r1.<com.google.android.gms.internal.ax: int k>;
+
+        $i0 = staticinvoke <android.graphics.Color: int alpha(int)>($i0);
+
+        if $i0 == 0 goto label11;
+
+        $i0 = $r1.<com.google.android.gms.internal.ax: int k>;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.dz: java.lang.String o(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("dcolor", $r2);
+
+     label11:
+        $r2 = $r1.<com.google.android.gms.internal.ax: java.lang.String l>;
+
+        if $r2 == null goto label12;
+
+        $r2 = $r1.<com.google.android.gms.internal.ax: java.lang.String l>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("font", $r2);
+
+     label12:
+        $i0 = $r1.<com.google.android.gms.internal.ax: int m>;
+
+        $i0 = staticinvoke <android.graphics.Color: int alpha(int)>($i0);
+
+        if $i0 == 0 goto label13;
+
+        $i0 = $r1.<com.google.android.gms.internal.ax: int m>;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.dz: java.lang.String o(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("hcolor", $r2);
+
+     label13:
+        $i0 = $r1.<com.google.android.gms.internal.ax: int n>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("headersize", $r2);
+
+        $r2 = $r1.<com.google.android.gms.internal.ax: java.lang.String o>;
+
+        if $r2 == null goto label21;
+
+        $r2 = $r1.<com.google.android.gms.internal.ax: java.lang.String o>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("q", $r2);
+
+        return;
+
+     label14:
+        $r3 = "none";
+
+        goto label06;
+
+     label15:
+        $r3 = "dashed";
+
+        goto label06;
+
+     label16:
+        $r3 = "dotted";
+
+        goto label06;
+
+     label17:
+        $r3 = "solid";
+
+        goto label06;
+
+     label18:
+        $r2 = "dark";
+
+        goto label08;
+
+     label19:
+        $r2 = "light";
+
+        goto label08;
+
+     label20:
+        $r2 = "medium";
+
+        goto label08;
+
+     label21:
+        return;
+    }
+
+    private static void a(java.util.HashMap, com.google.android.gms.internal.ed)
+    {
+        java.util.HashMap $r0;
+        com.google.android.gms.internal.ed $r1;
+        int $i0;
+        java.lang.Integer $r2;
+        boolean $z0;
+        java.lang.String $r3;
+        float $f0;
+        java.lang.Float $r4;
+        android.os.Bundle $r5;
+        double $d0;
+
+        $r0 := @parameter0: java.util.HashMap;
+
+        $r1 := @parameter1: com.google.android.gms.internal.ed;
+
+        $i0 = $r1.<com.google.android.gms.internal.ed: int a>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("am", $r2);
+
+        $z0 = $r1.<com.google.android.gms.internal.ed: boolean b>;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.dz: java.lang.Integer m(boolean)>($z0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("cog", $r2);
+
+        $z0 = $r1.<com.google.android.gms.internal.ed: boolean c>;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.dz: java.lang.Integer m(boolean)>($z0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("coh", $r2);
+
+        $r3 = $r1.<com.google.android.gms.internal.ed: java.lang.String d>;
+
+        $z0 = staticinvoke <android.text.TextUtils: boolean isEmpty(java.lang.CharSequence)>($r3);
+
+        if $z0 != 0 goto label1;
+
+        $r3 = $r1.<com.google.android.gms.internal.ed: java.lang.String d>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("carrier", $r3);
+
+     label1:
+        $r3 = $r1.<com.google.android.gms.internal.ed: java.lang.String e>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("gl", $r3);
+
+        $z0 = $r1.<com.google.android.gms.internal.ed: boolean f>;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("simulator", $r2);
+
+     label2:
+        $z0 = $r1.<com.google.android.gms.internal.ed: boolean g>;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.dz: java.lang.Integer m(boolean)>($z0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("ma", $r2);
+
+        $z0 = $r1.<com.google.android.gms.internal.ed: boolean h>;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.dz: java.lang.Integer m(boolean)>($z0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("sp", $r2);
+
+        $r3 = $r1.<com.google.android.gms.internal.ed: java.lang.String i>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("hl", $r3);
+
+        $r3 = $r1.<com.google.android.gms.internal.ed: java.lang.String j>;
+
+        $z0 = staticinvoke <android.text.TextUtils: boolean isEmpty(java.lang.CharSequence)>($r3);
+
+        if $z0 != 0 goto label3;
+
+        $r3 = $r1.<com.google.android.gms.internal.ed: java.lang.String j>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("mv", $r3);
+
+     label3:
+        $i0 = $r1.<com.google.android.gms.internal.ed: int k>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("muv", $r2);
+
+        $i0 = $r1.<com.google.android.gms.internal.ed: int l>;
+
+        if $i0 == -2 goto label4;
+
+        $i0 = $r1.<com.google.android.gms.internal.ed: int l>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("cnt", $r2);
+
+     label4:
+        $i0 = $r1.<com.google.android.gms.internal.ed: int m>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("gnt", $r2);
+
+        $i0 = $r1.<com.google.android.gms.internal.ed: int n>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("pt", $r2);
+
+        $i0 = $r1.<com.google.android.gms.internal.ed: int o>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("rm", $r2);
+
+        $i0 = $r1.<com.google.android.gms.internal.ed: int p>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("riv", $r2);
+
+        $f0 = $r1.<com.google.android.gms.internal.ed: float q>;
+
+        $r4 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>($f0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("u_sd", $r4);
+
+        $i0 = $r1.<com.google.android.gms.internal.ed: int s>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("sh", $r2);
+
+        $i0 = $r1.<com.google.android.gms.internal.ed: int r>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("sw", $r2);
+
+        $r5 = new android.os.Bundle;
+
+        specialinvoke $r5.<android.os.Bundle: void <init>()>();
+
+        $i0 = $r1.<com.google.android.gms.internal.ed: int w>;
+
+        virtualinvoke $r5.<android.os.Bundle: void putInt(java.lang.String,int)>("active_network_state", $i0);
+
+        $z0 = $r1.<com.google.android.gms.internal.ed: boolean v>;
+
+        virtualinvoke $r5.<android.os.Bundle: void putBoolean(java.lang.String,boolean)>("active_network_metered", $z0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("connectivity", $r5);
+
+        $r5 = new android.os.Bundle;
+
+        specialinvoke $r5.<android.os.Bundle: void <init>()>();
+
+        $z0 = $r1.<com.google.android.gms.internal.ed: boolean u>;
+
+        virtualinvoke $r5.<android.os.Bundle: void putBoolean(java.lang.String,boolean)>("is_charging", $z0);
+
+        $d0 = $r1.<com.google.android.gms.internal.ed: double t>;
+
+        virtualinvoke $r5.<android.os.Bundle: void putDouble(java.lang.String,double)>("battery_level", $d0);
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("battery", $r5);
+
+        return;
+    }
+
+    private static java.lang.Integer m(boolean)
+    {
+        boolean $z0;
+        java.lang.Integer $r0;
+        byte $b0;
+
+        $z0 := @parameter0: boolean;
+
+        if $z0 == 0 goto label2;
+
+        $b0 = 1;
+
+     label1:
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($b0);
+
+        return $r0;
+
+     label2:
+        $b0 = 0;
+
+        goto label1;
+    }
+
+    private static java.lang.String o(int)
+    {
+        int $i0;
+        java.util.Locale $r0;
+        java.lang.Object[] $r1;
+        java.lang.Integer $r2;
+        java.lang.String $r3;
+
+        $i0 := @parameter0: int;
+
+        $r0 = <java.util.Locale: java.util.Locale US>;
+
+        $r1 = newarray (java.lang.Object)[1];
+
+        $i0 = 16777215 & $i0;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1[0] = $r2;
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String format(java.util.Locale,java.lang.String,java.lang.Object[])>($r0, "#%06x", $r1);
+
+        return $r3;
+    }
+}

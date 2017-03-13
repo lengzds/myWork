@@ -1,0 +1,613 @@
+final class a.d.au extends a.d.b
+{
+    private static byte[] H;
+    private static final boolean c;
+    private boolean D;
+    private java.lang.String E;
+    private byte[] F;
+    private int G;
+    java.lang.String b;
+    private a.d.bk d;
+
+    static void <clinit>()
+    {
+        boolean $z0;
+        byte[] $r0;
+        java.lang.String $r1;
+        byte $b0;
+
+        $z0 = staticinvoke <a.a: boolean a(java.lang.String,boolean)>("jcifs.smb.client.disablePlainTextPasswords", 1);
+
+        <a.d.au: boolean c> = $z0;
+
+        $r0 = newarray (byte)[9];
+
+        $r0[0] = 1;
+
+        $r0[1] = 1;
+
+        $r0[2] = 1;
+
+        $r0[3] = 1;
+
+        $r0[4] = 1;
+
+        $r0[5] = 1;
+
+        $r0[6] = 1;
+
+        $r0[7] = 1;
+
+        $r0[8] = 0;
+
+        <a.d.au: byte[] H> = $r0;
+
+        $r1 = staticinvoke <a.a: java.lang.String a(java.lang.String)>("jcifs.smb.client.TreeConnectAndX.CheckDirectory");
+
+        if $r1 == null goto label1;
+
+        $r0 = <a.d.au: byte[] H>;
+
+        $b0 = staticinvoke <java.lang.Byte: byte parseByte(java.lang.String)>($r1);
+
+        $r0[0] = $b0;
+
+     label1:
+        $r1 = staticinvoke <a.a: java.lang.String a(java.lang.String)>("jcifs.smb.client.TreeConnectAndX.CreateDirectory");
+
+        if $r1 == null goto label2;
+
+        $r0 = <a.d.au: byte[] H>;
+
+        $b0 = staticinvoke <java.lang.Byte: byte parseByte(java.lang.String)>($r1);
+
+        $r0[2] = $b0;
+
+     label2:
+        $r1 = staticinvoke <a.a: java.lang.String a(java.lang.String)>("jcifs.smb.client.TreeConnectAndX.Delete");
+
+        if $r1 == null goto label3;
+
+        $r0 = <a.d.au: byte[] H>;
+
+        $b0 = staticinvoke <java.lang.Byte: byte parseByte(java.lang.String)>($r1);
+
+        $r0[3] = $b0;
+
+     label3:
+        $r1 = staticinvoke <a.a: java.lang.String a(java.lang.String)>("jcifs.smb.client.TreeConnectAndX.DeleteDirectory");
+
+        if $r1 == null goto label4;
+
+        $r0 = <a.d.au: byte[] H>;
+
+        $b0 = staticinvoke <java.lang.Byte: byte parseByte(java.lang.String)>($r1);
+
+        $r0[4] = $b0;
+
+     label4:
+        $r1 = staticinvoke <a.a: java.lang.String a(java.lang.String)>("jcifs.smb.client.TreeConnectAndX.OpenAndX");
+
+        if $r1 == null goto label5;
+
+        $r0 = <a.d.au: byte[] H>;
+
+        $b0 = staticinvoke <java.lang.Byte: byte parseByte(java.lang.String)>($r1);
+
+        $r0[5] = $b0;
+
+     label5:
+        $r1 = staticinvoke <a.a: java.lang.String a(java.lang.String)>("jcifs.smb.client.TreeConnectAndX.Rename");
+
+        if $r1 == null goto label6;
+
+        $r0 = <a.d.au: byte[] H>;
+
+        $b0 = staticinvoke <java.lang.Byte: byte parseByte(java.lang.String)>($r1);
+
+        $r0[6] = $b0;
+
+     label6:
+        $r1 = staticinvoke <a.a: java.lang.String a(java.lang.String)>("jcifs.smb.client.TreeConnectAndX.Transaction");
+
+        if $r1 == null goto label7;
+
+        $r0 = <a.d.au: byte[] H>;
+
+        $b0 = staticinvoke <java.lang.Byte: byte parseByte(java.lang.String)>($r1);
+
+        $r0[7] = $b0;
+
+     label7:
+        $r1 = staticinvoke <a.a: java.lang.String a(java.lang.String)>("jcifs.smb.client.TreeConnectAndX.QueryInformation");
+
+        if $r1 == null goto label8;
+
+        $r0 = <a.d.au: byte[] H>;
+
+        $b0 = staticinvoke <java.lang.Byte: byte parseByte(java.lang.String)>($r1);
+
+        $r0[8] = $b0;
+
+     label8:
+        return;
+    }
+
+    void <init>(a.d.bk, java.lang.String, java.lang.String, a.d.u)
+    {
+        a.d.au $r0;
+        a.d.bk $r1;
+        java.lang.String $r2, $r3;
+        a.d.u $r4;
+
+        $r0 := @this: a.d.au;
+
+        $r1 := @parameter0: a.d.bk;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r4 := @parameter3: a.d.u;
+
+        specialinvoke $r0.<a.d.b: void <init>(a.d.u)>($r4);
+
+        $r0.<a.d.au: boolean D> = 0;
+
+        $r0.<a.d.au: a.d.bk d> = $r1;
+
+        $r0.<a.d.au: java.lang.String b> = $r2;
+
+        $r0.<a.d.au: java.lang.String E> = $r3;
+
+        $r0.<a.d.au: byte g> = 117;
+
+        return;
+    }
+
+    final int a(byte)
+    {
+        a.d.au $r0;
+        byte $b0;
+        short $s1;
+        byte[] $r1;
+
+        $r0 := @this: a.d.au;
+
+        $b0 := @parameter0: byte;
+
+        $s1 = $b0 & 255;
+
+        lookupswitch($s1)
+        {
+            case 0: goto label3;
+            case 1: goto label5;
+            case 6: goto label4;
+            case 7: goto label7;
+            case 8: goto label9;
+            case 16: goto label2;
+            case 37: goto label8;
+            case 45: goto label6;
+            default: goto label1;
+        };
+
+     label1:
+        return 0;
+
+     label2:
+        $r1 = <a.d.au: byte[] H>;
+
+        $b0 = $r1[0];
+
+        return $b0;
+
+     label3:
+        $r1 = <a.d.au: byte[] H>;
+
+        $b0 = $r1[2];
+
+        return $b0;
+
+     label4:
+        $r1 = <a.d.au: byte[] H>;
+
+        $b0 = $r1[3];
+
+        return $b0;
+
+     label5:
+        $r1 = <a.d.au: byte[] H>;
+
+        $b0 = $r1[4];
+
+        return $b0;
+
+     label6:
+        $r1 = <a.d.au: byte[] H>;
+
+        $b0 = $r1[5];
+
+        return $b0;
+
+     label7:
+        $r1 = <a.d.au: byte[] H>;
+
+        $b0 = $r1[6];
+
+        return $b0;
+
+     label8:
+        $r1 = <a.d.au: byte[] H>;
+
+        $b0 = $r1[7];
+
+        return $b0;
+
+     label9:
+        $r1 = <a.d.au: byte[] H>;
+
+        $b0 = $r1[8];
+
+        return $b0;
+    }
+
+    final int i(byte[], int)
+    {
+        a.d.au $r0;
+        byte[] $r1, $r7;
+        int $i0, $i2;
+        byte $b1;
+        a.d.bk $r2;
+        a.d.bm $r3;
+        a.d.bn $r4;
+        a.d.t $r5;
+        boolean $z0;
+        java.lang.String $r6;
+        long $l3;
+        java.lang.RuntimeException $r8;
+
+        $r0 := @this: a.d.au;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $b1 = 1;
+
+        $r2 = $r0.<a.d.au: a.d.bk d>;
+
+        $r3 = $r2.<a.d.bk: a.d.bm e>;
+
+        $r4 = $r3.<a.d.bm: a.d.bn s>;
+
+        $i2 = $r4.<a.d.bn: int g>;
+
+        if $i2 != 0 goto label6;
+
+        $r2 = $r0.<a.d.au: a.d.bk d>;
+
+        $r5 = $r2.<a.d.bk: a.d.t f>;
+
+        $z0 = $r5.<a.d.t: boolean m>;
+
+        if $z0 != 0 goto label1;
+
+        $r2 = $r0.<a.d.au: a.d.bk d>;
+
+        $r5 = $r2.<a.d.bk: a.d.t f>;
+
+        $r6 = $r5.<a.d.t: java.lang.String j>;
+
+        $i2 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+        if $i2 <= 0 goto label6;
+
+     label1:
+        $r2 = $r0.<a.d.au: a.d.bk d>;
+
+        $r3 = $r2.<a.d.bk: a.d.bm e>;
+
+        $r4 = $r3.<a.d.bm: a.d.bn s>;
+
+        $z0 = $r4.<a.d.bn: boolean h>;
+
+        if $z0 == 0 goto label4;
+
+        $r2 = $r0.<a.d.au: a.d.bk d>;
+
+        $r5 = $r2.<a.d.bk: a.d.t f>;
+
+        $r2 = $r0.<a.d.au: a.d.bk d>;
+
+        $r3 = $r2.<a.d.bk: a.d.bm e>;
+
+        $r4 = $r3.<a.d.bm: a.d.bn s>;
+
+        $r7 = $r4.<a.d.bn: byte[] p>;
+
+        $r7 = virtualinvoke $r5.<a.d.t: byte[] a(byte[])>($r7);
+
+        $r0.<a.d.au: byte[] F> = $r7;
+
+        $r7 = $r0.<a.d.au: byte[] F>;
+
+        $i2 = lengthof $r7;
+
+        $r0.<a.d.au: int G> = $i2;
+
+     label2:
+        $i2 = $i0 + 1;
+
+        $z0 = $r0.<a.d.au: boolean D>;
+
+        if $z0 == 0 goto label7;
+
+     label3:
+        $r1[$i0] = $b1;
+
+        $i0 = $i2 + 1;
+
+        $r1[$i2] = 0;
+
+        $i2 = $r0.<a.d.au: int G>;
+
+        $l3 = (long) $i2;
+
+        staticinvoke <a.d.au: void a(long,byte[],int)>($l3, $r1, $i0);
+
+        return 4;
+
+     label4:
+        $z0 = <a.d.au: boolean c>;
+
+        if $z0 == 0 goto label5;
+
+        $r8 = new java.lang.RuntimeException;
+
+        specialinvoke $r8.<java.lang.RuntimeException: void <init>(java.lang.String)>("Plain text passwords are disabled");
+
+        throw $r8;
+
+     label5:
+        $r2 = $r0.<a.d.au: a.d.bk d>;
+
+        $r5 = $r2.<a.d.bk: a.d.t f>;
+
+        $r6 = $r5.<a.d.t: java.lang.String j>;
+
+        $i2 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+        $i2 = $i2 + 1;
+
+        $i2 = $i2 * 2;
+
+        $r7 = newarray (byte)[$i2];
+
+        $r0.<a.d.au: byte[] F> = $r7;
+
+        $r2 = $r0.<a.d.au: a.d.bk d>;
+
+        $r5 = $r2.<a.d.bk: a.d.t f>;
+
+        $r6 = $r5.<a.d.t: java.lang.String j>;
+
+        $r7 = $r0.<a.d.au: byte[] F>;
+
+        $i2 = virtualinvoke $r0.<a.d.au: int a(java.lang.String,byte[],int)>($r6, $r7, 0);
+
+        $r0.<a.d.au: int G> = $i2;
+
+        goto label2;
+
+     label6:
+        $r0.<a.d.au: int G> = 1;
+
+        goto label2;
+
+     label7:
+        $b1 = 0;
+
+        goto label3;
+    }
+
+    final int j(byte[], int)
+    {
+        a.d.au $r0;
+        byte[] $r1, $r7;
+        int $i0, $i1, $i2;
+        a.d.bk $r2;
+        a.d.bm $r3;
+        a.d.bn $r4;
+        a.d.t $r5;
+        boolean $z0;
+        java.lang.String $r6;
+        java.io.UnsupportedEncodingException $r8;
+
+        $r0 := @this: a.d.au;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $r2 = $r0.<a.d.au: a.d.bk d>;
+
+        $r3 = $r2.<a.d.bk: a.d.bm e>;
+
+        $r4 = $r3.<a.d.bm: a.d.bn s>;
+
+        $i1 = $r4.<a.d.bn: int g>;
+
+        if $i1 != 0 goto label7;
+
+        $r2 = $r0.<a.d.au: a.d.bk d>;
+
+        $r5 = $r2.<a.d.bk: a.d.t f>;
+
+        $z0 = $r5.<a.d.t: boolean m>;
+
+        if $z0 != 0 goto label1;
+
+        $r2 = $r0.<a.d.au: a.d.bk d>;
+
+        $r5 = $r2.<a.d.bk: a.d.t f>;
+
+        $r6 = $r5.<a.d.t: java.lang.String j>;
+
+        $i1 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+        if $i1 <= 0 goto label7;
+
+     label1:
+        $r7 = $r0.<a.d.au: byte[] F>;
+
+        $i1 = $r0.<a.d.au: int G>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r7, 0, $r1, $i0, $i1);
+
+        $i1 = $r0.<a.d.au: int G>;
+
+        $i1 = $i1 + $i0;
+
+     label2:
+        $r6 = $r0.<a.d.au: java.lang.String b>;
+
+        $i2 = virtualinvoke $r0.<a.d.au: int a(java.lang.String,byte[],int)>($r6, $r1, $i1);
+
+        $i1 = $i1 + $i2;
+
+        $r6 = $r0.<a.d.au: java.lang.String E>;
+
+     label3:
+        $r7 = virtualinvoke $r6.<java.lang.String: byte[] getBytes(java.lang.String)>("ASCII");
+
+     label4:
+        $r6 = $r0.<a.d.au: java.lang.String E>;
+
+     label5:
+        $i2 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r7, 0, $r1, $i1, $i2);
+
+     label6:
+        $r6 = $r0.<a.d.au: java.lang.String E>;
+
+        $i2 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+        $i1 = $i1 + $i2;
+
+        $i2 = $i1 + 1;
+
+        $r1[$i1] = 0;
+
+        $i0 = $i2 - $i0;
+
+        return $i0;
+
+     label7:
+        $i1 = $i0 + 1;
+
+        $r1[$i0] = 0;
+
+        goto label2;
+
+     label8:
+        $r8 := @caughtexception;
+
+        return 0;
+
+        catch java.io.UnsupportedEncodingException from label3 to label4 with label8;
+        catch java.io.UnsupportedEncodingException from label5 to label6 with label8;
+    }
+
+    final int k(byte[], int)
+    {
+        a.d.au $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.au;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int l(byte[], int)
+    {
+        a.d.au $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.au;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.au $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+        boolean $z0;
+        int $i0;
+        byte[] $r4;
+
+        $r0 := @this: a.d.au;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("SmbComTreeConnectAndX[");
+
+        $r3 = specialinvoke $r0.<a.d.b: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",disconnectTid=");
+
+        $z0 = $r0.<a.d.au: boolean D>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",passwordLength=");
+
+        $i0 = $r0.<a.d.au: int G>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",password=");
+
+        $r4 = $r0.<a.d.au: byte[] F>;
+
+        $r3 = staticinvoke <a.e.d: java.lang.String a(byte[],int)>($r4, 0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",path=");
+
+        $r3 = $r0.<a.d.au: java.lang.String b>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",service=");
+
+        $r3 = $r0.<a.d.au: java.lang.String E>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

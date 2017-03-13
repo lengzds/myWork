@@ -1,0 +1,424 @@
+public final class com.google.android.gms.location.LocationRequest extends java.lang.Object implements com.google.android.gms.common.internal.safeparcel.SafeParcelable
+{
+    public static final com.google.android.gms.location.LocationRequestCreator CREATOR;
+    int a;
+    long b;
+    long c;
+    boolean d;
+    long e;
+    int f;
+    float g;
+    private final int h;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.location.LocationRequestCreator $r0;
+
+        $r0 = new com.google.android.gms.location.LocationRequestCreator;
+
+        specialinvoke $r0.<com.google.android.gms.location.LocationRequestCreator: void <init>()>();
+
+        <com.google.android.gms.location.LocationRequest: com.google.android.gms.location.LocationRequestCreator CREATOR> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.google.android.gms.location.LocationRequest $r0;
+
+        $r0 := @this: com.google.android.gms.location.LocationRequest;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.location.LocationRequest: int h> = 1;
+
+        $r0.<com.google.android.gms.location.LocationRequest: int a> = 102;
+
+        $r0.<com.google.android.gms.location.LocationRequest: long b> = 3600000L;
+
+        $r0.<com.google.android.gms.location.LocationRequest: long c> = 600000L;
+
+        $r0.<com.google.android.gms.location.LocationRequest: boolean d> = 0;
+
+        $r0.<com.google.android.gms.location.LocationRequest: long e> = 9223372036854775807L;
+
+        $r0.<com.google.android.gms.location.LocationRequest: int f> = 2147483647;
+
+        $r0.<com.google.android.gms.location.LocationRequest: float g> = 0.0F;
+
+        return;
+    }
+
+    void <init>(int, int, long, long, boolean, long, int, float)
+    {
+        com.google.android.gms.location.LocationRequest $r0;
+        int $i0, $i1, $i5;
+        long $l2, $l3, $l4;
+        boolean $z0;
+        float $f0;
+
+        $r0 := @this: com.google.android.gms.location.LocationRequest;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $l2 := @parameter2: long;
+
+        $l3 := @parameter3: long;
+
+        $z0 := @parameter4: boolean;
+
+        $l4 := @parameter5: long;
+
+        $i5 := @parameter6: int;
+
+        $f0 := @parameter7: float;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.location.LocationRequest: int h> = $i0;
+
+        $r0.<com.google.android.gms.location.LocationRequest: int a> = $i1;
+
+        $r0.<com.google.android.gms.location.LocationRequest: long b> = $l2;
+
+        $r0.<com.google.android.gms.location.LocationRequest: long c> = $l3;
+
+        $r0.<com.google.android.gms.location.LocationRequest: boolean d> = $z0;
+
+        $r0.<com.google.android.gms.location.LocationRequest: long e> = $l4;
+
+        $r0.<com.google.android.gms.location.LocationRequest: int f> = $i5;
+
+        $r0.<com.google.android.gms.location.LocationRequest: float g> = $f0;
+
+        return;
+    }
+
+    public static java.lang.String cH(int)
+    {
+        int $i0;
+
+        $i0 := @parameter0: int;
+
+        lookupswitch($i0)
+        {
+            case 100: goto label2;
+            case 101: goto label1;
+            case 102: goto label3;
+            case 103: goto label1;
+            case 104: goto label4;
+            case 105: goto label5;
+            default: goto label1;
+        };
+
+     label1:
+        return "???";
+
+     label2:
+        return "PRIORITY_HIGH_ACCURACY";
+
+     label3:
+        return "PRIORITY_BALANCED_POWER_ACCURACY";
+
+     label4:
+        return "PRIORITY_LOW_POWER";
+
+     label5:
+        return "PRIORITY_NO_POWER";
+    }
+
+    final int a()
+    {
+        com.google.android.gms.location.LocationRequest $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.location.LocationRequest;
+
+        i0 = $r0.<com.google.android.gms.location.LocationRequest: int h>;
+
+        return i0;
+    }
+
+    public final int describeContents()
+    {
+        com.google.android.gms.location.LocationRequest $r0;
+
+        $r0 := @this: com.google.android.gms.location.LocationRequest;
+
+        return 0;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.location.LocationRequest $r0, $r2;
+        java.lang.Object $r1;
+        boolean $z0, $z1;
+        int $i0, $i1;
+        long $l2, $l3;
+        byte $b4;
+        float $f0, $f1;
+
+        $r0 := @this: com.google.android.gms.location.LocationRequest;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof com.google.android.gms.location.LocationRequest;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = (com.google.android.gms.location.LocationRequest) $r1;
+
+        $i0 = $r0.<com.google.android.gms.location.LocationRequest: int a>;
+
+        $i1 = $r2.<com.google.android.gms.location.LocationRequest: int a>;
+
+        if $i0 != $i1 goto label3;
+
+        $l2 = $r0.<com.google.android.gms.location.LocationRequest: long b>;
+
+        $l3 = $r2.<com.google.android.gms.location.LocationRequest: long b>;
+
+        $b4 = $l2 cmp $l3;
+
+        if $b4 != 0 goto label3;
+
+        $l2 = $r0.<com.google.android.gms.location.LocationRequest: long c>;
+
+        $l3 = $r2.<com.google.android.gms.location.LocationRequest: long c>;
+
+        $b4 = $l2 cmp $l3;
+
+        if $b4 != 0 goto label3;
+
+        $z0 = $r0.<com.google.android.gms.location.LocationRequest: boolean d>;
+
+        $z1 = $r2.<com.google.android.gms.location.LocationRequest: boolean d>;
+
+        if $z0 != $z1 goto label3;
+
+        $l2 = $r0.<com.google.android.gms.location.LocationRequest: long e>;
+
+        $l3 = $r2.<com.google.android.gms.location.LocationRequest: long e>;
+
+        $b4 = $l2 cmp $l3;
+
+        if $b4 != 0 goto label3;
+
+        $i0 = $r0.<com.google.android.gms.location.LocationRequest: int f>;
+
+        $i1 = $r2.<com.google.android.gms.location.LocationRequest: int f>;
+
+        if $i0 != $i1 goto label3;
+
+        $f0 = $r0.<com.google.android.gms.location.LocationRequest: float g>;
+
+        $f1 = $r2.<com.google.android.gms.location.LocationRequest: float g>;
+
+        $b4 = $f0 cmpl $f1;
+
+        if $b4 == 0 goto label4;
+
+     label3:
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    public final int hashCode()
+    {
+        com.google.android.gms.location.LocationRequest $r0;
+        java.lang.Object[] $r1;
+        int $i0;
+        java.lang.Integer $r2;
+        long $l1;
+        java.lang.Long $r3;
+        boolean $z0;
+        java.lang.Boolean $r4;
+        float $f0;
+        java.lang.Float $r5;
+
+        $r0 := @this: com.google.android.gms.location.LocationRequest;
+
+        $r1 = newarray (java.lang.Object)[7];
+
+        $i0 = $r0.<com.google.android.gms.location.LocationRequest: int a>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1[0] = $r2;
+
+        $l1 = $r0.<com.google.android.gms.location.LocationRequest: long b>;
+
+        $r3 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $r1[1] = $r3;
+
+        $l1 = $r0.<com.google.android.gms.location.LocationRequest: long c>;
+
+        $r3 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $r1[2] = $r3;
+
+        $z0 = $r0.<com.google.android.gms.location.LocationRequest: boolean d>;
+
+        $r4 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        $r1[3] = $r4;
+
+        $l1 = $r0.<com.google.android.gms.location.LocationRequest: long e>;
+
+        $r3 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $r1[4] = $r3;
+
+        $i0 = $r0.<com.google.android.gms.location.LocationRequest: int f>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1[5] = $r2;
+
+        $f0 = $r0.<com.google.android.gms.location.LocationRequest: float g>;
+
+        $r5 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>($f0);
+
+        $r1[6] = $r5;
+
+        $i0 = staticinvoke <com.google.android.gms.internal.hl: int hashCode(java.lang.Object[])>($r1);
+
+        return $i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.location.LocationRequest $r0;
+        java.lang.StringBuilder $r1, $r2;
+        int $i0;
+        java.lang.String $r3;
+        long $l1, $l3;
+        byte $b2;
+
+        $r0 := @this: com.google.android.gms.location.LocationRequest;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Request[");
+
+        $i0 = $r0.<com.google.android.gms.location.LocationRequest: int a>;
+
+        $r3 = staticinvoke <com.google.android.gms.location.LocationRequest: java.lang.String cH(int)>($i0);
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $i0 = $r0.<com.google.android.gms.location.LocationRequest: int a>;
+
+        if $i0 == 105 goto label1;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" requested=");
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $l1 = $r0.<com.google.android.gms.location.LocationRequest: long b>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("ms");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+     label1:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" fastest=");
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $l1 = $r0.<com.google.android.gms.location.LocationRequest: long c>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("ms");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $l1 = $r0.<com.google.android.gms.location.LocationRequest: long e>;
+
+        $b2 = $l1 cmp 9223372036854775807L;
+
+        if $b2 == 0 goto label2;
+
+        $l1 = $r0.<com.google.android.gms.location.LocationRequest: long e>;
+
+        $l3 = staticinvoke <android.os.SystemClock: long elapsedRealtime()>();
+
+        $l1 = $l1 - $l3;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" expireIn=");
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("ms");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+     label2:
+        $i0 = $r0.<com.google.android.gms.location.LocationRequest: int f>;
+
+        if $i0 == 2147483647 goto label3;
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" num=");
+
+        $i0 = $r0.<com.google.android.gms.location.LocationRequest: int f>;
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+     label3:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(93);
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r3;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.location.LocationRequest $r0;
+        android.os.Parcel $r1;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.location.LocationRequest;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        staticinvoke <com.google.android.gms.location.LocationRequestCreator: void a(com.google.android.gms.location.LocationRequest,android.os.Parcel)>($r0, $r1);
+
+        return;
+    }
+}

@@ -1,0 +1,70 @@
+class com.google.android.gms.tagmanager.DataLayer$2 extends java.lang.Object implements com.google.android.gms.tagmanager.DataLayer$c$a
+{
+    final com.google.android.gms.tagmanager.DataLayer a;
+
+    void <init>(com.google.android.gms.tagmanager.DataLayer)
+    {
+        com.google.android.gms.tagmanager.DataLayer$2 $r0;
+        com.google.android.gms.tagmanager.DataLayer $r1;
+
+        $r0 := @this: com.google.android.gms.tagmanager.DataLayer$2;
+
+        $r1 := @parameter0: com.google.android.gms.tagmanager.DataLayer;
+
+        $r0.<com.google.android.gms.tagmanager.DataLayer$2: com.google.android.gms.tagmanager.DataLayer a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void d(java.util.List)
+    {
+        com.google.android.gms.tagmanager.DataLayer$2 $r0;
+        java.util.List $r1;
+        com.google.android.gms.tagmanager.DataLayer $r2;
+        java.util.Iterator $r3;
+        boolean $z0;
+        java.lang.Object $r4;
+        com.google.android.gms.tagmanager.DataLayer$a $r5;
+        java.lang.String $r6;
+        java.util.Map $r7;
+        java.util.concurrent.CountDownLatch $r8;
+
+        $r0 := @this: com.google.android.gms.tagmanager.DataLayer$2;
+
+        $r1 := @parameter0: java.util.List;
+
+        $r3 = interfaceinvoke $r1.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r4 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (com.google.android.gms.tagmanager.DataLayer$a) $r4;
+
+        $r2 = $r0.<com.google.android.gms.tagmanager.DataLayer$2: com.google.android.gms.tagmanager.DataLayer a>;
+
+        $r6 = $r5.<com.google.android.gms.tagmanager.DataLayer$a: java.lang.String a>;
+
+        $r4 = $r5.<com.google.android.gms.tagmanager.DataLayer$a: java.lang.Object b>;
+
+        $r7 = staticinvoke <com.google.android.gms.tagmanager.DataLayer: java.util.Map a(java.lang.String,java.lang.Object)>($r6, $r4);
+
+        staticinvoke <com.google.android.gms.tagmanager.DataLayer: void a(com.google.android.gms.tagmanager.DataLayer,java.util.Map)>($r2, $r7);
+
+        goto label1;
+
+     label2:
+        $r2 = $r0.<com.google.android.gms.tagmanager.DataLayer$2: com.google.android.gms.tagmanager.DataLayer a>;
+
+        $r8 = staticinvoke <com.google.android.gms.tagmanager.DataLayer: java.util.concurrent.CountDownLatch a(com.google.android.gms.tagmanager.DataLayer)>($r2);
+
+        virtualinvoke $r8.<java.util.concurrent.CountDownLatch: void countDown()>();
+
+        return;
+    }
+}

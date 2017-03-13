@@ -1,0 +1,3763 @@
+public final class com.speedsoftware.rootexplorer.cf extends java.lang.Object implements java.io.Serializable
+{
+    private int a;
+    private java.lang.String b;
+    private java.lang.String c;
+    private java.lang.String d;
+    private java.lang.String e;
+    private java.lang.String f;
+    private boolean g;
+    private long h;
+    private long i;
+    private long j;
+
+    public void <init>(java.lang.String, boolean)
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        java.lang.String $r1;
+        boolean $z0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 := @parameter1: boolean;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.cf: boolean g> = 0;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long h> = -1L;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long i> = -1L;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long j> = -1L;
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.cf: void a(java.lang.String,boolean)>($r1, $z0);
+
+        return;
+    }
+
+    public void <init>(java.lang.String, boolean, java.util.Hashtable)
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        java.util.Hashtable $r2;
+        java.lang.Object $r3;
+        java.lang.Boolean $r4;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 := @parameter1: boolean;
+
+        $r2 := @parameter2: java.util.Hashtable;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.cf: boolean g> = 0;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long h> = -1L;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long i> = -1L;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long j> = -1L;
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.cf: void a(java.lang.String,boolean)>($r1, $z0);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String c>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String c>;
+
+        $z0 = virtualinvoke $r2.<java.util.Hashtable: boolean containsKey(java.lang.Object)>($r1);
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String c>;
+
+        $r3 = virtualinvoke $r2.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r4 = (java.lang.Boolean) $r3;
+
+        $z0 = virtualinvoke $r4.<java.lang.Boolean: boolean booleanValue()>();
+
+        $r0.<com.speedsoftware.rootexplorer.cf: boolean g> = $z0;
+
+     label1:
+        return;
+    }
+
+    private void a(java.lang.String, boolean)
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        java.lang.String $r1, $r2, $r3;
+        boolean $z0;
+        int $i0, $i1, $i2;
+        char $c3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 := @parameter1: boolean;
+
+        $i0 = 0;
+
+        $i1 = 0;
+
+     label01:
+        if $i1 > 10 goto label19;
+
+        $i2 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        if $i0 < $i2 goto label02;
+
+        return;
+
+     label02:
+        $i2 = virtualinvoke $r1.<java.lang.String: int indexOf(int,int)>(32, $i0);
+
+        if $i2 != -1 goto label07;
+
+        $r2 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.String: java.lang.String trim()>();
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b> = $r2;
+
+     label03:
+        if $z0 == 0 goto label12;
+
+        lookupswitch($i1)
+        {
+            case 0: goto label08;
+            case 1: goto label04;
+            case 2: goto label09;
+            case 3: goto label04;
+            case 4: goto label10;
+            case 5: goto label11;
+            default: goto label04;
+        };
+
+     label04:
+        $i0 = $i2 + 1;
+
+     label05:
+        $i2 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        if $i2 <= $i0 goto label06;
+
+        $c3 = virtualinvoke $r1.<java.lang.String: char charAt(int)>($i0);
+
+        if $c3 == 32 goto label18;
+
+     label06:
+        $i1 = $i1 + 1;
+
+        goto label01;
+
+     label07:
+        $r2 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>($i0, $i2);
+
+        $r2 = virtualinvoke $r2.<java.lang.String: java.lang.String trim()>();
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b> = $r2;
+
+        goto label03;
+
+     label08:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b>;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String c> = $r2;
+
+        goto label04;
+
+     label09:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b>;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String d> = $r2;
+
+        goto label04;
+
+     label10:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b>;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String e> = $r2;
+
+        goto label04;
+
+     label11:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b>;
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        $i0 = $i0 + -1;
+
+        $r2 = virtualinvoke $r2.<java.lang.String: java.lang.String substring(int,int)>(1, $i0);
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String f> = $r2;
+
+        goto label04;
+
+     label12:
+        lookupswitch($i1)
+        {
+            case 0: goto label14;
+            case 1: goto label15;
+            case 2: goto label16;
+            case 3: goto label17;
+            default: goto label13;
+        };
+
+     label13:
+        goto label04;
+
+     label14:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b>;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String c> = $r2;
+
+        goto label04;
+
+     label15:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b>;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String d> = $r2;
+
+        goto label04;
+
+     label16:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b>;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String e> = $r2;
+
+        goto label04;
+
+     label17:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b>;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String f> = $r2;
+
+        goto label04;
+
+     label18:
+        $i0 = $i0 + 1;
+
+        goto label05;
+
+     label19:
+        return;
+    }
+
+    private static int c(java.lang.String)
+    {
+        java.lang.String $r0;
+        boolean $z0;
+        int $i0;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean endsWith(java.lang.String)>("G");
+
+        if $z0 == 0 goto label1;
+
+        $i0 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        $i0 = $i0 + -1;
+
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r0);
+
+        $i0 = $i0 * 1024;
+
+        $i0 = $i0 * 1024;
+
+        return $i0;
+
+     label1:
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean endsWith(java.lang.String)>("M");
+
+        if $z0 == 0 goto label2;
+
+        $i0 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        $i0 = $i0 + -1;
+
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r0);
+
+        $i0 = $i0 * 1024;
+
+        return $i0;
+
+     label2:
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean endsWith(java.lang.String)>("K");
+
+        if $z0 == 0 goto label3;
+
+        $i0 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        $i0 = $i0 + -1;
+
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r0);
+
+        return $i0;
+
+     label3:
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r0);
+
+        return $i0;
+    }
+
+    public static int j()
+    {
+        return 8;
+    }
+
+    public final java.lang.String a(int, android.content.Context)
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        int $i0, $i1;
+        android.content.Context $r1;
+        long $l2;
+        byte $b3;
+        boolean $z0;
+        java.lang.String $r2, $r4, $r8;
+        byte[] $r3;
+        java.lang.Object[] $r5;
+        double $d0;
+        java.lang.Double $r6;
+        java.lang.Long $r7;
+        java.lang.StringBuilder $r9;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: android.content.Context;
+
+        $i1 = 0;
+
+        if $i0 != 0 goto label64;
+
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long i>;
+
+        $b3 = $l2 cmp -1L;
+
+        if $b3 == 0 goto label01;
+
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long j>;
+
+        $b3 = $l2 cmp -1L;
+
+        if $b3 != 0 goto label35;
+
+     label01:
+        $z0 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.cf: boolean a()>();
+
+        if $z0 == 0 goto label18;
+
+        $r2 = new java.lang.String;
+
+        if $r1 != null goto label05;
+
+     label02:
+        lookupswitch($i1)
+        {
+            case 1: goto label06;
+            case 2: goto label07;
+            case 3: goto label08;
+            case 4: goto label09;
+            case 5: goto label10;
+            case 6: goto label11;
+            case 7: goto label12;
+            case 8: goto label13;
+            case 9: goto label14;
+            case 10: goto label15;
+            case 11: goto label16;
+            case 12: goto label17;
+            default: goto label03;
+        };
+
+     label03:
+        $r3 = newarray (byte)[14];
+
+        $r3[0] = 77;
+
+        $r3[1] = 111;
+
+        $r3[2] = 117;
+
+        $r3[3] = 110;
+
+        $r3[4] = 116;
+
+        $r3[5] = 101;
+
+        $r3[6] = 100;
+
+        $r3[7] = 32;
+
+        $r3[8] = 97;
+
+        $r3[9] = 115;
+
+        $r3[10] = 32;
+
+        $r3[11] = 114;
+
+        $r3[12] = 47;
+
+        $r3[13] = 111;
+
+     label04:
+        specialinvoke $r2.<java.lang.String: void <init>(byte[])>($r3);
+
+        return $r2;
+
+     label05:
+        $r4 = virtualinvoke $r1.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r4);
+
+        goto label02;
+
+     label06:
+        $r3 = newarray (byte)[19];
+
+        $r3[0] = 73;
+
+        $r3[1] = 110;
+
+        $r3[2] = 115;
+
+        $r3[3] = 116;
+
+        $r3[4] = 97;
+
+        $r3[5] = 108;
+
+        $r3[6] = 108;
+
+        $r3[7] = 105;
+
+        $r3[8] = 101;
+
+        $r3[9] = 114;
+
+        $r3[10] = 116;
+
+        $r3[11] = 32;
+
+        $r3[12] = 97;
+
+        $r3[13] = 108;
+
+        $r3[14] = 115;
+
+        $r3[15] = 32;
+
+        $r3[16] = 114;
+
+        $r3[17] = 47;
+
+        $r3[18] = 111;
+
+        goto label04;
+
+     label07:
+        $r3 = newarray (byte)[15];
+
+        $r3[0] = 77;
+
+        $r3[1] = 111;
+
+        $r3[2] = 110;
+
+        $r3[3] = 116;
+
+        $r3[4] = 97;
+
+        $r3[5] = 114;
+
+        $r3[6] = 32;
+
+        $r3[7] = 99;
+
+        $r3[8] = 111;
+
+        $r3[9] = 109;
+
+        $r3[10] = 111;
+
+        $r3[11] = 32;
+
+        $r3[12] = 114;
+
+        $r3[13] = 47;
+
+        $r3[14] = 111;
+
+        goto label04;
+
+     label08:
+        $r3 = newarray (byte)[28];
+
+        $r3[0] = -48;
+
+        $r3[1] = -97;
+
+        $r3[2] = -47;
+
+        $r3[3] = -128;
+
+        $r3[4] = -48;
+
+        $r3[5] = -80;
+
+        $r3[6] = -48;
+
+        $r3[7] = -78;
+
+        $r3[8] = -48;
+
+        $r3[9] = -80;
+
+        $r3[10] = 32;
+
+        $r3[11] = -48;
+
+        $r3[12] = -67;
+
+        $r3[13] = -48;
+
+        $r3[14] = -80;
+
+        $r3[15] = 32;
+
+        $r3[16] = -47;
+
+        $r3[17] = -121;
+
+        $r3[18] = -47;
+
+        $r3[19] = -126;
+
+        $r3[20] = -48;
+
+        $r3[21] = -75;
+
+        $r3[22] = -48;
+
+        $r3[23] = -67;
+
+        $r3[24] = -48;
+
+        $r3[25] = -72;
+
+        $r3[26] = -48;
+
+        $r3[27] = -75;
+
+        goto label04;
+
+     label09:
+        $r3 = newarray (byte)[16];
+
+        $r3[0] = 77;
+
+        $r3[1] = 111;
+
+        $r3[2] = 110;
+
+        $r3[3] = 116;
+
+        $r3[4] = 97;
+
+        $r3[5] = 100;
+
+        $r3[6] = 111;
+
+        $r3[7] = 32;
+
+        $r3[8] = 99;
+
+        $r3[9] = 111;
+
+        $r3[10] = 109;
+
+        $r3[11] = 111;
+
+        $r3[12] = 32;
+
+        $r3[13] = 114;
+
+        $r3[14] = 47;
+
+        $r3[15] = 111;
+
+        goto label04;
+
+     label10:
+        $r3 = newarray (byte)[17];
+
+        $r3[0] = 77;
+
+        $r3[1] = 111;
+
+        $r3[2] = 110;
+
+        $r3[3] = 116;
+
+        $r3[4] = -61;
+
+        $r3[5] = -87;
+
+        $r3[6] = 114;
+
+        $r3[7] = 101;
+
+        $r3[8] = 116;
+
+        $r3[9] = 32;
+
+        $r3[10] = 115;
+
+        $r3[11] = 111;
+
+        $r3[12] = 109;
+
+        $r3[13] = 32;
+
+        $r3[14] = 114;
+
+        $r3[15] = 47;
+
+        $r3[16] = 111;
+
+        goto label04;
+
+     label11:
+        $r3 = newarray (byte)[32];
+
+        $r3[0] = -41;
+
+        $r3[1] = -98;
+
+        $r3[2] = -41;
+
+        $r3[3] = -101;
+
+        $r3[4] = -41;
+
+        $r3[5] = -107;
+
+        $r3[6] = -41;
+
+        $r3[7] = -107;
+
+        $r3[8] = -41;
+
+        $r3[9] = -97;
+
+        $r3[10] = 32;
+
+        $r3[11] = -41;
+
+        $r3[12] = -100;
+
+        $r3[13] = -41;
+
+        $r3[14] = -89;
+
+        $r3[15] = -41;
+
+        $r3[16] = -88;
+
+        $r3[17] = -41;
+
+        $r3[18] = -103;
+
+        $r3[19] = -41;
+
+        $r3[20] = -112;
+
+        $r3[21] = -41;
+
+        $r3[22] = -108;
+
+        $r3[23] = 32;
+
+        $r3[24] = -41;
+
+        $r3[25] = -111;
+
+        $r3[26] = -41;
+
+        $r3[27] = -100;
+
+        $r3[28] = -41;
+
+        $r3[29] = -111;
+
+        $r3[30] = -41;
+
+        $r3[31] = -109;
+
+        goto label04;
+
+     label12:
+        $r3 = newarray (byte)[13];
+
+        $r3[0] = 77;
+
+        $r3[1] = 111;
+
+        $r3[2] = 110;
+
+        $r3[3] = 116;
+
+        $r3[4] = -61;
+
+        $r3[5] = -87;
+
+        $r3[6] = 32;
+
+        $r3[7] = 101;
+
+        $r3[8] = 110;
+
+        $r3[9] = 32;
+
+        $r3[10] = 114;
+
+        $r3[11] = 47;
+
+        $r3[12] = 111;
+
+        goto label04;
+
+     label13:
+        $r3 = newarray (byte)[16];
+
+        $r3[0] = 77;
+
+        $r3[1] = 111;
+
+        $r3[2] = 110;
+
+        $r3[3] = 116;
+
+        $r3[4] = 97;
+
+        $r3[5] = 116;
+
+        $r3[6] = 111;
+
+        $r3[7] = 32;
+
+        $r3[8] = 99;
+
+        $r3[9] = 111;
+
+        $r3[10] = 109;
+
+        $r3[11] = 101;
+
+        $r3[12] = 32;
+
+        $r3[13] = 114;
+
+        $r3[14] = 47;
+
+        $r3[15] = 111;
+
+        goto label04;
+
+     label14:
+        $r3 = newarray (byte)[24];
+
+        $r3[0] = 114;
+
+        $r3[1] = 47;
+
+        $r3[2] = 111;
+
+        $r3[3] = -29;
+
+        $r3[4] = -127;
+
+        $r3[5] = -88;
+
+        $r3[6] = -29;
+
+        $r3[7] = -127;
+
+        $r3[8] = -105;
+
+        $r3[9] = -29;
+
+        $r3[10] = -127;
+
+        $r3[11] = -90;
+
+        $r3[12] = -29;
+
+        $r3[13] = -125;
+
+        $r3[14] = -98;
+
+        $r3[15] = -29;
+
+        $r3[16] = -126;
+
+        $r3[17] = -90;
+
+        $r3[18] = -29;
+
+        $r3[19] = -125;
+
+        $r3[20] = -77;
+
+        $r3[21] = -29;
+
+        $r3[22] = -125;
+
+        $r3[23] = -120;
+
+        goto label04;
+
+     label15:
+        $r3 = newarray (byte)[16];
+
+        $r3[0] = 82;
+
+        $r3[1] = 47;
+
+        $r3[2] = 79;
+
+        $r3[3] = -21;
+
+        $r3[4] = -95;
+
+        $r3[5] = -100;
+
+        $r3[6] = 32;
+
+        $r3[7] = -19;
+
+        $r3[8] = -125;
+
+        $r3[9] = -111;
+
+        $r3[10] = -20;
+
+        $r3[11] = -98;
+
+        $r3[12] = -84;
+
+        $r3[13] = -21;
+
+        $r3[14] = -112;
+
+        $r3[15] = -88;
+
+        goto label04;
+
+     label16:
+        $r3 = newarray (byte)[32];
+
+        $r3[0] = -41;
+
+        $r3[1] = -98;
+
+        $r3[2] = -41;
+
+        $r3[3] = -101;
+
+        $r3[4] = -41;
+
+        $r3[5] = -107;
+
+        $r3[6] = -41;
+
+        $r3[7] = -107;
+
+        $r3[8] = -41;
+
+        $r3[9] = -97;
+
+        $r3[10] = 32;
+
+        $r3[11] = -41;
+
+        $r3[12] = -100;
+
+        $r3[13] = -41;
+
+        $r3[14] = -89;
+
+        $r3[15] = -41;
+
+        $r3[16] = -88;
+
+        $r3[17] = -41;
+
+        $r3[18] = -103;
+
+        $r3[19] = -41;
+
+        $r3[20] = -112;
+
+        $r3[21] = -41;
+
+        $r3[22] = -108;
+
+        $r3[23] = 32;
+
+        $r3[24] = -41;
+
+        $r3[25] = -111;
+
+        $r3[26] = -41;
+
+        $r3[27] = -100;
+
+        $r3[28] = -41;
+
+        $r3[29] = -111;
+
+        $r3[30] = -41;
+
+        $r3[31] = -109;
+
+        goto label04;
+
+     label17:
+        $r3 = newarray (byte)[18];
+
+        $r3[0] = -27;
+
+        $r3[1] = -73;
+
+        $r3[2] = -78;
+
+        $r3[3] = -26;
+
+        $r3[4] = -116;
+
+        $r3[5] = -126;
+
+        $r3[6] = -24;
+
+        $r3[7] = -67;
+
+        $r3[8] = -67;
+
+        $r3[9] = -28;
+
+        $r3[10] = -72;
+
+        $r3[11] = -70;
+
+        $r3[12] = -27;
+
+        $r3[13] = -113;
+
+        $r3[14] = -86;
+
+        $r3[15] = -24;
+
+        $r3[16] = -81;
+
+        $r3[17] = -69;
+
+        goto label04;
+
+     label18:
+        $r2 = new java.lang.String;
+
+        if $r1 != null goto label22;
+
+     label19:
+        lookupswitch($i1)
+        {
+            case 1: goto label23;
+            case 2: goto label24;
+            case 3: goto label25;
+            case 4: goto label26;
+            case 5: goto label27;
+            case 6: goto label28;
+            case 7: goto label29;
+            case 8: goto label30;
+            case 9: goto label31;
+            case 10: goto label32;
+            case 11: goto label33;
+            case 12: goto label34;
+            default: goto label20;
+        };
+
+     label20:
+        $r3 = newarray (byte)[14];
+
+        $r3[0] = 77;
+
+        $r3[1] = 111;
+
+        $r3[2] = 117;
+
+        $r3[3] = 110;
+
+        $r3[4] = 116;
+
+        $r3[5] = 101;
+
+        $r3[6] = 100;
+
+        $r3[7] = 32;
+
+        $r3[8] = 97;
+
+        $r3[9] = 115;
+
+        $r3[10] = 32;
+
+        $r3[11] = 114;
+
+        $r3[12] = 47;
+
+        $r3[13] = 119;
+
+     label21:
+        specialinvoke $r2.<java.lang.String: void <init>(byte[])>($r3);
+
+        return $r2;
+
+     label22:
+        $r4 = virtualinvoke $r1.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r4);
+
+        goto label19;
+
+     label23:
+        $r3 = newarray (byte)[19];
+
+        $r3[0] = 73;
+
+        $r3[1] = 110;
+
+        $r3[2] = 115;
+
+        $r3[3] = 116;
+
+        $r3[4] = 97;
+
+        $r3[5] = 108;
+
+        $r3[6] = 108;
+
+        $r3[7] = 105;
+
+        $r3[8] = 101;
+
+        $r3[9] = 114;
+
+        $r3[10] = 116;
+
+        $r3[11] = 32;
+
+        $r3[12] = 97;
+
+        $r3[13] = 108;
+
+        $r3[14] = 115;
+
+        $r3[15] = 32;
+
+        $r3[16] = 114;
+
+        $r3[17] = 47;
+
+        $r3[18] = 119;
+
+        goto label21;
+
+     label24:
+        $r3 = newarray (byte)[15];
+
+        $r3[0] = 77;
+
+        $r3[1] = 111;
+
+        $r3[2] = 110;
+
+        $r3[3] = 116;
+
+        $r3[4] = 97;
+
+        $r3[5] = 114;
+
+        $r3[6] = 32;
+
+        $r3[7] = 99;
+
+        $r3[8] = 111;
+
+        $r3[9] = 109;
+
+        $r3[10] = 111;
+
+        $r3[11] = 32;
+
+        $r3[12] = 114;
+
+        $r3[13] = 47;
+
+        $r3[14] = 119;
+
+        goto label21;
+
+     label25:
+        $r3 = newarray (byte)[41];
+
+        $r3[0] = -48;
+
+        $r3[1] = -97;
+
+        $r3[2] = -47;
+
+        $r3[3] = -128;
+
+        $r3[4] = -48;
+
+        $r3[5] = -80;
+
+        $r3[6] = -48;
+
+        $r3[7] = -78;
+
+        $r3[8] = -48;
+
+        $r3[9] = -80;
+
+        $r3[10] = 32;
+
+        $r3[11] = -48;
+
+        $r3[12] = -67;
+
+        $r3[13] = -48;
+
+        $r3[14] = -80;
+
+        $r3[15] = 32;
+
+        $r3[16] = -47;
+
+        $r3[17] = -121;
+
+        $r3[18] = -47;
+
+        $r3[19] = -126;
+
+        $r3[20] = -48;
+
+        $r3[21] = -75;
+
+        $r3[22] = -48;
+
+        $r3[23] = -67;
+
+        $r3[24] = -48;
+
+        $r3[25] = -72;
+
+        $r3[26] = -48;
+
+        $r3[27] = -75;
+
+        $r3[28] = 47;
+
+        $r3[29] = -48;
+
+        $r3[30] = -73;
+
+        $r3[31] = -48;
+
+        $r3[32] = -80;
+
+        $r3[33] = -48;
+
+        $r3[34] = -65;
+
+        $r3[35] = -48;
+
+        $r3[36] = -72;
+
+        $r3[37] = -47;
+
+        $r3[38] = -127;
+
+        $r3[39] = -47;
+
+        $r3[40] = -116;
+
+        goto label21;
+
+     label26:
+        $r3 = newarray (byte)[16];
+
+        $r3[0] = 77;
+
+        $r3[1] = 111;
+
+        $r3[2] = 110;
+
+        $r3[3] = 116;
+
+        $r3[4] = 97;
+
+        $r3[5] = 100;
+
+        $r3[6] = 111;
+
+        $r3[7] = 32;
+
+        $r3[8] = 99;
+
+        $r3[9] = 111;
+
+        $r3[10] = 109;
+
+        $r3[11] = 111;
+
+        $r3[12] = 32;
+
+        $r3[13] = 114;
+
+        $r3[14] = 47;
+
+        $r3[15] = 119;
+
+        goto label21;
+
+     label27:
+        $r3 = newarray (byte)[17];
+
+        $r3[0] = 77;
+
+        $r3[1] = 111;
+
+        $r3[2] = 110;
+
+        $r3[3] = 116;
+
+        $r3[4] = -61;
+
+        $r3[5] = -87;
+
+        $r3[6] = 114;
+
+        $r3[7] = 101;
+
+        $r3[8] = 116;
+
+        $r3[9] = 32;
+
+        $r3[10] = 115;
+
+        $r3[11] = 111;
+
+        $r3[12] = 109;
+
+        $r3[13] = 32;
+
+        $r3[14] = 114;
+
+        $r3[15] = 47;
+
+        $r3[16] = 119;
+
+        goto label21;
+
+     label28:
+        $r3 = newarray (byte)[36];
+
+        $r3[0] = -41;
+
+        $r3[1] = -98;
+
+        $r3[2] = -41;
+
+        $r3[3] = -101;
+
+        $r3[4] = -41;
+
+        $r3[5] = -107;
+
+        $r3[6] = -41;
+
+        $r3[7] = -107;
+
+        $r3[8] = -41;
+
+        $r3[9] = -97;
+
+        $r3[10] = 32;
+
+        $r3[11] = -41;
+
+        $r3[12] = -100;
+
+        $r3[13] = -41;
+
+        $r3[14] = -89;
+
+        $r3[15] = -41;
+
+        $r3[16] = -88;
+
+        $r3[17] = -41;
+
+        $r3[18] = -103;
+
+        $r3[19] = -41;
+
+        $r3[20] = -112;
+
+        $r3[21] = -41;
+
+        $r3[22] = -108;
+
+        $r3[23] = 32;
+
+        $r3[24] = -41;
+
+        $r3[25] = -107;
+
+        $r3[26] = -41;
+
+        $r3[27] = -101;
+
+        $r3[28] = -41;
+
+        $r3[29] = -86;
+
+        $r3[30] = -41;
+
+        $r3[31] = -103;
+
+        $r3[32] = -41;
+
+        $r3[33] = -111;
+
+        $r3[34] = -41;
+
+        $r3[35] = -108;
+
+        goto label21;
+
+     label29:
+        $r3 = newarray (byte)[13];
+
+        $r3[0] = 77;
+
+        $r3[1] = 111;
+
+        $r3[2] = 110;
+
+        $r3[3] = 116;
+
+        $r3[4] = -61;
+
+        $r3[5] = -87;
+
+        $r3[6] = 32;
+
+        $r3[7] = 101;
+
+        $r3[8] = 110;
+
+        $r3[9] = 32;
+
+        $r3[10] = 114;
+
+        $r3[11] = 47;
+
+        $r3[12] = 119;
+
+        goto label21;
+
+     label30:
+        $r3 = newarray (byte)[16];
+
+        $r3[0] = 77;
+
+        $r3[1] = 111;
+
+        $r3[2] = 110;
+
+        $r3[3] = 116;
+
+        $r3[4] = 97;
+
+        $r3[5] = 116;
+
+        $r3[6] = 111;
+
+        $r3[7] = 32;
+
+        $r3[8] = 99;
+
+        $r3[9] = 111;
+
+        $r3[10] = 109;
+
+        $r3[11] = 101;
+
+        $r3[12] = 32;
+
+        $r3[13] = 114;
+
+        $r3[14] = 47;
+
+        $r3[15] = 119;
+
+        goto label21;
+
+     label31:
+        $r3 = newarray (byte)[24];
+
+        $r3[0] = 114;
+
+        $r3[1] = 47;
+
+        $r3[2] = 119;
+
+        $r3[3] = -29;
+
+        $r3[4] = -127;
+
+        $r3[5] = -88;
+
+        $r3[6] = -29;
+
+        $r3[7] = -127;
+
+        $r3[8] = -105;
+
+        $r3[9] = -29;
+
+        $r3[10] = -127;
+
+        $r3[11] = -90;
+
+        $r3[12] = -29;
+
+        $r3[13] = -125;
+
+        $r3[14] = -98;
+
+        $r3[15] = -29;
+
+        $r3[16] = -126;
+
+        $r3[17] = -90;
+
+        $r3[18] = -29;
+
+        $r3[19] = -125;
+
+        $r3[20] = -77;
+
+        $r3[21] = -29;
+
+        $r3[22] = -125;
+
+        $r3[23] = -120;
+
+        goto label21;
+
+     label32:
+        $r3 = newarray (byte)[16];
+
+        $r3[0] = 82;
+
+        $r3[1] = 47;
+
+        $r3[2] = 87;
+
+        $r3[3] = -21;
+
+        $r3[4] = -95;
+
+        $r3[5] = -100;
+
+        $r3[6] = 32;
+
+        $r3[7] = -19;
+
+        $r3[8] = -125;
+
+        $r3[9] = -111;
+
+        $r3[10] = -20;
+
+        $r3[11] = -98;
+
+        $r3[12] = -84;
+
+        $r3[13] = -21;
+
+        $r3[14] = -112;
+
+        $r3[15] = -88;
+
+        goto label21;
+
+     label33:
+        $r3 = newarray (byte)[36];
+
+        $r3[0] = -41;
+
+        $r3[1] = -98;
+
+        $r3[2] = -41;
+
+        $r3[3] = -101;
+
+        $r3[4] = -41;
+
+        $r3[5] = -107;
+
+        $r3[6] = -41;
+
+        $r3[7] = -107;
+
+        $r3[8] = -41;
+
+        $r3[9] = -97;
+
+        $r3[10] = 32;
+
+        $r3[11] = -41;
+
+        $r3[12] = -100;
+
+        $r3[13] = -41;
+
+        $r3[14] = -89;
+
+        $r3[15] = -41;
+
+        $r3[16] = -88;
+
+        $r3[17] = -41;
+
+        $r3[18] = -103;
+
+        $r3[19] = -41;
+
+        $r3[20] = -112;
+
+        $r3[21] = -41;
+
+        $r3[22] = -108;
+
+        $r3[23] = 32;
+
+        $r3[24] = -41;
+
+        $r3[25] = -107;
+
+        $r3[26] = -41;
+
+        $r3[27] = -101;
+
+        $r3[28] = -41;
+
+        $r3[29] = -86;
+
+        $r3[30] = -41;
+
+        $r3[31] = -103;
+
+        $r3[32] = -41;
+
+        $r3[33] = -111;
+
+        $r3[34] = -41;
+
+        $r3[35] = -108;
+
+        goto label21;
+
+     label34:
+        $r3 = newarray (byte)[21];
+
+        $r3[0] = -27;
+
+        $r3[1] = -73;
+
+        $r3[2] = -78;
+
+        $r3[3] = -26;
+
+        $r3[4] = -116;
+
+        $r3[5] = -126;
+
+        $r3[6] = -24;
+
+        $r3[7] = -67;
+
+        $r3[8] = -67;
+
+        $r3[9] = -28;
+
+        $r3[10] = -72;
+
+        $r3[11] = -70;
+
+        $r3[12] = -27;
+
+        $r3[13] = -113;
+
+        $r3[14] = -81;
+
+        $r3[15] = -24;
+
+        $r3[16] = -81;
+
+        $r3[17] = -69;
+
+        $r3[18] = -27;
+
+        $r3[19] = -122;
+
+        $r3[20] = -103;
+
+        goto label21;
+
+     label35:
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long i>;
+
+        $b3 = $l2 cmp 1073741824L;
+
+        if $b3 < 0 goto label43;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long i>;
+
+        $d0 = (double) $l2;
+
+        $d0 = $d0 / 1024.0;
+
+        $d0 = $d0 / 1024.0;
+
+        $d0 = $d0 / 1024.0;
+
+        $r6 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>($d0);
+
+        $r5[0] = $r6;
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%.2fGB", $r5);
+
+     label36:
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long j>;
+
+        $b3 = $l2 cmp 1073741824L;
+
+        if $b3 < 0 goto label46;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long j>;
+
+        $d0 = (double) $l2;
+
+        $d0 = $d0 / 1024.0;
+
+        $d0 = $d0 / 1024.0;
+
+        $d0 = $d0 / 1024.0;
+
+        $r6 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>($d0);
+
+        $r5[0] = $r6;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%.2fGB", $r5);
+
+     label37:
+        $r5 = newarray (java.lang.Object)[5];
+
+        $r5[0] = $r2;
+
+        $r2 = new java.lang.String;
+
+        if $r1 != null goto label49;
+
+        $i0 = 0;
+
+     label38:
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] R(int)>($i0);
+
+        specialinvoke $r2.<java.lang.String: void <init>(byte[])>($r3);
+
+        $r5[1] = $r2;
+
+        $r5[2] = $r4;
+
+        $r2 = new java.lang.String;
+
+        if $r1 != null goto label50;
+
+     label39:
+        lookupswitch($i1)
+        {
+            case 1: goto label51;
+            case 2: goto label52;
+            case 3: goto label53;
+            case 4: goto label54;
+            case 5: goto label55;
+            case 6: goto label56;
+            case 7: goto label57;
+            case 8: goto label58;
+            case 9: goto label59;
+            case 10: goto label60;
+            case 11: goto label61;
+            case 12: goto label62;
+            default: goto label40;
+        };
+
+     label40:
+        $r3 = newarray (byte)[4];
+
+        $r3[0] = 102;
+
+        $r3[1] = 114;
+
+        $r3[2] = 101;
+
+        $r3[3] = 101;
+
+     label41:
+        specialinvoke $r2.<java.lang.String: void <init>(byte[])>($r3);
+
+        $r5[3] = $r2;
+
+        $z0 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.cf: boolean a()>();
+
+        if $z0 == 0 goto label63;
+
+        $r2 = "r/o";
+
+     label42:
+        $r5[4] = $r2;
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%s %s, %s %s, %s", $r5);
+
+        return $r2;
+
+     label43:
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long i>;
+
+        $b3 = $l2 cmp 1048576L;
+
+        if $b3 < 0 goto label44;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long i>;
+
+        $d0 = (double) $l2;
+
+        $d0 = $d0 / 1024.0;
+
+        $d0 = $d0 / 1024.0;
+
+        $r6 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>($d0);
+
+        $r5[0] = $r6;
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%.2fMB", $r5);
+
+        goto label36;
+
+     label44:
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long i>;
+
+        $b3 = $l2 cmp 1024L;
+
+        if $b3 < 0 goto label45;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long i>;
+
+        $d0 = (double) $l2;
+
+        $d0 = $d0 / 1024.0;
+
+        $r6 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>($d0);
+
+        $r5[0] = $r6;
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%.0fK", $r5);
+
+        goto label36;
+
+     label45:
+        $r5 = newarray (java.lang.Object)[1];
+
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long i>;
+
+        $r7 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l2);
+
+        $r5[0] = $r7;
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%d", $r5);
+
+        goto label36;
+
+     label46:
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long j>;
+
+        $b3 = $l2 cmp 1048576L;
+
+        if $b3 < 0 goto label47;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long j>;
+
+        $d0 = (double) $l2;
+
+        $d0 = $d0 / 1024.0;
+
+        $d0 = $d0 / 1024.0;
+
+        $r6 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>($d0);
+
+        $r5[0] = $r6;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%.2fMB", $r5);
+
+        goto label37;
+
+     label47:
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long j>;
+
+        $b3 = $l2 cmp 1024L;
+
+        if $b3 < 0 goto label48;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long j>;
+
+        $d0 = (double) $l2;
+
+        $d0 = $d0 / 1024.0;
+
+        $r6 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>($d0);
+
+        $r5[0] = $r6;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%.0fK", $r5);
+
+        goto label37;
+
+     label48:
+        $r5 = newarray (java.lang.Object)[1];
+
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long j>;
+
+        $r7 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l2);
+
+        $r5[0] = $r7;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%d", $r5);
+
+        goto label37;
+
+     label49:
+        $r8 = virtualinvoke $r1.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label38;
+
+     label50:
+        $r4 = virtualinvoke $r1.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r4);
+
+        goto label39;
+
+     label51:
+        $r3 = newarray (byte)[4];
+
+        $r3[0] = 102;
+
+        $r3[1] = 114;
+
+        $r3[2] = 101;
+
+        $r3[3] = 105;
+
+        goto label41;
+
+     label52:
+        $r3 = newarray (byte)[5];
+
+        $r3[0] = 108;
+
+        $r3[1] = 105;
+
+        $r3[2] = 98;
+
+        $r3[3] = 114;
+
+        $r3[4] = 101;
+
+        goto label41;
+
+     label53:
+        $r3 = newarray (byte)[16];
+
+        $r3[0] = -47;
+
+        $r3[1] = -127;
+
+        $r3[2] = -48;
+
+        $r3[3] = -78;
+
+        $r3[4] = -48;
+
+        $r3[5] = -66;
+
+        $r3[6] = -48;
+
+        $r3[7] = -79;
+
+        $r3[8] = -48;
+
+        $r3[9] = -66;
+
+        $r3[10] = -48;
+
+        $r3[11] = -76;
+
+        $r3[12] = -48;
+
+        $r3[13] = -67;
+
+        $r3[14] = -48;
+
+        $r3[15] = -66;
+
+        goto label41;
+
+     label54:
+        $r3 = newarray (byte)[6];
+
+        $r3[0] = 108;
+
+        $r3[1] = 105;
+
+        $r3[2] = 118;
+
+        $r3[3] = 114;
+
+        $r3[4] = 101;
+
+        $r3[5] = 115;
+
+        goto label41;
+
+     label55:
+        $r3 = newarray (byte)[5];
+
+        $r3[0] = 108;
+
+        $r3[1] = 101;
+
+        $r3[2] = 100;
+
+        $r3[3] = 105;
+
+        $r3[4] = 103;
+
+        goto label41;
+
+     label56:
+        $r3 = newarray (byte)[8];
+
+        $r3[0] = -41;
+
+        $r3[1] = -92;
+
+        $r3[2] = -41;
+
+        $r3[3] = -96;
+
+        $r3[4] = -41;
+
+        $r3[5] = -107;
+
+        $r3[6] = -41;
+
+        $r3[7] = -103;
+
+        goto label41;
+
+     label57:
+        $r3 = newarray (byte)[5];
+
+        $r3[0] = 108;
+
+        $r3[1] = 105;
+
+        $r3[2] = 98;
+
+        $r3[3] = 114;
+
+        $r3[4] = 101;
+
+        goto label41;
+
+     label58:
+        $r3 = newarray (byte)[6];
+
+        $r3[0] = 76;
+
+        $r3[1] = 105;
+
+        $r3[2] = 98;
+
+        $r3[3] = 101;
+
+        $r3[4] = 114;
+
+        $r3[5] = 111;
+
+        goto label41;
+
+     label59:
+        $r3 = newarray (byte)[12];
+
+        $r3[0] = -25;
+
+        $r3[1] = -87;
+
+        $r3[2] = -70;
+
+        $r3[3] = -29;
+
+        $r3[4] = -127;
+
+        $r3[5] = -115;
+
+        $r3[6] = -23;
+
+        $r3[7] = -96;
+
+        $r3[8] = -104;
+
+        $r3[9] = -27;
+
+        $r3[10] = -97;
+
+        $r3[11] = -97;
+
+        goto label41;
+
+     label60:
+        $r3 = newarray (byte)[6];
+
+        $r3[0] = -20;
+
+        $r3[1] = -105;
+
+        $r3[2] = -84;
+
+        $r3[3] = -20;
+
+        $r3[4] = -100;
+
+        $r3[5] = -96;
+
+        goto label41;
+
+     label61:
+        $r3 = newarray (byte)[8];
+
+        $r3[0] = -41;
+
+        $r3[1] = -92;
+
+        $r3[2] = -41;
+
+        $r3[3] = -96;
+
+        $r3[4] = -41;
+
+        $r3[5] = -107;
+
+        $r3[6] = -41;
+
+        $r3[7] = -103;
+
+        goto label41;
+
+     label62:
+        $r3 = newarray (byte)[6];
+
+        $r3[0] = -27;
+
+        $r3[1] = -113;
+
+        $r3[2] = -81;
+
+        $r3[3] = -25;
+
+        $r3[4] = -108;
+
+        $r3[5] = -88;
+
+        goto label41;
+
+     label63:
+        $r2 = "r/w";
+
+        goto label42;
+
+     label64:
+        $r9 = new java.lang.StringBuilder;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String c>;
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r2);
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>($r2);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $z0 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.cf: boolean a()>();
+
+        if $z0 == 0 goto label66;
+
+        $r2 = "(r/o)";
+
+     label65:
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+
+     label66:
+        $r2 = "(r/w)";
+
+        goto label65;
+    }
+
+    public final void a(int)
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        $i0 := @parameter0: int;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: int a> = $i0;
+
+        return;
+    }
+
+    public final void a(long, long, long)
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        long $l0, $l1, $l2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        $l0 := @parameter0: long;
+
+        $l1 := @parameter1: long;
+
+        $l2 := @parameter2: long;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long h> = $l0;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long i> = $l1;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long j> = $l2;
+
+        return;
+    }
+
+    public final void a(java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String f> = $r1;
+
+        return;
+    }
+
+    public final void a(java.lang.String, android.content.Context)
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        java.lang.String $r1, $r3, $r4;
+        android.content.Context $r2;
+        boolean $z0;
+        byte[] $r5;
+        java.lang.StringBuilder $r6;
+        java.io.File $r7;
+        long $l0, $l2;
+        byte $b1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: android.content.Context;
+
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z0 == 0 goto label02;
+
+        $r3 = new java.lang.String;
+
+        if $r2 == null goto label01;
+
+        $r4 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r4);
+
+     label01:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] H()>();
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r5);
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r3);
+
+     label02:
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z0 == 0 goto label04;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r3 = new java.lang.String;
+
+        if $r2 == null goto label03;
+
+        $r4 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r4);
+
+     label03:
+        $r5 = newarray (byte)[35];
+
+        $r5[0] = 70;
+
+        $r5[1] = 105;
+
+        $r5[2] = 108;
+
+        $r5[3] = 101;
+
+        $r5[4] = 83;
+
+        $r5[5] = 121;
+
+        $r5[6] = 115;
+
+        $r5[7] = 116;
+
+        $r5[8] = 101;
+
+        $r5[9] = 109;
+
+        $r5[10] = 46;
+
+        $r5[11] = 85;
+
+        $r5[12] = 112;
+
+        $r5[13] = 100;
+
+        $r5[14] = 97;
+
+        $r5[15] = 116;
+
+        $r5[16] = 101;
+
+        $r5[17] = 83;
+
+        $r5[18] = 112;
+
+        $r5[19] = 97;
+
+        $r5[20] = 99;
+
+        $r5[21] = 101;
+
+        $r5[22] = 86;
+
+        $r5[23] = 97;
+
+        $r5[24] = 108;
+
+        $r5[25] = 117;
+
+        $r5[26] = 101;
+
+        $r5[27] = 115;
+
+        $r5[28] = 58;
+
+        $r5[29] = 32;
+
+        $r5[30] = 112;
+
+        $r5[31] = 97;
+
+        $r5[32] = 116;
+
+        $r5[33] = 104;
+
+        $r5[34] = 61;
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r3);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r3);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r3);
+
+     label04:
+        $r7 = new java.io.File;
+
+        specialinvoke $r7.<java.io.File: void <init>(java.lang.String)>($r1);
+
+        $l0 = virtualinvoke $r7.<java.io.File: long getTotalSpace()>();
+
+        $b1 = $l0 cmp 0L;
+
+        if $b1 <= 0 goto label05;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long h> = $l0;
+
+        $l0 = virtualinvoke $r7.<java.io.File: long getFreeSpace()>();
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long j> = $l0;
+
+        $l0 = $r0.<com.speedsoftware.rootexplorer.cf: long h>;
+
+        $l2 = $r0.<com.speedsoftware.rootexplorer.cf: long j>;
+
+        $l0 = $l0 - $l2;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long i> = $l0;
+
+     label05:
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z0 == 0 goto label07;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r1 = new java.lang.String;
+
+        if $r2 == null goto label06;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r3);
+
+     label06:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] G()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r1);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $l0 = $r0.<com.speedsoftware.rootexplorer.cf: long h>;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r1);
+
+     label07:
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z0 == 0 goto label09;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r1 = new java.lang.String;
+
+        if $r2 == null goto label08;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r3);
+
+     label08:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] F()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r1);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $l0 = $r0.<com.speedsoftware.rootexplorer.cf: long j>;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r1);
+
+     label09:
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z0 == 0 goto label11;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r1 = new java.lang.String;
+
+        if $r2 == null goto label10;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r3);
+
+     label10:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] E()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r1);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $l0 = $r0.<com.speedsoftware.rootexplorer.cf: long i>;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r1);
+
+     label11:
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z0 == 0 goto label13;
+
+        $r1 = new java.lang.String;
+
+        if $r2 == null goto label12;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r3);
+
+     label12:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] D()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r5);
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r1);
+
+     label13:
+        return;
+    }
+
+    public final void a(java.lang.String, boolean, boolean, android.content.Context)
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        java.lang.String $r1, $r3, $r4, $r6, $r8;
+        boolean $z0, $z1, $z2;
+        android.content.Context $r2;
+        int $i0, $i1, $i2, $i6;
+        byte[] $r5;
+        long $l3;
+        byte $b4;
+        java.lang.StringBuilder $r7;
+        char $c5;
+        java.lang.Exception $r9;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 := @parameter1: boolean;
+
+        $z1 := @parameter2: boolean;
+
+        $r2 := @parameter3: android.content.Context;
+
+        $i0 = 0;
+
+        $z2 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z2 == 0 goto label002;
+
+        $r3 = new java.lang.String;
+
+        if $r2 == null goto label001;
+
+        $r4 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r4);
+
+     label001:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] H()>();
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r5);
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r3);
+
+     label002:
+        $z0 = $z0 | $z1;
+
+        if $z0 == 0 goto label043;
+
+        $i0 = 0;
+
+        $r3 = null;
+
+        $i1 = 0;
+
+        $r6 = null;
+
+        $r4 = null;
+
+     label003:
+        if $i0 > 3 goto label006;
+
+     label004:
+        $i2 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+     label005:
+        if $i1 < $i2 goto label023;
+
+     label006:
+        $i0 = staticinvoke <com.speedsoftware.rootexplorer.cf: int c(java.lang.String)>($r3);
+
+     label007:
+        $l3 = (long) $i0;
+
+     label008:
+        $r0.<com.speedsoftware.rootexplorer.cf: long h> = $l3;
+
+        $l3 = $r0.<com.speedsoftware.rootexplorer.cf: long h>;
+
+     label009:
+        $b4 = $l3 cmp 0L;
+
+        if $b4 <= 0 goto label115;
+
+     label010:
+        $i0 = staticinvoke <com.speedsoftware.rootexplorer.cf: int c(java.lang.String)>($r4);
+
+     label011:
+        $l3 = (long) $i0;
+
+     label012:
+        $r0.<com.speedsoftware.rootexplorer.cf: long i> = $l3;
+
+        $i0 = staticinvoke <com.speedsoftware.rootexplorer.cf: int c(java.lang.String)>($r6);
+
+     label013:
+        $l3 = (long) $i0;
+
+     label014:
+        $r0.<com.speedsoftware.rootexplorer.cf: long j> = $l3;
+
+     label015:
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z0 == 0 goto label017;
+
+        $r7 = new java.lang.StringBuilder;
+
+        $r1 = new java.lang.String;
+
+        if $r2 == null goto label016;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r3);
+
+     label016:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] G()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r1);
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $l3 = $r0.<com.speedsoftware.rootexplorer.cf: long h>;
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l3);
+
+        $r1 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r1);
+
+     label017:
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z0 == 0 goto label019;
+
+        $r7 = new java.lang.StringBuilder;
+
+        $r1 = new java.lang.String;
+
+        if $r2 == null goto label018;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r3);
+
+     label018:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] F()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r1);
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $l3 = $r0.<com.speedsoftware.rootexplorer.cf: long j>;
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l3);
+
+        $r1 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r1);
+
+     label019:
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z0 == 0 goto label021;
+
+        $r7 = new java.lang.StringBuilder;
+
+        $r1 = new java.lang.String;
+
+        if $r2 == null goto label020;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r3);
+
+     label020:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] E()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r1);
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $l3 = $r0.<com.speedsoftware.rootexplorer.cf: long i>;
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l3);
+
+        $r1 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r1);
+
+     label021:
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean q>;
+
+        if $z0 == 0 goto label117;
+
+        $r1 = new java.lang.String;
+
+        if $r2 == null goto label022;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r3);
+
+     label022:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] D()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r5);
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void d(java.lang.String)>($r1);
+
+        return;
+
+     label023:
+        $i2 = virtualinvoke $r1.<java.lang.String: int indexOf(int,int)>(32, $i1);
+
+     label024:
+        if $i2 != -1 goto label033;
+
+     label025:
+        $r8 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int)>($i1);
+
+        $r8 = virtualinvoke $r8.<java.lang.String: java.lang.String trim()>();
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b> = $r8;
+
+     label026:
+        lookupswitch($i0)
+        {
+            case 1: goto label036;
+            case 2: goto label038;
+            case 3: goto label040;
+            default: goto label027;
+        };
+
+     label027:
+        $i1 = $i2 + 1;
+
+     label028:
+        $i2 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+     label029:
+        if $i2 <= $i1 goto label032;
+
+     label030:
+        $c5 = virtualinvoke $r1.<java.lang.String: char charAt(int)>($i1);
+
+     label031:
+        if $c5 == 32 goto label042;
+
+     label032:
+        $i0 = $i0 + 1;
+
+        goto label003;
+
+     label033:
+        $r8 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>($i1, $i2);
+
+        $r8 = virtualinvoke $r8.<java.lang.String: java.lang.String trim()>();
+
+        $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b> = $r8;
+
+     label034:
+        goto label026;
+
+     label035:
+        $r9 := @caughtexception;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long h> = -1L;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long i> = -1L;
+
+        $r0.<com.speedsoftware.rootexplorer.cf: long j> = -1L;
+
+        goto label015;
+
+     label036:
+        $r3 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b>;
+
+     label037:
+        goto label027;
+
+     label038:
+        $r4 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b>;
+
+     label039:
+        goto label027;
+
+     label040:
+        $r6 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String b>;
+
+     label041:
+        goto label027;
+
+     label042:
+        $i1 = $i1 + 1;
+
+        goto label028;
+
+     label043:
+        $i2 = virtualinvoke $r1.<java.lang.String: int indexOf(int)>(58);
+
+     label044:
+        $i1 = $i2 + 2;
+
+        $r7 = new java.lang.StringBuilder;
+
+     label045:
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>("K ");
+
+     label046:
+        $r3 = new java.lang.String;
+
+        if $r2 != null goto label061;
+
+        $i6 = 0;
+
+     label047:
+        lookupswitch($i6)
+        {
+            case 1: goto label063;
+            case 2: goto label065;
+            case 3: goto label067;
+            case 4: goto label069;
+            case 5: goto label071;
+            case 6: goto label073;
+            case 7: goto label075;
+            case 8: goto label077;
+            case 9: goto label079;
+            case 10: goto label081;
+            case 11: goto label083;
+            case 12: goto label085;
+            default: goto label048;
+        };
+
+     label048:
+        $r5 = newarray (byte)[5];
+
+        $r5[0] = 116;
+
+        $r5[1] = 111;
+
+        $r5[2] = 116;
+
+        $r5[3] = 97;
+
+        $r5[4] = 108;
+
+     label049:
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $i2 = virtualinvoke $r1.<java.lang.String: int indexOf(java.lang.String,int)>($r3, $i2);
+
+        $r3 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>($i1, $i2);
+
+     label050:
+        $i1 = $i2 + 9;
+
+        $r7 = new java.lang.StringBuilder;
+
+     label051:
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>("K ");
+
+     label052:
+        $r4 = new java.lang.String;
+
+        if $r2 != null goto label087;
+
+        $i6 = 0;
+
+     label053:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] R(int)>($i6);
+
+        specialinvoke $r4.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r4 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $i2 = virtualinvoke $r1.<java.lang.String: int indexOf(java.lang.String,int)>($r4, $i2);
+
+        $r4 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>($i1, $i2);
+
+     label054:
+        $i1 = $i2 + 8;
+
+        $r7 = new java.lang.StringBuilder;
+
+     label055:
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>("K ");
+
+     label056:
+        $r6 = new java.lang.String;
+
+        if $r2 != null goto label089;
+
+     label057:
+        lookupswitch($i0)
+        {
+            case 1: goto label091;
+            case 2: goto label093;
+            case 3: goto label095;
+            case 4: goto label097;
+            case 5: goto label099;
+            case 6: goto label101;
+            case 7: goto label103;
+            case 8: goto label105;
+            case 9: goto label107;
+            case 10: goto label109;
+            case 11: goto label111;
+            case 12: goto label113;
+            default: goto label058;
+        };
+
+     label058:
+        $r5 = newarray (byte)[9];
+
+        $r5[0] = 97;
+
+        $r5[1] = 118;
+
+        $r5[2] = 97;
+
+        $r5[3] = 105;
+
+        $r5[4] = 108;
+
+        $r5[5] = 97;
+
+        $r5[6] = 98;
+
+        $r5[7] = 108;
+
+        $r5[8] = 101;
+
+     label059:
+        specialinvoke $r6.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int indexOf(java.lang.String,int)>($r6, $i2);
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>($i1, $i0);
+
+     label060:
+        $r6 = $r1;
+
+        goto label006;
+
+     label061:
+        $r4 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        $i6 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r4);
+
+     label062:
+        goto label047;
+
+     label063:
+        $r5 = newarray (byte)[6];
+
+        $r5[0] = 103;
+
+        $r5[1] = 101;
+
+        $r5[2] = 115;
+
+        $r5[3] = 97;
+
+        $r5[4] = 109;
+
+        $r5[5] = 116;
+
+     label064:
+        goto label049;
+
+     label065:
+        $r5 = newarray (byte)[5];
+
+        $r5[0] = 116;
+
+        $r5[1] = 111;
+
+        $r5[2] = 116;
+
+        $r5[3] = 97;
+
+        $r5[4] = 108;
+
+     label066:
+        goto label049;
+
+     label067:
+        $r5 = newarray (byte)[10];
+
+        $r5[0] = -48;
+
+        $r5[1] = -78;
+
+        $r5[2] = -47;
+
+        $r5[3] = -127;
+
+        $r5[4] = -48;
+
+        $r5[5] = -75;
+
+        $r5[6] = -48;
+
+        $r5[7] = -77;
+
+        $r5[8] = -48;
+
+        $r5[9] = -66;
+
+     label068:
+        goto label049;
+
+     label069:
+        $r5 = newarray (byte)[5];
+
+        $r5[0] = 116;
+
+        $r5[1] = 111;
+
+        $r5[2] = 116;
+
+        $r5[3] = 97;
+
+        $r5[4] = 108;
+
+     label070:
+        goto label049;
+
+     label071:
+        $r5 = newarray (byte)[5];
+
+        $r5[0] = 116;
+
+        $r5[1] = 111;
+
+        $r5[2] = 116;
+
+        $r5[3] = 97;
+
+        $r5[4] = 108;
+
+     label072:
+        goto label049;
+
+     label073:
+        $r5 = newarray (byte)[7];
+
+        $r5[0] = -41;
+
+        $r5[1] = -95;
+
+        $r5[2] = -41;
+
+        $r5[3] = -108;
+
+        $r5[4] = 34;
+
+        $r5[5] = -41;
+
+        $r5[6] = -101;
+
+     label074:
+        goto label049;
+
+     label075:
+        $r5 = newarray (byte)[5];
+
+        $r5[0] = 116;
+
+        $r5[1] = 111;
+
+        $r5[2] = 116;
+
+        $r5[3] = 97;
+
+        $r5[4] = 108;
+
+     label076:
+        goto label049;
+
+     label077:
+        $r5 = newarray (byte)[6];
+
+        $r5[0] = 116;
+
+        $r5[1] = 111;
+
+        $r5[2] = 116;
+
+        $r5[3] = 97;
+
+        $r5[4] = 108;
+
+        $r5[5] = 101;
+
+     label078:
+        goto label049;
+
+     label079:
+        $r5 = newarray (byte)[6];
+
+        $r5[0] = -27;
+
+        $r5[1] = -112;
+
+        $r5[2] = -120;
+
+        $r5[3] = -24;
+
+        $r5[4] = -88;
+
+        $r5[5] = -120;
+
+     label080:
+        goto label049;
+
+     label081:
+        $r5 = newarray (byte)[3];
+
+        $r5[0] = -20;
+
+        $r5[1] = -76;
+
+        $r5[2] = -99;
+
+     label082:
+        goto label049;
+
+     label083:
+        $r5 = newarray (byte)[7];
+
+        $r5[0] = -41;
+
+        $r5[1] = -95;
+
+        $r5[2] = -41;
+
+        $r5[3] = -108;
+
+        $r5[4] = 34;
+
+        $r5[5] = -41;
+
+        $r5[6] = -101;
+
+     label084:
+        goto label049;
+
+     label085:
+        $r5 = newarray (byte)[6];
+
+        $r5[0] = -26;
+
+        $r5[1] = -128;
+
+        $r5[2] = -69;
+
+        $r5[3] = -24;
+
+        $r5[4] = -82;
+
+        $r5[5] = -95;
+
+     label086:
+        goto label049;
+
+     label087:
+        $r6 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        $i6 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+     label088:
+        goto label053;
+
+     label089:
+        $r8 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+     label090:
+        goto label057;
+
+     label091:
+        $r5 = newarray (byte)[10];
+
+        $r5[0] = 118;
+
+        $r5[1] = 101;
+
+        $r5[2] = 114;
+
+        $r5[3] = 102;
+
+        $r5[4] = -61;
+
+        $r5[5] = -68;
+
+        $r5[6] = 103;
+
+        $r5[7] = 98;
+
+        $r5[8] = 97;
+
+        $r5[9] = 114;
+
+     label092:
+        goto label059;
+
+     label093:
+        $r5 = newarray (byte)[10];
+
+        $r5[0] = 100;
+
+        $r5[1] = 105;
+
+        $r5[2] = 115;
+
+        $r5[3] = 112;
+
+        $r5[4] = 111;
+
+        $r5[5] = 110;
+
+        $r5[6] = 105;
+
+        $r5[7] = 98;
+
+        $r5[8] = 108;
+
+        $r5[9] = 101;
+
+     label094:
+        goto label059;
+
+     label095:
+        $r5 = newarray (byte)[16];
+
+        $r5[0] = -48;
+
+        $r5[1] = -76;
+
+        $r5[2] = -48;
+
+        $r5[3] = -66;
+
+        $r5[4] = -47;
+
+        $r5[5] = -127;
+
+        $r5[6] = -47;
+
+        $r5[7] = -126;
+
+        $r5[8] = -47;
+
+        $r5[9] = -125;
+
+        $r5[10] = -48;
+
+        $r5[11] = -65;
+
+        $r5[12] = -48;
+
+        $r5[13] = -67;
+
+        $r5[14] = -48;
+
+        $r5[15] = -66;
+
+     label096:
+        goto label059;
+
+     label097:
+        $r5 = newarray (byte)[11];
+
+        $r5[0] = 100;
+
+        $r5[1] = 105;
+
+        $r5[2] = 115;
+
+        $r5[3] = 112;
+
+        $r5[4] = 111;
+
+        $r5[5] = 110;
+
+        $r5[6] = -61;
+
+        $r5[7] = -83;
+
+        $r5[8] = 118;
+
+        $r5[9] = 101;
+
+        $r5[10] = 108;
+
+     label098:
+        goto label059;
+
+     label099:
+        $r5 = newarray (byte)[12];
+
+        $r5[0] = 116;
+
+        $r5[1] = 105;
+
+        $r5[2] = 108;
+
+        $r5[3] = 103;
+
+        $r5[4] = -61;
+
+        $r5[5] = -90;
+
+        $r5[6] = 110;
+
+        $r5[7] = 103;
+
+        $r5[8] = 101;
+
+        $r5[9] = 108;
+
+        $r5[10] = 105;
+
+        $r5[11] = 103;
+
+     label100:
+        goto label059;
+
+     label101:
+        $r5 = newarray (byte)[8];
+
+        $r5[0] = -41;
+
+        $r5[1] = -106;
+
+        $r5[2] = -41;
+
+        $r5[3] = -98;
+
+        $r5[4] = -41;
+
+        $r5[5] = -103;
+
+        $r5[6] = -41;
+
+        $r5[7] = -97;
+
+     label102:
+        goto label059;
+
+     label103:
+        $r5 = newarray (byte)[10];
+
+        $r5[0] = 100;
+
+        $r5[1] = 105;
+
+        $r5[2] = 115;
+
+        $r5[3] = 112;
+
+        $r5[4] = 111;
+
+        $r5[5] = 110;
+
+        $r5[6] = 105;
+
+        $r5[7] = 98;
+
+        $r5[8] = 108;
+
+        $r5[9] = 101;
+
+     label104:
+        goto label059;
+
+     label105:
+        $r5 = newarray (byte)[11];
+
+        $r5[0] = 100;
+
+        $r5[1] = 105;
+
+        $r5[2] = 115;
+
+        $r5[3] = 112;
+
+        $r5[4] = 111;
+
+        $r5[5] = 110;
+
+        $r5[6] = 105;
+
+        $r5[7] = 98;
+
+        $r5[8] = 105;
+
+        $r5[9] = 108;
+
+        $r5[10] = 101;
+
+     label106:
+        goto label059;
+
+     label107:
+        $r5 = newarray (byte)[12];
+
+        $r5[0] = -27;
+
+        $r5[1] = -120;
+
+        $r5[2] = -87;
+
+        $r5[3] = -25;
+
+        $r5[4] = -108;
+
+        $r5[5] = -88;
+
+        $r5[6] = -27;
+
+        $r5[7] = -113;
+
+        $r5[8] = -81;
+
+        $r5[9] = -24;
+
+        $r5[10] = -125;
+
+        $r5[11] = -67;
+
+     label108:
+        goto label059;
+
+     label109:
+        $r5 = newarray (byte)[13];
+
+        $r5[0] = -20;
+
+        $r5[1] = -126;
+
+        $r5[2] = -84;
+
+        $r5[3] = -20;
+
+        $r5[4] = -102;
+
+        $r5[5] = -87;
+
+        $r5[6] = 32;
+
+        $r5[7] = -22;
+
+        $r5[8] = -80;
+
+        $r5[9] = -128;
+
+        $r5[10] = -21;
+
+        $r5[11] = -118;
+
+        $r5[12] = -91;
+
+     label110:
+        goto label059;
+
+     label111:
+        $r5 = newarray (byte)[8];
+
+        $r5[0] = -41;
+
+        $r5[1] = -106;
+
+        $r5[2] = -41;
+
+        $r5[3] = -98;
+
+        $r5[4] = -41;
+
+        $r5[5] = -103;
+
+        $r5[6] = -41;
+
+        $r5[7] = -97;
+
+     label112:
+        goto label059;
+
+     label113:
+        $r5 = newarray (byte)[6];
+
+        $r5[0] = -27;
+
+        $r5[1] = -113;
+
+        $r5[2] = -81;
+
+        $r5[3] = -25;
+
+        $r5[4] = -108;
+
+        $r5[5] = -88;
+
+     label114:
+        goto label059;
+
+     label115:
+        $r0.<com.speedsoftware.rootexplorer.cf: long h> = -1L;
+
+     label116:
+        goto label015;
+
+     label117:
+        return;
+
+        catch java.lang.Exception from label004 to label005 with label035;
+        catch java.lang.Exception from label006 to label007 with label035;
+        catch java.lang.Exception from label008 to label009 with label035;
+        catch java.lang.Exception from label010 to label011 with label035;
+        catch java.lang.Exception from label012 to label013 with label035;
+        catch java.lang.Exception from label014 to label015 with label035;
+        catch java.lang.Exception from label023 to label024 with label035;
+        catch java.lang.Exception from label025 to label026 with label035;
+        catch java.lang.Exception from label028 to label029 with label035;
+        catch java.lang.Exception from label030 to label031 with label035;
+        catch java.lang.Exception from label033 to label034 with label035;
+        catch java.lang.Exception from label036 to label037 with label035;
+        catch java.lang.Exception from label038 to label039 with label035;
+        catch java.lang.Exception from label040 to label041 with label035;
+        catch java.lang.Exception from label043 to label044 with label035;
+        catch java.lang.Exception from label045 to label046 with label035;
+        catch java.lang.Exception from label048 to label050 with label035;
+        catch java.lang.Exception from label051 to label052 with label035;
+        catch java.lang.Exception from label053 to label054 with label035;
+        catch java.lang.Exception from label055 to label056 with label035;
+        catch java.lang.Exception from label058 to label060 with label035;
+        catch java.lang.Exception from label061 to label062 with label035;
+        catch java.lang.Exception from label063 to label064 with label035;
+        catch java.lang.Exception from label065 to label066 with label035;
+        catch java.lang.Exception from label067 to label068 with label035;
+        catch java.lang.Exception from label069 to label070 with label035;
+        catch java.lang.Exception from label071 to label072 with label035;
+        catch java.lang.Exception from label073 to label074 with label035;
+        catch java.lang.Exception from label075 to label076 with label035;
+        catch java.lang.Exception from label077 to label078 with label035;
+        catch java.lang.Exception from label079 to label080 with label035;
+        catch java.lang.Exception from label081 to label082 with label035;
+        catch java.lang.Exception from label083 to label084 with label035;
+        catch java.lang.Exception from label085 to label086 with label035;
+        catch java.lang.Exception from label087 to label088 with label035;
+        catch java.lang.Exception from label089 to label090 with label035;
+        catch java.lang.Exception from label091 to label092 with label035;
+        catch java.lang.Exception from label093 to label094 with label035;
+        catch java.lang.Exception from label095 to label096 with label035;
+        catch java.lang.Exception from label097 to label098 with label035;
+        catch java.lang.Exception from label099 to label100 with label035;
+        catch java.lang.Exception from label101 to label102 with label035;
+        catch java.lang.Exception from label103 to label104 with label035;
+        catch java.lang.Exception from label105 to label106 with label035;
+        catch java.lang.Exception from label107 to label108 with label035;
+        catch java.lang.Exception from label109 to label110 with label035;
+        catch java.lang.Exception from label111 to label112 with label035;
+        catch java.lang.Exception from label113 to label114 with label035;
+        catch java.lang.Exception from label115 to label116 with label035;
+    }
+
+    public final boolean a()
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        boolean $z0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String f>;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("rw");
+
+        if $z0 == 0 goto label1;
+
+        return 0;
+
+     label1:
+        return 1;
+    }
+
+    public final int b()
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        int i0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        i0 = $r0.<com.speedsoftware.rootexplorer.cf: int a>;
+
+        return i0;
+    }
+
+    public final java.lang.String b(java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        java.lang.String $r1, $r2;
+        boolean $z0;
+        java.lang.StringBuilder $r3;
+        java.lang.Object[] $r4;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.cf: boolean a()>();
+
+        if $z0 == 0 goto label2;
+
+        $r2 = "rw";
+
+     label1:
+        $r3 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r1);
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" -o %s,remount %s %s");
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r4 = newarray (java.lang.Object)[3];
+
+        $r4[0] = $r2;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String c>;
+
+        $r4[1] = $r2;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String d>;
+
+        $r4[2] = $r2;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>($r1, $r4);
+
+        return $r1;
+
+     label2:
+        $r2 = "ro";
+
+        goto label1;
+    }
+
+    public final java.lang.String c()
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String c>;
+
+        return r1;
+    }
+
+    public final java.lang.String d()
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String d>;
+
+        return r1;
+    }
+
+    public final java.lang.String e()
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String e>;
+
+        return r1;
+    }
+
+    public final java.lang.String f()
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.cf: java.lang.String f>;
+
+        return r1;
+    }
+
+    public final long g()
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        long l0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        l0 = $r0.<com.speedsoftware.rootexplorer.cf: long h>;
+
+        return l0;
+    }
+
+    public final long h()
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        long l0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        l0 = $r0.<com.speedsoftware.rootexplorer.cf: long i>;
+
+        return l0;
+    }
+
+    public final long i()
+    {
+        com.speedsoftware.rootexplorer.cf $r0;
+        long l0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cf;
+
+        l0 = $r0.<com.speedsoftware.rootexplorer.cf: long j>;
+
+        return l0;
+    }
+}

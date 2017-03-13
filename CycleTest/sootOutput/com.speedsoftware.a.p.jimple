@@ -1,0 +1,224 @@
+public final class com.speedsoftware.a.p extends java.lang.Object
+{
+
+    public static java.lang.String a(byte[], int)
+    {
+        byte[] $r0;
+        int $i0, $i3, $i4, $i5, $i7, $i8, $i11;
+        short $s1, $s2, $s10;
+        java.lang.StringBuffer $r1;
+        java.lang.String $r2;
+        byte $b6;
+        char $c9;
+
+        $r0 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i4 = 0;
+
+        $i5 = $i0 + 1;
+
+        $b6 = $r0[$i0];
+
+        $s1 = $b6 & 255;
+
+        $r1 = new java.lang.StringBuffer;
+
+        specialinvoke $r1.<java.lang.StringBuffer: void <init>()>();
+
+        $i0 = 0;
+
+        $i7 = $i5;
+
+        $i5 = 0;
+
+     label01:
+        $i8 = lengthof $r0;
+
+        if $i7 < $i8 goto label02;
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        return $r2;
+
+     label02:
+        if $i4 != 0 goto label15;
+
+        $b6 = $r0[$i7];
+
+        $i5 = $b6 & 255;
+
+        $i8 = $i7 + 1;
+
+        $i4 = 8;
+
+     label03:
+        $i7 = $i5 >> 6;
+
+        lookupswitch($i7)
+        {
+            case 0: goto label06;
+            case 1: goto label07;
+            case 2: goto label08;
+            case 3: goto label09;
+            default: goto label04;
+        };
+
+     label04:
+        $i7 = $i8;
+
+     label05:
+        $i5 = $i5 << 2;
+
+        $i5 = $i5 & 255;
+
+        $i4 = $i4 + -2;
+
+        goto label01;
+
+     label06:
+        $i7 = $i8 + 1;
+
+        $b6 = $r0[$i8];
+
+        $s2 = $b6 & 255;
+
+        $c9 = (char) $s2;
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($c9);
+
+        $i0 = $i0 + 1;
+
+        goto label05;
+
+     label07:
+        $i7 = $i8 + 1;
+
+        $b6 = $r0[$i8];
+
+        $s2 = $b6 & 255;
+
+        $i8 = $s1 << 8;
+
+        $i8 = $s2 + $i8;
+
+        $c9 = (char) $i8;
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($c9);
+
+        $i0 = $i0 + 1;
+
+        goto label05;
+
+     label08:
+        $b6 = $r0[$i8];
+
+        $s2 = $b6 & 255;
+
+        $i7 = $i8 + 1;
+
+        $b6 = $r0[$i7];
+
+        $s10 = $b6 & 255;
+
+        $i7 = $s10 << 8;
+
+        $i7 = $s2 + $i7;
+
+        $c9 = (char) $i7;
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($c9);
+
+        $i0 = $i0 + 1;
+
+        $i7 = $i8 + 2;
+
+        goto label05;
+
+     label09:
+        $i3 = $i8 + 1;
+
+        $b6 = $r0[$i8];
+
+        $s10 = $b6 & 255;
+
+        $s2 = $s10 & 128;
+
+        if $s2 == 0 goto label11;
+
+        $i7 = $i3 + 1;
+
+        $b6 = $r0[$i3];
+
+        $s2 = $b6 & 255;
+
+        $s10 = $s10 & 127;
+
+        $i8 = $s10 + 2;
+
+     label10:
+        if $i8 <= 0 goto label05;
+
+        $i3 = lengthof $r0;
+
+        if $i0 >= $i3 goto label05;
+
+        $b6 = $r0[$i0];
+
+        $s10 = $b6 & 255;
+
+        $i3 = $s10 + $s2;
+
+        $i11 = $i3 & 255;
+
+        $i3 = $s1 << 8;
+
+        $i3 = $i11 + $i3;
+
+        $c9 = (char) $i3;
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($c9);
+
+        $i8 = $i8 + -1;
+
+        $i0 = $i0 + 1;
+
+        goto label10;
+
+     label11:
+        $i7 = $s10 + 2;
+
+     label12:
+        if $i7 <= 0 goto label13;
+
+        $i8 = lengthof $r0;
+
+        if $i0 < $i8 goto label14;
+
+     label13:
+        $i7 = $i3;
+
+        goto label05;
+
+     label14:
+        $b6 = $r0[$i0];
+
+        $s2 = $b6 & 255;
+
+        $c9 = (char) $s2;
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($c9);
+
+        $i7 = $i7 + -1;
+
+        $i0 = $i0 + 1;
+
+        goto label12;
+
+     label15:
+        $i8 = $i7;
+
+        goto label03;
+    }
+}

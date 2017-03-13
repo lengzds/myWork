@@ -1,0 +1,98 @@
+public class com.google.android.gms.wearable.internal.ao extends java.lang.Object implements com.google.android.gms.common.internal.safeparcel.SafeParcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    final int a;
+    public final com.google.android.gms.wearable.internal.ac b;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.wearable.internal.ap $r0;
+
+        $r0 = new com.google.android.gms.wearable.internal.ap;
+
+        specialinvoke $r0.<com.google.android.gms.wearable.internal.ap: void <init>()>();
+
+        <com.google.android.gms.wearable.internal.ao: android.os.Parcelable$Creator CREATOR> = $r0;
+
+        return;
+    }
+
+    void <init>(int, android.os.IBinder)
+    {
+        com.google.android.gms.wearable.internal.ao $r0;
+        int $i0;
+        android.os.IBinder $r1;
+        com.google.android.gms.wearable.internal.ac $r2;
+
+        $r0 := @this: com.google.android.gms.wearable.internal.ao;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: android.os.IBinder;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.wearable.internal.ao: int a> = $i0;
+
+        if $r1 == null goto label1;
+
+        $r2 = staticinvoke <com.google.android.gms.wearable.internal.ac$a: com.google.android.gms.wearable.internal.ac bx(android.os.IBinder)>($r1);
+
+        $r0.<com.google.android.gms.wearable.internal.ao: com.google.android.gms.wearable.internal.ac b> = $r2;
+
+        return;
+
+     label1:
+        $r0.<com.google.android.gms.wearable.internal.ao: com.google.android.gms.wearable.internal.ac b> = null;
+
+        return;
+    }
+
+    final android.os.IBinder a()
+    {
+        com.google.android.gms.wearable.internal.ao $r0;
+        android.os.IBinder $r1;
+        com.google.android.gms.wearable.internal.ac $r2;
+
+        $r0 := @this: com.google.android.gms.wearable.internal.ao;
+
+        $r2 = $r0.<com.google.android.gms.wearable.internal.ao: com.google.android.gms.wearable.internal.ac b>;
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.wearable.internal.ao: com.google.android.gms.wearable.internal.ac b>;
+
+        $r1 = interfaceinvoke $r2.<com.google.android.gms.wearable.internal.ac: android.os.IBinder asBinder()>();
+
+        return $r1;
+    }
+
+    public int describeContents()
+    {
+        com.google.android.gms.wearable.internal.ao $r0;
+
+        $r0 := @this: com.google.android.gms.wearable.internal.ao;
+
+        return 0;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.wearable.internal.ao $r0;
+        android.os.Parcel $r1;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.wearable.internal.ao;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        staticinvoke <com.google.android.gms.wearable.internal.ap: void a(com.google.android.gms.wearable.internal.ao,android.os.Parcel)>($r0, $r1);
+
+        return;
+    }
+}

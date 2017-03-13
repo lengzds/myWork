@@ -1,0 +1,338 @@
+public class com.google.android.gms.internal.ej extends java.lang.Object
+{
+    private final java.lang.Object a;
+    private final java.lang.String b;
+    private int c;
+    private long d;
+    private long e;
+    private int f;
+    private int g;
+
+    public void <init>(java.lang.String)
+    {
+        com.google.android.gms.internal.ej $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ej;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r2 = new java.lang.Object;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.internal.ej: java.lang.Object a> = $r2;
+
+        $r0.<com.google.android.gms.internal.ej: int c> = 0;
+
+        $r0.<com.google.android.gms.internal.ej: long d> = -1L;
+
+        $r0.<com.google.android.gms.internal.ej: long e> = -1L;
+
+        $r0.<com.google.android.gms.internal.ej: int f> = 0;
+
+        $r0.<com.google.android.gms.internal.ej: int g> = -1;
+
+        $r0.<com.google.android.gms.internal.ej: java.lang.String b> = $r1;
+
+        return;
+    }
+
+    public static boolean i(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.res.Resources $r1;
+        int $i0, $i1;
+        android.content.ComponentName $r2;
+        java.lang.String $r3;
+        android.content.pm.PackageManager $r4;
+        android.content.pm.ActivityInfo $r5;
+        android.content.pm.PackageManager$NameNotFoundException $r6;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 = virtualinvoke $r0.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $i0 = virtualinvoke $r1.<android.content.res.Resources: int getIdentifier(java.lang.String,java.lang.String,java.lang.String)>("Theme.Translucent", "style", "android");
+
+        if $i0 != 0 goto label1;
+
+        staticinvoke <com.google.android.gms.internal.ev: void B(java.lang.String)>("Please set theme of AdActivity to @android:style/Theme.Translucent to enable transparent background interstitial ad.");
+
+        return 0;
+
+     label1:
+        $r2 = new android.content.ComponentName;
+
+        $r3 = virtualinvoke $r0.<android.content.Context: java.lang.String getPackageName()>();
+
+        specialinvoke $r2.<android.content.ComponentName: void <init>(java.lang.String,java.lang.String)>($r3, "com.google.android.gms.ads.AdActivity");
+
+     label2:
+        $r4 = virtualinvoke $r0.<android.content.Context: android.content.pm.PackageManager getPackageManager()>();
+
+        $r5 = virtualinvoke $r4.<android.content.pm.PackageManager: android.content.pm.ActivityInfo getActivityInfo(android.content.ComponentName,int)>($r2, 0);
+
+     label3:
+        $i1 = $r5.<android.content.pm.ActivityInfo: int theme>;
+
+        if $i0 != $i1 goto label4;
+
+        return 1;
+
+     label4:
+        staticinvoke <com.google.android.gms.internal.ev: void B(java.lang.String)>("Please set theme of AdActivity to @android:style/Theme.Translucent to enable transparent background interstitial ad.");
+
+     label5:
+        return 0;
+
+     label6:
+        $r6 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>("Fail to fetch AdActivity theme");
+
+        staticinvoke <com.google.android.gms.internal.ev: void B(java.lang.String)>("Please set theme of AdActivity to @android:style/Theme.Translucent to enable transparent background interstitial ad.");
+
+        return 0;
+
+        catch android.content.pm.PackageManager$NameNotFoundException from label2 to label3 with label6;
+        catch android.content.pm.PackageManager$NameNotFoundException from label4 to label5 with label6;
+    }
+
+    public android.os.Bundle b(android.content.Context, java.lang.String)
+    {
+        com.google.android.gms.internal.ej $r0;
+        android.content.Context $r1;
+        java.lang.String $r2, $r5;
+        java.lang.Object $r3;
+        boolean $z0;
+        android.os.Bundle $r4;
+        long $l0;
+        int $i1;
+        java.lang.Throwable $r6;
+
+        $r0 := @this: com.google.android.gms.internal.ej;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = $r0.<com.google.android.gms.internal.ej: java.lang.Object a>;
+
+        entermonitor $r3;
+
+     label1:
+        $r4 = new android.os.Bundle;
+
+        specialinvoke $r4.<android.os.Bundle: void <init>()>();
+
+        $r5 = $r0.<com.google.android.gms.internal.ej: java.lang.String b>;
+
+        virtualinvoke $r4.<android.os.Bundle: void putString(java.lang.String,java.lang.String)>("session_id", $r5);
+
+        $l0 = $r0.<com.google.android.gms.internal.ej: long e>;
+
+        virtualinvoke $r4.<android.os.Bundle: void putLong(java.lang.String,long)>("basets", $l0);
+
+        $l0 = $r0.<com.google.android.gms.internal.ej: long d>;
+
+        virtualinvoke $r4.<android.os.Bundle: void putLong(java.lang.String,long)>("currts", $l0);
+
+        virtualinvoke $r4.<android.os.Bundle: void putString(java.lang.String,java.lang.String)>("seq_num", $r2);
+
+        $i1 = $r0.<com.google.android.gms.internal.ej: int g>;
+
+        virtualinvoke $r4.<android.os.Bundle: void putInt(java.lang.String,int)>("preqs", $i1);
+
+        $i1 = $r0.<com.google.android.gms.internal.ej: int c>;
+
+        virtualinvoke $r4.<android.os.Bundle: void putInt(java.lang.String,int)>("pclick", $i1);
+
+        $i1 = $r0.<com.google.android.gms.internal.ej: int f>;
+
+        virtualinvoke $r4.<android.os.Bundle: void putInt(java.lang.String,int)>("pimp", $i1);
+
+        $z0 = staticinvoke <com.google.android.gms.internal.ej: boolean i(android.content.Context)>($r1);
+
+        virtualinvoke $r4.<android.os.Bundle: void putBoolean(java.lang.String,boolean)>("support_transparent_background", $z0);
+
+        exitmonitor $r3;
+
+     label2:
+        return $r4;
+
+     label3:
+        $r6 := @caughtexception;
+
+        exitmonitor $r3;
+
+        throw $r6;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void b(com.google.android.gms.internal.aj, long)
+    {
+        com.google.android.gms.internal.ej $r0;
+        com.google.android.gms.internal.aj $r1;
+        long $l0, $l2;
+        java.lang.Object $r2;
+        int $i1;
+        byte $b3;
+        android.os.Bundle $r3;
+        java.lang.Throwable $r4;
+
+        $r0 := @this: com.google.android.gms.internal.ej;
+
+        $r1 := @parameter0: com.google.android.gms.internal.aj;
+
+        $l0 := @parameter1: long;
+
+        $r2 = $r0.<com.google.android.gms.internal.ej: java.lang.Object a>;
+
+        entermonitor $r2;
+
+     label1:
+        $l2 = $r0.<com.google.android.gms.internal.ej: long e>;
+
+        $b3 = $l2 cmp -1L;
+
+        if $b3 != 0 goto label4;
+
+        $r0.<com.google.android.gms.internal.ej: long e> = $l0;
+
+        $l0 = $r0.<com.google.android.gms.internal.ej: long e>;
+
+        $r0.<com.google.android.gms.internal.ej: long d> = $l0;
+
+     label2:
+        $r3 = $r1.<com.google.android.gms.internal.aj: android.os.Bundle c>;
+
+        if $r3 == null goto label7;
+
+        $r3 = $r1.<com.google.android.gms.internal.aj: android.os.Bundle c>;
+
+        $i1 = virtualinvoke $r3.<android.os.Bundle: int getInt(java.lang.String,int)>("gw", 2);
+
+        if $i1 != 1 goto label7;
+
+        exitmonitor $r2;
+
+     label3:
+        return;
+
+     label4:
+        $r0.<com.google.android.gms.internal.ej: long d> = $l0;
+
+     label5:
+        goto label2;
+
+     label6:
+        $r4 := @caughtexception;
+
+        exitmonitor $r2;
+
+        throw $r4;
+
+     label7:
+        $i1 = $r0.<com.google.android.gms.internal.ej: int g>;
+
+        $i1 = $i1 + 1;
+
+        $r0.<com.google.android.gms.internal.ej: int g> = $i1;
+
+        exitmonitor $r2;
+
+     label8:
+        return;
+
+        catch java.lang.Throwable from label1 to label3 with label6;
+        catch java.lang.Throwable from label4 to label5 with label6;
+        catch java.lang.Throwable from label7 to label8 with label6;
+    }
+
+    public long bJ()
+    {
+        com.google.android.gms.internal.ej $r0;
+        long l0;
+
+        $r0 := @this: com.google.android.gms.internal.ej;
+
+        l0 = $r0.<com.google.android.gms.internal.ej: long e>;
+
+        return l0;
+    }
+
+    public void bw()
+    {
+        com.google.android.gms.internal.ej $r0;
+        java.lang.Object $r1;
+        int $i0;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ej;
+
+        $r1 = $r0.<com.google.android.gms.internal.ej: java.lang.Object a>;
+
+        entermonitor $r1;
+
+     label1:
+        $i0 = $r0.<com.google.android.gms.internal.ej: int f>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.google.android.gms.internal.ej: int f> = $i0;
+
+        exitmonitor $r1;
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void bx()
+    {
+        com.google.android.gms.internal.ej $r0;
+        java.lang.Object $r1;
+        int $i0;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ej;
+
+        $r1 = $r0.<com.google.android.gms.internal.ej: java.lang.Object a>;
+
+        entermonitor $r1;
+
+     label1:
+        $i0 = $r0.<com.google.android.gms.internal.ej: int c>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.google.android.gms.internal.ej: int c> = $i0;
+
+        exitmonitor $r1;
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

@@ -1,0 +1,251 @@
+public class com.google.android.gms.common.data.a extends java.lang.Object implements com.google.android.gms.common.internal.safeparcel.SafeParcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    final int a;
+    android.os.ParcelFileDescriptor b;
+    final int c;
+    private android.graphics.Bitmap d;
+    private boolean e;
+    private java.io.File f;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.common.data.b $r0;
+
+        $r0 = new com.google.android.gms.common.data.b;
+
+        specialinvoke $r0.<com.google.android.gms.common.data.b: void <init>()>();
+
+        <com.google.android.gms.common.data.a: android.os.Parcelable$Creator CREATOR> = $r0;
+
+        return;
+    }
+
+    void <init>(int, android.os.ParcelFileDescriptor, int)
+    {
+        com.google.android.gms.common.data.a $r0;
+        int $i0, $i1;
+        android.os.ParcelFileDescriptor $r1;
+
+        $r0 := @this: com.google.android.gms.common.data.a;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: android.os.ParcelFileDescriptor;
+
+        $i1 := @parameter2: int;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.common.data.a: int a> = $i0;
+
+        $r0.<com.google.android.gms.common.data.a: android.os.ParcelFileDescriptor b> = $r1;
+
+        $r0.<com.google.android.gms.common.data.a: int c> = $i1;
+
+        $r0.<com.google.android.gms.common.data.a: android.graphics.Bitmap d> = null;
+
+        $r0.<com.google.android.gms.common.data.a: boolean e> = 0;
+
+        return;
+    }
+
+    private void a(java.io.Closeable)
+    {
+        com.google.android.gms.common.data.a $r0;
+        java.io.Closeable $r1;
+        java.io.IOException $r2;
+
+        $r0 := @this: com.google.android.gms.common.data.a;
+
+        $r1 := @parameter0: java.io.Closeable;
+
+     label1:
+        interfaceinvoke $r1.<java.io.Closeable: void close()>();
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        staticinvoke <android.util.Log: int w(java.lang.String,java.lang.String,java.lang.Throwable)>("BitmapTeleporter", "Could not close stream", $r2);
+
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    private java.io.FileOutputStream eO()
+    {
+        com.google.android.gms.common.data.a $r0;
+        java.io.File $r1;
+        java.lang.IllegalStateException $r2;
+        java.io.FileOutputStream $r3;
+        android.os.ParcelFileDescriptor $r4;
+        java.io.IOException $r5;
+        java.io.FileNotFoundException $r6;
+
+        $r0 := @this: com.google.android.gms.common.data.a;
+
+        $r1 = $r0.<com.google.android.gms.common.data.a: java.io.File f>;
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("setTempDir() must be called before writing this object to a parcel");
+
+        throw $r2;
+
+     label1:
+        $r1 = $r0.<com.google.android.gms.common.data.a: java.io.File f>;
+
+     label2:
+        $r1 = staticinvoke <java.io.File: java.io.File createTempFile(java.lang.String,java.lang.String,java.io.File)>("teleporter", ".tmp", $r1);
+
+     label3:
+        $r3 = new java.io.FileOutputStream;
+
+     label4:
+        specialinvoke $r3.<java.io.FileOutputStream: void <init>(java.io.File)>($r1);
+
+        $r4 = staticinvoke <android.os.ParcelFileDescriptor: android.os.ParcelFileDescriptor open(java.io.File,int)>($r1, 268435456);
+
+     label5:
+        $r0.<com.google.android.gms.common.data.a: android.os.ParcelFileDescriptor b> = $r4;
+
+        virtualinvoke $r1.<java.io.File: boolean delete()>();
+
+        return $r3;
+
+     label6:
+        $r5 := @caughtexception;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String,java.lang.Throwable)>("Could not create temporary file", $r5);
+
+        throw $r2;
+
+     label7:
+        $r6 := @caughtexception;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Temporary file is somehow already deleted");
+
+        throw $r2;
+
+        catch java.io.IOException from label2 to label3 with label6;
+        catch java.io.FileNotFoundException from label4 to label5 with label7;
+    }
+
+    public int describeContents()
+    {
+        com.google.android.gms.common.data.a $r0;
+
+        $r0 := @this: com.google.android.gms.common.data.a;
+
+        return 0;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.common.data.a $r0;
+        android.os.Parcel $r1;
+        int $i0, $i1, $i2;
+        java.io.DataOutputStream $r2;
+        android.os.ParcelFileDescriptor $r3;
+        android.graphics.Bitmap $r4;
+        java.nio.ByteBuffer $r5;
+        byte[] $r6;
+        java.io.FileOutputStream $r7;
+        android.graphics.Bitmap$Config $r8;
+        java.lang.String $r9;
+        java.io.IOException $r10;
+        java.lang.IllegalStateException $r11;
+        java.lang.Throwable $r12;
+
+        $r0 := @this: com.google.android.gms.common.data.a;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        $r3 = $r0.<com.google.android.gms.common.data.a: android.os.ParcelFileDescriptor b>;
+
+        if $r3 != null goto label4;
+
+        $r4 = $r0.<com.google.android.gms.common.data.a: android.graphics.Bitmap d>;
+
+        $i1 = virtualinvoke $r4.<android.graphics.Bitmap: int getRowBytes()>();
+
+        $i2 = virtualinvoke $r4.<android.graphics.Bitmap: int getHeight()>();
+
+        $i1 = $i1 * $i2;
+
+        $r5 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer allocate(int)>($i1);
+
+        virtualinvoke $r4.<android.graphics.Bitmap: void copyPixelsToBuffer(java.nio.Buffer)>($r5);
+
+        $r6 = virtualinvoke $r5.<java.nio.ByteBuffer: byte[] array()>();
+
+        $r7 = specialinvoke $r0.<com.google.android.gms.common.data.a: java.io.FileOutputStream eO()>();
+
+        $r2 = new java.io.DataOutputStream;
+
+        specialinvoke $r2.<java.io.DataOutputStream: void <init>(java.io.OutputStream)>($r7);
+
+     label1:
+        $i1 = lengthof $r6;
+
+     label2:
+        virtualinvoke $r2.<java.io.DataOutputStream: void writeInt(int)>($i1);
+
+        $i1 = virtualinvoke $r4.<android.graphics.Bitmap: int getWidth()>();
+
+        virtualinvoke $r2.<java.io.DataOutputStream: void writeInt(int)>($i1);
+
+        $i1 = virtualinvoke $r4.<android.graphics.Bitmap: int getHeight()>();
+
+        virtualinvoke $r2.<java.io.DataOutputStream: void writeInt(int)>($i1);
+
+        $r8 = virtualinvoke $r4.<android.graphics.Bitmap: android.graphics.Bitmap$Config getConfig()>();
+
+        $r9 = virtualinvoke $r8.<android.graphics.Bitmap$Config: java.lang.String toString()>();
+
+        virtualinvoke $r2.<java.io.DataOutputStream: void writeUTF(java.lang.String)>($r9);
+
+        virtualinvoke $r2.<java.io.DataOutputStream: void write(byte[])>($r6);
+
+     label3:
+        specialinvoke $r0.<com.google.android.gms.common.data.a: void a(java.io.Closeable)>($r2);
+
+     label4:
+        staticinvoke <com.google.android.gms.common.data.b: void a(com.google.android.gms.common.data.a,android.os.Parcel,int)>($r0, $r1, $i0);
+
+        return;
+
+     label5:
+        $r10 := @caughtexception;
+
+     label6:
+        $r11 = new java.lang.IllegalStateException;
+
+        specialinvoke $r11.<java.lang.IllegalStateException: void <init>(java.lang.String,java.lang.Throwable)>("Could not write into unlinked file", $r10);
+
+        throw $r11;
+
+     label7:
+        $r12 := @caughtexception;
+
+        specialinvoke $r0.<com.google.android.gms.common.data.a: void a(java.io.Closeable)>($r2);
+
+        throw $r12;
+
+        catch java.io.IOException from label2 to label3 with label5;
+        catch java.lang.Throwable from label1 to label3 with label7;
+        catch java.lang.Throwable from label6 to label7 with label7;
+    }
+}

@@ -1,0 +1,100 @@
+public class com.speedsoftware.a.an extends java.io.RandomAccessFile implements com.speedsoftware.a.s
+{
+    static final boolean a;
+
+    static void <clinit>()
+    {
+        boolean $z0;
+        java.lang.Class $r0;
+
+        $r0 = class "com/speedsoftware/a/an";
+
+        $z0 = virtualinvoke $r0.<java.lang.Class: boolean desiredAssertionStatus()>();
+
+        if $z0 != 0 goto label2;
+
+        $z0 = 1;
+
+     label1:
+        <com.speedsoftware.a.an: boolean a> = $z0;
+
+        return;
+
+     label2:
+        $z0 = 0;
+
+        goto label1;
+    }
+
+    public void <init>(java.io.File)
+    {
+        com.speedsoftware.a.an $r0;
+        java.io.File $r1;
+
+        $r0 := @this: com.speedsoftware.a.an;
+
+        $r1 := @parameter0: java.io.File;
+
+        specialinvoke $r0.<java.io.RandomAccessFile: void <init>(java.io.File,java.lang.String)>($r1, "r");
+
+        return;
+    }
+
+    public final int a(byte[], int)
+    {
+        com.speedsoftware.a.an $r0;
+        byte[] $r1;
+        int $i0;
+        boolean $z0;
+        java.lang.AssertionError $r2;
+
+        $r0 := @this: com.speedsoftware.a.an;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $z0 = <com.speedsoftware.a.an: boolean a>;
+
+        if $z0 != 0 goto label1;
+
+        if $i0 > 0 goto label1;
+
+        $r2 = new java.lang.AssertionError;
+
+        specialinvoke $r2.<java.lang.AssertionError: void <init>(int)>($i0);
+
+        throw $r2;
+
+     label1:
+        virtualinvoke $r0.<com.speedsoftware.a.an: void readFully(byte[],int,int)>($r1, 0, $i0);
+
+        return $i0;
+    }
+
+    public final long a()
+    {
+        com.speedsoftware.a.an $r0;
+        long $l0;
+
+        $r0 := @this: com.speedsoftware.a.an;
+
+        $l0 = virtualinvoke $r0.<com.speedsoftware.a.an: long getFilePointer()>();
+
+        return $l0;
+    }
+
+    public final void a(long)
+    {
+        com.speedsoftware.a.an $r0;
+        long $l0;
+
+        $r0 := @this: com.speedsoftware.a.an;
+
+        $l0 := @parameter0: long;
+
+        virtualinvoke $r0.<com.speedsoftware.a.an: void seek(long)>($l0);
+
+        return;
+    }
+}

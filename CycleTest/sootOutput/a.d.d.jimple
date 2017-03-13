@@ -1,0 +1,985 @@
+public final class a.d.d extends java.lang.Object
+{
+    static a.e.e a;
+    static final boolean b;
+    static final long c;
+    static final boolean d;
+    protected static a.d.e e;
+    protected a.d.e f;
+    protected a.d.e g;
+
+    static void <clinit>()
+    {
+        a.e.e $r0;
+        boolean $z0;
+        long $l0;
+        a.d.e $r1;
+
+        $r0 = staticinvoke <a.e.e: a.e.e a()>();
+
+        <a.d.d: a.e.e a> = $r0;
+
+        $z0 = staticinvoke <a.a: boolean a(java.lang.String,boolean)>("jcifs.smb.client.dfs.strictView", 0);
+
+        <a.d.d: boolean b> = $z0;
+
+        $l0 = staticinvoke <a.a: long a(java.lang.String,long)>("jcifs.smb.client.dfs.ttl", 300L);
+
+        <a.d.d: long c> = $l0;
+
+        $z0 = staticinvoke <a.a: boolean a(java.lang.String,boolean)>("jcifs.smb.client.dfs.disabled", 0);
+
+        <a.d.d: boolean d> = $z0;
+
+        $r1 = new a.d.e;
+
+        specialinvoke $r1.<a.d.e: void <init>(long)>(0L);
+
+        <a.d.d: a.d.e e> = $r1;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        a.d.d $r0;
+
+        $r0 := @this: a.d.d;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<a.d.d: a.d.e f> = null;
+
+        $r0.<a.d.d: a.d.e g> = null;
+
+        return;
+    }
+
+    private static a.d.f a(a.d.bm, java.lang.String, java.lang.String, java.lang.String, a.d.t)
+    {
+        a.d.bm $r0;
+        java.lang.String $r1, $r2, $r3;
+        a.d.t $r4;
+        boolean $z0;
+        java.lang.StringBuilder $r5;
+        a.d.f $r6;
+        java.io.IOException $r7;
+        a.e.e $r8;
+        int $i0;
+        a.d.w $r9;
+
+        $r0 := @parameter0: a.d.bm;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r3 := @parameter3: java.lang.String;
+
+        $r4 := @parameter4: a.d.t;
+
+        $z0 = <a.d.d: boolean d>;
+
+        if $z0 == 0 goto label01;
+
+        return null;
+
+     label01:
+        $r5 = new java.lang.StringBuilder;
+
+     label02:
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("\\");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label03:
+        $r2 = $r1;
+
+        if $r3 == null goto label06;
+
+        $r5 = new java.lang.StringBuilder;
+
+     label04:
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r1 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label05:
+        $r2 = $r1;
+
+     label06:
+        $r6 = virtualinvoke $r0.<a.d.bm: a.d.f a(a.d.t,java.lang.String,int)>($r4, $r2, 0);
+
+     label07:
+        if $r6 != null goto label11;
+
+     label08:
+        return null;
+
+     label09:
+        $r7 := @caughtexception;
+
+        $r8 = <a.d.d: a.e.e a>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 < 4 goto label10;
+
+        $r8 = <a.d.d: a.e.e a>;
+
+        virtualinvoke $r7.<java.io.IOException: void printStackTrace(java.io.PrintStream)>($r8);
+
+     label10:
+        $z0 = <a.d.d: boolean b>;
+
+        if $z0 == 0 goto label08;
+
+        $z0 = $r7 instanceof a.d.w;
+
+        if $z0 == 0 goto label08;
+
+        $r9 = (a.d.w) $r7;
+
+        throw $r9;
+
+     label11:
+        return $r6;
+
+        catch java.io.IOException from label02 to label03 with label09;
+        catch java.io.IOException from label04 to label05 with label09;
+        catch java.io.IOException from label06 to label07 with label09;
+    }
+
+    private java.util.HashMap a(a.d.t)
+    {
+        a.d.d $r0;
+        a.d.t $r1;
+        java.util.HashMap $r2, $r9;
+        boolean $z0;
+        java.lang.String $r3;
+        a.d.e $r4;
+        long $l0, $l1;
+        byte $b2;
+        a.b $r5;
+        a.d.bm $r6;
+        a.d.f $r7, $r8;
+        java.io.IOException $r10;
+        a.e.e $r11;
+        int $i3;
+        a.d.w $r12;
+
+        $r0 := @this: a.d.d;
+
+        $r1 := @parameter0: a.d.t;
+
+        $z0 = <a.d.d: boolean d>;
+
+        if $z0 != 0 goto label01;
+
+        $r3 = $r1.<a.d.t: java.lang.String h>;
+
+        if $r3 != "?" goto label02;
+
+     label01:
+        return null;
+
+     label02:
+        $r4 = $r0.<a.d.d: a.d.e f>;
+
+        if $r4 == null goto label03;
+
+        $l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $r4 = $r0.<a.d.d: a.d.e f>;
+
+        $l1 = $r4.<a.d.e: long a>;
+
+        $b2 = $l0 cmp $l1;
+
+        if $b2 <= 0 goto label03;
+
+        $r0.<a.d.d: a.d.e f> = null;
+
+     label03:
+        $r4 = $r0.<a.d.d: a.d.e f>;
+
+        if $r4 == null goto label04;
+
+        $r4 = $r0.<a.d.d: a.d.e f>;
+
+        $r2 = $r4.<a.d.e: java.util.HashMap b>;
+
+        return $r2;
+
+     label04:
+        $r3 = $r1.<a.d.t: java.lang.String h>;
+
+     label05:
+        $r5 = staticinvoke <a.b: a.b b(java.lang.String)>($r3);
+
+        $r6 = staticinvoke <a.d.bm: a.d.bm a(a.b,int)>($r5, 0);
+
+     label06:
+        $r4 = new a.d.e;
+
+        $l0 = <a.d.d: long c>;
+
+        $l0 = $l0 * 10L;
+
+     label07:
+        specialinvoke $r4.<a.d.e: void <init>(long)>($l0);
+
+        $r7 = virtualinvoke $r6.<a.d.bm: a.d.f a(a.d.t,java.lang.String,int)>($r1, "", 0);
+
+     label08:
+        if $r7 == null goto label16;
+
+        $r8 = $r7;
+
+     label09:
+        $r3 = $r8.<a.d.f: java.lang.String c>;
+
+     label10:
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase()>();
+
+     label11:
+        $r2 = $r4.<a.d.e: java.util.HashMap b>;
+
+        $r9 = new java.util.HashMap;
+
+     label12:
+        specialinvoke $r9.<java.util.HashMap: void <init>()>();
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r3, $r9);
+
+     label13:
+        $r8 = $r8.<a.d.f: a.d.f i>;
+
+        if $r8 != $r7 goto label09;
+
+        $r0.<a.d.d: a.d.e f> = $r4;
+
+        $r4 = $r0.<a.d.d: a.d.e f>;
+
+        $r2 = $r4.<a.d.e: java.util.HashMap b>;
+
+        return $r2;
+
+     label14:
+        $r10 := @caughtexception;
+
+        $r11 = <a.d.d: a.e.e a>;
+
+        $i3 = <a.e.e: int a>;
+
+        if $i3 < 3 goto label15;
+
+        $r11 = <a.d.d: a.e.e a>;
+
+        virtualinvoke $r10.<java.io.IOException: void printStackTrace(java.io.PrintStream)>($r11);
+
+     label15:
+        $z0 = <a.d.d: boolean b>;
+
+        if $z0 == 0 goto label16;
+
+        $z0 = $r10 instanceof a.d.w;
+
+        if $z0 == 0 goto label16;
+
+        $r12 = (a.d.w) $r10;
+
+        throw $r12;
+
+     label16:
+        return null;
+
+        catch java.io.IOException from label05 to label06 with label14;
+        catch java.io.IOException from label07 to label08 with label14;
+        catch java.io.IOException from label10 to label11 with label14;
+        catch java.io.IOException from label12 to label13 with label14;
+    }
+
+    private static a.d.bm b(java.lang.String, a.d.t)
+    {
+        java.lang.String $r0;
+        a.d.t $r1;
+        boolean $z0;
+        a.b $r2;
+        a.d.bm $r3;
+        java.lang.StringBuilder $r4;
+        a.d.f $r5, $r6;
+        java.io.IOException $r7, $r8;
+        a.e.e $r9;
+        int $i0;
+        a.d.w $r10;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: a.d.t;
+
+        $z0 = <a.d.d: boolean d>;
+
+        if $z0 == 0 goto label01;
+
+        return null;
+
+     label01:
+        $r2 = staticinvoke <a.b: a.b b(java.lang.String)>($r0);
+
+        $r3 = staticinvoke <a.d.bm: a.d.bm a(a.b,int)>($r2, 0);
+
+     label02:
+        $r4 = new java.lang.StringBuilder;
+
+     label03:
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("\\");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r0 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5 = virtualinvoke $r3.<a.d.bm: a.d.f a(a.d.t,java.lang.String,int)>($r1, $r0, 1);
+
+     label04:
+        if $r5 == null goto label12;
+
+        $r6 = $r5;
+
+     label05:
+        $r0 = $r6.<a.d.f: java.lang.String c>;
+
+     label06:
+        $r2 = staticinvoke <a.b: a.b a(java.lang.String)>($r0);
+
+        $r3 = staticinvoke <a.d.bm: a.d.bm a(a.b,int)>($r2, 0);
+
+     label07:
+        return $r3;
+
+     label08:
+        $r7 := @caughtexception;
+
+        $r6 = $r6.<a.d.f: a.d.f i>;
+
+        if $r6 != $r5 goto label05;
+
+     label09:
+        throw $r7;
+
+     label10:
+        $r8 := @caughtexception;
+
+        $r9 = <a.d.d: a.e.e a>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 < 3 goto label11;
+
+        $r9 = <a.d.d: a.e.e a>;
+
+        virtualinvoke $r8.<java.io.IOException: void printStackTrace(java.io.PrintStream)>($r9);
+
+     label11:
+        $z0 = <a.d.d: boolean b>;
+
+        if $z0 == 0 goto label12;
+
+        $z0 = $r8 instanceof a.d.w;
+
+        if $z0 == 0 goto label12;
+
+        $r10 = (a.d.w) $r8;
+
+        throw $r10;
+
+     label12:
+        return null;
+
+        catch java.io.IOException from label01 to label02 with label10;
+        catch java.io.IOException from label03 to label04 with label10;
+        catch java.io.IOException from label06 to label07 with label08;
+        catch java.io.IOException from label09 to label10 with label10;
+    }
+
+    public final a.d.f a(java.lang.String, java.lang.String, java.lang.String, a.d.t)
+    {
+        a.d.d $r0;
+        java.lang.String $r1, $r3, $r4, $r7, $r9, $r14;
+        a.d.t $r2;
+        a.d.f $r5, $r12;
+        long $l0, $l1;
+        boolean $z0;
+        java.util.HashMap $r6, $r13;
+        java.lang.Object $r8;
+        a.d.e $r10, $r16;
+        byte $b2;
+        a.d.bm $r11, $r15;
+        int $i3, $i4, $i5;
+        java.lang.StringBuilder $r17;
+        java.util.Set $r18;
+        java.util.Iterator $r19;
+        char $c6;
+        java.lang.Throwable $r20;
+
+        $r0 := @this: a.d.d;
+
+        $r3 := @parameter0: java.lang.String;
+
+        $r4 := @parameter1: java.lang.String;
+
+        $r1 := @parameter2: java.lang.String;
+
+        $r2 := @parameter3: a.d.t;
+
+        entermonitor $r0;
+
+        $r5 = null;
+
+     label01:
+        $l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $z0 = <a.d.d: boolean d>;
+
+        if $z0 != 0 goto label03;
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>("IPC$");
+
+     label02:
+        if $z0 == 0 goto label05;
+
+     label03:
+        $r5 = null;
+
+     label04:
+        exitmonitor $r0;
+
+        return $r5;
+
+     label05:
+        $r6 = specialinvoke $r0.<a.d.d: java.util.HashMap a(a.d.t)>($r2);
+
+        if $r6 == null goto label17;
+
+        $r7 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r3 = $r7;
+
+        $r8 = virtualinvoke $r6.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r7);
+
+        $r6 = (java.util.HashMap) $r8;
+
+        if $r6 == null goto label17;
+
+        $r9 = virtualinvoke $r4.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r4 = $r9;
+
+        $r8 = virtualinvoke $r6.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r9);
+
+        $r10 = (a.d.e) $r8;
+
+        if $r10 == null goto label06;
+
+        $l1 = $r10.<a.d.e: long a>;
+
+        $b2 = $l0 cmp $l1;
+
+        if $b2 <= 0 goto label06;
+
+        virtualinvoke $r6.<java.util.HashMap: java.lang.Object remove(java.lang.Object)>($r9);
+
+        $r10 = null;
+
+     label06:
+        if $r10 != null goto label14;
+
+        $r11 = staticinvoke <a.d.d: a.d.bm b(java.lang.String,a.d.t)>($r7, $r2);
+
+        if $r11 != null goto label07;
+
+        $r5 = null;
+
+        goto label04;
+
+     label07:
+        $r5 = staticinvoke <a.d.d: a.d.f a(a.d.bm,java.lang.String,java.lang.String,java.lang.String,a.d.t)>($r11, $r7, $r9, $r1, $r2);
+
+        if $r5 == null goto label13;
+
+        $i3 = virtualinvoke $r7.<java.lang.String: int length()>();
+
+        $i3 = $i3 + 1;
+
+        $i3 = $i3 + 1;
+
+        $i4 = virtualinvoke $r9.<java.lang.String: int length()>();
+
+        $i3 = $i3 + $i4;
+
+        $r10 = new a.d.e;
+
+        specialinvoke $r10.<a.d.e: void <init>(long)>(0L);
+
+        $r12 = $r5;
+
+     label08:
+        if $r1 != null goto label09;
+
+        $r13 = $r10.<a.d.e: java.util.HashMap b>;
+
+        $r12.<a.d.f: java.util.Map j> = $r13;
+
+        $r12.<a.d.f: java.lang.String k> = "\\";
+
+     label09:
+        $i4 = $r12.<a.d.f: int a>;
+
+        $i4 = $i4 - $i3;
+
+        $r12.<a.d.f: int a> = $i4;
+
+        $r12 = $r12.<a.d.f: a.d.f i>;
+
+        if $r12 != $r5 goto label08;
+
+        $r14 = $r5.<a.d.f: java.lang.String k>;
+
+        if $r14 == null goto label10;
+
+        $r13 = $r10.<a.d.e: java.util.HashMap b>;
+
+        $r14 = $r5.<a.d.f: java.lang.String k>;
+
+        virtualinvoke $r13.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r14, $r5);
+
+     label10:
+        virtualinvoke $r6.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r9, $r10);
+
+     label11:
+        if $r10 == null goto label17;
+
+        $r6 = $r10.<a.d.e: java.util.HashMap b>;
+
+        $r8 = virtualinvoke $r6.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("\\");
+
+        $r5 = (a.d.f) $r8;
+
+        if $r5 == null goto label29;
+
+        $l1 = $r5.<a.d.f: long h>;
+
+        $b2 = $l0 cmp $l1;
+
+        if $b2 <= 0 goto label29;
+
+        $r6 = $r10.<a.d.e: java.util.HashMap b>;
+
+        virtualinvoke $r6.<java.util.HashMap: java.lang.Object remove(java.lang.Object)>("\\");
+
+        $r5 = null;
+
+     label12:
+        if $r5 != null goto label17;
+
+        if $r11 != null goto label15;
+
+        $r11 = staticinvoke <a.d.d: a.d.bm b(java.lang.String,a.d.t)>($r7, $r2);
+
+        $r15 = $r11;
+
+        if $r11 != null goto label16;
+
+        $r5 = null;
+
+        goto label04;
+
+     label13:
+        if $r1 != null goto label31;
+
+        $r16 = <a.d.d: a.d.e e>;
+
+        virtualinvoke $r6.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r9, $r16);
+
+        goto label11;
+
+     label14:
+        $r16 = <a.d.d: a.d.e e>;
+
+        if $r10 != $r16 goto label30;
+
+        $r11 = null;
+
+        $r10 = null;
+
+        goto label11;
+
+     label15:
+        $r15 = $r11;
+
+     label16:
+        $r12 = staticinvoke <a.d.d: a.d.f a(a.d.bm,java.lang.String,java.lang.String,java.lang.String,a.d.t)>($r15, $r7, $r9, $r1, $r2);
+
+        $r5 = $r12;
+
+        if $r12 == null goto label17;
+
+        $i3 = $r12.<a.d.f: int a>;
+
+        $i4 = virtualinvoke $r7.<java.lang.String: int length()>();
+
+        $i4 = $i4 + 1;
+
+        $i4 = $i4 + 1;
+
+        $i5 = virtualinvoke $r9.<java.lang.String: int length()>();
+
+        $i4 = $i4 + $i5;
+
+        $i3 = $i3 - $i4;
+
+        $r12.<a.d.f: int a> = $i3;
+
+        $r12.<a.d.f: java.lang.String e> = "\\";
+
+        $r6 = $r10.<a.d.e: java.util.HashMap b>;
+
+        virtualinvoke $r6.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("\\", $r12);
+
+     label17:
+        if $r5 != null goto label04;
+
+        if $r1 == null goto label04;
+
+        $r10 = $r0.<a.d.d: a.d.e g>;
+
+        if $r10 == null goto label18;
+
+        $r10 = $r0.<a.d.d: a.d.e g>;
+
+        $l1 = $r10.<a.d.e: long a>;
+
+        $b2 = $l0 cmp $l1;
+
+        if $b2 <= 0 goto label18;
+
+        $r0.<a.d.d: a.d.e g> = null;
+
+     label18:
+        $r10 = $r0.<a.d.d: a.d.e g>;
+
+        if $r10 != null goto label19;
+
+        $r10 = new a.d.e;
+
+        specialinvoke $r10.<a.d.e: void <init>(long)>(0L);
+
+        $r0.<a.d.d: a.d.e g> = $r10;
+
+     label19:
+        $r17 = new java.lang.StringBuilder;
+
+        specialinvoke $r17.<java.lang.StringBuilder: void <init>(java.lang.String)>("\\");
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\");
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r4 = $r3;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>("\\");
+
+        if $z0 != 0 goto label20;
+
+        $r17 = new java.lang.StringBuilder;
+
+        specialinvoke $r17.<java.lang.StringBuilder: void <init>()>();
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r4 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label20:
+        $r3 = virtualinvoke $r4.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r10 = $r0.<a.d.d: a.d.e g>;
+
+        $r6 = $r10.<a.d.e: java.util.HashMap b>;
+
+        $r18 = virtualinvoke $r6.<java.util.HashMap: java.util.Set keySet()>();
+
+        $r19 = interfaceinvoke $r18.<java.util.Set: java.util.Iterator iterator()>();
+
+     label21:
+        $z0 = interfaceinvoke $r19.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label04;
+
+        $r8 = interfaceinvoke $r19.<java.util.Iterator: java.lang.Object next()>();
+
+        $r4 = (java.lang.String) $r8;
+
+        $i3 = virtualinvoke $r4.<java.lang.String: int length()>();
+
+        $z0 = 0;
+
+        $i4 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        if $i3 != $i4 goto label24;
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+     label22:
+        if $z0 == 0 goto label28;
+
+        $r10 = $r0.<a.d.d: a.d.e g>;
+
+        $r6 = $r10.<a.d.e: java.util.HashMap b>;
+
+        $r8 = virtualinvoke $r6.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r4);
+
+        $r5 = (a.d.f) $r8;
+
+     label23:
+        goto label21;
+
+     label24:
+        $i4 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        if $i3 >= $i4 goto label22;
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean regionMatches(int,java.lang.String,int,int)>(0, $r3, 0, $i3);
+
+        if $z0 == 0 goto label26;
+
+        $c6 = virtualinvoke $r3.<java.lang.String: char charAt(int)>($i3);
+
+     label25:
+        if $c6 != 92 goto label26;
+
+        $z0 = 1;
+
+        goto label22;
+
+     label26:
+        $z0 = 0;
+
+        goto label22;
+
+     label27:
+        $r20 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r20;
+
+     label28:
+        goto label23;
+
+     label29:
+        goto label12;
+
+     label30:
+        $r11 = null;
+
+        goto label11;
+
+     label31:
+        goto label11;
+
+        catch java.lang.Throwable from label01 to label02 with label27;
+        catch java.lang.Throwable from label05 to label25 with label27;
+    }
+
+    final void a(java.lang.String, a.d.f)
+    {
+        a.d.d $r0;
+        java.lang.String $r1, $r3, $r4, $r5;
+        a.d.f $r2;
+        boolean $z0;
+        int $i0, $i1, $i3;
+        char $c2;
+        a.d.e $r6;
+        long $l4, $l5;
+        byte $b6;
+        java.util.HashMap $r7;
+        java.lang.Throwable $r8;
+
+        $r0 := @this: a.d.d;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: a.d.f;
+
+        entermonitor $r0;
+
+     label01:
+        $z0 = <a.d.d: boolean d>;
+
+     label02:
+        if $z0 == 0 goto label04;
+
+     label03:
+        exitmonitor $r0;
+
+        return;
+
+     label04:
+        $i0 = virtualinvoke $r1.<java.lang.String: int indexOf(int,int)>(92, 1);
+
+        $i1 = $i0 + 1;
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int indexOf(int,int)>(92, $i1);
+
+        $r3 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>(1, $i0);
+
+        $i0 = $i0 + 1;
+
+        $r4 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>($i0, $i1);
+
+        $i0 = $r2.<a.d.f: int a>;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r5 = $r1;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+     label05:
+        if $i0 <= 1 goto label06;
+
+        $i1 = $i0 + -1;
+
+        $c2 = virtualinvoke $r1.<java.lang.String: char charAt(int)>($i1);
+
+        if $c2 != 92 goto label06;
+
+        $i0 = $i0 + -1;
+
+        goto label05;
+
+     label06:
+        $i1 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        if $i0 >= $i1 goto label07;
+
+        $r5 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+     label07:
+        $i0 = $r2.<a.d.f: int a>;
+
+        $i1 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        $i1 = $i1 + 1;
+
+        $i1 = $i1 + 1;
+
+        $i3 = virtualinvoke $r4.<java.lang.String: int length()>();
+
+        $i1 = $i1 + $i3;
+
+        $i0 = $i0 - $i1;
+
+        $r2.<a.d.f: int a> = $i0;
+
+        $r6 = $r0.<a.d.d: a.d.e g>;
+
+        if $r6 == null goto label08;
+
+        $l4 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $l4 = $l4 + 10000L;
+
+        $r6 = $r0.<a.d.d: a.d.e g>;
+
+        $l5 = $r6.<a.d.e: long a>;
+
+        $b6 = $l4 cmp $l5;
+
+        if $b6 <= 0 goto label08;
+
+        $r0.<a.d.d: a.d.e g> = null;
+
+     label08:
+        $r6 = $r0.<a.d.d: a.d.e g>;
+
+        if $r6 != null goto label09;
+
+        $r6 = new a.d.e;
+
+        specialinvoke $r6.<a.d.e: void <init>(long)>(0L);
+
+        $r0.<a.d.d: a.d.e g> = $r6;
+
+     label09:
+        $r6 = $r0.<a.d.d: a.d.e g>;
+
+        $r7 = $r6.<a.d.e: java.util.HashMap b>;
+
+        virtualinvoke $r7.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r5, $r2);
+
+     label10:
+        goto label03;
+
+     label11:
+        $r8 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r8;
+
+        catch java.lang.Throwable from label01 to label02 with label11;
+        catch java.lang.Throwable from label04 to label10 with label11;
+    }
+
+    public final boolean a(java.lang.String, a.d.t)
+    {
+        a.d.d $r0;
+        java.lang.String $r1;
+        a.d.t $r2;
+        java.util.HashMap $r3;
+        java.lang.Object $r4;
+
+        $r0 := @this: a.d.d;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: a.d.t;
+
+        $r3 = specialinvoke $r0.<a.d.d: java.util.HashMap a(a.d.t)>($r2);
+
+        if $r3 != null goto label1;
+
+        return 0;
+
+     label1:
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r4 = virtualinvoke $r3.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        if $r4 == null goto label2;
+
+        return 1;
+
+     label2:
+        return 0;
+    }
+}

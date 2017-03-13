@@ -1,0 +1,128 @@
+public abstract class com.speedsoftware.a.ac extends java.lang.Object
+{
+    static final boolean e;
+    protected byte[] c;
+    protected int d;
+
+    static void <clinit>()
+    {
+        boolean $z0;
+        java.lang.Class $r0;
+
+        $r0 = class "com/speedsoftware/a/ac";
+
+        $z0 = virtualinvoke $r0.<java.lang.Class: boolean desiredAssertionStatus()>();
+
+        if $z0 != 0 goto label2;
+
+        $z0 = 1;
+
+     label1:
+        <com.speedsoftware.a.ac: boolean e> = $z0;
+
+        return;
+
+     label2:
+        $z0 = 0;
+
+        goto label1;
+    }
+
+    public void <init>(byte[])
+    {
+        com.speedsoftware.a.ac $r0;
+        byte[] $r1;
+
+        $r0 := @this: com.speedsoftware.a.ac;
+
+        $r1 := @parameter0: byte[];
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.speedsoftware.a.ac: byte[] c> = $r1;
+
+        return;
+    }
+
+    public void c(int)
+    {
+        com.speedsoftware.a.ac $r0;
+        int $i0, $i1;
+        boolean $z0;
+        byte[] $r1;
+        java.lang.AssertionError $r2;
+
+        $r0 := @this: com.speedsoftware.a.ac;
+
+        $i0 := @parameter0: int;
+
+        $z0 = <com.speedsoftware.a.ac: boolean e>;
+
+        if $z0 != 0 goto label1;
+
+        $r1 = $r0.<com.speedsoftware.a.ac: byte[] c>;
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.AssertionError;
+
+        specialinvoke $r2.<java.lang.AssertionError: void <init>()>();
+
+        throw $r2;
+
+     label1:
+        $z0 = <com.speedsoftware.a.ac: boolean e>;
+
+        if $z0 != 0 goto label3;
+
+        if $i0 < 0 goto label2;
+
+        $r1 = $r0.<com.speedsoftware.a.ac: byte[] c>;
+
+        $i1 = lengthof $r1;
+
+        if $i0 < $i1 goto label3;
+
+     label2:
+        $r2 = new java.lang.AssertionError;
+
+        specialinvoke $r2.<java.lang.AssertionError: void <init>(int)>($i0);
+
+        throw $r2;
+
+     label3:
+        $r0.<com.speedsoftware.a.ac: int d> = $i0;
+
+        return;
+    }
+
+    public final int e()
+    {
+        com.speedsoftware.a.ac $r0;
+        boolean $z0;
+        byte[] $r1;
+        java.lang.AssertionError $r2;
+        int i0;
+
+        $r0 := @this: com.speedsoftware.a.ac;
+
+        $z0 = <com.speedsoftware.a.ac: boolean e>;
+
+        if $z0 != 0 goto label1;
+
+        $r1 = $r0.<com.speedsoftware.a.ac: byte[] c>;
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.AssertionError;
+
+        specialinvoke $r2.<java.lang.AssertionError: void <init>()>();
+
+        throw $r2;
+
+     label1:
+        i0 = $r0.<com.speedsoftware.a.ac: int d>;
+
+        return i0;
+    }
+}

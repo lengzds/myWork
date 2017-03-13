@@ -1,0 +1,1564 @@
+public abstract class com.google.api.a.d.h extends java.lang.Object
+{
+    private static java.util.WeakHashMap a;
+    private static final java.util.concurrent.locks.Lock b;
+
+    static void <clinit>()
+    {
+        java.util.WeakHashMap $r0;
+        java.util.concurrent.locks.ReentrantLock $r1;
+
+        $r0 = new java.util.WeakHashMap;
+
+        specialinvoke $r0.<java.util.WeakHashMap: void <init>()>();
+
+        <com.google.api.a.d.h: java.util.WeakHashMap a> = $r0;
+
+        $r1 = new java.util.concurrent.locks.ReentrantLock;
+
+        specialinvoke $r1.<java.util.concurrent.locks.ReentrantLock: void <init>()>();
+
+        <com.google.api.a.d.h: java.util.concurrent.locks.Lock b> = $r1;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.google.api.a.d.h $r0;
+
+        $r0 := @this: com.google.api.a.d.h;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private final java.lang.Object a(java.lang.reflect.Field, java.lang.reflect.Type, java.util.ArrayList, com.google.api.a.d.a, boolean)
+    {
+        com.google.api.a.d.h $r0, $r31;
+        java.lang.reflect.Field $r1, $r19, $r32;
+        java.lang.reflect.Type $r2, $r20;
+        java.util.ArrayList $r3;
+        com.google.api.a.d.a $r4;
+        boolean $z0, $z1;
+        java.lang.Class $r5, $r18;
+        java.lang.reflect.ParameterizedType $r6;
+        com.google.api.a.d.m $r7, $r9;
+        int[] $r8;
+        int $i0, $i1;
+        java.lang.IllegalArgumentException $r10, $r14, r44;
+        java.lang.StringBuilder $r11, $r13;
+        java.lang.String $r12, $r30;
+        java.lang.Object[] $r15;
+        java.util.Collection $r16;
+        java.lang.Object $r17, $r25;
+        java.util.Map $r21;
+        com.google.api.a.d.b $r22;
+        com.google.api.a.d.d $r23;
+        com.google.api.a.f.n $r24;
+        java.lang.'annotation'.Annotation $r26;
+        com.google.api.a.d.j $r27;
+        com.google.api.a.d.k[] $r28;
+        com.google.api.a.d.k $r29;
+        com.google.api.a.f.x $r33;
+        com.google.api.a.f.y $r34;
+        java.math.BigDecimal $r35;
+        java.math.BigInteger $r36;
+        double $d0;
+        java.lang.Double $r37;
+        long $l2;
+        java.lang.Long $r38;
+        float $f0;
+        java.lang.Float $r39;
+        java.lang.Integer $r40;
+        short $s3;
+        java.lang.Short $r41;
+        byte $b4;
+        java.lang.Byte $r42;
+        java.lang.Boolean r43;
+
+        $r0 := @this: com.google.api.a.d.h;
+
+        $r1 := @parameter0: java.lang.reflect.Field;
+
+        $r2 := @parameter1: java.lang.reflect.Type;
+
+        $r3 := @parameter2: java.util.ArrayList;
+
+        $r4 := @parameter3: com.google.api.a.d.a;
+
+        $z0 := @parameter4: boolean;
+
+        $r2 = staticinvoke <com.google.api.a.f.p: java.lang.reflect.Type a(java.util.List,java.lang.reflect.Type)>($r3, $r2);
+
+        $z1 = $r2 instanceof java.lang.Class;
+
+        if $z1 == 0 goto label003;
+
+        $r5 = (java.lang.Class) $r2;
+
+     label001:
+        $z1 = $r2 instanceof java.lang.reflect.ParameterizedType;
+
+        if $z1 == 0 goto label002;
+
+        $r6 = (java.lang.reflect.ParameterizedType) $r2;
+
+        $r5 = staticinvoke <com.google.api.a.f.av: java.lang.Class a(java.lang.reflect.ParameterizedType)>($r6);
+
+     label002:
+        if $r5 != class "java/lang/Void" goto label004;
+
+        virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.h f()>();
+
+        return null;
+
+     label003:
+        $r5 = null;
+
+        goto label001;
+
+     label004:
+        $r7 = virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m d()>();
+
+        $r8 = <com.google.api.a.d.i: int[] a>;
+
+     label005:
+        $r9 = virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m d()>();
+
+        $i0 = virtualinvoke $r9.<com.google.api.a.d.m: int ordinal()>();
+
+     label006:
+        $i0 = $r8[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label035;
+            case 2: goto label013;
+            case 3: goto label013;
+            case 4: goto label035;
+            case 5: goto label035;
+            case 6: goto label112;
+            case 7: goto label112;
+            case 8: goto label121;
+            case 9: goto label121;
+            case 10: goto label155;
+            case 11: goto label164;
+            default: goto label007;
+        };
+
+     label007:
+        $r14 = new java.lang.IllegalArgumentException;
+
+        $r13 = new java.lang.StringBuilder;
+
+     label008:
+        specialinvoke $r13.<java.lang.StringBuilder: void <init>(java.lang.String)>("unexpected JSON node type: ");
+
+        $r11 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r7);
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r14.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r12);
+
+        throw $r14;
+
+     label009:
+        $r10 := @caughtexception;
+
+        $r13 = new java.lang.StringBuilder;
+
+        $r11 = $r13;
+
+        specialinvoke $r13.<java.lang.StringBuilder: void <init>()>();
+
+        $r12 = virtualinvoke $r0.<com.google.api.a.d.h: java.lang.String e()>();
+
+        if $r12 == null goto label010;
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("key ");
+
+        virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r12);
+
+     label010:
+        if $r1 == null goto label012;
+
+        if $r12 == null goto label011;
+
+        virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", ");
+
+     label011:
+        $r13 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("field ");
+
+        virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r1);
+
+     label012:
+        r44 = new java.lang.IllegalArgumentException;
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke r44.<java.lang.IllegalArgumentException: void <init>(java.lang.String,java.lang.Throwable)>($r12, $r10);
+
+        throw r44;
+
+     label013:
+        $z0 = staticinvoke <com.google.api.a.f.av: boolean a(java.lang.reflect.Type)>($r2);
+
+     label014:
+        if $r2 == null goto label017;
+
+        if $z0 != 0 goto label017;
+
+        if $r5 == null goto label026;
+
+     label015:
+        $z1 = staticinvoke <com.google.api.a.f.av: boolean a(java.lang.Class,java.lang.Class)>($r5, class "java/util/Collection");
+
+     label016:
+        if $z1 == 0 goto label026;
+
+     label017:
+        $z1 = 1;
+
+     label018:
+        $r15 = newarray (java.lang.Object)[1];
+
+        $r15[0] = $r2;
+
+     label019:
+        staticinvoke <com.google.api.a.e.a.a.a.a.b: void a(boolean,java.lang.String,java.lang.Object[])>($z1, "expected collection or array type but got %s", $r15);
+
+        $r16 = staticinvoke <com.google.api.a.f.p: java.util.Collection b(java.lang.reflect.Type)>($r2);
+
+     label020:
+        if $z0 == 0 goto label027;
+
+     label021:
+        $r2 = staticinvoke <com.google.api.a.f.av: java.lang.reflect.Type b(java.lang.reflect.Type)>($r2);
+
+     label022:
+        $r2 = staticinvoke <com.google.api.a.f.p: java.lang.reflect.Type a(java.util.List,java.lang.reflect.Type)>($r3, $r2);
+
+        $r7 = specialinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m q()>();
+
+     label023:
+        $r9 = <com.google.api.a.d.m: com.google.api.a.d.m b>;
+
+        if $r7 == $r9 goto label032;
+
+     label024:
+        $r17 = specialinvoke $r0.<com.google.api.a.d.h: java.lang.Object a(java.lang.reflect.Field,java.lang.reflect.Type,java.util.ArrayList,com.google.api.a.d.a,boolean)>($r1, $r2, $r3, $r4, 1);
+
+        interfaceinvoke $r16.<java.util.Collection: boolean add(java.lang.Object)>($r17);
+
+        $r7 = virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m c()>();
+
+     label025:
+        goto label023;
+
+     label026:
+        $z1 = 0;
+
+        goto label018;
+
+     label027:
+        if $r5 == null goto label183;
+
+        $r18 = class "java/lang/Iterable";
+
+     label028:
+        $z1 = virtualinvoke $r18.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r5);
+
+     label029:
+        if $z1 == 0 goto label183;
+
+     label030:
+        $r2 = staticinvoke <com.google.api.a.f.av: java.lang.reflect.Type c(java.lang.reflect.Type)>($r2);
+
+     label031:
+        goto label022;
+
+     label032:
+        if $z0 == 0 goto label184;
+
+     label033:
+        $r5 = staticinvoke <com.google.api.a.f.av: java.lang.Class a(java.util.List,java.lang.reflect.Type)>($r3, $r2);
+
+        $r17 = staticinvoke <com.google.api.a.f.av: java.lang.Object a(java.util.Collection,java.lang.Class)>($r16, $r5);
+
+     label034:
+        return $r17;
+
+     label035:
+        $z1 = staticinvoke <com.google.api.a.f.av: boolean a(java.lang.reflect.Type)>($r2);
+
+     label036:
+        if $z1 != 0 goto label058;
+
+        $z1 = 1;
+
+     label037:
+        $r15 = newarray (java.lang.Object)[1];
+
+        $r15[0] = $r2;
+
+     label038:
+        staticinvoke <com.google.api.a.e.a.a.a.a.b: void a(boolean,java.lang.String,java.lang.Object[])>($z1, "expected object or map type but got %s", $r15);
+
+     label039:
+        if $z0 == 0 goto label059;
+
+     label040:
+        $r19 = staticinvoke <com.google.api.a.d.h: java.lang.reflect.Field c(java.lang.Class)>($r5);
+
+     label041:
+        if $r5 == null goto label060;
+
+     label042:
+        $z0 = staticinvoke <com.google.api.a.f.av: boolean a(java.lang.Class,java.lang.Class)>($r5, class "java/util/Map");
+
+     label043:
+        if $z0 == 0 goto label060;
+
+        $z0 = 1;
+
+     label044:
+        if $r19 == null goto label061;
+
+        $r22 = new com.google.api.a.d.b;
+
+        $r17 = $r22;
+
+     label045:
+        specialinvoke $r22.<com.google.api.a.d.b: void <init>()>();
+
+     label046:
+        $i0 = virtualinvoke $r3.<java.util.ArrayList: int size()>();
+
+     label047:
+        if $r2 == null goto label049;
+
+     label048:
+        virtualinvoke $r3.<java.util.ArrayList: boolean add(java.lang.Object)>($r2);
+
+     label049:
+        if $z0 == 0 goto label067;
+
+        $r18 = class "com/google/api/a/f/y";
+
+     label050:
+        $z0 = virtualinvoke $r18.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r5);
+
+     label051:
+        if $z0 != 0 goto label067;
+
+        $r18 = class "java/util/Map";
+
+     label052:
+        $z0 = virtualinvoke $r18.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r5);
+
+     label053:
+        if $z0 == 0 goto label066;
+
+     label054:
+        $r20 = staticinvoke <com.google.api.a.f.av: java.lang.reflect.Type d(java.lang.reflect.Type)>($r2);
+
+     label055:
+        if $r20 == null goto label067;
+
+        $r21 = (java.util.Map) $r17;
+
+     label056:
+        specialinvoke $r0.<com.google.api.a.d.h: void a(java.lang.reflect.Field,java.util.Map,java.lang.reflect.Type,java.util.ArrayList,com.google.api.a.d.a)>($r1, $r21, $r20, $r3, $r4);
+
+     label057:
+        return $r17;
+
+     label058:
+        $z1 = 0;
+
+        goto label037;
+
+     label059:
+        $r19 = null;
+
+        goto label041;
+
+     label060:
+        $z0 = 0;
+
+        goto label044;
+
+     label061:
+        if $z0 != 0 goto label062;
+
+        if $r5 != null goto label064;
+
+     label062:
+        $r21 = staticinvoke <com.google.api.a.f.p: java.util.Map b(java.lang.Class)>($r5);
+
+     label063:
+        $r17 = $r21;
+
+        goto label046;
+
+     label064:
+        $r17 = staticinvoke <com.google.api.a.f.av: java.lang.Object a(java.lang.Class)>($r5);
+
+     label065:
+        goto label046;
+
+     label066:
+        $r20 = null;
+
+        goto label055;
+
+     label067:
+        $z0 = $r17 instanceof com.google.api.a.d.b;
+
+        if $z0 == 0 goto label069;
+
+        $r22 = (com.google.api.a.d.b) $r17;
+
+     label068:
+        $r23 = virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.d a()>();
+
+        virtualinvoke $r22.<com.google.api.a.d.b: void setFactory(com.google.api.a.d.d)>($r23);
+
+     label069:
+        $r7 = specialinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m q()>();
+
+     label070:
+        $r5 = virtualinvoke $r17.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r24 = staticinvoke <com.google.api.a.f.n: com.google.api.a.f.n a(java.lang.Class)>($r5);
+
+     label071:
+        $r18 = class "com/google/api/a/f/y";
+
+     label072:
+        $z0 = virtualinvoke $r18.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r5);
+
+     label073:
+        if $z0 != 0 goto label096;
+
+        $r18 = class "java/util/Map";
+
+     label074:
+        $z1 = virtualinvoke $r18.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r5);
+
+     label075:
+        if $z1 == 0 goto label096;
+
+        $r21 = (java.util.Map) $r17;
+
+     label076:
+        $r20 = staticinvoke <com.google.api.a.f.av: java.lang.reflect.Type d(java.lang.reflect.Type)>($r5);
+
+        specialinvoke $r0.<com.google.api.a.d.h: void a(java.lang.reflect.Field,java.util.Map,java.lang.reflect.Type,java.util.ArrayList,com.google.api.a.d.a)>(null, $r21, $r20, $r3, $r4);
+
+     label077:
+        if $r2 == null goto label079;
+
+     label078:
+        virtualinvoke $r3.<java.util.ArrayList: java.lang.Object remove(int)>($i0);
+
+     label079:
+        if $r19 == null goto label185;
+
+        $r22 = (com.google.api.a.d.b) $r17;
+
+     label080:
+        $r12 = virtualinvoke $r19.<java.lang.reflect.Field: java.lang.String getName()>();
+
+        $r25 = virtualinvoke $r22.<com.google.api.a.d.b: java.lang.Object get(java.lang.Object)>($r12);
+
+     label081:
+        if $r25 == null goto label109;
+
+        $z0 = 1;
+
+     label082:
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, "No value specified for @JsonPolymorphicTypeMap field");
+
+        $r12 = virtualinvoke $r25.<java.lang.Object: java.lang.String toString()>();
+
+        $r26 = virtualinvoke $r19.<java.lang.reflect.Field: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/google/api/a/d/j");
+
+     label083:
+        $r27 = (com.google.api.a.d.j) $r26;
+
+        $r5 = null;
+
+     label084:
+        $r28 = interfaceinvoke $r27.<com.google.api.a.d.j: com.google.api.a.d.k[] a()>();
+
+     label085:
+        $i0 = lengthof $r28;
+
+        $i1 = 0;
+
+     label086:
+        if $i1 >= $i0 goto label090;
+
+        $r29 = $r28[$i1];
+
+     label087:
+        $r30 = interfaceinvoke $r29.<com.google.api.a.d.k: java.lang.String a()>();
+
+        $z0 = virtualinvoke $r30.<java.lang.String: boolean equals(java.lang.Object)>($r12);
+
+     label088:
+        if $z0 == 0 goto label110;
+
+     label089:
+        $r5 = interfaceinvoke $r29.<com.google.api.a.d.k: java.lang.Class b()>();
+
+     label090:
+        if $r5 == null goto label111;
+
+        $z0 = 1;
+
+     label091:
+        $r13 = new java.lang.StringBuilder;
+
+     label092:
+        specialinvoke $r13.<java.lang.StringBuilder: void <init>(java.lang.String)>("No TypeDef annotation found with key: ");
+
+        $r11 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r12);
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, $r12);
+
+        $r23 = virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.d a()>();
+
+        $r12 = virtualinvoke $r23.<com.google.api.a.d.d: java.lang.String a(java.lang.Object)>($r17);
+
+        $r31 = virtualinvoke $r23.<com.google.api.a.d.d: com.google.api.a.d.h a(java.lang.String)>($r12);
+
+        specialinvoke $r31.<com.google.api.a.d.h: com.google.api.a.d.m p()>();
+
+        $r17 = specialinvoke $r31.<com.google.api.a.d.h: java.lang.Object a(java.lang.reflect.Field,java.lang.reflect.Type,java.util.ArrayList,com.google.api.a.d.a,boolean)>($r1, $r5, $r3, null, 0);
+
+     label093:
+        return $r17;
+
+     label094:
+        $r32 = virtualinvoke $r33.<com.google.api.a.f.x: java.lang.reflect.Field a()>();
+
+        $i1 = virtualinvoke $r3.<java.util.ArrayList: int size()>();
+
+        $r20 = virtualinvoke $r32.<java.lang.reflect.Field: java.lang.reflect.Type getGenericType()>();
+
+        virtualinvoke $r3.<java.util.ArrayList: boolean add(java.lang.Object)>($r20);
+
+        $r20 = virtualinvoke $r33.<com.google.api.a.f.x: java.lang.reflect.Type c()>();
+
+        $r25 = specialinvoke $r0.<com.google.api.a.d.h: java.lang.Object a(java.lang.reflect.Field,java.lang.reflect.Type,java.util.ArrayList,com.google.api.a.d.a,boolean)>($r32, $r20, $r3, $r4, 1);
+
+        virtualinvoke $r3.<java.util.ArrayList: java.lang.Object remove(int)>($i1);
+
+        virtualinvoke $r33.<com.google.api.a.f.x: void a(java.lang.Object,java.lang.Object)>($r17, $r25);
+
+     label095:
+        $r7 = virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m c()>();
+
+     label096:
+        $r9 = <com.google.api.a.d.m: com.google.api.a.d.m e>;
+
+        if $r7 != $r9 goto label077;
+
+     label097:
+        $r12 = virtualinvoke $r0.<com.google.api.a.d.h: java.lang.String g()>();
+
+        virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m c()>();
+
+        $r33 = virtualinvoke $r24.<com.google.api.a.f.n: com.google.api.a.f.x a(java.lang.String)>($r12);
+
+     label098:
+        if $r33 == null goto label104;
+
+     label099:
+        $z1 = virtualinvoke $r33.<com.google.api.a.f.x: boolean d()>();
+
+     label100:
+        if $z1 == 0 goto label094;
+
+     label101:
+        $z1 = virtualinvoke $r33.<com.google.api.a.f.x: boolean e()>();
+
+     label102:
+        if $z1 != 0 goto label094;
+
+        $r14 = new java.lang.IllegalArgumentException;
+
+     label103:
+        specialinvoke $r14.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("final array/object fields are not supported");
+
+        throw $r14;
+
+     label104:
+        if $z0 == 0 goto label107;
+
+        $r34 = (com.google.api.a.f.y) $r17;
+
+     label105:
+        $r25 = specialinvoke $r0.<com.google.api.a.d.h: java.lang.Object a(java.lang.reflect.Field,java.lang.reflect.Type,java.util.ArrayList,com.google.api.a.d.a,boolean)>(null, null, $r3, $r4, 1);
+
+        virtualinvoke $r34.<com.google.api.a.f.y: com.google.api.a.f.y set(java.lang.String,java.lang.Object)>($r12, $r25);
+
+     label106:
+        goto label095;
+
+     label107:
+        virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.h f()>();
+
+     label108:
+        goto label095;
+
+     label109:
+        $z0 = 0;
+
+        goto label082;
+
+     label110:
+        $i1 = $i1 + 1;
+
+        goto label086;
+
+     label111:
+        $z0 = 0;
+
+        goto label091;
+
+     label112:
+        if $r2 == null goto label115;
+
+        $r18 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        if $r5 == $r18 goto label115;
+
+        if $r5 == null goto label119;
+
+     label113:
+        $z0 = virtualinvoke $r5.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>(class "java/lang/Boolean");
+
+     label114:
+        if $z0 == 0 goto label119;
+
+     label115:
+        $z0 = 1;
+
+     label116:
+        $r15 = newarray (java.lang.Object)[1];
+
+        $r15[0] = $r2;
+
+     label117:
+        staticinvoke <com.google.api.a.e.a.a.a.a.b: void a(boolean,java.lang.String,java.lang.Object[])>($z0, "expected type Boolean or boolean but got %s", $r15);
+
+     label118:
+        $r9 = <com.google.api.a.d.m: com.google.api.a.d.m i>;
+
+        if $r7 != $r9 goto label120;
+
+        r43 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return r43;
+
+     label119:
+        $z0 = 0;
+
+        goto label116;
+
+     label120:
+        r43 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return r43;
+
+     label121:
+        if $r1 == null goto label124;
+
+     label122:
+        $r26 = virtualinvoke $r1.<java.lang.reflect.Field: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/google/api/a/d/l");
+
+     label123:
+        if $r26 != null goto label131;
+
+     label124:
+        $z0 = 1;
+
+     label125:
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, "number type formatted as a JSON number cannot use @JsonString annotation");
+
+     label126:
+        if $r5 == null goto label129;
+
+     label127:
+        $z0 = virtualinvoke $r5.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>(class "java/math/BigDecimal");
+
+     label128:
+        if $z0 == 0 goto label132;
+
+     label129:
+        $r35 = virtualinvoke $r0.<com.google.api.a.d.h: java.math.BigDecimal o()>();
+
+     label130:
+        return $r35;
+
+     label131:
+        $z0 = 0;
+
+        goto label125;
+
+     label132:
+        if $r5 != class "java/math/BigInteger" goto label135;
+
+     label133:
+        $r36 = virtualinvoke $r0.<com.google.api.a.d.h: java.math.BigInteger n()>();
+
+     label134:
+        return $r36;
+
+     label135:
+        if $r5 == class "java/lang/Double" goto label136;
+
+        $r18 = <java.lang.Double: java.lang.Class TYPE>;
+
+        if $r5 != $r18 goto label138;
+
+     label136:
+        $d0 = virtualinvoke $r0.<com.google.api.a.d.h: double m()>();
+
+        $r37 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>($d0);
+
+     label137:
+        return $r37;
+
+     label138:
+        if $r5 == class "java/lang/Long" goto label139;
+
+        $r18 = <java.lang.Long: java.lang.Class TYPE>;
+
+        if $r5 != $r18 goto label141;
+
+     label139:
+        $l2 = virtualinvoke $r0.<com.google.api.a.d.h: long l()>();
+
+        $r38 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l2);
+
+     label140:
+        return $r38;
+
+     label141:
+        if $r5 == class "java/lang/Float" goto label142;
+
+        $r18 = <java.lang.Float: java.lang.Class TYPE>;
+
+        if $r5 != $r18 goto label144;
+
+     label142:
+        $f0 = virtualinvoke $r0.<com.google.api.a.d.h: float k()>();
+
+        $r39 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>($f0);
+
+     label143:
+        return $r39;
+
+     label144:
+        if $r5 == class "java/lang/Integer" goto label145;
+
+        $r18 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        if $r5 != $r18 goto label147;
+
+     label145:
+        $i0 = virtualinvoke $r0.<com.google.api.a.d.h: int j()>();
+
+        $r40 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+     label146:
+        return $r40;
+
+     label147:
+        if $r5 == class "java/lang/Short" goto label148;
+
+        $r18 = <java.lang.Short: java.lang.Class TYPE>;
+
+        if $r5 != $r18 goto label150;
+
+     label148:
+        $s3 = virtualinvoke $r0.<com.google.api.a.d.h: short i()>();
+
+        $r41 = staticinvoke <java.lang.Short: java.lang.Short valueOf(short)>($s3);
+
+     label149:
+        return $r41;
+
+     label150:
+        if $r5 == class "java/lang/Byte" goto label151;
+
+        $r18 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        if $r5 != $r18 goto label153;
+
+     label151:
+        $b4 = virtualinvoke $r0.<com.google.api.a.d.h: byte h()>();
+
+        $r42 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>($b4);
+
+     label152:
+        return $r42;
+
+     label153:
+        $r14 = new java.lang.IllegalArgumentException;
+
+        $r13 = new java.lang.StringBuilder;
+
+     label154:
+        specialinvoke $r13.<java.lang.StringBuilder: void <init>(java.lang.String)>("expected numeric type but got ");
+
+        $r11 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r14.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r12);
+
+        throw $r14;
+
+     label155:
+        if $r5 == null goto label160;
+
+        $r18 = class "java/lang/Number";
+
+     label156:
+        $z0 = virtualinvoke $r18.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r5);
+
+     label157:
+        if $z0 == 0 goto label160;
+
+        if $r1 == null goto label163;
+
+     label158:
+        $r26 = virtualinvoke $r1.<java.lang.reflect.Field: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/google/api/a/d/l");
+
+     label159:
+        if $r26 == null goto label163;
+
+     label160:
+        $z0 = 1;
+
+     label161:
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, "number field formatted as a JSON string must use the @JsonString annotation");
+
+        $r12 = virtualinvoke $r0.<com.google.api.a.d.h: java.lang.String g()>();
+
+        $r17 = staticinvoke <com.google.api.a.f.p: java.lang.Object a(java.lang.reflect.Type,java.lang.String)>($r2, $r12);
+
+     label162:
+        return $r17;
+
+     label163:
+        $z0 = 0;
+
+        goto label161;
+
+     label164:
+        if $r5 == null goto label167;
+
+     label165:
+        $z0 = virtualinvoke $r5.<java.lang.Class: boolean isPrimitive()>();
+
+     label166:
+        if $z0 != 0 goto label176;
+
+     label167:
+        $z0 = 1;
+
+     label168:
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, "primitive number field but found a JSON null");
+
+     label169:
+        if $r5 == null goto label181;
+
+     label170:
+        $i0 = virtualinvoke $r5.<java.lang.Class: int getModifiers()>();
+
+     label171:
+        $i0 = $i0 & 1536;
+
+        if $i0 == 0 goto label181;
+
+     label172:
+        $z0 = staticinvoke <com.google.api.a.f.av: boolean a(java.lang.Class,java.lang.Class)>($r5, class "java/util/Collection");
+
+     label173:
+        if $z0 == 0 goto label177;
+
+     label174:
+        $r16 = staticinvoke <com.google.api.a.f.p: java.util.Collection b(java.lang.reflect.Type)>($r2);
+
+        $r5 = virtualinvoke $r16.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r17 = staticinvoke <com.google.api.a.f.p: java.lang.Object a(java.lang.Class)>($r5);
+
+     label175:
+        return $r17;
+
+     label176:
+        $z0 = 0;
+
+        goto label168;
+
+     label177:
+        $z0 = staticinvoke <com.google.api.a.f.av: boolean a(java.lang.Class,java.lang.Class)>($r5, class "java/util/Map");
+
+     label178:
+        if $z0 == 0 goto label181;
+
+     label179:
+        $r21 = staticinvoke <com.google.api.a.f.p: java.util.Map b(java.lang.Class)>($r5);
+
+        $r5 = virtualinvoke $r21.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r17 = staticinvoke <com.google.api.a.f.p: java.lang.Object a(java.lang.Class)>($r5);
+
+     label180:
+        return $r17;
+
+     label181:
+        $r5 = staticinvoke <com.google.api.a.f.av: java.lang.Class a(java.util.List,java.lang.reflect.Type)>($r3, $r2);
+
+        $r17 = staticinvoke <com.google.api.a.f.p: java.lang.Object a(java.lang.Class)>($r5);
+
+     label182:
+        return $r17;
+
+     label183:
+        $r2 = null;
+
+        goto label022;
+
+     label184:
+        return $r16;
+
+     label185:
+        return $r17;
+
+        catch java.lang.IllegalArgumentException from label005 to label006 with label009;
+        catch java.lang.IllegalArgumentException from label008 to label009 with label009;
+        catch java.lang.IllegalArgumentException from label013 to label014 with label009;
+        catch java.lang.IllegalArgumentException from label015 to label016 with label009;
+        catch java.lang.IllegalArgumentException from label019 to label020 with label009;
+        catch java.lang.IllegalArgumentException from label021 to label022 with label009;
+        catch java.lang.IllegalArgumentException from label022 to label023 with label009;
+        catch java.lang.IllegalArgumentException from label024 to label025 with label009;
+        catch java.lang.IllegalArgumentException from label028 to label029 with label009;
+        catch java.lang.IllegalArgumentException from label030 to label031 with label009;
+        catch java.lang.IllegalArgumentException from label033 to label034 with label009;
+        catch java.lang.IllegalArgumentException from label035 to label036 with label009;
+        catch java.lang.IllegalArgumentException from label038 to label039 with label009;
+        catch java.lang.IllegalArgumentException from label040 to label041 with label009;
+        catch java.lang.IllegalArgumentException from label042 to label043 with label009;
+        catch java.lang.IllegalArgumentException from label045 to label047 with label009;
+        catch java.lang.IllegalArgumentException from label048 to label049 with label009;
+        catch java.lang.IllegalArgumentException from label050 to label051 with label009;
+        catch java.lang.IllegalArgumentException from label052 to label053 with label009;
+        catch java.lang.IllegalArgumentException from label054 to label055 with label009;
+        catch java.lang.IllegalArgumentException from label056 to label057 with label009;
+        catch java.lang.IllegalArgumentException from label062 to label063 with label009;
+        catch java.lang.IllegalArgumentException from label064 to label065 with label009;
+        catch java.lang.IllegalArgumentException from label068 to label070 with label009;
+        catch java.lang.IllegalArgumentException from label070 to label071 with label009;
+        catch java.lang.IllegalArgumentException from label072 to label073 with label009;
+        catch java.lang.IllegalArgumentException from label074 to label075 with label009;
+        catch java.lang.IllegalArgumentException from label076 to label077 with label009;
+        catch java.lang.IllegalArgumentException from label078 to label079 with label009;
+        catch java.lang.IllegalArgumentException from label080 to label081 with label009;
+        catch java.lang.IllegalArgumentException from label082 to label083 with label009;
+        catch java.lang.IllegalArgumentException from label084 to label085 with label009;
+        catch java.lang.IllegalArgumentException from label087 to label088 with label009;
+        catch java.lang.IllegalArgumentException from label089 to label090 with label009;
+        catch java.lang.IllegalArgumentException from label092 to label093 with label009;
+        catch java.lang.IllegalArgumentException from label094 to label096 with label009;
+        catch java.lang.IllegalArgumentException from label097 to label098 with label009;
+        catch java.lang.IllegalArgumentException from label099 to label100 with label009;
+        catch java.lang.IllegalArgumentException from label101 to label102 with label009;
+        catch java.lang.IllegalArgumentException from label103 to label104 with label009;
+        catch java.lang.IllegalArgumentException from label105 to label106 with label009;
+        catch java.lang.IllegalArgumentException from label107 to label108 with label009;
+        catch java.lang.IllegalArgumentException from label113 to label114 with label009;
+        catch java.lang.IllegalArgumentException from label117 to label118 with label009;
+        catch java.lang.IllegalArgumentException from label122 to label123 with label009;
+        catch java.lang.IllegalArgumentException from label125 to label126 with label009;
+        catch java.lang.IllegalArgumentException from label127 to label128 with label009;
+        catch java.lang.IllegalArgumentException from label129 to label130 with label009;
+        catch java.lang.IllegalArgumentException from label133 to label134 with label009;
+        catch java.lang.IllegalArgumentException from label136 to label137 with label009;
+        catch java.lang.IllegalArgumentException from label139 to label140 with label009;
+        catch java.lang.IllegalArgumentException from label142 to label143 with label009;
+        catch java.lang.IllegalArgumentException from label145 to label146 with label009;
+        catch java.lang.IllegalArgumentException from label148 to label149 with label009;
+        catch java.lang.IllegalArgumentException from label151 to label152 with label009;
+        catch java.lang.IllegalArgumentException from label154 to label155 with label009;
+        catch java.lang.IllegalArgumentException from label156 to label157 with label009;
+        catch java.lang.IllegalArgumentException from label158 to label159 with label009;
+        catch java.lang.IllegalArgumentException from label161 to label162 with label009;
+        catch java.lang.IllegalArgumentException from label165 to label166 with label009;
+        catch java.lang.IllegalArgumentException from label168 to label169 with label009;
+        catch java.lang.IllegalArgumentException from label170 to label171 with label009;
+        catch java.lang.IllegalArgumentException from label172 to label173 with label009;
+        catch java.lang.IllegalArgumentException from label174 to label175 with label009;
+        catch java.lang.IllegalArgumentException from label177 to label178 with label009;
+        catch java.lang.IllegalArgumentException from label179 to label180 with label009;
+        catch java.lang.IllegalArgumentException from label181 to label182 with label009;
+    }
+
+    private java.lang.Object a(java.lang.reflect.Type, boolean)
+    {
+        com.google.api.a.d.h $r0;
+        java.lang.reflect.Type $r1;
+        boolean $z0, $z1;
+        java.util.ArrayList $r2;
+        java.lang.Class $r3;
+        java.lang.Object $r4;
+        java.lang.Throwable $r5;
+
+        $r0 := @this: com.google.api.a.d.h;
+
+        $r1 := @parameter0: java.lang.reflect.Type;
+
+        $z0 := @parameter1: boolean;
+
+        $r3 = class "java/lang/Void";
+
+     label1:
+        $z1 = virtualinvoke $r3.<java.lang.Object: boolean equals(java.lang.Object)>($r1);
+
+     label2:
+        if $z1 != 0 goto label4;
+
+     label3:
+        specialinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m p()>();
+
+     label4:
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>()>();
+
+        $r4 = specialinvoke $r0.<com.google.api.a.d.h: java.lang.Object a(java.lang.reflect.Field,java.lang.reflect.Type,java.util.ArrayList,com.google.api.a.d.a,boolean)>(null, $r1, $r2, null, 1);
+
+     label5:
+        if $z0 == 0 goto label8;
+
+        virtualinvoke $r0.<com.google.api.a.d.h: void b()>();
+
+        return $r4;
+
+     label6:
+        $r5 := @caughtexception;
+
+        if $z0 == 0 goto label7;
+
+        virtualinvoke $r0.<com.google.api.a.d.h: void b()>();
+
+     label7:
+        throw $r5;
+
+     label8:
+        return $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label6;
+        catch java.lang.Throwable from label3 to label5 with label6;
+    }
+
+    private void a(java.lang.reflect.Field, java.util.Map, java.lang.reflect.Type, java.util.ArrayList, com.google.api.a.d.a)
+    {
+        com.google.api.a.d.h $r0;
+        java.lang.reflect.Field $r1;
+        java.util.Map $r2;
+        java.lang.reflect.Type $r3;
+        java.util.ArrayList $r4;
+        com.google.api.a.d.a $r5;
+        com.google.api.a.d.m $r6, $r7;
+        java.lang.String $r8;
+        java.lang.Object $r9;
+
+        $r0 := @this: com.google.api.a.d.h;
+
+        $r1 := @parameter0: java.lang.reflect.Field;
+
+        $r2 := @parameter1: java.util.Map;
+
+        $r3 := @parameter2: java.lang.reflect.Type;
+
+        $r4 := @parameter3: java.util.ArrayList;
+
+        $r5 := @parameter4: com.google.api.a.d.a;
+
+        $r6 = specialinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m q()>();
+
+     label1:
+        $r7 = <com.google.api.a.d.m: com.google.api.a.d.m e>;
+
+        if $r6 != $r7 goto label2;
+
+        $r8 = virtualinvoke $r0.<com.google.api.a.d.h: java.lang.String g()>();
+
+        virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m c()>();
+
+        $r9 = specialinvoke $r0.<com.google.api.a.d.h: java.lang.Object a(java.lang.reflect.Field,java.lang.reflect.Type,java.util.ArrayList,com.google.api.a.d.a,boolean)>($r1, $r3, $r4, $r5, 1);
+
+        interfaceinvoke $r2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r8, $r9);
+
+        $r6 = virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m c()>();
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private java.lang.Object b(java.lang.Class)
+    {
+        com.google.api.a.d.h $r0;
+        java.lang.Class $r1;
+        java.lang.Object $r2;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: com.google.api.a.d.h;
+
+        $r1 := @parameter0: java.lang.Class;
+
+     label1:
+        $r2 = specialinvoke $r0.<com.google.api.a.d.h: java.lang.Object a(java.lang.reflect.Type,boolean)>($r1, 0);
+
+     label2:
+        virtualinvoke $r0.<com.google.api.a.d.h: void b()>();
+
+        return $r2;
+
+     label3:
+        $r3 := @caughtexception;
+
+        virtualinvoke $r0.<com.google.api.a.d.h: void b()>();
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    private static java.lang.reflect.Field c(java.lang.Class)
+    {
+        java.lang.Class $r0, $r13;
+        java.util.concurrent.locks.Lock $r1;
+        java.util.WeakHashMap $r2;
+        boolean $z0;
+        java.lang.Object $r3;
+        java.lang.reflect.Field $r4, $r9;
+        com.google.api.a.f.n $r5;
+        java.util.Collection $r6;
+        java.util.Iterator $r7;
+        com.google.api.a.f.x $r8;
+        java.lang.'annotation'.Annotation $r10;
+        com.google.api.a.d.j $r11;
+        java.lang.Object[] $r12;
+        com.google.api.a.d.k[] $r14;
+        java.util.HashSet $r15;
+        int $i0, $i1;
+        com.google.api.a.d.k $r16;
+        java.lang.String $r17;
+        java.lang.Throwable $r18;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        if $r0 != null goto label01;
+
+        return null;
+
+     label01:
+        $r1 = <com.google.api.a.d.h: java.util.concurrent.locks.Lock b>;
+
+        interfaceinvoke $r1.<java.util.concurrent.locks.Lock: void lock()>();
+
+     label02:
+        $r2 = <com.google.api.a.d.h: java.util.WeakHashMap a>;
+
+        $z0 = virtualinvoke $r2.<java.util.WeakHashMap: boolean containsKey(java.lang.Object)>($r0);
+
+     label03:
+        if $z0 == 0 goto label06;
+
+     label04:
+        $r2 = <com.google.api.a.d.h: java.util.WeakHashMap a>;
+
+        $r3 = virtualinvoke $r2.<java.util.WeakHashMap: java.lang.Object get(java.lang.Object)>($r0);
+
+        $r4 = (java.lang.reflect.Field) $r3;
+
+     label05:
+        $r1 = <com.google.api.a.d.h: java.util.concurrent.locks.Lock b>;
+
+        interfaceinvoke $r1.<java.util.concurrent.locks.Lock: void unlock()>();
+
+        return $r4;
+
+     label06:
+        $r5 = staticinvoke <com.google.api.a.f.n: com.google.api.a.f.n a(java.lang.Class)>($r0);
+
+        $r6 = virtualinvoke $r5.<com.google.api.a.f.n: java.util.Collection c()>();
+
+        $r7 = interfaceinvoke $r6.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label07:
+        $r4 = null;
+
+     label08:
+        $z0 = interfaceinvoke $r7.<java.util.Iterator: boolean hasNext()>();
+
+     label09:
+        if $z0 == 0 goto label22;
+
+     label10:
+        $r3 = interfaceinvoke $r7.<java.util.Iterator: java.lang.Object next()>();
+
+        $r8 = (com.google.api.a.f.x) $r3;
+
+        $r9 = virtualinvoke $r8.<com.google.api.a.f.x: java.lang.reflect.Field a()>();
+
+        $r10 = virtualinvoke $r9.<java.lang.reflect.Field: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/google/api/a/d/j");
+
+        $r11 = (com.google.api.a.d.j) $r10;
+
+     label11:
+        if $r11 == null goto label21;
+
+        if $r4 != null goto label19;
+
+        $z0 = 1;
+
+     label12:
+        $r12 = newarray (java.lang.Object)[1];
+
+        $r12[0] = $r0;
+
+        staticinvoke <com.google.api.a.e.a.a.a.a.b: void a(boolean,java.lang.String,java.lang.Object[])>($z0, "Class contains more than one field with @JsonPolymorphicTypeMap annotation: %s", $r12);
+
+        $r13 = virtualinvoke $r9.<java.lang.reflect.Field: java.lang.Class getType()>();
+
+        $z0 = staticinvoke <com.google.api.a.f.p: boolean a(java.lang.reflect.Type)>($r13);
+
+        $r12 = newarray (java.lang.Object)[2];
+
+        $r12[0] = $r0;
+
+        $r13 = virtualinvoke $r9.<java.lang.reflect.Field: java.lang.Class getType()>();
+
+        $r12[1] = $r13;
+
+        staticinvoke <com.google.api.a.e.a.a.a.a.b: void a(boolean,java.lang.String,java.lang.Object[])>($z0, "Field which has the @JsonPolymorphicTypeMap, %s, is not a supported type: %s", $r12);
+
+        $r14 = interfaceinvoke $r11.<com.google.api.a.d.j: com.google.api.a.d.k[] a()>();
+
+        $r15 = new java.util.HashSet;
+
+        specialinvoke $r15.<java.util.HashSet: void <init>()>();
+
+        $i0 = lengthof $r14;
+
+     label13:
+        if $i0 <= 0 goto label20;
+
+        $z0 = 1;
+
+     label14:
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, "@JsonPolymorphicTypeMap must have at least one @TypeDef");
+
+        $i0 = lengthof $r14;
+
+     label15:
+        $i1 = 0;
+
+     label16:
+        if $i1 >= $i0 goto label25;
+
+     label17:
+        $r16 = $r14[$i1];
+
+        $r17 = interfaceinvoke $r16.<com.google.api.a.d.k: java.lang.String a()>();
+
+        $z0 = virtualinvoke $r15.<java.util.HashSet: boolean add(java.lang.Object)>($r17);
+
+        $r12 = newarray (java.lang.Object)[1];
+
+        $r17 = interfaceinvoke $r16.<com.google.api.a.d.k: java.lang.String a()>();
+
+        $r12[0] = $r17;
+
+        staticinvoke <com.google.api.a.e.a.a.a.a.b: void a(boolean,java.lang.String,java.lang.Object[])>($z0, "Class contains two @TypeDef annotations with identical key: %s", $r12);
+
+     label18:
+        $i1 = $i1 + 1;
+
+        goto label16;
+
+     label19:
+        $z0 = 0;
+
+        goto label12;
+
+     label20:
+        $z0 = 0;
+
+        goto label14;
+
+     label21:
+        goto label08;
+
+     label22:
+        $r2 = <com.google.api.a.d.h: java.util.WeakHashMap a>;
+
+        virtualinvoke $r2.<java.util.WeakHashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r0, $r4);
+
+     label23:
+        $r1 = <com.google.api.a.d.h: java.util.concurrent.locks.Lock b>;
+
+        interfaceinvoke $r1.<java.util.concurrent.locks.Lock: void unlock()>();
+
+        return $r4;
+
+     label24:
+        $r18 := @caughtexception;
+
+        $r1 = <com.google.api.a.d.h: java.util.concurrent.locks.Lock b>;
+
+        interfaceinvoke $r1.<java.util.concurrent.locks.Lock: void unlock()>();
+
+        throw $r18;
+
+     label25:
+        $r4 = $r9;
+
+        goto label21;
+
+        catch java.lang.Throwable from label02 to label03 with label24;
+        catch java.lang.Throwable from label04 to label05 with label24;
+        catch java.lang.Throwable from label06 to label07 with label24;
+        catch java.lang.Throwable from label08 to label09 with label24;
+        catch java.lang.Throwable from label10 to label11 with label24;
+        catch java.lang.Throwable from label12 to label13 with label24;
+        catch java.lang.Throwable from label14 to label15 with label24;
+        catch java.lang.Throwable from label17 to label18 with label24;
+        catch java.lang.Throwable from label22 to label23 with label24;
+    }
+
+    private com.google.api.a.d.m p()
+    {
+        com.google.api.a.d.h $r0;
+        com.google.api.a.d.m $r1;
+        boolean $z0;
+
+        $r0 := @this: com.google.api.a.d.h;
+
+        $r1 = virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m d()>();
+
+        if $r1 != null goto label4;
+
+        $r1 = virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m c()>();
+
+     label1:
+        if $r1 == null goto label3;
+
+        $z0 = 1;
+
+     label2:
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, "no JSON input found");
+
+        return $r1;
+
+     label3:
+        $z0 = 0;
+
+        goto label2;
+
+     label4:
+        goto label1;
+    }
+
+    private com.google.api.a.d.m q()
+    {
+        com.google.api.a.d.h $r0;
+        com.google.api.a.d.m $r1, $r3;
+        int[] $r2;
+        int $i0;
+        boolean $z0;
+
+        $r0 := @this: com.google.api.a.d.h;
+
+        $r1 = specialinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m p()>();
+
+        $r2 = <com.google.api.a.d.i: int[] a>;
+
+        $i0 = virtualinvoke $r1.<com.google.api.a.d.m: int ordinal()>();
+
+        $i0 = $r2[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label2;
+            case 2: goto label6;
+            default: goto label1;
+        };
+
+     label1:
+        return $r1;
+
+     label2:
+        $r1 = virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m c()>();
+
+        $r3 = <com.google.api.a.d.m: com.google.api.a.d.m e>;
+
+        if $r1 == $r3 goto label3;
+
+        $r3 = <com.google.api.a.d.m: com.google.api.a.d.m d>;
+
+        if $r1 != $r3 goto label5;
+
+     label3:
+        $z0 = 1;
+
+     label4:
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, $r1);
+
+        return $r1;
+
+     label5:
+        $z0 = 0;
+
+        goto label4;
+
+     label6:
+        $r1 = virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m c()>();
+
+        return $r1;
+    }
+
+    public abstract com.google.api.a.d.d a();
+
+    public final java.lang.Object a(java.lang.Class)
+    {
+        com.google.api.a.d.h $r0;
+        java.lang.Class $r1;
+        java.lang.Object $r2;
+
+        $r0 := @this: com.google.api.a.d.h;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 = specialinvoke $r0.<com.google.api.a.d.h: java.lang.Object b(java.lang.Class)>($r1);
+
+        return $r2;
+    }
+
+    public final java.lang.Object a(java.lang.reflect.Type)
+    {
+        com.google.api.a.d.h $r0;
+        java.lang.reflect.Type $r1;
+        java.lang.Object $r2;
+
+        $r0 := @this: com.google.api.a.d.h;
+
+        $r1 := @parameter0: java.lang.reflect.Type;
+
+        $r2 = specialinvoke $r0.<com.google.api.a.d.h: java.lang.Object a(java.lang.reflect.Type,boolean)>($r1, 1);
+
+        return $r2;
+    }
+
+    public final java.lang.String a(java.util.Set)
+    {
+        com.google.api.a.d.h $r0;
+        java.util.Set $r1;
+        com.google.api.a.d.m $r2, $r3;
+        java.lang.String $r4;
+        boolean $z0;
+
+        $r0 := @this: com.google.api.a.d.h;
+
+        $r1 := @parameter0: java.util.Set;
+
+        $r2 = specialinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m q()>();
+
+     label1:
+        $r3 = <com.google.api.a.d.m: com.google.api.a.d.m e>;
+
+        if $r2 != $r3 goto label3;
+
+        $r4 = virtualinvoke $r0.<com.google.api.a.d.h: java.lang.String g()>();
+
+        virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m c()>();
+
+        $z0 = interfaceinvoke $r1.<java.util.Set: boolean contains(java.lang.Object)>($r4);
+
+        if $z0 == 0 goto label2;
+
+        return $r4;
+
+     label2:
+        virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.h f()>();
+
+        $r2 = virtualinvoke $r0.<com.google.api.a.d.h: com.google.api.a.d.m c()>();
+
+        goto label1;
+
+     label3:
+        return null;
+    }
+
+    public final void a(java.lang.String)
+    {
+        com.google.api.a.d.h $r0;
+        java.lang.String $r1;
+        java.util.Set $r2;
+
+        $r0 := @this: com.google.api.a.d.h;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = staticinvoke <java.util.Collections: java.util.Set singleton(java.lang.Object)>($r1);
+
+        virtualinvoke $r0.<com.google.api.a.d.h: java.lang.String a(java.util.Set)>($r2);
+
+        return;
+    }
+
+    public abstract void b();
+
+    public abstract com.google.api.a.d.m c();
+
+    public abstract com.google.api.a.d.m d();
+
+    public abstract java.lang.String e();
+
+    public abstract com.google.api.a.d.h f();
+
+    public abstract java.lang.String g();
+
+    public abstract byte h();
+
+    public abstract short i();
+
+    public abstract int j();
+
+    public abstract float k();
+
+    public abstract long l();
+
+    public abstract double m();
+
+    public abstract java.math.BigInteger n();
+
+    public abstract java.math.BigDecimal o();
+}

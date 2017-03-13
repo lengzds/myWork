@@ -1,0 +1,200 @@
+public final class com.google.api.a.c.ak extends com.google.api.a.c.a
+{
+    private java.lang.Object a;
+
+    public void <init>(java.lang.Object)
+    {
+        com.google.api.a.c.ak $r0;
+        java.lang.Object $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.google.api.a.c.ak;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = <com.google.api.a.c.al: java.lang.String a>;
+
+        specialinvoke $r0.<com.google.api.a.c.a: void <init>(java.lang.String)>($r2);
+
+        $r1 = staticinvoke <com.google.api.a.e.a.a.a.a.b: java.lang.Object a(java.lang.Object)>($r1);
+
+        $r0.<com.google.api.a.c.ak: java.lang.Object a> = $r1;
+
+        return;
+    }
+
+    private static boolean a(boolean, java.io.Writer, java.lang.String, java.lang.Object)
+    {
+        java.io.Writer $r0;
+        java.lang.String $r1;
+        boolean $z0, $z1;
+        java.lang.Object $r2;
+        java.lang.Enum $r3;
+        com.google.api.a.f.x $r4;
+        int $i0;
+
+        $z0 := @parameter0: boolean;
+
+        $r0 := @parameter1: java.io.Writer;
+
+        $r1 := @parameter2: java.lang.String;
+
+        $r2 := @parameter3: java.lang.Object;
+
+        if $r2 == null goto label6;
+
+        $z1 = staticinvoke <com.google.api.a.f.p: boolean a(java.lang.Object)>($r2);
+
+        if $z1 == 0 goto label1;
+
+        return $z0;
+
+     label1:
+        if $z0 == 0 goto label4;
+
+        $z0 = 0;
+
+     label2:
+        virtualinvoke $r0.<java.io.Writer: void write(java.lang.String)>($r1);
+
+        $z1 = $r2 instanceof java.lang.Enum;
+
+        if $z1 == 0 goto label5;
+
+        $r3 = (java.lang.Enum) $r2;
+
+        $r4 = staticinvoke <com.google.api.a.f.x: com.google.api.a.f.x a(java.lang.Enum)>($r3);
+
+        $r1 = virtualinvoke $r4.<com.google.api.a.f.x: java.lang.String b()>();
+
+     label3:
+        $r1 = staticinvoke <com.google.api.a.f.a.a: java.lang.String a(java.lang.String)>($r1);
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        if $i0 == 0 goto label6;
+
+        virtualinvoke $r0.<java.io.Writer: void write(java.lang.String)>("=");
+
+        virtualinvoke $r0.<java.io.Writer: void write(java.lang.String)>($r1);
+
+        return $z0;
+
+     label4:
+        virtualinvoke $r0.<java.io.Writer: void write(java.lang.String)>("&");
+
+        goto label2;
+
+     label5:
+        $r1 = virtualinvoke $r2.<java.lang.Object: java.lang.String toString()>();
+
+        goto label3;
+
+     label6:
+        return $z0;
+    }
+
+    public final void a(java.io.OutputStream)
+    {
+        com.google.api.a.c.ak $r0;
+        java.io.OutputStream $r1;
+        java.io.BufferedWriter $r2;
+        boolean $z0, $z1;
+        java.io.OutputStreamWriter $r3;
+        java.nio.charset.Charset $r4;
+        java.lang.Object $r5, $r10;
+        java.util.Map $r6;
+        java.util.Set $r7;
+        java.util.Iterator $r8, $r14;
+        java.util.Map$Entry $r9;
+        java.lang.String $r11;
+        java.lang.Class $r12;
+        java.lang.Iterable $r13;
+
+        $r0 := @this: com.google.api.a.c.ak;
+
+        $r1 := @parameter0: java.io.OutputStream;
+
+        $r2 = new java.io.BufferedWriter;
+
+        $r3 = new java.io.OutputStreamWriter;
+
+        $r4 = virtualinvoke $r0.<com.google.api.a.c.ak: java.nio.charset.Charset c()>();
+
+        specialinvoke $r3.<java.io.OutputStreamWriter: void <init>(java.io.OutputStream,java.nio.charset.Charset)>($r1, $r4);
+
+        specialinvoke $r2.<java.io.BufferedWriter: void <init>(java.io.Writer)>($r3);
+
+        $r5 = $r0.<com.google.api.a.c.ak: java.lang.Object a>;
+
+        $r6 = staticinvoke <com.google.api.a.f.p: java.util.Map b(java.lang.Object)>($r5);
+
+        $r7 = interfaceinvoke $r6.<java.util.Map: java.util.Set entrySet()>();
+
+        $r8 = interfaceinvoke $r7.<java.util.Set: java.util.Iterator iterator()>();
+
+        $z1 = 1;
+
+     label1:
+        $z0 = interfaceinvoke $r8.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label7;
+
+        $r5 = interfaceinvoke $r8.<java.util.Iterator: java.lang.Object next()>();
+
+        $r9 = (java.util.Map$Entry) $r5;
+
+        $r5 = interfaceinvoke $r9.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        if $r5 == null goto label8;
+
+        $r10 = interfaceinvoke $r9.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r11 = (java.lang.String) $r10;
+
+        $r11 = staticinvoke <com.google.api.a.f.a.a: java.lang.String a(java.lang.String)>($r11);
+
+        $r12 = virtualinvoke $r5.<java.lang.Object: java.lang.Class getClass()>();
+
+        $z0 = $r5 instanceof java.lang.Iterable;
+
+        if $z0 != 0 goto label2;
+
+        $z0 = virtualinvoke $r12.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label5;
+
+     label2:
+        $r13 = staticinvoke <com.google.api.a.f.av: java.lang.Iterable a(java.lang.Object)>($r5);
+
+        $r14 = interfaceinvoke $r13.<java.lang.Iterable: java.util.Iterator iterator()>();
+
+     label3:
+        $z0 = interfaceinvoke $r14.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label4;
+
+        $r5 = interfaceinvoke $r14.<java.util.Iterator: java.lang.Object next()>();
+
+        $z1 = staticinvoke <com.google.api.a.c.ak: boolean a(boolean,java.io.Writer,java.lang.String,java.lang.Object)>($z1, $r2, $r11, $r5);
+
+        goto label3;
+
+     label4:
+        goto label1;
+
+     label5:
+        $z1 = staticinvoke <com.google.api.a.c.ak: boolean a(boolean,java.io.Writer,java.lang.String,java.lang.Object)>($z1, $r2, $r11, $r5);
+
+     label6:
+        goto label1;
+
+     label7:
+        virtualinvoke $r2.<java.io.Writer: void flush()>();
+
+        return;
+
+     label8:
+        goto label6;
+    }
+}

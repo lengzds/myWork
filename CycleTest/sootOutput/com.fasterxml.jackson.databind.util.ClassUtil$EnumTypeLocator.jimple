@@ -1,0 +1,234 @@
+class com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator extends java.lang.Object
+{
+    static final com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator instance;
+    private final java.lang.reflect.Field enumMapTypeField;
+    private final java.lang.reflect.Field enumSetTypeField;
+
+    static void <clinit>()
+    {
+        com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator $r0;
+
+        $r0 = new com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: void <init>()>();
+
+        <com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator instance> = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator $r0;
+        java.lang.reflect.Field $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: java.lang.reflect.Field locateField(java.lang.Class,java.lang.String,java.lang.Class)>(class "java/util/EnumSet", "elementType", class "java/lang/Class");
+
+        $r0.<com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: java.lang.reflect.Field enumSetTypeField> = $r1;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: java.lang.reflect.Field locateField(java.lang.Class,java.lang.String,java.lang.Class)>(class "java/util/EnumMap", "elementType", class "java/lang/Class");
+
+        $r0.<com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: java.lang.reflect.Field enumMapTypeField> = $r1;
+
+        return;
+    }
+
+    private java.lang.Object get(java.lang.Object, java.lang.reflect.Field)
+    {
+        com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator $r0;
+        java.lang.Object $r1;
+        java.lang.reflect.Field $r2;
+        java.lang.IllegalArgumentException $r3;
+        java.lang.Exception $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: java.lang.reflect.Field;
+
+     label1:
+        $r1 = virtualinvoke $r2.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>($r1);
+
+     label2:
+        return $r1;
+
+     label3:
+        $r4 := @caughtexception;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.Throwable)>($r4);
+
+        throw $r3;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    private static java.lang.reflect.Field locateField(java.lang.Class, java.lang.String, java.lang.Class)
+    {
+        java.lang.Class $r0, $r2;
+        java.lang.String $r1, $r5;
+        java.lang.reflect.Field[] $r3;
+        int $i0, $i1;
+        java.lang.reflect.Field $r4, $r6;
+        boolean $z0;
+        java.lang.Throwable $r7;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.Class;
+
+        $r3 = virtualinvoke $r0.<java.lang.Class: java.lang.reflect.Field[] getDeclaredFields()>();
+
+        $i0 = lengthof $r3;
+
+        $i1 = 0;
+
+     label01:
+        if $i1 >= $i0 goto label11;
+
+        $r4 = $r3[$i1];
+
+        $r5 = virtualinvoke $r4.<java.lang.reflect.Field: java.lang.String getName()>();
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r5);
+
+        if $z0 == 0 goto label04;
+
+        $r0 = virtualinvoke $r4.<java.lang.reflect.Field: java.lang.Class getType()>();
+
+        if $r0 != $r2 goto label04;
+
+     label02:
+        if $r4 != null goto label07;
+
+        $i0 = lengthof $r3;
+
+        $i1 = 0;
+
+     label03:
+        if $i1 >= $i0 goto label07;
+
+        $r6 = $r3[$i1];
+
+        $r0 = virtualinvoke $r6.<java.lang.reflect.Field: java.lang.Class getType()>();
+
+        if $r0 != $r2 goto label05;
+
+        if $r4 == null goto label06;
+
+        return null;
+
+     label04:
+        $i1 = $i1 + 1;
+
+        goto label01;
+
+     label05:
+        $r6 = $r4;
+
+     label06:
+        $i1 = $i1 + 1;
+
+        $r4 = $r6;
+
+        goto label03;
+
+     label07:
+        if $r4 == null goto label12;
+
+     label08:
+        virtualinvoke $r4.<java.lang.reflect.Field: void setAccessible(boolean)>(1);
+
+     label09:
+        return $r4;
+
+     label10:
+        $r7 := @caughtexception;
+
+        return $r4;
+
+     label11:
+        $r4 = null;
+
+        goto label02;
+
+     label12:
+        return $r4;
+
+        catch java.lang.Throwable from label08 to label09 with label10;
+    }
+
+    public java.lang.Class enumTypeFor(java.util.EnumMap)
+    {
+        com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator $r0;
+        java.util.EnumMap $r1;
+        java.lang.Object $r2;
+        java.lang.reflect.Field $r3;
+        java.lang.Class $r4;
+        java.lang.IllegalStateException $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator;
+
+        $r1 := @parameter0: java.util.EnumMap;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: java.lang.reflect.Field enumMapTypeField>;
+
+        if $r3 == null goto label1;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: java.lang.reflect.Field enumMapTypeField>;
+
+        $r2 = specialinvoke $r0.<com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: java.lang.Object get(java.lang.Object,java.lang.reflect.Field)>($r1, $r3);
+
+        $r4 = (java.lang.Class) $r2;
+
+        return $r4;
+
+     label1:
+        $r5 = new java.lang.IllegalStateException;
+
+        specialinvoke $r5.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Can not figure out type for EnumMap (odd JDK platform?)");
+
+        throw $r5;
+    }
+
+    public java.lang.Class enumTypeFor(java.util.EnumSet)
+    {
+        com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator $r0;
+        java.util.EnumSet $r1;
+        java.lang.Object $r2;
+        java.lang.reflect.Field $r3;
+        java.lang.Class $r4;
+        java.lang.IllegalStateException $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator;
+
+        $r1 := @parameter0: java.util.EnumSet;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: java.lang.reflect.Field enumSetTypeField>;
+
+        if $r3 == null goto label1;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: java.lang.reflect.Field enumSetTypeField>;
+
+        $r2 = specialinvoke $r0.<com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: java.lang.Object get(java.lang.Object,java.lang.reflect.Field)>($r1, $r3);
+
+        $r4 = (java.lang.Class) $r2;
+
+        return $r4;
+
+     label1:
+        $r5 = new java.lang.IllegalStateException;
+
+        specialinvoke $r5.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Can not figure out type for EnumSet (odd JDK platform?)");
+
+        throw $r5;
+    }
+}

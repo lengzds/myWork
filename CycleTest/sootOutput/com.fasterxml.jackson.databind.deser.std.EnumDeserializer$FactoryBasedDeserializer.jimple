@@ -1,0 +1,90 @@
+public class com.fasterxml.jackson.databind.deser.std.EnumDeserializer$FactoryBasedDeserializer extends com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer
+{
+    protected final java.lang.Class _enumClass;
+    protected final java.lang.reflect.Method _factory;
+
+    public void <init>(java.lang.Class, com.fasterxml.jackson.databind.introspect.AnnotatedMethod)
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumDeserializer$FactoryBasedDeserializer $r0;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r2;
+        java.lang.reflect.Method $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumDeserializer$FactoryBasedDeserializer;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer: void <init>(java.lang.Class)>(class "java/lang/Enum");
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer$FactoryBasedDeserializer: java.lang.Class _enumClass> = $r1;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.reflect.Method getAnnotated()>();
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer$FactoryBasedDeserializer: java.lang.reflect.Method _factory> = $r3;
+
+        return;
+    }
+
+    public java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumDeserializer$FactoryBasedDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.core.JsonToken $r3, $r4;
+        java.lang.Class $r5;
+        com.fasterxml.jackson.databind.JsonMappingException $r6;
+        java.lang.String $r7;
+        java.lang.reflect.Method $r8;
+        java.lang.Object[] $r9;
+        java.lang.Object $r10;
+        java.lang.Exception $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumDeserializer$FactoryBasedDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        if $r3 == $r4 goto label1;
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken FIELD_NAME>;
+
+        if $r3 == $r4 goto label1;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer$FactoryBasedDeserializer: java.lang.Class _enumClass>;
+
+        $r6 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.Class)>($r5);
+
+        throw $r6;
+
+     label1:
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.String getText()>();
+
+     label2:
+        $r8 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer$FactoryBasedDeserializer: java.lang.reflect.Method _factory>;
+
+        $r9 = newarray (java.lang.Object)[1];
+
+        $r9[0] = $r7;
+
+        $r10 = virtualinvoke $r8.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r9);
+
+     label3:
+        return $r10;
+
+     label4:
+        $r11 := @caughtexception;
+
+        staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: void unwrapAndThrowAsIAE(java.lang.Throwable)>($r11);
+
+        return null;
+
+        catch java.lang.Exception from label2 to label3 with label4;
+    }
+}

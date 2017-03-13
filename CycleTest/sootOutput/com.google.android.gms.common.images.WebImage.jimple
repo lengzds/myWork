@@ -1,0 +1,249 @@
+public final class com.google.android.gms.common.images.WebImage extends java.lang.Object implements com.google.android.gms.common.internal.safeparcel.SafeParcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    private final int a;
+    private final android.net.Uri b;
+    private final int c;
+    private final int d;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.common.images.b $r0;
+
+        $r0 = new com.google.android.gms.common.images.b;
+
+        specialinvoke $r0.<com.google.android.gms.common.images.b: void <init>()>();
+
+        <com.google.android.gms.common.images.WebImage: android.os.Parcelable$Creator CREATOR> = $r0;
+
+        return;
+    }
+
+    void <init>(int, android.net.Uri, int, int)
+    {
+        com.google.android.gms.common.images.WebImage $r0;
+        int $i0, $i1, $i2;
+        android.net.Uri $r1;
+
+        $r0 := @this: com.google.android.gms.common.images.WebImage;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: android.net.Uri;
+
+        $i1 := @parameter2: int;
+
+        $i2 := @parameter3: int;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.common.images.WebImage: int a> = $i0;
+
+        $r0.<com.google.android.gms.common.images.WebImage: android.net.Uri b> = $r1;
+
+        $r0.<com.google.android.gms.common.images.WebImage: int c> = $i1;
+
+        $r0.<com.google.android.gms.common.images.WebImage: int d> = $i2;
+
+        return;
+    }
+
+    final int a()
+    {
+        com.google.android.gms.common.images.WebImage $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.common.images.WebImage;
+
+        i0 = $r0.<com.google.android.gms.common.images.WebImage: int a>;
+
+        return i0;
+    }
+
+    public final int describeContents()
+    {
+        com.google.android.gms.common.images.WebImage $r0;
+
+        $r0 := @this: com.google.android.gms.common.images.WebImage;
+
+        return 0;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.common.images.WebImage $r0, $r2;
+        boolean $z0;
+        java.lang.Object $r1;
+        android.net.Uri $r3, $r4;
+        int $i0, $i1;
+
+        $r0 := @this: com.google.android.gms.common.images.WebImage;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 == null goto label2;
+
+        $z0 = $r1 instanceof com.google.android.gms.common.images.WebImage;
+
+        if $z0 != 0 goto label3;
+
+     label2:
+        return 0;
+
+     label3:
+        $r2 = (com.google.android.gms.common.images.WebImage) $r1;
+
+        $r3 = $r0.<com.google.android.gms.common.images.WebImage: android.net.Uri b>;
+
+        $r4 = $r2.<com.google.android.gms.common.images.WebImage: android.net.Uri b>;
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r3, $r4);
+
+        if $z0 == 0 goto label4;
+
+        $i0 = $r0.<com.google.android.gms.common.images.WebImage: int c>;
+
+        $i1 = $r2.<com.google.android.gms.common.images.WebImage: int c>;
+
+        if $i0 != $i1 goto label4;
+
+        $i0 = $r0.<com.google.android.gms.common.images.WebImage: int d>;
+
+        $i1 = $r2.<com.google.android.gms.common.images.WebImage: int d>;
+
+        if $i0 == $i1 goto label5;
+
+     label4:
+        return 0;
+
+     label5:
+        return 1;
+    }
+
+    public final int getHeight()
+    {
+        com.google.android.gms.common.images.WebImage $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.common.images.WebImage;
+
+        i0 = $r0.<com.google.android.gms.common.images.WebImage: int d>;
+
+        return i0;
+    }
+
+    public final android.net.Uri getUrl()
+    {
+        com.google.android.gms.common.images.WebImage $r0;
+        android.net.Uri r1;
+
+        $r0 := @this: com.google.android.gms.common.images.WebImage;
+
+        r1 = $r0.<com.google.android.gms.common.images.WebImage: android.net.Uri b>;
+
+        return r1;
+    }
+
+    public final int getWidth()
+    {
+        com.google.android.gms.common.images.WebImage $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.common.images.WebImage;
+
+        i0 = $r0.<com.google.android.gms.common.images.WebImage: int c>;
+
+        return i0;
+    }
+
+    public final int hashCode()
+    {
+        com.google.android.gms.common.images.WebImage $r0;
+        java.lang.Object[] $r1;
+        android.net.Uri $r2;
+        int $i0;
+        java.lang.Integer $r3;
+
+        $r0 := @this: com.google.android.gms.common.images.WebImage;
+
+        $r1 = newarray (java.lang.Object)[3];
+
+        $r2 = $r0.<com.google.android.gms.common.images.WebImage: android.net.Uri b>;
+
+        $r1[0] = $r2;
+
+        $i0 = $r0.<com.google.android.gms.common.images.WebImage: int c>;
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1[1] = $r3;
+
+        $i0 = $r0.<com.google.android.gms.common.images.WebImage: int d>;
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1[2] = $r3;
+
+        $i0 = staticinvoke <com.google.android.gms.internal.hl: int hashCode(java.lang.Object[])>($r1);
+
+        return $i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.common.images.WebImage $r0;
+        java.lang.Object[] $r1;
+        int $i0;
+        java.lang.Integer $r2;
+        android.net.Uri $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.google.android.gms.common.images.WebImage;
+
+        $r1 = newarray (java.lang.Object)[3];
+
+        $i0 = $r0.<com.google.android.gms.common.images.WebImage: int c>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1[0] = $r2;
+
+        $i0 = $r0.<com.google.android.gms.common.images.WebImage: int d>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1[1] = $r2;
+
+        $r3 = $r0.<com.google.android.gms.common.images.WebImage: android.net.Uri b>;
+
+        $r4 = virtualinvoke $r3.<android.net.Uri: java.lang.String toString()>();
+
+        $r1[2] = $r4;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("Image %dx%d %s", $r1);
+
+        return $r4;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.common.images.WebImage $r0;
+        android.os.Parcel $r1;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.common.images.WebImage;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        staticinvoke <com.google.android.gms.common.images.b: void a(com.google.android.gms.common.images.WebImage,android.os.Parcel,int)>($r0, $r1, $i0);
+
+        return;
+    }
+}

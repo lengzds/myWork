@@ -1,0 +1,288 @@
+public class com.fasterxml.jackson.databind.ser.impl.IteratorSerializer extends com.fasterxml.jackson.databind.ser.std.AsArraySerializerBase
+{
+
+    public void <init>(com.fasterxml.jackson.databind.JavaType, boolean, com.fasterxml.jackson.databind.jsontype.TypeSerializer, com.fasterxml.jackson.databind.BeanProperty)
+    {
+        com.fasterxml.jackson.databind.ser.impl.IteratorSerializer $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        boolean $z0;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r2;
+        com.fasterxml.jackson.databind.BeanProperty $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $z0 := @parameter1: boolean;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r3 := @parameter3: com.fasterxml.jackson.databind.BeanProperty;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.AsArraySerializerBase: void <init>(java.lang.Class,com.fasterxml.jackson.databind.JavaType,boolean,com.fasterxml.jackson.databind.jsontype.TypeSerializer,com.fasterxml.jackson.databind.BeanProperty,com.fasterxml.jackson.databind.JsonSerializer)>(class "java/util/Iterator", $r1, $z0, $r2, $r3, null);
+
+        return;
+    }
+
+    public void <init>(com.fasterxml.jackson.databind.ser.impl.IteratorSerializer, com.fasterxml.jackson.databind.BeanProperty, com.fasterxml.jackson.databind.jsontype.TypeSerializer, com.fasterxml.jackson.databind.JsonSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.impl.IteratorSerializer $r0, $r1;
+        com.fasterxml.jackson.databind.BeanProperty $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r3;
+        com.fasterxml.jackson.databind.JsonSerializer $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.JsonSerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.AsArraySerializerBase: void <init>(com.fasterxml.jackson.databind.ser.std.AsArraySerializerBase,com.fasterxml.jackson.databind.BeanProperty,com.fasterxml.jackson.databind.jsontype.TypeSerializer,com.fasterxml.jackson.databind.JsonSerializer)>($r1, $r2, $r3, $r4);
+
+        return;
+    }
+
+    public com.fasterxml.jackson.databind.ser.ContainerSerializer _withValueTypeSerializer(com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.impl.IteratorSerializer $r0, $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r1;
+        com.fasterxml.jackson.databind.JavaType $r3;
+        boolean $z0;
+        com.fasterxml.jackson.databind.BeanProperty $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r2 = new com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.ser.impl.IteratorSerializer: com.fasterxml.jackson.databind.JavaType _elementType>;
+
+        $z0 = $r0.<com.fasterxml.jackson.databind.ser.impl.IteratorSerializer: boolean _staticTyping>;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.impl.IteratorSerializer: com.fasterxml.jackson.databind.BeanProperty _property>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.ser.impl.IteratorSerializer: void <init>(com.fasterxml.jackson.databind.JavaType,boolean,com.fasterxml.jackson.databind.jsontype.TypeSerializer,com.fasterxml.jackson.databind.BeanProperty)>($r3, $z0, $r1, $r4);
+
+        return $r2;
+    }
+
+    public volatile boolean hasSingleElement(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.ser.impl.IteratorSerializer $r0;
+        boolean $z0;
+        java.lang.Object $r1;
+        java.util.Iterator $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.util.Iterator) $r1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.impl.IteratorSerializer: boolean hasSingleElement(java.util.Iterator)>($r2);
+
+        return $z0;
+    }
+
+    public boolean hasSingleElement(java.util.Iterator)
+    {
+        com.fasterxml.jackson.databind.ser.impl.IteratorSerializer $r0;
+        java.util.Iterator $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r1 := @parameter0: java.util.Iterator;
+
+        return 0;
+    }
+
+    public volatile boolean isEmpty(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.ser.impl.IteratorSerializer $r0;
+        boolean $z0;
+        java.lang.Object $r1;
+        java.util.Iterator $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.util.Iterator) $r1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.impl.IteratorSerializer: boolean isEmpty(java.util.Iterator)>($r2);
+
+        return $z0;
+    }
+
+    public boolean isEmpty(java.util.Iterator)
+    {
+        com.fasterxml.jackson.databind.ser.impl.IteratorSerializer $r0;
+        java.util.Iterator $r1;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r1 := @parameter0: java.util.Iterator;
+
+        if $r1 == null goto label1;
+
+        $z0 = interfaceinvoke $r1.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label2;
+
+     label1:
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public volatile void serializeContents(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.impl.IteratorSerializer $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        java.lang.Object $r3;
+        java.util.Iterator $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r3 := @parameter0: java.lang.Object;
+
+        $r1 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = (java.util.Iterator) $r3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.impl.IteratorSerializer: void serializeContents(java.util.Iterator,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r4, $r1, $r2);
+
+        return;
+    }
+
+    public void serializeContents(java.util.Iterator, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.impl.IteratorSerializer $r0;
+        java.util.Iterator $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r4;
+        java.lang.Class $r5, $r8;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JsonSerializer $r6, $r9;
+        java.lang.Object $r7;
+        com.fasterxml.jackson.databind.BeanProperty $r10;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r1 := @parameter0: java.util.Iterator;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r5 = null;
+
+        $z0 = interfaceinvoke $r1.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label7;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.impl.IteratorSerializer: com.fasterxml.jackson.databind.jsontype.TypeSerializer _valueTypeSerializer>;
+
+        $r6 = null;
+
+     label1:
+        $r7 = interfaceinvoke $r1.<java.util.Iterator: java.lang.Object next()>();
+
+        if $r7 != null goto label3;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializerProvider: void defaultSerializeNull(com.fasterxml.jackson.core.JsonGenerator)>($r2);
+
+     label2:
+        $z0 = interfaceinvoke $r1.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label1;
+
+        return;
+
+     label3:
+        $r8 = virtualinvoke $r7.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r8 != $r5 goto label5;
+
+        $r9 = $r6;
+
+     label4:
+        if $r4 != null goto label6;
+
+        virtualinvoke $r9.<com.fasterxml.jackson.databind.JsonSerializer: void serialize(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r7, $r2, $r3);
+
+        goto label2;
+
+     label5:
+        $r10 = $r0.<com.fasterxml.jackson.databind.ser.impl.IteratorSerializer: com.fasterxml.jackson.databind.BeanProperty _property>;
+
+        $r9 = virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializerProvider: com.fasterxml.jackson.databind.JsonSerializer findValueSerializer(java.lang.Class,com.fasterxml.jackson.databind.BeanProperty)>($r8, $r10);
+
+        $r6 = $r9;
+
+        $r5 = $r8;
+
+        goto label4;
+
+     label6:
+        virtualinvoke $r9.<com.fasterxml.jackson.databind.JsonSerializer: void serializeWithType(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider,com.fasterxml.jackson.databind.jsontype.TypeSerializer)>($r7, $r2, $r3, $r4);
+
+        goto label2;
+
+     label7:
+        return;
+    }
+
+    public com.fasterxml.jackson.databind.ser.impl.IteratorSerializer withResolved(com.fasterxml.jackson.databind.BeanProperty, com.fasterxml.jackson.databind.jsontype.TypeSerializer, com.fasterxml.jackson.databind.JsonSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.impl.IteratorSerializer $r0, $r4;
+        com.fasterxml.jackson.databind.BeanProperty $r1;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r2;
+        com.fasterxml.jackson.databind.JsonSerializer $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.JsonSerializer;
+
+        $r4 = new com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        specialinvoke $r4.<com.fasterxml.jackson.databind.ser.impl.IteratorSerializer: void <init>(com.fasterxml.jackson.databind.ser.impl.IteratorSerializer,com.fasterxml.jackson.databind.BeanProperty,com.fasterxml.jackson.databind.jsontype.TypeSerializer,com.fasterxml.jackson.databind.JsonSerializer)>($r0, $r1, $r2, $r3);
+
+        return $r4;
+    }
+
+    public volatile com.fasterxml.jackson.databind.ser.std.AsArraySerializerBase withResolved(com.fasterxml.jackson.databind.BeanProperty, com.fasterxml.jackson.databind.jsontype.TypeSerializer, com.fasterxml.jackson.databind.JsonSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.impl.IteratorSerializer $r0;
+        com.fasterxml.jackson.databind.BeanProperty $r1;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r2;
+        com.fasterxml.jackson.databind.JsonSerializer $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.JsonSerializer;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.impl.IteratorSerializer: com.fasterxml.jackson.databind.ser.impl.IteratorSerializer withResolved(com.fasterxml.jackson.databind.BeanProperty,com.fasterxml.jackson.databind.jsontype.TypeSerializer,com.fasterxml.jackson.databind.JsonSerializer)>($r1, $r2, $r3);
+
+        return $r0;
+    }
+}

@@ -1,0 +1,714 @@
+public final class com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper extends java.lang.Object
+{
+    protected boolean _bigEndian;
+    private final boolean _bufferRecyclable;
+    protected int _bytesPerChar;
+    protected final com.fasterxml.jackson.core.io.IOContext _context;
+    protected final java.io.InputStream _in;
+    protected final byte[] _inputBuffer;
+    private int _inputEnd;
+    protected int _inputProcessed;
+    private int _inputPtr;
+
+    public void <init>(com.fasterxml.jackson.core.io.IOContext, java.io.InputStream)
+    {
+        com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper $r0;
+        com.fasterxml.jackson.core.io.IOContext $r1;
+        java.io.InputStream $r2;
+        byte[] $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.io.IOContext;
+
+        $r2 := @parameter1: java.io.InputStream;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bigEndian> = 1;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _bytesPerChar> = 0;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: com.fasterxml.jackson.core.io.IOContext _context> = $r1;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: java.io.InputStream _in> = $r2;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.io.IOContext: byte[] allocReadIOBuffer()>();
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer> = $r3;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr> = 0;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputEnd> = 0;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputProcessed> = 0;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bufferRecyclable> = 1;
+
+        return;
+    }
+
+    private boolean checkUTF16(int)
+    {
+        com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper $r0;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper;
+
+        $i0 := @parameter0: int;
+
+        $i1 = 65280 & $i0;
+
+        if $i1 != 0 goto label2;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bigEndian> = 1;
+
+     label1:
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _bytesPerChar> = 2;
+
+        return 1;
+
+     label2:
+        $i0 = $i0 & 255;
+
+        if $i0 != 0 goto label3;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bigEndian> = 0;
+
+        goto label1;
+
+     label3:
+        return 0;
+    }
+
+    private boolean checkUTF32(int)
+    {
+        com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper $r0;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper;
+
+        $i0 := @parameter0: int;
+
+        $i1 = $i0 >> 8;
+
+        if $i1 != 0 goto label2;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bigEndian> = 1;
+
+     label1:
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _bytesPerChar> = 4;
+
+        return 1;
+
+     label2:
+        $i1 = 16777215 & $i0;
+
+        if $i1 != 0 goto label3;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bigEndian> = 0;
+
+        goto label1;
+
+     label3:
+        $i1 = -16711681 & $i0;
+
+        if $i1 != 0 goto label4;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: void reportWeirdUCS4(java.lang.String)>("3412");
+
+        goto label1;
+
+     label4:
+        $i0 = -65281 & $i0;
+
+        if $i0 != 0 goto label5;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: void reportWeirdUCS4(java.lang.String)>("2143");
+
+        goto label1;
+
+     label5:
+        return 0;
+    }
+
+    private boolean handleBOM(int)
+    {
+        com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper $r0;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper;
+
+        $i0 := @parameter0: int;
+
+        lookupswitch($i0)
+        {
+            case -16842752: goto label5;
+            case -131072: goto label3;
+            case 65279: goto label2;
+            case 65534: goto label4;
+            default: goto label1;
+        };
+
+     label1:
+        $i1 = $i0 >>> 16;
+
+        if $i1 != 65279 goto label6;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i0 = $i0 + 2;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr> = $i0;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _bytesPerChar> = 2;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bigEndian> = 1;
+
+        return 1;
+
+     label2:
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bigEndian> = 1;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i0 = $i0 + 4;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr> = $i0;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _bytesPerChar> = 4;
+
+        return 1;
+
+     label3:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i0 = $i0 + 4;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr> = $i0;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _bytesPerChar> = 4;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bigEndian> = 0;
+
+        return 1;
+
+     label4:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: void reportWeirdUCS4(java.lang.String)>("2143");
+
+     label5:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: void reportWeirdUCS4(java.lang.String)>("3412");
+
+        goto label1;
+
+     label6:
+        if $i1 != 65534 goto label7;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i0 = $i0 + 2;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr> = $i0;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _bytesPerChar> = 2;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bigEndian> = 0;
+
+        return 1;
+
+     label7:
+        $i0 = $i0 >>> 8;
+
+        if $i0 != 15711167 goto label8;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i0 = $i0 + 3;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr> = $i0;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _bytesPerChar> = 1;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bigEndian> = 1;
+
+        return 1;
+
+     label8:
+        return 0;
+    }
+
+    private void reportWeirdUCS4(java.lang.String)
+    {
+        com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper $r0;
+        java.lang.String $r1;
+        java.io.CharConversionException $r2;
+        java.lang.StringBuilder $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new java.io.CharConversionException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Unsupported UCS-4 endianness (");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") detected");
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<java.io.CharConversionException: void <init>(java.lang.String)>($r1);
+
+        throw $r2;
+    }
+
+    public final com.fasterxml.jackson.core.JsonParser constructParser(int, com.fasterxml.jackson.core.ObjectCodec, com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer, com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer, boolean, boolean)
+    {
+        com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper $r0;
+        int $i0, $i1, $i2;
+        com.fasterxml.jackson.core.ObjectCodec $r1;
+        com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer $r2;
+        com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer $r3;
+        boolean $z0, $z1;
+        byte[] $r4;
+        com.fasterxml.jackson.core.JsonEncoding $r5, $r6;
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r7;
+        com.fasterxml.jackson.core.io.IOContext $r8;
+        java.io.InputStream $r9;
+        com.fasterxml.jackson.core.json.ReaderBasedJsonParser $r10;
+        java.io.Reader $r11;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: com.fasterxml.jackson.core.ObjectCodec;
+
+        $r2 := @parameter2: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer;
+
+        $r3 := @parameter3: com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer;
+
+        $z0 := @parameter4: boolean;
+
+        $z1 := @parameter5: boolean;
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: com.fasterxml.jackson.core.JsonEncoding detectEncoding()>();
+
+        $r6 = <com.fasterxml.jackson.core.JsonEncoding: com.fasterxml.jackson.core.JsonEncoding UTF8>;
+
+        if $r5 != $r6 goto label1;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer makeChild(boolean,boolean)>($z0, $z1);
+
+        $r7 = new com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r8 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: com.fasterxml.jackson.core.io.IOContext _context>;
+
+        $r9 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: java.io.InputStream _in>;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputEnd>;
+
+        $z0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bufferRecyclable>;
+
+        specialinvoke $r7.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void <init>(com.fasterxml.jackson.core.io.IOContext,int,java.io.InputStream,com.fasterxml.jackson.core.ObjectCodec,com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer,byte[],int,int,boolean)>($r8, $i0, $r9, $r1, $r2, $r4, $i1, $i2, $z0);
+
+        return $r7;
+
+     label1:
+        $r10 = new com.fasterxml.jackson.core.json.ReaderBasedJsonParser;
+
+        $r8 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: com.fasterxml.jackson.core.io.IOContext _context>;
+
+        $r11 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: java.io.Reader constructReader()>();
+
+        $r3 = virtualinvoke $r3.<com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer: com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer makeChild(boolean,boolean)>($z0, $z1);
+
+        specialinvoke $r10.<com.fasterxml.jackson.core.json.ReaderBasedJsonParser: void <init>(com.fasterxml.jackson.core.io.IOContext,int,java.io.Reader,com.fasterxml.jackson.core.ObjectCodec,com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer)>($r8, $i0, $r11, $r1, $r3);
+
+        return $r10;
+    }
+
+    public final java.io.Reader constructReader()
+    {
+        com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper $r0;
+        com.fasterxml.jackson.core.io.IOContext $r1, $r8;
+        com.fasterxml.jackson.core.JsonEncoding $r2;
+        int[] $r3;
+        int $i0, $i1;
+        java.io.InputStream $r6, $r9;
+        byte[] $r7;
+        boolean $z0;
+        java.lang.String $r11;
+        java.lang.RuntimeException r12;
+        com.fasterxml.jackson.core.io.UTF32Reader r13;
+        java.io.ByteArrayInputStream r14;
+        java.io.InputStreamReader r15;
+        com.fasterxml.jackson.core.io.MergedStream r16;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: com.fasterxml.jackson.core.io.IOContext _context>;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.JsonEncoding getEncoding()>();
+
+        $r3 = <com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper$1: int[] $SwitchMap$com$fasterxml$jackson$core$JsonEncoding>;
+
+        $i0 = virtualinvoke $r2.<com.fasterxml.jackson.core.JsonEncoding: int ordinal()>();
+
+        $i0 = $r3[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label2;
+            case 2: goto label2;
+            case 3: goto label3;
+            case 4: goto label3;
+            case 5: goto label3;
+            default: goto label1;
+        };
+
+     label1:
+        r12 = new java.lang.RuntimeException;
+
+        specialinvoke r12.<java.lang.RuntimeException: void <init>(java.lang.String)>("Internal error");
+
+        throw r12;
+
+     label2:
+        r13 = new com.fasterxml.jackson.core.io.UTF32Reader;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: com.fasterxml.jackson.core.io.IOContext _context>;
+
+        $r6 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: java.io.InputStream _in>;
+
+        $r7 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputEnd>;
+
+        $r8 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: com.fasterxml.jackson.core.io.IOContext _context>;
+
+        $r2 = virtualinvoke $r8.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.JsonEncoding getEncoding()>();
+
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.core.JsonEncoding: boolean isBigEndian()>();
+
+        specialinvoke r13.<com.fasterxml.jackson.core.io.UTF32Reader: void <init>(com.fasterxml.jackson.core.io.IOContext,java.io.InputStream,byte[],int,int,boolean)>($r1, $r6, $r7, $i0, $i1, $z0);
+
+        return r13;
+
+     label3:
+        $r6 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: java.io.InputStream _in>;
+
+        if $r6 != null goto label5;
+
+        r14 = new java.io.ByteArrayInputStream;
+
+        $r9 = r14;
+
+        $r7 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputEnd>;
+
+        specialinvoke r14.<java.io.ByteArrayInputStream: void <init>(byte[],int,int)>($r7, $i0, $i1);
+
+     label4:
+        r15 = new java.io.InputStreamReader;
+
+        $r11 = virtualinvoke $r2.<com.fasterxml.jackson.core.JsonEncoding: java.lang.String getJavaName()>();
+
+        specialinvoke r15.<java.io.InputStreamReader: void <init>(java.io.InputStream,java.lang.String)>($r9, $r11);
+
+        return r15;
+
+     label5:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputEnd>;
+
+        if $i0 >= $i1 goto label6;
+
+        r16 = new com.fasterxml.jackson.core.io.MergedStream;
+
+        $r9 = r16;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: com.fasterxml.jackson.core.io.IOContext _context>;
+
+        $r7 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputEnd>;
+
+        specialinvoke r16.<com.fasterxml.jackson.core.io.MergedStream: void <init>(com.fasterxml.jackson.core.io.IOContext,java.io.InputStream,byte[],int,int)>($r1, $r6, $r7, $i0, $i1);
+
+        goto label4;
+
+     label6:
+        $r9 = $r6;
+
+        goto label4;
+    }
+
+    public final com.fasterxml.jackson.core.JsonEncoding detectEncoding()
+    {
+        com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper $r0;
+        boolean $z0, $z1;
+        byte[] $r1;
+        int $i0, $i2;
+        byte $b1;
+        short $s3;
+        com.fasterxml.jackson.core.JsonEncoding $r2;
+        com.fasterxml.jackson.core.io.IOContext $r3;
+        java.lang.RuntimeException $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper;
+
+        $z0 = 1;
+
+        $z1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean ensureLoaded(int)>(4);
+
+        if $z1 == 0 goto label05;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $b1 = $r1[$i0];
+
+        $i0 = $b1 << 24;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i2 = $i2 + 1;
+
+        $b1 = $r1[$i2];
+
+        $s3 = $b1 & 255;
+
+        $i2 = $s3 << 16;
+
+        $i0 = $i0 | $i2;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i2 = $i2 + 2;
+
+        $b1 = $r1[$i2];
+
+        $s3 = $b1 & 255;
+
+        $i2 = $s3 << 8;
+
+        $i0 = $i0 | $i2;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i2 = $i2 + 3;
+
+        $b1 = $r1[$i2];
+
+        $s3 = $b1 & 255;
+
+        $i0 = $i0 | $s3;
+
+        $z1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean handleBOM(int)>($i0);
+
+        if $z1 == 0 goto label03;
+
+     label01:
+        if $z0 != 0 goto label06;
+
+        $r2 = <com.fasterxml.jackson.core.JsonEncoding: com.fasterxml.jackson.core.JsonEncoding UTF8>;
+
+     label02:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: com.fasterxml.jackson.core.io.IOContext _context>;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.core.io.IOContext: void setEncoding(com.fasterxml.jackson.core.JsonEncoding)>($r2);
+
+        return $r2;
+
+     label03:
+        $z1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean checkUTF32(int)>($i0);
+
+        if $z1 != 0 goto label01;
+
+        $i0 = $i0 >>> 16;
+
+        $z1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean checkUTF16(int)>($i0);
+
+        if $z1 != 0 goto label01;
+
+     label04:
+        $z0 = 0;
+
+        goto label01;
+
+     label05:
+        $z1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean ensureLoaded(int)>(2);
+
+        if $z1 == 0 goto label04;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $b1 = $r1[$i0];
+
+        $s3 = $b1 & 255;
+
+        $i0 = $s3 << 8;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i2 = $i2 + 1;
+
+        $b1 = $r1[$i2];
+
+        $s3 = $b1 & 255;
+
+        $i0 = $i0 | $s3;
+
+        $z1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean checkUTF16(int)>($i0);
+
+        if $z1 == 0 goto label04;
+
+        goto label01;
+
+     label06:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _bytesPerChar>;
+
+        lookupswitch($i0)
+        {
+            case 1: goto label08;
+            case 2: goto label09;
+            case 3: goto label07;
+            case 4: goto label11;
+            default: goto label07;
+        };
+
+     label07:
+        $r4 = new java.lang.RuntimeException;
+
+        specialinvoke $r4.<java.lang.RuntimeException: void <init>(java.lang.String)>("Internal error");
+
+        throw $r4;
+
+     label08:
+        $r2 = <com.fasterxml.jackson.core.JsonEncoding: com.fasterxml.jackson.core.JsonEncoding UTF8>;
+
+        goto label02;
+
+     label09:
+        $z0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bigEndian>;
+
+        if $z0 == 0 goto label10;
+
+        $r2 = <com.fasterxml.jackson.core.JsonEncoding: com.fasterxml.jackson.core.JsonEncoding UTF16_BE>;
+
+        goto label02;
+
+     label10:
+        $r2 = <com.fasterxml.jackson.core.JsonEncoding: com.fasterxml.jackson.core.JsonEncoding UTF16_LE>;
+
+        goto label02;
+
+     label11:
+        $z0 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: boolean _bigEndian>;
+
+        if $z0 == 0 goto label12;
+
+        $r2 = <com.fasterxml.jackson.core.JsonEncoding: com.fasterxml.jackson.core.JsonEncoding UTF32_BE>;
+
+        goto label02;
+
+     label12:
+        $r2 = <com.fasterxml.jackson.core.JsonEncoding: com.fasterxml.jackson.core.JsonEncoding UTF32_LE>;
+
+        goto label02;
+    }
+
+    protected final boolean ensureLoaded(int)
+    {
+        com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper $r0;
+        int $i0, $i1, $i2, $i3, $i4;
+        java.io.InputStream $r1;
+        byte[] $r2, $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper;
+
+        $i0 := @parameter0: int;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputEnd>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputPtr>;
+
+        $i3 = $i3 - $i1;
+
+     label1:
+        if $i3 >= $i0 goto label5;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: java.io.InputStream _in>;
+
+        if $r1 != null goto label3;
+
+        $i1 = -1;
+
+     label2:
+        if $i1 > 0 goto label4;
+
+        return 0;
+
+     label3:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: java.io.InputStream _in>;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputEnd>;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: byte[] _inputBuffer>;
+
+        $i4 = lengthof $r3;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputEnd>;
+
+        $i2 = $i4 - $i2;
+
+        $i1 = virtualinvoke $r1.<java.io.InputStream: int read(byte[],int,int)>($r2, $i1, $i2);
+
+        goto label2;
+
+     label4:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputEnd>;
+
+        $i2 = $i2 + $i1;
+
+        $r0.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: int _inputEnd> = $i2;
+
+        $i3 = $i1 + $i3;
+
+        goto label1;
+
+     label5:
+        return 1;
+    }
+}

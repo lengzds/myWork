@@ -1,0 +1,355 @@
+public class com.fasterxml.jackson.databind.util.EnumResolver extends java.lang.Object
+{
+    protected final java.lang.Class _enumClass;
+    protected final java.lang.Enum[] _enums;
+    protected final java.util.HashMap _enumsById;
+
+    protected void <init>(java.lang.Class, java.lang.Enum[], java.util.HashMap)
+    {
+        com.fasterxml.jackson.databind.util.EnumResolver $r0;
+        java.lang.Class $r1;
+        java.lang.Enum[] $r2;
+        java.util.HashMap $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.EnumResolver;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: java.lang.Enum[];
+
+        $r3 := @parameter2: java.util.HashMap;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Class _enumClass> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Enum[] _enums> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.util.EnumResolver: java.util.HashMap _enumsById> = $r3;
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.databind.util.EnumResolver constructFor(java.lang.Class, com.fasterxml.jackson.databind.AnnotationIntrospector)
+    {
+        java.lang.Class $r0;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r1;
+        int $i0, $i1;
+        java.lang.Enum $r2;
+        java.lang.Object[] $r3;
+        java.lang.Enum[] $r4;
+        java.lang.IllegalArgumentException $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r7;
+        java.util.HashMap $r8;
+        com.fasterxml.jackson.databind.util.EnumResolver $r9;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.AnnotationIntrospector;
+
+        $r3 = virtualinvoke $r0.<java.lang.Class: java.lang.Object[] getEnumConstants()>();
+
+        $r4 = (java.lang.Enum[]) $r3;
+
+        if $r4 != null goto label1;
+
+        $r5 = new java.lang.IllegalArgumentException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("No enum constants for class ");
+
+        $r7 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r7);
+
+        throw $r5;
+
+     label1:
+        $r8 = new java.util.HashMap;
+
+        specialinvoke $r8.<java.util.HashMap: void <init>()>();
+
+        $i0 = lengthof $r4;
+
+        $i1 = 0;
+
+     label2:
+        if $i1 >= $i0 goto label3;
+
+        $r2 = $r4[$i1];
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.String findEnumValue(java.lang.Enum)>($r2);
+
+        virtualinvoke $r8.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r7, $r2);
+
+        $i1 = $i1 + 1;
+
+        goto label2;
+
+     label3:
+        $r9 = new com.fasterxml.jackson.databind.util.EnumResolver;
+
+        specialinvoke $r9.<com.fasterxml.jackson.databind.util.EnumResolver: void <init>(java.lang.Class,java.lang.Enum[],java.util.HashMap)>($r0, $r4, $r8);
+
+        return $r9;
+    }
+
+    public static com.fasterxml.jackson.databind.util.EnumResolver constructUnsafe(java.lang.Class, com.fasterxml.jackson.databind.AnnotationIntrospector)
+    {
+        java.lang.Class $r0;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r1;
+        com.fasterxml.jackson.databind.util.EnumResolver $r2;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.AnnotationIntrospector;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.util.EnumResolver: com.fasterxml.jackson.databind.util.EnumResolver constructFor(java.lang.Class,com.fasterxml.jackson.databind.AnnotationIntrospector)>($r0, $r1);
+
+        return $r2;
+    }
+
+    public static com.fasterxml.jackson.databind.util.EnumResolver constructUnsafeUsingMethod(java.lang.Class, java.lang.reflect.Method)
+    {
+        java.lang.Class $r0;
+        java.lang.reflect.Method $r1;
+        com.fasterxml.jackson.databind.util.EnumResolver $r2;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 := @parameter1: java.lang.reflect.Method;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.util.EnumResolver: com.fasterxml.jackson.databind.util.EnumResolver constructUsingMethod(java.lang.Class,java.lang.reflect.Method)>($r0, $r1);
+
+        return $r2;
+    }
+
+    public static com.fasterxml.jackson.databind.util.EnumResolver constructUnsafeUsingToString(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        com.fasterxml.jackson.databind.util.EnumResolver $r1;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.databind.util.EnumResolver: com.fasterxml.jackson.databind.util.EnumResolver constructUsingToString(java.lang.Class)>($r0);
+
+        return $r1;
+    }
+
+    public static com.fasterxml.jackson.databind.util.EnumResolver constructUsingMethod(java.lang.Class, java.lang.reflect.Method)
+    {
+        java.lang.Class $r0;
+        java.lang.reflect.Method $r1;
+        java.lang.Object[] $r2;
+        java.lang.Enum[] $r3;
+        java.util.HashMap $r4;
+        int $i0;
+        java.lang.Enum $r5;
+        java.lang.Object $r6;
+        java.lang.String $r7;
+        java.lang.Exception $r8;
+        java.lang.IllegalArgumentException $r9;
+        java.lang.StringBuilder $r10;
+        com.fasterxml.jackson.databind.util.EnumResolver $r11;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 := @parameter1: java.lang.reflect.Method;
+
+        $r2 = virtualinvoke $r0.<java.lang.Class: java.lang.Object[] getEnumConstants()>();
+
+        $r3 = (java.lang.Enum[]) $r2;
+
+        $r4 = new java.util.HashMap;
+
+        specialinvoke $r4.<java.util.HashMap: void <init>()>();
+
+        $i0 = lengthof $r3;
+
+     label1:
+        $i0 = $i0 + -1;
+
+        if $i0 < 0 goto label7;
+
+        $r5 = $r3[$i0];
+
+     label2:
+        $r2 = newarray (java.lang.Object)[0];
+
+        $r6 = virtualinvoke $r1.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r5, $r2);
+
+     label3:
+        if $r6 == null goto label1;
+
+     label4:
+        $r7 = virtualinvoke $r6.<java.lang.Object: java.lang.String toString()>();
+
+        virtualinvoke $r4.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r7, $r5);
+
+     label5:
+        goto label1;
+
+     label6:
+        $r8 := @caughtexception;
+
+        $r9 = new java.lang.IllegalArgumentException;
+
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("Failed to access @JsonValue of Enum value ");
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $r7 = virtualinvoke $r8.<java.lang.Exception: java.lang.String getMessage()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r7 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r7);
+
+        throw $r9;
+
+     label7:
+        $r11 = new com.fasterxml.jackson.databind.util.EnumResolver;
+
+        specialinvoke $r11.<com.fasterxml.jackson.databind.util.EnumResolver: void <init>(java.lang.Class,java.lang.Enum[],java.util.HashMap)>($r0, $r3, $r4);
+
+        return $r11;
+
+        catch java.lang.Exception from label2 to label3 with label6;
+        catch java.lang.Exception from label4 to label5 with label6;
+    }
+
+    public static com.fasterxml.jackson.databind.util.EnumResolver constructUsingToString(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        java.util.HashMap $r1;
+        java.lang.Enum $r2;
+        java.lang.Object[] $r3;
+        java.lang.Enum[] $r4;
+        int $i0;
+        java.lang.String $r5;
+        com.fasterxml.jackson.databind.util.EnumResolver $r6;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r3 = virtualinvoke $r0.<java.lang.Class: java.lang.Object[] getEnumConstants()>();
+
+        $r4 = (java.lang.Enum[]) $r3;
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<java.util.HashMap: void <init>()>();
+
+        $i0 = lengthof $r4;
+
+     label1:
+        $i0 = $i0 + -1;
+
+        if $i0 < 0 goto label2;
+
+        $r2 = $r4[$i0];
+
+        $r5 = virtualinvoke $r2.<java.lang.Enum: java.lang.String toString()>();
+
+        virtualinvoke $r1.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r5, $r2);
+
+        goto label1;
+
+     label2:
+        $r6 = new com.fasterxml.jackson.databind.util.EnumResolver;
+
+        specialinvoke $r6.<com.fasterxml.jackson.databind.util.EnumResolver: void <init>(java.lang.Class,java.lang.Enum[],java.util.HashMap)>($r0, $r4, $r1);
+
+        return $r6;
+    }
+
+    public java.lang.Enum findEnum(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.util.EnumResolver $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        java.util.HashMap $r3;
+        java.lang.Enum $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.EnumResolver;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.util.EnumResolver: java.util.HashMap _enumsById>;
+
+        $r2 = virtualinvoke $r3.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r4 = (java.lang.Enum) $r2;
+
+        return $r4;
+    }
+
+    public java.lang.Enum getEnum(int)
+    {
+        com.fasterxml.jackson.databind.util.EnumResolver $r0;
+        int $i0, $i1;
+        java.lang.Enum[] $r1;
+        java.lang.Enum $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.EnumResolver;
+
+        $i0 := @parameter0: int;
+
+        if $i0 < 0 goto label1;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Enum[] _enums>;
+
+        $i1 = lengthof $r1;
+
+        if $i0 < $i1 goto label2;
+
+     label1:
+        return null;
+
+     label2:
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Enum[] _enums>;
+
+        $r2 = $r1[$i0];
+
+        return $r2;
+    }
+
+    public java.lang.Class getEnumClass()
+    {
+        com.fasterxml.jackson.databind.util.EnumResolver $r0;
+        java.lang.Class r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.EnumResolver;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Class _enumClass>;
+
+        return r1;
+    }
+
+    public int lastValidIndex()
+    {
+        com.fasterxml.jackson.databind.util.EnumResolver $r0;
+        java.lang.Enum[] $r1;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.EnumResolver;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Enum[] _enums>;
+
+        $i0 = lengthof $r1;
+
+        $i0 = $i0 + -1;
+
+        return $i0;
+    }
+}

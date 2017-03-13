@@ -1,0 +1,149 @@
+public final class com.speedsoftware.a.ao extends java.io.InputStream
+{
+    private com.speedsoftware.a.s a;
+    private long b;
+    private final long c;
+    private final long d;
+
+    public void <init>(com.speedsoftware.a.s, long, long)
+    {
+        com.speedsoftware.a.ao $r0;
+        com.speedsoftware.a.s $r1;
+        long $l0, $l1;
+
+        $r0 := @this: com.speedsoftware.a.ao;
+
+        $r1 := @parameter0: com.speedsoftware.a.s;
+
+        $l0 := @parameter1: long;
+
+        $l1 := @parameter2: long;
+
+        specialinvoke $r0.<java.io.InputStream: void <init>()>();
+
+        $r0.<com.speedsoftware.a.ao: com.speedsoftware.a.s a> = $r1;
+
+        $r0.<com.speedsoftware.a.ao: long c> = $l0;
+
+        $r0.<com.speedsoftware.a.ao: long b> = $l0;
+
+        $r0.<com.speedsoftware.a.ao: long d> = $l1;
+
+        $l0 = $r0.<com.speedsoftware.a.ao: long b>;
+
+        interfaceinvoke $r1.<com.speedsoftware.a.s: void a(long)>($l0);
+
+        return;
+    }
+
+    public final int read()
+    {
+        com.speedsoftware.a.ao $r0;
+        int $i0;
+        long $l1, $l2;
+        byte $b3;
+        com.speedsoftware.a.s $r1;
+
+        $r0 := @this: com.speedsoftware.a.ao;
+
+        $l1 = $r0.<com.speedsoftware.a.ao: long b>;
+
+        $l2 = $r0.<com.speedsoftware.a.ao: long d>;
+
+        $b3 = $l1 cmp $l2;
+
+        if $b3 != 0 goto label1;
+
+        return -1;
+
+     label1:
+        $r1 = $r0.<com.speedsoftware.a.ao: com.speedsoftware.a.s a>;
+
+        $i0 = interfaceinvoke $r1.<com.speedsoftware.a.s: int read()>();
+
+        $l1 = $r0.<com.speedsoftware.a.ao: long b>;
+
+        $l1 = $l1 + 1L;
+
+        $r0.<com.speedsoftware.a.ao: long b> = $l1;
+
+        return $i0;
+    }
+
+    public final int read(byte[])
+    {
+        com.speedsoftware.a.ao $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.a.ao;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 = lengthof $r1;
+
+        $i0 = virtualinvoke $r0.<com.speedsoftware.a.ao: int read(byte[],int,int)>($r1, 0, $i0);
+
+        return $i0;
+    }
+
+    public final int read(byte[], int, int)
+    {
+        com.speedsoftware.a.ao $r0;
+        byte[] $r1;
+        int $i0, $i1;
+        long $l2, $l3, $l5;
+        byte $b4;
+        com.speedsoftware.a.s $r2;
+
+        $r0 := @this: com.speedsoftware.a.ao;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        if $i1 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        $l3 = $r0.<com.speedsoftware.a.ao: long b>;
+
+        $l2 = $r0.<com.speedsoftware.a.ao: long d>;
+
+        $b4 = $l3 cmp $l2;
+
+        if $b4 != 0 goto label2;
+
+        return -1;
+
+     label2:
+        $r2 = $r0.<com.speedsoftware.a.ao: com.speedsoftware.a.s a>;
+
+        $l3 = (long) $i1;
+
+        $l5 = $r0.<com.speedsoftware.a.ao: long d>;
+
+        $l2 = $r0.<com.speedsoftware.a.ao: long b>;
+
+        $l2 = $l5 - $l2;
+
+        $l3 = staticinvoke <java.lang.Math: long min(long,long)>($l3, $l2);
+
+        $i1 = (int) $l3;
+
+        $i0 = interfaceinvoke $r2.<com.speedsoftware.a.s: int read(byte[],int,int)>($r1, $i0, $i1);
+
+        $l3 = $r0.<com.speedsoftware.a.ao: long b>;
+
+        $l2 = (long) $i0;
+
+        $l3 = $l3 + $l2;
+
+        $r0.<com.speedsoftware.a.ao: long b> = $l3;
+
+        return $i0;
+    }
+}

@@ -1,0 +1,168 @@
+public final class b.a.b.a.a.a extends java.lang.Object
+{
+    private final java.lang.String a;
+    private final b.a.b.a.a.b b;
+    private final b.a.b.a.a.a.b c;
+
+    public void <init>(java.lang.String, b.a.b.a.a.a.b)
+    {
+        b.a.b.a.a.a $r0;
+        java.lang.String $r1;
+        b.a.b.a.a.a.b $r2;
+        java.lang.IllegalArgumentException $r3;
+        b.a.b.a.a.b $r4;
+        java.lang.StringBuilder $r5;
+
+        $r0 := @this: b.a.b.a.a.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: b.a.b.a.a.a.b;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        if $r1 != null goto label1;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Name may not be null");
+
+        throw $r3;
+
+     label1:
+        if $r2 != null goto label2;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Body may not be null");
+
+        throw $r3;
+
+     label2:
+        $r0.<b.a.b.a.a.a: java.lang.String a> = $r1;
+
+        $r0.<b.a.b.a.a.a: b.a.b.a.a.a.b c> = $r2;
+
+        $r4 = new b.a.b.a.a.b;
+
+        specialinvoke $r4.<b.a.b.a.a.b: void <init>()>();
+
+        $r0.<b.a.b.a.a.a: b.a.b.a.a.b b> = $r4;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("form-data; name=\"");
+
+        $r1 = $r0.<b.a.b.a.a.a: java.lang.String a>;
+
+        virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        $r1 = interfaceinvoke $r2.<b.a.b.a.a.a.b: java.lang.String b()>();
+
+        if $r1 == null goto label3;
+
+        virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; filename=\"");
+
+        $r1 = interfaceinvoke $r2.<b.a.b.a.a.a.b: java.lang.String b()>();
+
+        virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+     label3:
+        $r1 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<b.a.b.a.a.a: void a(java.lang.String,java.lang.String)>("Content-Disposition", $r1);
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = interfaceinvoke $r2.<b.a.b.a.a.a.b: java.lang.String a()>();
+
+        virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = interfaceinvoke $r2.<b.a.b.a.a.a.b: java.lang.String c()>();
+
+        if $r1 == null goto label4;
+
+        virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; charset=");
+
+        $r1 = interfaceinvoke $r2.<b.a.b.a.a.a.b: java.lang.String c()>();
+
+        virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+     label4:
+        $r1 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<b.a.b.a.a.a: void a(java.lang.String,java.lang.String)>("Content-Type", $r1);
+
+        $r1 = interfaceinvoke $r2.<b.a.b.a.a.a.b: java.lang.String d()>();
+
+        specialinvoke $r0.<b.a.b.a.a.a: void a(java.lang.String,java.lang.String)>("Content-Transfer-Encoding", $r1);
+
+        return;
+    }
+
+    private void a(java.lang.String, java.lang.String)
+    {
+        b.a.b.a.a.a $r0;
+        java.lang.String $r1, $r2;
+        java.lang.IllegalArgumentException $r3;
+        b.a.b.a.a.b $r4;
+        b.a.b.a.a.g $r5;
+
+        $r0 := @this: b.a.b.a.a.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        if $r1 != null goto label1;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Field name may not be null");
+
+        throw $r3;
+
+     label1:
+        $r4 = $r0.<b.a.b.a.a.a: b.a.b.a.a.b b>;
+
+        $r5 = new b.a.b.a.a.g;
+
+        specialinvoke $r5.<b.a.b.a.a.g: void <init>(java.lang.String,java.lang.String)>($r1, $r2);
+
+        virtualinvoke $r4.<b.a.b.a.a.b: void a(b.a.b.a.a.g)>($r5);
+
+        return;
+    }
+
+    public final b.a.b.a.a.a.b a()
+    {
+        b.a.b.a.a.a $r0;
+        b.a.b.a.a.a.b r1;
+
+        $r0 := @this: b.a.b.a.a.a;
+
+        r1 = $r0.<b.a.b.a.a.a: b.a.b.a.a.a.b c>;
+
+        return r1;
+    }
+
+    public final b.a.b.a.a.b b()
+    {
+        b.a.b.a.a.a $r0;
+        b.a.b.a.a.b r1;
+
+        $r0 := @this: b.a.b.a.a.a;
+
+        r1 = $r0.<b.a.b.a.a.a: b.a.b.a.a.b b>;
+
+        return r1;
+    }
+}

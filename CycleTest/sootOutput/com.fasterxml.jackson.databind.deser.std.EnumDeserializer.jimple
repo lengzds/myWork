@@ -1,0 +1,223 @@
+public class com.fasterxml.jackson.databind.deser.std.EnumDeserializer extends com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer
+{
+    protected final com.fasterxml.jackson.databind.util.EnumResolver _resolver;
+
+    public void <init>(com.fasterxml.jackson.databind.util.EnumResolver)
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumDeserializer $r0;
+        com.fasterxml.jackson.databind.util.EnumResolver $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.util.EnumResolver;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer: void <init>(java.lang.Class)>(class "java/lang/Enum");
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer: com.fasterxml.jackson.databind.util.EnumResolver _resolver> = $r1;
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.databind.JsonDeserializer deserializerForCreator(com.fasterxml.jackson.databind.DeserializationConfig, java.lang.Class, com.fasterxml.jackson.databind.introspect.AnnotatedMethod)
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r2;
+        java.lang.reflect.Type $r3;
+        java.lang.IllegalArgumentException $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r6;
+        boolean $z0;
+        java.lang.reflect.Method $r7;
+        com.fasterxml.jackson.databind.deser.std.EnumDeserializer$FactoryBasedDeserializer $r8;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 := @parameter1: java.lang.Class;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.reflect.Type getGenericParameterType(int)>(0);
+
+        if $r3 == class "java/lang/String" goto label1;
+
+        $r4 = new java.lang.IllegalArgumentException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Parameter #0 type for factory method (");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") not suitable, must be java.lang.String");
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r6);
+
+        throw $r4;
+
+     label1:
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationConfig: boolean canOverrideAccessModifiers()>();
+
+        if $z0 == 0 goto label2;
+
+        $r7 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.reflect.Method getMember()>();
+
+        staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: void checkAndFixAccess(java.lang.reflect.Member)>($r7);
+
+     label2:
+        $r8 = new com.fasterxml.jackson.databind.deser.std.EnumDeserializer$FactoryBasedDeserializer;
+
+        specialinvoke $r8.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer$FactoryBasedDeserializer: void <init>(java.lang.Class,com.fasterxml.jackson.databind.introspect.AnnotatedMethod)>($r1, $r2);
+
+        return $r8;
+    }
+
+    public java.lang.Enum deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.core.JsonToken $r3, $r4;
+        java.lang.String $r5;
+        com.fasterxml.jackson.databind.util.EnumResolver $r6;
+        java.lang.Enum $r7;
+        com.fasterxml.jackson.databind.DeserializationFeature $r8;
+        boolean $z0;
+        java.lang.Class $r9;
+        com.fasterxml.jackson.databind.JsonMappingException $r10;
+        int $i0;
+        java.lang.StringBuilder $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        if $r3 == $r4 goto label1;
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken FIELD_NAME>;
+
+        if $r3 != $r4 goto label2;
+
+     label1:
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.String getText()>();
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer: com.fasterxml.jackson.databind.util.EnumResolver _resolver>;
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Enum findEnum(java.lang.String)>($r5);
+
+        if $r7 != null goto label5;
+
+        $r8 = <com.fasterxml.jackson.databind.DeserializationFeature: com.fasterxml.jackson.databind.DeserializationFeature READ_UNKNOWN_ENUM_VALUES_AS_NULL>;
+
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)>($r8);
+
+        if $z0 != 0 goto label5;
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer: com.fasterxml.jackson.databind.util.EnumResolver _resolver>;
+
+        $r9 = virtualinvoke $r6.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Class getEnumClass()>();
+
+        $r10 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException weirdStringException(java.lang.Class,java.lang.String)>($r9, "value not one of declared Enum instance names");
+
+        throw $r10;
+
+     label2:
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_INT>;
+
+        if $r3 != $r4 goto label4;
+
+        $r8 = <com.fasterxml.jackson.databind.DeserializationFeature: com.fasterxml.jackson.databind.DeserializationFeature FAIL_ON_NUMBERS_FOR_ENUMS>;
+
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)>($r8);
+
+        if $z0 == 0 goto label3;
+
+        $r10 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.String)>("Not allowed to deserialize Enum value out of JSON number (disable DeserializationConfig.DeserializationFeature.FAIL_ON_NUMBERS_FOR_ENUMS to allow)");
+
+        throw $r10;
+
+     label3:
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: int getIntValue()>();
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer: com.fasterxml.jackson.databind.util.EnumResolver _resolver>;
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Enum getEnum(int)>($i0);
+
+        if $r7 != null goto label5;
+
+        $r8 = <com.fasterxml.jackson.databind.DeserializationFeature: com.fasterxml.jackson.databind.DeserializationFeature READ_UNKNOWN_ENUM_VALUES_AS_NULL>;
+
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)>($r8);
+
+        if $z0 != 0 goto label5;
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer: com.fasterxml.jackson.databind.util.EnumResolver _resolver>;
+
+        $r9 = virtualinvoke $r6.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Class getEnumClass()>();
+
+        $r11 = new java.lang.StringBuilder;
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>(java.lang.String)>("index value outside legal index range [0..");
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer: com.fasterxml.jackson.databind.util.EnumResolver _resolver>;
+
+        $i0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.util.EnumResolver: int lastValidIndex()>();
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r5 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r10 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException weirdNumberException(java.lang.Class,java.lang.String)>($r9, $r5);
+
+        throw $r10;
+
+     label4:
+        $r6 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer: com.fasterxml.jackson.databind.util.EnumResolver _resolver>;
+
+        $r9 = virtualinvoke $r6.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Class getEnumClass()>();
+
+        $r10 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.Class)>($r9);
+
+        throw $r10;
+
+     label5:
+        return $r7;
+    }
+
+    public volatile java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.lang.Enum $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.EnumDeserializer: java.lang.Enum deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public boolean isCachable()
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumDeserializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumDeserializer;
+
+        return 1;
+    }
+}

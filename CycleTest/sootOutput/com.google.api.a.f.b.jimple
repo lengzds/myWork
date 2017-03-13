@@ -1,0 +1,151 @@
+final class com.google.api.a.f.b extends java.lang.Object implements java.util.Map$Entry
+{
+    final com.google.api.a.f.a a;
+    private int b;
+
+    void <init>(com.google.api.a.f.a, int)
+    {
+        com.google.api.a.f.b $r0;
+        com.google.api.a.f.a $r1;
+        int $i0;
+
+        $r0 := @this: com.google.api.a.f.b;
+
+        $r1 := @parameter0: com.google.api.a.f.a;
+
+        $i0 := @parameter1: int;
+
+        $r0.<com.google.api.a.f.b: com.google.api.a.f.a a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.api.a.f.b: int b> = $i0;
+
+        return;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.google.api.a.f.b $r0;
+        java.lang.Object $r1, $r3;
+        boolean $z0;
+        java.util.Map$Entry $r2;
+
+        $r0 := @this: com.google.api.a.f.b;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof java.util.Map$Entry;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = (java.util.Map$Entry) $r1;
+
+        $r1 = virtualinvoke $r0.<com.google.api.a.f.b: java.lang.Object getKey()>();
+
+        $r3 = interfaceinvoke $r2.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $z0 = staticinvoke <com.google.api.a.f.an: boolean a(java.lang.Object,java.lang.Object)>($r1, $r3);
+
+        if $z0 == 0 goto label3;
+
+        $r1 = virtualinvoke $r0.<com.google.api.a.f.b: java.lang.Object getValue()>();
+
+        $r3 = interfaceinvoke $r2.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $z0 = staticinvoke <com.google.api.a.f.an: boolean a(java.lang.Object,java.lang.Object)>($r1, $r3);
+
+        if $z0 != 0 goto label4;
+
+     label3:
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    public final java.lang.Object getKey()
+    {
+        com.google.api.a.f.b $r0;
+        int $i0;
+        java.lang.Object $r1;
+        com.google.api.a.f.a $r2;
+
+        $r0 := @this: com.google.api.a.f.b;
+
+        $r2 = $r0.<com.google.api.a.f.b: com.google.api.a.f.a a>;
+
+        $i0 = $r0.<com.google.api.a.f.b: int b>;
+
+        $r1 = virtualinvoke $r2.<com.google.api.a.f.a: java.lang.Object a(int)>($i0);
+
+        return $r1;
+    }
+
+    public final java.lang.Object getValue()
+    {
+        com.google.api.a.f.b $r0;
+        int $i0;
+        java.lang.Object $r1;
+        com.google.api.a.f.a $r2;
+
+        $r0 := @this: com.google.api.a.f.b;
+
+        $r2 = $r0.<com.google.api.a.f.b: com.google.api.a.f.a a>;
+
+        $i0 = $r0.<com.google.api.a.f.b: int b>;
+
+        $r1 = virtualinvoke $r2.<com.google.api.a.f.a: java.lang.Object b(int)>($i0);
+
+        return $r1;
+    }
+
+    public final int hashCode()
+    {
+        com.google.api.a.f.b $r0;
+        java.lang.Object $r1;
+        int $i0, $i1;
+
+        $r0 := @this: com.google.api.a.f.b;
+
+        $r1 = virtualinvoke $r0.<com.google.api.a.f.b: java.lang.Object getKey()>();
+
+        $i0 = virtualinvoke $r1.<java.lang.Object: int hashCode()>();
+
+        $r1 = virtualinvoke $r0.<com.google.api.a.f.b: java.lang.Object getValue()>();
+
+        $i1 = virtualinvoke $r1.<java.lang.Object: int hashCode()>();
+
+        $i0 = $i0 ^ $i1;
+
+        return $i0;
+    }
+
+    public final java.lang.Object setValue(java.lang.Object)
+    {
+        com.google.api.a.f.b $r0;
+        java.lang.Object $r1;
+        int $i0;
+        com.google.api.a.f.a $r2;
+
+        $r0 := @this: com.google.api.a.f.b;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = $r0.<com.google.api.a.f.b: com.google.api.a.f.a a>;
+
+        $i0 = $r0.<com.google.api.a.f.b: int b>;
+
+        $r1 = virtualinvoke $r2.<com.google.api.a.f.a: java.lang.Object a(int,java.lang.Object)>($i0, $r1);
+
+        return $r1;
+    }
+}

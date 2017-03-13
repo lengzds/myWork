@@ -1,0 +1,111 @@
+final class com.google.android.gms.internal.hd$a extends android.os.Handler
+{
+    final com.google.android.gms.internal.hd a;
+
+    public void <init>(com.google.android.gms.internal.hd, android.os.Looper)
+    {
+        com.google.android.gms.internal.hd$a $r0;
+        com.google.android.gms.internal.hd $r1;
+        android.os.Looper $r2;
+
+        $r0 := @this: com.google.android.gms.internal.hd$a;
+
+        $r1 := @parameter0: com.google.android.gms.internal.hd;
+
+        $r2 := @parameter1: android.os.Looper;
+
+        $r0.<com.google.android.gms.internal.hd$a: com.google.android.gms.internal.hd a> = $r1;
+
+        specialinvoke $r0.<android.os.Handler: void <init>(android.os.Looper)>($r2);
+
+        return;
+    }
+
+    public final void handleMessage(android.os.Message)
+    {
+        com.google.android.gms.internal.hd$a $r0;
+        android.os.Message $r1;
+        int $i0;
+        com.google.android.gms.internal.hd $r2;
+        java.util.ArrayList $r3, $r5;
+        com.google.android.gms.internal.hd$b $r4;
+        boolean $z0;
+        java.lang.Object $r6;
+        android.os.Bundle $r7;
+        com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks $r8;
+        java.lang.Throwable $r9;
+
+        $r0 := @this: com.google.android.gms.internal.hd$a;
+
+        $r1 := @parameter0: android.os.Message;
+
+        $i0 = $r1.<android.os.Message: int what>;
+
+        if $i0 != 1 goto label5;
+
+        $r2 = $r0.<com.google.android.gms.internal.hd$a: com.google.android.gms.internal.hd a>;
+
+        $r3 = staticinvoke <com.google.android.gms.internal.hd: java.util.ArrayList a(com.google.android.gms.internal.hd)>($r2);
+
+        entermonitor $r3;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.internal.hd$a: com.google.android.gms.internal.hd a>;
+
+        $r4 = staticinvoke <com.google.android.gms.internal.hd: com.google.android.gms.internal.hd$b b(com.google.android.gms.internal.hd)>($r2);
+
+        $z0 = interfaceinvoke $r4.<com.google.android.gms.internal.hd$b: boolean eJ()>();
+
+        if $z0 == 0 goto label2;
+
+        $r2 = $r0.<com.google.android.gms.internal.hd$a: com.google.android.gms.internal.hd a>;
+
+        $r4 = staticinvoke <com.google.android.gms.internal.hd: com.google.android.gms.internal.hd$b b(com.google.android.gms.internal.hd)>($r2);
+
+        $z0 = interfaceinvoke $r4.<com.google.android.gms.internal.hd$b: boolean isConnected()>();
+
+        if $z0 == 0 goto label2;
+
+        $r2 = $r0.<com.google.android.gms.internal.hd$a: com.google.android.gms.internal.hd a>;
+
+        $r5 = staticinvoke <com.google.android.gms.internal.hd: java.util.ArrayList a(com.google.android.gms.internal.hd)>($r2);
+
+        $r6 = $r1.<android.os.Message: java.lang.Object obj>;
+
+        $z0 = virtualinvoke $r5.<java.util.ArrayList: boolean contains(java.lang.Object)>($r6);
+
+        if $z0 == 0 goto label2;
+
+        $r2 = $r0.<com.google.android.gms.internal.hd$a: com.google.android.gms.internal.hd a>;
+
+        $r4 = staticinvoke <com.google.android.gms.internal.hd: com.google.android.gms.internal.hd$b b(com.google.android.gms.internal.hd)>($r2);
+
+        $r7 = interfaceinvoke $r4.<com.google.android.gms.internal.hd$b: android.os.Bundle ea()>();
+
+        $r6 = $r1.<android.os.Message: java.lang.Object obj>;
+
+        $r8 = (com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks) $r6;
+
+        interfaceinvoke $r8.<com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks: void onConnected(android.os.Bundle)>($r7);
+
+     label2:
+        exitmonitor $r3;
+
+     label3:
+        return;
+
+     label4:
+        $r9 := @caughtexception;
+
+        exitmonitor $r3;
+
+        throw $r9;
+
+     label5:
+        staticinvoke <android.util.Log: int wtf(java.lang.String,java.lang.String)>("GmsClientEvents", "Don\'t know how to handle this message.");
+
+        return;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+    }
+}

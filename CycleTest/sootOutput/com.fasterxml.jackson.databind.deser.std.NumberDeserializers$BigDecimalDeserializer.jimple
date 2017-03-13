@@ -1,0 +1,109 @@
+public class com.fasterxml.jackson.databind.deser.std.NumberDeserializers$BigDecimalDeserializer extends com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.deser.std.NumberDeserializers$BigDecimalDeserializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.NumberDeserializers$BigDecimalDeserializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer: void <init>(java.lang.Class)>(class "java/math/BigDecimal");
+
+        return;
+    }
+
+    public volatile java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.NumberDeserializers$BigDecimalDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.math.BigDecimal $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.NumberDeserializers$BigDecimalDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.NumberDeserializers$BigDecimalDeserializer: java.math.BigDecimal deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public java.math.BigDecimal deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.NumberDeserializers$BigDecimalDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.core.JsonToken $r3, $r4;
+        java.math.BigDecimal $r5;
+        java.lang.String $r6;
+        int $i0;
+        java.lang.IllegalArgumentException $r7;
+        java.lang.Class $r8;
+        com.fasterxml.jackson.databind.JsonMappingException $r9;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.NumberDeserializers$BigDecimalDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_INT>;
+
+        if $r3 == $r4 goto label1;
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_FLOAT>;
+
+        if $r3 != $r4 goto label2;
+
+     label1:
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.math.BigDecimal getDecimalValue()>();
+
+        return $r5;
+
+     label2:
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        if $r3 != $r4 goto label7;
+
+        $r6 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.String getText()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.String: java.lang.String trim()>();
+
+        $i0 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+        if $i0 != 0 goto label3;
+
+        return null;
+
+     label3:
+        $r5 = new java.math.BigDecimal;
+
+     label4:
+        specialinvoke $r5.<java.math.BigDecimal: void <init>(java.lang.String)>($r6);
+
+     label5:
+        return $r5;
+
+     label6:
+        $r7 := @caughtexception;
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.deser.std.NumberDeserializers$BigDecimalDeserializer: java.lang.Class _valueClass>;
+
+        $r9 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException weirdStringException(java.lang.Class,java.lang.String)>($r8, "not a valid representation");
+
+        throw $r9;
+
+     label7:
+        $r8 = $r0.<com.fasterxml.jackson.databind.deser.std.NumberDeserializers$BigDecimalDeserializer: java.lang.Class _valueClass>;
+
+        $r9 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.Class,com.fasterxml.jackson.core.JsonToken)>($r8, $r3);
+
+        throw $r9;
+
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+}

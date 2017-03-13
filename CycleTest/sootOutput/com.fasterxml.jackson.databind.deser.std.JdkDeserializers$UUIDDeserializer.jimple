@@ -1,0 +1,138 @@
+public class com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer extends com.fasterxml.jackson.databind.deser.std.FromStringDeserializer
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.FromStringDeserializer: void <init>(java.lang.Class)>(class "java/util/UUID");
+
+        return;
+    }
+
+    protected volatile java.lang.Object _deserialize(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.util.UUID $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer: java.util.UUID _deserialize(java.lang.String,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r3;
+    }
+
+    protected java.util.UUID _deserialize(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.util.UUID $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = staticinvoke <java.util.UUID: java.util.UUID fromString(java.lang.String)>($r1);
+
+        return $r3;
+    }
+
+    protected volatile java.lang.Object _deserializeEmbedded(java.lang.Object, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.util.UUID $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer: java.util.UUID _deserializeEmbedded(java.lang.Object,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r3;
+    }
+
+    protected java.util.UUID _deserializeEmbedded(java.lang.Object, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        java.lang.Object $r2;
+        boolean $z0;
+        byte[] $r3;
+        int $i0;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r5;
+        java.io.DataInputStream $r6;
+        java.io.ByteArrayInputStream $r7;
+        long $l1, $l2;
+        java.util.UUID $r8;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$UUIDDeserializer;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $z0 = $r2 instanceof byte[];
+
+        if $z0 == 0 goto label2;
+
+        $r3 = (byte[]) $r2;
+
+        $i0 = lengthof $r3;
+
+        if $i0 == 16 goto label1;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Can only construct UUIDs from 16 byte arrays; got ");
+
+        $i0 = lengthof $r3;
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes");
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r1.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.String)>($r5);
+
+     label1:
+        $r6 = new java.io.DataInputStream;
+
+        $r7 = new java.io.ByteArrayInputStream;
+
+        specialinvoke $r7.<java.io.ByteArrayInputStream: void <init>(byte[])>($r3);
+
+        specialinvoke $r6.<java.io.DataInputStream: void <init>(java.io.InputStream)>($r7);
+
+        $l1 = virtualinvoke $r6.<java.io.DataInputStream: long readLong()>();
+
+        $l2 = virtualinvoke $r6.<java.io.DataInputStream: long readLong()>();
+
+        $r8 = new java.util.UUID;
+
+        specialinvoke $r8.<java.util.UUID: void <init>(long,long)>($l1, $l2);
+
+        return $r8;
+
+     label2:
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.FromStringDeserializer: java.lang.Object _deserializeEmbedded(java.lang.Object,com.fasterxml.jackson.databind.DeserializationContext)>($r2, $r1);
+
+        return null;
+    }
+}

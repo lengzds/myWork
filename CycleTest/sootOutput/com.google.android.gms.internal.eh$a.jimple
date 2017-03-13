@@ -1,0 +1,83 @@
+final class com.google.android.gms.internal.eh$a extends java.lang.Object
+{
+    private long a;
+    private long b;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.eh$a $r0;
+
+        $r0 := @this: com.google.android.gms.internal.eh$a;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.internal.eh$a: long a> = -1L;
+
+        $r0.<com.google.android.gms.internal.eh$a: long b> = -1L;
+
+        return;
+    }
+
+    public final void bA()
+    {
+        com.google.android.gms.internal.eh$a $r0;
+        long $l0;
+
+        $r0 := @this: com.google.android.gms.internal.eh$a;
+
+        $l0 = staticinvoke <android.os.SystemClock: long elapsedRealtime()>();
+
+        $r0.<com.google.android.gms.internal.eh$a: long b> = $l0;
+
+        return;
+    }
+
+    public final void bB()
+    {
+        com.google.android.gms.internal.eh$a $r0;
+        long $l0;
+
+        $r0 := @this: com.google.android.gms.internal.eh$a;
+
+        $l0 = staticinvoke <android.os.SystemClock: long elapsedRealtime()>();
+
+        $r0.<com.google.android.gms.internal.eh$a: long a> = $l0;
+
+        return;
+    }
+
+    public final long bz()
+    {
+        com.google.android.gms.internal.eh$a $r0;
+        long l0;
+
+        $r0 := @this: com.google.android.gms.internal.eh$a;
+
+        l0 = $r0.<com.google.android.gms.internal.eh$a: long b>;
+
+        return l0;
+    }
+
+    public final android.os.Bundle toBundle()
+    {
+        com.google.android.gms.internal.eh$a $r0;
+        android.os.Bundle $r1;
+        long $l0;
+
+        $r0 := @this: com.google.android.gms.internal.eh$a;
+
+        $r1 = new android.os.Bundle;
+
+        specialinvoke $r1.<android.os.Bundle: void <init>()>();
+
+        $l0 = $r0.<com.google.android.gms.internal.eh$a: long a>;
+
+        virtualinvoke $r1.<android.os.Bundle: void putLong(java.lang.String,long)>("topen", $l0);
+
+        $l0 = $r0.<com.google.android.gms.internal.eh$a: long b>;
+
+        virtualinvoke $r1.<android.os.Bundle: void putLong(java.lang.String,long)>("tclose", $l0);
+
+        return $r1;
+    }
+}

@@ -1,0 +1,892 @@
+public final class com.dropbox.client2.p extends java.lang.Object
+{
+    private static final java.text.DateFormat a;
+
+    static void <clinit>()
+    {
+        java.text.SimpleDateFormat $r0;
+        java.util.Locale $r1;
+
+        $r0 = new java.text.SimpleDateFormat;
+
+        $r1 = <java.util.Locale: java.util.Locale US>;
+
+        specialinvoke $r0.<java.text.SimpleDateFormat: void <init>(java.lang.String,java.util.Locale)>("EEE, dd MMM yyyy kk:mm:ss ZZZZZ", $r1);
+
+        <com.dropbox.client2.p: java.text.DateFormat a> = $r0;
+
+        return;
+    }
+
+    public static java.lang.Object a(com.dropbox.client2.q, java.lang.String, java.lang.String, java.lang.String[], com.dropbox.client2.c.m)
+    {
+        com.dropbox.client2.q $r0;
+        java.lang.String $r1, $r2;
+        java.lang.String[] $r3;
+        com.dropbox.client2.c.m $r4;
+        com.dropbox.client2.i $r5;
+        org.apache.http.HttpResponse $r6;
+        java.lang.Object $r7;
+
+        $r0 := @parameter0: com.dropbox.client2.q;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r3 := @parameter3: java.lang.String[];
+
+        $r4 := @parameter4: com.dropbox.client2.c.m;
+
+        $r5 = staticinvoke <com.dropbox.client2.p: com.dropbox.client2.i b(com.dropbox.client2.q,java.lang.String,java.lang.String,java.lang.String[],com.dropbox.client2.c.m)>($r0, $r1, $r2, $r3, $r4);
+
+        $r6 = $r5.<com.dropbox.client2.i: org.apache.http.HttpResponse b>;
+
+        $r7 = staticinvoke <com.dropbox.client2.p: java.lang.Object a(org.apache.http.HttpResponse)>($r6);
+
+        return $r7;
+    }
+
+    public static java.lang.Object a(org.apache.http.HttpResponse)
+    {
+        org.apache.http.HttpResponse $r0;
+        java.lang.Object $r2;
+        org.apache.http.HttpEntity $r3;
+        java.io.InputStream $r4;
+        java.io.BufferedReader $r5, r21;
+        org.apache.http.StatusLine $r7;
+        int $i0;
+        java.io.IOException $r9, $r17, $r18;
+        java.lang.Throwable $r11;
+        b.b.a.a.b $r12, $r19;
+        boolean $z0;
+        java.lang.OutOfMemoryError $r15;
+        java.io.InputStreamReader r20;
+        b.b.a.a.a r22;
+        com.dropbox.client2.a.i r23;
+        com.dropbox.client2.a.b r24;
+        com.dropbox.client2.a.g r25;
+        com.dropbox.client2.a.c r26;
+        com.dropbox.client2.a.a r27;
+
+        $r0 := @parameter0: org.apache.http.HttpResponse;
+
+        $r2 = null;
+
+     label01:
+        $r3 = interfaceinvoke $r0.<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()>();
+
+     label02:
+        if $r3 == null goto label39;
+
+     label03:
+        r20 = new java.io.InputStreamReader;
+
+     label04:
+        $r4 = interfaceinvoke $r3.<org.apache.http.HttpEntity: java.io.InputStream getContent()>();
+
+        specialinvoke r20.<java.io.InputStreamReader: void <init>(java.io.InputStream)>($r4);
+
+     label05:
+        r21 = new java.io.BufferedReader;
+
+     label06:
+        $r5 = r21;
+
+     label07:
+        specialinvoke r21.<java.io.BufferedReader: void <init>(java.io.Reader,int)>(r20, 16384);
+
+     label08:
+        virtualinvoke r21.<java.io.BufferedReader: void mark(int)>(16384);
+
+     label09:
+        r22 = new b.b.a.a.a;
+
+     label10:
+        specialinvoke r22.<b.b.a.a.a: void <init>()>();
+
+        $r2 = virtualinvoke r22.<b.b.a.a.a: java.lang.Object a(java.io.Reader)>(r21);
+
+     label11:
+        if $r5 == null goto label13;
+
+     label12:
+        virtualinvoke $r5.<java.io.BufferedReader: void close()>();
+
+     label13:
+        $r7 = interfaceinvoke $r0.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        $i0 = interfaceinvoke $r7.<org.apache.http.StatusLine: int getStatusCode()>();
+
+        if $i0 == 200 goto label35;
+
+        if $i0 != 401 goto label32;
+
+        r23 = new com.dropbox.client2.a.i;
+
+        specialinvoke r23.<com.dropbox.client2.a.i: void <init>()>();
+
+        throw r23;
+
+     label14:
+        $r9 := @caughtexception;
+
+        $r5 = null;
+
+     label15:
+        r24 = new com.dropbox.client2.a.b;
+
+     label16:
+        specialinvoke r24.<com.dropbox.client2.a.b: void <init>(java.io.IOException)>($r9);
+
+        throw r24;
+
+     label17:
+        $r11 := @caughtexception;
+
+        $r2 = $r5;
+
+     label18:
+        if $r2 == null goto label20;
+
+        $r5 = (java.io.BufferedReader) $r2;
+
+     label19:
+        virtualinvoke $r5.<java.io.BufferedReader: void close()>();
+
+     label20:
+        throw $r11;
+
+     label21:
+        $r12 := @caughtexception;
+
+     label22:
+        $z0 = staticinvoke <com.dropbox.client2.a.g: boolean a(org.apache.http.HttpResponse)>($r0);
+
+     label23:
+        if $z0 == 0 goto label27;
+
+     label24:
+        r25 = new com.dropbox.client2.a.g;
+
+     label25:
+        specialinvoke r25.<com.dropbox.client2.a.g: void <init>(org.apache.http.HttpResponse)>($r0);
+
+        throw r25;
+
+     label26:
+        $r11 := @caughtexception;
+
+        goto label18;
+
+     label27:
+        r26 = new com.dropbox.client2.a.c;
+
+     label28:
+        $r5 = (java.io.BufferedReader) $r2;
+
+        specialinvoke r26.<com.dropbox.client2.a.c: void <init>(java.io.BufferedReader)>($r5);
+
+        throw r26;
+
+     label29:
+        $r15 := @caughtexception;
+
+     label30:
+        r27 = new com.dropbox.client2.a.a;
+
+     label31:
+        specialinvoke r27.<com.dropbox.client2.a.a: void <init>(java.lang.Throwable)>($r15);
+
+        throw r27;
+
+     label32:
+        r25 = new com.dropbox.client2.a.g;
+
+        specialinvoke r25.<com.dropbox.client2.a.g: void <init>(org.apache.http.HttpResponse,java.lang.Object)>($r0, $r2);
+
+        throw r25;
+
+     label33:
+        $r17 := @caughtexception;
+
+        goto label13;
+
+     label34:
+        $r18 := @caughtexception;
+
+        goto label20;
+
+     label35:
+        return $r2;
+
+     label36:
+        $r15 := @caughtexception;
+
+        $r2 = r21;
+
+        goto label30;
+
+     label37:
+        $r19 := @caughtexception;
+
+        $r2 = r21;
+
+        goto label22;
+
+     label38:
+        $r9 := @caughtexception;
+
+        goto label15;
+
+     label39:
+        $r5 = null;
+
+        goto label11;
+
+        catch java.io.IOException from label01 to label02 with label14;
+        catch java.io.IOException from label04 to label05 with label14;
+        catch java.io.IOException from label07 to label08 with label14;
+        catch b.b.a.a.b from label01 to label02 with label21;
+        catch b.b.a.a.b from label04 to label05 with label21;
+        catch b.b.a.a.b from label07 to label08 with label21;
+        catch java.lang.OutOfMemoryError from label01 to label02 with label29;
+        catch java.lang.OutOfMemoryError from label03 to label04 with label29;
+        catch java.lang.OutOfMemoryError from label04 to label06 with label29;
+        catch java.lang.OutOfMemoryError from label07 to label08 with label29;
+        catch java.lang.Throwable from label01 to label02 with label26;
+        catch java.lang.Throwable from label03 to label04 with label26;
+        catch java.lang.Throwable from label04 to label06 with label26;
+        catch java.lang.Throwable from label07 to label08 with label26;
+        catch java.io.IOException from label08 to label09 with label38;
+        catch java.io.IOException from label10 to label11 with label38;
+        catch b.b.a.a.b from label08 to label09 with label37;
+        catch b.b.a.a.b from label10 to label11 with label37;
+        catch java.lang.OutOfMemoryError from label08 to label10 with label36;
+        catch java.lang.OutOfMemoryError from label10 to label11 with label36;
+        catch java.lang.Throwable from label08 to label10 with label17;
+        catch java.lang.Throwable from label10 to label11 with label17;
+        catch java.io.IOException from label12 to label13 with label33;
+        catch java.lang.Throwable from label15 to label16 with label17;
+        catch java.lang.Throwable from label16 to label17 with label17;
+        catch java.io.IOException from label19 to label20 with label34;
+        catch java.lang.Throwable from label22 to label23 with label26;
+        catch java.lang.Throwable from label24 to label25 with label26;
+        catch java.lang.Throwable from label25 to label26 with label26;
+        catch java.lang.Throwable from label27 to label28 with label26;
+        catch java.lang.Throwable from label28 to label29 with label26;
+        catch java.lang.Throwable from label30 to label31 with label26;
+        catch java.lang.Throwable from label31 to label32 with label26;
+    }
+
+    public static java.lang.String a(java.lang.String, java.lang.String, java.lang.String[])
+    {
+        java.lang.String $r0, $r2, $r4;
+        java.lang.String[] $r1;
+        boolean $z0;
+        java.lang.StringBuilder $r3;
+        int $i0;
+        java.io.UnsupportedEncodingException $r5;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r1 := @parameter2: java.lang.String[];
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean startsWith(java.lang.String)>("/");
+
+        if $z0 != 0 goto label1;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("/");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label1:
+        $r3 = new java.lang.StringBuilder;
+
+     label2:
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("/1");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r2 = staticinvoke <java.net.URLEncoder: java.lang.String encode(java.lang.String,java.lang.String)>($r2, "UTF-8");
+
+        $r2 = virtualinvoke $r2.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>("%2F", "/");
+
+     label3:
+        $r4 = $r2;
+
+        if $r1 == null goto label6;
+
+        $i0 = lengthof $r1;
+
+        if $i0 <= 0 goto label6;
+
+        $r3 = new java.lang.StringBuilder;
+
+     label4:
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("?");
+
+        $r2 = staticinvoke <com.dropbox.client2.p: java.lang.String a(java.lang.String[])>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label5:
+        $r4 = $r2;
+
+     label6:
+        $r2 = virtualinvoke $r4.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>("+", "%20");
+
+        $r2 = virtualinvoke $r2.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>("*", "%2A");
+
+     label7:
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("https://");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(":443");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r0 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r0;
+
+     label8:
+        $r5 := @caughtexception;
+
+        return null;
+
+        catch java.io.UnsupportedEncodingException from label2 to label3 with label8;
+        catch java.io.UnsupportedEncodingException from label4 to label5 with label8;
+        catch java.io.UnsupportedEncodingException from label6 to label7 with label8;
+    }
+
+    private static java.lang.String a(java.lang.String[])
+    {
+        java.lang.String[] $r0;
+        int $i0, $i1;
+        java.lang.IllegalArgumentException $r1;
+        java.lang.String $r2, $r3;
+        boolean $z0;
+        java.lang.StringBuilder $r4;
+        java.io.UnsupportedEncodingException $r5;
+
+        $r0 := @parameter0: java.lang.String[];
+
+        $i0 = lengthof $r0;
+
+        $i0 = $i0 % 2;
+
+        if $i0 == 0 goto label01;
+
+        $r1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Params must have an even number of elements.");
+
+        throw $r1;
+
+     label01:
+        $r2 = "";
+
+        $z0 = 1;
+
+        $i0 = 0;
+
+     label02:
+        $i1 = lengthof $r0;
+
+        if $i0 >= $i1 goto label14;
+
+        $i1 = $i0 + 1;
+
+        $r3 = $r0[$i1];
+
+        if $r3 == null goto label09;
+
+        if $z0 == 0 goto label10;
+
+        $z0 = 0;
+
+     label03:
+        $r4 = new java.lang.StringBuilder;
+
+     label04:
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+     label05:
+        $r2 = $r0[$i0];
+
+     label06:
+        $r2 = staticinvoke <java.net.URLEncoder: java.lang.String encode(java.lang.String,java.lang.String)>($r2, "UTF-8");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("=");
+
+     label07:
+        $i1 = $i0 + 1;
+
+        $r2 = $r0[$i1];
+
+     label08:
+        $r2 = staticinvoke <java.net.URLEncoder: java.lang.String encode(java.lang.String,java.lang.String)>($r2, "UTF-8");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label09:
+        $i0 = $i0 + 2;
+
+        goto label02;
+
+     label10:
+        $r4 = new java.lang.StringBuilder;
+
+     label11:
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&");
+
+        $r2 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label12:
+        goto label03;
+
+     label13:
+        $r5 := @caughtexception;
+
+        return null;
+
+     label14:
+        return $r2;
+
+        catch java.io.UnsupportedEncodingException from label04 to label05 with label13;
+        catch java.io.UnsupportedEncodingException from label06 to label07 with label13;
+        catch java.io.UnsupportedEncodingException from label08 to label09 with label13;
+        catch java.io.UnsupportedEncodingException from label11 to label12 with label13;
+    }
+
+    public static java.util.Date a(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.util.Date $r1;
+        java.text.DateFormat $r2;
+        java.text.ParseException $r3;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r2 = <com.dropbox.client2.p: java.text.DateFormat a>;
+
+     label1:
+        $r1 = virtualinvoke $r2.<java.text.DateFormat: java.util.Date parse(java.lang.String)>($r0);
+
+     label2:
+        return $r1;
+
+     label3:
+        $r3 := @caughtexception;
+
+        return null;
+
+        catch java.text.ParseException from label1 to label2 with label3;
+    }
+
+    public static org.apache.http.HttpResponse a(com.dropbox.client2.c.m, org.apache.http.client.methods.HttpUriRequest)
+    {
+        com.dropbox.client2.c.m $r0;
+        org.apache.http.client.methods.HttpUriRequest $r1;
+        org.apache.http.HttpResponse $r2;
+
+        $r0 := @parameter0: com.dropbox.client2.c.m;
+
+        $r1 := @parameter1: org.apache.http.client.methods.HttpUriRequest;
+
+        $r2 = staticinvoke <com.dropbox.client2.p: org.apache.http.HttpResponse a(com.dropbox.client2.c.m,org.apache.http.client.methods.HttpUriRequest,int)>($r0, $r1, -1);
+
+        return $r2;
+    }
+
+    public static org.apache.http.HttpResponse a(com.dropbox.client2.c.m, org.apache.http.client.methods.HttpUriRequest, int)
+    {
+        com.dropbox.client2.c.m $r0;
+        org.apache.http.client.methods.HttpUriRequest $r1;
+        int $i0;
+        org.apache.http.client.HttpClient $r2;
+        org.apache.http.params.HttpParams $r3;
+        boolean $z0;
+        org.apache.http.HttpEntityEnclosingRequest $r4;
+        org.apache.http.HttpEntity $r5;
+        org.apache.http.HttpResponse $r6;
+        com.dropbox.client2.a.e $r7;
+        javax.net.ssl.SSLException $r8;
+        com.dropbox.client2.a.f $r9;
+        com.dropbox.client2.a.b $r10;
+        java.io.IOException $r11;
+        org.apache.http.StatusLine $r12;
+        java.lang.OutOfMemoryError $r13;
+        com.dropbox.client2.a.a $r14;
+        java.lang.NullPointerException $r15;
+
+        $r0 := @parameter0: com.dropbox.client2.c.m;
+
+        $r1 := @parameter1: org.apache.http.client.methods.HttpUriRequest;
+
+        $i0 := @parameter2: int;
+
+        $r2 = staticinvoke <com.dropbox.client2.p: org.apache.http.client.HttpClient a(com.dropbox.client2.c.m)>($r0);
+
+        interfaceinvoke $r0.<com.dropbox.client2.c.m: void a(org.apache.http.client.methods.HttpUriRequest)>($r1);
+
+        if $i0 < 0 goto label01;
+
+        $r3 = interfaceinvoke $r1.<org.apache.http.client.methods.HttpUriRequest: org.apache.http.params.HttpParams getParams()>();
+
+        staticinvoke <org.apache.http.params.HttpConnectionParams: void setSoTimeout(org.apache.http.params.HttpParams,int)>($r3, $i0);
+
+     label01:
+        $z0 = $r1 instanceof org.apache.http.HttpEntityEnclosingRequest;
+
+        if $z0 == 0 goto label12;
+
+        $r4 = (org.apache.http.HttpEntityEnclosingRequest) $r1;
+
+        $r5 = interfaceinvoke $r4.<org.apache.http.HttpEntityEnclosingRequest: org.apache.http.HttpEntity getEntity()>();
+
+        if $r5 == null goto label12;
+
+        $z0 = interfaceinvoke $r5.<org.apache.http.HttpEntity: boolean isRepeatable()>();
+
+        if $z0 != 0 goto label12;
+
+        $z0 = 0;
+
+     label02:
+        $r6 = null;
+
+        $i0 = 0;
+
+     label03:
+        if $i0 >= 5 goto label14;
+
+     label04:
+        $r6 = interfaceinvoke $r2.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r1);
+
+     label05:
+        if $r6 != null goto label14;
+
+     label06:
+        staticinvoke <com.dropbox.client2.p: void a(org.apache.http.client.HttpClient,com.dropbox.client2.c.m)>($r2, $r0);
+
+     label07:
+        if $z0 != 0 goto label13;
+
+     label08:
+        $r7 = new com.dropbox.client2.a.e;
+
+     label09:
+        specialinvoke $r7.<com.dropbox.client2.a.e: void <init>()>();
+
+     label10:
+        throw $r7;
+
+     label11:
+        $r8 := @caughtexception;
+
+        $r9 = new com.dropbox.client2.a.f;
+
+        specialinvoke $r9.<com.dropbox.client2.a.f: void <init>(javax.net.ssl.SSLException)>($r8);
+
+        throw $r9;
+
+     label12:
+        $z0 = 1;
+
+        goto label02;
+
+     label13:
+        $i0 = $i0 + 1;
+
+        goto label03;
+
+     label14:
+        if $r6 != null goto label19;
+
+     label15:
+        $r10 = new com.dropbox.client2.a.b;
+
+     label16:
+        specialinvoke $r10.<com.dropbox.client2.a.b: void <init>(java.lang.String)>("Apache HTTPClient encountered an error. No response, try again.");
+
+     label17:
+        throw $r10;
+
+     label18:
+        $r11 := @caughtexception;
+
+        $r10 = new com.dropbox.client2.a.b;
+
+        specialinvoke $r10.<com.dropbox.client2.a.b: void <init>(java.io.IOException)>($r11);
+
+        throw $r10;
+
+     label19:
+        $r12 = interfaceinvoke $r6.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        $i0 = interfaceinvoke $r12.<org.apache.http.StatusLine: int getStatusCode()>();
+
+     label20:
+        if $i0 == 200 goto label25;
+
+        if $i0 == 206 goto label25;
+
+     label21:
+        staticinvoke <com.dropbox.client2.p: java.lang.Object a(org.apache.http.HttpResponse)>($r6);
+
+     label22:
+        return $r6;
+
+     label23:
+        $r13 := @caughtexception;
+
+        $r14 = new com.dropbox.client2.a.a;
+
+        specialinvoke $r14.<com.dropbox.client2.a.a: void <init>(java.lang.Throwable)>($r13);
+
+        throw $r14;
+
+     label24:
+        $r15 := @caughtexception;
+
+        goto label05;
+
+     label25:
+        return $r6;
+
+        catch java.lang.NullPointerException from label04 to label05 with label24;
+        catch javax.net.ssl.SSLException from label04 to label05 with label11;
+        catch java.io.IOException from label04 to label05 with label18;
+        catch java.lang.OutOfMemoryError from label04 to label05 with label23;
+        catch javax.net.ssl.SSLException from label06 to label07 with label11;
+        catch javax.net.ssl.SSLException from label09 to label10 with label11;
+        catch java.io.IOException from label06 to label07 with label18;
+        catch java.io.IOException from label09 to label10 with label18;
+        catch java.lang.OutOfMemoryError from label06 to label07 with label23;
+        catch java.lang.OutOfMemoryError from label08 to label11 with label23;
+        catch javax.net.ssl.SSLException from label16 to label17 with label11;
+        catch java.io.IOException from label16 to label17 with label18;
+        catch java.lang.OutOfMemoryError from label15 to label18 with label23;
+        catch javax.net.ssl.SSLException from label19 to label20 with label11;
+        catch javax.net.ssl.SSLException from label21 to label22 with label11;
+        catch java.io.IOException from label19 to label20 with label18;
+        catch java.io.IOException from label21 to label22 with label18;
+        catch java.lang.OutOfMemoryError from label19 to label20 with label23;
+        catch java.lang.OutOfMemoryError from label21 to label22 with label23;
+    }
+
+    private static org.apache.http.client.HttpClient a(com.dropbox.client2.c.m)
+    {
+        com.dropbox.client2.c.m $r0;
+        org.apache.http.client.HttpClient $r1;
+        java.lang.Throwable $r2;
+
+        $r0 := @parameter0: com.dropbox.client2.c.m;
+
+        entermonitor class "com/dropbox/client2/p";
+
+     label1:
+        $r1 = interfaceinvoke $r0.<com.dropbox.client2.c.m: org.apache.http.client.HttpClient g()>();
+
+        staticinvoke <com.dropbox.client2.p: void a(org.apache.http.client.HttpClient,com.dropbox.client2.c.m)>($r1, $r0);
+
+     label2:
+        exitmonitor class "com/dropbox/client2/p";
+
+        return $r1;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor class "com/dropbox/client2/p";
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    private static void a(org.apache.http.client.HttpClient, com.dropbox.client2.c.m)
+    {
+        org.apache.http.client.HttpClient $r0;
+        com.dropbox.client2.c.m $r1;
+        org.apache.http.params.HttpParams $r2;
+
+        $r0 := @parameter0: org.apache.http.client.HttpClient;
+
+        $r1 := @parameter1: com.dropbox.client2.c.m;
+
+        interfaceinvoke $r1.<com.dropbox.client2.c.m: com.dropbox.client2.c.o f()>();
+
+        $r2 = interfaceinvoke $r0.<org.apache.http.client.HttpClient: org.apache.http.params.HttpParams getParams()>();
+
+        interfaceinvoke $r2.<org.apache.http.params.HttpParams: boolean removeParameter(java.lang.String)>("http.route.default-proxy");
+
+        return;
+    }
+
+    public static com.dropbox.client2.i b(com.dropbox.client2.q, java.lang.String, java.lang.String, java.lang.String[], com.dropbox.client2.c.m)
+    {
+        com.dropbox.client2.q $r0, $r5;
+        java.lang.String $r1, $r2;
+        java.lang.String[] $r3;
+        com.dropbox.client2.c.m $r4;
+        org.apache.http.client.methods.HttpRequestBase $r6;
+        org.apache.http.HttpResponse $r7;
+        int $i0, $i1;
+        java.io.UnsupportedEncodingException $r14;
+        org.apache.http.client.methods.HttpGet r16;
+        com.dropbox.client2.i r17;
+        org.apache.http.client.methods.HttpPost r18;
+        java.lang.IllegalArgumentException r19;
+        java.util.ArrayList r20;
+        org.apache.http.message.BasicNameValuePair r21;
+        org.apache.http.client.entity.UrlEncodedFormEntity r22;
+        com.dropbox.client2.a.a r23;
+
+        $r0 := @parameter0: com.dropbox.client2.q;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r3 := @parameter3: java.lang.String[];
+
+        $r4 := @parameter4: com.dropbox.client2.c.m;
+
+        $r5 = <com.dropbox.client2.q: com.dropbox.client2.q a>;
+
+        if $r0 != $r5 goto label2;
+
+        $r1 = staticinvoke <com.dropbox.client2.p: java.lang.String a(java.lang.String,java.lang.String,java.lang.String[])>($r1, $r2, $r3);
+
+        r16 = new org.apache.http.client.methods.HttpGet;
+
+        $r6 = r16;
+
+        specialinvoke r16.<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>($r1);
+
+     label1:
+        interfaceinvoke $r4.<com.dropbox.client2.c.m: void a(org.apache.http.HttpRequest)>($r6);
+
+        $r7 = staticinvoke <com.dropbox.client2.p: org.apache.http.HttpResponse a(com.dropbox.client2.c.m,org.apache.http.client.methods.HttpUriRequest,int)>($r4, $r6, -1);
+
+        r17 = new com.dropbox.client2.i;
+
+        specialinvoke r17.<com.dropbox.client2.i: void <init>(org.apache.http.client.methods.HttpUriRequest,org.apache.http.HttpResponse)>($r6, $r7);
+
+        return r17;
+
+     label2:
+        $r1 = staticinvoke <com.dropbox.client2.p: java.lang.String a(java.lang.String,java.lang.String,java.lang.String[])>($r1, $r2, null);
+
+        r18 = new org.apache.http.client.methods.HttpPost;
+
+        specialinvoke r18.<org.apache.http.client.methods.HttpPost: void <init>(java.lang.String)>($r1);
+
+        if $r3 == null goto label8;
+
+        $i0 = lengthof $r3;
+
+        if $i0 < 2 goto label8;
+
+        $i0 = lengthof $r3;
+
+        $i0 = $i0 % 2;
+
+        if $i0 == 0 goto label3;
+
+        r19 = new java.lang.IllegalArgumentException;
+
+        specialinvoke r19.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Params must have an even number of elements.");
+
+        throw r19;
+
+     label3:
+        r20 = new java.util.ArrayList;
+
+        specialinvoke r20.<java.util.ArrayList: void <init>()>();
+
+        $i0 = 0;
+
+     label4:
+        $i1 = lengthof $r3;
+
+        if $i0 >= $i1 goto label6;
+
+        $i1 = $i0 + 1;
+
+        $r1 = $r3[$i1];
+
+        if $r1 == null goto label5;
+
+        r21 = new org.apache.http.message.BasicNameValuePair;
+
+        $r1 = $r3[$i0];
+
+        $i1 = $i0 + 1;
+
+        $r2 = $r3[$i1];
+
+        specialinvoke r21.<org.apache.http.message.BasicNameValuePair: void <init>(java.lang.String,java.lang.String)>($r1, $r2);
+
+        interfaceinvoke r20.<java.util.List: boolean add(java.lang.Object)>(r21);
+
+     label5:
+        $i0 = $i0 + 2;
+
+        goto label4;
+
+     label6:
+        r22 = new org.apache.http.client.entity.UrlEncodedFormEntity;
+
+     label7:
+        specialinvoke r22.<org.apache.http.client.entity.UrlEncodedFormEntity: void <init>(java.util.List,java.lang.String)>(r20, "UTF-8");
+
+        virtualinvoke r18.<org.apache.http.client.methods.HttpPost: void setEntity(org.apache.http.HttpEntity)>(r22);
+
+     label8:
+        $r6 = r18;
+
+        goto label1;
+
+     label9:
+        $r14 := @caughtexception;
+
+        r23 = new com.dropbox.client2.a.a;
+
+        specialinvoke r23.<com.dropbox.client2.a.a: void <init>(java.lang.Throwable)>($r14);
+
+        throw r23;
+
+        catch java.io.UnsupportedEncodingException from label7 to label8 with label9;
+    }
+}

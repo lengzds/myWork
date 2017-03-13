@@ -1,0 +1,288 @@
+public final class com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator extends java.lang.Object
+{
+    protected final java.lang.Object[] _defaultValues;
+    protected final java.util.HashMap _properties;
+    protected final com.fasterxml.jackson.databind.deser.SettableBeanProperty[] _propertiesWithInjectables;
+    protected final com.fasterxml.jackson.databind.deser.ValueInstantiator _valueInstantiator;
+
+    protected void <init>(com.fasterxml.jackson.databind.deser.ValueInstantiator, com.fasterxml.jackson.databind.deser.SettableBeanProperty[], java.lang.Object[])
+    {
+        com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator $r0;
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r1;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty[] $r2, $r6;
+        java.lang.Object[] $r3;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty $r4;
+        java.util.HashMap $r5;
+        java.lang.String $r7;
+        java.lang.Object $r8;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.deser.SettableBeanProperty[];
+
+        $r3 := @parameter2: java.lang.Object[];
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: com.fasterxml.jackson.databind.deser.ValueInstantiator _valueInstantiator> = $r1;
+
+        $r5 = new java.util.HashMap;
+
+        specialinvoke $r5.<java.util.HashMap: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: java.util.HashMap _properties> = $r5;
+
+        $i0 = lengthof $r2;
+
+        $r6 = null;
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label4;
+
+        $r4 = $r2[$i1];
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: java.util.HashMap _properties>;
+
+        $r7 = virtualinvoke $r4.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: java.lang.String getName()>();
+
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r7, $r4);
+
+        $r8 = virtualinvoke $r4.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: java.lang.Object getInjectableValueId()>();
+
+        if $r8 == null goto label3;
+
+        if $r6 != null goto label2;
+
+        $r6 = newarray (com.fasterxml.jackson.databind.deser.SettableBeanProperty)[$i0];
+
+     label2:
+        $r6[$i1] = $r4;
+
+     label3:
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label4:
+        $r0.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: java.lang.Object[] _defaultValues> = $r3;
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: com.fasterxml.jackson.databind.deser.SettableBeanProperty[] _propertiesWithInjectables> = $r6;
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator construct(com.fasterxml.jackson.databind.DeserializationContext, com.fasterxml.jackson.databind.deser.ValueInstantiator, com.fasterxml.jackson.databind.deser.SettableBeanProperty[])
+    {
+        com.fasterxml.jackson.databind.DeserializationContext $r0;
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r1;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty[] $r2, $r3;
+        int $i0, $i1;
+        java.lang.Object[] $r4;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty $r5;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JavaType $r6;
+        com.fasterxml.jackson.databind.JsonDeserializer $r7;
+        java.lang.Object $r8;
+        java.lang.Class $r9;
+        com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator $r10;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.deser.SettableBeanProperty[];
+
+        $i0 = lengthof $r2;
+
+        $r3 = newarray (com.fasterxml.jackson.databind.deser.SettableBeanProperty)[$i0];
+
+        $i1 = 0;
+
+        $r4 = null;
+
+     label1:
+        if $i1 >= $i0 goto label8;
+
+        $r5 = $r2[$i1];
+
+        $z0 = virtualinvoke $r5.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: boolean hasValueDeserializer()>();
+
+        if $z0 != 0 goto label2;
+
+        $r6 = virtualinvoke $r5.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: com.fasterxml.jackson.databind.JavaType getType()>();
+
+        $r7 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonDeserializer findContextualValueDeserializer(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.BeanProperty)>($r6, $r5);
+
+        $r5 = virtualinvoke $r5.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: com.fasterxml.jackson.databind.deser.SettableBeanProperty withValueDeserializer(com.fasterxml.jackson.databind.JsonDeserializer)>($r7);
+
+     label2:
+        $r3[$i1] = $r5;
+
+        $r7 = virtualinvoke $r5.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: com.fasterxml.jackson.databind.JsonDeserializer getValueDeserializer()>();
+
+        if $r7 != null goto label7;
+
+        $r8 = null;
+
+     label3:
+        if $r8 != null goto label9;
+
+        $r6 = virtualinvoke $r5.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: com.fasterxml.jackson.databind.JavaType getType()>();
+
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.JavaType: boolean isPrimitive()>();
+
+        if $z0 == 0 goto label9;
+
+        $r6 = virtualinvoke $r5.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: com.fasterxml.jackson.databind.JavaType getType()>();
+
+        $r9 = virtualinvoke $r6.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        $r8 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Object defaultValue(java.lang.Class)>($r9);
+
+     label4:
+        if $r8 == null goto label6;
+
+        if $r4 != null goto label5;
+
+        $r4 = newarray (java.lang.Object)[$i0];
+
+     label5:
+        $r4[$i1] = $r8;
+
+     label6:
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label7:
+        $r8 = virtualinvoke $r7.<com.fasterxml.jackson.databind.JsonDeserializer: java.lang.Object getNullValue()>();
+
+        goto label3;
+
+     label8:
+        $r10 = new com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator;
+
+        specialinvoke $r10.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: void <init>(com.fasterxml.jackson.databind.deser.ValueInstantiator,com.fasterxml.jackson.databind.deser.SettableBeanProperty[],java.lang.Object[])>($r1, $r3, $r4);
+
+        return $r10;
+
+     label9:
+        goto label4;
+    }
+
+    public final java.lang.Object build(com.fasterxml.jackson.databind.DeserializationContext, com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer)
+    {
+        com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer $r2;
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r3;
+        java.lang.Object[] $r4;
+        java.lang.Object $r5;
+        com.fasterxml.jackson.databind.deser.impl.PropertyValue $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: com.fasterxml.jackson.databind.deser.ValueInstantiator _valueInstantiator>;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: java.lang.Object[] _defaultValues>;
+
+        $r4 = virtualinvoke $r2.<com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer: java.lang.Object[] getParameters(java.lang.Object[])>($r4);
+
+        $r5 = virtualinvoke $r3.<com.fasterxml.jackson.databind.deser.ValueInstantiator: java.lang.Object createFromObjectWith(com.fasterxml.jackson.databind.DeserializationContext,java.lang.Object[])>($r1, $r4);
+
+        $r6 = virtualinvoke $r2.<com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer: com.fasterxml.jackson.databind.deser.impl.PropertyValue buffered()>();
+
+     label1:
+        if $r6 == null goto label2;
+
+        virtualinvoke $r6.<com.fasterxml.jackson.databind.deser.impl.PropertyValue: void assign(java.lang.Object)>($r5);
+
+        $r6 = $r6.<com.fasterxml.jackson.databind.deser.impl.PropertyValue: com.fasterxml.jackson.databind.deser.impl.PropertyValue next>;
+
+        goto label1;
+
+     label2:
+        return $r5;
+    }
+
+    public final com.fasterxml.jackson.databind.deser.SettableBeanProperty findCreatorProperty(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        java.util.HashMap $r3;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: java.util.HashMap _properties>;
+
+        $r2 = virtualinvoke $r3.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r4 = (com.fasterxml.jackson.databind.deser.SettableBeanProperty) $r2;
+
+        return $r4;
+    }
+
+    public final java.util.Collection properties()
+    {
+        com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator $r0;
+        java.util.Collection $r1;
+        java.util.HashMap $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: java.util.HashMap _properties>;
+
+        $r1 = virtualinvoke $r2.<java.util.HashMap: java.util.Collection values()>();
+
+        return $r1;
+    }
+
+    public final com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer startBuilding(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer $r3;
+        int $i0;
+        java.util.HashMap $r4;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty[] $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = new com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: java.util.HashMap _properties>;
+
+        $i0 = virtualinvoke $r4.<java.util.HashMap: int size()>();
+
+        specialinvoke $r3.<com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer: void <init>(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext,int)>($r1, $r2, $i0);
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: com.fasterxml.jackson.databind.deser.SettableBeanProperty[] _propertiesWithInjectables>;
+
+        if $r5 == null goto label1;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: com.fasterxml.jackson.databind.deser.SettableBeanProperty[] _propertiesWithInjectables>;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer: void inject(com.fasterxml.jackson.databind.deser.SettableBeanProperty[])>($r5);
+
+     label1:
+        return $r3;
+    }
+}

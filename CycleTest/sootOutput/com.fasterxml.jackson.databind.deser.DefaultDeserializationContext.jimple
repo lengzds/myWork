@@ -1,0 +1,404 @@
+public abstract class com.fasterxml.jackson.databind.deser.DefaultDeserializationContext extends com.fasterxml.jackson.databind.DeserializationContext
+{
+    protected java.util.LinkedHashMap _objectIds;
+
+    protected void <init>(com.fasterxml.jackson.databind.deser.DefaultDeserializationContext, com.fasterxml.jackson.databind.DeserializationConfig, com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.InjectableValues)
+    {
+        com.fasterxml.jackson.databind.deser.DefaultDeserializationContext $r0, $r1;
+        com.fasterxml.jackson.databind.DeserializationConfig $r2;
+        com.fasterxml.jackson.core.JsonParser $r3;
+        com.fasterxml.jackson.databind.InjectableValues $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r3 := @parameter2: com.fasterxml.jackson.core.JsonParser;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.InjectableValues;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.DeserializationContext: void <init>(com.fasterxml.jackson.databind.DeserializationContext,com.fasterxml.jackson.databind.DeserializationConfig,com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.InjectableValues)>($r1, $r2, $r3, $r4);
+
+        return;
+    }
+
+    protected void <init>(com.fasterxml.jackson.databind.deser.DeserializerFactory, com.fasterxml.jackson.databind.deser.DeserializerCache)
+    {
+        com.fasterxml.jackson.databind.deser.DefaultDeserializationContext $r0;
+        com.fasterxml.jackson.databind.deser.DeserializerFactory $r1;
+        com.fasterxml.jackson.databind.deser.DeserializerCache $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.deser.DeserializerFactory;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.deser.DeserializerCache;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.DeserializationContext: void <init>(com.fasterxml.jackson.databind.deser.DeserializerFactory,com.fasterxml.jackson.databind.deser.DeserializerCache)>($r1, $r2);
+
+        return;
+    }
+
+    public abstract com.fasterxml.jackson.databind.deser.DefaultDeserializationContext createInstance(com.fasterxml.jackson.databind.DeserializationConfig, com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.InjectableValues);
+
+    public com.fasterxml.jackson.databind.JsonDeserializer deserializerInstance(com.fasterxml.jackson.databind.introspect.Annotated, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.deser.DefaultDeserializationContext $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.Object $r2;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JsonDeserializer $r3;
+        com.fasterxml.jackson.databind.deser.ResolvableDeserializer $r4;
+        java.lang.IllegalStateException $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.Class $r7, $r9;
+        java.lang.String $r8;
+        com.fasterxml.jackson.databind.DeserializationConfig $r10;
+        com.fasterxml.jackson.databind.cfg.HandlerInstantiator $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $z0 = $r2 instanceof com.fasterxml.jackson.databind.JsonDeserializer;
+
+        if $z0 == 0 goto label3;
+
+        $r3 = (com.fasterxml.jackson.databind.JsonDeserializer) $r2;
+
+     label2:
+        $z0 = $r3 instanceof com.fasterxml.jackson.databind.deser.ResolvableDeserializer;
+
+        if $z0 == 0 goto label7;
+
+        $r4 = (com.fasterxml.jackson.databind.deser.ResolvableDeserializer) $r3;
+
+        interfaceinvoke $r4.<com.fasterxml.jackson.databind.deser.ResolvableDeserializer: void resolve(com.fasterxml.jackson.databind.DeserializationContext)>($r0);
+
+        return $r3;
+
+     label3:
+        $z0 = $r2 instanceof java.lang.Class;
+
+        if $z0 != 0 goto label4;
+
+        $r5 = new java.lang.IllegalStateException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("AnnotationIntrospector returned deserializer definition of type ");
+
+        $r7 = virtualinvoke $r2.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r8 = virtualinvoke $r7.<java.lang.Class: java.lang.String getName()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; expected type JsonDeserializer or Class<JsonDeserializer> instead");
+
+        $r8 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r8);
+
+        throw $r5;
+
+     label4:
+        $r7 = (java.lang.Class) $r2;
+
+        if $r7 == class "com/fasterxml/jackson/databind/JsonDeserializer$None" goto label8;
+
+        if $r7 == class "com/fasterxml/jackson/databind/annotation/NoClass" goto label8;
+
+        $r9 = class "com/fasterxml/jackson/databind/JsonDeserializer";
+
+        $z0 = virtualinvoke $r9.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r7);
+
+        if $z0 != 0 goto label5;
+
+        $r5 = new java.lang.IllegalStateException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("AnnotationIntrospector returned Class ");
+
+        $r8 = virtualinvoke $r7.<java.lang.Class: java.lang.String getName()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; expected Class<JsonDeserializer>");
+
+        $r8 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r8);
+
+        throw $r5;
+
+     label5:
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig _config>;
+
+        $r11 = virtualinvoke $r10.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.cfg.HandlerInstantiator getHandlerInstantiator()>();
+
+        if $r11 == null goto label6;
+
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig _config>;
+
+        $r3 = virtualinvoke $r11.<com.fasterxml.jackson.databind.cfg.HandlerInstantiator: com.fasterxml.jackson.databind.JsonDeserializer deserializerInstance(com.fasterxml.jackson.databind.DeserializationConfig,com.fasterxml.jackson.databind.introspect.Annotated,java.lang.Class)>($r10, $r1, $r7);
+
+        goto label2;
+
+     label6:
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig _config>;
+
+        $z0 = virtualinvoke $r10.<com.fasterxml.jackson.databind.DeserializationConfig: boolean canOverrideAccessModifiers()>();
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Object createInstance(java.lang.Class,boolean)>($r7, $z0);
+
+        $r3 = (com.fasterxml.jackson.databind.JsonDeserializer) $r2;
+
+        goto label2;
+
+     label7:
+        return $r3;
+
+     label8:
+        return null;
+    }
+
+    public com.fasterxml.jackson.databind.deser.impl.ReadableObjectId findObjectId(java.lang.Object, com.fasterxml.jackson.annotation.ObjectIdGenerator)
+    {
+        com.fasterxml.jackson.databind.deser.DefaultDeserializationContext $r0;
+        java.lang.Object $r1, $r6;
+        com.fasterxml.jackson.'annotation'.ObjectIdGenerator $r2;
+        java.util.LinkedHashMap $r3;
+        com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey $r4;
+        com.fasterxml.jackson.databind.deser.impl.ReadableObjectId $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.'annotation'.ObjectIdGenerator;
+
+        $r4 = virtualinvoke $r2.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator: com.fasterxml.jackson.'annotation'.ObjectIdGenerator$IdKey key(java.lang.Object)>($r1);
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: java.util.LinkedHashMap _objectIds>;
+
+        if $r3 != null goto label2;
+
+        $r3 = new java.util.LinkedHashMap;
+
+        specialinvoke $r3.<java.util.LinkedHashMap: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: java.util.LinkedHashMap _objectIds> = $r3;
+
+     label1:
+        $r5 = new com.fasterxml.jackson.databind.deser.impl.ReadableObjectId;
+
+        specialinvoke $r5.<com.fasterxml.jackson.databind.deser.impl.ReadableObjectId: void <init>(java.lang.Object)>($r1);
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: java.util.LinkedHashMap _objectIds>;
+
+        virtualinvoke $r3.<java.util.LinkedHashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r4, $r5);
+
+        return $r5;
+
+     label2:
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: java.util.LinkedHashMap _objectIds>;
+
+        $r6 = virtualinvoke $r3.<java.util.LinkedHashMap: java.lang.Object get(java.lang.Object)>($r4);
+
+        $r5 = (com.fasterxml.jackson.databind.deser.impl.ReadableObjectId) $r6;
+
+        if $r5 == null goto label1;
+
+        return $r5;
+    }
+
+    public final com.fasterxml.jackson.databind.KeyDeserializer keyDeserializerInstance(com.fasterxml.jackson.databind.introspect.Annotated, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.deser.DefaultDeserializationContext $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.Object $r2;
+        boolean $z0;
+        com.fasterxml.jackson.databind.KeyDeserializer $r3;
+        com.fasterxml.jackson.databind.deser.ResolvableDeserializer $r4;
+        java.lang.IllegalStateException $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.Class $r7, $r9;
+        java.lang.String $r8;
+        com.fasterxml.jackson.databind.DeserializationConfig $r10;
+        com.fasterxml.jackson.databind.cfg.HandlerInstantiator $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $z0 = $r2 instanceof com.fasterxml.jackson.databind.KeyDeserializer;
+
+        if $z0 == 0 goto label3;
+
+        $r3 = (com.fasterxml.jackson.databind.KeyDeserializer) $r2;
+
+     label2:
+        $z0 = $r3 instanceof com.fasterxml.jackson.databind.deser.ResolvableDeserializer;
+
+        if $z0 == 0 goto label7;
+
+        $r4 = (com.fasterxml.jackson.databind.deser.ResolvableDeserializer) $r3;
+
+        interfaceinvoke $r4.<com.fasterxml.jackson.databind.deser.ResolvableDeserializer: void resolve(com.fasterxml.jackson.databind.DeserializationContext)>($r0);
+
+        return $r3;
+
+     label3:
+        $z0 = $r2 instanceof java.lang.Class;
+
+        if $z0 != 0 goto label4;
+
+        $r5 = new java.lang.IllegalStateException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("AnnotationIntrospector returned key deserializer definition of type ");
+
+        $r7 = virtualinvoke $r2.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r8 = virtualinvoke $r7.<java.lang.Class: java.lang.String getName()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; expected type KeyDeserializer or Class<KeyDeserializer> instead");
+
+        $r8 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r8);
+
+        throw $r5;
+
+     label4:
+        $r7 = (java.lang.Class) $r2;
+
+        if $r7 == class "com/fasterxml/jackson/databind/KeyDeserializer$None" goto label8;
+
+        if $r7 == class "com/fasterxml/jackson/databind/annotation/NoClass" goto label8;
+
+        $r9 = class "com/fasterxml/jackson/databind/KeyDeserializer";
+
+        $z0 = virtualinvoke $r9.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r7);
+
+        if $z0 != 0 goto label5;
+
+        $r5 = new java.lang.IllegalStateException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("AnnotationIntrospector returned Class ");
+
+        $r8 = virtualinvoke $r7.<java.lang.Class: java.lang.String getName()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; expected Class<KeyDeserializer>");
+
+        $r8 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r8);
+
+        throw $r5;
+
+     label5:
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig _config>;
+
+        $r11 = virtualinvoke $r10.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.cfg.HandlerInstantiator getHandlerInstantiator()>();
+
+        if $r11 == null goto label6;
+
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig _config>;
+
+        $r3 = virtualinvoke $r11.<com.fasterxml.jackson.databind.cfg.HandlerInstantiator: com.fasterxml.jackson.databind.KeyDeserializer keyDeserializerInstance(com.fasterxml.jackson.databind.DeserializationConfig,com.fasterxml.jackson.databind.introspect.Annotated,java.lang.Class)>($r10, $r1, $r7);
+
+        goto label2;
+
+     label6:
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig _config>;
+
+        $z0 = virtualinvoke $r10.<com.fasterxml.jackson.databind.DeserializationConfig: boolean canOverrideAccessModifiers()>();
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Object createInstance(java.lang.Class,boolean)>($r7, $z0);
+
+        $r3 = (com.fasterxml.jackson.databind.KeyDeserializer) $r2;
+
+        goto label2;
+
+     label7:
+        return $r3;
+
+     label8:
+        return null;
+    }
+
+    public com.fasterxml.jackson.annotation.ObjectIdGenerator objectIdGeneratorInstance(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.introspect.ObjectIdInfo)
+    {
+        com.fasterxml.jackson.databind.deser.DefaultDeserializationContext $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        com.fasterxml.jackson.databind.introspect.ObjectIdInfo $r2;
+        com.fasterxml.jackson.databind.DeserializationConfig $r3;
+        java.lang.Class $r4;
+        com.fasterxml.jackson.databind.cfg.HandlerInstantiator $r5;
+        com.fasterxml.jackson.'annotation'.ObjectIdGenerator $r6;
+        boolean $z0;
+        java.lang.Object $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.introspect.ObjectIdInfo;
+
+        $r4 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.ObjectIdInfo: java.lang.Class getGeneratorType()>();
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig _config>;
+
+        $r5 = virtualinvoke $r3.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.cfg.HandlerInstantiator getHandlerInstantiator()>();
+
+        if $r5 == null goto label2;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig _config>;
+
+        $r6 = virtualinvoke $r5.<com.fasterxml.jackson.databind.cfg.HandlerInstantiator: com.fasterxml.jackson.'annotation'.ObjectIdGenerator objectIdGeneratorInstance(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.introspect.Annotated,java.lang.Class)>($r3, $r1, $r4);
+
+     label1:
+        $r4 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.ObjectIdInfo: java.lang.Class getScope()>();
+
+        $r6 = virtualinvoke $r6.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator: com.fasterxml.jackson.'annotation'.ObjectIdGenerator forScope(java.lang.Class)>($r4);
+
+        return $r6;
+
+     label2:
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.DefaultDeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig _config>;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.databind.DeserializationConfig: boolean canOverrideAccessModifiers()>();
+
+        $r7 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Object createInstance(java.lang.Class,boolean)>($r4, $z0);
+
+        $r6 = (com.fasterxml.jackson.'annotation'.ObjectIdGenerator) $r7;
+
+        goto label1;
+    }
+}

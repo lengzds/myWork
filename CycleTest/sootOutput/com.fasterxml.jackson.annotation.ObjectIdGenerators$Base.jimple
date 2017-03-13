@@ -1,0 +1,60 @@
+abstract class com.fasterxml.jackson.'annotation'.ObjectIdGenerators$Base extends com.fasterxml.jackson.'annotation'.ObjectIdGenerator
+{
+    protected final java.lang.Class _scope;
+
+    protected void <init>(java.lang.Class)
+    {
+        com.fasterxml.jackson.'annotation'.ObjectIdGenerators$Base $r0;
+        java.lang.Class $r1;
+
+        $r0 := @this: com.fasterxml.jackson.'annotation'.ObjectIdGenerators$Base;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        specialinvoke $r0.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.'annotation'.ObjectIdGenerators$Base: java.lang.Class _scope> = $r1;
+
+        return;
+    }
+
+    public boolean canUseFor(com.fasterxml.jackson.annotation.ObjectIdGenerator)
+    {
+        com.fasterxml.jackson.'annotation'.ObjectIdGenerators$Base $r0;
+        com.fasterxml.jackson.'annotation'.ObjectIdGenerator $r1;
+        java.lang.Class $r2, $r3;
+
+        $r0 := @this: com.fasterxml.jackson.'annotation'.ObjectIdGenerators$Base;
+
+        $r1 := @parameter0: com.fasterxml.jackson.'annotation'.ObjectIdGenerator;
+
+        $r2 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r2 != $r3 goto label1;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator: java.lang.Class getScope()>();
+
+        $r3 = $r0.<com.fasterxml.jackson.'annotation'.ObjectIdGenerators$Base: java.lang.Class _scope>;
+
+        if $r2 != $r3 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final java.lang.Class getScope()
+    {
+        com.fasterxml.jackson.'annotation'.ObjectIdGenerators$Base $r0;
+        java.lang.Class r1;
+
+        $r0 := @this: com.fasterxml.jackson.'annotation'.ObjectIdGenerators$Base;
+
+        r1 = $r0.<com.fasterxml.jackson.'annotation'.ObjectIdGenerators$Base: java.lang.Class _scope>;
+
+        return r1;
+    }
+}

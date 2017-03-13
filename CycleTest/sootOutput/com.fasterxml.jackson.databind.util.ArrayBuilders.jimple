@@ -1,0 +1,286 @@
+public final class com.fasterxml.jackson.databind.util.ArrayBuilders extends java.lang.Object
+{
+    com.fasterxml.jackson.databind.util.ArrayBuilders$BooleanBuilder _booleanBuilder;
+    com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder _byteBuilder;
+    com.fasterxml.jackson.databind.util.ArrayBuilders$DoubleBuilder _doubleBuilder;
+    com.fasterxml.jackson.databind.util.ArrayBuilders$FloatBuilder _floatBuilder;
+    com.fasterxml.jackson.databind.util.ArrayBuilders$IntBuilder _intBuilder;
+    com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder _longBuilder;
+    com.fasterxml.jackson.databind.util.ArrayBuilders$ShortBuilder _shortBuilder;
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$BooleanBuilder _booleanBuilder> = null;
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder _byteBuilder> = null;
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$ShortBuilder _shortBuilder> = null;
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$IntBuilder _intBuilder> = null;
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder _longBuilder> = null;
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$FloatBuilder _floatBuilder> = null;
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$DoubleBuilder _doubleBuilder> = null;
+
+        return;
+    }
+
+    public static java.lang.Iterable arrayAsIterable(java.lang.Object[])
+    {
+        java.lang.Object[] $r0;
+        com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator $r1;
+
+        $r0 := @parameter0: java.lang.Object[];
+
+        $r1 = new com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator: void <init>(java.lang.Object[])>($r0);
+
+        return $r1;
+    }
+
+    public static java.util.HashSet arrayToSet(java.lang.Object[])
+    {
+        java.lang.Object[] $r0;
+        java.util.HashSet $r1;
+        int $i0, $i1;
+        java.lang.Object $r2;
+
+        $r0 := @parameter0: java.lang.Object[];
+
+        $r1 = new java.util.HashSet;
+
+        specialinvoke $r1.<java.util.HashSet: void <init>()>();
+
+        if $r0 == null goto label2;
+
+        $i0 = lengthof $r0;
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label2;
+
+        $r2 = $r0[$i1];
+
+        virtualinvoke $r1.<java.util.HashSet: boolean add(java.lang.Object)>($r2);
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label2:
+        return $r1;
+    }
+
+    public static java.util.HashSet setAndArray(java.util.Set, java.lang.Object[])
+    {
+        java.util.Set $r0;
+        java.lang.Object[] $r1;
+        java.util.HashSet $r2;
+        int $i0, $i1;
+        java.lang.Object $r3;
+
+        $r0 := @parameter0: java.util.Set;
+
+        $r1 := @parameter1: java.lang.Object[];
+
+        $r2 = new java.util.HashSet;
+
+        specialinvoke $r2.<java.util.HashSet: void <init>()>();
+
+        if $r0 == null goto label1;
+
+        virtualinvoke $r2.<java.util.HashSet: boolean addAll(java.util.Collection)>($r0);
+
+     label1:
+        if $r1 == null goto label3;
+
+        $i0 = lengthof $r1;
+
+        $i1 = 0;
+
+     label2:
+        if $i1 >= $i0 goto label3;
+
+        $r3 = $r1[$i1];
+
+        virtualinvoke $r2.<java.util.HashSet: boolean add(java.lang.Object)>($r3);
+
+        $i1 = $i1 + 1;
+
+        goto label2;
+
+     label3:
+        return $r2;
+    }
+
+    public final com.fasterxml.jackson.databind.util.ArrayBuilders$BooleanBuilder getBooleanBuilder()
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders $r0;
+        com.fasterxml.jackson.databind.util.ArrayBuilders$BooleanBuilder $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$BooleanBuilder _booleanBuilder>;
+
+        if $r1 != null goto label1;
+
+        $r1 = new com.fasterxml.jackson.databind.util.ArrayBuilders$BooleanBuilder;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.util.ArrayBuilders$BooleanBuilder: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$BooleanBuilder _booleanBuilder> = $r1;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$BooleanBuilder _booleanBuilder>;
+
+        return $r1;
+    }
+
+    public final com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder getByteBuilder()
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders $r0;
+        com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder _byteBuilder>;
+
+        if $r1 != null goto label1;
+
+        $r1 = new com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder _byteBuilder> = $r1;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder _byteBuilder>;
+
+        return $r1;
+    }
+
+    public final com.fasterxml.jackson.databind.util.ArrayBuilders$DoubleBuilder getDoubleBuilder()
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders $r0;
+        com.fasterxml.jackson.databind.util.ArrayBuilders$DoubleBuilder $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$DoubleBuilder _doubleBuilder>;
+
+        if $r1 != null goto label1;
+
+        $r1 = new com.fasterxml.jackson.databind.util.ArrayBuilders$DoubleBuilder;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.util.ArrayBuilders$DoubleBuilder: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$DoubleBuilder _doubleBuilder> = $r1;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$DoubleBuilder _doubleBuilder>;
+
+        return $r1;
+    }
+
+    public final com.fasterxml.jackson.databind.util.ArrayBuilders$FloatBuilder getFloatBuilder()
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders $r0;
+        com.fasterxml.jackson.databind.util.ArrayBuilders$FloatBuilder $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$FloatBuilder _floatBuilder>;
+
+        if $r1 != null goto label1;
+
+        $r1 = new com.fasterxml.jackson.databind.util.ArrayBuilders$FloatBuilder;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.util.ArrayBuilders$FloatBuilder: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$FloatBuilder _floatBuilder> = $r1;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$FloatBuilder _floatBuilder>;
+
+        return $r1;
+    }
+
+    public final com.fasterxml.jackson.databind.util.ArrayBuilders$IntBuilder getIntBuilder()
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders $r0;
+        com.fasterxml.jackson.databind.util.ArrayBuilders$IntBuilder $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$IntBuilder _intBuilder>;
+
+        if $r1 != null goto label1;
+
+        $r1 = new com.fasterxml.jackson.databind.util.ArrayBuilders$IntBuilder;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.util.ArrayBuilders$IntBuilder: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$IntBuilder _intBuilder> = $r1;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$IntBuilder _intBuilder>;
+
+        return $r1;
+    }
+
+    public final com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder getLongBuilder()
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders $r0;
+        com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder _longBuilder>;
+
+        if $r1 != null goto label1;
+
+        $r1 = new com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder _longBuilder> = $r1;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder _longBuilder>;
+
+        return $r1;
+    }
+
+    public final com.fasterxml.jackson.databind.util.ArrayBuilders$ShortBuilder getShortBuilder()
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders $r0;
+        com.fasterxml.jackson.databind.util.ArrayBuilders$ShortBuilder $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$ShortBuilder _shortBuilder>;
+
+        if $r1 != null goto label1;
+
+        $r1 = new com.fasterxml.jackson.databind.util.ArrayBuilders$ShortBuilder;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.util.ArrayBuilders$ShortBuilder: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$ShortBuilder _shortBuilder> = $r1;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$ShortBuilder _shortBuilder>;
+
+        return $r1;
+    }
+}

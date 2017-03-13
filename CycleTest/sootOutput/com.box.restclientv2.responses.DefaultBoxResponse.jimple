@@ -1,0 +1,112 @@
+public class com.box.restclientv2.responses.DefaultBoxResponse extends java.lang.Object implements com.box.restclientv2.interfaces.IBoxResponse
+{
+    private int a;
+    private final org.apache.http.HttpResponse b;
+
+    public void <init>(org.apache.http.HttpResponse)
+    {
+        com.box.restclientv2.responses.DefaultBoxResponse $r0;
+        org.apache.http.HttpResponse $r1;
+
+        $r0 := @this: com.box.restclientv2.responses.DefaultBoxResponse;
+
+        $r1 := @parameter0: org.apache.http.HttpResponse;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.box.restclientv2.responses.DefaultBoxResponse: org.apache.http.HttpResponse b> = $r1;
+
+        return;
+    }
+
+    public final java.lang.Object a(com.box.restclientv2.interfaces.IBoxResponseParser, com.box.restclientv2.interfaces.IBoxResponseParser)
+    {
+        com.box.restclientv2.responses.DefaultBoxResponse $r0;
+        com.box.restclientv2.interfaces.IBoxResponseParser $r1, $r2;
+        int $i0, $i1;
+        org.apache.http.HttpResponse $r3;
+        org.apache.http.StatusLine $r4;
+        java.lang.Object $r5;
+
+        $r0 := @this: com.box.restclientv2.responses.DefaultBoxResponse;
+
+        $r1 := @parameter0: com.box.restclientv2.interfaces.IBoxResponseParser;
+
+        $r2 := @parameter1: com.box.restclientv2.interfaces.IBoxResponseParser;
+
+        $r3 = $r0.<com.box.restclientv2.responses.DefaultBoxResponse: org.apache.http.HttpResponse b>;
+
+        $r4 = interfaceinvoke $r3.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        $i1 = interfaceinvoke $r4.<org.apache.http.StatusLine: int getStatusCode()>();
+
+        $i0 = $r0.<com.box.restclientv2.responses.DefaultBoxResponse: int a>;
+
+        if $i1 == $i0 goto label1;
+
+        $r5 = interfaceinvoke $r2.<com.box.restclientv2.interfaces.IBoxResponseParser: java.lang.Object a(com.box.restclientv2.interfaces.IBoxResponse)>($r0);
+
+        return $r5;
+
+     label1:
+        $r5 = interfaceinvoke $r1.<com.box.restclientv2.interfaces.IBoxResponseParser: java.lang.Object a(com.box.restclientv2.interfaces.IBoxResponse)>($r0);
+
+        return $r5;
+    }
+
+    public final org.apache.http.HttpResponse a()
+    {
+        com.box.restclientv2.responses.DefaultBoxResponse $r0;
+        org.apache.http.HttpResponse r1;
+
+        $r0 := @this: com.box.restclientv2.responses.DefaultBoxResponse;
+
+        r1 = $r0.<com.box.restclientv2.responses.DefaultBoxResponse: org.apache.http.HttpResponse b>;
+
+        return r1;
+    }
+
+    public final void a(int)
+    {
+        com.box.restclientv2.responses.DefaultBoxResponse $r0;
+        int $i0;
+
+        $r0 := @this: com.box.restclientv2.responses.DefaultBoxResponse;
+
+        $i0 := @parameter0: int;
+
+        $r0.<com.box.restclientv2.responses.DefaultBoxResponse: int a> = $i0;
+
+        return;
+    }
+
+    public final int b()
+    {
+        com.box.restclientv2.responses.DefaultBoxResponse $r0;
+        org.apache.http.HttpResponse $r1;
+        org.apache.http.StatusLine $r2;
+        int $i0;
+
+        $r0 := @this: com.box.restclientv2.responses.DefaultBoxResponse;
+
+        $r1 = $r0.<com.box.restclientv2.responses.DefaultBoxResponse: org.apache.http.HttpResponse b>;
+
+        $r2 = interfaceinvoke $r1.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        $i0 = interfaceinvoke $r2.<org.apache.http.StatusLine: int getStatusCode()>();
+
+        return $i0;
+    }
+
+    public final int c()
+    {
+        com.box.restclientv2.responses.DefaultBoxResponse $r0;
+        int i0;
+
+        $r0 := @this: com.box.restclientv2.responses.DefaultBoxResponse;
+
+        i0 = $r0.<com.box.restclientv2.responses.DefaultBoxResponse: int a>;
+
+        return i0;
+    }
+}

@@ -1,0 +1,87 @@
+public final class com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer extends com.fasterxml.jackson.databind.JsonSerializer
+{
+    protected final com.fasterxml.jackson.databind.JsonSerializer _serializer;
+    protected final com.fasterxml.jackson.databind.jsontype.TypeSerializer _typeSerializer;
+
+    public void <init>(com.fasterxml.jackson.databind.jsontype.TypeSerializer, com.fasterxml.jackson.databind.JsonSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer $r0;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r1;
+        com.fasterxml.jackson.databind.JsonSerializer $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JsonSerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.JsonSerializer: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer: com.fasterxml.jackson.databind.jsontype.TypeSerializer _typeSerializer> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer: com.fasterxml.jackson.databind.JsonSerializer _serializer> = $r2;
+
+        return;
+    }
+
+    public final java.lang.Class handledType()
+    {
+        com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer;
+
+        return class "java/lang/Object";
+    }
+
+    public final void serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        com.fasterxml.jackson.databind.JsonSerializer $r4;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer: com.fasterxml.jackson.databind.JsonSerializer _serializer>;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer: com.fasterxml.jackson.databind.jsontype.TypeSerializer _typeSerializer>;
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.JsonSerializer: void serializeWithType(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider,com.fasterxml.jackson.databind.jsontype.TypeSerializer)>($r1, $r2, $r3, $r5);
+
+        return;
+    }
+
+    public final void serializeWithType(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r4;
+        com.fasterxml.jackson.databind.JsonSerializer $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer: com.fasterxml.jackson.databind.JsonSerializer _serializer>;
+
+        virtualinvoke $r5.<com.fasterxml.jackson.databind.JsonSerializer: void serializeWithType(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider,com.fasterxml.jackson.databind.jsontype.TypeSerializer)>($r1, $r2, $r3, $r4);
+
+        return;
+    }
+}

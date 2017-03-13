@@ -1,0 +1,346 @@
+final class com.speedsoftware.rootexplorer.kd extends java.lang.Thread
+{
+    final int a;
+    com.speedsoftware.rootexplorer.km b;
+    final com.speedsoftware.rootexplorer.ge c;
+    private com.speedsoftware.rootexplorer.bn d;
+    private boolean e;
+    private boolean f;
+    private java.lang.String g;
+    private long h;
+    private int i;
+
+    void <init>(com.speedsoftware.rootexplorer.ge, com.speedsoftware.rootexplorer.bn, int, com.speedsoftware.rootexplorer.km)
+    {
+        com.speedsoftware.rootexplorer.kd $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+        com.speedsoftware.rootexplorer.bn $r2;
+        int $i0;
+        com.speedsoftware.rootexplorer.km $r3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.kd;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r2 := @parameter1: com.speedsoftware.rootexplorer.bn;
+
+        $i0 := @parameter2: int;
+
+        $r3 := @parameter3: com.speedsoftware.rootexplorer.km;
+
+        $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.ge c> = $r1;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.kd: int a> = 10000;
+
+        $r0.<com.speedsoftware.rootexplorer.kd: boolean e> = 0;
+
+        $r0.<com.speedsoftware.rootexplorer.kd: boolean f> = 0;
+
+        $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.bn d> = $r2;
+
+        $r0.<com.speedsoftware.rootexplorer.kd: int i> = $i0;
+
+        $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.km b> = $r3;
+
+        return;
+    }
+
+    private boolean a(com.speedsoftware.rootexplorer.bn)
+    {
+        com.speedsoftware.rootexplorer.kd $r0;
+        com.speedsoftware.rootexplorer.bn $r1;
+        java.io.FileOutputStream $r2;
+        byte[] $r3;
+        boolean $z0, $z1;
+        java.io.InputStream $r4;
+        java.lang.String $r5;
+        long $l0, $l2;
+        int $i1;
+        android.os.Handler $r6;
+        com.speedsoftware.rootexplorer.ge $r7;
+        java.lang.Runnable $r8;
+        java.io.IOException $r9, $r10, $r12, $r13, $r14, $r15, $r16;
+        java.lang.Throwable $r11;
+        java.io.FileNotFoundException $r17;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.kd;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.bn;
+
+        $z0 = 0;
+
+        $r4 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.bn: java.io.InputStream aO()>();
+
+        if $r4 == null goto label33;
+
+        $r2 = new java.io.FileOutputStream;
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.kd: java.lang.String g>;
+
+     label01:
+        specialinvoke $r2.<java.io.FileOutputStream: void <init>(java.lang.String)>($r5);
+
+     label02:
+        $r3 = newarray (byte)[10000];
+
+        $l0 = 0L;
+
+     label03:
+        $z1 = $r0.<com.speedsoftware.rootexplorer.kd: boolean f>;
+
+     label04:
+        if $z1 != 0 goto label07;
+
+     label05:
+        $i1 = virtualinvoke $r4.<java.io.InputStream: int read(byte[])>($r3);
+
+     label06:
+        if $i1 > 0 goto label12;
+
+     label07:
+        $z1 = $r0.<com.speedsoftware.rootexplorer.kd: boolean f>;
+
+     label08:
+        if $z1 != 0 goto label09;
+
+        $z0 = 1;
+
+     label09:
+        virtualinvoke $r4.<java.io.InputStream: void close()>();
+
+     label10:
+        virtualinvoke $r2.<java.io.OutputStream: void close()>();
+
+     label11:
+        return $z0;
+
+     label12:
+        virtualinvoke $r2.<java.io.OutputStream: void write(byte[],int,int)>($r3, 0, $i1);
+
+     label13:
+        $l2 = (long) $i1;
+
+     label14:
+        $l0 = $l0 + $l2;
+
+     label15:
+        $i1 = $r0.<com.speedsoftware.rootexplorer.kd: int i>;
+
+        $l2 = (long) $i1;
+
+        $l2 = $l0 / $l2;
+
+        $r0.<com.speedsoftware.rootexplorer.kd: long h> = $l2;
+
+        $r6 = <com.speedsoftware.rootexplorer.ge: android.os.Handler s>;
+
+        $r7 = $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.ge c>;
+
+        $r8 = $r7.<com.speedsoftware.rootexplorer.ge: java.lang.Runnable bI>;
+
+     label16:
+        virtualinvoke $r6.<android.os.Handler: boolean post(java.lang.Runnable)>($r8);
+
+     label17:
+        goto label03;
+
+     label18:
+        $r9 := @caughtexception;
+
+     label19:
+        virtualinvoke $r4.<java.io.InputStream: void close()>();
+
+     label20:
+        virtualinvoke $r2.<java.io.OutputStream: void close()>();
+
+     label21:
+        return 0;
+
+     label22:
+        $r10 := @caughtexception;
+
+        return 0;
+
+     label23:
+        $r11 := @caughtexception;
+
+     label24:
+        virtualinvoke $r4.<java.io.InputStream: void close()>();
+
+     label25:
+        virtualinvoke $r2.<java.io.OutputStream: void close()>();
+
+     label26:
+        throw $r11;
+
+     label27:
+        $r12 := @caughtexception;
+
+        goto label20;
+
+     label28:
+        $r13 := @caughtexception;
+
+        goto label25;
+
+     label29:
+        $r14 := @caughtexception;
+
+        goto label26;
+
+     label30:
+        $r15 := @caughtexception;
+
+        goto label10;
+
+     label31:
+        $r16 := @caughtexception;
+
+        return $z0;
+
+     label32:
+        $r17 := @caughtexception;
+
+     label33:
+        return 0;
+
+        catch java.io.FileNotFoundException from label01 to label02 with label32;
+        catch java.io.IOException from label05 to label06 with label18;
+        catch java.lang.Throwable from label03 to label04 with label23;
+        catch java.lang.Throwable from label05 to label06 with label23;
+        catch java.lang.Throwable from label07 to label08 with label23;
+        catch java.io.IOException from label09 to label10 with label30;
+        catch java.io.IOException from label10 to label11 with label31;
+        catch java.io.IOException from label12 to label13 with label18;
+        catch java.io.IOException from label16 to label17 with label18;
+        catch java.lang.Throwable from label12 to label14 with label23;
+        catch java.lang.Throwable from label15 to label17 with label23;
+        catch java.io.IOException from label19 to label20 with label27;
+        catch java.io.IOException from label20 to label21 with label22;
+        catch java.io.IOException from label24 to label25 with label28;
+        catch java.io.IOException from label25 to label26 with label29;
+    }
+
+    final void a()
+    {
+        com.speedsoftware.rootexplorer.kd $r0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.kd;
+
+        $r0.<com.speedsoftware.rootexplorer.kd: boolean f> = 1;
+
+        return;
+    }
+
+    final int b()
+    {
+        com.speedsoftware.rootexplorer.kd $r0;
+        long $l0;
+        int $i1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.kd;
+
+        $l0 = $r0.<com.speedsoftware.rootexplorer.kd: long h>;
+
+        $i1 = (int) $l0;
+
+        return $i1;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.kd $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r3;
+        com.speedsoftware.rootexplorer.bn $r4;
+        boolean $z0;
+        android.app.ProgressDialog $r5;
+        com.speedsoftware.rootexplorer.km $r6;
+        android.os.Handler $r7;
+        java.lang.Throwable $r8;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.kd;
+
+        $r0.<com.speedsoftware.rootexplorer.kd: boolean e> = 1;
+
+     label1:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.ge c>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void H(com.speedsoftware.rootexplorer.ge)>($r1);
+
+        $r2 = new java.lang.StringBuilder;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.ge c>;
+
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.String I(com.speedsoftware.rootexplorer.ge)>($r1);
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r3);
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>($r3);
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.bn d>;
+
+        $r3 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.bn: java.lang.String av()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0.<com.speedsoftware.rootexplorer.kd: java.lang.String g> = $r3;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.bn d>;
+
+        $z0 = specialinvoke $r0.<com.speedsoftware.rootexplorer.kd: boolean a(com.speedsoftware.rootexplorer.bn)>($r4);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.ge c>;
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.ProgressDialog o(com.speedsoftware.rootexplorer.ge)>($r1);
+
+        virtualinvoke $r5.<android.app.ProgressDialog: void dismiss()>();
+
+     label2:
+        if $z0 == 0 goto label6;
+
+     label3:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.ge c>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.kd: java.lang.String g>;
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.bn a(com.speedsoftware.rootexplorer.ge,java.lang.String,boolean,java.lang.String,java.lang.String)>($r1, $r3, 0, null, null);
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.km b>;
+
+     label4:
+        if $r6 == null goto label6;
+
+     label5:
+        $r6 = $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.km b>;
+
+        $r6.<com.speedsoftware.rootexplorer.km: com.speedsoftware.rootexplorer.bn a> = $r4;
+
+        $r7 = <com.speedsoftware.rootexplorer.ge: android.os.Handler s>;
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.kd: com.speedsoftware.rootexplorer.km b>;
+
+        virtualinvoke $r7.<android.os.Handler: boolean post(java.lang.Runnable)>($r6);
+
+     label6:
+        $r0.<com.speedsoftware.rootexplorer.kd: boolean e> = 0;
+
+        return;
+
+     label7:
+        $r8 := @caughtexception;
+
+        $r0.<com.speedsoftware.rootexplorer.kd: boolean e> = 0;
+
+        throw $r8;
+
+        catch java.lang.Throwable from label1 to label2 with label7;
+        catch java.lang.Throwable from label3 to label4 with label7;
+        catch java.lang.Throwable from label5 to label6 with label7;
+    }
+}

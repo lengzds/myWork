@@ -1,0 +1,79 @@
+public final class com.google.android.gms.tagmanager.InstallReferrerService extends android.app.IntentService
+{
+    com.google.android.gms.analytics.CampaignTrackingService a;
+    android.content.Context b;
+
+    public void <init>()
+    {
+        com.google.android.gms.tagmanager.InstallReferrerService $r0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.InstallReferrerService;
+
+        specialinvoke $r0.<android.app.IntentService: void <init>(java.lang.String)>("InstallReferrerService");
+
+        return;
+    }
+
+    private void a(android.content.Context, android.content.Intent)
+    {
+        com.google.android.gms.tagmanager.InstallReferrerService $r0;
+        android.content.Context $r1;
+        android.content.Intent $r2;
+        com.google.android.gms.analytics.CampaignTrackingService $r3;
+
+        $r0 := @this: com.google.android.gms.tagmanager.InstallReferrerService;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: android.content.Intent;
+
+        $r3 = $r0.<com.google.android.gms.tagmanager.InstallReferrerService: com.google.android.gms.analytics.CampaignTrackingService a>;
+
+        if $r3 != null goto label1;
+
+        $r3 = new com.google.android.gms.analytics.CampaignTrackingService;
+
+        specialinvoke $r3.<com.google.android.gms.analytics.CampaignTrackingService: void <init>()>();
+
+        $r0.<com.google.android.gms.tagmanager.InstallReferrerService: com.google.android.gms.analytics.CampaignTrackingService a> = $r3;
+
+     label1:
+        $r3 = $r0.<com.google.android.gms.tagmanager.InstallReferrerService: com.google.android.gms.analytics.CampaignTrackingService a>;
+
+        virtualinvoke $r3.<com.google.android.gms.analytics.CampaignTrackingService: void processIntent(android.content.Context,android.content.Intent)>($r1, $r2);
+
+        return;
+    }
+
+    protected final void onHandleIntent(android.content.Intent)
+    {
+        com.google.android.gms.tagmanager.InstallReferrerService $r0;
+        android.content.Intent $r1;
+        java.lang.String $r2;
+        android.content.Context $r3;
+
+        $r0 := @this: com.google.android.gms.tagmanager.InstallReferrerService;
+
+        $r1 := @parameter0: android.content.Intent;
+
+        $r2 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("referrer");
+
+        $r3 = $r0.<com.google.android.gms.tagmanager.InstallReferrerService: android.content.Context b>;
+
+        if $r3 == null goto label2;
+
+        $r3 = $r0.<com.google.android.gms.tagmanager.InstallReferrerService: android.content.Context b>;
+
+     label1:
+        staticinvoke <com.google.android.gms.tagmanager.ay: void a(android.content.Context,java.lang.String)>($r3, $r2);
+
+        specialinvoke $r0.<com.google.android.gms.tagmanager.InstallReferrerService: void a(android.content.Context,android.content.Intent)>($r3, $r1);
+
+        return;
+
+     label2:
+        $r3 = virtualinvoke $r0.<com.google.android.gms.tagmanager.InstallReferrerService: android.content.Context getApplicationContext()>();
+
+        goto label1;
+    }
+}

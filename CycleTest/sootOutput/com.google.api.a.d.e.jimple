@@ -1,0 +1,422 @@
+public abstract class com.google.api.a.d.e extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.google.api.a.d.e $r0;
+
+        $r0 := @this: com.google.api.a.d.e;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private void a(boolean, java.lang.Object)
+    {
+        com.google.api.a.d.e $r0;
+        boolean $z0, $z1, $z2;
+        java.lang.Object $r1, $r18;
+        java.lang.Class $r2;
+        java.lang.String $r3;
+        java.math.BigDecimal $r4;
+        java.math.BigInteger $r5;
+        java.lang.Long $r6;
+        long $l0;
+        java.lang.Number $r7;
+        float $f0;
+        int $i1;
+        double $d0;
+        java.lang.Boolean $r8;
+        com.google.api.a.f.u $r9;
+        java.lang.Iterable $r10;
+        java.util.Iterator $r11;
+        java.lang.Enum $r12;
+        com.google.api.a.f.x $r13;
+        com.google.api.a.f.n $r14;
+        java.util.Map $r15;
+        java.util.Set $r16;
+        java.util.Map$Entry $r17;
+        java.lang.reflect.Field $r19;
+        java.lang.'annotation'.Annotation $r20;
+
+        $r0 := @this: com.google.api.a.d.e;
+
+        $z0 := @parameter0: boolean;
+
+        $r1 := @parameter1: java.lang.Object;
+
+        $z1 = 1;
+
+        if $r1 != null goto label01;
+
+        return;
+
+     label01:
+        $r2 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $z2 = staticinvoke <com.google.api.a.f.p: boolean a(java.lang.Object)>($r1);
+
+        if $z2 == 0 goto label02;
+
+        virtualinvoke $r0.<com.google.api.a.d.e: void f()>();
+
+        return;
+
+     label02:
+        $z2 = $r1 instanceof java.lang.String;
+
+        if $z2 == 0 goto label03;
+
+        $r3 = (java.lang.String) $r1;
+
+        virtualinvoke $r0.<com.google.api.a.d.e: void b(java.lang.String)>($r3);
+
+        return;
+
+     label03:
+        $z2 = $r1 instanceof java.lang.Number;
+
+        if $z2 == 0 goto label15;
+
+        if $z0 == 0 goto label04;
+
+        $r3 = virtualinvoke $r1.<java.lang.Object: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.google.api.a.d.e: void b(java.lang.String)>($r3);
+
+        return;
+
+     label04:
+        $z0 = $r1 instanceof java.math.BigDecimal;
+
+        if $z0 == 0 goto label05;
+
+        $r4 = (java.math.BigDecimal) $r1;
+
+        virtualinvoke $r0.<com.google.api.a.d.e: void a(java.math.BigDecimal)>($r4);
+
+        return;
+
+     label05:
+        $z0 = $r1 instanceof java.math.BigInteger;
+
+        if $z0 == 0 goto label06;
+
+        $r5 = (java.math.BigInteger) $r1;
+
+        virtualinvoke $r0.<com.google.api.a.d.e: void a(java.math.BigInteger)>($r5);
+
+        return;
+
+     label06:
+        $z0 = $r1 instanceof java.lang.Long;
+
+        if $z0 == 0 goto label07;
+
+        $r6 = (java.lang.Long) $r1;
+
+        $l0 = virtualinvoke $r6.<java.lang.Long: long longValue()>();
+
+        virtualinvoke $r0.<com.google.api.a.d.e: void a(long)>($l0);
+
+        return;
+
+     label07:
+        $z0 = $r1 instanceof java.lang.Float;
+
+        if $z0 == 0 goto label10;
+
+        $r7 = (java.lang.Number) $r1;
+
+        $f0 = virtualinvoke $r7.<java.lang.Number: float floatValue()>();
+
+        $z0 = staticinvoke <java.lang.Float: boolean isInfinite(float)>($f0);
+
+        if $z0 != 0 goto label09;
+
+        $z0 = staticinvoke <java.lang.Float: boolean isNaN(float)>($f0);
+
+        if $z0 != 0 goto label09;
+
+        $z0 = 1;
+
+     label08:
+        staticinvoke <com.google.api.a.f.ao: void a(boolean)>($z0);
+
+        virtualinvoke $r0.<com.google.api.a.d.e: void a(float)>($f0);
+
+        return;
+
+     label09:
+        $z0 = 0;
+
+        goto label08;
+
+     label10:
+        $z0 = $r1 instanceof java.lang.Integer;
+
+        if $z0 != 0 goto label11;
+
+        $z0 = $r1 instanceof java.lang.Short;
+
+        if $z0 != 0 goto label11;
+
+        $z0 = $r1 instanceof java.lang.Byte;
+
+        if $z0 == 0 goto label12;
+
+     label11:
+        $r7 = (java.lang.Number) $r1;
+
+        $i1 = virtualinvoke $r7.<java.lang.Number: int intValue()>();
+
+        virtualinvoke $r0.<com.google.api.a.d.e: void a(int)>($i1);
+
+        return;
+
+     label12:
+        $r7 = (java.lang.Number) $r1;
+
+        $d0 = virtualinvoke $r7.<java.lang.Number: double doubleValue()>();
+
+        $z0 = staticinvoke <java.lang.Double: boolean isInfinite(double)>($d0);
+
+        if $z0 != 0 goto label14;
+
+        $z0 = staticinvoke <java.lang.Double: boolean isNaN(double)>($d0);
+
+        if $z0 != 0 goto label14;
+
+     label13:
+        staticinvoke <com.google.api.a.f.ao: void a(boolean)>($z1);
+
+        virtualinvoke $r0.<com.google.api.a.d.e: void a(double)>($d0);
+
+        return;
+
+     label14:
+        $z1 = 0;
+
+        goto label13;
+
+     label15:
+        $z1 = $r1 instanceof java.lang.Boolean;
+
+        if $z1 == 0 goto label16;
+
+        $r8 = (java.lang.Boolean) $r1;
+
+        $z0 = virtualinvoke $r8.<java.lang.Boolean: boolean booleanValue()>();
+
+        virtualinvoke $r0.<com.google.api.a.d.e: void a(boolean)>($z0);
+
+        return;
+
+     label16:
+        $z1 = $r1 instanceof com.google.api.a.f.u;
+
+        if $z1 == 0 goto label17;
+
+        $r9 = (com.google.api.a.f.u) $r1;
+
+        $r3 = virtualinvoke $r9.<com.google.api.a.f.u: java.lang.String b()>();
+
+        virtualinvoke $r0.<com.google.api.a.d.e: void b(java.lang.String)>($r3);
+
+        return;
+
+     label17:
+        $z1 = $r1 instanceof java.lang.Iterable;
+
+        if $z1 != 0 goto label18;
+
+        $z1 = virtualinvoke $r2.<java.lang.Class: boolean isArray()>();
+
+        if $z1 == 0 goto label21;
+
+     label18:
+        virtualinvoke $r0.<com.google.api.a.d.e: void b()>();
+
+        $r10 = staticinvoke <com.google.api.a.f.av: java.lang.Iterable a(java.lang.Object)>($r1);
+
+        $r11 = interfaceinvoke $r10.<java.lang.Iterable: java.util.Iterator iterator()>();
+
+     label19:
+        $z1 = interfaceinvoke $r11.<java.util.Iterator: boolean hasNext()>();
+
+        if $z1 == 0 goto label20;
+
+        $r1 = interfaceinvoke $r11.<java.util.Iterator: java.lang.Object next()>();
+
+        specialinvoke $r0.<com.google.api.a.d.e: void a(boolean,java.lang.Object)>($z0, $r1);
+
+        goto label19;
+
+     label20:
+        virtualinvoke $r0.<com.google.api.a.d.e: void c()>();
+
+        return;
+
+     label21:
+        $z1 = virtualinvoke $r2.<java.lang.Class: boolean isEnum()>();
+
+        if $z1 == 0 goto label23;
+
+        $r12 = (java.lang.Enum) $r1;
+
+        $r13 = staticinvoke <com.google.api.a.f.x: com.google.api.a.f.x a(java.lang.Enum)>($r12);
+
+        $r3 = virtualinvoke $r13.<com.google.api.a.f.x: java.lang.String b()>();
+
+        if $r3 != null goto label22;
+
+        virtualinvoke $r0.<com.google.api.a.d.e: void f()>();
+
+        return;
+
+     label22:
+        virtualinvoke $r0.<com.google.api.a.d.e: void b(java.lang.String)>($r3);
+
+        return;
+
+     label23:
+        virtualinvoke $r0.<com.google.api.a.d.e: void d()>();
+
+        $z1 = $r1 instanceof java.util.Map;
+
+        if $z1 == 0 goto label28;
+
+        $z1 = $r1 instanceof com.google.api.a.f.y;
+
+        if $z1 != 0 goto label28;
+
+        $z1 = 1;
+
+     label24:
+        if $z1 == 0 goto label29;
+
+        $r14 = null;
+
+     label25:
+        $r15 = staticinvoke <com.google.api.a.f.p: java.util.Map b(java.lang.Object)>($r1);
+
+        $r16 = interfaceinvoke $r15.<java.util.Map: java.util.Set entrySet()>();
+
+        $r11 = interfaceinvoke $r16.<java.util.Set: java.util.Iterator iterator()>();
+
+     label26:
+        $z2 = interfaceinvoke $r11.<java.util.Iterator: boolean hasNext()>();
+
+        if $z2 == 0 goto label32;
+
+        $r1 = interfaceinvoke $r11.<java.util.Iterator: java.lang.Object next()>();
+
+        $r17 = (java.util.Map$Entry) $r1;
+
+        $r1 = interfaceinvoke $r17.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        if $r1 == null goto label26;
+
+        $r18 = interfaceinvoke $r17.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r3 = (java.lang.String) $r18;
+
+        if $z1 == 0 goto label30;
+
+        $z2 = $z0;
+
+     label27:
+        virtualinvoke $r0.<com.google.api.a.d.e: void a(java.lang.String)>($r3);
+
+        specialinvoke $r0.<com.google.api.a.d.e: void a(boolean,java.lang.Object)>($z2, $r1);
+
+        goto label26;
+
+     label28:
+        $z1 = 0;
+
+        goto label24;
+
+     label29:
+        $r14 = staticinvoke <com.google.api.a.f.n: com.google.api.a.f.n a(java.lang.Class)>($r2);
+
+        goto label25;
+
+     label30:
+        $r19 = virtualinvoke $r14.<com.google.api.a.f.n: java.lang.reflect.Field b(java.lang.String)>($r3);
+
+        if $r19 == null goto label31;
+
+        $r20 = virtualinvoke $r19.<java.lang.reflect.Field: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/google/api/a/d/l");
+
+        if $r20 == null goto label31;
+
+        $z2 = 1;
+
+        goto label27;
+
+     label31:
+        $z2 = 0;
+
+        goto label27;
+
+     label32:
+        virtualinvoke $r0.<com.google.api.a.d.e: void e()>();
+
+        return;
+    }
+
+    public abstract void a();
+
+    public abstract void a(double);
+
+    public abstract void a(float);
+
+    public abstract void a(int);
+
+    public abstract void a(long);
+
+    public final void a(java.lang.Object)
+    {
+        com.google.api.a.d.e $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.google.api.a.d.e;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        specialinvoke $r0.<com.google.api.a.d.e: void a(boolean,java.lang.Object)>(0, $r1);
+
+        return;
+    }
+
+    public abstract void a(java.lang.String);
+
+    public abstract void a(java.math.BigDecimal);
+
+    public abstract void a(java.math.BigInteger);
+
+    public abstract void a(boolean);
+
+    public abstract void b();
+
+    public abstract void b(java.lang.String);
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public void g()
+    {
+        com.google.api.a.d.e $r0;
+
+        $r0 := @this: com.google.api.a.d.e;
+
+        return;
+    }
+}

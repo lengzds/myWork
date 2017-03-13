@@ -1,0 +1,236 @@
+public final class com.speedsoftware.a.q extends com.speedsoftware.a.ac
+{
+
+    public void <init>()
+    {
+        com.speedsoftware.a.q $r0;
+
+        $r0 := @this: com.speedsoftware.a.q;
+
+        specialinvoke $r0.<com.speedsoftware.a.ac: void <init>(byte[])>(null);
+
+        return;
+    }
+
+    public final int a()
+    {
+        com.speedsoftware.a.q $r0;
+        short $s0;
+        byte[] $r1;
+        int $i1;
+
+        $r0 := @this: com.speedsoftware.a.q;
+
+        $r1 = $r0.<com.speedsoftware.a.q: byte[] c>;
+
+        $i1 = $r0.<com.speedsoftware.a.q: int d>;
+
+        $s0 = staticinvoke <com.speedsoftware.a.am: short a(byte[],int)>($r1, $i1);
+
+        $i1 = $s0 & 65535;
+
+        return $i1;
+    }
+
+    public final com.speedsoftware.a.q a(byte[])
+    {
+        com.speedsoftware.a.q $r0;
+        byte[] $r1;
+
+        $r0 := @this: com.speedsoftware.a.q;
+
+        $r1 := @parameter0: byte[];
+
+        $r0.<com.speedsoftware.a.q: byte[] c> = $r1;
+
+        $r0.<com.speedsoftware.a.q: int d> = 0;
+
+        return $r0;
+    }
+
+    public final void a(int)
+    {
+        com.speedsoftware.a.q $r0;
+        int $i0, $i1;
+        byte[] $r1;
+        short $s2;
+
+        $r0 := @this: com.speedsoftware.a.q;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<com.speedsoftware.a.q: byte[] c>;
+
+        $i1 = $r0.<com.speedsoftware.a.q: int d>;
+
+        $s2 = (short) $i0;
+
+        staticinvoke <com.speedsoftware.a.am: void a(byte[],int,short)>($r1, $i1, $s2);
+
+        return;
+    }
+
+    public final void a(com.speedsoftware.a.as)
+    {
+        com.speedsoftware.a.q $r0;
+        com.speedsoftware.a.as $r1;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.a.q;
+
+        $r1 := @parameter0: com.speedsoftware.a.as;
+
+        $i0 = virtualinvoke $r1.<com.speedsoftware.a.as: int e()>();
+
+        virtualinvoke $r0.<com.speedsoftware.a.q: void a_(int)>($i0);
+
+        return;
+    }
+
+    public final void a_(int)
+    {
+        com.speedsoftware.a.q $r0;
+        int $i0, $i1;
+        byte[] $r1;
+
+        $r0 := @this: com.speedsoftware.a.q;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<com.speedsoftware.a.q: byte[] c>;
+
+        $i1 = $r0.<com.speedsoftware.a.q: int d>;
+
+        $i1 = $i1 + 2;
+
+        staticinvoke <com.speedsoftware.a.am: void a(byte[],int,int)>($r1, $i1, $i0);
+
+        return;
+    }
+
+    public final int b()
+    {
+        com.speedsoftware.a.q $r0;
+        int $i0;
+        byte[] $r1;
+
+        $r0 := @this: com.speedsoftware.a.q;
+
+        $r1 = $r0.<com.speedsoftware.a.q: byte[] c>;
+
+        $i0 = $r0.<com.speedsoftware.a.q: int d>;
+
+        $i0 = $i0 + 2;
+
+        $i0 = staticinvoke <com.speedsoftware.a.am: int b(byte[],int)>($r1, $i0);
+
+        return $i0;
+    }
+
+    public final void b(int)
+    {
+        com.speedsoftware.a.q $r0;
+        int $i0, $i1, $i4, $i5;
+        byte[] $r1;
+        byte $b2;
+        short $s3;
+
+        $r0 := @this: com.speedsoftware.a.q;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<com.speedsoftware.a.q: byte[] c>;
+
+        $i1 = $r0.<com.speedsoftware.a.q: int d>;
+
+        $b2 = $r1[$i1];
+
+        $s3 = $b2 & 255;
+
+        $i4 = $i0 & 255;
+
+        $i4 = $s3 + $i4;
+
+        $i4 = $i4 >>> 8;
+
+        $b2 = $r1[$i1];
+
+        $i5 = $i0 & 255;
+
+        $i5 = $b2 + $i5;
+
+        $b2 = (byte) $i5;
+
+        $r1[$i1] = $b2;
+
+        if $i4 > 0 goto label1;
+
+        $i5 = 65280 & $i0;
+
+        if $i5 == 0 goto label2;
+
+     label1:
+        $i1 = $i1 + 1;
+
+        $b2 = $r1[$i1];
+
+        $i0 = $i0 >>> 8;
+
+        $i0 = $i0 & 255;
+
+        $i0 = $i4 + $i0;
+
+        $i0 = $i0 + $b2;
+
+        $b2 = (byte) $i0;
+
+        $r1[$i1] = $b2;
+
+     label2:
+        return;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.speedsoftware.a.q $r0;
+        java.lang.StringBuilder $r1;
+        int $i0;
+        java.lang.String $r2;
+
+        $r0 := @this: com.speedsoftware.a.q;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("FreqData[");
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n  pos=");
+
+        $i0 = $r0.<com.speedsoftware.a.q: int d>;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n  size=");
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(6);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n  summFreq=");
+
+        $i0 = virtualinvoke $r0.<com.speedsoftware.a.q: int a()>();
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n  stats=");
+
+        $i0 = virtualinvoke $r0.<com.speedsoftware.a.q: int b()>();
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n]");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+}

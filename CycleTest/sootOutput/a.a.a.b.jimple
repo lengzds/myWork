@@ -1,0 +1,81 @@
+public final class a.a.a.b extends a.a.a.l
+{
+
+    public void <init>(java.lang.String)
+    {
+        a.a.a.b $r0;
+        java.lang.String $r1;
+        java.lang.StringBuilder $r2;
+        a.a.a.p $r3;
+
+        $r0 := @this: a.a.a.b;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("\\\\");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r3 = new a.a.a.p;
+
+        specialinvoke $r3.<a.a.a.p: void <init>()>();
+
+        specialinvoke $r0.<a.a.a.l: void <init>(java.lang.String,a.a.b.d)>($r1, $r3);
+
+        $r0.<a.a.a.b: int f> = 0;
+
+        $r0.<a.a.a.b: int g> = 3;
+
+        return;
+    }
+
+    public final a.d.h[] d()
+    {
+        a.a.a.b $r0;
+        a.a.a.c[] $r1;
+        a.a.b.d $r2;
+        a.a.a.p $r3;
+        int $i0, $i1;
+        a.a.a.c $r4;
+        a.a.a.n[] $r5;
+        a.a.a.n $r6;
+
+        $r0 := @this: a.a.a.b;
+
+        $r2 = $r0.<a.a.a.b: a.a.b.d d>;
+
+        $r3 = (a.a.a.p) $r2;
+
+        $i0 = $r3.<a.a.a.p: int a>;
+
+        $r1 = newarray (a.a.a.c)[$i0];
+
+        $i0 = 0;
+
+     label1:
+        $i1 = $r3.<a.a.a.p: int a>;
+
+        if $i0 >= $i1 goto label2;
+
+        $r4 = new a.a.a.c;
+
+        $r5 = $r3.<a.a.a.p: a.a.a.n[] b>;
+
+        $r6 = $r5[$i0];
+
+        specialinvoke $r4.<a.a.a.c: void <init>(a.a.a.b,a.a.a.n)>($r0, $r6);
+
+        $r1[$i0] = $r4;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        return $r1;
+    }
+}

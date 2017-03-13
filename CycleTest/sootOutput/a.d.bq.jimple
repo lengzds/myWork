@@ -1,0 +1,385 @@
+final class a.d.bq extends a.d.at
+{
+    boolean S;
+    int T;
+    int U;
+    int V;
+    int a;
+    java.lang.String aA;
+    int aB;
+
+    void <init>()
+    {
+        a.d.bq $r0;
+
+        $r0 := @this: a.d.bq;
+
+        specialinvoke $r0.<a.d.at: void <init>()>();
+
+        $r0.<a.d.bq: byte g> = 50;
+
+        $r0.<a.d.bq: byte L> = 1;
+
+        return;
+    }
+
+    private java.lang.String b(byte[], int, int)
+    {
+        a.d.bq $r0;
+        byte[] $r1;
+        int $i0, $i1, $i2;
+        boolean $z0;
+        java.lang.String $r2, $r3;
+        byte $b3;
+        java.io.UnsupportedEncodingException $r4;
+        a.e.e $r5;
+
+        $r0 := @this: a.d.bq;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $z0 = $r0.<a.d.bq: boolean t>;
+
+        if $z0 == 0 goto label3;
+
+        $r2 = new java.lang.String;
+
+     label1:
+        specialinvoke $r2.<java.lang.String: void <init>(byte[],int,int,java.lang.String)>($r1, $i0, $i1, "UTF-16LE");
+
+     label2:
+        return $r2;
+
+     label3:
+        if $i1 <= 0 goto label4;
+
+        $i2 = $i0 + $i1;
+
+        $i2 = $i2 + -1;
+
+        $b3 = $r1[$i2];
+
+        if $b3 != 0 goto label4;
+
+        $i1 = $i1 + -1;
+
+     label4:
+        $r2 = new java.lang.String;
+
+        $r3 = <a.d.u: java.lang.String am>;
+
+     label5:
+        specialinvoke $r2.<java.lang.String: void <init>(byte[],int,int,java.lang.String)>($r1, $i0, $i1, $r3);
+
+     label6:
+        return $r2;
+
+     label7:
+        $r4 := @caughtexception;
+
+        $r5 = <a.d.bq: a.e.e e>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 <= 1 goto label8;
+
+        $r5 = <a.d.bq: a.e.e e>;
+
+        virtualinvoke $r4.<java.io.UnsupportedEncodingException: void printStackTrace(java.io.PrintStream)>($r5);
+
+     label8:
+        return null;
+
+        catch java.io.UnsupportedEncodingException from label1 to label2 with label7;
+        catch java.io.UnsupportedEncodingException from label5 to label6 with label7;
+    }
+
+    final int a(byte[], int)
+    {
+        a.d.bq $r0;
+        byte[] $r1;
+        int $i0, $i2, $i3;
+        byte $b1;
+        boolean $z0;
+
+        $r0 := @this: a.d.bq;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $b1 = $r0.<a.d.bq: byte L>;
+
+        if $b1 != 1 goto label4;
+
+        $i2 = staticinvoke <a.d.bq: int d(byte[],int)>($r1, $i0);
+
+        $r0.<a.d.bq: int a> = $i2;
+
+        $i2 = $i0 + 2;
+
+     label1:
+        $i3 = staticinvoke <a.d.bq: int d(byte[],int)>($r1, $i2);
+
+        $r0.<a.d.bq: int Q> = $i3;
+
+        $i2 = $i2 + 2;
+
+        $b1 = $r1[$i2];
+
+        $b1 = $b1 & 1;
+
+        if $b1 != 1 goto label3;
+
+        $z0 = 1;
+
+     label2:
+        $r0.<a.d.bq: boolean S> = $z0;
+
+        $i2 = $i2 + 2;
+
+        $i3 = staticinvoke <a.d.bq: int d(byte[],int)>($r1, $i2);
+
+        $r0.<a.d.bq: int T> = $i3;
+
+        $i2 = $i2 + 2;
+
+        $i3 = staticinvoke <a.d.bq: int d(byte[],int)>($r1, $i2);
+
+        $r0.<a.d.bq: int U> = $i3;
+
+        $i2 = $i2 + 2;
+
+        $i0 = $i2 - $i0;
+
+        return $i0;
+
+     label3:
+        $z0 = 0;
+
+        goto label2;
+
+     label4:
+        $i2 = $i0;
+
+        goto label1;
+    }
+
+    final int a(byte[], int, int)
+    {
+        a.d.bq $r0;
+        byte[] $r1;
+        int $i0, $i1, $i2, $i4;
+        a.d.br $r2;
+        a.d.br[] $r3;
+        a.d.h[] $r4;
+        long $l3;
+        java.lang.String $r5;
+
+        $r0 := @this: a.d.bq;
+
+        $r1 := @parameter0: byte[];
+
+        $i1 := @parameter1: int;
+
+        $i0 := @parameter2: int;
+
+        $i0 = $r0.<a.d.bq: int U>;
+
+        $i0 = $i0 + $i1;
+
+        $r0.<a.d.bq: int V> = $i0;
+
+        $i0 = $r0.<a.d.bq: int Q>;
+
+        $r3 = newarray (a.d.br)[$i0];
+
+        $r0.<a.d.bq: a.d.h[] R> = $r3;
+
+        $i0 = 0;
+
+     label1:
+        $i2 = $r0.<a.d.bq: int Q>;
+
+        if $i0 >= $i2 goto label4;
+
+        $r4 = $r0.<a.d.bq: a.d.h[] R>;
+
+        $r2 = new a.d.br;
+
+        specialinvoke $r2.<a.d.br: void <init>(a.d.bq)>($r0);
+
+        $r4[$i0] = $r2;
+
+        $i2 = staticinvoke <a.d.bq: int e(byte[],int)>($r1, $i1);
+
+        $r2.<a.d.br: int a> = $i2;
+
+        $i2 = $i1 + 4;
+
+        $i2 = staticinvoke <a.d.bq: int e(byte[],int)>($r1, $i2);
+
+        $r2.<a.d.br: int b> = $i2;
+
+        $i2 = $i1 + 8;
+
+        $l3 = staticinvoke <a.d.bq: long g(byte[],int)>($r1, $i2);
+
+        $r2.<a.d.br: long c> = $l3;
+
+        $i2 = $i1 + 24;
+
+        $l3 = staticinvoke <a.d.bq: long g(byte[],int)>($r1, $i2);
+
+        $r2.<a.d.br: long e> = $l3;
+
+        $i2 = $i1 + 40;
+
+        $l3 = staticinvoke <a.d.bq: long f(byte[],int)>($r1, $i2);
+
+        $r2.<a.d.br: long g> = $l3;
+
+        $i2 = $i1 + 56;
+
+        $i2 = staticinvoke <a.d.bq: int e(byte[],int)>($r1, $i2);
+
+        $r2.<a.d.br: int i> = $i2;
+
+        $i2 = $i1 + 60;
+
+        $i2 = staticinvoke <a.d.bq: int e(byte[],int)>($r1, $i2);
+
+        $r2.<a.d.br: int j> = $i2;
+
+        $i2 = $i1 + 94;
+
+        $i4 = $r2.<a.d.br: int j>;
+
+        $r5 = specialinvoke $r0.<a.d.bq: java.lang.String b(byte[],int,int)>($r1, $i2, $i4);
+
+        $r2.<a.d.br: java.lang.String n> = $r5;
+
+        $i2 = $r0.<a.d.bq: int V>;
+
+        if $i2 < $i1 goto label3;
+
+        $i2 = $r2.<a.d.br: int a>;
+
+        if $i2 == 0 goto label2;
+
+        $i2 = $r0.<a.d.bq: int V>;
+
+        $i4 = $r2.<a.d.br: int a>;
+
+        $i4 = $i4 + $i1;
+
+        if $i2 >= $i4 goto label3;
+
+     label2:
+        $r5 = $r2.<a.d.br: java.lang.String n>;
+
+        $r0.<a.d.bq: java.lang.String aA> = $r5;
+
+        $i2 = $r2.<a.d.br: int b>;
+
+        $r0.<a.d.bq: int aB> = $i2;
+
+     label3:
+        $i2 = $r2.<a.d.br: int a>;
+
+        $i1 = $i1 + $i2;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        $i1 = $r0.<a.d.bq: int K>;
+
+        return $i1;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.bq $r0;
+        byte $b0;
+        java.lang.String $r1, $r2;
+        java.lang.StringBuilder $r3;
+        int $i1;
+        boolean $z0;
+
+        $r0 := @this: a.d.bq;
+
+        $b0 = $r0.<a.d.bq: byte L>;
+
+        if $b0 != 1 goto label2;
+
+        $r1 = "Trans2FindFirst2Response[";
+
+     label1:
+        $r2 = new java.lang.String;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = specialinvoke $r0.<a.d.at: java.lang.String toString()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",sid=");
+
+        $i1 = $r0.<a.d.bq: int a>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",searchCount=");
+
+        $i1 = $r0.<a.d.bq: int Q>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",isEndOfSearch=");
+
+        $z0 = $r0.<a.d.bq: boolean S>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",eaErrorOffset=");
+
+        $i1 = $r0.<a.d.bq: int T>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",lastNameOffset=");
+
+        $i1 = $r0.<a.d.bq: int U>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",lastName=");
+
+        $r1 = $r0.<a.d.bq: java.lang.String aA>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<java.lang.String: void <init>(java.lang.String)>($r1);
+
+        return $r2;
+
+     label2:
+        $r1 = "Trans2FindNext2Response[";
+
+        goto label1;
+    }
+}

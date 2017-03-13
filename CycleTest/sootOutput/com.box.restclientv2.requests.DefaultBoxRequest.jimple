@@ -1,0 +1,912 @@
+public class com.box.restclientv2.requests.DefaultBoxRequest extends java.lang.Object implements com.box.restclientv2.interfaces.IBoxRequest
+{
+    private static int[] l;
+    private java.lang.ref.WeakReference a;
+    private final com.box.restclientv2.interfaces.IBoxConfig b;
+    private org.apache.http.HttpEntity c;
+    private com.box.restclientv2.interfaces.ICookie d;
+    private final com.box.restclientv2.RestMethod e;
+    private final java.lang.String f;
+    private final java.util.HashMap g;
+    private final java.util.HashMap h;
+    private org.apache.http.client.methods.HttpRequestBase i;
+    private final org.apache.http.params.HttpParams j;
+    private int k;
+
+    private static int[] $SWITCH_TABLE$com$box$restclientv2$RestMethod()
+    {
+        int[] $r0;
+        com.box.restclientv2.RestMethod[] $r1;
+        int $i0;
+        com.box.restclientv2.RestMethod $r2;
+        java.lang.NoSuchFieldError $r3, $r4, $r5, $r6, $r7, $r8;
+
+        $r0 = <com.box.restclientv2.requests.DefaultBoxRequest: int[] l>;
+
+        if $r0 == null goto label01;
+
+        return $r0;
+
+     label01:
+        $r1 = staticinvoke <com.box.restclientv2.RestMethod: com.box.restclientv2.RestMethod[] values()>();
+
+        $i0 = lengthof $r1;
+
+        $r0 = newarray (int)[$i0];
+
+     label02:
+        $r2 = <com.box.restclientv2.RestMethod: com.box.restclientv2.RestMethod d>;
+
+        $i0 = virtualinvoke $r2.<com.box.restclientv2.RestMethod: int ordinal()>();
+
+     label03:
+        $r0[$i0] = 4;
+
+     label04:
+        $r2 = <com.box.restclientv2.RestMethod: com.box.restclientv2.RestMethod a>;
+
+        $i0 = virtualinvoke $r2.<com.box.restclientv2.RestMethod: int ordinal()>();
+
+     label05:
+        $r0[$i0] = 1;
+
+     label06:
+        $r2 = <com.box.restclientv2.RestMethod: com.box.restclientv2.RestMethod e>;
+
+        $i0 = virtualinvoke $r2.<com.box.restclientv2.RestMethod: int ordinal()>();
+
+     label07:
+        $r0[$i0] = 5;
+
+     label08:
+        $r2 = <com.box.restclientv2.RestMethod: com.box.restclientv2.RestMethod f>;
+
+        $i0 = virtualinvoke $r2.<com.box.restclientv2.RestMethod: int ordinal()>();
+
+     label09:
+        $r0[$i0] = 6;
+
+     label10:
+        $r2 = <com.box.restclientv2.RestMethod: com.box.restclientv2.RestMethod c>;
+
+        $i0 = virtualinvoke $r2.<com.box.restclientv2.RestMethod: int ordinal()>();
+
+     label11:
+        $r0[$i0] = 3;
+
+     label12:
+        $r2 = <com.box.restclientv2.RestMethod: com.box.restclientv2.RestMethod b>;
+
+        $i0 = virtualinvoke $r2.<com.box.restclientv2.RestMethod: int ordinal()>();
+
+     label13:
+        $r0[$i0] = 2;
+
+     label14:
+        <com.box.restclientv2.requests.DefaultBoxRequest: int[] l> = $r0;
+
+        return $r0;
+
+     label15:
+        $r3 := @caughtexception;
+
+        goto label14;
+
+     label16:
+        $r4 := @caughtexception;
+
+        goto label12;
+
+     label17:
+        $r5 := @caughtexception;
+
+        goto label10;
+
+     label18:
+        $r6 := @caughtexception;
+
+        goto label08;
+
+     label19:
+        $r7 := @caughtexception;
+
+        goto label06;
+
+     label20:
+        $r8 := @caughtexception;
+
+        goto label04;
+
+        catch java.lang.NoSuchFieldError from label02 to label03 with label20;
+        catch java.lang.NoSuchFieldError from label04 to label05 with label19;
+        catch java.lang.NoSuchFieldError from label06 to label07 with label18;
+        catch java.lang.NoSuchFieldError from label08 to label09 with label17;
+        catch java.lang.NoSuchFieldError from label10 to label11 with label16;
+        catch java.lang.NoSuchFieldError from label12 to label13 with label15;
+    }
+
+    public void <init>(com.box.restclientv2.interfaces.IBoxConfig, com.box.boxjavalibv2.interfaces.IBoxJSONParser, java.lang.String, com.box.restclientv2.RestMethod, com.box.boxjavalibv2.requests.requestobjects.BoxDefaultRequestObject)
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        com.box.restclientv2.interfaces.IBoxConfig $r1;
+        com.box.boxjavalibv2.interfaces.IBoxJSONParser $r2;
+        java.lang.String $r3;
+        com.box.restclientv2.RestMethod $r4;
+        com.box.boxjavalibv2.requests.requestobjects.BoxDefaultRequestObject $r5;
+        java.util.HashMap $r6;
+        org.apache.http.params.BasicHttpParams $r7;
+        org.apache.http.HttpEntity $r8;
+        java.util.List $r9;
+        java.util.Map $r10;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r1 := @parameter0: com.box.restclientv2.interfaces.IBoxConfig;
+
+        $r2 := @parameter1: com.box.boxjavalibv2.interfaces.IBoxJSONParser;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r4 := @parameter3: com.box.restclientv2.RestMethod;
+
+        $r5 := @parameter4: com.box.boxjavalibv2.requests.requestobjects.BoxDefaultRequestObject;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r6 = new java.util.HashMap;
+
+        specialinvoke $r6.<java.util.HashMap: void <init>()>();
+
+        $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.util.HashMap g> = $r6;
+
+        $r6 = new java.util.HashMap;
+
+        specialinvoke $r6.<java.util.HashMap: void <init>()>();
+
+        $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.util.HashMap h> = $r6;
+
+        $r7 = new org.apache.http.params.BasicHttpParams;
+
+        specialinvoke $r7.<org.apache.http.params.BasicHttpParams: void <init>()>();
+
+        $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.params.HttpParams j> = $r7;
+
+        $r0.<com.box.restclientv2.requests.DefaultBoxRequest: int k> = 200;
+
+        $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.interfaces.IBoxConfig b> = $r1;
+
+        $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.RestMethod e> = $r4;
+
+        $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.lang.String f> = $r3;
+
+        $r6 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.util.HashMap h>;
+
+        $r1 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.interfaces.IBoxConfig b>;
+
+        $r3 = interfaceinvoke $r1.<com.box.restclientv2.interfaces.IBoxConfig: java.lang.String b()>();
+
+        interfaceinvoke $r6.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("User-Agent", $r3);
+
+        if $r5 == null goto label1;
+
+        virtualinvoke $r5.<com.box.boxjavalibv2.requests.requestobjects.BoxDefaultRequestObject: void a(com.box.boxjavalibv2.interfaces.IBoxJSONParser)>($r2);
+
+        $r8 = virtualinvoke $r5.<com.box.boxjavalibv2.requests.requestobjects.BoxDefaultRequestObject: org.apache.http.HttpEntity a()>();
+
+        $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.HttpEntity c> = $r8;
+
+        $r9 = virtualinvoke $r5.<com.box.boxjavalibv2.requests.requestobjects.BoxDefaultRequestObject: java.util.List c()>();
+
+        specialinvoke $r0.<com.box.restclientv2.requests.DefaultBoxRequest: void setRequestFields(java.util.List)>($r9);
+
+        $r6 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.util.HashMap g>;
+
+        $r10 = virtualinvoke $r5.<com.box.boxjavalibv2.requests.requestobjects.BoxDefaultRequestObject: java.util.Map e()>();
+
+        interfaceinvoke $r6.<java.util.Map: void putAll(java.util.Map)>($r10);
+
+        $r6 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.util.HashMap h>;
+
+        $r10 = virtualinvoke $r5.<com.box.boxjavalibv2.requests.requestobjects.BoxDefaultRequestObject: java.util.Map d()>();
+
+        interfaceinvoke $r6.<java.util.Map: void putAll(java.util.Map)>($r10);
+
+     label1:
+        return;
+    }
+
+    private void addQueryParam(java.lang.String, java.lang.String)
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        java.lang.String $r1, $r2;
+        java.util.HashMap $r3;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.util.HashMap g>;
+
+        virtualinvoke $r3.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        return;
+    }
+
+    private org.apache.http.client.methods.HttpRequestBase constructHttpUriRequest()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        int[] $r1;
+        com.box.restclientv2.RestMethod $r2;
+        int $i0;
+        com.box.restclientv2.exceptions.BoxRestException $r3;
+        org.apache.http.client.methods.HttpGet $r4;
+        org.apache.http.client.methods.HttpPut $r5;
+        org.apache.http.client.methods.HttpPost $r6;
+        org.apache.http.client.methods.HttpDelete $r7;
+        org.apache.http.client.methods.HttpOptions $r8;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r1 = staticinvoke <com.box.restclientv2.requests.DefaultBoxRequest: int[] $SWITCH_TABLE$com$box$restclientv2$RestMethod()>();
+
+        $r2 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.RestMethod e>;
+
+        $i0 = virtualinvoke $r2.<com.box.restclientv2.RestMethod: int ordinal()>();
+
+        $i0 = $r1[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label2;
+            case 2: goto label3;
+            case 3: goto label4;
+            case 4: goto label5;
+            case 5: goto label6;
+            default: goto label1;
+        };
+
+     label1:
+        $r3 = new com.box.restclientv2.exceptions.BoxRestException;
+
+        specialinvoke $r3.<com.box.restclientv2.exceptions.BoxRestException: void <init>(java.lang.String)>("Method Not Implemented");
+
+        throw $r3;
+
+     label2:
+        $r4 = new org.apache.http.client.methods.HttpGet;
+
+        specialinvoke $r4.<org.apache.http.client.methods.HttpGet: void <init>()>();
+
+        return $r4;
+
+     label3:
+        $r5 = new org.apache.http.client.methods.HttpPut;
+
+        specialinvoke $r5.<org.apache.http.client.methods.HttpPut: void <init>()>();
+
+        return $r5;
+
+     label4:
+        $r6 = new org.apache.http.client.methods.HttpPost;
+
+        specialinvoke $r6.<org.apache.http.client.methods.HttpPost: void <init>()>();
+
+        return $r6;
+
+     label5:
+        $r7 = new org.apache.http.client.methods.HttpDelete;
+
+        specialinvoke $r7.<org.apache.http.client.methods.HttpDelete: void <init>()>();
+
+        return $r7;
+
+     label6:
+        $r8 = new org.apache.http.client.methods.HttpOptions;
+
+        specialinvoke $r8.<org.apache.http.client.methods.HttpOptions: void <init>()>();
+
+        return $r8;
+    }
+
+    private com.box.restclientv2.interfaces.ICookie getCookie()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        com.box.restclientv2.interfaces.ICookie r1;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        r1 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.interfaces.ICookie d>;
+
+        return r1;
+    }
+
+    private java.util.Map getHeaders()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        java.util.HashMap r1;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        r1 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.util.HashMap h>;
+
+        return r1;
+    }
+
+    private org.apache.http.params.HttpParams getHttpParams()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        org.apache.http.params.HttpParams r1;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        r1 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.params.HttpParams j>;
+
+        return r1;
+    }
+
+    private java.util.Map getQueryParams()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        java.util.HashMap r1;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        r1 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.util.HashMap g>;
+
+        return r1;
+    }
+
+    private org.apache.http.HttpEntity getRequestEntity()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        org.apache.http.HttpEntity r1;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        r1 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.HttpEntity c>;
+
+        return r1;
+    }
+
+    private com.box.restclientv2.RestMethod getRestMethod()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        com.box.restclientv2.RestMethod r1;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        r1 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.RestMethod e>;
+
+        return r1;
+    }
+
+    private org.apache.http.client.methods.HttpRequestBase prepareRequest()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        int[] $r1;
+        com.box.restclientv2.RestMethod $r2;
+        int $i0;
+        org.apache.http.client.methods.HttpRequestBase $r4;
+        java.lang.String $r6, $r7;
+        java.util.HashMap $r8;
+        java.util.Set $r9;
+        java.util.Iterator $r10;
+        boolean $z0;
+        java.net.URI $r11;
+        com.box.restclientv2.interfaces.IBoxRequestAuth $r12;
+        com.box.restclientv2.interfaces.ICookie $r13;
+        org.apache.http.HttpEntity $r14;
+        org.apache.http.client.methods.HttpEntityEnclosingRequestBase $r15;
+        org.apache.http.params.HttpParams $r16;
+        java.lang.Object $r17;
+        java.util.Map$Entry $r18;
+        java.net.URISyntaxException $r19;
+        java.lang.StringBuilder $r20, r28;
+        com.box.restclientv2.exceptions.BoxRestException r21;
+        org.apache.http.client.methods.HttpGet r22;
+        com.box.restclientv2.httpclientsupport.HttpClientURIBuilder r23;
+        org.apache.http.client.methods.HttpPut r24;
+        org.apache.http.client.methods.HttpPost r25;
+        org.apache.http.client.methods.HttpDelete r26;
+        org.apache.http.client.methods.HttpOptions r27;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r1 = staticinvoke <com.box.restclientv2.requests.DefaultBoxRequest: int[] $SWITCH_TABLE$com$box$restclientv2$RestMethod()>();
+
+        $r2 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.RestMethod e>;
+
+        $i0 = virtualinvoke $r2.<com.box.restclientv2.RestMethod: int ordinal()>();
+
+        $i0 = $r1[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label02;
+            case 2: goto label17;
+            case 3: goto label18;
+            case 4: goto label19;
+            case 5: goto label20;
+            default: goto label01;
+        };
+
+     label01:
+        r21 = new com.box.restclientv2.exceptions.BoxRestException;
+
+        specialinvoke r21.<com.box.restclientv2.exceptions.BoxRestException: void <init>(java.lang.String)>("Method Not Implemented");
+
+        throw r21;
+
+     label02:
+        r22 = new org.apache.http.client.methods.HttpGet;
+
+        $r4 = r22;
+
+        specialinvoke r22.<org.apache.http.client.methods.HttpGet: void <init>()>();
+
+     label03:
+        $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.client.methods.HttpRequestBase i> = $r4;
+
+        r23 = new com.box.restclientv2.httpclientsupport.HttpClientURIBuilder;
+
+     label04:
+        specialinvoke r23.<com.box.restclientv2.httpclientsupport.HttpClientURIBuilder: void <init>()>();
+
+        $r6 = virtualinvoke $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.lang.String b()>();
+
+        virtualinvoke r23.<com.box.restclientv2.httpclientsupport.HttpClientURIBuilder: com.box.restclientv2.httpclientsupport.HttpClientURIBuilder b(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.lang.String a()>();
+
+        virtualinvoke r23.<com.box.restclientv2.httpclientsupport.HttpClientURIBuilder: com.box.restclientv2.httpclientsupport.HttpClientURIBuilder a(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.lang.String c()>();
+
+     label05:
+        $r7 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.lang.String f>;
+
+     label06:
+        $r6 = virtualinvoke $r6.<java.lang.String: java.lang.String concat(java.lang.String)>($r7);
+
+        $r6 = virtualinvoke $r6.<java.lang.String: java.lang.String replaceAll(java.lang.String,java.lang.String)>("/{2,}", "/");
+
+        virtualinvoke r23.<com.box.restclientv2.httpclientsupport.HttpClientURIBuilder: com.box.restclientv2.httpclientsupport.HttpClientURIBuilder c(java.lang.String)>($r6);
+
+     label07:
+        $r8 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.util.HashMap g>;
+
+     label08:
+        $r9 = interfaceinvoke $r8.<java.util.Map: java.util.Set entrySet()>();
+
+        $r10 = interfaceinvoke $r9.<java.util.Set: java.util.Iterator iterator()>();
+
+     label09:
+        $z0 = interfaceinvoke $r10.<java.util.Iterator: boolean hasNext()>();
+
+     label10:
+        if $z0 != 0 goto label21;
+
+        $r4 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.client.methods.HttpRequestBase i>;
+
+     label11:
+        $r11 = virtualinvoke r23.<com.box.restclientv2.httpclientsupport.HttpClientURIBuilder: java.net.URI a()>();
+
+        virtualinvoke $r4.<org.apache.http.client.methods.HttpRequestBase: void setURI(java.net.URI)>($r11);
+
+     label12:
+        $r12 = virtualinvoke $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.interfaces.IBoxRequestAuth d()>();
+
+        if $r12 == null goto label13;
+
+        $r12 = virtualinvoke $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.interfaces.IBoxRequestAuth d()>();
+
+        interfaceinvoke $r12.<com.box.restclientv2.interfaces.IBoxRequestAuth: void a(com.box.restclientv2.interfaces.IBoxRequest)>($r0);
+
+     label13:
+        $r13 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.interfaces.ICookie d>;
+
+        if $r13 == null goto label14;
+
+        $r13 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.interfaces.ICookie d>;
+
+        interfaceinvoke $r13.<com.box.restclientv2.interfaces.ICookie: void a()>();
+
+     label14:
+        $r14 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.HttpEntity c>;
+
+        if $r14 == null goto label15;
+
+        $r4 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.client.methods.HttpRequestBase i>;
+
+        $z0 = $r4 instanceof org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
+
+        if $z0 == 0 goto label15;
+
+        $r4 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.client.methods.HttpRequestBase i>;
+
+        $r15 = (org.apache.http.client.methods.HttpEntityEnclosingRequestBase) $r4;
+
+        $r14 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.HttpEntity c>;
+
+        virtualinvoke $r15.<org.apache.http.client.methods.HttpEntityEnclosingRequestBase: void setEntity(org.apache.http.HttpEntity)>($r14);
+
+     label15:
+        $r8 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.util.HashMap h>;
+
+        $r9 = interfaceinvoke $r8.<java.util.Map: java.util.Set entrySet()>();
+
+        $r10 = interfaceinvoke $r9.<java.util.Set: java.util.Iterator iterator()>();
+
+     label16:
+        $z0 = interfaceinvoke $r10.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label32;
+
+        $r4 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.client.methods.HttpRequestBase i>;
+
+        $r16 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.params.HttpParams j>;
+
+        virtualinvoke $r4.<org.apache.http.client.methods.HttpRequestBase: void setParams(org.apache.http.params.HttpParams)>($r16);
+
+        $r4 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.client.methods.HttpRequestBase i>;
+
+        return $r4;
+
+     label17:
+        r24 = new org.apache.http.client.methods.HttpPut;
+
+        $r4 = r24;
+
+        specialinvoke r24.<org.apache.http.client.methods.HttpPut: void <init>()>();
+
+        goto label03;
+
+     label18:
+        r25 = new org.apache.http.client.methods.HttpPost;
+
+        $r4 = r25;
+
+        specialinvoke r25.<org.apache.http.client.methods.HttpPost: void <init>()>();
+
+        goto label03;
+
+     label19:
+        r26 = new org.apache.http.client.methods.HttpDelete;
+
+        $r4 = r26;
+
+        specialinvoke r26.<org.apache.http.client.methods.HttpDelete: void <init>()>();
+
+        goto label03;
+
+     label20:
+        r27 = new org.apache.http.client.methods.HttpOptions;
+
+        $r4 = r27;
+
+        specialinvoke r27.<org.apache.http.client.methods.HttpOptions: void <init>()>();
+
+        goto label03;
+
+     label21:
+        $r17 = interfaceinvoke $r10.<java.util.Iterator: java.lang.Object next()>();
+
+     label22:
+        $r18 = (java.util.Map$Entry) $r17;
+
+     label23:
+        $r17 = interfaceinvoke $r18.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+     label24:
+        $r6 = (java.lang.String) $r17;
+
+     label25:
+        $r17 = interfaceinvoke $r18.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+     label26:
+        $r7 = (java.lang.String) $r17;
+
+     label27:
+        $z0 = staticinvoke <b.a.a.b.c: boolean a(java.lang.String)>($r7);
+
+     label28:
+        if $z0 == 0 goto label29;
+
+        $r7 = "";
+
+     label29:
+        virtualinvoke r23.<com.box.restclientv2.httpclientsupport.HttpClientURIBuilder: com.box.restclientv2.httpclientsupport.HttpClientURIBuilder a(java.lang.String,java.lang.String)>($r6, $r7);
+
+     label30:
+        goto label09;
+
+     label31:
+        $r19 := @caughtexception;
+
+        r21 = new com.box.restclientv2.exceptions.BoxRestException;
+
+        r28 = new java.lang.StringBuilder;
+
+        specialinvoke r28.<java.lang.StringBuilder: void <init>(java.lang.String)>("URISyntaxException:");
+
+        $r6 = virtualinvoke $r19.<java.net.URISyntaxException: java.lang.String getMessage()>();
+
+        $r20 = virtualinvoke r28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r20.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke r21.<com.box.restclientv2.exceptions.BoxRestException: void <init>(java.lang.String)>($r6);
+
+        throw r21;
+
+     label32:
+        $r17 = interfaceinvoke $r10.<java.util.Iterator: java.lang.Object next()>();
+
+        $r18 = (java.util.Map$Entry) $r17;
+
+        $r4 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.client.methods.HttpRequestBase i>;
+
+        $r17 = interfaceinvoke $r18.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r6 = (java.lang.String) $r17;
+
+        $r17 = interfaceinvoke $r18.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r7 = (java.lang.String) $r17;
+
+        virtualinvoke $r4.<org.apache.http.client.methods.HttpRequestBase: void addHeader(java.lang.String,java.lang.String)>($r6, $r7);
+
+        goto label16;
+
+        catch java.net.URISyntaxException from label04 to label05 with label31;
+        catch java.net.URISyntaxException from label06 to label07 with label31;
+        catch java.net.URISyntaxException from label08 to label10 with label31;
+        catch java.net.URISyntaxException from label11 to label12 with label31;
+        catch java.net.URISyntaxException from label21 to label22 with label31;
+        catch java.net.URISyntaxException from label23 to label24 with label31;
+        catch java.net.URISyntaxException from label25 to label26 with label31;
+        catch java.net.URISyntaxException from label27 to label28 with label31;
+        catch java.net.URISyntaxException from label29 to label30 with label31;
+    }
+
+    private void setEntity(org.apache.http.HttpEntity)
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        org.apache.http.HttpEntity $r1;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r1 := @parameter0: org.apache.http.HttpEntity;
+
+        $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.HttpEntity c> = $r1;
+
+        return;
+    }
+
+    private void setRequestFields(java.util.List)
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        java.util.List $r1;
+        java.lang.StringBuilder $r2, $r6;
+        boolean $z0;
+        int $i0, $i1, $i2;
+        java.lang.Object $r3;
+        java.lang.String $r4;
+        java.util.HashMap $r5;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r1 := @parameter0: java.util.List;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        if $r1 == null goto label3;
+
+        $z0 = interfaceinvoke $r1.<java.util.List: boolean isEmpty()>();
+
+        if $z0 != 0 goto label3;
+
+        $i0 = interfaceinvoke $r1.<java.util.List: int size()>();
+
+        $i1 = 0;
+
+     label1:
+        $i2 = $i0 + -1;
+
+        if $i1 < $i2 goto label2;
+
+        $i0 = $i0 + -1;
+
+        $r3 = interfaceinvoke $r1.<java.util.List: java.lang.Object get(int)>($i0);
+
+        $r4 = (java.lang.String) $r3;
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.util.HashMap g>;
+
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("fields", $r4);
+
+        return;
+
+     label2:
+        $r3 = interfaceinvoke $r1.<java.util.List: java.lang.Object get(int)>($i1);
+
+        $r4 = (java.lang.String) $r3;
+
+        $r6 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label3:
+        return;
+    }
+
+    public java.lang.String a()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        java.lang.String $r1;
+        com.box.restclientv2.interfaces.IBoxConfig $r2;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r2 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.interfaces.IBoxConfig b>;
+
+        $r1 = interfaceinvoke $r2.<com.box.restclientv2.interfaces.IBoxConfig: java.lang.String d()>();
+
+        return $r1;
+    }
+
+    protected final void a(int)
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        int $i0;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $i0 := @parameter0: int;
+
+        $r0.<com.box.restclientv2.requests.DefaultBoxRequest: int k> = $i0;
+
+        return;
+    }
+
+    public final void a(com.box.restclientv2.interfaces.IBoxRequestAuth)
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        com.box.restclientv2.interfaces.IBoxRequestAuth $r1;
+        java.lang.ref.WeakReference $r2;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r1 := @parameter0: com.box.restclientv2.interfaces.IBoxRequestAuth;
+
+        $r2 = new java.lang.ref.WeakReference;
+
+        specialinvoke $r2.<java.lang.ref.WeakReference: void <init>(java.lang.Object)>($r1);
+
+        $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.lang.ref.WeakReference a> = $r2;
+
+        return;
+    }
+
+    public final void a(java.lang.String, java.lang.String)
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        java.lang.String $r1, $r2;
+        java.util.HashMap $r3;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.util.HashMap h>;
+
+        virtualinvoke $r3.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        return;
+    }
+
+    public java.lang.String b()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        java.lang.String $r1;
+        com.box.restclientv2.interfaces.IBoxConfig $r2;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r2 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.interfaces.IBoxConfig b>;
+
+        $r1 = interfaceinvoke $r2.<com.box.restclientv2.interfaces.IBoxConfig: java.lang.String e()>();
+
+        return $r1;
+    }
+
+    public java.lang.String c()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        java.lang.String $r1;
+        com.box.restclientv2.interfaces.IBoxConfig $r2;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r2 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.interfaces.IBoxConfig b>;
+
+        $r1 = interfaceinvoke $r2.<com.box.restclientv2.interfaces.IBoxConfig: java.lang.String f()>();
+
+        return $r1;
+    }
+
+    public final com.box.restclientv2.interfaces.IBoxRequestAuth d()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        java.lang.Object $r1;
+        java.lang.ref.WeakReference $r2;
+        com.box.restclientv2.interfaces.IBoxRequestAuth $r3;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r2 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.lang.ref.WeakReference a>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: java.lang.ref.WeakReference a>;
+
+        $r1 = virtualinvoke $r2.<java.lang.ref.WeakReference: java.lang.Object get()>();
+
+        $r3 = (com.box.restclientv2.interfaces.IBoxRequestAuth) $r1;
+
+        return $r3;
+
+     label1:
+        return null;
+    }
+
+    public final org.apache.http.client.methods.HttpUriRequest e()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        org.apache.http.client.methods.HttpRequestBase $r1;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        $r1 = specialinvoke $r0.<com.box.restclientv2.requests.DefaultBoxRequest: org.apache.http.client.methods.HttpRequestBase prepareRequest()>();
+
+        return $r1;
+    }
+
+    public final int f()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        int i0;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        i0 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: int k>;
+
+        return i0;
+    }
+
+    public final com.box.restclientv2.interfaces.IBoxConfig g()
+    {
+        com.box.restclientv2.requests.DefaultBoxRequest $r0;
+        com.box.restclientv2.interfaces.IBoxConfig r1;
+
+        $r0 := @this: com.box.restclientv2.requests.DefaultBoxRequest;
+
+        r1 = $r0.<com.box.restclientv2.requests.DefaultBoxRequest: com.box.restclientv2.interfaces.IBoxConfig b>;
+
+        return r1;
+    }
+}

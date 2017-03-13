@@ -1,0 +1,286 @@
+public abstract class com.google.api.a.b.d.a extends java.lang.Object
+{
+    static final java.util.logging.Logger a;
+    private final com.google.api.a.c.u b;
+    private final com.google.api.a.b.d.e c;
+    private final java.lang.String d;
+    private final java.lang.String e;
+    private final java.lang.String f;
+    private final com.google.api.a.f.am g;
+    private boolean h;
+    private boolean i;
+
+    static void <clinit>()
+    {
+        java.lang.Class $r0;
+        java.lang.String $r1;
+        java.util.logging.Logger $r2;
+
+        $r0 = class "com/google/api/a/b/d/a";
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = staticinvoke <java.util.logging.Logger: java.util.logging.Logger getLogger(java.lang.String)>($r1);
+
+        <com.google.api.a.b.d.a: java.util.logging.Logger a> = $r2;
+
+        return;
+    }
+
+    protected void <init>(com.google.api.a.b.d.b)
+    {
+        com.google.api.a.b.d.a $r0;
+        com.google.api.a.b.d.b $r1;
+        com.google.api.a.b.d.e $r2;
+        java.lang.String $r3;
+        boolean $z0;
+        java.util.logging.Logger $r4;
+        com.google.api.a.c.v $r5;
+        com.google.api.a.c.ab $r6;
+        com.google.api.a.c.u $r7;
+        com.google.api.a.f.am $r8;
+
+        $r0 := @this: com.google.api.a.b.d.a;
+
+        $r1 := @parameter0: com.google.api.a.b.d.b;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r2 = $r1.<com.google.api.a.b.d.b: com.google.api.a.b.d.e b>;
+
+        $r0.<com.google.api.a.b.d.a: com.google.api.a.b.d.e c> = $r2;
+
+        $r3 = $r1.<com.google.api.a.b.d.b: java.lang.String e>;
+
+        $r3 = staticinvoke <com.google.api.a.b.d.a: java.lang.String a(java.lang.String)>($r3);
+
+        $r0.<com.google.api.a.b.d.a: java.lang.String d> = $r3;
+
+        $r3 = $r1.<com.google.api.a.b.d.b: java.lang.String f>;
+
+        $r3 = staticinvoke <com.google.api.a.b.d.a: java.lang.String b(java.lang.String)>($r3);
+
+        $r0.<com.google.api.a.b.d.a: java.lang.String e> = $r3;
+
+        $r3 = $r1.<com.google.api.a.b.d.b: java.lang.String g>;
+
+        $z0 = staticinvoke <com.google.api.a.f.at: boolean a(java.lang.String)>($r3);
+
+        if $z0 == 0 goto label1;
+
+        $r4 = <com.google.api.a.b.d.a: java.util.logging.Logger a>;
+
+        virtualinvoke $r4.<java.util.logging.Logger: void warning(java.lang.String)>("Application name is not set. Call Builder#setApplicationName.");
+
+     label1:
+        $r3 = $r1.<com.google.api.a.b.d.b: java.lang.String g>;
+
+        $r0.<com.google.api.a.b.d.a: java.lang.String f> = $r3;
+
+        $r5 = $r1.<com.google.api.a.b.d.b: com.google.api.a.c.v c>;
+
+        if $r5 != null goto label3;
+
+        $r6 = $r1.<com.google.api.a.b.d.b: com.google.api.a.c.ab a>;
+
+        $r7 = virtualinvoke $r6.<com.google.api.a.c.ab: com.google.api.a.c.u a()>();
+
+     label2:
+        $r0.<com.google.api.a.b.d.a: com.google.api.a.c.u b> = $r7;
+
+        $r8 = $r1.<com.google.api.a.b.d.b: com.google.api.a.f.am d>;
+
+        $r0.<com.google.api.a.b.d.a: com.google.api.a.f.am g> = $r8;
+
+        $z0 = $r1.<com.google.api.a.b.d.b: boolean h>;
+
+        $r0.<com.google.api.a.b.d.a: boolean h> = $z0;
+
+        $z0 = $r1.<com.google.api.a.b.d.b: boolean i>;
+
+        $r0.<com.google.api.a.b.d.a: boolean i> = $z0;
+
+        return;
+
+     label3:
+        $r6 = $r1.<com.google.api.a.b.d.b: com.google.api.a.c.ab a>;
+
+        $r5 = $r1.<com.google.api.a.b.d.b: com.google.api.a.c.v c>;
+
+        $r7 = virtualinvoke $r6.<com.google.api.a.c.ab: com.google.api.a.c.u a(com.google.api.a.c.v)>($r5);
+
+        goto label2;
+    }
+
+    static java.lang.String a(java.lang.String)
+    {
+        java.lang.String $r0;
+        boolean $z0;
+        java.lang.StringBuilder $r1;
+
+        $r0 := @parameter0: java.lang.String;
+
+        staticinvoke <com.google.api.a.f.ao: java.lang.Object a(java.lang.Object,java.lang.Object)>($r0, "root URL cannot be null.");
+
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean endsWith(java.lang.String)>("/");
+
+        if $z0 != 0 goto label1;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r0 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label1:
+        return $r0;
+    }
+
+    static java.lang.String b(java.lang.String)
+    {
+        java.lang.String $r0, $r1;
+        int $i0;
+        boolean $z0;
+        java.lang.StringBuilder $r2;
+
+        $r0 := @parameter0: java.lang.String;
+
+        staticinvoke <com.google.api.a.f.ao: java.lang.Object a(java.lang.Object,java.lang.Object)>($r0, "service path cannot be null");
+
+        $i0 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        if $i0 != 1 goto label1;
+
+        $r1 = "/";
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r0);
+
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, "service path must equal \"/\" if it is of length 1.");
+
+        return "";
+
+     label1:
+        $i0 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        if $i0 <= 0 goto label3;
+
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean endsWith(java.lang.String)>("/");
+
+        if $z0 != 0 goto label2;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r0 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label2:
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean startsWith(java.lang.String)>("/");
+
+        if $z0 == 0 goto label3;
+
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int)>(1);
+
+     label3:
+        return $r0;
+    }
+
+    public final java.lang.String a()
+    {
+        com.google.api.a.b.d.a $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.api.a.b.d.a;
+
+        r1 = $r0.<com.google.api.a.b.d.a: java.lang.String e>;
+
+        return r1;
+    }
+
+    protected void a(com.google.api.a.b.d.c)
+    {
+        com.google.api.a.b.d.a $r0;
+        com.google.api.a.b.d.c $r1;
+        com.google.api.a.b.d.e $r2;
+
+        $r0 := @this: com.google.api.a.b.d.a;
+
+        $r1 := @parameter0: com.google.api.a.b.d.c;
+
+        $r2 = $r0.<com.google.api.a.b.d.a: com.google.api.a.b.d.e c>;
+
+        if $r2 == null goto label1;
+
+     label1:
+        return;
+    }
+
+    public final java.lang.String b()
+    {
+        com.google.api.a.b.d.a $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.google.api.a.b.d.a;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = $r0.<com.google.api.a.b.d.a: java.lang.String d>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = $r0.<com.google.api.a.b.d.a: java.lang.String e>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public final java.lang.String c()
+    {
+        com.google.api.a.b.d.a $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.api.a.b.d.a;
+
+        r1 = $r0.<com.google.api.a.b.d.a: java.lang.String f>;
+
+        return r1;
+    }
+
+    public final com.google.api.a.c.u d()
+    {
+        com.google.api.a.b.d.a $r0;
+        com.google.api.a.c.u r1;
+
+        $r0 := @this: com.google.api.a.b.d.a;
+
+        r1 = $r0.<com.google.api.a.b.d.a: com.google.api.a.c.u b>;
+
+        return r1;
+    }
+
+    public com.google.api.a.f.am e()
+    {
+        com.google.api.a.b.d.a $r0;
+        com.google.api.a.f.am r1;
+
+        $r0 := @this: com.google.api.a.b.d.a;
+
+        r1 = $r0.<com.google.api.a.b.d.a: com.google.api.a.f.am g>;
+
+        return r1;
+    }
+}

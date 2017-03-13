@@ -1,0 +1,96 @@
+final class a.d.by extends java.lang.Object implements a.d.a
+{
+    long a;
+    long b;
+    int c;
+    int d;
+    final a.d.bx e;
+
+    void <init>(a.d.bx)
+    {
+        a.d.by $r0;
+        a.d.bx $r1;
+
+        $r0 := @this: a.d.by;
+
+        $r1 := @parameter0: a.d.bx;
+
+        $r0.<a.d.by: a.d.bx e> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final long a()
+    {
+        a.d.by $r0;
+        long $l0, $l2;
+        int $i1;
+
+        $r0 := @this: a.d.by;
+
+        $l0 = $r0.<a.d.by: long a>;
+
+        $i1 = $r0.<a.d.by: int c>;
+
+        $l2 = (long) $i1;
+
+        $l0 = $l0 * $l2;
+
+        $i1 = $r0.<a.d.by: int d>;
+
+        $l2 = (long) $i1;
+
+        $l0 = $l0 * $l2;
+
+        return $l0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.by $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+        long $l0;
+        int $i1;
+
+        $r0 := @this: a.d.by;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("SmbInfoAllocation[alloc=");
+
+        $l0 = $r0.<a.d.by: long a>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",free=");
+
+        $l0 = $r0.<a.d.by: long b>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",sectPerAlloc=");
+
+        $i1 = $r0.<a.d.by: int c>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",bytesPerSect=");
+
+        $i1 = $r0.<a.d.by: int d>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

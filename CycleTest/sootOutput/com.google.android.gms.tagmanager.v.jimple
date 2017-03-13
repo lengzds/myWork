@@ -1,0 +1,1230 @@
+class com.google.android.gms.tagmanager.v extends java.lang.Object implements com.google.android.gms.tagmanager.DataLayer$c
+{
+    private static final java.lang.String a;
+    private final java.util.concurrent.Executor b;
+    private final android.content.Context c;
+    private com.google.android.gms.tagmanager.v$a d;
+    private com.google.android.gms.internal.ik e;
+    private int f;
+
+    static void <clinit>()
+    {
+        java.lang.String $r0;
+        java.lang.Object[] $r1;
+
+        $r1 = newarray (java.lang.Object)[5];
+
+        $r1[0] = "datalayer";
+
+        $r1[1] = "ID";
+
+        $r1[2] = "key";
+
+        $r1[3] = "value";
+
+        $r1[4] = "expires";
+
+        $r0 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("CREATE TABLE IF NOT EXISTS %s ( \'%s\' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, \'%s\' STRING NOT NULL, \'%s\' BLOB NOT NULL, \'%s\' INTEGER NOT NULL);", $r1);
+
+        <com.google.android.gms.tagmanager.v: java.lang.String a> = $r0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        android.content.Context $r1;
+        com.google.android.gms.internal.ik $r2;
+        java.util.concurrent.ExecutorService $r3;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.im: com.google.android.gms.internal.ik fW()>();
+
+        $r3 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newSingleThreadExecutor()>();
+
+        specialinvoke $r0.<com.google.android.gms.tagmanager.v: void <init>(android.content.Context,com.google.android.gms.internal.ik,java.lang.String,int,java.util.concurrent.Executor)>($r1, $r2, "google_tagmanager.db", 2000, $r3);
+
+        return;
+    }
+
+    private void <init>(android.content.Context, com.google.android.gms.internal.ik, java.lang.String, int, java.util.concurrent.Executor)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        android.content.Context $r1;
+        com.google.android.gms.internal.ik $r2;
+        java.lang.String $r3;
+        int $i0;
+        java.util.concurrent.Executor $r4;
+        com.google.android.gms.tagmanager.v$a $r5;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: com.google.android.gms.internal.ik;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $i0 := @parameter3: int;
+
+        $r4 := @parameter4: java.util.concurrent.Executor;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.tagmanager.v: android.content.Context c> = $r1;
+
+        $r0.<com.google.android.gms.tagmanager.v: com.google.android.gms.internal.ik e> = $r2;
+
+        $r0.<com.google.android.gms.tagmanager.v: int f> = 2000;
+
+        $r0.<com.google.android.gms.tagmanager.v: java.util.concurrent.Executor b> = $r4;
+
+        $r5 = new com.google.android.gms.tagmanager.v$a;
+
+        $r1 = $r0.<com.google.android.gms.tagmanager.v: android.content.Context c>;
+
+        specialinvoke $r5.<com.google.android.gms.tagmanager.v$a: void <init>(com.google.android.gms.tagmanager.v,android.content.Context,java.lang.String)>($r0, $r1, $r3);
+
+        $r0.<com.google.android.gms.tagmanager.v: com.google.android.gms.tagmanager.v$a d> = $r5;
+
+        return;
+    }
+
+    private android.database.sqlite.SQLiteDatabase S(java.lang.String)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        java.lang.String $r1;
+        android.database.sqlite.SQLiteDatabase $r2;
+        com.google.android.gms.tagmanager.v$a $r3;
+        android.database.sqlite.SQLiteException $r4;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = $r0.<com.google.android.gms.tagmanager.v: com.google.android.gms.tagmanager.v$a d>;
+
+     label1:
+        $r2 = virtualinvoke $r3.<com.google.android.gms.tagmanager.v$a: android.database.sqlite.SQLiteDatabase getWritableDatabase()>();
+
+     label2:
+        return $r2;
+
+     label3:
+        $r4 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.tagmanager.bh: void D(java.lang.String)>($r1);
+
+        return null;
+
+        catch android.database.sqlite.SQLiteException from label1 to label2 with label3;
+    }
+
+    static java.lang.String a()
+    {
+        java.lang.String r0;
+
+        r0 = <com.google.android.gms.tagmanager.v: java.lang.String a>;
+
+        return r0;
+    }
+
+    static java.util.List a(com.google.android.gms.tagmanager.v)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        java.util.List $r1;
+
+        $r0 := @parameter0: com.google.android.gms.tagmanager.v;
+
+        $r1 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: java.util.List lx()>();
+
+        return $r1;
+    }
+
+    static void a(com.google.android.gms.tagmanager.v, java.util.List, long)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        java.util.List $r1;
+        long $l0;
+
+        $r0 := @parameter0: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter1: java.util.List;
+
+        $l0 := @parameter2: long;
+
+        specialinvoke $r0.<com.google.android.gms.tagmanager.v: void b(java.util.List,long)>($r1, $l0);
+
+        return;
+    }
+
+    static android.content.Context b(com.google.android.gms.tagmanager.v)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        android.content.Context r1;
+
+        $r0 := @parameter0: com.google.android.gms.tagmanager.v;
+
+        r1 = $r0.<com.google.android.gms.tagmanager.v: android.content.Context c>;
+
+        return r1;
+    }
+
+    private void b(java.util.List, long)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        java.util.List $r1;
+        long $l0, $l1;
+        com.google.android.gms.internal.ik $r2;
+        int $i2;
+        java.lang.Throwable $r3, $r4;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter0: java.util.List;
+
+        $l0 := @parameter1: long;
+
+        entermonitor $r0;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.tagmanager.v: com.google.android.gms.internal.ik e>;
+
+        $l1 = interfaceinvoke $r2.<com.google.android.gms.internal.ik: long currentTimeMillis()>();
+
+        specialinvoke $r0.<com.google.android.gms.tagmanager.v: void x(long)>($l1);
+
+        $i2 = interfaceinvoke $r1.<java.util.List: int size()>();
+
+        specialinvoke $r0.<com.google.android.gms.tagmanager.v: void do(int)>($i2);
+
+        $l0 = $l1 + $l0;
+
+        specialinvoke $r0.<com.google.android.gms.tagmanager.v: void c(java.util.List,long)>($r1, $l0);
+
+     label2:
+        specialinvoke $r0.<com.google.android.gms.tagmanager.v: void lA()>();
+
+     label3:
+        exitmonitor $r0;
+
+        return;
+
+     label4:
+        $r3 := @caughtexception;
+
+     label5:
+        specialinvoke $r0.<com.google.android.gms.tagmanager.v: void lA()>();
+
+        throw $r3;
+
+     label6:
+        $r4 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label4;
+        catch java.lang.Throwable from label2 to label3 with label6;
+        catch java.lang.Throwable from label5 to label6 with label6;
+    }
+
+    private void c(java.util.List, long)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        java.util.List $r1;
+        long $l0;
+        android.content.ContentValues $r2;
+        android.database.sqlite.SQLiteDatabase $r3;
+        java.util.Iterator $r4;
+        boolean $z0;
+        java.lang.Object $r5;
+        com.google.android.gms.tagmanager.v$b $r6;
+        java.lang.Long $r7;
+        java.lang.String $r8;
+        byte[] $r9;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter0: java.util.List;
+
+        $l0 := @parameter1: long;
+
+        $r3 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: android.database.sqlite.SQLiteDatabase S(java.lang.String)>("Error opening database for writeEntryToDatabase.");
+
+        if $r3 != null goto label1;
+
+        return;
+
+     label1:
+        $r4 = interfaceinvoke $r1.<java.util.List: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (com.google.android.gms.tagmanager.v$b) $r5;
+
+        $r2 = new android.content.ContentValues;
+
+        specialinvoke $r2.<android.content.ContentValues: void <init>()>();
+
+        $r7 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l0);
+
+        virtualinvoke $r2.<android.content.ContentValues: void put(java.lang.String,java.lang.Long)>("expires", $r7);
+
+        $r8 = $r6.<com.google.android.gms.tagmanager.v$b: java.lang.String a>;
+
+        virtualinvoke $r2.<android.content.ContentValues: void put(java.lang.String,java.lang.String)>("key", $r8);
+
+        $r9 = $r6.<com.google.android.gms.tagmanager.v$b: byte[] b>;
+
+        virtualinvoke $r2.<android.content.ContentValues: void put(java.lang.String,byte[])>("value", $r9);
+
+        virtualinvoke $r3.<android.database.sqlite.SQLiteDatabase: long insert(java.lang.String,java.lang.String,android.content.ContentValues)>("datalayer", null, $r2);
+
+        goto label2;
+
+     label3:
+        return;
+    }
+
+    private void do(int)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        int $i0, $i1, $i2;
+        java.util.List $r1;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r3;
+        java.lang.String[] $r4;
+        java.lang.Object[] $r5;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $i0 := @parameter0: int;
+
+        $i1 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: int lz()>();
+
+        $i2 = $r0.<com.google.android.gms.tagmanager.v: int f>;
+
+        $i1 = $i1 - $i2;
+
+        $i0 = $i1 + $i0;
+
+        if $i0 <= 0 goto label1;
+
+        $r1 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: java.util.List dp(int)>($i0);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("DataLayer store full, deleting ");
+
+        $i0 = interfaceinvoke $r1.<java.util.List: int size()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" entries to make room.");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.tagmanager.bh: void B(java.lang.String)>($r3);
+
+        $r4 = newarray (java.lang.String)[0];
+
+        $r5 = interfaceinvoke $r1.<java.util.List: java.lang.Object[] toArray(java.lang.Object[])>($r4);
+
+        $r4 = (java.lang.String[]) $r5;
+
+        specialinvoke $r0.<com.google.android.gms.tagmanager.v: void g(java.lang.String[])>($r4);
+
+     label1:
+        return;
+    }
+
+    private java.util.List dp(int)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        int $i0;
+        java.util.ArrayList $r1;
+        android.database.sqlite.SQLiteDatabase $r2;
+        java.lang.String[] $r3;
+        java.lang.Object[] $r4;
+        java.lang.String $r5, $r6;
+        android.database.Cursor $r7, $r8;
+        boolean $z0;
+        long $l1;
+        android.database.sqlite.SQLiteException $r9;
+        java.lang.StringBuilder $r10;
+        java.lang.Throwable $r11;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $i0 := @parameter0: int;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        if $i0 > 0 goto label01;
+
+        staticinvoke <com.google.android.gms.tagmanager.bh: void D(java.lang.String)>("Invalid maxEntries specified. Skipping.");
+
+        return $r1;
+
+     label01:
+        $r2 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: android.database.sqlite.SQLiteDatabase S(java.lang.String)>("Error opening database for peekEntryIds.");
+
+        if $r2 != null goto label02;
+
+        return $r1;
+
+     label02:
+        $r3 = newarray (java.lang.String)[1];
+
+        $r3[0] = "ID";
+
+        $r4 = newarray (java.lang.Object)[1];
+
+        $r4[0] = "ID";
+
+     label03:
+        $r5 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%s ASC", $r4);
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>($i0);
+
+        $r7 = virtualinvoke $r2.<android.database.sqlite.SQLiteDatabase: android.database.Cursor query(java.lang.String,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("datalayer", $r3, null, null, null, null, $r5, $r6);
+
+     label04:
+        $r8 = $r7;
+
+     label05:
+        $z0 = interfaceinvoke $r7.<android.database.Cursor: boolean moveToFirst()>();
+
+     label06:
+        if $z0 == 0 goto label09;
+
+     label07:
+        $l1 = interfaceinvoke $r7.<android.database.Cursor: long getLong(int)>(0);
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(long)>($l1);
+
+        interfaceinvoke $r1.<java.util.List: boolean add(java.lang.Object)>($r5);
+
+        $z0 = interfaceinvoke $r7.<android.database.Cursor: boolean moveToNext()>();
+
+     label08:
+        if $z0 != 0 goto label07;
+
+     label09:
+        if $r7 == null goto label10;
+
+        interfaceinvoke $r7.<android.database.Cursor: void close()>();
+
+     label10:
+        return $r1;
+
+     label11:
+        $r9 := @caughtexception;
+
+        $r8 = null;
+
+     label12:
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("Error in peekEntries fetching entryIds: ");
+
+        $r5 = virtualinvoke $r9.<android.database.sqlite.SQLiteException: java.lang.String getMessage()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r5 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.tagmanager.bh: void D(java.lang.String)>($r5);
+
+     label13:
+        if $r8 == null goto label10;
+
+        interfaceinvoke $r8.<android.database.Cursor: void close()>();
+
+        goto label10;
+
+     label14:
+        $r11 := @caughtexception;
+
+        $r8 = null;
+
+     label15:
+        if $r8 == null goto label16;
+
+        interfaceinvoke $r8.<android.database.Cursor: void close()>();
+
+     label16:
+        throw $r11;
+
+     label17:
+        $r11 := @caughtexception;
+
+        goto label15;
+
+     label18:
+        $r9 := @caughtexception;
+
+        goto label12;
+
+        catch android.database.sqlite.SQLiteException from label03 to label04 with label11;
+        catch java.lang.Throwable from label02 to label04 with label14;
+        catch android.database.sqlite.SQLiteException from label05 to label06 with label18;
+        catch android.database.sqlite.SQLiteException from label07 to label08 with label18;
+        catch java.lang.Throwable from label05 to label06 with label17;
+        catch java.lang.Throwable from label07 to label08 with label17;
+        catch java.lang.Throwable from label12 to label13 with label17;
+    }
+
+    private java.util.List e(java.util.List)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        java.util.List $r1;
+        java.util.ArrayList $r2;
+        com.google.android.gms.tagmanager.DataLayer$a $r3;
+        java.lang.String $r4;
+        java.util.Iterator $r5;
+        boolean $z0;
+        java.lang.Object $r6;
+        com.google.android.gms.tagmanager.v$b $r7;
+        byte[] $r8;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter0: java.util.List;
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>()>();
+
+        $r5 = interfaceinvoke $r1.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r6 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r7 = (com.google.android.gms.tagmanager.v$b) $r6;
+
+        $r3 = new com.google.android.gms.tagmanager.DataLayer$a;
+
+        $r4 = $r7.<com.google.android.gms.tagmanager.v$b: java.lang.String a>;
+
+        $r8 = $r7.<com.google.android.gms.tagmanager.v$b: byte[] b>;
+
+        $r6 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: java.lang.Object j(byte[])>($r8);
+
+        specialinvoke $r3.<com.google.android.gms.tagmanager.DataLayer$a: void <init>(java.lang.String,java.lang.Object)>($r4, $r6);
+
+        interfaceinvoke $r2.<java.util.List: boolean add(java.lang.Object)>($r3);
+
+        goto label1;
+
+     label2:
+        return $r2;
+    }
+
+    private java.util.List f(java.util.List)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        java.util.List $r1;
+        java.util.ArrayList $r2;
+        com.google.android.gms.tagmanager.v$b $r3;
+        java.lang.String $r4;
+        java.util.Iterator $r5;
+        boolean $z0;
+        java.lang.Object $r6;
+        com.google.android.gms.tagmanager.DataLayer$a $r7;
+        byte[] $r8;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter0: java.util.List;
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>()>();
+
+        $r5 = interfaceinvoke $r1.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r6 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r7 = (com.google.android.gms.tagmanager.DataLayer$a) $r6;
+
+        $r3 = new com.google.android.gms.tagmanager.v$b;
+
+        $r4 = $r7.<com.google.android.gms.tagmanager.DataLayer$a: java.lang.String a>;
+
+        $r6 = $r7.<com.google.android.gms.tagmanager.DataLayer$a: java.lang.Object b>;
+
+        $r8 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: byte[] j(java.lang.Object)>($r6);
+
+        specialinvoke $r3.<com.google.android.gms.tagmanager.v$b: void <init>(java.lang.String,byte[])>($r4, $r8);
+
+        interfaceinvoke $r2.<java.util.List: boolean add(java.lang.Object)>($r3);
+
+        goto label1;
+
+     label2:
+        return $r2;
+    }
+
+    private void g(java.lang.String[])
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        java.lang.String[] $r1;
+        int $i0;
+        android.database.sqlite.SQLiteDatabase $r2;
+        java.lang.Object[] $r3;
+        java.util.List $r4;
+        java.lang.String $r5;
+        android.database.sqlite.SQLiteException $r6;
+        java.lang.StringBuilder $r7;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter0: java.lang.String[];
+
+        if $r1 == null goto label5;
+
+        $i0 = lengthof $r1;
+
+        if $i0 != 0 goto label1;
+
+        return;
+
+     label1:
+        $r2 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: android.database.sqlite.SQLiteDatabase S(java.lang.String)>("Error opening database for deleteEntries.");
+
+        if $r2 == null goto label5;
+
+        $r3 = newarray (java.lang.Object)[2];
+
+        $r3[0] = "ID";
+
+        $i0 = lengthof $r1;
+
+        $r4 = staticinvoke <java.util.Collections: java.util.List nCopies(int,java.lang.Object)>($i0, "?");
+
+        $r5 = staticinvoke <android.text.TextUtils: java.lang.String join(java.lang.CharSequence,java.lang.Iterable)>(",", $r4);
+
+        $r3[1] = $r5;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%s in (%s)", $r3);
+
+     label2:
+        virtualinvoke $r2.<android.database.sqlite.SQLiteDatabase: int delete(java.lang.String,java.lang.String,java.lang.String[])>("datalayer", $r5, $r1);
+
+     label3:
+        return;
+
+     label4:
+        $r6 := @caughtexception;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>("Error deleting entries ");
+
+        $r5 = staticinvoke <java.util.Arrays: java.lang.String toString(java.lang.Object[])>($r1);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r5 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.tagmanager.bh: void D(java.lang.String)>($r5);
+
+     label5:
+        return;
+
+        catch android.database.sqlite.SQLiteException from label2 to label3 with label4;
+    }
+
+    private java.lang.Object j(byte[])
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        byte[] $r1;
+        java.io.ByteArrayInputStream $r2;
+        java.lang.Object $r3;
+        java.io.ObjectInputStream $r4;
+        java.io.IOException $r5, $r6, $r8, $r11, $r13, $r14;
+        java.lang.ClassNotFoundException $r7, $r12;
+        java.lang.Throwable $r9, $r10;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter0: byte[];
+
+        $r2 = new java.io.ByteArrayInputStream;
+
+        specialinvoke $r2.<java.io.ByteArrayInputStream: void <init>(byte[])>($r1);
+
+     label01:
+        $r4 = new java.io.ObjectInputStream;
+
+     label02:
+        specialinvoke $r4.<java.io.ObjectInputStream: void <init>(java.io.InputStream)>($r2);
+
+     label03:
+        $r3 = virtualinvoke $r4.<java.io.ObjectInputStream: java.lang.Object readObject()>();
+
+     label04:
+        virtualinvoke $r4.<java.io.ObjectInputStream: void close()>();
+
+        virtualinvoke $r2.<java.io.ByteArrayInputStream: void close()>();
+
+     label05:
+        return $r3;
+
+     label06:
+        $r5 := @caughtexception;
+
+        $r4 = null;
+
+     label07:
+        if $r4 == null goto label09;
+
+     label08:
+        virtualinvoke $r4.<java.io.ObjectInputStream: void close()>();
+
+     label09:
+        virtualinvoke $r2.<java.io.ByteArrayInputStream: void close()>();
+
+     label10:
+        return null;
+
+     label11:
+        $r6 := @caughtexception;
+
+        return null;
+
+     label12:
+        $r7 := @caughtexception;
+
+        $r4 = null;
+
+     label13:
+        if $r4 == null goto label15;
+
+     label14:
+        virtualinvoke $r4.<java.io.ObjectInputStream: void close()>();
+
+     label15:
+        virtualinvoke $r2.<java.io.ByteArrayInputStream: void close()>();
+
+     label16:
+        return null;
+
+     label17:
+        $r8 := @caughtexception;
+
+        return null;
+
+     label18:
+        $r9 := @caughtexception;
+
+        $r4 = null;
+
+        $r10 = $r9;
+
+     label19:
+        if $r4 == null goto label21;
+
+     label20:
+        virtualinvoke $r4.<java.io.ObjectInputStream: void close()>();
+
+     label21:
+        virtualinvoke $r2.<java.io.ByteArrayInputStream: void close()>();
+
+     label22:
+        throw $r10;
+
+     label23:
+        $r11 := @caughtexception;
+
+        goto label22;
+
+     label24:
+        $r10 := @caughtexception;
+
+        goto label19;
+
+     label25:
+        $r12 := @caughtexception;
+
+        goto label13;
+
+     label26:
+        $r13 := @caughtexception;
+
+        goto label07;
+
+     label27:
+        $r14 := @caughtexception;
+
+        return $r3;
+
+        catch java.io.IOException from label02 to label03 with label06;
+        catch java.lang.ClassNotFoundException from label02 to label03 with label12;
+        catch java.lang.Throwable from label01 to label03 with label18;
+        catch java.io.IOException from label03 to label04 with label26;
+        catch java.lang.ClassNotFoundException from label03 to label04 with label25;
+        catch java.lang.Throwable from label03 to label04 with label24;
+        catch java.io.IOException from label04 to label05 with label27;
+        catch java.io.IOException from label08 to label10 with label11;
+        catch java.io.IOException from label14 to label16 with label17;
+        catch java.io.IOException from label20 to label22 with label23;
+    }
+
+    private byte[] j(java.lang.Object)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        java.lang.Object $r1;
+        java.io.ByteArrayOutputStream $r2;
+        java.io.IOException $r3, $r6, $r7, $r10, $r11;
+        byte[] $r4;
+        java.io.ObjectOutputStream $r5;
+        java.lang.Throwable $r8, $r9;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $r2.<java.io.ByteArrayOutputStream: void <init>()>();
+
+     label01:
+        $r5 = new java.io.ObjectOutputStream;
+
+     label02:
+        specialinvoke $r5.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($r2);
+
+     label03:
+        virtualinvoke $r5.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($r1);
+
+        $r4 = virtualinvoke $r2.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+     label04:
+        virtualinvoke $r5.<java.io.ObjectOutputStream: void close()>();
+
+        virtualinvoke $r2.<java.io.ByteArrayOutputStream: void close()>();
+
+     label05:
+        return $r4;
+
+     label06:
+        $r6 := @caughtexception;
+
+        $r5 = null;
+
+     label07:
+        if $r5 == null goto label09;
+
+     label08:
+        virtualinvoke $r5.<java.io.ObjectOutputStream: void close()>();
+
+     label09:
+        virtualinvoke $r2.<java.io.ByteArrayOutputStream: void close()>();
+
+     label10:
+        return null;
+
+     label11:
+        $r7 := @caughtexception;
+
+        return null;
+
+     label12:
+        $r8 := @caughtexception;
+
+        $r5 = null;
+
+        $r9 = $r8;
+
+     label13:
+        if $r5 == null goto label15;
+
+     label14:
+        virtualinvoke $r5.<java.io.ObjectOutputStream: void close()>();
+
+     label15:
+        virtualinvoke $r2.<java.io.ByteArrayOutputStream: void close()>();
+
+     label16:
+        throw $r9;
+
+     label17:
+        $r10 := @caughtexception;
+
+        goto label16;
+
+     label18:
+        $r9 := @caughtexception;
+
+        goto label13;
+
+     label19:
+        $r3 := @caughtexception;
+
+        goto label07;
+
+     label20:
+        $r11 := @caughtexception;
+
+        return $r4;
+
+        catch java.io.IOException from label02 to label03 with label06;
+        catch java.lang.Throwable from label01 to label03 with label12;
+        catch java.io.IOException from label03 to label04 with label19;
+        catch java.lang.Throwable from label03 to label04 with label18;
+        catch java.io.IOException from label04 to label05 with label20;
+        catch java.io.IOException from label08 to label10 with label11;
+        catch java.io.IOException from label14 to label16 with label17;
+    }
+
+    private void lA()
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        com.google.android.gms.tagmanager.v$a $r1;
+        android.database.sqlite.SQLiteException $r2;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 = $r0.<com.google.android.gms.tagmanager.v: com.google.android.gms.tagmanager.v$a d>;
+
+     label1:
+        virtualinvoke $r1.<com.google.android.gms.tagmanager.v$a: void close()>();
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        return;
+
+        catch android.database.sqlite.SQLiteException from label1 to label2 with label3;
+    }
+
+    private java.util.List lx()
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        com.google.android.gms.internal.ik $r1;
+        long $l0;
+        java.util.List $r2;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+     label1:
+        $r1 = $r0.<com.google.android.gms.tagmanager.v: com.google.android.gms.internal.ik e>;
+
+        $l0 = interfaceinvoke $r1.<com.google.android.gms.internal.ik: long currentTimeMillis()>();
+
+        specialinvoke $r0.<com.google.android.gms.tagmanager.v: void x(long)>($l0);
+
+        $r2 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: java.util.List ly()>();
+
+        $r2 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: java.util.List e(java.util.List)>($r2);
+
+     label2:
+        specialinvoke $r0.<com.google.android.gms.tagmanager.v: void lA()>();
+
+        return $r2;
+
+     label3:
+        $r3 := @caughtexception;
+
+        specialinvoke $r0.<com.google.android.gms.tagmanager.v: void lA()>();
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    private java.util.List ly()
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        java.util.ArrayList $r1;
+        android.database.sqlite.SQLiteDatabase $r2;
+        java.lang.String[] $r3;
+        android.database.Cursor $r4;
+        boolean $z0;
+        com.google.android.gms.tagmanager.v$b $r5;
+        java.lang.String $r6;
+        byte[] $r7;
+        java.lang.Throwable $r8;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r2 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: android.database.sqlite.SQLiteDatabase S(java.lang.String)>("Error opening database for loadSerialized.");
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        if $r2 != null goto label1;
+
+        return $r1;
+
+     label1:
+        $r3 = newarray (java.lang.String)[2];
+
+        $r3[0] = "key";
+
+        $r3[1] = "value";
+
+        $r4 = virtualinvoke $r2.<android.database.sqlite.SQLiteDatabase: android.database.Cursor query(java.lang.String,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("datalayer", $r3, null, null, null, null, "ID", null);
+
+     label2:
+        $z0 = interfaceinvoke $r4.<android.database.Cursor: boolean moveToNext()>();
+
+     label3:
+        if $z0 == 0 goto label7;
+
+     label4:
+        $r5 = new com.google.android.gms.tagmanager.v$b;
+
+        $r6 = interfaceinvoke $r4.<android.database.Cursor: java.lang.String getString(int)>(0);
+
+        $r7 = interfaceinvoke $r4.<android.database.Cursor: byte[] getBlob(int)>(1);
+
+        specialinvoke $r5.<com.google.android.gms.tagmanager.v$b: void <init>(java.lang.String,byte[])>($r6, $r7);
+
+        interfaceinvoke $r1.<java.util.List: boolean add(java.lang.Object)>($r5);
+
+     label5:
+        goto label2;
+
+     label6:
+        $r8 := @caughtexception;
+
+        interfaceinvoke $r4.<android.database.Cursor: void close()>();
+
+        throw $r8;
+
+     label7:
+        interfaceinvoke $r4.<android.database.Cursor: void close()>();
+
+        return $r1;
+
+        catch java.lang.Throwable from label2 to label3 with label6;
+        catch java.lang.Throwable from label4 to label5 with label6;
+    }
+
+    private int lz()
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        android.database.Cursor $r1, $r3;
+        int $i0;
+        android.database.sqlite.SQLiteDatabase $r2;
+        boolean $z0;
+        long $l1;
+        android.database.sqlite.SQLiteException $r4;
+        java.lang.Throwable $r5;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 = null;
+
+        $i0 = 0;
+
+        $r2 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: android.database.sqlite.SQLiteDatabase S(java.lang.String)>("Error opening database for getNumStoredEntries.");
+
+        if $r2 != null goto label01;
+
+        return 0;
+
+     label01:
+        $r3 = virtualinvoke $r2.<android.database.sqlite.SQLiteDatabase: android.database.Cursor rawQuery(java.lang.String,java.lang.String[])>("SELECT COUNT(*) from datalayer", null);
+
+     label02:
+        $r1 = $r3;
+
+     label03:
+        $z0 = interfaceinvoke $r3.<android.database.Cursor: boolean moveToFirst()>();
+
+     label04:
+        if $z0 == 0 goto label07;
+
+     label05:
+        $l1 = interfaceinvoke $r3.<android.database.Cursor: long getLong(int)>(0);
+
+     label06:
+        $i0 = (int) $l1;
+
+     label07:
+        if $r3 == null goto label13;
+
+        interfaceinvoke $r3.<android.database.Cursor: void close()>();
+
+        return $i0;
+
+     label08:
+        $r4 := @caughtexception;
+
+     label09:
+        staticinvoke <com.google.android.gms.tagmanager.bh: void D(java.lang.String)>("Error getting numStoredEntries");
+
+     label10:
+        if $r1 == null goto label14;
+
+        interfaceinvoke $r1.<android.database.Cursor: void close()>();
+
+        return 0;
+
+     label11:
+        $r5 := @caughtexception;
+
+        if $r1 == null goto label12;
+
+        interfaceinvoke $r1.<android.database.Cursor: void close()>();
+
+     label12:
+        throw $r5;
+
+     label13:
+        return $i0;
+
+     label14:
+        return 0;
+
+        catch android.database.sqlite.SQLiteException from label01 to label02 with label08;
+        catch android.database.sqlite.SQLiteException from label03 to label04 with label08;
+        catch android.database.sqlite.SQLiteException from label05 to label06 with label08;
+        catch java.lang.Throwable from label01 to label02 with label11;
+        catch java.lang.Throwable from label03 to label04 with label11;
+        catch java.lang.Throwable from label05 to label06 with label11;
+        catch java.lang.Throwable from label09 to label10 with label11;
+    }
+
+    private void x(long)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        long $l0;
+        android.database.sqlite.SQLiteDatabase $r1;
+        java.lang.String[] $r2;
+        java.lang.String $r3;
+        int $i1;
+        java.lang.StringBuilder $r4;
+        android.database.sqlite.SQLiteException $r5;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $l0 := @parameter0: long;
+
+        $r1 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: android.database.sqlite.SQLiteDatabase S(java.lang.String)>("Error opening database for deleteOlderThan.");
+
+        if $r1 != null goto label1;
+
+        return;
+
+     label1:
+        $r2 = newarray (java.lang.String)[1];
+
+     label2:
+        $r3 = staticinvoke <java.lang.Long: java.lang.String toString(long)>($l0);
+
+     label3:
+        $r2[0] = $r3;
+
+     label4:
+        $i1 = virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: int delete(java.lang.String,java.lang.String,java.lang.String[])>("datalayer", "expires <= ?", $r2);
+
+     label5:
+        $r4 = new java.lang.StringBuilder;
+
+     label6:
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Deleted ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" expired items");
+
+        $r3 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.tagmanager.bh: void C(java.lang.String)>($r3);
+
+     label7:
+        return;
+
+     label8:
+        $r5 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.tagmanager.bh: void D(java.lang.String)>("Error deleting old entries.");
+
+        return;
+
+        catch android.database.sqlite.SQLiteException from label2 to label3 with label8;
+        catch android.database.sqlite.SQLiteException from label4 to label5 with label8;
+        catch android.database.sqlite.SQLiteException from label6 to label7 with label8;
+    }
+
+    public void a(com.google.android.gms.tagmanager.DataLayer$c$a)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        com.google.android.gms.tagmanager.DataLayer$c$a $r1;
+        java.util.concurrent.Executor $r2;
+        com.google.android.gms.tagmanager.v$2 $r3;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter0: com.google.android.gms.tagmanager.DataLayer$c$a;
+
+        $r2 = $r0.<com.google.android.gms.tagmanager.v: java.util.concurrent.Executor b>;
+
+        $r3 = new com.google.android.gms.tagmanager.v$2;
+
+        specialinvoke $r3.<com.google.android.gms.tagmanager.v$2: void <init>(com.google.android.gms.tagmanager.v,com.google.android.gms.tagmanager.DataLayer$c$a)>($r0, $r1);
+
+        interfaceinvoke $r2.<java.util.concurrent.Executor: void execute(java.lang.Runnable)>($r3);
+
+        return;
+    }
+
+    public void a(java.util.List, long)
+    {
+        com.google.android.gms.tagmanager.v $r0;
+        java.util.List $r1;
+        long $l0;
+        java.util.concurrent.Executor $r2;
+        com.google.android.gms.tagmanager.v$1 $r3;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v;
+
+        $r1 := @parameter0: java.util.List;
+
+        $l0 := @parameter1: long;
+
+        $r1 = specialinvoke $r0.<com.google.android.gms.tagmanager.v: java.util.List f(java.util.List)>($r1);
+
+        $r2 = $r0.<com.google.android.gms.tagmanager.v: java.util.concurrent.Executor b>;
+
+        $r3 = new com.google.android.gms.tagmanager.v$1;
+
+        specialinvoke $r3.<com.google.android.gms.tagmanager.v$1: void <init>(com.google.android.gms.tagmanager.v,java.util.List,long)>($r0, $r1, $l0);
+
+        interfaceinvoke $r2.<java.util.concurrent.Executor: void execute(java.lang.Runnable)>($r3);
+
+        return;
+    }
+}

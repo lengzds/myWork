@@ -1,0 +1,65 @@
+public class com.fasterxml.jackson.databind.ser.std.StdJdkSerializers extends java.lang.Object implements com.fasterxml.jackson.databind.util.Provider
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.ser.std.StdJdkSerializers $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdJdkSerializers;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.util.Collection provide()
+    {
+        com.fasterxml.jackson.databind.ser.std.StdJdkSerializers $r0;
+        java.util.Set $r1;
+        java.util.HashMap $r2;
+        com.fasterxml.jackson.databind.ser.std.ToStringSerializer $r3;
+        java.lang.Class $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdJdkSerializers;
+
+        $r2 = new java.util.HashMap;
+
+        specialinvoke $r2.<java.util.HashMap: void <init>()>();
+
+        $r3 = <com.fasterxml.jackson.databind.ser.std.ToStringSerializer: com.fasterxml.jackson.databind.ser.std.ToStringSerializer instance>;
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/net/URL", $r3);
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/net/URI", $r3);
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/util/Currency", $r3);
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/util/UUID", $r3);
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/util/regex/Pattern", $r3);
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/util/Locale", $r3);
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/util/Locale", $r3);
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/util/concurrent/atomic/AtomicReference", class "com/fasterxml/jackson/databind/ser/std/StdJdkSerializers$AtomicReferenceSerializer");
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/util/concurrent/atomic/AtomicBoolean", class "com/fasterxml/jackson/databind/ser/std/StdJdkSerializers$AtomicBooleanSerializer");
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/util/concurrent/atomic/AtomicInteger", class "com/fasterxml/jackson/databind/ser/std/StdJdkSerializers$AtomicIntegerSerializer");
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/util/concurrent/atomic/AtomicLong", class "com/fasterxml/jackson/databind/ser/std/StdJdkSerializers$AtomicLongSerializer");
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/io/File", class "com/fasterxml/jackson/databind/ser/std/StdJdkSerializers$FileSerializer");
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "java/lang/Class", class "com/fasterxml/jackson/databind/ser/std/StdJdkSerializers$ClassSerializer");
+
+        $r4 = <java.lang.Void: java.lang.Class TYPE>;
+
+        virtualinvoke $r2.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r4, class "com/fasterxml/jackson/databind/ser/std/NullSerializer");
+
+        $r1 = virtualinvoke $r2.<java.util.HashMap: java.util.Set entrySet()>();
+
+        return $r1;
+    }
+}

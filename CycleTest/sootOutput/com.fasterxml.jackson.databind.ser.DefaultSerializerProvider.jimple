@@ -1,0 +1,451 @@
+public abstract class com.fasterxml.jackson.databind.ser.DefaultSerializerProvider extends com.fasterxml.jackson.databind.SerializerProvider
+{
+    protected java.util.ArrayList _objectIdGenerators;
+    protected java.util.IdentityHashMap _seenObjectIds;
+
+    protected void <init>()
+    {
+        com.fasterxml.jackson.databind.ser.DefaultSerializerProvider $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.SerializerProvider: void <init>()>();
+
+        return;
+    }
+
+    protected void <init>(com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.SerializationConfig, com.fasterxml.jackson.databind.ser.SerializerFactory)
+    {
+        com.fasterxml.jackson.databind.ser.DefaultSerializerProvider $r0;
+        com.fasterxml.jackson.databind.SerializerProvider $r1;
+        com.fasterxml.jackson.databind.SerializationConfig $r2;
+        com.fasterxml.jackson.databind.ser.SerializerFactory $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.SerializationConfig;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.ser.SerializerFactory;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.SerializerProvider: void <init>(com.fasterxml.jackson.databind.SerializerProvider,com.fasterxml.jackson.databind.SerializationConfig,com.fasterxml.jackson.databind.ser.SerializerFactory)>($r1, $r2, $r3);
+
+        return;
+    }
+
+    public abstract com.fasterxml.jackson.databind.ser.DefaultSerializerProvider createInstance(com.fasterxml.jackson.databind.SerializationConfig, com.fasterxml.jackson.databind.ser.SerializerFactory);
+
+    public com.fasterxml.jackson.databind.ser.impl.WritableObjectId findObjectId(java.lang.Object, com.fasterxml.jackson.annotation.ObjectIdGenerator)
+    {
+        com.fasterxml.jackson.databind.ser.DefaultSerializerProvider $r0;
+        java.lang.Object $r1, $r7;
+        com.fasterxml.jackson.'annotation'.ObjectIdGenerator $r2, $r5;
+        java.util.IdentityHashMap $r3;
+        java.util.ArrayList $r4;
+        com.fasterxml.jackson.databind.ser.impl.WritableObjectId $r6;
+        int $i0, $i1;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.'annotation'.ObjectIdGenerator;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: java.util.IdentityHashMap _seenObjectIds>;
+
+        if $r3 != null goto label4;
+
+        $r3 = new java.util.IdentityHashMap;
+
+        specialinvoke $r3.<java.util.IdentityHashMap: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: java.util.IdentityHashMap _seenObjectIds> = $r3;
+
+     label1:
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: java.util.ArrayList _objectIdGenerators>;
+
+        if $r4 != null goto label5;
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<java.util.ArrayList: void <init>(int)>(8);
+
+        $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: java.util.ArrayList _objectIdGenerators> = $r4;
+
+        $r5 = null;
+
+     label2:
+        if $r5 != null goto label3;
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator: com.fasterxml.jackson.'annotation'.ObjectIdGenerator newForSerialization(java.lang.Object)>($r0);
+
+        $r5 = $r2;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: java.util.ArrayList _objectIdGenerators>;
+
+        virtualinvoke $r4.<java.util.ArrayList: boolean add(java.lang.Object)>($r2);
+
+     label3:
+        $r6 = new com.fasterxml.jackson.databind.ser.impl.WritableObjectId;
+
+        specialinvoke $r6.<com.fasterxml.jackson.databind.ser.impl.WritableObjectId: void <init>(com.fasterxml.jackson.'annotation'.ObjectIdGenerator)>($r5);
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: java.util.IdentityHashMap _seenObjectIds>;
+
+        virtualinvoke $r3.<java.util.IdentityHashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r6);
+
+        return $r6;
+
+     label4:
+        $r3 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: java.util.IdentityHashMap _seenObjectIds>;
+
+        $r7 = virtualinvoke $r3.<java.util.IdentityHashMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r6 = (com.fasterxml.jackson.databind.ser.impl.WritableObjectId) $r7;
+
+        if $r6 == null goto label1;
+
+        return $r6;
+
+     label5:
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: java.util.ArrayList _objectIdGenerators>;
+
+        $i0 = virtualinvoke $r4.<java.util.ArrayList: int size()>();
+
+        $i1 = 0;
+
+     label6:
+        if $i1 >= $i0 goto label7;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: java.util.ArrayList _objectIdGenerators>;
+
+        $r7 = virtualinvoke $r4.<java.util.ArrayList: java.lang.Object get(int)>($i1);
+
+        $r5 = (com.fasterxml.jackson.'annotation'.ObjectIdGenerator) $r7;
+
+        $z0 = virtualinvoke $r5.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator: boolean canUseFor(com.fasterxml.jackson.'annotation'.ObjectIdGenerator)>($r2);
+
+        if $z0 != 0 goto label2;
+
+        $i1 = $i1 + 1;
+
+        goto label6;
+
+     label7:
+        $r5 = null;
+
+        goto label2;
+    }
+
+    public com.fasterxml.jackson.annotation.ObjectIdGenerator objectIdGeneratorInstance(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.introspect.ObjectIdInfo)
+    {
+        com.fasterxml.jackson.databind.ser.DefaultSerializerProvider $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        com.fasterxml.jackson.databind.introspect.ObjectIdInfo $r2;
+        com.fasterxml.jackson.databind.SerializationConfig $r3;
+        java.lang.Class $r4;
+        com.fasterxml.jackson.databind.cfg.HandlerInstantiator $r5;
+        com.fasterxml.jackson.'annotation'.ObjectIdGenerator $r6;
+        boolean $z0;
+        java.lang.Object $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.introspect.ObjectIdInfo;
+
+        $r4 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.ObjectIdInfo: java.lang.Class getGeneratorType()>();
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.SerializationConfig _config>;
+
+        $r5 = virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializationConfig: com.fasterxml.jackson.databind.cfg.HandlerInstantiator getHandlerInstantiator()>();
+
+        if $r5 == null goto label2;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.SerializationConfig _config>;
+
+        $r6 = virtualinvoke $r5.<com.fasterxml.jackson.databind.cfg.HandlerInstantiator: com.fasterxml.jackson.'annotation'.ObjectIdGenerator objectIdGeneratorInstance(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.introspect.Annotated,java.lang.Class)>($r3, $r1, $r4);
+
+     label1:
+        $r4 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.ObjectIdInfo: java.lang.Class getScope()>();
+
+        $r6 = virtualinvoke $r6.<com.fasterxml.jackson.'annotation'.ObjectIdGenerator: com.fasterxml.jackson.'annotation'.ObjectIdGenerator forScope(java.lang.Class)>($r4);
+
+        return $r6;
+
+     label2:
+        $r3 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.SerializationConfig _config>;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializationConfig: boolean canOverrideAccessModifiers()>();
+
+        $r7 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Object createInstance(java.lang.Class,boolean)>($r4, $z0);
+
+        $r6 = (com.fasterxml.jackson.'annotation'.ObjectIdGenerator) $r7;
+
+        goto label1;
+    }
+
+    public void serializeValue(com.fasterxml.jackson.core.JsonGenerator, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.ser.DefaultSerializerProvider $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        java.lang.Object $r2;
+        boolean $z0, $z1;
+        com.fasterxml.jackson.databind.JsonSerializer $r3;
+        java.lang.Class $r4;
+        com.fasterxml.jackson.databind.SerializationConfig $r5;
+        java.lang.String $r6, $r12;
+        com.fasterxml.jackson.databind.SerializationFeature $r7;
+        com.fasterxml.jackson.databind.util.RootNameLookup $r8;
+        com.fasterxml.jackson.core.io.SerializedString $r9;
+        int $i0;
+        java.io.IOException $r10;
+        java.lang.Exception $r11;
+        java.lang.StringBuilder $r13;
+        com.fasterxml.jackson.databind.JsonMappingException $r14;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $z0 = 0;
+
+        if $r2 != null goto label05;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.JsonSerializer getDefaultNullValueSerializer()>();
+
+     label01:
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.JsonSerializer: void serialize(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r2, $r1, $r0);
+
+     label02:
+        if $z0 == 0 goto label12;
+
+     label03:
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeEndObject()>();
+
+     label04:
+        return;
+
+     label05:
+        $r4 = virtualinvoke $r2.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.JsonSerializer findTypedValueSerializer(java.lang.Class,boolean,com.fasterxml.jackson.databind.BeanProperty)>($r4, 1, null);
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.SerializationConfig _config>;
+
+        $r6 = virtualinvoke $r5.<com.fasterxml.jackson.databind.SerializationConfig: java.lang.String getRootName()>();
+
+        if $r6 != null goto label06;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.SerializationConfig _config>;
+
+        $r7 = <com.fasterxml.jackson.databind.SerializationFeature: com.fasterxml.jackson.databind.SerializationFeature WRAP_ROOT_VALUE>;
+
+        $z1 = virtualinvoke $r5.<com.fasterxml.jackson.databind.SerializationConfig: boolean isEnabled(com.fasterxml.jackson.databind.SerializationFeature)>($r7);
+
+        $z0 = $z1;
+
+        if $z1 == 0 goto label11;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeStartObject()>();
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.util.RootNameLookup _rootNames>;
+
+        $r4 = virtualinvoke $r2.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.SerializationConfig _config>;
+
+        $r9 = virtualinvoke $r8.<com.fasterxml.jackson.databind.util.RootNameLookup: com.fasterxml.jackson.core.io.SerializedString findRootName(java.lang.Class,com.fasterxml.jackson.databind.cfg.MapperConfig)>($r4, $r5);
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeFieldName(com.fasterxml.jackson.core.SerializableString)>($r9);
+
+        goto label01;
+
+     label06:
+        $i0 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+        if $i0 != 0 goto label07;
+
+        goto label01;
+
+     label07:
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeStartObject()>();
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeFieldName(java.lang.String)>($r6);
+
+        $z0 = 1;
+
+        goto label01;
+
+     label08:
+        $r10 := @caughtexception;
+
+        throw $r10;
+
+     label09:
+        $r11 := @caughtexception;
+
+        $r6 = virtualinvoke $r11.<java.lang.Exception: java.lang.String getMessage()>();
+
+        $r12 = $r6;
+
+        if $r6 != null goto label10;
+
+        $r13 = new java.lang.StringBuilder;
+
+        specialinvoke $r13.<java.lang.StringBuilder: void <init>(java.lang.String)>("[no message for ");
+
+        $r4 = virtualinvoke $r11.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r6 = virtualinvoke $r4.<java.lang.Class: java.lang.String getName()>();
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r12 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label10:
+        $r14 = new com.fasterxml.jackson.databind.JsonMappingException;
+
+        specialinvoke $r14.<com.fasterxml.jackson.databind.JsonMappingException: void <init>(java.lang.String,java.lang.Throwable)>($r12, $r11);
+
+        throw $r14;
+
+     label11:
+        goto label01;
+
+     label12:
+        return;
+
+        catch java.io.IOException from label01 to label02 with label08;
+        catch java.io.IOException from label03 to label04 with label08;
+        catch java.lang.Exception from label01 to label02 with label09;
+        catch java.lang.Exception from label03 to label04 with label09;
+    }
+
+    public com.fasterxml.jackson.databind.JsonSerializer serializerInstance(com.fasterxml.jackson.databind.introspect.Annotated, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.ser.DefaultSerializerProvider $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.Object $r2;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JsonSerializer $r3;
+        java.lang.IllegalStateException $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.Class $r6, $r8;
+        java.lang.String $r7;
+        com.fasterxml.jackson.databind.SerializationConfig $r9;
+        com.fasterxml.jackson.databind.cfg.HandlerInstantiator $r10;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $z0 = $r2 instanceof com.fasterxml.jackson.databind.JsonSerializer;
+
+        if $z0 == 0 goto label3;
+
+        $r3 = (com.fasterxml.jackson.databind.JsonSerializer) $r2;
+
+     label2:
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.JsonSerializer _handleResolvable(com.fasterxml.jackson.databind.JsonSerializer)>($r3);
+
+        return $r3;
+
+     label3:
+        $z0 = $r2 instanceof java.lang.Class;
+
+        if $z0 != 0 goto label4;
+
+        $r4 = new java.lang.IllegalStateException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("AnnotationIntrospector returned serializer definition of type ");
+
+        $r6 = virtualinvoke $r2.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r7 = virtualinvoke $r6.<java.lang.Class: java.lang.String getName()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; expected type JsonSerializer or Class<JsonSerializer> instead");
+
+        $r7 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r7);
+
+        throw $r4;
+
+     label4:
+        $r6 = (java.lang.Class) $r2;
+
+        if $r6 == class "com/fasterxml/jackson/databind/JsonSerializer$None" goto label7;
+
+        if $r6 == class "com/fasterxml/jackson/databind/annotation/NoClass" goto label7;
+
+        $r8 = class "com/fasterxml/jackson/databind/JsonSerializer";
+
+        $z0 = virtualinvoke $r8.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r6);
+
+        if $z0 != 0 goto label5;
+
+        $r4 = new java.lang.IllegalStateException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("AnnotationIntrospector returned Class ");
+
+        $r7 = virtualinvoke $r6.<java.lang.Class: java.lang.String getName()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; expected Class<JsonSerializer>");
+
+        $r7 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r7);
+
+        throw $r4;
+
+     label5:
+        $r9 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.SerializationConfig _config>;
+
+        $r10 = virtualinvoke $r9.<com.fasterxml.jackson.databind.SerializationConfig: com.fasterxml.jackson.databind.cfg.HandlerInstantiator getHandlerInstantiator()>();
+
+        if $r10 == null goto label6;
+
+        $r9 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.SerializationConfig _config>;
+
+        $r3 = virtualinvoke $r10.<com.fasterxml.jackson.databind.cfg.HandlerInstantiator: com.fasterxml.jackson.databind.JsonSerializer serializerInstance(com.fasterxml.jackson.databind.SerializationConfig,com.fasterxml.jackson.databind.introspect.Annotated,java.lang.Class)>($r9, $r1, $r6);
+
+        goto label2;
+
+     label6:
+        $r9 = $r0.<com.fasterxml.jackson.databind.ser.DefaultSerializerProvider: com.fasterxml.jackson.databind.SerializationConfig _config>;
+
+        $z0 = virtualinvoke $r9.<com.fasterxml.jackson.databind.SerializationConfig: boolean canOverrideAccessModifiers()>();
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Object createInstance(java.lang.Class,boolean)>($r6, $z0);
+
+        $r3 = (com.fasterxml.jackson.databind.JsonSerializer) $r2;
+
+        goto label2;
+
+     label7:
+        return null;
+    }
+}

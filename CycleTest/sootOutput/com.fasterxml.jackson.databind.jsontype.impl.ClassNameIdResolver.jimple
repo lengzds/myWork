@@ -1,0 +1,262 @@
+public class com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver extends com.fasterxml.jackson.databind.jsontype.impl.TypeIdResolverBase
+{
+
+    public void <init>(com.fasterxml.jackson.databind.JavaType, com.fasterxml.jackson.databind.type.TypeFactory)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        com.fasterxml.jackson.databind.type.TypeFactory $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeIdResolverBase: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.type.TypeFactory)>($r1, $r2);
+
+        return;
+    }
+
+    protected final java.lang.String _idFrom(java.lang.Object, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver $r0;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+        boolean $z0;
+        java.lang.String $r4, $r10;
+        java.util.EnumSet $r5;
+        com.fasterxml.jackson.databind.type.TypeFactory $r6;
+        com.fasterxml.jackson.databind.type.CollectionType $r7;
+        java.util.EnumMap $r8;
+        com.fasterxml.jackson.databind.type.MapType $r9;
+        int $i0;
+        com.fasterxml.jackson.databind.JavaType $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r3 = class "java/lang/Enum";
+
+        $z0 = virtualinvoke $r3.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r2);
+
+        if $z0 == 0 goto label1;
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isEnum()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = virtualinvoke $r2.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+     label1:
+        $r4 = virtualinvoke $r2.<java.lang.Class: java.lang.String getName()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean startsWith(java.lang.String)>("java.util");
+
+        if $z0 == 0 goto label5;
+
+        $z0 = $r1 instanceof java.util.EnumSet;
+
+        if $z0 == 0 goto label2;
+
+        $r5 = (java.util.EnumSet) $r1;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Class findEnumType(java.util.EnumSet)>($r5);
+
+        $r6 = staticinvoke <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.TypeFactory defaultInstance()>();
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.CollectionType constructCollectionType(java.lang.Class,java.lang.Class)>(class "java/util/EnumSet", $r2);
+
+        $r4 = virtualinvoke $r7.<com.fasterxml.jackson.databind.type.CollectionType: java.lang.String toCanonical()>();
+
+        return $r4;
+
+     label2:
+        $z0 = $r1 instanceof java.util.EnumMap;
+
+        if $z0 == 0 goto label3;
+
+        $r8 = (java.util.EnumMap) $r1;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Class findEnumType(java.util.EnumMap)>($r8);
+
+        $r6 = staticinvoke <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.TypeFactory defaultInstance()>();
+
+        $r9 = virtualinvoke $r6.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.MapType constructMapType(java.lang.Class,java.lang.Class,java.lang.Class)>(class "java/util/EnumMap", $r2, class "java/lang/Object");
+
+        $r4 = virtualinvoke $r9.<com.fasterxml.jackson.databind.type.MapType: java.lang.String toCanonical()>();
+
+        return $r4;
+
+     label3:
+        $r10 = virtualinvoke $r4.<java.lang.String: java.lang.String substring(int)>(9);
+
+        $z0 = virtualinvoke $r10.<java.lang.String: boolean startsWith(java.lang.String)>(".Arrays$");
+
+        if $z0 != 0 goto label4;
+
+        $z0 = virtualinvoke $r10.<java.lang.String: boolean startsWith(java.lang.String)>(".Collections$");
+
+        if $z0 == 0 goto label6;
+
+     label4:
+        $i0 = virtualinvoke $r4.<java.lang.String: int indexOf(java.lang.String)>("List");
+
+        if $i0 < 0 goto label6;
+
+        return "java.util.ArrayList";
+
+     label5:
+        $i0 = virtualinvoke $r4.<java.lang.String: int indexOf(int)>(36);
+
+        if $i0 < 0 goto label6;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Class getOuterClass(java.lang.Class)>($r2);
+
+        if $r2 == null goto label6;
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver: com.fasterxml.jackson.databind.JavaType _baseType>;
+
+        $r2 = virtualinvoke $r11.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Class getOuterClass(java.lang.Class)>($r2);
+
+        if $r2 != null goto label6;
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver: com.fasterxml.jackson.databind.JavaType _baseType>;
+
+        $r2 = virtualinvoke $r11.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        $r4 = virtualinvoke $r2.<java.lang.Class: java.lang.String getName()>();
+
+     label6:
+        return $r4;
+    }
+
+    public java.lang.String idFromValue(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver $r0;
+        java.lang.Object $r1;
+        java.lang.Class $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver: java.lang.String _idFrom(java.lang.Object,java.lang.Class)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public java.lang.String idFromValueAndType(java.lang.Object, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver $r0;
+        java.lang.Object $r1;
+        java.lang.Class $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver: java.lang.String _idFrom(java.lang.Object,java.lang.Class)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public com.fasterxml.jackson.databind.JavaType typeFromId(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver $r0;
+        java.lang.String $r1;
+        int $i0;
+        com.fasterxml.jackson.databind.type.TypeFactory $r2;
+        com.fasterxml.jackson.databind.JavaType $r3;
+        java.lang.Class $r4;
+        java.lang.ClassNotFoundException $r5;
+        java.lang.IllegalArgumentException $r6;
+        java.lang.StringBuilder $r7;
+        java.lang.Exception $r8;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int indexOf(int)>(60);
+
+        if $i0 <= 0 goto label1;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver: com.fasterxml.jackson.databind.type.TypeFactory _typeFactory>;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType constructFromCanonical(java.lang.String)>($r1);
+
+        return $r3;
+
+     label1:
+        $r4 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Class findClass(java.lang.String)>($r1);
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver: com.fasterxml.jackson.databind.type.TypeFactory _typeFactory>;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver: com.fasterxml.jackson.databind.JavaType _baseType>;
+
+     label3:
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType constructSpecializedType(com.fasterxml.jackson.databind.JavaType,java.lang.Class)>($r3, $r4);
+
+     label4:
+        return $r3;
+
+     label5:
+        $r5 := @caughtexception;
+
+        $r6 = new java.lang.IllegalArgumentException;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>("Invalid type id \'");
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' (for id type \'Id.class\'): no such class found");
+
+        $r1 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r1);
+
+        throw $r6;
+
+     label6:
+        $r8 := @caughtexception;
+
+        $r6 = new java.lang.IllegalArgumentException;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>("Invalid type id \'");
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' (for id type \'Id.class\'): ");
+
+        $r1 = virtualinvoke $r8.<java.lang.Exception: java.lang.String getMessage()>();
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r6.<java.lang.IllegalArgumentException: void <init>(java.lang.String,java.lang.Throwable)>($r1, $r8);
+
+        throw $r6;
+
+        catch java.lang.ClassNotFoundException from label1 to label2 with label5;
+        catch java.lang.ClassNotFoundException from label3 to label4 with label5;
+        catch java.lang.Exception from label1 to label4 with label6;
+    }
+}

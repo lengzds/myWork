@@ -1,0 +1,248 @@
+final class com.speedsoftware.rootexplorer.ft extends java.lang.Object implements java.lang.Runnable
+{
+    final com.speedsoftware.rootexplorer.RootExplorer a;
+    private int b;
+    private int c;
+    private android.content.Intent d;
+
+    void <init>(com.speedsoftware.rootexplorer.RootExplorer, int, int, android.content.Intent)
+    {
+        com.speedsoftware.rootexplorer.ft $r0;
+        com.speedsoftware.rootexplorer.RootExplorer $r1;
+        int $i0, $i1;
+        android.content.Intent $r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ft;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.RootExplorer;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r2 := @parameter3: android.content.Intent;
+
+        $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.ft: int b> = $i0;
+
+        $r0.<com.speedsoftware.rootexplorer.ft: int c> = $i1;
+
+        $r0.<com.speedsoftware.rootexplorer.ft: android.content.Intent d> = $r2;
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.ft $r0, $r9;
+        com.speedsoftware.rootexplorer.RootExplorer $r1;
+        android.widget.TabHost $r2;
+        int $i0, $i1, $i2, $i3;
+        android.content.Intent $r3;
+        com.speedsoftware.rootexplorer.r $r4;
+        android.support.v4.app.Fragment$SavedState[] $r5;
+        android.support.v4.app.Fragment$SavedState $r6;
+        com.speedsoftware.rootexplorer.s $r7;
+        boolean $z0;
+        java.util.ArrayList $r8;
+        android.os.Handler $r10;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ft;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r2 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.widget.TabHost f>;
+
+        $i0 = virtualinvoke $r2.<android.widget.TabHost: int getCurrentTab()>();
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ft: android.content.Intent d>;
+
+        if $r3 == null goto label1;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ft: android.content.Intent d>;
+
+        $i1 = virtualinvoke $r3.<android.content.Intent: int getIntExtra(java.lang.String,int)>("current_tab_no", -1);
+
+        if $i1 <= 0 goto label1;
+
+        $i0 = $i1 + -1;
+
+     label1:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r2 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.widget.TabHost f>;
+
+        $i1 = virtualinvoke $r2.<android.widget.TabHost: int getCurrentTab()>();
+
+        if $i1 != $i0 goto label7;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r4 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.RootExplorer: com.speedsoftware.rootexplorer.r a()>();
+
+        if $r4 == null goto label6;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r5 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.Fragment$SavedState[] i>;
+
+        if $r5 == null goto label2;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r2 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.widget.TabHost f>;
+
+        $i1 = virtualinvoke $r2.<android.widget.TabHost: int getCurrentTab()>();
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r5 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.Fragment$SavedState[] i>;
+
+        $i2 = lengthof $r5;
+
+        if $i1 >= $i2 goto label2;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r5 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.Fragment$SavedState[] i>;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r2 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.widget.TabHost f>;
+
+        $i1 = virtualinvoke $r2.<android.widget.TabHost: int getCurrentTab()>();
+
+        $r6 = $r5[$i1];
+
+        if $r6 == null goto label2;
+
+        $r7 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.r: com.speedsoftware.rootexplorer.s a()>();
+
+        $z0 = $r7.<com.speedsoftware.rootexplorer.s: boolean aW>;
+
+        if $z0 == 0 goto label5;
+
+     label2:
+        $i1 = $r0.<com.speedsoftware.rootexplorer.ft: int b>;
+
+        $i2 = $r0.<com.speedsoftware.rootexplorer.ft: int c>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ft: android.content.Intent d>;
+
+        virtualinvoke $r4.<com.speedsoftware.rootexplorer.r: void onActivityResult(int,int,android.content.Intent)>($i1, $i2, $r3);
+
+     label3:
+        $i1 = 0;
+
+     label4:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r8 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: java.util.ArrayList t>;
+
+        $i2 = virtualinvoke $r8.<java.util.ArrayList: int size()>();
+
+        if $i1 < $i2 goto label8;
+
+        return;
+
+     label5:
+        $r9 = new com.speedsoftware.rootexplorer.ft;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $i1 = $r0.<com.speedsoftware.rootexplorer.ft: int b>;
+
+        $i2 = $r0.<com.speedsoftware.rootexplorer.ft: int c>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ft: android.content.Intent d>;
+
+        specialinvoke $r9.<com.speedsoftware.rootexplorer.ft: void <init>(com.speedsoftware.rootexplorer.RootExplorer,int,int,android.content.Intent)>($r1, $i1, $i2, $r3);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r10 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.os.Handler a>;
+
+        virtualinvoke $r10.<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>($r9, 100L);
+
+        goto label3;
+
+     label6:
+        $r9 = new com.speedsoftware.rootexplorer.ft;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $i1 = $r0.<com.speedsoftware.rootexplorer.ft: int b>;
+
+        $i2 = $r0.<com.speedsoftware.rootexplorer.ft: int c>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ft: android.content.Intent d>;
+
+        specialinvoke $r9.<com.speedsoftware.rootexplorer.ft: void <init>(com.speedsoftware.rootexplorer.RootExplorer,int,int,android.content.Intent)>($r1, $i1, $i2, $r3);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r10 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.os.Handler a>;
+
+        virtualinvoke $r10.<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>($r9, 100L);
+
+        goto label3;
+
+     label7:
+        $r9 = new com.speedsoftware.rootexplorer.ft;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $i1 = $r0.<com.speedsoftware.rootexplorer.ft: int b>;
+
+        $i2 = $r0.<com.speedsoftware.rootexplorer.ft: int c>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ft: android.content.Intent d>;
+
+        specialinvoke $r9.<com.speedsoftware.rootexplorer.ft: void <init>(com.speedsoftware.rootexplorer.RootExplorer,int,int,android.content.Intent)>($r1, $i1, $i2, $r3);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r10 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.os.Handler a>;
+
+        virtualinvoke $r10.<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>($r9, 100L);
+
+        goto label3;
+
+     label8:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.ft: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: com.speedsoftware.rootexplorer.r a(com.speedsoftware.rootexplorer.RootExplorer,int)>($r1, $i1);
+
+        if $r4 == null goto label9;
+
+        if $i1 == $i0 goto label9;
+
+        $r7 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.r: com.speedsoftware.rootexplorer.s a()>();
+
+        if $r7 == null goto label9;
+
+        $i2 = $r7.<com.speedsoftware.rootexplorer.ge: int C>;
+
+        $i3 = $r0.<com.speedsoftware.rootexplorer.ft: int b>;
+
+        $i3 = $i3 & 65535;
+
+        if $i2 != $i3 goto label9;
+
+        $i2 = $r0.<com.speedsoftware.rootexplorer.ft: int b>;
+
+        $i3 = $r0.<com.speedsoftware.rootexplorer.ft: int c>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ft: android.content.Intent d>;
+
+        virtualinvoke $r7.<com.speedsoftware.rootexplorer.ge: void a(int,int,android.content.Intent)>($i2, $i3, $r3);
+
+     label9:
+        $i1 = $i1 + 1;
+
+        goto label4;
+    }
+}

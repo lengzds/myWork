@@ -1,0 +1,293 @@
+public abstract class a.c.a extends java.lang.Object
+{
+    protected static final byte[] a;
+    private static final java.lang.String b;
+    private int c;
+
+    static void <clinit>()
+    {
+        byte[] $r0;
+        java.lang.String $r1;
+
+        $r0 = newarray (byte)[8];
+
+        $r0[0] = 78;
+
+        $r0[1] = 84;
+
+        $r0[2] = 76;
+
+        $r0[3] = 77;
+
+        $r0[4] = 83;
+
+        $r0[5] = 83;
+
+        $r0[6] = 80;
+
+        $r0[7] = 0;
+
+        <a.c.a: byte[] a> = $r0;
+
+        $r1 = <a.a: java.lang.String b>;
+
+        <a.c.a: java.lang.String b> = $r1;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        a.c.a $r0;
+
+        $r0 := @this: a.c.a;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static int a(byte[], int)
+    {
+        byte[] $r0;
+        int $i0, $i3, $i5;
+        byte $b1;
+        short $s2, $s4;
+
+        $r0 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $b1 = $r0[$i0];
+
+        $s2 = $b1 & 255;
+
+        $i3 = $i0 + 1;
+
+        $b1 = $r0[$i3];
+
+        $s4 = $b1 & 255;
+
+        $i3 = $s4 << 8;
+
+        $i3 = $s2 | $i3;
+
+        $i5 = $i0 + 2;
+
+        $b1 = $r0[$i5];
+
+        $s2 = $b1 & 255;
+
+        $i5 = $s2 << 16;
+
+        $i3 = $i3 | $i5;
+
+        $i0 = $i0 + 3;
+
+        $b1 = $r0[$i0];
+
+        $s2 = $b1 & 255;
+
+        $i0 = $s2 << 24;
+
+        $i0 = $i3 | $i0;
+
+        return $i0;
+    }
+
+    static void a(byte[], int, int)
+    {
+        byte[] $r0;
+        int $i0, $i1, $i2, $i4;
+        byte $b3;
+
+        $r0 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 = $i1 & 255;
+
+        $b3 = (byte) $i2;
+
+        $r0[$i0] = $b3;
+
+        $i2 = $i0 + 1;
+
+        $i4 = $i1 >> 8;
+
+        $i4 = $i4 & 255;
+
+        $b3 = (byte) $i4;
+
+        $r0[$i2] = $b3;
+
+        $i2 = $i0 + 2;
+
+        $i4 = $i1 >> 16;
+
+        $i4 = $i4 & 255;
+
+        $b3 = (byte) $i4;
+
+        $r0[$i2] = $b3;
+
+        $i0 = $i0 + 3;
+
+        $i1 = $i1 >> 24;
+
+        $i1 = $i1 & 255;
+
+        $b3 = (byte) $i1;
+
+        $r0[$i0] = $b3;
+
+        return;
+    }
+
+    static void a(byte[], int, int, byte[])
+    {
+        byte[] $r0, $r1;
+        int $i0, $i1, $i2, $i3;
+
+        $r0 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r1 := @parameter3: byte[];
+
+        if $r1 == null goto label2;
+
+        $i2 = lengthof $r1;
+
+     label1:
+        if $i2 != 0 goto label3;
+
+        return;
+
+     label2:
+        $i2 = 0;
+
+        goto label1;
+
+     label3:
+        staticinvoke <a.c.a: void b(byte[],int,int)>($r0, $i0, $i2);
+
+        $i3 = $i0 + 2;
+
+        staticinvoke <a.c.a: void b(byte[],int,int)>($r0, $i3, $i2);
+
+        $i0 = $i0 + 4;
+
+        staticinvoke <a.c.a: void a(byte[],int,int)>($r0, $i0, $i1);
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r1, 0, $r0, $i1, $i2);
+
+        return;
+    }
+
+    static java.lang.String b()
+    {
+        java.lang.String r0;
+
+        r0 = <a.c.a: java.lang.String b>;
+
+        return r0;
+    }
+
+    static void b(byte[], int, int)
+    {
+        byte[] $r0;
+        int $i0, $i1, $i2;
+        byte $b3;
+
+        $r0 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 = $i1 & 255;
+
+        $b3 = (byte) $i2;
+
+        $r0[$i0] = $b3;
+
+        $i0 = $i0 + 1;
+
+        $i1 = $i1 >> 8;
+
+        $i1 = $i1 & 255;
+
+        $b3 = (byte) $i1;
+
+        $r0[$i0] = $b3;
+
+        return;
+    }
+
+    static byte[] b(byte[], int)
+    {
+        byte[] $r0, $r1;
+        int $i0, $i3;
+        byte $b1;
+        short $s2, $s4;
+
+        $r0 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $b1 = $r0[$i0];
+
+        $s2 = $b1 & 255;
+
+        $i3 = $i0 + 1;
+
+        $b1 = $r0[$i3];
+
+        $s4 = $b1 & 255;
+
+        $i3 = $s4 << 8;
+
+        $i3 = $s2 | $i3;
+
+        $i0 = $i0 + 4;
+
+        $i0 = staticinvoke <a.c.a: int a(byte[],int)>($r0, $i0);
+
+        $r1 = newarray (byte)[$i3];
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r0, $i0, $r1, 0, $i3);
+
+        return $r1;
+    }
+
+    public final int a()
+    {
+        a.c.a $r0;
+        int i0;
+
+        $r0 := @this: a.c.a;
+
+        i0 = $r0.<a.c.a: int c>;
+
+        return i0;
+    }
+
+    public final void a(int)
+    {
+        a.c.a $r0;
+        int $i0;
+
+        $r0 := @this: a.c.a;
+
+        $i0 := @parameter0: int;
+
+        $r0.<a.c.a: int c> = $i0;
+
+        return;
+    }
+}

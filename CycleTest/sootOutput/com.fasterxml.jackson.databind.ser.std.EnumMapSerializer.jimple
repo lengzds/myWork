@@ -1,0 +1,665 @@
+public class com.fasterxml.jackson.databind.ser.std.EnumMapSerializer extends com.fasterxml.jackson.databind.ser.ContainerSerializer implements com.fasterxml.jackson.databind.ser.ContextualSerializer
+{
+    protected final com.fasterxml.jackson.databind.util.EnumValues _keyEnums;
+    protected final com.fasterxml.jackson.databind.BeanProperty _property;
+    protected final boolean _staticTyping;
+    protected final com.fasterxml.jackson.databind.JsonSerializer _valueSerializer;
+    protected final com.fasterxml.jackson.databind.JavaType _valueType;
+    protected final com.fasterxml.jackson.databind.jsontype.TypeSerializer _valueTypeSerializer;
+
+    public void <init>(com.fasterxml.jackson.databind.JavaType, boolean, com.fasterxml.jackson.databind.util.EnumValues, com.fasterxml.jackson.databind.jsontype.TypeSerializer, com.fasterxml.jackson.databind.JsonSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        boolean $z0, $z1;
+        com.fasterxml.jackson.databind.util.EnumValues $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r3;
+        com.fasterxml.jackson.databind.JsonSerializer $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $z0 := @parameter1: boolean;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.util.EnumValues;
+
+        $r3 := @parameter3: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r4 := @parameter4: com.fasterxml.jackson.databind.JsonSerializer;
+
+        $z1 = 0;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.ContainerSerializer: void <init>(java.lang.Class,boolean)>(class "java/util/EnumMap", 0);
+
+        $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.BeanProperty _property> = null;
+
+        if $z0 != 0 goto label1;
+
+        if $r1 == null goto label2;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: boolean isFinal()>();
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        $z1 = 1;
+
+     label2:
+        $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: boolean _staticTyping> = $z1;
+
+        $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JavaType _valueType> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.util.EnumValues _keyEnums> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.jsontype.TypeSerializer _valueTypeSerializer> = $r3;
+
+        $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JsonSerializer _valueSerializer> = $r4;
+
+        return;
+    }
+
+    public void <init>(com.fasterxml.jackson.databind.ser.std.EnumMapSerializer, com.fasterxml.jackson.databind.BeanProperty, com.fasterxml.jackson.databind.JsonSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0, $r1;
+        com.fasterxml.jackson.databind.BeanProperty $r2;
+        com.fasterxml.jackson.databind.JsonSerializer $r3;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JavaType $r4;
+        com.fasterxml.jackson.databind.util.EnumValues $r5;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.JsonSerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.ContainerSerializer: void <init>(com.fasterxml.jackson.databind.ser.ContainerSerializer)>($r1);
+
+        $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.BeanProperty _property> = $r2;
+
+        $z0 = $r1.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: boolean _staticTyping>;
+
+        $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: boolean _staticTyping> = $z0;
+
+        $r4 = $r1.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JavaType _valueType>;
+
+        $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JavaType _valueType> = $r4;
+
+        $r5 = $r1.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.util.EnumValues _keyEnums>;
+
+        $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.util.EnumValues _keyEnums> = $r5;
+
+        $r6 = $r1.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.jsontype.TypeSerializer _valueTypeSerializer>;
+
+        $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.jsontype.TypeSerializer _valueTypeSerializer> = $r6;
+
+        $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JsonSerializer _valueSerializer> = $r3;
+
+        return;
+    }
+
+    public volatile com.fasterxml.jackson.databind.ser.ContainerSerializer _withValueTypeSerializer(com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer _withValueTypeSerializer(com.fasterxml.jackson.databind.jsontype.TypeSerializer)>($r1);
+
+        return $r0;
+    }
+
+    public com.fasterxml.jackson.databind.ser.std.EnumMapSerializer _withValueTypeSerializer(com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0, $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r1;
+        com.fasterxml.jackson.databind.JavaType $r3;
+        boolean $z0;
+        com.fasterxml.jackson.databind.util.EnumValues $r4;
+        com.fasterxml.jackson.databind.JsonSerializer $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r2 = new com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JavaType _valueType>;
+
+        $z0 = $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: boolean _staticTyping>;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.util.EnumValues _keyEnums>;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JsonSerializer _valueSerializer>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: void <init>(com.fasterxml.jackson.databind.JavaType,boolean,com.fasterxml.jackson.databind.util.EnumValues,com.fasterxml.jackson.databind.jsontype.TypeSerializer,com.fasterxml.jackson.databind.JsonSerializer)>($r3, $z0, $r4, $r1, $r5);
+
+        return $r2;
+    }
+
+    public com.fasterxml.jackson.databind.JsonSerializer createContextual(com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.BeanProperty)
+    {
+        com.fasterxml.jackson.databind.SerializerProvider $r0;
+        com.fasterxml.jackson.databind.BeanProperty $r1;
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r2;
+        com.fasterxml.jackson.databind.JsonSerializer $r3;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JavaType $r4;
+        com.fasterxml.jackson.databind.ser.ContextualSerializer $r5;
+
+        $r2 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r3 = $r2.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JsonSerializer _valueSerializer>;
+
+        if $r3 != null goto label1;
+
+        $z0 = $r2.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: boolean _staticTyping>;
+
+        if $z0 == 0 goto label2;
+
+        $r4 = $r2.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JavaType _valueType>;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.SerializerProvider: com.fasterxml.jackson.databind.JsonSerializer findValueSerializer(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.BeanProperty)>($r4, $r1);
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer withValueSerializer(com.fasterxml.jackson.databind.BeanProperty,com.fasterxml.jackson.databind.JsonSerializer)>($r1, $r3);
+
+        return $r2;
+
+     label1:
+        $r3 = $r2.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JsonSerializer _valueSerializer>;
+
+        $z0 = $r3 instanceof com.fasterxml.jackson.databind.ser.ContextualSerializer;
+
+        if $z0 == 0 goto label2;
+
+        $r3 = $r2.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JsonSerializer _valueSerializer>;
+
+        $r5 = (com.fasterxml.jackson.databind.ser.ContextualSerializer) $r3;
+
+        $r3 = interfaceinvoke $r5.<com.fasterxml.jackson.databind.ser.ContextualSerializer: com.fasterxml.jackson.databind.JsonSerializer createContextual(com.fasterxml.jackson.databind.SerializerProvider,com.fasterxml.jackson.databind.BeanProperty)>($r0, $r1);
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer withValueSerializer(com.fasterxml.jackson.databind.BeanProperty,com.fasterxml.jackson.databind.JsonSerializer)>($r1, $r3);
+
+     label2:
+        return $r2;
+    }
+
+    public volatile boolean hasSingleElement(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0;
+        boolean $z0;
+        java.lang.Object $r1;
+        java.util.EnumMap $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.util.EnumMap) $r1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: boolean hasSingleElement(java.util.EnumMap)>($r2);
+
+        return $z0;
+    }
+
+    public boolean hasSingleElement(java.util.EnumMap)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0;
+        java.util.EnumMap $r1;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r1 := @parameter0: java.util.EnumMap;
+
+        $i0 = virtualinvoke $r1.<java.util.EnumMap: int size()>();
+
+        if $i0 != 1 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public volatile boolean isEmpty(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0;
+        boolean $z0;
+        java.lang.Object $r1;
+        java.util.EnumMap $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.util.EnumMap) $r1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: boolean isEmpty(java.util.EnumMap)>($r2);
+
+        return $z0;
+    }
+
+    public boolean isEmpty(java.util.EnumMap)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0;
+        java.util.EnumMap $r1;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r1 := @parameter0: java.util.EnumMap;
+
+        if $r1 == null goto label1;
+
+        $z0 = virtualinvoke $r1.<java.util.EnumMap: boolean isEmpty()>();
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public volatile void serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        java.lang.Object $r3;
+        java.util.EnumMap $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r3 := @parameter0: java.lang.Object;
+
+        $r1 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = (java.util.EnumMap) $r3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: void serialize(java.util.EnumMap,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r4, $r1, $r2);
+
+        return;
+    }
+
+    public void serialize(java.util.EnumMap, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0;
+        java.util.EnumMap $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r1 := @parameter0: java.util.EnumMap;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeStartObject()>();
+
+        $z0 = virtualinvoke $r1.<java.util.EnumMap: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: void serializeContents(java.util.EnumMap,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r1, $r2, $r3);
+
+     label1:
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeEndObject()>();
+
+        return;
+    }
+
+    protected void serializeContents(java.util.EnumMap, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0;
+        java.util.EnumMap $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        com.fasterxml.jackson.databind.JsonSerializer $r4, $r14;
+        com.fasterxml.jackson.databind.util.EnumValues $r5;
+        java.util.Set $r6;
+        java.util.Iterator $r7;
+        java.lang.Class $r8, $r12, $r18;
+        boolean $z0;
+        java.lang.Object $r9;
+        java.util.Map$Entry $r10;
+        java.lang.Enum $r11;
+        com.fasterxml.jackson.databind.BeanProperty $r13;
+        com.fasterxml.jackson.databind.ser.std.StdSerializer $r15;
+        com.fasterxml.jackson.databind.ser.std.EnumSerializer $r16;
+        com.fasterxml.jackson.core.io.SerializedString $r17;
+        java.lang.Exception $r19;
+        java.lang.String $r20;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r1 := @parameter0: java.util.EnumMap;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JsonSerializer _valueSerializer>;
+
+        if $r4 == null goto label1;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JsonSerializer _valueSerializer>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: void serializeContentsUsing(java.util.EnumMap,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider,com.fasterxml.jackson.databind.JsonSerializer)>($r1, $r2, $r3, $r4);
+
+        return;
+
+     label1:
+        $r5 = $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.util.EnumValues _keyEnums>;
+
+        $r6 = virtualinvoke $r1.<java.util.EnumMap: java.util.Set entrySet()>();
+
+        $r7 = interfaceinvoke $r6.<java.util.Set: java.util.Iterator iterator()>();
+
+        $r8 = null;
+
+        $r4 = null;
+
+     label2:
+        $z0 = interfaceinvoke $r7.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label9;
+
+        $r9 = interfaceinvoke $r7.<java.util.Iterator: java.lang.Object next()>();
+
+        $r10 = (java.util.Map$Entry) $r9;
+
+        $r9 = interfaceinvoke $r10.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r11 = (java.lang.Enum) $r9;
+
+        if $r5 != null goto label3;
+
+        $r12 = virtualinvoke $r11.<java.lang.Enum: java.lang.Class getDeclaringClass()>();
+
+        $r13 = $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.BeanProperty _property>;
+
+        $r14 = virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializerProvider: com.fasterxml.jackson.databind.JsonSerializer findValueSerializer(java.lang.Class,com.fasterxml.jackson.databind.BeanProperty)>($r12, $r13);
+
+        $r15 = (com.fasterxml.jackson.databind.ser.std.StdSerializer) $r14;
+
+        $r16 = (com.fasterxml.jackson.databind.ser.std.EnumSerializer) $r15;
+
+        $r5 = virtualinvoke $r16.<com.fasterxml.jackson.databind.ser.std.EnumSerializer: com.fasterxml.jackson.databind.util.EnumValues getEnumValues()>();
+
+     label3:
+        $r17 = virtualinvoke $r5.<com.fasterxml.jackson.databind.util.EnumValues: com.fasterxml.jackson.core.io.SerializedString serializedValueFor(java.lang.Enum)>($r11);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeFieldName(com.fasterxml.jackson.core.SerializableString)>($r17);
+
+        $r9 = interfaceinvoke $r10.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        if $r9 != null goto label4;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializerProvider: void defaultSerializeNull(com.fasterxml.jackson.core.JsonGenerator)>($r2);
+
+        goto label2;
+
+     label4:
+        $r12 = virtualinvoke $r9.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r18 = $r12;
+
+        if $r12 != $r8 goto label7;
+
+        $r18 = $r8;
+
+        $r14 = $r4;
+
+     label5:
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.JsonSerializer: void serialize(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r9, $r2, $r3);
+
+     label6:
+        $r4 = $r14;
+
+        $r8 = $r18;
+
+        goto label2;
+
+     label7:
+        $r13 = $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.BeanProperty _property>;
+
+        $r14 = virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializerProvider: com.fasterxml.jackson.databind.JsonSerializer findValueSerializer(java.lang.Class,com.fasterxml.jackson.databind.BeanProperty)>($r12, $r13);
+
+        $r4 = $r14;
+
+        goto label5;
+
+     label8:
+        $r19 := @caughtexception;
+
+        $r9 = interfaceinvoke $r10.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r11 = (java.lang.Enum) $r9;
+
+        $r20 = virtualinvoke $r11.<java.lang.Enum: java.lang.String name()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: void wrapAndThrow(com.fasterxml.jackson.databind.SerializerProvider,java.lang.Throwable,java.lang.Object,java.lang.String)>($r3, $r19, $r1, $r20);
+
+        $r4 = $r14;
+
+        $r8 = $r18;
+
+        goto label2;
+
+     label9:
+        return;
+
+        catch java.lang.Exception from label5 to label6 with label8;
+    }
+
+    protected void serializeContentsUsing(java.util.EnumMap, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.JsonSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0;
+        java.util.EnumMap $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        com.fasterxml.jackson.databind.JsonSerializer $r4, $r13;
+        com.fasterxml.jackson.databind.BeanProperty $r5;
+        com.fasterxml.jackson.databind.util.EnumValues $r6;
+        java.util.Set $r7;
+        java.util.Iterator $r8;
+        boolean $z0;
+        java.lang.Object $r9;
+        java.util.Map$Entry $r10;
+        java.lang.Enum $r11;
+        java.lang.Class $r12;
+        com.fasterxml.jackson.databind.ser.std.StdSerializer $r14;
+        com.fasterxml.jackson.databind.ser.std.EnumSerializer $r15;
+        com.fasterxml.jackson.core.io.SerializedString $r16;
+        java.lang.Exception $r17;
+        java.lang.String $r18;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r1 := @parameter0: java.util.EnumMap;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.JsonSerializer;
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.util.EnumValues _keyEnums>;
+
+        $r7 = virtualinvoke $r1.<java.util.EnumMap: java.util.Set entrySet()>();
+
+        $r8 = interfaceinvoke $r7.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r8.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label6;
+
+        $r9 = interfaceinvoke $r8.<java.util.Iterator: java.lang.Object next()>();
+
+        $r10 = (java.util.Map$Entry) $r9;
+
+        $r9 = interfaceinvoke $r10.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r11 = (java.lang.Enum) $r9;
+
+        if $r6 != null goto label2;
+
+        $r12 = virtualinvoke $r11.<java.lang.Enum: java.lang.Class getDeclaringClass()>();
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.BeanProperty _property>;
+
+        $r13 = virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializerProvider: com.fasterxml.jackson.databind.JsonSerializer findValueSerializer(java.lang.Class,com.fasterxml.jackson.databind.BeanProperty)>($r12, $r5);
+
+        $r14 = (com.fasterxml.jackson.databind.ser.std.StdSerializer) $r13;
+
+        $r15 = (com.fasterxml.jackson.databind.ser.std.EnumSerializer) $r14;
+
+        $r6 = virtualinvoke $r15.<com.fasterxml.jackson.databind.ser.std.EnumSerializer: com.fasterxml.jackson.databind.util.EnumValues getEnumValues()>();
+
+     label2:
+        $r16 = virtualinvoke $r6.<com.fasterxml.jackson.databind.util.EnumValues: com.fasterxml.jackson.core.io.SerializedString serializedValueFor(java.lang.Enum)>($r11);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeFieldName(com.fasterxml.jackson.core.SerializableString)>($r16);
+
+        $r9 = interfaceinvoke $r10.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        if $r9 != null goto label3;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializerProvider: void defaultSerializeNull(com.fasterxml.jackson.core.JsonGenerator)>($r2);
+
+        goto label1;
+
+     label3:
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.JsonSerializer: void serialize(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r9, $r2, $r3);
+
+     label4:
+        goto label1;
+
+     label5:
+        $r17 := @caughtexception;
+
+        $r9 = interfaceinvoke $r10.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r11 = (java.lang.Enum) $r9;
+
+        $r18 = virtualinvoke $r11.<java.lang.Enum: java.lang.String name()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: void wrapAndThrow(com.fasterxml.jackson.databind.SerializerProvider,java.lang.Throwable,java.lang.Object,java.lang.String)>($r3, $r17, $r1, $r18);
+
+        goto label1;
+
+     label6:
+        return;
+
+        catch java.lang.Exception from label3 to label4 with label5;
+    }
+
+    public volatile void serializeWithType(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r3;
+        java.lang.Object $r4;
+        java.util.EnumMap $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r4 := @parameter0: java.lang.Object;
+
+        $r1 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r3 := @parameter3: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r5 = (java.util.EnumMap) $r4;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: void serializeWithType(java.util.EnumMap,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider,com.fasterxml.jackson.databind.jsontype.TypeSerializer)>($r5, $r1, $r2, $r3);
+
+        return;
+    }
+
+    public void serializeWithType(java.util.EnumMap, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r0;
+        java.util.EnumMap $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r4;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r1 := @parameter0: java.util.EnumMap;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypePrefixForObject(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        $z0 = virtualinvoke $r1.<java.util.EnumMap: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: void serializeContents(java.util.EnumMap,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r1, $r2, $r3);
+
+     label1:
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypeSuffixForObject(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        return;
+    }
+
+    public com.fasterxml.jackson.databind.ser.std.EnumMapSerializer withValueSerializer(com.fasterxml.jackson.databind.BeanProperty, com.fasterxml.jackson.databind.JsonSerializer)
+    {
+        com.fasterxml.jackson.databind.BeanProperty $r0, $r3;
+        com.fasterxml.jackson.databind.JsonSerializer $r1, $r4;
+        com.fasterxml.jackson.databind.ser.std.EnumMapSerializer $r2, $r5;
+
+        $r2 := @this: com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.JsonSerializer;
+
+        $r3 = $r2.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.BeanProperty _property>;
+
+        if $r3 != $r0 goto label1;
+
+        $r4 = $r2.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: com.fasterxml.jackson.databind.JsonSerializer _valueSerializer>;
+
+        if $r1 != $r4 goto label1;
+
+        return $r2;
+
+     label1:
+        $r5 = new com.fasterxml.jackson.databind.ser.std.EnumMapSerializer;
+
+        specialinvoke $r5.<com.fasterxml.jackson.databind.ser.std.EnumMapSerializer: void <init>(com.fasterxml.jackson.databind.ser.std.EnumMapSerializer,com.fasterxml.jackson.databind.BeanProperty,com.fasterxml.jackson.databind.JsonSerializer)>($r2, $r0, $r1);
+
+        return $r5;
+    }
+}

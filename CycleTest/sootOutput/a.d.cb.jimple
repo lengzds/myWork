@@ -1,0 +1,142 @@
+final class a.d.cb extends java.lang.Object implements a.d.j
+{
+    long a;
+    long b;
+    long c;
+    long d;
+    int e;
+    final a.d.ca f;
+
+    void <init>(a.d.ca)
+    {
+        a.d.cb $r0;
+        a.d.ca $r1;
+
+        $r0 := @this: a.d.cb;
+
+        $r1 := @parameter0: a.d.ca;
+
+        $r0.<a.d.cb: a.d.ca f> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final int a()
+    {
+        a.d.cb $r0;
+        int i0;
+
+        $r0 := @this: a.d.cb;
+
+        i0 = $r0.<a.d.cb: int e>;
+
+        return i0;
+    }
+
+    public final long b()
+    {
+        a.d.cb $r0;
+        long l0;
+
+        $r0 := @this: a.d.cb;
+
+        l0 = $r0.<a.d.cb: long a>;
+
+        return l0;
+    }
+
+    public final long c()
+    {
+        a.d.cb $r0;
+        long l0;
+
+        $r0 := @this: a.d.cb;
+
+        l0 = $r0.<a.d.cb: long c>;
+
+        return l0;
+    }
+
+    public final long d()
+    {
+        a.d.cb $r0;
+
+        $r0 := @this: a.d.cb;
+
+        return 0L;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.cb $r0;
+        java.lang.String $r1, $r4;
+        java.lang.StringBuilder $r2;
+        java.util.Date $r3;
+        long $l0;
+        int $i1;
+
+        $r0 := @this: a.d.cb;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("SmbQueryFileBasicInfo[createTime=");
+
+        $r3 = new java.util.Date;
+
+        $l0 = $r0.<a.d.cb: long a>;
+
+        specialinvoke $r3.<java.util.Date: void <init>(long)>($l0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",lastAccessTime=");
+
+        $r3 = new java.util.Date;
+
+        $l0 = $r0.<a.d.cb: long b>;
+
+        specialinvoke $r3.<java.util.Date: void <init>(long)>($l0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",lastWriteTime=");
+
+        $r3 = new java.util.Date;
+
+        $l0 = $r0.<a.d.cb: long c>;
+
+        specialinvoke $r3.<java.util.Date: void <init>(long)>($l0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",changeTime=");
+
+        $r3 = new java.util.Date;
+
+        $l0 = $r0.<a.d.cb: long d>;
+
+        specialinvoke $r3.<java.util.Date: void <init>(long)>($l0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",attributes=0x");
+
+        $i1 = $r0.<a.d.cb: int e>;
+
+        $r4 = staticinvoke <a.e.d: java.lang.String a(int,int)>($i1, 4);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r4);
+
+        return $r1;
+    }
+}

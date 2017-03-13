@@ -1,0 +1,148 @@
+final class com.dropbox.client2.o extends java.io.FilterOutputStream
+{
+    final com.dropbox.client2.n a;
+    private long b;
+    private long c;
+    private long d;
+
+    public void <init>(com.dropbox.client2.n, java.io.OutputStream)
+    {
+        com.dropbox.client2.o $r0;
+        com.dropbox.client2.n $r1;
+        java.io.OutputStream $r2;
+
+        $r0 := @this: com.dropbox.client2.o;
+
+        $r1 := @parameter0: com.dropbox.client2.n;
+
+        $r2 := @parameter1: java.io.OutputStream;
+
+        $r0.<com.dropbox.client2.o: com.dropbox.client2.n a> = $r1;
+
+        specialinvoke $r0.<java.io.FilterOutputStream: void <init>(java.io.OutputStream)>($r2);
+
+        $r0.<com.dropbox.client2.o: long b> = 0L;
+
+        $r0.<com.dropbox.client2.o: long c> = 0L;
+
+        $r0.<com.dropbox.client2.o: long d> = 0L;
+
+        staticinvoke <com.dropbox.client2.n: com.dropbox.client2.m a(com.dropbox.client2.n)>($r1);
+
+        $r0.<com.dropbox.client2.o: long c> = 500L;
+
+        return;
+    }
+
+    public final void write(int)
+    {
+        com.dropbox.client2.o $r0;
+        int $i0;
+        com.dropbox.client2.n $r1;
+        long $l1, $l2, $l3;
+        byte $b4;
+        com.dropbox.client2.m $r2;
+
+        $r0 := @this: com.dropbox.client2.o;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<java.io.FilterOutputStream: void write(int)>($i0);
+
+        $l2 = $r0.<com.dropbox.client2.o: long d>;
+
+        $l2 = $l2 + 1L;
+
+        $r0.<com.dropbox.client2.o: long d> = $l2;
+
+        $l2 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $l1 = $r0.<com.dropbox.client2.o: long b>;
+
+        $l3 = $l2 - $l1;
+
+        $l1 = $r0.<com.dropbox.client2.o: long c>;
+
+        $b4 = $l3 cmp $l1;
+
+        if $b4 <= 0 goto label1;
+
+        $r0.<com.dropbox.client2.o: long b> = $l2;
+
+        $r1 = $r0.<com.dropbox.client2.o: com.dropbox.client2.n a>;
+
+        $r2 = staticinvoke <com.dropbox.client2.n: com.dropbox.client2.m a(com.dropbox.client2.n)>($r1);
+
+        $l2 = $r0.<com.dropbox.client2.o: long d>;
+
+        $r1 = $r0.<com.dropbox.client2.o: com.dropbox.client2.n a>;
+
+        staticinvoke <com.dropbox.client2.n: long b(com.dropbox.client2.n)>($r1);
+
+        virtualinvoke $r2.<com.dropbox.client2.m: void a(long)>($l2);
+
+     label1:
+        return;
+    }
+
+    public final void write(byte[], int, int)
+    {
+        com.dropbox.client2.o $r0;
+        byte[] $r1;
+        int $i0, $i1;
+        com.dropbox.client2.n $r2;
+        long $l2, $l3, $l4;
+        java.io.OutputStream $r3;
+        byte $b5;
+        com.dropbox.client2.m $r4;
+
+        $r0 := @this: com.dropbox.client2.o;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r3 = $r0.<com.dropbox.client2.o: java.io.OutputStream out>;
+
+        virtualinvoke $r3.<java.io.OutputStream: void write(byte[],int,int)>($r1, $i0, $i1);
+
+        $l3 = $r0.<com.dropbox.client2.o: long d>;
+
+        $l2 = (long) $i1;
+
+        $l3 = $l3 + $l2;
+
+        $r0.<com.dropbox.client2.o: long d> = $l3;
+
+        $l3 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $l2 = $r0.<com.dropbox.client2.o: long b>;
+
+        $l4 = $l3 - $l2;
+
+        $l2 = $r0.<com.dropbox.client2.o: long c>;
+
+        $b5 = $l4 cmp $l2;
+
+        if $b5 <= 0 goto label1;
+
+        $r0.<com.dropbox.client2.o: long b> = $l3;
+
+        $r2 = $r0.<com.dropbox.client2.o: com.dropbox.client2.n a>;
+
+        $r4 = staticinvoke <com.dropbox.client2.n: com.dropbox.client2.m a(com.dropbox.client2.n)>($r2);
+
+        $l3 = $r0.<com.dropbox.client2.o: long d>;
+
+        $r2 = $r0.<com.dropbox.client2.o: com.dropbox.client2.n a>;
+
+        staticinvoke <com.dropbox.client2.n: long b(com.dropbox.client2.n)>($r2);
+
+        virtualinvoke $r4.<com.dropbox.client2.m: void a(long)>($l3);
+
+     label1:
+        return;
+    }
+}

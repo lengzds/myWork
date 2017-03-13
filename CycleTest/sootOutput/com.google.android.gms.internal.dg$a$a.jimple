@@ -1,0 +1,276 @@
+class com.google.android.gms.internal.dg$a$a extends java.lang.Object implements com.google.android.gms.internal.dg
+{
+    private android.os.IBinder a;
+
+    void <init>(android.os.IBinder)
+    {
+        com.google.android.gms.internal.dg$a$a $r0;
+        android.os.IBinder $r1;
+
+        $r0 := @this: com.google.android.gms.internal.dg$a$a;
+
+        $r1 := @parameter0: android.os.IBinder;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.internal.dg$a$a: android.os.IBinder a> = $r1;
+
+        return;
+    }
+
+    public android.os.IBinder asBinder()
+    {
+        com.google.android.gms.internal.dg$a$a $r0;
+        android.os.IBinder r1;
+
+        $r0 := @this: com.google.android.gms.internal.dg$a$a;
+
+        r1 = $r0.<com.google.android.gms.internal.dg$a$a: android.os.IBinder a>;
+
+        return r1;
+    }
+
+    public void finishPurchase()
+    {
+        com.google.android.gms.internal.dg$a$a $r0;
+        android.os.Parcel $r1, $r2;
+        android.os.IBinder $r3;
+        java.lang.Throwable $r4;
+
+        $r0 := @this: com.google.android.gms.internal.dg$a$a;
+
+        $r1 = staticinvoke <android.os.Parcel: android.os.Parcel obtain()>();
+
+        $r2 = staticinvoke <android.os.Parcel: android.os.Parcel obtain()>();
+
+     label1:
+        virtualinvoke $r1.<android.os.Parcel: void writeInterfaceToken(java.lang.String)>("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseResult");
+
+        $r3 = $r0.<com.google.android.gms.internal.dg$a$a: android.os.IBinder a>;
+
+        interfaceinvoke $r3.<android.os.IBinder: boolean transact(int,android.os.Parcel,android.os.Parcel,int)>(5, $r1, $r2, 0);
+
+        virtualinvoke $r2.<android.os.Parcel: void readException()>();
+
+     label2:
+        virtualinvoke $r2.<android.os.Parcel: void recycle()>();
+
+        virtualinvoke $r1.<android.os.Parcel: void recycle()>();
+
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        virtualinvoke $r2.<android.os.Parcel: void recycle()>();
+
+        virtualinvoke $r1.<android.os.Parcel: void recycle()>();
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public java.lang.String getProductId()
+    {
+        com.google.android.gms.internal.dg$a$a $r0;
+        android.os.Parcel $r1, $r2;
+        android.os.IBinder $r3;
+        java.lang.String $r4;
+        java.lang.Throwable $r5;
+
+        $r0 := @this: com.google.android.gms.internal.dg$a$a;
+
+        $r1 = staticinvoke <android.os.Parcel: android.os.Parcel obtain()>();
+
+        $r2 = staticinvoke <android.os.Parcel: android.os.Parcel obtain()>();
+
+     label1:
+        virtualinvoke $r1.<android.os.Parcel: void writeInterfaceToken(java.lang.String)>("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseResult");
+
+        $r3 = $r0.<com.google.android.gms.internal.dg$a$a: android.os.IBinder a>;
+
+        interfaceinvoke $r3.<android.os.IBinder: boolean transact(int,android.os.Parcel,android.os.Parcel,int)>(1, $r1, $r2, 0);
+
+        virtualinvoke $r2.<android.os.Parcel: void readException()>();
+
+        $r4 = virtualinvoke $r2.<android.os.Parcel: java.lang.String readString()>();
+
+     label2:
+        virtualinvoke $r2.<android.os.Parcel: void recycle()>();
+
+        virtualinvoke $r1.<android.os.Parcel: void recycle()>();
+
+        return $r4;
+
+     label3:
+        $r5 := @caughtexception;
+
+        virtualinvoke $r2.<android.os.Parcel: void recycle()>();
+
+        virtualinvoke $r1.<android.os.Parcel: void recycle()>();
+
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public android.content.Intent getPurchaseData()
+    {
+        com.google.android.gms.internal.dg$a$a $r0;
+        android.os.Parcel $r1, $r2;
+        android.os.IBinder $r3;
+        int $i0;
+        android.os.Parcelable$Creator $r4;
+        java.lang.Object $r5;
+        android.content.Intent $r6;
+        java.lang.Throwable $r7;
+
+        $r0 := @this: com.google.android.gms.internal.dg$a$a;
+
+        $r1 = staticinvoke <android.os.Parcel: android.os.Parcel obtain()>();
+
+        $r2 = staticinvoke <android.os.Parcel: android.os.Parcel obtain()>();
+
+     label1:
+        virtualinvoke $r1.<android.os.Parcel: void writeInterfaceToken(java.lang.String)>("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseResult");
+
+        $r3 = $r0.<com.google.android.gms.internal.dg$a$a: android.os.IBinder a>;
+
+        interfaceinvoke $r3.<android.os.IBinder: boolean transact(int,android.os.Parcel,android.os.Parcel,int)>(2, $r1, $r2, 0);
+
+        virtualinvoke $r2.<android.os.Parcel: void readException()>();
+
+        $i0 = virtualinvoke $r2.<android.os.Parcel: int readInt()>();
+
+     label2:
+        if $i0 == 0 goto label5;
+
+     label3:
+        $r4 = <android.content.Intent: android.os.Parcelable$Creator CREATOR>;
+
+        $r5 = interfaceinvoke $r4.<android.os.Parcelable$Creator: java.lang.Object createFromParcel(android.os.Parcel)>($r2);
+
+        $r6 = (android.content.Intent) $r5;
+
+     label4:
+        virtualinvoke $r2.<android.os.Parcel: void recycle()>();
+
+        virtualinvoke $r1.<android.os.Parcel: void recycle()>();
+
+        return $r6;
+
+     label5:
+        $r6 = null;
+
+        goto label4;
+
+     label6:
+        $r7 := @caughtexception;
+
+        virtualinvoke $r2.<android.os.Parcel: void recycle()>();
+
+        virtualinvoke $r1.<android.os.Parcel: void recycle()>();
+
+        throw $r7;
+
+        catch java.lang.Throwable from label1 to label2 with label6;
+        catch java.lang.Throwable from label3 to label4 with label6;
+    }
+
+    public int getResultCode()
+    {
+        com.google.android.gms.internal.dg$a$a $r0;
+        android.os.Parcel $r1, $r2;
+        android.os.IBinder $r3;
+        int $i0;
+        java.lang.Throwable $r4;
+
+        $r0 := @this: com.google.android.gms.internal.dg$a$a;
+
+        $r1 = staticinvoke <android.os.Parcel: android.os.Parcel obtain()>();
+
+        $r2 = staticinvoke <android.os.Parcel: android.os.Parcel obtain()>();
+
+     label1:
+        virtualinvoke $r1.<android.os.Parcel: void writeInterfaceToken(java.lang.String)>("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseResult");
+
+        $r3 = $r0.<com.google.android.gms.internal.dg$a$a: android.os.IBinder a>;
+
+        interfaceinvoke $r3.<android.os.IBinder: boolean transact(int,android.os.Parcel,android.os.Parcel,int)>(3, $r1, $r2, 0);
+
+        virtualinvoke $r2.<android.os.Parcel: void readException()>();
+
+        $i0 = virtualinvoke $r2.<android.os.Parcel: int readInt()>();
+
+     label2:
+        virtualinvoke $r2.<android.os.Parcel: void recycle()>();
+
+        virtualinvoke $r1.<android.os.Parcel: void recycle()>();
+
+        return $i0;
+
+     label3:
+        $r4 := @caughtexception;
+
+        virtualinvoke $r2.<android.os.Parcel: void recycle()>();
+
+        virtualinvoke $r1.<android.os.Parcel: void recycle()>();
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public boolean isVerified()
+    {
+        com.google.android.gms.internal.dg$a$a $r0;
+        boolean $z0;
+        android.os.Parcel $r1, $r2;
+        android.os.IBinder $r3;
+        int $i0;
+        java.lang.Throwable $r4;
+
+        $r0 := @this: com.google.android.gms.internal.dg$a$a;
+
+        $z0 = 0;
+
+        $r1 = staticinvoke <android.os.Parcel: android.os.Parcel obtain()>();
+
+        $r2 = staticinvoke <android.os.Parcel: android.os.Parcel obtain()>();
+
+     label1:
+        virtualinvoke $r1.<android.os.Parcel: void writeInterfaceToken(java.lang.String)>("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseResult");
+
+        $r3 = $r0.<com.google.android.gms.internal.dg$a$a: android.os.IBinder a>;
+
+        interfaceinvoke $r3.<android.os.IBinder: boolean transact(int,android.os.Parcel,android.os.Parcel,int)>(4, $r1, $r2, 0);
+
+        virtualinvoke $r2.<android.os.Parcel: void readException()>();
+
+        $i0 = virtualinvoke $r2.<android.os.Parcel: int readInt()>();
+
+     label2:
+        if $i0 == 0 goto label3;
+
+        $z0 = 1;
+
+     label3:
+        virtualinvoke $r2.<android.os.Parcel: void recycle()>();
+
+        virtualinvoke $r1.<android.os.Parcel: void recycle()>();
+
+        return $z0;
+
+     label4:
+        $r4 := @caughtexception;
+
+        virtualinvoke $r2.<android.os.Parcel: void recycle()>();
+
+        virtualinvoke $r1.<android.os.Parcel: void recycle()>();
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label4;
+    }
+}

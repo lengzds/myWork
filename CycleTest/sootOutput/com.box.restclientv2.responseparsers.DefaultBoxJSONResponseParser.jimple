@@ -1,0 +1,194 @@
+public class com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser extends java.lang.Object implements com.box.restclientv2.interfaces.IBoxResponseParser
+{
+    private final java.lang.Class a;
+    private final com.box.boxjavalibv2.interfaces.IBoxJSONParser b;
+
+    public void <init>(java.lang.Class, com.box.boxjavalibv2.interfaces.IBoxJSONParser)
+    {
+        com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser $r0;
+        java.lang.Class $r1;
+        com.box.boxjavalibv2.interfaces.IBoxJSONParser $r2;
+
+        $r0 := @this: com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: com.box.boxjavalibv2.interfaces.IBoxJSONParser;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser: java.lang.Class a> = $r1;
+
+        $r0.<com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser: com.box.boxjavalibv2.interfaces.IBoxJSONParser b> = $r2;
+
+        return;
+    }
+
+    public final com.box.boxjavalibv2.interfaces.IBoxJSONParser a()
+    {
+        com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser $r0;
+        com.box.boxjavalibv2.interfaces.IBoxJSONParser r1;
+
+        $r0 := @this: com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser;
+
+        r1 = $r0.<com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser: com.box.boxjavalibv2.interfaces.IBoxJSONParser b>;
+
+        return r1;
+    }
+
+    public java.lang.Object a(com.box.restclientv2.interfaces.IBoxResponse)
+    {
+        com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser $r0;
+        com.box.restclientv2.interfaces.IBoxResponse $r1;
+        boolean $z0;
+        com.box.restclientv2.exceptions.BoxRestException $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.Class $r4;
+        java.lang.String $r5;
+        com.box.restclientv2.responses.DefaultBoxResponse $r6;
+        org.apache.http.HttpResponse $r7;
+        org.apache.http.HttpEntity $r8;
+        java.io.InputStream $r9, $r10;
+        java.lang.Object $r11;
+        java.lang.Exception $r12, $r13;
+        java.lang.Throwable $r14, $r15;
+
+        $r0 := @this: com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser;
+
+        $r1 := @parameter0: com.box.restclientv2.interfaces.IBoxResponse;
+
+        $z0 = $r1 instanceof com.box.restclientv2.responses.DefaultBoxResponse;
+
+        if $z0 != 0 goto label01;
+
+        $r2 = new com.box.restclientv2.exceptions.BoxRestException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("class mismatch, expected:");
+
+        $r4 = class "com/box/restclientv2/responses/DefaultBoxResponse";
+
+        $r5 = virtualinvoke $r4.<java.lang.Class: java.lang.String getName()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(";current:");
+
+        $r4 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r5 = virtualinvoke $r4.<java.lang.Class: java.lang.String getName()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<com.box.restclientv2.exceptions.BoxRestException: void <init>(java.lang.String)>($r5);
+
+        throw $r2;
+
+     label01:
+        $r6 = (com.box.restclientv2.responses.DefaultBoxResponse) $r1;
+
+        $r7 = virtualinvoke $r6.<com.box.restclientv2.responses.DefaultBoxResponse: org.apache.http.HttpResponse a()>();
+
+     label02:
+        $r8 = interfaceinvoke $r7.<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()>();
+
+        $r9 = interfaceinvoke $r8.<org.apache.http.HttpEntity: java.io.InputStream getContent()>();
+
+     label03:
+        $r10 = $r9;
+
+        if $r9 != null goto label04;
+
+        staticinvoke <b.a.a.a.b: void a(java.io.InputStream)>($r9);
+
+        return null;
+
+     label04:
+        $r11 = virtualinvoke $r0.<com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser: java.lang.Object a(java.io.InputStream)>($r9);
+
+     label05:
+        staticinvoke <b.a.a.a.b: void a(java.io.InputStream)>($r9);
+
+        return $r11;
+
+     label06:
+        $r12 := @caughtexception;
+
+        $r10 = null;
+
+        $r13 = $r12;
+
+     label07:
+        $r2 = new com.box.restclientv2.exceptions.BoxRestException;
+
+        $r5 = virtualinvoke $r13.<java.lang.Exception: java.lang.String getMessage()>();
+
+        specialinvoke $r2.<com.box.restclientv2.exceptions.BoxRestException: void <init>(java.lang.String)>($r5);
+
+        throw $r2;
+
+     label08:
+        $r14 := @caughtexception;
+
+     label09:
+        staticinvoke <b.a.a.a.b: void a(java.io.InputStream)>($r10);
+
+        throw $r14;
+
+     label10:
+        $r15 := @caughtexception;
+
+        $r10 = null;
+
+        $r14 = $r15;
+
+        goto label09;
+
+     label11:
+        $r13 := @caughtexception;
+
+        goto label07;
+
+        catch java.lang.Exception from label02 to label03 with label06;
+        catch java.lang.Throwable from label02 to label03 with label10;
+        catch java.lang.Exception from label04 to label05 with label11;
+        catch java.lang.Throwable from label04 to label05 with label08;
+        catch java.lang.Throwable from label07 to label08 with label08;
+    }
+
+    protected java.lang.Object a(java.io.InputStream)
+    {
+        com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser $r0;
+        java.io.InputStream $r1;
+        java.lang.Class $r2;
+        java.lang.Object $r3;
+        com.box.boxjavalibv2.interfaces.IBoxJSONParser $r4;
+
+        $r0 := @this: com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser;
+
+        $r1 := @parameter0: java.io.InputStream;
+
+        $r4 = $r0.<com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser: com.box.boxjavalibv2.interfaces.IBoxJSONParser b>;
+
+        $r2 = $r0.<com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser: java.lang.Class a>;
+
+        $r3 = interfaceinvoke $r4.<com.box.boxjavalibv2.interfaces.IBoxJSONParser: java.lang.Object a(java.io.InputStream,java.lang.Class)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public final java.lang.Class b()
+    {
+        com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser $r0;
+        java.lang.Class r1;
+
+        $r0 := @this: com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser;
+
+        r1 = $r0.<com.box.restclientv2.responseparsers.DefaultBoxJSONResponseParser: java.lang.Class a>;
+
+        return r1;
+    }
+}

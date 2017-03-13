@@ -1,0 +1,1847 @@
+public class com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector extends com.fasterxml.jackson.databind.AnnotationIntrospector
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.AnnotationIntrospector: void <init>()>();
+
+        return;
+    }
+
+    protected com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder _constructNoTypeResolverBuilder()
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder noTypeInfoBuilder()>();
+
+        return $r1;
+    }
+
+    protected com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder _constructStdTypeResolverBuilder()
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 = new com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: void <init>()>();
+
+        return $r1;
+    }
+
+    protected com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder _findTypeResolver(com.fasterxml.jackson.databind.cfg.MapperConfig, com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r1;
+        com.fasterxml.jackson.databind.introspect.Annotated $r2;
+        com.fasterxml.jackson.databind.JavaType $r3;
+        com.fasterxml.jackson.databind.jsontype.TypeIdResolver $r4;
+        java.lang.'annotation'.Annotation $r5;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo $r6;
+        com.fasterxml.jackson.databind.'annotation'.JsonTypeResolver $r7;
+        java.lang.Class $r8;
+        com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder $r9, $r16;
+        com.fasterxml.jackson.databind.'annotation'.JsonTypeIdResolver $r10;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id $r11, $r17;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$As $r12, $r13, $r14;
+        boolean $z0;
+        java.lang.String $r15;
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r18;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.JavaType;
+
+        $r4 = null;
+
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonTypeInfo");
+
+        $r6 = (com.fasterxml.jackson.'annotation'.JsonTypeInfo) $r5;
+
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonTypeResolver");
+
+        $r7 = (com.fasterxml.jackson.databind.'annotation'.JsonTypeResolver) $r5;
+
+        if $r7 == null goto label07;
+
+        if $r6 != null goto label01;
+
+        return null;
+
+     label01:
+        $r8 = interfaceinvoke $r7.<com.fasterxml.jackson.databind.'annotation'.JsonTypeResolver: java.lang.Class value()>();
+
+        $r9 = virtualinvoke $r1.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder typeResolverBuilderInstance(com.fasterxml.jackson.databind.introspect.Annotated,java.lang.Class)>($r2, $r8);
+
+     label02:
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonTypeIdResolver");
+
+        $r10 = (com.fasterxml.jackson.databind.'annotation'.JsonTypeIdResolver) $r5;
+
+        if $r10 != null goto label10;
+
+     label03:
+        if $r4 == null goto label04;
+
+        interfaceinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeIdResolver: void init(com.fasterxml.jackson.databind.JavaType)>($r3);
+
+     label04:
+        $r11 = interfaceinvoke $r6.<com.fasterxml.jackson.'annotation'.JsonTypeInfo: com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id use()>();
+
+        $r9 = interfaceinvoke $r9.<com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder init(com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id,com.fasterxml.jackson.databind.jsontype.TypeIdResolver)>($r11, $r4);
+
+        $r12 = interfaceinvoke $r6.<com.fasterxml.jackson.'annotation'.JsonTypeInfo: com.fasterxml.jackson.'annotation'.JsonTypeInfo$As include()>();
+
+        $r13 = $r12;
+
+        $r14 = <com.fasterxml.jackson.'annotation'.JsonTypeInfo$As: com.fasterxml.jackson.annotation.JsonTypeInfo$As EXTERNAL_PROPERTY>;
+
+        if $r12 != $r14 goto label05;
+
+        $z0 = $r2 instanceof com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        if $z0 == 0 goto label05;
+
+        $r13 = <com.fasterxml.jackson.'annotation'.JsonTypeInfo$As: com.fasterxml.jackson.annotation.JsonTypeInfo$As PROPERTY>;
+
+     label05:
+        $r9 = interfaceinvoke $r9.<com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder inclusion(com.fasterxml.jackson.'annotation'.JsonTypeInfo$As)>($r13);
+
+        $r15 = interfaceinvoke $r6.<com.fasterxml.jackson.'annotation'.JsonTypeInfo: java.lang.String property()>();
+
+        $r9 = interfaceinvoke $r9.<com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder typeProperty(java.lang.String)>($r15);
+
+        $r16 = $r9;
+
+        $r8 = interfaceinvoke $r6.<com.fasterxml.jackson.'annotation'.JsonTypeInfo: java.lang.Class defaultImpl()>();
+
+        if $r8 == class "com/fasterxml/jackson/annotation/JsonTypeInfo$None" goto label06;
+
+        $r16 = interfaceinvoke $r9.<com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder defaultImpl(java.lang.Class)>($r8);
+
+     label06:
+        $z0 = interfaceinvoke $r6.<com.fasterxml.jackson.'annotation'.JsonTypeInfo: boolean visible()>();
+
+        $r9 = interfaceinvoke $r16.<com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder typeIdVisibility(boolean)>($z0);
+
+        return $r9;
+
+     label07:
+        if $r6 != null goto label08;
+
+        return null;
+
+     label08:
+        $r11 = interfaceinvoke $r6.<com.fasterxml.jackson.'annotation'.JsonTypeInfo: com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id use()>();
+
+        $r17 = <com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id: com.fasterxml.jackson.annotation.JsonTypeInfo$Id NONE>;
+
+        if $r11 != $r17 goto label09;
+
+        $r18 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder _constructNoTypeResolverBuilder()>();
+
+        return $r18;
+
+     label09:
+        $r9 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder _constructStdTypeResolverBuilder()>();
+
+        goto label02;
+
+     label10:
+        $r8 = interfaceinvoke $r10.<com.fasterxml.jackson.databind.'annotation'.JsonTypeIdResolver: java.lang.Class value()>();
+
+        $r4 = virtualinvoke $r1.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.jsontype.TypeIdResolver typeIdResolverInstance(com.fasterxml.jackson.databind.introspect.Annotated,java.lang.Class)>($r2, $r8);
+
+        goto label03;
+    }
+
+    protected boolean _isIgnorable(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonIgnore $r3;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonIgnore");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonIgnore) $r2;
+
+        if $r3 == null goto label1;
+
+        $z0 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonIgnore: boolean value()>();
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.VisibilityChecker findAutoDetectVisibility(com.fasterxml.jackson.databind.introspect.AnnotatedClass, com.fasterxml.jackson.databind.introspect.VisibilityChecker)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        com.fasterxml.jackson.databind.introspect.VisibilityChecker $r2;
+        java.lang.'annotation'.Annotation $r3;
+        com.fasterxml.jackson.'annotation'.JsonAutoDetect $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.introspect.VisibilityChecker;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonAutoDetect");
+
+        $r4 = (com.fasterxml.jackson.'annotation'.JsonAutoDetect) $r3;
+
+        if $r4 != null goto label1;
+
+        return $r2;
+
+     label1:
+        $r2 = interfaceinvoke $r2.<com.fasterxml.jackson.databind.introspect.VisibilityChecker: com.fasterxml.jackson.databind.introspect.VisibilityChecker 'with'(com.fasterxml.jackson.'annotation'.JsonAutoDetect)>($r4);
+
+        return $r2;
+    }
+
+    public java.lang.Class findContentDeserializer(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.databind.'annotation'.JsonDeserialize $r3;
+        java.lang.Class $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonDeserialize");
+
+        $r3 = (com.fasterxml.jackson.databind.'annotation'.JsonDeserialize) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.databind.'annotation'.JsonDeserialize: java.lang.Class contentUsing()>();
+
+        if $r4 == class "com/fasterxml/jackson/databind/JsonDeserializer$None" goto label1;
+
+        return $r4;
+
+     label1:
+        return null;
+    }
+
+    public volatile java.lang.Object findContentDeserializer(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.Class $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector: java.lang.Class findContentDeserializer(com.fasterxml.jackson.databind.introspect.Annotated)>($r1);
+
+        return $r2;
+    }
+
+    public java.lang.Class findContentSerializer(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.databind.'annotation'.JsonSerialize $r3;
+        java.lang.Class $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonSerialize");
+
+        $r3 = (com.fasterxml.jackson.databind.'annotation'.JsonSerialize) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.databind.'annotation'.JsonSerialize: java.lang.Class contentUsing()>();
+
+        if $r4 == class "com/fasterxml/jackson/databind/JsonSerializer$None" goto label1;
+
+        return $r4;
+
+     label1:
+        return null;
+    }
+
+    public volatile java.lang.Object findContentSerializer(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.Class $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector: java.lang.Class findContentSerializer(com.fasterxml.jackson.databind.introspect.Annotated)>($r1);
+
+        return $r2;
+    }
+
+    public java.lang.Class findDeserializationContentType(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        java.lang.'annotation'.Annotation $r3;
+        com.fasterxml.jackson.databind.'annotation'.JsonDeserialize $r4;
+        java.lang.Class $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JavaType;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonDeserialize");
+
+        $r4 = (com.fasterxml.jackson.databind.'annotation'.JsonDeserialize) $r3;
+
+        if $r4 == null goto label1;
+
+        $r5 = interfaceinvoke $r4.<com.fasterxml.jackson.databind.'annotation'.JsonDeserialize: java.lang.Class contentAs()>();
+
+        if $r5 == class "com/fasterxml/jackson/databind/annotation/NoClass" goto label1;
+
+        return $r5;
+
+     label1:
+        return null;
+    }
+
+    public java.lang.Class findDeserializationKeyType(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        java.lang.'annotation'.Annotation $r3;
+        com.fasterxml.jackson.databind.'annotation'.JsonDeserialize $r4;
+        java.lang.Class $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JavaType;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonDeserialize");
+
+        $r4 = (com.fasterxml.jackson.databind.'annotation'.JsonDeserialize) $r3;
+
+        if $r4 == null goto label1;
+
+        $r5 = interfaceinvoke $r4.<com.fasterxml.jackson.databind.'annotation'.JsonDeserialize: java.lang.Class keyAs()>();
+
+        if $r5 == class "com/fasterxml/jackson/databind/annotation/NoClass" goto label1;
+
+        return $r5;
+
+     label1:
+        return null;
+    }
+
+    public java.lang.String findDeserializationName(com.fasterxml.jackson.databind.introspect.AnnotatedField)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonProperty $r3;
+        java.lang.String $r4;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonProperty");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonProperty) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonProperty: java.lang.String value()>();
+
+        return $r4;
+
+     label1:
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedField: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonDeserialize");
+
+        if $z0 != 0 goto label2;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedField: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonView");
+
+        if $z0 != 0 goto label2;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedField: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonBackReference");
+
+        if $z0 != 0 goto label2;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedField: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonManagedReference");
+
+        if $z0 == 0 goto label3;
+
+     label2:
+        return "";
+
+     label3:
+        return null;
+    }
+
+    public java.lang.String findDeserializationName(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonSetter $r3;
+        java.lang.String $r4;
+        com.fasterxml.jackson.'annotation'.JsonProperty $r5;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonSetter");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonSetter) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonSetter: java.lang.String value()>();
+
+        return $r4;
+
+     label1:
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonProperty");
+
+        $r5 = (com.fasterxml.jackson.'annotation'.JsonProperty) $r2;
+
+        if $r5 == null goto label2;
+
+        $r4 = interfaceinvoke $r5.<com.fasterxml.jackson.'annotation'.JsonProperty: java.lang.String value()>();
+
+        return $r4;
+
+     label2:
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonDeserialize");
+
+        if $z0 != 0 goto label3;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonView");
+
+        if $z0 != 0 goto label3;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonBackReference");
+
+        if $z0 != 0 goto label3;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonManagedReference");
+
+        if $z0 == 0 goto label4;
+
+     label3:
+        return "";
+
+     label4:
+        return null;
+    }
+
+    public java.lang.String findDeserializationName(com.fasterxml.jackson.databind.introspect.AnnotatedParameter)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonProperty $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        if $r1 == null goto label1;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonProperty");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonProperty) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonProperty: java.lang.String value()>();
+
+        return $r4;
+
+     label1:
+        return null;
+    }
+
+    public java.lang.Class findDeserializationType(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        java.lang.'annotation'.Annotation $r3;
+        com.fasterxml.jackson.databind.'annotation'.JsonDeserialize $r4;
+        java.lang.Class $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JavaType;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonDeserialize");
+
+        $r4 = (com.fasterxml.jackson.databind.'annotation'.JsonDeserialize) $r3;
+
+        if $r4 == null goto label1;
+
+        $r5 = interfaceinvoke $r4.<com.fasterxml.jackson.databind.'annotation'.JsonDeserialize: java.lang.Class as()>();
+
+        if $r5 == class "com/fasterxml/jackson/databind/annotation/NoClass" goto label1;
+
+        return $r5;
+
+     label1:
+        return null;
+    }
+
+    public java.lang.Class findDeserializer(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.databind.'annotation'.JsonDeserialize $r3;
+        java.lang.Class $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonDeserialize");
+
+        $r3 = (com.fasterxml.jackson.databind.'annotation'.JsonDeserialize) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.databind.'annotation'.JsonDeserialize: java.lang.Class using()>();
+
+        if $r4 == class "com/fasterxml/jackson/databind/JsonDeserializer$None" goto label1;
+
+        return $r4;
+
+     label1:
+        return null;
+    }
+
+    public volatile java.lang.Object findDeserializer(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.Class $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector: java.lang.Class findDeserializer(com.fasterxml.jackson.databind.introspect.Annotated)>($r1);
+
+        return $r2;
+    }
+
+    public java.lang.String findEnumValue(java.lang.Enum)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        java.lang.Enum $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: java.lang.Enum;
+
+        $r2 = virtualinvoke $r1.<java.lang.Enum: java.lang.String name()>();
+
+        return $r2;
+    }
+
+    public java.lang.Object findFilterId(com.fasterxml.jackson.databind.introspect.AnnotatedClass)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonFilter $r3;
+        java.lang.String $r4;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonFilter");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonFilter) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonFilter: java.lang.String value()>();
+
+        $i0 = virtualinvoke $r4.<java.lang.String: int length()>();
+
+        if $i0 <= 0 goto label1;
+
+        return $r4;
+
+     label1:
+        return null;
+    }
+
+    public com.fasterxml.jackson.annotation.JsonFormat$Value findFormat(com.fasterxml.jackson.databind.introspect.AnnotatedMember)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        com.fasterxml.jackson.'annotation'.JsonFormat$Value $r2;
+        java.lang.'annotation'.Annotation $r3;
+        com.fasterxml.jackson.'annotation'.JsonFormat $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonFormat");
+
+        $r4 = (com.fasterxml.jackson.'annotation'.JsonFormat) $r3;
+
+        if $r4 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = new com.fasterxml.jackson.'annotation'.JsonFormat$Value;
+
+        specialinvoke $r2.<com.fasterxml.jackson.'annotation'.JsonFormat$Value: void <init>(com.fasterxml.jackson.'annotation'.JsonFormat)>($r4);
+
+        return $r2;
+    }
+
+    public java.lang.Boolean findIgnoreUnknownProperties(com.fasterxml.jackson.databind.introspect.AnnotatedClass)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonIgnoreProperties $r3;
+        boolean $z0;
+        java.lang.Boolean $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonIgnoreProperties");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonIgnoreProperties) $r2;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $z0 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonIgnoreProperties: boolean ignoreUnknown()>();
+
+        $r4 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        return $r4;
+    }
+
+    public java.lang.Object findInjectableValueId(com.fasterxml.jackson.databind.introspect.AnnotatedMember)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JacksonInject $r3;
+        java.lang.String $r4;
+        int $i0;
+        boolean $z0;
+        java.lang.Class $r5;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JacksonInject");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JacksonInject) $r2;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JacksonInject: java.lang.String value()>();
+
+        $i0 = virtualinvoke $r4.<java.lang.String: int length()>();
+
+        if $i0 != 0 goto label4;
+
+        $z0 = $r1 instanceof com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        if $z0 != 0 goto label2;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.Class getRawType()>();
+
+        $r4 = virtualinvoke $r5.<java.lang.Class: java.lang.String getName()>();
+
+        return $r4;
+
+     label2:
+        $r6 = (com.fasterxml.jackson.databind.introspect.AnnotatedMethod) $r1;
+
+        $i0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: int getParameterCount()>();
+
+        if $i0 != 0 goto label3;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.Class getRawType()>();
+
+        $r4 = virtualinvoke $r5.<java.lang.Class: java.lang.String getName()>();
+
+        return $r4;
+
+     label3:
+        $r5 = virtualinvoke $r6.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.Class getRawParameterType(int)>(0);
+
+        $r4 = virtualinvoke $r5.<java.lang.Class: java.lang.String getName()>();
+
+     label4:
+        return $r4;
+    }
+
+    public java.lang.Class findKeyDeserializer(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.databind.'annotation'.JsonDeserialize $r3;
+        java.lang.Class $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonDeserialize");
+
+        $r3 = (com.fasterxml.jackson.databind.'annotation'.JsonDeserialize) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.databind.'annotation'.JsonDeserialize: java.lang.Class keyUsing()>();
+
+        if $r4 == class "com/fasterxml/jackson/databind/KeyDeserializer$None" goto label1;
+
+        return $r4;
+
+     label1:
+        return null;
+    }
+
+    public volatile java.lang.Object findKeyDeserializer(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.Class $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector: java.lang.Class findKeyDeserializer(com.fasterxml.jackson.databind.introspect.Annotated)>($r1);
+
+        return $r2;
+    }
+
+    public java.lang.Class findKeySerializer(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.databind.'annotation'.JsonSerialize $r3;
+        java.lang.Class $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonSerialize");
+
+        $r3 = (com.fasterxml.jackson.databind.'annotation'.JsonSerialize) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.databind.'annotation'.JsonSerialize: java.lang.Class keyUsing()>();
+
+        if $r4 == class "com/fasterxml/jackson/databind/JsonSerializer$None" goto label1;
+
+        return $r4;
+
+     label1:
+        return null;
+    }
+
+    public volatile java.lang.Object findKeySerializer(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.Class $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector: java.lang.Class findKeySerializer(com.fasterxml.jackson.databind.introspect.Annotated)>($r1);
+
+        return $r2;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.ObjectIdInfo findObjectIdInfo(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonIdentityInfo $r3;
+        java.lang.Class $r4, $r7;
+        com.fasterxml.jackson.databind.introspect.ObjectIdInfo $r5;
+        java.lang.String $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonIdentityInfo");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonIdentityInfo) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonIdentityInfo: java.lang.Class generator()>();
+
+        if $r4 != class "com/fasterxml/jackson/annotation/ObjectIdGenerators$None" goto label2;
+
+     label1:
+        return null;
+
+     label2:
+        $r5 = new com.fasterxml.jackson.databind.introspect.ObjectIdInfo;
+
+        $r6 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonIdentityInfo: java.lang.String property()>();
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonIdentityInfo: java.lang.Class scope()>();
+
+        $r7 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonIdentityInfo: java.lang.Class generator()>();
+
+        specialinvoke $r5.<com.fasterxml.jackson.databind.introspect.ObjectIdInfo: void <init>(java.lang.String,java.lang.Class,java.lang.Class)>($r6, $r4, $r7);
+
+        return $r5;
+    }
+
+    public java.lang.Class findPOJOBuilder(com.fasterxml.jackson.databind.introspect.AnnotatedClass)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.databind.'annotation'.JsonDeserialize $r3;
+        java.lang.Class $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonDeserialize");
+
+        $r3 = (com.fasterxml.jackson.databind.'annotation'.JsonDeserialize) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.databind.'annotation'.JsonDeserialize: java.lang.Class builder()>();
+
+        if $r4 != class "com/fasterxml/jackson/databind/annotation/NoClass" goto label2;
+
+     label1:
+        return null;
+
+     label2:
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.databind.'annotation'.JsonDeserialize: java.lang.Class builder()>();
+
+        return $r4;
+    }
+
+    public com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder$Value findPOJOBuilderConfig(com.fasterxml.jackson.databind.introspect.AnnotatedClass)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        com.fasterxml.jackson.databind.'annotation'.JsonPOJOBuilder$Value $r2;
+        java.lang.'annotation'.Annotation $r3;
+        com.fasterxml.jackson.databind.'annotation'.JsonPOJOBuilder $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonPOJOBuilder");
+
+        $r4 = (com.fasterxml.jackson.databind.'annotation'.JsonPOJOBuilder) $r3;
+
+        if $r4 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = new com.fasterxml.jackson.databind.'annotation'.JsonPOJOBuilder$Value;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.'annotation'.JsonPOJOBuilder$Value: void <init>(com.fasterxml.jackson.databind.'annotation'.JsonPOJOBuilder)>($r4);
+
+        return $r2;
+    }
+
+    public java.lang.String[] findPropertiesToIgnore(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonIgnoreProperties $r3;
+        java.lang.String[] $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonIgnoreProperties");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonIgnoreProperties) $r2;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonIgnoreProperties: java.lang.String[] value()>();
+
+        return $r4;
+    }
+
+    public com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder findPropertyContentTypeResolver(com.fasterxml.jackson.databind.cfg.MapperConfig, com.fasterxml.jackson.databind.introspect.AnnotatedMember, com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r2;
+        com.fasterxml.jackson.databind.JavaType $r3;
+        boolean $z0;
+        java.lang.IllegalArgumentException $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r6;
+        com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.JavaType;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.databind.JavaType: boolean isContainerType()>();
+
+        if $z0 != 0 goto label1;
+
+        $r4 = new java.lang.IllegalArgumentException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Must call method with a container type (got ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r6);
+
+        throw $r4;
+
+     label1:
+        $r7 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector: com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder _findTypeResolver(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.introspect.Annotated,com.fasterxml.jackson.databind.JavaType)>($r1, $r2, $r3);
+
+        return $r7;
+    }
+
+    public com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder findPropertyTypeResolver(com.fasterxml.jackson.databind.cfg.MapperConfig, com.fasterxml.jackson.databind.introspect.AnnotatedMember, com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r2;
+        com.fasterxml.jackson.databind.JavaType $r3;
+        boolean $z0;
+        com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.JavaType;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.databind.JavaType: boolean isContainerType()>();
+
+        if $z0 == 0 goto label1;
+
+        return null;
+
+     label1:
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector: com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder _findTypeResolver(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.introspect.Annotated,com.fasterxml.jackson.databind.JavaType)>($r1, $r2, $r3);
+
+        return $r4;
+    }
+
+    public com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty findReferenceType(com.fasterxml.jackson.databind.introspect.AnnotatedMember)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonManagedReference $r3;
+        java.lang.String $r4;
+        com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty $r5;
+        com.fasterxml.jackson.'annotation'.JsonBackReference $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonManagedReference");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonManagedReference) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonManagedReference: java.lang.String value()>();
+
+        $r5 = staticinvoke <com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty managed(java.lang.String)>($r4);
+
+        return $r5;
+
+     label1:
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonBackReference");
+
+        $r6 = (com.fasterxml.jackson.'annotation'.JsonBackReference) $r2;
+
+        if $r6 == null goto label2;
+
+        $r4 = interfaceinvoke $r6.<com.fasterxml.jackson.'annotation'.JsonBackReference: java.lang.String value()>();
+
+        $r5 = staticinvoke <com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty back(java.lang.String)>($r4);
+
+        return $r5;
+
+     label2:
+        return null;
+    }
+
+    public java.lang.String findRootName(com.fasterxml.jackson.databind.introspect.AnnotatedClass)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonRootName $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonRootName");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonRootName) $r2;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonRootName: java.lang.String value()>();
+
+        return $r4;
+    }
+
+    public java.lang.Class findSerializationContentType(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        java.lang.'annotation'.Annotation $r3;
+        com.fasterxml.jackson.databind.'annotation'.JsonSerialize $r4;
+        java.lang.Class $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JavaType;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonSerialize");
+
+        $r4 = (com.fasterxml.jackson.databind.'annotation'.JsonSerialize) $r3;
+
+        if $r4 == null goto label1;
+
+        $r5 = interfaceinvoke $r4.<com.fasterxml.jackson.databind.'annotation'.JsonSerialize: java.lang.Class contentAs()>();
+
+        if $r5 == class "com/fasterxml/jackson/databind/annotation/NoClass" goto label1;
+
+        return $r5;
+
+     label1:
+        return null;
+    }
+
+    public com.fasterxml.jackson.annotation.JsonInclude$Include findSerializationInclusion(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.annotation.JsonInclude$Include)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        int[] $r2;
+        com.fasterxml.jackson.'annotation'.JsonInclude$Include $r3;
+        java.lang.'annotation'.Annotation $r4;
+        com.fasterxml.jackson.'annotation'.JsonInclude $r5;
+        com.fasterxml.jackson.databind.'annotation'.JsonSerialize $r6;
+        com.fasterxml.jackson.databind.'annotation'.JsonSerialize$Inclusion $r7;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r3 := @parameter1: com.fasterxml.jackson.'annotation'.JsonInclude$Include;
+
+        $r4 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonInclude");
+
+        $r5 = (com.fasterxml.jackson.'annotation'.JsonInclude) $r4;
+
+        if $r5 == null goto label1;
+
+        $r3 = interfaceinvoke $r5.<com.fasterxml.jackson.'annotation'.JsonInclude: com.fasterxml.jackson.'annotation'.JsonInclude$Include value()>();
+
+        return $r3;
+
+     label1:
+        $r4 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonSerialize");
+
+        $r6 = (com.fasterxml.jackson.databind.'annotation'.JsonSerialize) $r4;
+
+        if $r6 == null goto label7;
+
+        $r7 = interfaceinvoke $r6.<com.fasterxml.jackson.databind.'annotation'.JsonSerialize: com.fasterxml.jackson.databind.'annotation'.JsonSerialize$Inclusion include()>();
+
+        $r2 = <com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector$1: int[] $SwitchMap$com$fasterxml$jackson$databind$annotation$JsonSerialize$Inclusion>;
+
+        $i0 = virtualinvoke $r7.<com.fasterxml.jackson.databind.'annotation'.JsonSerialize$Inclusion: int ordinal()>();
+
+        $i0 = $r2[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label3;
+            case 2: goto label4;
+            case 3: goto label5;
+            case 4: goto label6;
+            default: goto label2;
+        };
+
+     label2:
+        return $r3;
+
+     label3:
+        $r3 = <com.fasterxml.jackson.'annotation'.JsonInclude$Include: com.fasterxml.jackson.annotation.JsonInclude$Include ALWAYS>;
+
+        return $r3;
+
+     label4:
+        $r3 = <com.fasterxml.jackson.'annotation'.JsonInclude$Include: com.fasterxml.jackson.annotation.JsonInclude$Include NON_NULL>;
+
+        return $r3;
+
+     label5:
+        $r3 = <com.fasterxml.jackson.'annotation'.JsonInclude$Include: com.fasterxml.jackson.annotation.JsonInclude$Include NON_DEFAULT>;
+
+        return $r3;
+
+     label6:
+        $r3 = <com.fasterxml.jackson.'annotation'.JsonInclude$Include: com.fasterxml.jackson.annotation.JsonInclude$Include NON_EMPTY>;
+
+     label7:
+        return $r3;
+    }
+
+    public java.lang.Class findSerializationKeyType(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        java.lang.'annotation'.Annotation $r3;
+        com.fasterxml.jackson.databind.'annotation'.JsonSerialize $r4;
+        java.lang.Class $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JavaType;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonSerialize");
+
+        $r4 = (com.fasterxml.jackson.databind.'annotation'.JsonSerialize) $r3;
+
+        if $r4 == null goto label1;
+
+        $r5 = interfaceinvoke $r4.<com.fasterxml.jackson.databind.'annotation'.JsonSerialize: java.lang.Class keyAs()>();
+
+        if $r5 == class "com/fasterxml/jackson/databind/annotation/NoClass" goto label1;
+
+        return $r5;
+
+     label1:
+        return null;
+    }
+
+    public java.lang.String findSerializationName(com.fasterxml.jackson.databind.introspect.AnnotatedField)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonProperty $r3;
+        java.lang.String $r4;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonProperty");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonProperty) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonProperty: java.lang.String value()>();
+
+        return $r4;
+
+     label1:
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedField: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonSerialize");
+
+        if $z0 != 0 goto label2;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedField: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonView");
+
+        if $z0 == 0 goto label3;
+
+     label2:
+        return "";
+
+     label3:
+        return null;
+    }
+
+    public java.lang.String findSerializationName(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonGetter $r3;
+        java.lang.String $r4;
+        com.fasterxml.jackson.'annotation'.JsonProperty $r5;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonGetter");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonGetter) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonGetter: java.lang.String value()>();
+
+        return $r4;
+
+     label1:
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonProperty");
+
+        $r5 = (com.fasterxml.jackson.'annotation'.JsonProperty) $r2;
+
+        if $r5 == null goto label2;
+
+        $r4 = interfaceinvoke $r5.<com.fasterxml.jackson.'annotation'.JsonProperty: java.lang.String value()>();
+
+        return $r4;
+
+     label2:
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonSerialize");
+
+        if $z0 != 0 goto label3;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonView");
+
+        if $z0 == 0 goto label4;
+
+     label3:
+        return "";
+
+     label4:
+        return null;
+    }
+
+    public java.lang.String[] findSerializationPropertyOrder(com.fasterxml.jackson.databind.introspect.AnnotatedClass)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonPropertyOrder $r3;
+        java.lang.String[] $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonPropertyOrder");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonPropertyOrder) $r2;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonPropertyOrder: java.lang.String[] value()>();
+
+        return $r4;
+    }
+
+    public java.lang.Boolean findSerializationSortAlphabetically(com.fasterxml.jackson.databind.introspect.AnnotatedClass)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonPropertyOrder $r3;
+        boolean $z0;
+        java.lang.Boolean $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonPropertyOrder");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonPropertyOrder) $r2;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $z0 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonPropertyOrder: boolean alphabetic()>();
+
+        $r4 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        return $r4;
+    }
+
+    public java.lang.Class findSerializationType(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.databind.'annotation'.JsonSerialize $r3;
+        java.lang.Class $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonSerialize");
+
+        $r3 = (com.fasterxml.jackson.databind.'annotation'.JsonSerialize) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.databind.'annotation'.JsonSerialize: java.lang.Class as()>();
+
+        if $r4 == class "com/fasterxml/jackson/databind/annotation/NoClass" goto label1;
+
+        return $r4;
+
+     label1:
+        return null;
+    }
+
+    public com.fasterxml.jackson.databind.annotation.JsonSerialize$Typing findSerializationTyping(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.databind.'annotation'.JsonSerialize $r3;
+        com.fasterxml.jackson.databind.'annotation'.JsonSerialize$Typing $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonSerialize");
+
+        $r3 = (com.fasterxml.jackson.databind.'annotation'.JsonSerialize) $r2;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.databind.'annotation'.JsonSerialize: com.fasterxml.jackson.databind.'annotation'.JsonSerialize$Typing typing()>();
+
+        return $r4;
+    }
+
+    public java.lang.Object findSerializer(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.databind.'annotation'.JsonSerialize $r3;
+        java.lang.Class $r4;
+        com.fasterxml.jackson.'annotation'.JsonRawValue $r5;
+        boolean $z0;
+        com.fasterxml.jackson.databind.ser.std.RawSerializer $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonSerialize");
+
+        $r3 = (com.fasterxml.jackson.databind.'annotation'.JsonSerialize) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.databind.'annotation'.JsonSerialize: java.lang.Class using()>();
+
+        if $r4 == class "com/fasterxml/jackson/databind/JsonSerializer$None" goto label1;
+
+        return $r4;
+
+     label1:
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonRawValue");
+
+        $r5 = (com.fasterxml.jackson.'annotation'.JsonRawValue) $r2;
+
+        if $r5 == null goto label2;
+
+        $z0 = interfaceinvoke $r5.<com.fasterxml.jackson.'annotation'.JsonRawValue: boolean value()>();
+
+        if $z0 == 0 goto label2;
+
+        $r4 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.Class getRawType()>();
+
+        $r6 = new com.fasterxml.jackson.databind.ser.std.RawSerializer;
+
+        specialinvoke $r6.<com.fasterxml.jackson.databind.ser.std.RawSerializer: void <init>(java.lang.Class)>($r4);
+
+        return $r6;
+
+     label2:
+        return null;
+    }
+
+    public java.util.List findSubtypes(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.jsontype.NamedType $r2;
+        java.lang.'annotation'.Annotation $r3;
+        com.fasterxml.jackson.'annotation'.JsonSubTypes $r4;
+        com.fasterxml.jackson.annotation.JsonSubTypes$Type[] $r5;
+        java.util.ArrayList $r6;
+        com.fasterxml.jackson.'annotation'.JsonSubTypes$Type $r7;
+        java.lang.Class $r8;
+        java.lang.String $r9;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonSubTypes");
+
+        $r4 = (com.fasterxml.jackson.'annotation'.JsonSubTypes) $r3;
+
+        if $r4 != null goto label1;
+
+        return null;
+
+     label1:
+        $r5 = interfaceinvoke $r4.<com.fasterxml.jackson.'annotation'.JsonSubTypes: com.fasterxml.jackson.annotation.JsonSubTypes$Type[] value()>();
+
+        $r6 = new java.util.ArrayList;
+
+        $i0 = lengthof $r5;
+
+        specialinvoke $r6.<java.util.ArrayList: void <init>(int)>($i0);
+
+        $i0 = lengthof $r5;
+
+        $i1 = 0;
+
+     label2:
+        if $i1 >= $i0 goto label3;
+
+        $r7 = $r5[$i1];
+
+        $r2 = new com.fasterxml.jackson.databind.jsontype.NamedType;
+
+        $r8 = interfaceinvoke $r7.<com.fasterxml.jackson.'annotation'.JsonSubTypes$Type: java.lang.Class value()>();
+
+        $r9 = interfaceinvoke $r7.<com.fasterxml.jackson.'annotation'.JsonSubTypes$Type: java.lang.String name()>();
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.jsontype.NamedType: void <init>(java.lang.Class,java.lang.String)>($r8, $r9);
+
+        virtualinvoke $r6.<java.util.ArrayList: boolean add(java.lang.Object)>($r2);
+
+        $i1 = $i1 + 1;
+
+        goto label2;
+
+     label3:
+        return $r6;
+    }
+
+    public java.lang.String findTypeName(com.fasterxml.jackson.databind.introspect.AnnotatedClass)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonTypeName $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonTypeName");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonTypeName) $r2;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonTypeName: java.lang.String value()>();
+
+        return $r4;
+    }
+
+    public com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder findTypeResolver(com.fasterxml.jackson.databind.cfg.MapperConfig, com.fasterxml.jackson.databind.introspect.AnnotatedClass, com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r2;
+        com.fasterxml.jackson.databind.JavaType $r3;
+        com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.JavaType;
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector: com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder _findTypeResolver(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.introspect.Annotated,com.fasterxml.jackson.databind.JavaType)>($r1, $r2, $r3);
+
+        return $r4;
+    }
+
+    public com.fasterxml.jackson.databind.util.NameTransformer findUnwrappingNameTransformer(com.fasterxml.jackson.databind.introspect.AnnotatedMember)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonUnwrapped $r3;
+        boolean $z0;
+        java.lang.String $r4, $r5;
+        com.fasterxml.jackson.databind.util.NameTransformer $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonUnwrapped");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonUnwrapped) $r2;
+
+        if $r3 == null goto label1;
+
+        $z0 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonUnwrapped: boolean enabled()>();
+
+        if $z0 != 0 goto label2;
+
+     label1:
+        return null;
+
+     label2:
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonUnwrapped: java.lang.String prefix()>();
+
+        $r5 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonUnwrapped: java.lang.String suffix()>();
+
+        $r6 = staticinvoke <com.fasterxml.jackson.databind.util.NameTransformer: com.fasterxml.jackson.databind.util.NameTransformer simpleTransformer(java.lang.String,java.lang.String)>($r4, $r5);
+
+        return $r6;
+    }
+
+    public java.lang.Object findValueInstantiator(com.fasterxml.jackson.databind.introspect.AnnotatedClass)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.databind.'annotation'.JsonValueInstantiator $r3;
+        java.lang.Class $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JsonValueInstantiator");
+
+        $r3 = (com.fasterxml.jackson.databind.'annotation'.JsonValueInstantiator) $r2;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.databind.'annotation'.JsonValueInstantiator: java.lang.Class value()>();
+
+        return $r4;
+    }
+
+    public java.lang.Class[] findViews(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonView $r3;
+        java.lang.Class[] $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonView");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonView) $r2;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $r4 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonView: java.lang.Class[] value()>();
+
+        return $r4;
+    }
+
+    public boolean hasAnyGetterAnnotation(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r1;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonAnyGetter");
+
+        return $z0;
+    }
+
+    public boolean hasAnySetterAnnotation(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r1;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonAnySetter");
+
+        return $z0;
+    }
+
+    public boolean hasAsValueAnnotation(com.fasterxml.jackson.databind.introspect.AnnotatedMethod)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonValue $r3;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonValue");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonValue) $r2;
+
+        if $r3 == null goto label1;
+
+        $z0 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonValue: boolean value()>();
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean hasCreatorAnnotation(com.fasterxml.jackson.databind.introspect.Annotated)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.Annotated $r1;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.Annotated;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.Annotated: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonCreator");
+
+        return $z0;
+    }
+
+    public boolean hasIgnoreMarker(com.fasterxml.jackson.databind.introspect.AnnotatedMember)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector: boolean _isIgnorable(com.fasterxml.jackson.databind.introspect.Annotated)>($r1);
+
+        return $z0;
+    }
+
+    public boolean isAnnotationBundle(java.lang.annotation.Annotation)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        java.lang.'annotation'.Annotation $r1;
+        java.lang.Class $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: java.lang.'annotation'.Annotation;
+
+        $r2 = interfaceinvoke $r1.<java.lang.'annotation'.Annotation: java.lang.Class annotationType()>();
+
+        $r1 = virtualinvoke $r2.<java.lang.Class: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JacksonAnnotationsInside");
+
+        if $r1 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public java.lang.Boolean isIgnorableType(com.fasterxml.jackson.databind.introspect.AnnotatedClass)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.'annotation'.JsonIgnoreType $r3;
+        boolean $z0;
+        java.lang.Boolean $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedClass;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedClass: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonIgnoreType");
+
+        $r3 = (com.fasterxml.jackson.'annotation'.JsonIgnoreType) $r2;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $z0 = interfaceinvoke $r3.<com.fasterxml.jackson.'annotation'.JsonIgnoreType: boolean value()>();
+
+        $r4 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        return $r4;
+    }
+
+    public java.lang.Boolean isTypeId(com.fasterxml.jackson.databind.introspect.AnnotatedMember)
+    {
+        com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        boolean $z0;
+        java.lang.Boolean $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: boolean hasAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/annotation/JsonTypeId");
+
+        $r2 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        return $r2;
+    }
+}

@@ -1,0 +1,165 @@
+public final class com.google.api.services.drive.f extends com.google.api.services.drive.j
+{
+    final com.google.api.services.drive.c c;
+    private java.lang.Boolean convert;
+    private java.lang.Boolean ocr;
+    private java.lang.String ocrLanguage;
+    private java.lang.Boolean pinned;
+    private java.lang.String timedTextLanguage;
+    private java.lang.String timedTextTrackName;
+    private java.lang.Boolean useContentAsIndexableText;
+    private java.lang.String visibility;
+
+    protected void <init>(com.google.api.services.drive.c, com.google.api.services.drive.model.File)
+    {
+        com.google.api.services.drive.f $r0;
+        com.google.api.services.drive.c $r1;
+        com.google.api.services.drive.model.File $r2;
+        com.google.api.services.drive.a $r3;
+
+        $r0 := @this: com.google.api.services.drive.f;
+
+        $r1 := @parameter0: com.google.api.services.drive.c;
+
+        $r2 := @parameter1: com.google.api.services.drive.model.File;
+
+        $r0.<com.google.api.services.drive.f: com.google.api.services.drive.c c> = $r1;
+
+        $r3 = $r1.<com.google.api.services.drive.c: com.google.api.services.drive.a a>;
+
+        specialinvoke $r0.<com.google.api.services.drive.j: void <init>(com.google.api.services.drive.a,java.lang.String,java.lang.String,java.lang.Object,java.lang.Class)>($r3, "POST", "files", $r2, class "com/google/api/services/drive/model/File");
+
+        return;
+    }
+
+    protected void <init>(com.google.api.services.drive.c, com.google.api.services.drive.model.File, com.google.api.a.c.b)
+    {
+        com.google.api.services.drive.f $r0;
+        com.google.api.services.drive.c $r1;
+        com.google.api.services.drive.model.File $r2;
+        com.google.api.a.c.b $r3;
+        com.google.api.services.drive.a $r4, $r6;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r7;
+
+        $r0 := @this: com.google.api.services.drive.f;
+
+        $r1 := @parameter0: com.google.api.services.drive.c;
+
+        $r2 := @parameter1: com.google.api.services.drive.model.File;
+
+        $r3 := @parameter2: com.google.api.a.c.b;
+
+        $r0.<com.google.api.services.drive.f: com.google.api.services.drive.c c> = $r1;
+
+        $r4 = $r1.<com.google.api.services.drive.c: com.google.api.services.drive.a a>;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("/upload/");
+
+        $r6 = $r1.<com.google.api.services.drive.c: com.google.api.services.drive.a a>;
+
+        $r7 = virtualinvoke $r6.<com.google.api.services.drive.a: java.lang.String a()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("files");
+
+        $r7 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<com.google.api.services.drive.j: void <init>(com.google.api.services.drive.a,java.lang.String,java.lang.String,java.lang.Object,java.lang.Class)>($r4, "POST", $r7, $r2, class "com/google/api/services/drive/model/File");
+
+        virtualinvoke $r0.<com.google.api.services.drive.f: void a(com.google.api.a.c.b)>($r3);
+
+        return;
+    }
+
+    private com.google.api.services.drive.f d(java.lang.String, java.lang.Object)
+    {
+        com.google.api.services.drive.f $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        com.google.api.services.drive.j $r3;
+
+        $r0 := @this: com.google.api.services.drive.f;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r3 = specialinvoke $r0.<com.google.api.services.drive.j: com.google.api.services.drive.j c(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        $r0 = (com.google.api.services.drive.f) $r3;
+
+        return $r0;
+    }
+
+    public final com.google.api.a.b.d.c a(java.lang.String, java.lang.Object)
+    {
+        com.google.api.services.drive.f $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+
+        $r0 := @this: com.google.api.services.drive.f;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r0 = specialinvoke $r0.<com.google.api.services.drive.f: com.google.api.services.drive.f d(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+    }
+
+    public final com.google.api.a.b.d.a.c b(java.lang.String, java.lang.Object)
+    {
+        com.google.api.services.drive.f $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+
+        $r0 := @this: com.google.api.services.drive.f;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r0 = specialinvoke $r0.<com.google.api.services.drive.f: com.google.api.services.drive.f d(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+    }
+
+    public final com.google.api.services.drive.j c(java.lang.String, java.lang.Object)
+    {
+        com.google.api.services.drive.f $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+
+        $r0 := @this: com.google.api.services.drive.f;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r0 = specialinvoke $r0.<com.google.api.services.drive.f: com.google.api.services.drive.f d(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+    }
+
+    public final com.google.api.a.f.y set(java.lang.String, java.lang.Object)
+    {
+        com.google.api.services.drive.f $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+
+        $r0 := @this: com.google.api.services.drive.f;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r0 = specialinvoke $r0.<com.google.api.services.drive.f: com.google.api.services.drive.f d(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+    }
+}

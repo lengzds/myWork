@@ -1,0 +1,93 @@
+public abstract class com.fasterxml.jackson.databind.BeanDescription extends java.lang.Object
+{
+    protected final com.fasterxml.jackson.databind.JavaType _type;
+
+    protected void <init>(com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.BeanDescription $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.BeanDescription;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.BeanDescription: com.fasterxml.jackson.databind.JavaType _type> = $r1;
+
+        return;
+    }
+
+    public abstract com.fasterxml.jackson.databind.type.TypeBindings bindingsForBeanType();
+
+    public abstract com.fasterxml.jackson.databind.introspect.AnnotatedMember findAnyGetter();
+
+    public abstract com.fasterxml.jackson.databind.introspect.AnnotatedMethod findAnySetter();
+
+    public abstract java.util.Map findBackReferenceProperties();
+
+    public abstract com.fasterxml.jackson.databind.introspect.AnnotatedConstructor findDefaultConstructor();
+
+    public abstract transient java.lang.reflect.Method findFactoryMethod(java.lang.Class[]);
+
+    public abstract java.util.Map findInjectables();
+
+    public abstract com.fasterxml.jackson.databind.introspect.AnnotatedMethod findJsonValueMethod();
+
+    public abstract com.fasterxml.jackson.databind.introspect.AnnotatedMethod findMethod(java.lang.String, java.lang.Class[]);
+
+    public abstract java.lang.Class findPOJOBuilder();
+
+    public abstract com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder$Value findPOJOBuilderConfig();
+
+    public abstract java.util.List findProperties();
+
+    public abstract com.fasterxml.jackson.annotation.JsonInclude$Include findSerializationInclusion(com.fasterxml.jackson.annotation.JsonInclude$Include);
+
+    public abstract transient java.lang.reflect.Constructor findSingleArgConstructor(java.lang.Class[]);
+
+    public java.lang.Class getBeanClass()
+    {
+        com.fasterxml.jackson.databind.BeanDescription $r0;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.BeanDescription;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.BeanDescription: com.fasterxml.jackson.databind.JavaType _type>;
+
+        $r1 = virtualinvoke $r2.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        return $r1;
+    }
+
+    public abstract com.fasterxml.jackson.databind.util.Annotations getClassAnnotations();
+
+    public abstract com.fasterxml.jackson.databind.introspect.AnnotatedClass getClassInfo();
+
+    public abstract java.util.List getConstructors();
+
+    public abstract java.util.List getFactoryMethods();
+
+    public abstract java.util.Set getIgnoredPropertyNames();
+
+    public abstract com.fasterxml.jackson.databind.introspect.ObjectIdInfo getObjectIdInfo();
+
+    public com.fasterxml.jackson.databind.JavaType getType()
+    {
+        com.fasterxml.jackson.databind.BeanDescription $r0;
+        com.fasterxml.jackson.databind.JavaType r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.BeanDescription;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.BeanDescription: com.fasterxml.jackson.databind.JavaType _type>;
+
+        return r1;
+    }
+
+    public abstract boolean hasKnownClassAnnotations();
+
+    public abstract java.lang.Object instantiateBean(boolean);
+
+    public abstract com.fasterxml.jackson.databind.JavaType resolveType(java.lang.reflect.Type);
+}

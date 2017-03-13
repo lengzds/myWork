@@ -1,0 +1,192 @@
+public class com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator extends com.fasterxml.jackson.databind.deser.ValueInstantiator
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: void <init>()>();
+
+        return;
+    }
+
+    private static final int _int(java.lang.Object)
+    {
+        int $i0;
+        java.lang.Object $r0;
+        java.lang.Number $r1;
+
+        $r0 := @parameter0: java.lang.Object;
+
+        if $r0 != null goto label1;
+
+        return 0;
+
+     label1:
+        $r1 = (java.lang.Number) $r0;
+
+        $i0 = virtualinvoke $r1.<java.lang.Number: int intValue()>();
+
+        return $i0;
+    }
+
+    private static final long _long(java.lang.Object)
+    {
+        long $l0;
+        java.lang.Object $r0;
+        java.lang.Number $r1;
+
+        $r0 := @parameter0: java.lang.Object;
+
+        if $r0 != null goto label1;
+
+        return 0L;
+
+     label1:
+        $r1 = (java.lang.Number) $r0;
+
+        $l0 = virtualinvoke $r1.<java.lang.Number: long longValue()>();
+
+        return $l0;
+    }
+
+    public boolean canCreateFromObjectWith()
+    {
+        com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator;
+
+        return 1;
+    }
+
+    public java.lang.Object createFromObjectWith(com.fasterxml.jackson.databind.DeserializationContext, java.lang.Object[])
+    {
+        com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        java.lang.Object[] $r2;
+        com.fasterxml.jackson.core.JsonLocation $r3;
+        java.lang.Object $r4, $r5;
+        long $l0, $l1;
+        int $i2, $i3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r2 := @parameter1: java.lang.Object[];
+
+        $r3 = new com.fasterxml.jackson.core.JsonLocation;
+
+        $r4 = $r2[0];
+
+        $r5 = $r2[1];
+
+        $l0 = staticinvoke <com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator: long _long(java.lang.Object)>($r5);
+
+        $r5 = $r2[2];
+
+        $l1 = staticinvoke <com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator: long _long(java.lang.Object)>($r5);
+
+        $r5 = $r2[3];
+
+        $i2 = staticinvoke <com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator: int _int(java.lang.Object)>($r5);
+
+        $r5 = $r2[4];
+
+        $i3 = staticinvoke <com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator: int _int(java.lang.Object)>($r5);
+
+        specialinvoke $r3.<com.fasterxml.jackson.core.JsonLocation: void <init>(java.lang.Object,long,long,int,int)>($r4, $l0, $l1, $i2, $i3);
+
+        return $r3;
+    }
+
+    public com.fasterxml.jackson.databind.deser.CreatorProperty[] getFromObjectArguments(com.fasterxml.jackson.databind.DeserializationConfig)
+    {
+        com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationConfig $r1;
+        com.fasterxml.jackson.databind.deser.CreatorProperty[] $r2;
+        java.lang.Class $r3;
+        com.fasterxml.jackson.databind.JavaType $r4, $r5, $r7;
+        com.fasterxml.jackson.databind.deser.CreatorProperty $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r3 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $r4 = virtualinvoke $r1.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.JavaType constructType(java.lang.Class)>($r3);
+
+        $r3 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.JavaType constructType(java.lang.Class)>($r3);
+
+        $r2 = newarray (com.fasterxml.jackson.databind.deser.CreatorProperty)[5];
+
+        $r6 = new com.fasterxml.jackson.databind.deser.CreatorProperty;
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.JavaType constructType(java.lang.Class)>(class "java/lang/Object");
+
+        specialinvoke $r6.<com.fasterxml.jackson.databind.deser.CreatorProperty: void <init>(java.lang.String,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.jsontype.TypeDeserializer,com.fasterxml.jackson.databind.util.Annotations,com.fasterxml.jackson.databind.introspect.AnnotatedParameter,int,java.lang.Object)>("sourceRef", $r7, null, null, null, 0, null);
+
+        $r2[0] = $r6;
+
+        $r6 = new com.fasterxml.jackson.databind.deser.CreatorProperty;
+
+        specialinvoke $r6.<com.fasterxml.jackson.databind.deser.CreatorProperty: void <init>(java.lang.String,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.jsontype.TypeDeserializer,com.fasterxml.jackson.databind.util.Annotations,com.fasterxml.jackson.databind.introspect.AnnotatedParameter,int,java.lang.Object)>("byteOffset", $r5, null, null, null, 1, null);
+
+        $r2[1] = $r6;
+
+        $r6 = new com.fasterxml.jackson.databind.deser.CreatorProperty;
+
+        specialinvoke $r6.<com.fasterxml.jackson.databind.deser.CreatorProperty: void <init>(java.lang.String,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.jsontype.TypeDeserializer,com.fasterxml.jackson.databind.util.Annotations,com.fasterxml.jackson.databind.introspect.AnnotatedParameter,int,java.lang.Object)>("charOffset", $r5, null, null, null, 2, null);
+
+        $r2[2] = $r6;
+
+        $r6 = new com.fasterxml.jackson.databind.deser.CreatorProperty;
+
+        specialinvoke $r6.<com.fasterxml.jackson.databind.deser.CreatorProperty: void <init>(java.lang.String,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.jsontype.TypeDeserializer,com.fasterxml.jackson.databind.util.Annotations,com.fasterxml.jackson.databind.introspect.AnnotatedParameter,int,java.lang.Object)>("lineNr", $r4, null, null, null, 3, null);
+
+        $r2[3] = $r6;
+
+        $r6 = new com.fasterxml.jackson.databind.deser.CreatorProperty;
+
+        specialinvoke $r6.<com.fasterxml.jackson.databind.deser.CreatorProperty: void <init>(java.lang.String,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.jsontype.TypeDeserializer,com.fasterxml.jackson.databind.util.Annotations,com.fasterxml.jackson.databind.introspect.AnnotatedParameter,int,java.lang.Object)>("columnNr", $r4, null, null, null, 4, null);
+
+        $r2[4] = $r6;
+
+        return $r2;
+    }
+
+    public volatile com.fasterxml.jackson.databind.deser.SettableBeanProperty[] getFromObjectArguments(com.fasterxml.jackson.databind.DeserializationConfig)
+    {
+        com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationConfig $r1;
+        com.fasterxml.jackson.databind.deser.CreatorProperty[] $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator: com.fasterxml.jackson.databind.deser.CreatorProperty[] getFromObjectArguments(com.fasterxml.jackson.databind.DeserializationConfig)>($r1);
+
+        return $r2;
+    }
+
+    public java.lang.String getValueTypeDesc()
+    {
+        com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator $r0;
+        java.lang.String $r1;
+        java.lang.Class $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JacksonDeserializers$JsonLocationInstantiator;
+
+        $r2 = class "com/fasterxml/jackson/core/JsonLocation";
+
+        $r1 = virtualinvoke $r2.<java.lang.Class: java.lang.String getName()>();
+
+        return $r1;
+    }
+}

@@ -1,0 +1,305 @@
+final class a.d.be extends java.lang.Thread
+{
+    byte[] a;
+    int b;
+    long c;
+    boolean d;
+    a.d.bd e;
+    a.d.bc f;
+    boolean g;
+    a.d.ay h;
+    a.d.ax i;
+    a.d.u j;
+    final a.d.bd k;
+
+    void <init>(a.d.bd)
+    {
+        a.d.be $r0;
+        a.d.bd $r1;
+        boolean $z0;
+        a.d.bo $r2;
+        a.d.bk $r3;
+        a.d.bm $r4;
+        a.d.ay $r5;
+        a.d.az $r6;
+        a.d.ax $r7;
+        a.d.ba $r8;
+
+        $r0 := @this: a.d.be;
+
+        $r1 := @parameter0: a.d.bd;
+
+        $r0.<a.d.be: a.d.bd k> = $r1;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>(java.lang.String)>("JCIFS-WriterThread");
+
+        $r0.<a.d.be: a.d.bc f> = null;
+
+        $r2 = $r1.<a.d.bd: a.d.bo h>;
+
+        $r3 = $r2.<a.d.bo: a.d.bk f>;
+
+        $r4 = $r3.<a.d.bk: a.d.bm e>;
+
+        $z0 = virtualinvoke $r4.<a.d.bm: boolean a(int)>(16);
+
+        $r0.<a.d.be: boolean g> = $z0;
+
+        $z0 = $r0.<a.d.be: boolean g>;
+
+        if $z0 == 0 goto label2;
+
+        $r5 = new a.d.ay;
+
+        specialinvoke $r5.<a.d.ay: void <init>()>();
+
+        $r0.<a.d.be: a.d.ay h> = $r5;
+
+        $r6 = new a.d.az;
+
+        specialinvoke $r6.<a.d.az: void <init>()>();
+
+        $r0.<a.d.be: a.d.u j> = $r6;
+
+     label1:
+        $r0.<a.d.be: boolean d> = 0;
+
+        return;
+
+     label2:
+        $r7 = new a.d.ax;
+
+        specialinvoke $r7.<a.d.ax: void <init>()>();
+
+        $r0.<a.d.be: a.d.ax i> = $r7;
+
+        $r8 = new a.d.ba;
+
+        specialinvoke $r8.<a.d.ba: void <init>()>();
+
+        $r0.<a.d.be: a.d.u j> = $r8;
+
+        goto label1;
+    }
+
+    final void a(byte[], int, a.d.bd, long)
+    {
+        a.d.be $r0;
+        byte[] $r1;
+        int $i0;
+        a.d.bd $r2;
+        long $l1;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: a.d.be;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: a.d.bd;
+
+        $l1 := @parameter3: long;
+
+        entermonitor $r0;
+
+     label1:
+        $r0.<a.d.be: byte[] a> = $r1;
+
+        $r0.<a.d.be: int b> = $i0;
+
+        $r0.<a.d.be: a.d.bd e> = $r2;
+
+        $r0.<a.d.be: long c> = $l1;
+
+        $r0.<a.d.be: boolean d> = 0;
+
+        virtualinvoke $r0.<java.lang.Object: void notify()>();
+
+     label2:
+        exitmonitor $r0;
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public final void run()
+    {
+        a.d.be $r0;
+        boolean $z0;
+        a.d.bc $r1;
+        int $i0, $i2, $i3;
+        java.lang.Throwable $r2;
+        a.d.ay $r3;
+        a.d.bd $r4;
+        long $l1;
+        byte[] $r5;
+        a.d.u $r6;
+        java.lang.Exception $r7;
+        a.d.ax $r8;
+
+        $r0 := @this: a.d.be;
+
+        entermonitor $r0;
+
+     label01:
+        virtualinvoke $r0.<java.lang.Object: void notify()>();
+
+     label02:
+        $r0.<a.d.be: boolean d> = 1;
+
+     label03:
+        $z0 = $r0.<a.d.be: boolean d>;
+
+     label04:
+        if $z0 == 0 goto label11;
+
+     label05:
+        virtualinvoke $r0.<java.lang.Object: void wait()>();
+
+     label06:
+        goto label03;
+
+     label07:
+        $r1 := @caughtexception;
+
+     label08:
+        $r0.<a.d.be: a.d.bc f> = $r1;
+
+     label09:
+        virtualinvoke $r0.<java.lang.Object: void notify()>();
+
+        exitmonitor $r0;
+
+     label10:
+        return;
+
+     label11:
+        $i0 = $r0.<a.d.be: int b>;
+
+     label12:
+        if $i0 != -1 goto label16;
+
+     label13:
+        exitmonitor $r0;
+
+     label14:
+        return;
+
+     label15:
+        $r2 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r2;
+
+     label16:
+        $z0 = $r0.<a.d.be: boolean g>;
+
+     label17:
+        if $z0 == 0 goto label26;
+
+     label18:
+        $r3 = $r0.<a.d.be: a.d.ay h>;
+
+        $r4 = $r0.<a.d.be: a.d.bd e>;
+
+        $i0 = $r4.<a.d.bd: int j>;
+
+        $l1 = $r0.<a.d.be: long c>;
+
+        $i2 = $r0.<a.d.be: int b>;
+
+        $r5 = $r0.<a.d.be: byte[] a>;
+
+        $i3 = $r0.<a.d.be: int b>;
+
+     label19:
+        virtualinvoke $r3.<a.d.ay: void a(int,long,int,byte[],int,int)>($i0, $l1, $i2, $r5, 0, $i3);
+
+     label20:
+        $r4 = $r0.<a.d.be: a.d.bd e>;
+
+        $r3 = $r0.<a.d.be: a.d.ay h>;
+
+        $r6 = $r0.<a.d.be: a.d.u j>;
+
+     label21:
+        virtualinvoke $r4.<a.d.bd: void a(a.d.u,a.d.u)>($r3, $r6);
+
+     label22:
+        goto label01;
+
+     label23:
+        $r7 := @caughtexception;
+
+     label24:
+        $r1 = new a.d.bc;
+
+        specialinvoke $r1.<a.d.bc: void <init>(java.lang.String,java.lang.Throwable)>("WriterThread", $r7);
+
+        $r0.<a.d.be: a.d.bc f> = $r1;
+
+     label25:
+        goto label09;
+
+     label26:
+        $r8 = $r0.<a.d.be: a.d.ax i>;
+
+        $r4 = $r0.<a.d.be: a.d.bd e>;
+
+        $i0 = $r4.<a.d.bd: int j>;
+
+        $l1 = $r0.<a.d.be: long c>;
+
+        $i2 = $r0.<a.d.be: int b>;
+
+        $r5 = $r0.<a.d.be: byte[] a>;
+
+        $i3 = $r0.<a.d.be: int b>;
+
+     label27:
+        virtualinvoke $r8.<a.d.ax: void a(int,long,int,byte[],int,int)>($i0, $l1, $i2, $r5, 0, $i3);
+
+     label28:
+        $r4 = $r0.<a.d.be: a.d.bd e>;
+
+        $r8 = $r0.<a.d.be: a.d.ax i>;
+
+        $r6 = $r0.<a.d.be: a.d.u j>;
+
+     label29:
+        virtualinvoke $r4.<a.d.bd: void a(a.d.u,a.d.u)>($r8, $r6);
+
+     label30:
+        goto label01;
+
+        catch a.d.bc from label01 to label02 with label07;
+        catch a.d.bc from label05 to label06 with label07;
+        catch java.lang.Exception from label01 to label04 with label23;
+        catch java.lang.Exception from label05 to label06 with label23;
+        catch java.lang.Throwable from label01 to label06 with label15;
+        catch java.lang.Throwable from label08 to label10 with label15;
+        catch java.lang.Exception from label11 to label12 with label23;
+        catch java.lang.Throwable from label11 to label12 with label15;
+        catch java.lang.Throwable from label13 to label14 with label15;
+        catch a.d.bc from label19 to label20 with label07;
+        catch a.d.bc from label21 to label22 with label07;
+        catch java.lang.Exception from label16 to label17 with label23;
+        catch java.lang.Exception from label18 to label22 with label23;
+        catch java.lang.Throwable from label16 to label22 with label15;
+        catch java.lang.Throwable from label24 to label25 with label15;
+        catch a.d.bc from label27 to label28 with label07;
+        catch a.d.bc from label29 to label30 with label07;
+        catch java.lang.Exception from label26 to label30 with label23;
+        catch java.lang.Throwable from label26 to label30 with label15;
+    }
+}

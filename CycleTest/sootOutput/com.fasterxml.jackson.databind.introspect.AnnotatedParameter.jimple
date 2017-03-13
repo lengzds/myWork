@@ -1,0 +1,315 @@
+public final class com.fasterxml.jackson.databind.introspect.AnnotatedParameter extends com.fasterxml.jackson.databind.introspect.AnnotatedMember
+{
+    protected final int _index;
+    protected final com.fasterxml.jackson.databind.introspect.AnnotatedWithParams _owner;
+    protected final java.lang.reflect.Type _type;
+
+    public void <init>(com.fasterxml.jackson.databind.introspect.AnnotatedWithParams, java.lang.reflect.Type, com.fasterxml.jackson.databind.introspect.AnnotationMap, int)
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedWithParams $r1;
+        java.lang.reflect.Type $r2;
+        com.fasterxml.jackson.databind.introspect.AnnotationMap $r3;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedWithParams;
+
+        $r2 := @parameter1: java.lang.reflect.Type;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.introspect.AnnotationMap;
+
+        $i0 := @parameter3: int;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: void <init>(com.fasterxml.jackson.databind.introspect.AnnotationMap)>($r3);
+
+        $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: com.fasterxml.jackson.databind.introspect.AnnotatedWithParams _owner> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: java.lang.reflect.Type _type> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: int _index> = $i0;
+
+        return;
+    }
+
+    public final java.lang.reflect.AnnotatedElement getAnnotated()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        return null;
+    }
+
+    public final java.lang.annotation.Annotation getAnnotation(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+        java.lang.Class $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.databind.introspect.AnnotationMap $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: com.fasterxml.jackson.databind.introspect.AnnotationMap _annotations>;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: com.fasterxml.jackson.databind.introspect.AnnotationMap _annotations>;
+
+        $r2 = virtualinvoke $r3.<com.fasterxml.jackson.databind.introspect.AnnotationMap: java.lang.'annotation'.Annotation get(java.lang.Class)>($r1);
+
+        return $r2;
+    }
+
+    public final java.lang.Class getDeclaringClass()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedWithParams $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: com.fasterxml.jackson.databind.introspect.AnnotatedWithParams _owner>;
+
+        $r1 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedWithParams: java.lang.Class getDeclaringClass()>();
+
+        return $r1;
+    }
+
+    public final java.lang.reflect.Type getGenericType()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+        java.lang.reflect.Type r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: java.lang.reflect.Type _type>;
+
+        return r1;
+    }
+
+    public final int getIndex()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+        int i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        i0 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: int _index>;
+
+        return i0;
+    }
+
+    public final java.lang.reflect.Member getMember()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+        java.lang.reflect.Member $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedWithParams $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: com.fasterxml.jackson.databind.introspect.AnnotatedWithParams _owner>;
+
+        $r1 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedWithParams: java.lang.reflect.Member getMember()>();
+
+        return $r1;
+    }
+
+    public final java.lang.String getName()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        return "";
+    }
+
+    public final com.fasterxml.jackson.databind.introspect.AnnotatedWithParams getOwner()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedWithParams r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: com.fasterxml.jackson.databind.introspect.AnnotatedWithParams _owner>;
+
+        return r1;
+    }
+
+    public final java.lang.reflect.Type getParameterType()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+        java.lang.reflect.Type r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: java.lang.reflect.Type _type>;
+
+        return r1;
+    }
+
+    public final java.lang.Class getRawType()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+        java.lang.reflect.Type $r1;
+        boolean $z0;
+        java.lang.Class $r2;
+        com.fasterxml.jackson.databind.type.TypeFactory $r3;
+        com.fasterxml.jackson.databind.JavaType $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: java.lang.reflect.Type _type>;
+
+        $z0 = $r1 instanceof java.lang.Class;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: java.lang.reflect.Type _type>;
+
+        $r2 = (java.lang.Class) $r1;
+
+        return $r2;
+
+     label1:
+        $r3 = staticinvoke <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.TypeFactory defaultInstance()>();
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: java.lang.reflect.Type _type>;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType constructType(java.lang.reflect.Type)>($r1);
+
+        $r2 = virtualinvoke $r4.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        return $r2;
+    }
+
+    public final java.lang.Object getValue(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+        java.lang.Object $r1;
+        java.lang.UnsupportedOperationException $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.Class $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = new java.lang.UnsupportedOperationException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Cannot call getValue() on constructor parameter of ");
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: java.lang.Class getDeclaringClass()>();
+
+        $r5 = virtualinvoke $r4.<java.lang.Class: java.lang.String getName()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>($r5);
+
+        throw $r2;
+    }
+
+    public final void setValue(java.lang.Object, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+        java.lang.Object $r1, $r2;
+        java.lang.UnsupportedOperationException $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.Class $r5;
+        java.lang.String $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r3 = new java.lang.UnsupportedOperationException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Cannot call setValue() on constructor parameter of ");
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: java.lang.Class getDeclaringClass()>();
+
+        $r6 = virtualinvoke $r5.<java.lang.Class: java.lang.String getName()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>($r6);
+
+        throw $r3;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r0;
+        java.lang.StringBuilder $r1;
+        int $i0;
+        com.fasterxml.jackson.databind.introspect.AnnotationMap $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("[parameter #");
+
+        $i0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: int getIndex()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", annotations: ");
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: com.fasterxml.jackson.databind.introspect.AnnotationMap _annotations>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r3;
+    }
+
+    public final com.fasterxml.jackson.databind.introspect.AnnotatedParameter withAnnotations(com.fasterxml.jackson.databind.introspect.AnnotationMap)
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotationMap $r0, $r2;
+        int $i0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedWithParams $r3;
+
+        $r1 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotationMap;
+
+        $r2 = $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: com.fasterxml.jackson.databind.introspect.AnnotationMap _annotations>;
+
+        if $r0 != $r2 goto label1;
+
+        return $r1;
+
+     label1:
+        $r3 = $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: com.fasterxml.jackson.databind.introspect.AnnotatedWithParams _owner>;
+
+        $i0 = $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedParameter: int _index>;
+
+        $r1 = virtualinvoke $r3.<com.fasterxml.jackson.databind.introspect.AnnotatedWithParams: com.fasterxml.jackson.databind.introspect.AnnotatedParameter replaceParameterAnnotations(int,com.fasterxml.jackson.databind.introspect.AnnotationMap)>($i0, $r0);
+
+        return $r1;
+    }
+}

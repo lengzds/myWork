@@ -1,0 +1,92 @@
+final class com.speedsoftware.rootexplorer.ev extends java.lang.Object implements android.preference.Preference$OnPreferenceClickListener
+{
+    final com.speedsoftware.rootexplorer.Preferences a;
+
+    void <init>(com.speedsoftware.rootexplorer.Preferences)
+    {
+        com.speedsoftware.rootexplorer.ev $r0;
+        com.speedsoftware.rootexplorer.Preferences $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ev;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.Preferences;
+
+        $r0.<com.speedsoftware.rootexplorer.ev: com.speedsoftware.rootexplorer.Preferences a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final boolean onPreferenceClick(android.preference.Preference)
+    {
+        com.speedsoftware.rootexplorer.ev $r0;
+        android.preference.Preference $r1;
+        java.lang.String $r2, $r6;
+        com.speedsoftware.rootexplorer.Preferences $r3;
+        android.content.Context $r4, $r5;
+        byte[] $r7;
+        android.widget.Toast $r8;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ev;
+
+        $r1 := @parameter0: android.preference.Preference;
+
+        staticinvoke <com.speedsoftware.rootexplorer.Preferences: void c()>();
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ev: com.speedsoftware.rootexplorer.Preferences a>;
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.Preferences: android.content.Context a(com.speedsoftware.rootexplorer.Preferences)>($r3);
+
+        $r2 = new java.lang.String;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ev: com.speedsoftware.rootexplorer.Preferences a>;
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.Preferences: android.content.Context a(com.speedsoftware.rootexplorer.Preferences)>($r3);
+
+        if $r5 == null goto label1;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ev: com.speedsoftware.rootexplorer.Preferences a>;
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.Preferences: android.content.Context a(com.speedsoftware.rootexplorer.Preferences)>($r3);
+
+        $r6 = virtualinvoke $r5.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+     label1:
+        $r7 = newarray (byte)[12];
+
+        $r7[0] = 76;
+
+        $r7[1] = 111;
+
+        $r7[2] = 103;
+
+        $r7[3] = 115;
+
+        $r7[4] = 32;
+
+        $r7[5] = 100;
+
+        $r7[6] = 101;
+
+        $r7[7] = 108;
+
+        $r7[8] = 101;
+
+        $r7[9] = 116;
+
+        $r7[10] = 101;
+
+        $r7[11] = 100;
+
+        specialinvoke $r2.<java.lang.String: void <init>(byte[])>($r7);
+
+        $r8 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r4, $r2, 0);
+
+        virtualinvoke $r8.<android.widget.Toast: void show()>();
+
+        return 1;
+    }
+}

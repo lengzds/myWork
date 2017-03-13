@@ -1,0 +1,1705 @@
+public final class com.fasterxml.jackson.databind.type.TypeFactory extends java.lang.Object
+{
+    protected static final com.fasterxml.jackson.databind.type.SimpleType CORE_TYPE_BOOL;
+    protected static final com.fasterxml.jackson.databind.type.SimpleType CORE_TYPE_INT;
+    protected static final com.fasterxml.jackson.databind.type.SimpleType CORE_TYPE_LONG;
+    protected static final com.fasterxml.jackson.databind.type.SimpleType CORE_TYPE_STRING;
+    private static final com.fasterxml.jackson.databind.JavaType[] NO_TYPES;
+    protected static final com.fasterxml.jackson.databind.type.TypeFactory instance;
+    protected com.fasterxml.jackson.databind.type.HierarchicType _cachedArrayListType;
+    protected com.fasterxml.jackson.databind.type.HierarchicType _cachedHashMapType;
+    protected final com.fasterxml.jackson.databind.type.TypeModifier[] _modifiers;
+    protected final com.fasterxml.jackson.databind.type.TypeParser _parser;
+    protected final com.fasterxml.jackson.databind.util.LRUMap _typeCache;
+
+    static void <clinit>()
+    {
+        com.fasterxml.jackson.databind.JavaType[] $r0;
+        com.fasterxml.jackson.databind.type.TypeFactory $r1;
+        com.fasterxml.jackson.databind.type.SimpleType $r2;
+        java.lang.Class $r3;
+
+        $r0 = newarray (com.fasterxml.jackson.databind.JavaType)[0];
+
+        <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType[] NO_TYPES> = $r0;
+
+        $r1 = new com.fasterxml.jackson.databind.type.TypeFactory;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.type.TypeFactory: void <init>()>();
+
+        <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.TypeFactory instance> = $r1;
+
+        $r2 = new com.fasterxml.jackson.databind.type.SimpleType;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.type.SimpleType: void <init>(java.lang.Class)>(class "java/lang/String");
+
+        <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.SimpleType CORE_TYPE_STRING> = $r2;
+
+        $r2 = new com.fasterxml.jackson.databind.type.SimpleType;
+
+        $r3 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.type.SimpleType: void <init>(java.lang.Class)>($r3);
+
+        <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.SimpleType CORE_TYPE_BOOL> = $r2;
+
+        $r2 = new com.fasterxml.jackson.databind.type.SimpleType;
+
+        $r3 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.type.SimpleType: void <init>(java.lang.Class)>($r3);
+
+        <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.SimpleType CORE_TYPE_INT> = $r2;
+
+        $r2 = new com.fasterxml.jackson.databind.type.SimpleType;
+
+        $r3 = <java.lang.Long: java.lang.Class TYPE>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.type.SimpleType: void <init>(java.lang.Class)>($r3);
+
+        <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.SimpleType CORE_TYPE_LONG> = $r2;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        com.fasterxml.jackson.databind.util.LRUMap $r1;
+        com.fasterxml.jackson.databind.type.TypeParser $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = new com.fasterxml.jackson.databind.util.LRUMap;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.util.LRUMap: void <init>(int,int)>(16, 100);
+
+        $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.util.LRUMap _typeCache> = $r1;
+
+        $r2 = new com.fasterxml.jackson.databind.type.TypeParser;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.type.TypeParser: void <init>(com.fasterxml.jackson.databind.type.TypeFactory)>($r0);
+
+        $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.TypeParser _parser> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.TypeModifier[] _modifiers> = null;
+
+        return;
+    }
+
+    private com.fasterxml.jackson.databind.JavaType _collectionType(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.JavaType[] $r2;
+        com.fasterxml.jackson.databind.JavaType $r3;
+        com.fasterxml.jackson.databind.type.CollectionType $r4;
+        int $i0;
+        java.lang.IllegalArgumentException $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType[] findTypeParameters(java.lang.Class,java.lang.Class)>($r1, class "java/util/Collection");
+
+        if $r2 != null goto label1;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _unknownType()>();
+
+        $r4 = staticinvoke <com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType construct(java.lang.Class,com.fasterxml.jackson.databind.JavaType)>($r1, $r3);
+
+        return $r4;
+
+     label1:
+        $i0 = lengthof $r2;
+
+        if $i0 == 1 goto label2;
+
+        $r5 = new java.lang.IllegalArgumentException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("Strange Collection type ");
+
+        $r7 = virtualinvoke $r1.<java.lang.Class: java.lang.String getName()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": can not determine type parameters");
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r7);
+
+        throw $r5;
+
+     label2:
+        $r3 = $r2[0];
+
+        $r4 = staticinvoke <com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType construct(java.lang.Class,com.fasterxml.jackson.databind.JavaType)>($r1, $r3);
+
+        return $r4;
+    }
+
+    private com.fasterxml.jackson.databind.JavaType _mapType(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.JavaType[] $r2;
+        com.fasterxml.jackson.databind.JavaType $r3, $r4;
+        com.fasterxml.jackson.databind.type.MapType $r5;
+        int $i0;
+        java.lang.IllegalArgumentException $r6;
+        java.lang.StringBuilder $r7;
+        java.lang.String $r8;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType[] findTypeParameters(java.lang.Class,java.lang.Class)>($r1, class "java/util/Map");
+
+        if $r2 != null goto label1;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _unknownType()>();
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _unknownType()>();
+
+        $r5 = staticinvoke <com.fasterxml.jackson.databind.type.MapType: com.fasterxml.jackson.databind.type.MapType construct(java.lang.Class,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.JavaType)>($r1, $r3, $r4);
+
+        return $r5;
+
+     label1:
+        $i0 = lengthof $r2;
+
+        if $i0 == 2 goto label2;
+
+        $r6 = new java.lang.IllegalArgumentException;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>("Strange Map type ");
+
+        $r8 = virtualinvoke $r1.<java.lang.Class: java.lang.String getName()>();
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": can not determine type parameters");
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r8);
+
+        throw $r6;
+
+     label2:
+        $r3 = $r2[0];
+
+        $r4 = $r2[1];
+
+        $r5 = staticinvoke <com.fasterxml.jackson.databind.type.MapType: com.fasterxml.jackson.databind.type.MapType construct(java.lang.Class,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.JavaType)>($r1, $r3, $r4);
+
+        return $r5;
+    }
+
+    public static com.fasterxml.jackson.databind.type.TypeFactory defaultInstance()
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory r0;
+
+        r0 = <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.TypeFactory instance>;
+
+        return r0;
+    }
+
+    public static com.fasterxml.jackson.databind.JavaType unknownType()
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+
+        $r0 = staticinvoke <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.TypeFactory defaultInstance()>();
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _unknownType()>();
+
+        return $r1;
+    }
+
+    protected final com.fasterxml.jackson.databind.type.HierarchicType _arrayListSuperInterfaceChain(com.fasterxml.jackson.databind.type.HierarchicType)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        com.fasterxml.jackson.databind.type.HierarchicType $r1, $r2;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        entermonitor $r0;
+
+     label1:
+        $r2 = $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _cachedArrayListType>;
+
+        if $r2 != null goto label2;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType deepCloneWithoutSubtype()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _doFindSuperInterfaceChain(com.fasterxml.jackson.databind.type.HierarchicType,java.lang.Class)>($r2, class "java/util/List");
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType getSuperType()>();
+
+        $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _cachedArrayListType> = $r2;
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _cachedArrayListType>;
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType deepCloneWithoutSubtype()>();
+
+        virtualinvoke $r1.<com.fasterxml.jackson.databind.type.HierarchicType: void setSuperType(com.fasterxml.jackson.databind.type.HierarchicType)>($r2);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.databind.type.HierarchicType: void setSubType(com.fasterxml.jackson.databind.type.HierarchicType)>($r1);
+
+     label3:
+        exitmonitor $r0;
+
+        return $r1;
+
+     label4:
+        $r3 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+    }
+
+    public final com.fasterxml.jackson.databind.JavaType _constructType(java.lang.reflect.Type, com.fasterxml.jackson.databind.type.TypeBindings)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.reflect.Type $r1;
+        com.fasterxml.jackson.databind.type.TypeBindings $r2;
+        com.fasterxml.jackson.databind.type.TypeModifier[] $r3;
+        int $i0, $i1;
+        boolean $z0;
+        java.lang.Class $r4;
+        com.fasterxml.jackson.databind.JavaType $r5;
+        com.fasterxml.jackson.databind.type.TypeModifier $r6;
+        java.lang.reflect.ParameterizedType $r7;
+        java.lang.reflect.GenericArrayType $r8;
+        java.lang.reflect.TypeVariable $r9;
+        java.lang.reflect.WildcardType $r10;
+        java.lang.IllegalArgumentException $r11;
+        java.lang.StringBuilder $r12;
+        java.lang.String $r13;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.reflect.Type;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.type.TypeBindings;
+
+        $z0 = $r1 instanceof java.lang.Class;
+
+        if $z0 == 0 goto label03;
+
+        $r4 = (java.lang.Class) $r1;
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _fromClass(java.lang.Class,com.fasterxml.jackson.databind.type.TypeBindings)>($r4, $r2);
+
+     label01:
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.TypeModifier[] _modifiers>;
+
+        if $r3 == null goto label10;
+
+        $z0 = virtualinvoke $r5.<com.fasterxml.jackson.databind.JavaType: boolean isContainerType()>();
+
+        if $z0 != 0 goto label10;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.TypeModifier[] _modifiers>;
+
+        $i0 = lengthof $r3;
+
+        $i1 = 0;
+
+     label02:
+        if $i1 >= $i0 goto label10;
+
+        $r6 = $r3[$i1];
+
+        $i1 = $i1 + 1;
+
+        $r5 = virtualinvoke $r6.<com.fasterxml.jackson.databind.type.TypeModifier: com.fasterxml.jackson.databind.JavaType modifyType(com.fasterxml.jackson.databind.JavaType,java.lang.reflect.Type,com.fasterxml.jackson.databind.type.TypeBindings,com.fasterxml.jackson.databind.type.TypeFactory)>($r5, $r1, $r2, $r0);
+
+        goto label02;
+
+     label03:
+        $z0 = $r1 instanceof java.lang.reflect.ParameterizedType;
+
+        if $z0 == 0 goto label04;
+
+        $r7 = (java.lang.reflect.ParameterizedType) $r1;
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _fromParamType(java.lang.reflect.ParameterizedType,com.fasterxml.jackson.databind.type.TypeBindings)>($r7, $r2);
+
+        goto label01;
+
+     label04:
+        $z0 = $r1 instanceof java.lang.reflect.GenericArrayType;
+
+        if $z0 == 0 goto label05;
+
+        $r8 = (java.lang.reflect.GenericArrayType) $r1;
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _fromArrayType(java.lang.reflect.GenericArrayType,com.fasterxml.jackson.databind.type.TypeBindings)>($r8, $r2);
+
+        goto label01;
+
+     label05:
+        $z0 = $r1 instanceof java.lang.reflect.TypeVariable;
+
+        if $z0 == 0 goto label06;
+
+        $r9 = (java.lang.reflect.TypeVariable) $r1;
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _fromVariable(java.lang.reflect.TypeVariable,com.fasterxml.jackson.databind.type.TypeBindings)>($r9, $r2);
+
+        goto label01;
+
+     label06:
+        $z0 = $r1 instanceof java.lang.reflect.WildcardType;
+
+        if $z0 == 0 goto label07;
+
+        $r10 = (java.lang.reflect.WildcardType) $r1;
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _fromWildcard(java.lang.reflect.WildcardType,com.fasterxml.jackson.databind.type.TypeBindings)>($r10, $r2);
+
+        goto label01;
+
+     label07:
+        $r11 = new java.lang.IllegalArgumentException;
+
+        $r12 = new java.lang.StringBuilder;
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>(java.lang.String)>("Unrecognized Type: ");
+
+        if $r1 != null goto label09;
+
+        $r13 = "[null]";
+
+     label08:
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r13);
+
+        $r13 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r11.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r13);
+
+        throw $r11;
+
+     label09:
+        $r13 = virtualinvoke $r1.<java.lang.Object: java.lang.String toString()>();
+
+        goto label08;
+
+     label10:
+        return $r5;
+    }
+
+    protected final com.fasterxml.jackson.databind.type.HierarchicType _doFindSuperInterfaceChain(com.fasterxml.jackson.databind.type.HierarchicType, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.Class $r1, $r3;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.type.HierarchicType $r2, $r6;
+        java.lang.reflect.Type[] $r4;
+        java.lang.reflect.Type $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r2 := @parameter0: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r1 := @parameter1: java.lang.Class;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.Class getRawClass()>();
+
+        $r4 = virtualinvoke $r3.<java.lang.Class: java.lang.reflect.Type[] getGenericInterfaces()>();
+
+        if $r4 == null goto label3;
+
+        $i0 = lengthof $r4;
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label3;
+
+        $r5 = $r4[$i1];
+
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _findSuperInterfaceChain(java.lang.reflect.Type,java.lang.Class)>($r5, $r1);
+
+        if $r6 == null goto label2;
+
+        virtualinvoke $r6.<com.fasterxml.jackson.databind.type.HierarchicType: void setSubType(com.fasterxml.jackson.databind.type.HierarchicType)>($r2);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.databind.type.HierarchicType: void setSuperType(com.fasterxml.jackson.databind.type.HierarchicType)>($r6);
+
+        return $r2;
+
+     label2:
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label3:
+        $r5 = virtualinvoke $r3.<java.lang.Class: java.lang.reflect.Type getGenericSuperclass()>();
+
+        if $r5 == null goto label4;
+
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _findSuperInterfaceChain(java.lang.reflect.Type,java.lang.Class)>($r5, $r1);
+
+        if $r6 == null goto label4;
+
+        virtualinvoke $r6.<com.fasterxml.jackson.databind.type.HierarchicType: void setSubType(com.fasterxml.jackson.databind.type.HierarchicType)>($r2);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.databind.type.HierarchicType: void setSuperType(com.fasterxml.jackson.databind.type.HierarchicType)>($r6);
+
+        return $r2;
+
+     label4:
+        return null;
+    }
+
+    protected final com.fasterxml.jackson.databind.type.HierarchicType _findSuperClassChain(java.lang.reflect.Type, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.reflect.Type $r1;
+        java.lang.Class $r2, $r4;
+        com.fasterxml.jackson.databind.type.HierarchicType $r3, $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.reflect.Type;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r3 = new com.fasterxml.jackson.databind.type.HierarchicType;
+
+        specialinvoke $r3.<com.fasterxml.jackson.databind.type.HierarchicType: void <init>(java.lang.reflect.Type)>($r1);
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.Class getRawClass()>();
+
+        if $r4 != $r2 goto label1;
+
+        return $r3;
+
+     label1:
+        $r1 = virtualinvoke $r4.<java.lang.Class: java.lang.reflect.Type getGenericSuperclass()>();
+
+        if $r1 == null goto label2;
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _findSuperClassChain(java.lang.reflect.Type,java.lang.Class)>($r1, $r2);
+
+        if $r5 == null goto label2;
+
+        virtualinvoke $r5.<com.fasterxml.jackson.databind.type.HierarchicType: void setSubType(com.fasterxml.jackson.databind.type.HierarchicType)>($r3);
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.type.HierarchicType: void setSuperType(com.fasterxml.jackson.databind.type.HierarchicType)>($r5);
+
+        return $r3;
+
+     label2:
+        return null;
+    }
+
+    protected final com.fasterxml.jackson.databind.type.HierarchicType _findSuperInterfaceChain(java.lang.reflect.Type, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.reflect.Type $r1;
+        java.lang.Class $r2, $r4;
+        com.fasterxml.jackson.databind.type.HierarchicType $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.reflect.Type;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r3 = new com.fasterxml.jackson.databind.type.HierarchicType;
+
+        specialinvoke $r3.<com.fasterxml.jackson.databind.type.HierarchicType: void <init>(java.lang.reflect.Type)>($r1);
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.Class getRawClass()>();
+
+        if $r4 != $r2 goto label1;
+
+        $r3 = new com.fasterxml.jackson.databind.type.HierarchicType;
+
+        specialinvoke $r3.<com.fasterxml.jackson.databind.type.HierarchicType: void <init>(java.lang.reflect.Type)>($r1);
+
+        return $r3;
+
+     label1:
+        if $r4 != class "java/util/HashMap" goto label2;
+
+        if $r2 != class "java/util/Map" goto label2;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _hashMapSuperInterfaceChain(com.fasterxml.jackson.databind.type.HierarchicType)>($r3);
+
+        return $r3;
+
+     label2:
+        if $r4 != class "java/util/ArrayList" goto label3;
+
+        if $r2 != class "java/util/List" goto label3;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _arrayListSuperInterfaceChain(com.fasterxml.jackson.databind.type.HierarchicType)>($r3);
+
+        return $r3;
+
+     label3:
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _doFindSuperInterfaceChain(com.fasterxml.jackson.databind.type.HierarchicType,java.lang.Class)>($r3, $r2);
+
+        return $r3;
+    }
+
+    protected final com.fasterxml.jackson.databind.type.HierarchicType _findSuperTypeChain(java.lang.Class, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.Class $r1, $r2;
+        boolean $z0;
+        com.fasterxml.jackson.databind.type.HierarchicType $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isInterface()>();
+
+        if $z0 == 0 goto label1;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _findSuperInterfaceChain(java.lang.reflect.Type,java.lang.Class)>($r1, $r2);
+
+        return $r3;
+
+     label1:
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _findSuperClassChain(java.lang.reflect.Type,java.lang.Class)>($r1, $r2);
+
+        return $r3;
+    }
+
+    protected final com.fasterxml.jackson.databind.JavaType _fromArrayType(java.lang.reflect.GenericArrayType, com.fasterxml.jackson.databind.type.TypeBindings)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.reflect.GenericArrayType $r1;
+        com.fasterxml.jackson.databind.type.TypeBindings $r2;
+        java.lang.reflect.Type $r3;
+        com.fasterxml.jackson.databind.JavaType $r4;
+        com.fasterxml.jackson.databind.type.ArrayType $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.reflect.GenericArrayType;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.type.TypeBindings;
+
+        $r3 = interfaceinvoke $r1.<java.lang.reflect.GenericArrayType: java.lang.reflect.Type getGenericComponentType()>();
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _constructType(java.lang.reflect.Type,com.fasterxml.jackson.databind.type.TypeBindings)>($r3, $r2);
+
+        $r5 = staticinvoke <com.fasterxml.jackson.databind.type.ArrayType: com.fasterxml.jackson.databind.type.ArrayType construct(com.fasterxml.jackson.databind.JavaType,java.lang.Object,java.lang.Object)>($r4, null, null);
+
+        return $r5;
+    }
+
+    protected final com.fasterxml.jackson.databind.JavaType _fromClass(java.lang.Class, com.fasterxml.jackson.databind.type.TypeBindings)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.Class $r1, $r4;
+        com.fasterxml.jackson.databind.type.TypeBindings $r2;
+        com.fasterxml.jackson.databind.util.LRUMap $r5, $r6;
+        java.lang.Object $r7;
+        com.fasterxml.jackson.databind.JavaType $r8;
+        boolean $z0;
+        java.lang.Throwable $r10, $r11;
+        com.fasterxml.jackson.databind.type.SimpleType r12;
+        com.fasterxml.jackson.databind.type.ClassKey r13;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.type.TypeBindings;
+
+        if $r1 != class "java/lang/String" goto label01;
+
+        r12 = <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.SimpleType CORE_TYPE_STRING>;
+
+        return r12;
+
+     label01:
+        $r4 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        if $r1 != $r4 goto label02;
+
+        r12 = <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.SimpleType CORE_TYPE_BOOL>;
+
+        return r12;
+
+     label02:
+        $r4 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        if $r1 != $r4 goto label03;
+
+        r12 = <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.SimpleType CORE_TYPE_INT>;
+
+        return r12;
+
+     label03:
+        $r4 = <java.lang.Long: java.lang.Class TYPE>;
+
+        if $r1 != $r4 goto label04;
+
+        r12 = <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.SimpleType CORE_TYPE_LONG>;
+
+        return r12;
+
+     label04:
+        r13 = new com.fasterxml.jackson.databind.type.ClassKey;
+
+        specialinvoke r13.<com.fasterxml.jackson.databind.type.ClassKey: void <init>(java.lang.Class)>($r1);
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.util.LRUMap _typeCache>;
+
+        entermonitor $r5;
+
+     label05:
+        $r6 = $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.util.LRUMap _typeCache>;
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.util.LRUMap: java.lang.Object get(java.lang.Object)>(r13);
+
+        $r8 = (com.fasterxml.jackson.databind.JavaType) $r7;
+
+        exitmonitor $r5;
+
+     label06:
+        if $r8 != null goto label16;
+
+        $z0 = virtualinvoke $r1.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label12;
+
+        $r1 = virtualinvoke $r1.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        $r8 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _constructType(java.lang.reflect.Type,com.fasterxml.jackson.databind.type.TypeBindings)>($r1, null);
+
+        $r8 = staticinvoke <com.fasterxml.jackson.databind.type.ArrayType: com.fasterxml.jackson.databind.type.ArrayType construct(com.fasterxml.jackson.databind.JavaType,java.lang.Object,java.lang.Object)>($r8, null, null);
+
+     label07:
+        $r5 = $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.util.LRUMap _typeCache>;
+
+        entermonitor $r5;
+
+     label08:
+        $r6 = $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.util.LRUMap _typeCache>;
+
+        virtualinvoke $r6.<com.fasterxml.jackson.databind.util.LRUMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(r13, $r8);
+
+        exitmonitor $r5;
+
+     label09:
+        return $r8;
+
+     label10:
+        $r10 := @caughtexception;
+
+        exitmonitor $r5;
+
+        throw $r10;
+
+     label11:
+        $r11 := @caughtexception;
+
+        exitmonitor $r5;
+
+        throw $r11;
+
+     label12:
+        $z0 = virtualinvoke $r1.<java.lang.Class: boolean isEnum()>();
+
+        if $z0 == 0 goto label13;
+
+        r12 = new com.fasterxml.jackson.databind.type.SimpleType;
+
+        $r8 = r12;
+
+        specialinvoke r12.<com.fasterxml.jackson.databind.type.SimpleType: void <init>(java.lang.Class)>($r1);
+
+        goto label07;
+
+     label13:
+        $r4 = class "java/util/Map";
+
+        $z0 = virtualinvoke $r4.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r1);
+
+        if $z0 == 0 goto label14;
+
+        $r8 = specialinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _mapType(java.lang.Class)>($r1);
+
+        goto label07;
+
+     label14:
+        $r4 = class "java/util/Collection";
+
+        $z0 = virtualinvoke $r4.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r1);
+
+        if $z0 == 0 goto label15;
+
+        $r8 = specialinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _collectionType(java.lang.Class)>($r1);
+
+        goto label07;
+
+     label15:
+        r12 = new com.fasterxml.jackson.databind.type.SimpleType;
+
+        $r8 = r12;
+
+        specialinvoke r12.<com.fasterxml.jackson.databind.type.SimpleType: void <init>(java.lang.Class)>($r1);
+
+        goto label07;
+
+     label16:
+        return $r8;
+
+        catch java.lang.Throwable from label05 to label06 with label11;
+        catch java.lang.Throwable from label08 to label09 with label10;
+    }
+
+    protected final com.fasterxml.jackson.databind.JavaType _fromParamType(java.lang.reflect.ParameterizedType, com.fasterxml.jackson.databind.type.TypeBindings)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.reflect.ParameterizedType $r1;
+        com.fasterxml.jackson.databind.type.TypeBindings $r2;
+        java.lang.reflect.Type $r3;
+        java.lang.Class $r4, $r7;
+        java.lang.reflect.Type[] $r5;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.JavaType[] $r6;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JavaType $r8, $r12;
+        java.lang.IllegalArgumentException $r9;
+        java.lang.StringBuilder $r10;
+        java.lang.String $r11;
+        com.fasterxml.jackson.databind.type.MapType $r13;
+        com.fasterxml.jackson.databind.type.CollectionType $r14;
+        com.fasterxml.jackson.databind.type.SimpleType $r15;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.reflect.ParameterizedType;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.type.TypeBindings;
+
+        $r3 = interfaceinvoke $r1.<java.lang.reflect.ParameterizedType: java.lang.reflect.Type getRawType()>();
+
+        $r4 = (java.lang.Class) $r3;
+
+        $r5 = interfaceinvoke $r1.<java.lang.reflect.ParameterizedType: java.lang.reflect.Type[] getActualTypeArguments()>();
+
+        if $r5 != null goto label03;
+
+        $i0 = 0;
+
+     label01:
+        if $i0 != 0 goto label04;
+
+        $r6 = <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType[] NO_TYPES>;
+
+     label02:
+        $r7 = class "java/util/Map";
+
+        $z0 = virtualinvoke $r7.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r4);
+
+        if $z0 == 0 goto label07;
+
+        $r8 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType constructSimpleType(java.lang.Class,com.fasterxml.jackson.databind.JavaType[])>($r4, $r6);
+
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType[] findTypeParameters(com.fasterxml.jackson.databind.JavaType,java.lang.Class)>($r8, class "java/util/Map");
+
+        $i0 = lengthof $r6;
+
+        if $i0 == 2 goto label06;
+
+        $r9 = new java.lang.IllegalArgumentException;
+
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("Could not find 2 type parameters for Map class ");
+
+        $r11 = virtualinvoke $r4.<java.lang.Class: java.lang.String getName()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" (found ");
+
+        $i0 = lengthof $r6;
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r11);
+
+        throw $r9;
+
+     label03:
+        $i0 = lengthof $r5;
+
+        goto label01;
+
+     label04:
+        $r6 = newarray (com.fasterxml.jackson.databind.JavaType)[$i0];
+
+        $i1 = 0;
+
+     label05:
+        if $i1 >= $i0 goto label02;
+
+        $r3 = $r5[$i1];
+
+        $r8 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _constructType(java.lang.reflect.Type,com.fasterxml.jackson.databind.type.TypeBindings)>($r3, $r2);
+
+        $r6[$i1] = $r8;
+
+        $i1 = $i1 + 1;
+
+        goto label05;
+
+     label06:
+        $r8 = $r6[0];
+
+        $r12 = $r6[1];
+
+        $r13 = staticinvoke <com.fasterxml.jackson.databind.type.MapType: com.fasterxml.jackson.databind.type.MapType construct(java.lang.Class,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.JavaType)>($r4, $r8, $r12);
+
+        return $r13;
+
+     label07:
+        $r7 = class "java/util/Collection";
+
+        $z0 = virtualinvoke $r7.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r4);
+
+        if $z0 == 0 goto label09;
+
+        $r8 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType constructSimpleType(java.lang.Class,com.fasterxml.jackson.databind.JavaType[])>($r4, $r6);
+
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType[] findTypeParameters(com.fasterxml.jackson.databind.JavaType,java.lang.Class)>($r8, class "java/util/Collection");
+
+        $i0 = lengthof $r6;
+
+        if $i0 == 1 goto label08;
+
+        $r9 = new java.lang.IllegalArgumentException;
+
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("Could not find 1 type parameter for Collection class ");
+
+        $r11 = virtualinvoke $r4.<java.lang.Class: java.lang.String getName()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" (found ");
+
+        $i0 = lengthof $r6;
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r11);
+
+        throw $r9;
+
+     label08:
+        $r8 = $r6[0];
+
+        $r14 = staticinvoke <com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType construct(java.lang.Class,com.fasterxml.jackson.databind.JavaType)>($r4, $r8);
+
+        return $r14;
+
+     label09:
+        if $i0 != 0 goto label10;
+
+        $r15 = new com.fasterxml.jackson.databind.type.SimpleType;
+
+        specialinvoke $r15.<com.fasterxml.jackson.databind.type.SimpleType: void <init>(java.lang.Class)>($r4);
+
+        return $r15;
+
+     label10:
+        $r8 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType constructSimpleType(java.lang.Class,com.fasterxml.jackson.databind.JavaType[])>($r4, $r6);
+
+        return $r8;
+    }
+
+    protected final com.fasterxml.jackson.databind.JavaType _fromParameterizedClass(java.lang.Class, java.util.List)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.Class $r1, $r6;
+        java.util.List $r2;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JavaType $r3, $r8;
+        com.fasterxml.jackson.databind.type.ArrayType $r4;
+        com.fasterxml.jackson.databind.type.SimpleType $r5;
+        int $i0;
+        java.lang.Object $r7;
+        com.fasterxml.jackson.databind.type.MapType $r9;
+        com.fasterxml.jackson.databind.type.CollectionType $r10;
+        com.fasterxml.jackson.databind.JavaType[] $r11;
+        java.lang.Object[] $r12;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: java.util.List;
+
+        $z0 = virtualinvoke $r1.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = virtualinvoke $r1.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _constructType(java.lang.reflect.Type,com.fasterxml.jackson.databind.type.TypeBindings)>($r1, null);
+
+        $r4 = staticinvoke <com.fasterxml.jackson.databind.type.ArrayType: com.fasterxml.jackson.databind.type.ArrayType construct(com.fasterxml.jackson.databind.JavaType,java.lang.Object,java.lang.Object)>($r3, null, null);
+
+        return $r4;
+
+     label1:
+        $z0 = virtualinvoke $r1.<java.lang.Class: boolean isEnum()>();
+
+        if $z0 == 0 goto label2;
+
+        $r5 = new com.fasterxml.jackson.databind.type.SimpleType;
+
+        specialinvoke $r5.<com.fasterxml.jackson.databind.type.SimpleType: void <init>(java.lang.Class)>($r1);
+
+        return $r5;
+
+     label2:
+        $r6 = class "java/util/Map";
+
+        $z0 = virtualinvoke $r6.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r1);
+
+        if $z0 == 0 goto label6;
+
+        $i0 = interfaceinvoke $r2.<java.util.List: int size()>();
+
+        if $i0 <= 0 goto label5;
+
+        $r7 = interfaceinvoke $r2.<java.util.List: java.lang.Object get(int)>(0);
+
+        $r3 = (com.fasterxml.jackson.databind.JavaType) $r7;
+
+        $i0 = interfaceinvoke $r2.<java.util.List: int size()>();
+
+        if $i0 < 2 goto label4;
+
+        $r7 = interfaceinvoke $r2.<java.util.List: java.lang.Object get(int)>(1);
+
+        $r8 = (com.fasterxml.jackson.databind.JavaType) $r7;
+
+     label3:
+        $r9 = staticinvoke <com.fasterxml.jackson.databind.type.MapType: com.fasterxml.jackson.databind.type.MapType construct(java.lang.Class,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.JavaType)>($r1, $r3, $r8);
+
+        return $r9;
+
+     label4:
+        $r8 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _unknownType()>();
+
+        goto label3;
+
+     label5:
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _mapType(java.lang.Class)>($r1);
+
+        return $r3;
+
+     label6:
+        $r6 = class "java/util/Collection";
+
+        $z0 = virtualinvoke $r6.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r1);
+
+        if $z0 == 0 goto label8;
+
+        $i0 = interfaceinvoke $r2.<java.util.List: int size()>();
+
+        if $i0 <= 0 goto label7;
+
+        $r7 = interfaceinvoke $r2.<java.util.List: java.lang.Object get(int)>(0);
+
+        $r3 = (com.fasterxml.jackson.databind.JavaType) $r7;
+
+        $r10 = staticinvoke <com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType construct(java.lang.Class,com.fasterxml.jackson.databind.JavaType)>($r1, $r3);
+
+        return $r10;
+
+     label7:
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _collectionType(java.lang.Class)>($r1);
+
+        return $r3;
+
+     label8:
+        $i0 = interfaceinvoke $r2.<java.util.List: int size()>();
+
+        if $i0 != 0 goto label9;
+
+        $r5 = new com.fasterxml.jackson.databind.type.SimpleType;
+
+        specialinvoke $r5.<com.fasterxml.jackson.databind.type.SimpleType: void <init>(java.lang.Class)>($r1);
+
+        return $r5;
+
+     label9:
+        $i0 = interfaceinvoke $r2.<java.util.List: int size()>();
+
+        $r11 = newarray (com.fasterxml.jackson.databind.JavaType)[$i0];
+
+        $r12 = interfaceinvoke $r2.<java.util.List: java.lang.Object[] toArray(java.lang.Object[])>($r11);
+
+        $r11 = (com.fasterxml.jackson.databind.JavaType[]) $r12;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType constructSimpleType(java.lang.Class,com.fasterxml.jackson.databind.JavaType[])>($r1, $r11);
+
+        return $r3;
+    }
+
+    protected final com.fasterxml.jackson.databind.JavaType _fromVariable(java.lang.reflect.TypeVariable, com.fasterxml.jackson.databind.type.TypeBindings)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.reflect.TypeVariable $r1;
+        com.fasterxml.jackson.databind.type.TypeBindings $r2;
+        com.fasterxml.jackson.databind.JavaType $r3;
+        java.lang.String $r4;
+        java.lang.reflect.Type[] $r5;
+        java.lang.reflect.Type $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.reflect.TypeVariable;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.type.TypeBindings;
+
+        if $r2 != null goto label1;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _unknownType()>();
+
+        return $r3;
+
+     label1:
+        $r4 = interfaceinvoke $r1.<java.lang.reflect.TypeVariable: java.lang.String getName()>();
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.type.TypeBindings: com.fasterxml.jackson.databind.JavaType findType(java.lang.String)>($r4);
+
+        if $r3 != null goto label2;
+
+        $r5 = interfaceinvoke $r1.<java.lang.reflect.TypeVariable: java.lang.reflect.Type[] getBounds()>();
+
+        virtualinvoke $r2.<com.fasterxml.jackson.databind.type.TypeBindings: void _addPlaceholder(java.lang.String)>($r4);
+
+        $r6 = $r5[0];
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _constructType(java.lang.reflect.Type,com.fasterxml.jackson.databind.type.TypeBindings)>($r6, $r2);
+
+     label2:
+        return $r3;
+    }
+
+    protected final com.fasterxml.jackson.databind.JavaType _fromWildcard(java.lang.reflect.WildcardType, com.fasterxml.jackson.databind.type.TypeBindings)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.reflect.WildcardType $r1;
+        com.fasterxml.jackson.databind.type.TypeBindings $r2;
+        java.lang.reflect.Type[] $r3;
+        java.lang.reflect.Type $r4;
+        com.fasterxml.jackson.databind.JavaType $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.reflect.WildcardType;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.type.TypeBindings;
+
+        $r3 = interfaceinvoke $r1.<java.lang.reflect.WildcardType: java.lang.reflect.Type[] getUpperBounds()>();
+
+        $r4 = $r3[0];
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _constructType(java.lang.reflect.Type,com.fasterxml.jackson.databind.type.TypeBindings)>($r4, $r2);
+
+        return $r5;
+    }
+
+    protected final com.fasterxml.jackson.databind.type.HierarchicType _hashMapSuperInterfaceChain(com.fasterxml.jackson.databind.type.HierarchicType)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        com.fasterxml.jackson.databind.type.HierarchicType $r1, $r2;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        entermonitor $r0;
+
+     label1:
+        $r2 = $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _cachedHashMapType>;
+
+        if $r2 != null goto label2;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType deepCloneWithoutSubtype()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _doFindSuperInterfaceChain(com.fasterxml.jackson.databind.type.HierarchicType,java.lang.Class)>($r2, class "java/util/Map");
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType getSuperType()>();
+
+        $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _cachedHashMapType> = $r2;
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _cachedHashMapType>;
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType deepCloneWithoutSubtype()>();
+
+        virtualinvoke $r1.<com.fasterxml.jackson.databind.type.HierarchicType: void setSuperType(com.fasterxml.jackson.databind.type.HierarchicType)>($r2);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.databind.type.HierarchicType: void setSubType(com.fasterxml.jackson.databind.type.HierarchicType)>($r1);
+
+     label3:
+        exitmonitor $r0;
+
+        return $r1;
+
+     label4:
+        $r3 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+    }
+
+    protected final com.fasterxml.jackson.databind.JavaType _unknownType()
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        com.fasterxml.jackson.databind.type.SimpleType $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 = new com.fasterxml.jackson.databind.type.SimpleType;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.type.SimpleType: void <init>(java.lang.Class)>(class "java/lang/Object");
+
+        return $r1;
+    }
+
+    public final com.fasterxml.jackson.databind.type.CollectionType constructCollectionType(java.lang.Class, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.Class $r1, $r2;
+        com.fasterxml.jackson.databind.JavaType $r3;
+        com.fasterxml.jackson.databind.type.CollectionType $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType constructType(java.lang.reflect.Type)>($r2);
+
+        $r4 = staticinvoke <com.fasterxml.jackson.databind.type.CollectionType: com.fasterxml.jackson.databind.type.CollectionType construct(java.lang.Class,com.fasterxml.jackson.databind.JavaType)>($r1, $r3);
+
+        return $r4;
+    }
+
+    public final com.fasterxml.jackson.databind.JavaType constructFromCanonical(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        com.fasterxml.jackson.databind.type.TypeParser $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.TypeParser _parser>;
+
+        $r2 = virtualinvoke $r3.<com.fasterxml.jackson.databind.type.TypeParser: com.fasterxml.jackson.databind.JavaType parse(java.lang.String)>($r1);
+
+        return $r2;
+    }
+
+    public final com.fasterxml.jackson.databind.type.MapType constructMapType(java.lang.Class, java.lang.Class, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.Class $r1, $r2, $r3;
+        com.fasterxml.jackson.databind.JavaType $r4, $r5;
+        com.fasterxml.jackson.databind.type.MapType $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r3 := @parameter2: java.lang.Class;
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType constructType(java.lang.reflect.Type)>($r2);
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType constructType(java.lang.reflect.Type)>($r3);
+
+        $r6 = staticinvoke <com.fasterxml.jackson.databind.type.MapType: com.fasterxml.jackson.databind.type.MapType construct(java.lang.Class,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.JavaType)>($r1, $r4, $r5);
+
+        return $r6;
+    }
+
+    public final com.fasterxml.jackson.databind.JavaType constructSimpleType(java.lang.Class, com.fasterxml.jackson.databind.JavaType[])
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.JavaType[] $r2;
+        java.lang.reflect.TypeVariable[] $r3;
+        int $i0, $i1;
+        java.lang.IllegalArgumentException $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r6;
+        java.lang.String[] $r7;
+        java.lang.reflect.TypeVariable $r8;
+        com.fasterxml.jackson.databind.type.SimpleType $r9;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JavaType[];
+
+        $r3 = virtualinvoke $r1.<java.lang.Class: java.lang.reflect.TypeVariable[] getTypeParameters()>();
+
+        $i0 = lengthof $r3;
+
+        $i1 = lengthof $r2;
+
+        if $i0 == $i1 goto label1;
+
+        $r4 = new java.lang.IllegalArgumentException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Parameter type mismatch for ");
+
+        $r6 = virtualinvoke $r1.<java.lang.Class: java.lang.String getName()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": expected ");
+
+        $i0 = lengthof $r3;
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" parameters, was given ");
+
+        $i0 = lengthof $r2;
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r6);
+
+        throw $r4;
+
+     label1:
+        $i0 = lengthof $r3;
+
+        $r7 = newarray (java.lang.String)[$i0];
+
+        $i0 = 0;
+
+        $i1 = lengthof $r3;
+
+     label2:
+        if $i0 >= $i1 goto label3;
+
+        $r8 = $r3[$i0];
+
+        $r6 = interfaceinvoke $r8.<java.lang.reflect.TypeVariable: java.lang.String getName()>();
+
+        $r7[$i0] = $r6;
+
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label3:
+        $r9 = new com.fasterxml.jackson.databind.type.SimpleType;
+
+        specialinvoke $r9.<com.fasterxml.jackson.databind.type.SimpleType: void <init>(java.lang.Class,java.lang.String[],com.fasterxml.jackson.databind.JavaType[],java.lang.Object,java.lang.Object)>($r1, $r7, $r2, null, null);
+
+        return $r9;
+    }
+
+    public final com.fasterxml.jackson.databind.JavaType constructSpecializedType(com.fasterxml.jackson.databind.JavaType, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        com.fasterxml.jackson.databind.JavaType $r1, $r8, $r9;
+        java.lang.Class $r2, $r3;
+        boolean $z0;
+        java.lang.IllegalArgumentException $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r6;
+        com.fasterxml.jackson.databind.type.TypeBindings $r7;
+        java.lang.Object $r10;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $z0 = $r1 instanceof com.fasterxml.jackson.databind.type.SimpleType;
+
+        if $z0 == 0 goto label4;
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isArray()>();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = class "java/util/Map";
+
+        $z0 = virtualinvoke $r3.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r2);
+
+        if $z0 != 0 goto label1;
+
+        $r3 = class "java/util/Collection";
+
+        $z0 = virtualinvoke $r3.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r2);
+
+        if $z0 == 0 goto label4;
+
+     label1:
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r2);
+
+        if $z0 != 0 goto label2;
+
+        $r4 = new java.lang.IllegalArgumentException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Class ");
+
+        $r2 = virtualinvoke $r2.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r6 = virtualinvoke $r2.<java.lang.Class: java.lang.String getName()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" not subtype of ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r1);
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r6);
+
+        throw $r4;
+
+     label2:
+        $r7 = new com.fasterxml.jackson.databind.type.TypeBindings;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        specialinvoke $r7.<com.fasterxml.jackson.databind.type.TypeBindings: void <init>(com.fasterxml.jackson.databind.type.TypeFactory,java.lang.Class)>($r0, $r3);
+
+        $r8 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _fromClass(java.lang.Class,com.fasterxml.jackson.databind.type.TypeBindings)>($r2, $r7);
+
+        $r9 = $r8;
+
+        $r10 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: java.lang.Object getValueHandler()>();
+
+        if $r10 == null goto label3;
+
+        $r9 = virtualinvoke $r8.<com.fasterxml.jackson.databind.JavaType: com.fasterxml.jackson.databind.JavaType withValueHandler(java.lang.Object)>($r10);
+
+     label3:
+        $r10 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: java.lang.Object getTypeHandler()>();
+
+        if $r10 == null goto label5;
+
+        $r1 = virtualinvoke $r9.<com.fasterxml.jackson.databind.JavaType: com.fasterxml.jackson.databind.JavaType withTypeHandler(java.lang.Object)>($r10);
+
+        return $r1;
+
+     label4:
+        $r1 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: com.fasterxml.jackson.databind.JavaType narrowBy(java.lang.Class)>($r2);
+
+        return $r1;
+
+     label5:
+        return $r9;
+    }
+
+    public final com.fasterxml.jackson.databind.JavaType constructType(java.lang.reflect.Type)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.reflect.Type $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.reflect.Type;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _constructType(java.lang.reflect.Type,com.fasterxml.jackson.databind.type.TypeBindings)>($r1, null);
+
+        return $r2;
+    }
+
+    public final com.fasterxml.jackson.databind.JavaType constructType(java.lang.reflect.Type, com.fasterxml.jackson.databind.type.TypeBindings)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.reflect.Type $r1;
+        com.fasterxml.jackson.databind.type.TypeBindings $r2;
+        com.fasterxml.jackson.databind.JavaType $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.reflect.Type;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.type.TypeBindings;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _constructType(java.lang.reflect.Type,com.fasterxml.jackson.databind.type.TypeBindings)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public final com.fasterxml.jackson.databind.JavaType[] findTypeParameters(com.fasterxml.jackson.databind.JavaType, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        com.fasterxml.jackson.databind.JavaType $r1, $r5;
+        java.lang.Class $r2, $r3;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.JavaType[] $r4;
+        com.fasterxml.jackson.databind.type.TypeBindings $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        if $r3 != $r2 goto label3;
+
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: int containedTypeCount()>();
+
+        if $i0 != 0 goto label1;
+
+        return null;
+
+     label1:
+        $r4 = newarray (com.fasterxml.jackson.databind.JavaType)[$i0];
+
+        $i1 = 0;
+
+     label2:
+        if $i1 >= $i0 goto label4;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: com.fasterxml.jackson.databind.JavaType containedType(int)>($i1);
+
+        $r4[$i1] = $r5;
+
+        $i1 = $i1 + 1;
+
+        goto label2;
+
+     label3:
+        $r6 = new com.fasterxml.jackson.databind.type.TypeBindings;
+
+        specialinvoke $r6.<com.fasterxml.jackson.databind.type.TypeBindings: void <init>(com.fasterxml.jackson.databind.type.TypeFactory,com.fasterxml.jackson.databind.JavaType)>($r0, $r1);
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType[] findTypeParameters(java.lang.Class,java.lang.Class,com.fasterxml.jackson.databind.type.TypeBindings)>($r3, $r2, $r6);
+
+     label4:
+        return $r4;
+    }
+
+    public final com.fasterxml.jackson.databind.JavaType[] findTypeParameters(java.lang.Class, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.Class $r1, $r2;
+        com.fasterxml.jackson.databind.JavaType[] $r3;
+        com.fasterxml.jackson.databind.type.TypeBindings $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r4 = new com.fasterxml.jackson.databind.type.TypeBindings;
+
+        specialinvoke $r4.<com.fasterxml.jackson.databind.type.TypeBindings: void <init>(com.fasterxml.jackson.databind.type.TypeFactory,java.lang.Class)>($r0, $r1);
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType[] findTypeParameters(java.lang.Class,java.lang.Class,com.fasterxml.jackson.databind.type.TypeBindings)>($r1, $r2, $r4);
+
+        return $r3;
+    }
+
+    public final com.fasterxml.jackson.databind.JavaType[] findTypeParameters(java.lang.Class, java.lang.Class, com.fasterxml.jackson.databind.type.TypeBindings)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0, $r15;
+        java.lang.Class $r1, $r2;
+        int $i0, $i1;
+        java.lang.reflect.Type $r3;
+        com.fasterxml.jackson.databind.type.TypeBindings $r4, $r10;
+        com.fasterxml.jackson.databind.type.HierarchicType $r5, $r6;
+        java.lang.IllegalArgumentException $r7;
+        java.lang.StringBuilder $r8;
+        java.lang.String $r9;
+        boolean $z0;
+        java.lang.reflect.ParameterizedType $r11;
+        java.lang.reflect.Type[] $r12;
+        java.lang.reflect.TypeVariable[] $r13;
+        java.lang.reflect.TypeVariable $r14;
+        com.fasterxml.jackson.databind.JavaType $r16;
+        com.fasterxml.jackson.databind.JavaType[] $r17;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r4 := @parameter2: com.fasterxml.jackson.databind.type.TypeBindings;
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.HierarchicType _findSuperTypeChain(java.lang.Class,java.lang.Class)>($r1, $r2);
+
+        $r6 = $r5;
+
+        if $r5 != null goto label2;
+
+        $r7 = new java.lang.IllegalArgumentException;
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<java.lang.StringBuilder: void <init>(java.lang.String)>("Class ");
+
+        $r9 = virtualinvoke $r1.<java.lang.Class: java.lang.String getName()>();
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r9);
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not a subtype of ");
+
+        $r9 = virtualinvoke $r2.<java.lang.Class: java.lang.String getName()>();
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r9);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r7.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r9);
+
+        throw $r7;
+
+     label1:
+        $r4 = $r10;
+
+     label2:
+        $r5 = virtualinvoke $r6.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType getSuperType()>();
+
+        if $r5 == null goto label4;
+
+        $r6 = virtualinvoke $r6.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType getSuperType()>();
+
+        $r1 = virtualinvoke $r6.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.Class getRawClass()>();
+
+        $r10 = new com.fasterxml.jackson.databind.type.TypeBindings;
+
+        specialinvoke $r10.<com.fasterxml.jackson.databind.type.TypeBindings: void <init>(com.fasterxml.jackson.databind.type.TypeFactory,java.lang.Class)>($r0, $r1);
+
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.type.HierarchicType: boolean isGeneric()>();
+
+        if $z0 == 0 goto label1;
+
+        $r11 = virtualinvoke $r6.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.ParameterizedType asGeneric()>();
+
+        $r12 = interfaceinvoke $r11.<java.lang.reflect.ParameterizedType: java.lang.reflect.Type[] getActualTypeArguments()>();
+
+        $r13 = virtualinvoke $r1.<java.lang.Class: java.lang.reflect.TypeVariable[] getTypeParameters()>();
+
+        $i0 = lengthof $r12;
+
+        $i1 = 0;
+
+     label3:
+        if $i1 >= $i0 goto label1;
+
+        $r14 = $r13[$i1];
+
+        $r9 = interfaceinvoke $r14.<java.lang.reflect.TypeVariable: java.lang.String getName()>();
+
+        $r15 = <com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.type.TypeFactory instance>;
+
+        $r3 = $r12[$i1];
+
+        $r16 = virtualinvoke $r15.<com.fasterxml.jackson.databind.type.TypeFactory: com.fasterxml.jackson.databind.JavaType _constructType(java.lang.reflect.Type,com.fasterxml.jackson.databind.type.TypeBindings)>($r3, $r4);
+
+        virtualinvoke $r10.<com.fasterxml.jackson.databind.type.TypeBindings: void addBinding(java.lang.String,com.fasterxml.jackson.databind.JavaType)>($r9, $r16);
+
+        $i1 = $i1 + 1;
+
+        goto label3;
+
+     label4:
+        $z0 = virtualinvoke $r6.<com.fasterxml.jackson.databind.type.HierarchicType: boolean isGeneric()>();
+
+        if $z0 != 0 goto label5;
+
+        return null;
+
+     label5:
+        $r17 = virtualinvoke $r4.<com.fasterxml.jackson.databind.type.TypeBindings: com.fasterxml.jackson.databind.JavaType[] typesAsArray()>();
+
+        return $r17;
+    }
+
+    public final com.fasterxml.jackson.databind.JavaType uncheckedSimpleType(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.TypeFactory $r0;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.type.SimpleType $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeFactory;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 = new com.fasterxml.jackson.databind.type.SimpleType;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.type.SimpleType: void <init>(java.lang.Class)>($r1);
+
+        return $r2;
+    }
+}

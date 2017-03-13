@@ -1,0 +1,116 @@
+public final class com.speedsoftware.rootexplorer.kz extends java.lang.Object implements java.lang.Runnable
+{
+    final com.speedsoftware.rootexplorer.ge a;
+    private com.speedsoftware.rootexplorer.bn b;
+
+    public void <init>(com.speedsoftware.rootexplorer.ge, com.speedsoftware.rootexplorer.bn)
+    {
+        com.speedsoftware.rootexplorer.kz $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+        com.speedsoftware.rootexplorer.bn $r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.kz;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r2 := @parameter1: com.speedsoftware.rootexplorer.bn;
+
+        $r0.<com.speedsoftware.rootexplorer.kz: com.speedsoftware.rootexplorer.ge a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.kz: com.speedsoftware.rootexplorer.bn b> = $r2;
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.kz $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+        android.widget.AbsListView $r2;
+        com.speedsoftware.rootexplorer.bn $r3;
+        int $i0, $i1;
+        java.lang.String $r4;
+        android.view.View $r5;
+        android.widget.ImageView $r6;
+        com.speedsoftware.rootexplorer.bz $r7;
+        android.graphics.Bitmap $r8;
+        java.lang.Exception $r9;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.kz;
+
+     label01:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.kz: com.speedsoftware.rootexplorer.ge a>;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.widget.AbsListView c(com.speedsoftware.rootexplorer.ge)>($r1);
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.kz: com.speedsoftware.rootexplorer.bn b>;
+
+        $i0 = virtualinvoke $r3.<com.speedsoftware.rootexplorer.bn: int an()>();
+
+        $i1 = virtualinvoke $r2.<android.widget.AbsListView: int getFirstVisiblePosition()>();
+
+     label02:
+        if $i0 < $i1 goto label08;
+
+     label03:
+        $r3 = $r0.<com.speedsoftware.rootexplorer.kz: com.speedsoftware.rootexplorer.bn b>;
+
+        $i0 = virtualinvoke $r3.<com.speedsoftware.rootexplorer.bn: int an()>();
+
+        $i1 = virtualinvoke $r2.<android.widget.AbsListView: int getLastVisiblePosition()>();
+
+     label04:
+        if $i0 > $i1 goto label08;
+
+     label05:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.kz: com.speedsoftware.rootexplorer.ge a>;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.widget.AbsListView c(com.speedsoftware.rootexplorer.ge)>($r1);
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.kz: com.speedsoftware.rootexplorer.bn b>;
+
+        $r4 = virtualinvoke $r3.<com.speedsoftware.rootexplorer.bn: java.lang.String ae()>();
+
+        $r5 = virtualinvoke $r2.<android.widget.AbsListView: android.view.View findViewWithTag(java.lang.Object)>($r4);
+
+        $r6 = (android.widget.ImageView) $r5;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.kz: com.speedsoftware.rootexplorer.bn b>;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.kz: com.speedsoftware.rootexplorer.ge a>;
+
+        $r7 = $r1.<com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.bz aU>;
+
+        $r8 = virtualinvoke $r3.<com.speedsoftware.rootexplorer.bn: android.graphics.Bitmap a(com.speedsoftware.rootexplorer.bz)>($r7);
+
+     label06:
+        if $r6 == null goto label08;
+
+        if $r8 == null goto label08;
+
+     label07:
+        virtualinvoke $r6.<android.widget.ImageView: void setImageBitmap(android.graphics.Bitmap)>($r8);
+
+     label08:
+        $r3 = $r0.<com.speedsoftware.rootexplorer.kz: com.speedsoftware.rootexplorer.bn b>;
+
+        virtualinvoke $r3.<com.speedsoftware.rootexplorer.bn: void a(android.graphics.Bitmap)>(null);
+
+     label09:
+        return;
+
+     label10:
+        $r9 := @caughtexception;
+
+        virtualinvoke $r9.<java.lang.Exception: void printStackTrace()>();
+
+        return;
+
+        catch java.lang.Exception from label01 to label02 with label10;
+        catch java.lang.Exception from label03 to label04 with label10;
+        catch java.lang.Exception from label05 to label06 with label10;
+        catch java.lang.Exception from label07 to label09 with label10;
+    }
+}

@@ -1,0 +1,1116 @@
+public class com.speedsoftware.rootexplorer.OctalEntryActivity extends android.app.Activity
+{
+    private static android.widget.TextView a;
+    private static android.widget.TextView b;
+    private int c;
+
+    public void <init>()
+    {
+        com.speedsoftware.rootexplorer.OctalEntryActivity $r0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.OctalEntryActivity;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        return;
+    }
+
+    static android.widget.TextView a()
+    {
+        android.widget.TextView r0;
+
+        r0 = <com.speedsoftware.rootexplorer.OctalEntryActivity: android.widget.TextView b>;
+
+        return r0;
+    }
+
+    static void a(com.speedsoftware.rootexplorer.OctalEntryActivity, int)
+    {
+        com.speedsoftware.rootexplorer.OctalEntryActivity $r0;
+        int $i0, $i1;
+        android.widget.TextView $r1;
+        java.lang.CharSequence $r2;
+        java.lang.String $r3, $r4;
+        java.lang.StringBuilder $r5;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.OctalEntryActivity;
+
+        $i0 := @parameter1: int;
+
+        $r1 = <com.speedsoftware.rootexplorer.OctalEntryActivity: android.widget.TextView a>;
+
+        $r2 = virtualinvoke $r1.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r3 = interfaceinvoke $r2.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r3);
+
+        $i1 = $i1 * 10;
+
+        $i0 = $i1 + $i0;
+
+        $i0 = $i0 % 10000;
+
+        $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: int c> = $i0;
+
+        $i0 = $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: int c>;
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>($i0);
+
+        $r4 = $r3;
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        if $i0 >= 4 goto label1;
+
+        $r4 = "0000";
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        $i0 = 4 - $i0;
+
+        $r2 = virtualinvoke $r4.<java.lang.String: java.lang.CharSequence subSequence(int,int)>(0, $i0);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r4 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label1:
+        $r1 = <com.speedsoftware.rootexplorer.OctalEntryActivity: android.widget.TextView a>;
+
+        virtualinvoke $r1.<android.widget.TextView: void setText(java.lang.CharSequence)>($r4);
+
+        $r1 = <com.speedsoftware.rootexplorer.OctalEntryActivity: android.widget.TextView b>;
+
+        $i0 = $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: int c>;
+
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.bn: java.lang.String b(int)>($i0);
+
+        virtualinvoke $r1.<android.widget.TextView: void setText(java.lang.CharSequence)>($r3);
+
+        return;
+    }
+
+    protected void onCreate(android.os.Bundle)
+    {
+        com.speedsoftware.rootexplorer.OctalEntryActivity $r0;
+        android.os.Bundle $r1;
+        android.util.DisplayMetrics $r2;
+        android.view.WindowManager $r3;
+        android.view.Display $r4;
+        android.content.res.Resources $r5;
+        int $i0;
+        float $f0, $f1;
+        android.view.Window $r6;
+        java.lang.String $r7, $r31;
+        byte[] $r8;
+        android.view.View $r9;
+        android.widget.Button $r10, $r11, $r12, $r13, $r14, $r15, $r16, $r17, $r18;
+        android.widget.TextView $r19;
+        com.speedsoftware.rootexplorer.cu $r20;
+        com.speedsoftware.rootexplorer.cx $r21;
+        com.speedsoftware.rootexplorer.cy $r22;
+        com.speedsoftware.rootexplorer.cz $r23;
+        com.speedsoftware.rootexplorer.da $r24;
+        com.speedsoftware.rootexplorer.db $r25;
+        com.speedsoftware.rootexplorer.dc $r26;
+        com.speedsoftware.rootexplorer.dd $r27;
+        com.speedsoftware.rootexplorer.de $r28;
+        com.speedsoftware.rootexplorer.cv $r29;
+        com.speedsoftware.rootexplorer.cw $r30;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.OctalEntryActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: boolean requestWindowFeature(int)>(3);
+
+        staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: void c(android.content.Context)>($r0);
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: void setContentView(int)>(2130903077);
+
+        $r2 = new android.util.DisplayMetrics;
+
+        specialinvoke $r2.<android.util.DisplayMetrics: void <init>()>();
+
+        $r3 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.WindowManager getWindowManager()>();
+
+        $r4 = interfaceinvoke $r3.<android.view.WindowManager: android.view.Display getDefaultDisplay()>();
+
+        virtualinvoke $r4.<android.view.Display: void getMetrics(android.util.DisplayMetrics)>($r2);
+
+        $r5 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.content.res.Resources getResources()>();
+
+        $i0 = virtualinvoke $r5.<android.content.res.Resources: int getInteger(int)>(2131230724);
+
+        $f0 = (float) $i0;
+
+        $f1 = $r2.<android.util.DisplayMetrics: float density>;
+
+        $f0 = $f1 * $f0;
+
+        $r6 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.Window getWindow()>();
+
+        $i0 = (int) $f0;
+
+        virtualinvoke $r6.<android.view.Window: void setLayout(int,int)>($i0, -2);
+
+        $r7 = new java.lang.String;
+
+        if $r0 != null goto label09;
+
+        $i0 = 0;
+
+     label01:
+        lookupswitch($i0)
+        {
+            case 1: goto label10;
+            case 2: goto label11;
+            case 3: goto label12;
+            case 4: goto label13;
+            case 5: goto label14;
+            case 6: goto label15;
+            case 7: goto label16;
+            case 8: goto label17;
+            case 9: goto label18;
+            case 10: goto label19;
+            case 11: goto label20;
+            case 12: goto label21;
+            default: goto label02;
+        };
+
+     label02:
+        $r8 = newarray (byte)[17];
+
+        $r8[0] = 69;
+
+        $r8[1] = 110;
+
+        $r8[2] = 116;
+
+        $r8[3] = 101;
+
+        $r8[4] = 114;
+
+        $r8[5] = 32;
+
+        $r8[6] = 79;
+
+        $r8[7] = 99;
+
+        $r8[8] = 116;
+
+        $r8[9] = 97;
+
+        $r8[10] = 108;
+
+        $r8[11] = 32;
+
+        $r8[12] = 86;
+
+        $r8[13] = 97;
+
+        $r8[14] = 108;
+
+        $r8[15] = 117;
+
+        $r8[16] = 101;
+
+     label03:
+        specialinvoke $r7.<java.lang.String: void <init>(byte[])>($r8);
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: void setTitle(java.lang.CharSequence)>($r7);
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131493004);
+
+        $r10 = (android.widget.Button) $r9;
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131493005);
+
+        $r11 = (android.widget.Button) $r9;
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131493006);
+
+        $r12 = (android.widget.Button) $r9;
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131493007);
+
+        $r13 = (android.widget.Button) $r9;
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131493008);
+
+        $r14 = (android.widget.Button) $r9;
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131493009);
+
+        $r15 = (android.widget.Button) $r9;
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131493010);
+
+        $r16 = (android.widget.Button) $r9;
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131493011);
+
+        $r17 = (android.widget.Button) $r9;
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131493003);
+
+        $r18 = (android.widget.Button) $r9;
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131493001);
+
+        $r19 = (android.widget.TextView) $r9;
+
+        <com.speedsoftware.rootexplorer.OctalEntryActivity: android.widget.TextView a> = $r19;
+
+        virtualinvoke $r19.<android.widget.TextView: void setText(java.lang.CharSequence)>("0000");
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131493002);
+
+        $r19 = (android.widget.TextView) $r9;
+
+        <com.speedsoftware.rootexplorer.OctalEntryActivity: android.widget.TextView b> = $r19;
+
+        virtualinvoke $r19.<android.widget.TextView: void setText(java.lang.CharSequence)>("---------");
+
+        $r7 = new java.lang.String;
+
+        if $r0 != null goto label22;
+
+        $i0 = 0;
+
+     label04:
+        lookupswitch($i0)
+        {
+            case 1: goto label23;
+            case 2: goto label24;
+            case 3: goto label25;
+            case 4: goto label26;
+            case 5: goto label27;
+            case 6: goto label28;
+            case 7: goto label29;
+            case 8: goto label30;
+            case 9: goto label31;
+            case 10: goto label32;
+            case 11: goto label33;
+            case 12: goto label34;
+            default: goto label05;
+        };
+
+     label05:
+        $r8 = newarray (byte)[5];
+
+        $r8[0] = 67;
+
+        $r8[1] = 108;
+
+        $r8[2] = 101;
+
+        $r8[3] = 97;
+
+        $r8[4] = 114;
+
+     label06:
+        specialinvoke $r7.<java.lang.String: void <init>(byte[])>($r8);
+
+        virtualinvoke $r18.<android.widget.Button: void setText(java.lang.CharSequence)>($r7);
+
+        $r20 = new com.speedsoftware.rootexplorer.cu;
+
+        specialinvoke $r20.<com.speedsoftware.rootexplorer.cu: void <init>(com.speedsoftware.rootexplorer.OctalEntryActivity)>($r0);
+
+        virtualinvoke $r18.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r20);
+
+        $r21 = new com.speedsoftware.rootexplorer.cx;
+
+        specialinvoke $r21.<com.speedsoftware.rootexplorer.cx: void <init>(com.speedsoftware.rootexplorer.OctalEntryActivity)>($r0);
+
+        virtualinvoke $r10.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r21);
+
+        $r22 = new com.speedsoftware.rootexplorer.cy;
+
+        specialinvoke $r22.<com.speedsoftware.rootexplorer.cy: void <init>(com.speedsoftware.rootexplorer.OctalEntryActivity)>($r0);
+
+        virtualinvoke $r11.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r22);
+
+        $r23 = new com.speedsoftware.rootexplorer.cz;
+
+        specialinvoke $r23.<com.speedsoftware.rootexplorer.cz: void <init>(com.speedsoftware.rootexplorer.OctalEntryActivity)>($r0);
+
+        virtualinvoke $r12.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r23);
+
+        $r24 = new com.speedsoftware.rootexplorer.da;
+
+        specialinvoke $r24.<com.speedsoftware.rootexplorer.da: void <init>(com.speedsoftware.rootexplorer.OctalEntryActivity)>($r0);
+
+        virtualinvoke $r13.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r24);
+
+        $r25 = new com.speedsoftware.rootexplorer.db;
+
+        specialinvoke $r25.<com.speedsoftware.rootexplorer.db: void <init>(com.speedsoftware.rootexplorer.OctalEntryActivity)>($r0);
+
+        virtualinvoke $r14.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r25);
+
+        $r26 = new com.speedsoftware.rootexplorer.dc;
+
+        specialinvoke $r26.<com.speedsoftware.rootexplorer.dc: void <init>(com.speedsoftware.rootexplorer.OctalEntryActivity)>($r0);
+
+        virtualinvoke $r15.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r26);
+
+        $r27 = new com.speedsoftware.rootexplorer.dd;
+
+        specialinvoke $r27.<com.speedsoftware.rootexplorer.dd: void <init>(com.speedsoftware.rootexplorer.OctalEntryActivity)>($r0);
+
+        virtualinvoke $r16.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r27);
+
+        $r28 = new com.speedsoftware.rootexplorer.de;
+
+        specialinvoke $r28.<com.speedsoftware.rootexplorer.de: void <init>(com.speedsoftware.rootexplorer.OctalEntryActivity)>($r0);
+
+        virtualinvoke $r17.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r28);
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131492887);
+
+        $r10 = (android.widget.Button) $r9;
+
+        $r7 = new java.lang.String;
+
+        if $r0 != null goto label35;
+
+        $i0 = 0;
+
+     label07:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cK(int)>($i0);
+
+        specialinvoke $r7.<java.lang.String: void <init>(byte[])>($r8);
+
+        virtualinvoke $r10.<android.widget.Button: void setText(java.lang.CharSequence)>($r7);
+
+        $r29 = new com.speedsoftware.rootexplorer.cv;
+
+        specialinvoke $r29.<com.speedsoftware.rootexplorer.cv: void <init>(com.speedsoftware.rootexplorer.OctalEntryActivity)>($r0);
+
+        virtualinvoke $r10.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r29);
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: android.view.View findViewById(int)>(2131492921);
+
+        $r10 = (android.widget.Button) $r9;
+
+        $r7 = new java.lang.String;
+
+        if $r0 != null goto label36;
+
+        $i0 = 0;
+
+     label08:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] bX(int)>($i0);
+
+        specialinvoke $r7.<java.lang.String: void <init>(byte[])>($r8);
+
+        virtualinvoke $r10.<android.widget.Button: void setText(java.lang.CharSequence)>($r7);
+
+        $r30 = new com.speedsoftware.rootexplorer.cw;
+
+        specialinvoke $r30.<com.speedsoftware.rootexplorer.cw: void <init>(com.speedsoftware.rootexplorer.OctalEntryActivity)>($r0);
+
+        virtualinvoke $r10.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r30);
+
+        <com.speedsoftware.rootexplorer.ge: boolean y> = 1;
+
+        return;
+
+     label09:
+        $r31 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r31);
+
+        goto label01;
+
+     label10:
+        $r8 = newarray (byte)[17];
+
+        $r8[0] = 69;
+
+        $r8[1] = 110;
+
+        $r8[2] = 116;
+
+        $r8[3] = 101;
+
+        $r8[4] = 114;
+
+        $r8[5] = 32;
+
+        $r8[6] = 79;
+
+        $r8[7] = 99;
+
+        $r8[8] = 116;
+
+        $r8[9] = 97;
+
+        $r8[10] = 108;
+
+        $r8[11] = 32;
+
+        $r8[12] = 86;
+
+        $r8[13] = 97;
+
+        $r8[14] = 108;
+
+        $r8[15] = 117;
+
+        $r8[16] = 101;
+
+        goto label03;
+
+     label11:
+        $r8 = newarray (byte)[17];
+
+        $r8[0] = 69;
+
+        $r8[1] = 110;
+
+        $r8[2] = 116;
+
+        $r8[3] = 101;
+
+        $r8[4] = 114;
+
+        $r8[5] = 32;
+
+        $r8[6] = 79;
+
+        $r8[7] = 99;
+
+        $r8[8] = 116;
+
+        $r8[9] = 97;
+
+        $r8[10] = 108;
+
+        $r8[11] = 32;
+
+        $r8[12] = 86;
+
+        $r8[13] = 97;
+
+        $r8[14] = 108;
+
+        $r8[15] = 117;
+
+        $r8[16] = 101;
+
+        goto label03;
+
+     label12:
+        $r8 = newarray (byte)[17];
+
+        $r8[0] = 69;
+
+        $r8[1] = 110;
+
+        $r8[2] = 116;
+
+        $r8[3] = 101;
+
+        $r8[4] = 114;
+
+        $r8[5] = 32;
+
+        $r8[6] = 79;
+
+        $r8[7] = 99;
+
+        $r8[8] = 116;
+
+        $r8[9] = 97;
+
+        $r8[10] = 108;
+
+        $r8[11] = 32;
+
+        $r8[12] = 86;
+
+        $r8[13] = 97;
+
+        $r8[14] = 108;
+
+        $r8[15] = 117;
+
+        $r8[16] = 101;
+
+        goto label03;
+
+     label13:
+        $r8 = newarray (byte)[17];
+
+        $r8[0] = 69;
+
+        $r8[1] = 110;
+
+        $r8[2] = 116;
+
+        $r8[3] = 101;
+
+        $r8[4] = 114;
+
+        $r8[5] = 32;
+
+        $r8[6] = 79;
+
+        $r8[7] = 99;
+
+        $r8[8] = 116;
+
+        $r8[9] = 97;
+
+        $r8[10] = 108;
+
+        $r8[11] = 32;
+
+        $r8[12] = 86;
+
+        $r8[13] = 97;
+
+        $r8[14] = 108;
+
+        $r8[15] = 117;
+
+        $r8[16] = 101;
+
+        goto label03;
+
+     label14:
+        $r8 = newarray (byte)[17];
+
+        $r8[0] = 69;
+
+        $r8[1] = 110;
+
+        $r8[2] = 116;
+
+        $r8[3] = 101;
+
+        $r8[4] = 114;
+
+        $r8[5] = 32;
+
+        $r8[6] = 79;
+
+        $r8[7] = 99;
+
+        $r8[8] = 116;
+
+        $r8[9] = 97;
+
+        $r8[10] = 108;
+
+        $r8[11] = 32;
+
+        $r8[12] = 86;
+
+        $r8[13] = 97;
+
+        $r8[14] = 108;
+
+        $r8[15] = 117;
+
+        $r8[16] = 101;
+
+        goto label03;
+
+     label15:
+        $r8 = newarray (byte)[17];
+
+        $r8[0] = 69;
+
+        $r8[1] = 110;
+
+        $r8[2] = 116;
+
+        $r8[3] = 101;
+
+        $r8[4] = 114;
+
+        $r8[5] = 32;
+
+        $r8[6] = 79;
+
+        $r8[7] = 99;
+
+        $r8[8] = 116;
+
+        $r8[9] = 97;
+
+        $r8[10] = 108;
+
+        $r8[11] = 32;
+
+        $r8[12] = 86;
+
+        $r8[13] = 97;
+
+        $r8[14] = 108;
+
+        $r8[15] = 117;
+
+        $r8[16] = 101;
+
+        goto label03;
+
+     label16:
+        $r8 = newarray (byte)[17];
+
+        $r8[0] = 69;
+
+        $r8[1] = 110;
+
+        $r8[2] = 116;
+
+        $r8[3] = 101;
+
+        $r8[4] = 114;
+
+        $r8[5] = 32;
+
+        $r8[6] = 79;
+
+        $r8[7] = 99;
+
+        $r8[8] = 116;
+
+        $r8[9] = 97;
+
+        $r8[10] = 108;
+
+        $r8[11] = 32;
+
+        $r8[12] = 86;
+
+        $r8[13] = 97;
+
+        $r8[14] = 108;
+
+        $r8[15] = 117;
+
+        $r8[16] = 101;
+
+        goto label03;
+
+     label17:
+        $r8 = newarray (byte)[17];
+
+        $r8[0] = 69;
+
+        $r8[1] = 110;
+
+        $r8[2] = 116;
+
+        $r8[3] = 101;
+
+        $r8[4] = 114;
+
+        $r8[5] = 32;
+
+        $r8[6] = 79;
+
+        $r8[7] = 99;
+
+        $r8[8] = 116;
+
+        $r8[9] = 97;
+
+        $r8[10] = 108;
+
+        $r8[11] = 32;
+
+        $r8[12] = 86;
+
+        $r8[13] = 97;
+
+        $r8[14] = 108;
+
+        $r8[15] = 117;
+
+        $r8[16] = 101;
+
+        goto label03;
+
+     label18:
+        $r8 = newarray (byte)[17];
+
+        $r8[0] = 69;
+
+        $r8[1] = 110;
+
+        $r8[2] = 116;
+
+        $r8[3] = 101;
+
+        $r8[4] = 114;
+
+        $r8[5] = 32;
+
+        $r8[6] = 79;
+
+        $r8[7] = 99;
+
+        $r8[8] = 116;
+
+        $r8[9] = 97;
+
+        $r8[10] = 108;
+
+        $r8[11] = 32;
+
+        $r8[12] = 86;
+
+        $r8[13] = 97;
+
+        $r8[14] = 108;
+
+        $r8[15] = 117;
+
+        $r8[16] = 101;
+
+        goto label03;
+
+     label19:
+        $r8 = newarray (byte)[17];
+
+        $r8[0] = 69;
+
+        $r8[1] = 110;
+
+        $r8[2] = 116;
+
+        $r8[3] = 101;
+
+        $r8[4] = 114;
+
+        $r8[5] = 32;
+
+        $r8[6] = 79;
+
+        $r8[7] = 99;
+
+        $r8[8] = 116;
+
+        $r8[9] = 97;
+
+        $r8[10] = 108;
+
+        $r8[11] = 32;
+
+        $r8[12] = 86;
+
+        $r8[13] = 97;
+
+        $r8[14] = 108;
+
+        $r8[15] = 117;
+
+        $r8[16] = 101;
+
+        goto label03;
+
+     label20:
+        $r8 = newarray (byte)[17];
+
+        $r8[0] = 69;
+
+        $r8[1] = 110;
+
+        $r8[2] = 116;
+
+        $r8[3] = 101;
+
+        $r8[4] = 114;
+
+        $r8[5] = 32;
+
+        $r8[6] = 79;
+
+        $r8[7] = 99;
+
+        $r8[8] = 116;
+
+        $r8[9] = 97;
+
+        $r8[10] = 108;
+
+        $r8[11] = 32;
+
+        $r8[12] = 86;
+
+        $r8[13] = 97;
+
+        $r8[14] = 108;
+
+        $r8[15] = 117;
+
+        $r8[16] = 101;
+
+        goto label03;
+
+     label21:
+        $r8 = newarray (byte)[21];
+
+        $r8[0] = -24;
+
+        $r8[1] = -66;
+
+        $r8[2] = -109;
+
+        $r8[3] = -27;
+
+        $r8[4] = -123;
+
+        $r8[5] = -91;
+
+        $r8[6] = -27;
+
+        $r8[7] = -123;
+
+        $r8[8] = -85;
+
+        $r8[9] = -24;
+
+        $r8[10] = -65;
+
+        $r8[11] = -101;
+
+        $r8[12] = -27;
+
+        $r8[13] = -120;
+
+        $r8[14] = -74;
+
+        $r8[15] = -26;
+
+        $r8[16] = -107;
+
+        $r8[17] = -80;
+
+        $r8[18] = -27;
+
+        $r8[19] = -128;
+
+        $r8[20] = -68;
+
+        goto label03;
+
+     label22:
+        $r31 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r31);
+
+        goto label04;
+
+     label23:
+        $r8 = newarray (byte)[5];
+
+        $r8[0] = 67;
+
+        $r8[1] = 108;
+
+        $r8[2] = 101;
+
+        $r8[3] = 97;
+
+        $r8[4] = 114;
+
+        goto label06;
+
+     label24:
+        $r8 = newarray (byte)[5];
+
+        $r8[0] = 67;
+
+        $r8[1] = 108;
+
+        $r8[2] = 101;
+
+        $r8[3] = 97;
+
+        $r8[4] = 114;
+
+        goto label06;
+
+     label25:
+        $r8 = newarray (byte)[5];
+
+        $r8[0] = 67;
+
+        $r8[1] = 108;
+
+        $r8[2] = 101;
+
+        $r8[3] = 97;
+
+        $r8[4] = 114;
+
+        goto label06;
+
+     label26:
+        $r8 = newarray (byte)[5];
+
+        $r8[0] = 67;
+
+        $r8[1] = 108;
+
+        $r8[2] = 101;
+
+        $r8[3] = 97;
+
+        $r8[4] = 114;
+
+        goto label06;
+
+     label27:
+        $r8 = newarray (byte)[5];
+
+        $r8[0] = 67;
+
+        $r8[1] = 108;
+
+        $r8[2] = 101;
+
+        $r8[3] = 97;
+
+        $r8[4] = 114;
+
+        goto label06;
+
+     label28:
+        $r8 = newarray (byte)[5];
+
+        $r8[0] = 67;
+
+        $r8[1] = 108;
+
+        $r8[2] = 101;
+
+        $r8[3] = 97;
+
+        $r8[4] = 114;
+
+        goto label06;
+
+     label29:
+        $r8 = newarray (byte)[5];
+
+        $r8[0] = 67;
+
+        $r8[1] = 108;
+
+        $r8[2] = 101;
+
+        $r8[3] = 97;
+
+        $r8[4] = 114;
+
+        goto label06;
+
+     label30:
+        $r8 = newarray (byte)[5];
+
+        $r8[0] = 67;
+
+        $r8[1] = 108;
+
+        $r8[2] = 101;
+
+        $r8[3] = 97;
+
+        $r8[4] = 114;
+
+        goto label06;
+
+     label31:
+        $r8 = newarray (byte)[5];
+
+        $r8[0] = 67;
+
+        $r8[1] = 108;
+
+        $r8[2] = 101;
+
+        $r8[3] = 97;
+
+        $r8[4] = 114;
+
+        goto label06;
+
+     label32:
+        $r8 = newarray (byte)[5];
+
+        $r8[0] = 67;
+
+        $r8[1] = 108;
+
+        $r8[2] = 101;
+
+        $r8[3] = 97;
+
+        $r8[4] = 114;
+
+        goto label06;
+
+     label33:
+        $r8 = newarray (byte)[5];
+
+        $r8[0] = 67;
+
+        $r8[1] = 108;
+
+        $r8[2] = 101;
+
+        $r8[3] = 97;
+
+        $r8[4] = 114;
+
+        goto label06;
+
+     label34:
+        $r8 = newarray (byte)[6];
+
+        $r8[0] = -26;
+
+        $r8[1] = -72;
+
+        $r8[2] = -123;
+
+        $r8[3] = -23;
+
+        $r8[4] = -103;
+
+        $r8[5] = -92;
+
+        goto label06;
+
+     label35:
+        $r31 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r31);
+
+        goto label07;
+
+     label36:
+        $r31 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.OctalEntryActivity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r31);
+
+        goto label08;
+    }
+}

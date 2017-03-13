@@ -1,0 +1,708 @@
+public final class com.fasterxml.jackson.core.io.NumberOutput extends java.lang.Object
+{
+    private static int BILLION;
+    static final char[] FULL_TRIPLETS;
+    static final byte[] FULL_TRIPLETS_B;
+    static final char[] LEADING_TRIPLETS;
+    private static long MAX_INT_AS_LONG;
+    private static int MILLION;
+    private static long MIN_INT_AS_LONG;
+    static final java.lang.String SMALLEST_LONG;
+    private static long TEN_BILLION_L;
+    private static long THOUSAND_L;
+    static final java.lang.String[] sSmallIntStrs;
+    static final java.lang.String[] sSmallIntStrs2;
+
+    static void <clinit>()
+    {
+        char $c0, $c4, $c5, $c7, $c9;
+        java.lang.String $r0;
+        char[] $r1;
+        int $i1, $i2, $i3, $i6, $i8;
+        byte[] $r2;
+        byte $b10;
+        java.lang.String[] $r3;
+
+        <com.fasterxml.jackson.core.io.NumberOutput: int MILLION> = 1000000;
+
+        <com.fasterxml.jackson.core.io.NumberOutput: int BILLION> = 1000000000;
+
+        <com.fasterxml.jackson.core.io.NumberOutput: long TEN_BILLION_L> = 10000000000L;
+
+        <com.fasterxml.jackson.core.io.NumberOutput: long THOUSAND_L> = 1000L;
+
+        <com.fasterxml.jackson.core.io.NumberOutput: long MIN_INT_AS_LONG> = -2147483648L;
+
+        <com.fasterxml.jackson.core.io.NumberOutput: long MAX_INT_AS_LONG> = 2147483647L;
+
+        $r0 = staticinvoke <java.lang.String: java.lang.String valueOf(long)>(-9223372036854775808L);
+
+        <com.fasterxml.jackson.core.io.NumberOutput: java.lang.String SMALLEST_LONG> = $r0;
+
+        $r1 = newarray (char)[4000];
+
+        <com.fasterxml.jackson.core.io.NumberOutput: char[] LEADING_TRIPLETS> = $r1;
+
+        $r1 = newarray (char)[4000];
+
+        <com.fasterxml.jackson.core.io.NumberOutput: char[] FULL_TRIPLETS> = $r1;
+
+        $i1 = 0;
+
+        $i2 = 0;
+
+     label01:
+        if $i1 >= 10 goto label10;
+
+        $i3 = $i1 + 48;
+
+        $c4 = (char) $i3;
+
+        if $i1 != 0 goto label06;
+
+        $c5 = 0;
+
+     label02:
+        $i3 = 0;
+
+     label03:
+        if $i3 >= 10 goto label09;
+
+        $i6 = $i3 + 48;
+
+        $c0 = (char) $i6;
+
+        if $i1 != 0 goto label07;
+
+        if $i3 != 0 goto label07;
+
+        $c7 = 0;
+
+     label04:
+        $i6 = 0;
+
+     label05:
+        if $i6 >= 10 goto label08;
+
+        $i8 = $i6 + 48;
+
+        $c9 = (char) $i8;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] LEADING_TRIPLETS>;
+
+        $r1[$i2] = $c5;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] LEADING_TRIPLETS>;
+
+        $i8 = $i2 + 1;
+
+        $r1[$i8] = $c7;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] LEADING_TRIPLETS>;
+
+        $i8 = $i2 + 2;
+
+        $r1[$i8] = $c9;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] FULL_TRIPLETS>;
+
+        $r1[$i2] = $c4;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] FULL_TRIPLETS>;
+
+        $i8 = $i2 + 1;
+
+        $r1[$i8] = $c0;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] FULL_TRIPLETS>;
+
+        $i8 = $i2 + 2;
+
+        $r1[$i8] = $c9;
+
+        $i2 = $i2 + 4;
+
+        $i6 = $i6 + 1;
+
+        goto label05;
+
+     label06:
+        $c5 = $c4;
+
+        goto label02;
+
+     label07:
+        $c7 = $c0;
+
+        goto label04;
+
+     label08:
+        $i3 = $i3 + 1;
+
+        goto label03;
+
+     label09:
+        $i1 = $i1 + 1;
+
+        goto label01;
+
+     label10:
+        $r2 = newarray (byte)[4000];
+
+        <com.fasterxml.jackson.core.io.NumberOutput: byte[] FULL_TRIPLETS_B> = $r2;
+
+        $i1 = 0;
+
+     label11:
+        if $i1 >= 4000 goto label12;
+
+        $r2 = <com.fasterxml.jackson.core.io.NumberOutput: byte[] FULL_TRIPLETS_B>;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] FULL_TRIPLETS>;
+
+        $c0 = $r1[$i1];
+
+        $b10 = (byte) $c0;
+
+        $r2[$i1] = $b10;
+
+        $i1 = $i1 + 1;
+
+        goto label11;
+
+     label12:
+        $r3 = newarray (java.lang.String)[11];
+
+        $r3[0] = "0";
+
+        $r3[1] = "1";
+
+        $r3[2] = "2";
+
+        $r3[3] = "3";
+
+        $r3[4] = "4";
+
+        $r3[5] = "5";
+
+        $r3[6] = "6";
+
+        $r3[7] = "7";
+
+        $r3[8] = "8";
+
+        $r3[9] = "9";
+
+        $r3[10] = "10";
+
+        <com.fasterxml.jackson.core.io.NumberOutput: java.lang.String[] sSmallIntStrs> = $r3;
+
+        $r3 = newarray (java.lang.String)[10];
+
+        $r3[0] = "-1";
+
+        $r3[1] = "-2";
+
+        $r3[2] = "-3";
+
+        $r3[3] = "-4";
+
+        $r3[4] = "-5";
+
+        $r3[5] = "-6";
+
+        $r3[6] = "-7";
+
+        $r3[7] = "-8";
+
+        $r3[8] = "-9";
+
+        $r3[9] = "-10";
+
+        <com.fasterxml.jackson.core.io.NumberOutput: java.lang.String[] sSmallIntStrs2> = $r3;
+
+        return;
+    }
+
+    private static int calcLongStrLength(long)
+    {
+        long $l0, $l1, $l3;
+        int $i2;
+        byte $b4;
+
+        $l0 := @parameter0: long;
+
+        $i2 = 10;
+
+        $l3 = <com.fasterxml.jackson.core.io.NumberOutput: long TEN_BILLION_L>;
+
+     label1:
+        $b4 = $l0 cmp $l3;
+
+        if $b4 < 0 goto label2;
+
+        if $i2 == 19 goto label2;
+
+        $i2 = $i2 + 1;
+
+        $l1 = $l3 << 3;
+
+        $l3 = $l3 << 1;
+
+        $l3 = $l3 + $l1;
+
+        goto label1;
+
+     label2:
+        return $i2;
+    }
+
+    private static int outputFullTriplet(int, char[], int)
+    {
+        int $i0, $i1, $i2, $i3;
+        char[] $r0, $r1;
+        char $c4;
+
+        $i0 := @parameter0: int;
+
+        $r0 := @parameter1: char[];
+
+        $i1 := @parameter2: int;
+
+        $i2 = $i0 << 2;
+
+        $i3 = $i1 + 1;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] FULL_TRIPLETS>;
+
+        $i0 = $i2 + 1;
+
+        $c4 = $r1[$i2];
+
+        $r0[$i1] = $c4;
+
+        $i2 = $i3 + 1;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] FULL_TRIPLETS>;
+
+        $i1 = $i0 + 1;
+
+        $c4 = $r1[$i0];
+
+        $r0[$i3] = $c4;
+
+        $i0 = $i2 + 1;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] FULL_TRIPLETS>;
+
+        $c4 = $r1[$i1];
+
+        $r0[$i2] = $c4;
+
+        return $i0;
+    }
+
+    public static int outputInt(int, char[], int)
+    {
+        char[] $r0;
+        int $i0, $i1, $i2, $i4, $i6;
+        long $l3;
+        char $c5;
+        boolean $z0;
+
+        $i1 := @parameter0: int;
+
+        $r0 := @parameter1: char[];
+
+        $i2 := @parameter2: int;
+
+        if $i1 >= 0 goto label02;
+
+        if $i1 != -2147483648 goto label01;
+
+        $l3 = (long) $i1;
+
+        $i1 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputLong(long,char[],int)>($l3, $r0, $i2);
+
+        return $i1;
+
+     label01:
+        $r0[$i2] = 45;
+
+        $i1 = neg $i1;
+
+        $i2 = $i2 + 1;
+
+     label02:
+        $i4 = <com.fasterxml.jackson.core.io.NumberOutput: int MILLION>;
+
+        if $i1 >= $i4 goto label05;
+
+        if $i1 >= 1000 goto label04;
+
+        if $i1 >= 10 goto label03;
+
+        $i4 = $i2 + 1;
+
+        $i1 = $i1 + 48;
+
+        $c5 = (char) $i1;
+
+        $r0[$i2] = $c5;
+
+        return $i4;
+
+     label03:
+        $i1 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputLeadingTriplet(int,char[],int)>($i1, $r0, $i2);
+
+        return $i1;
+
+     label04:
+        $i4 = $i1 / 1000;
+
+        $i0 = $i4 * 1000;
+
+        $i1 = $i1 - $i0;
+
+        $i2 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputLeadingTriplet(int,char[],int)>($i4, $r0, $i2);
+
+        $i1 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputFullTriplet(int,char[],int)>($i1, $r0, $i2);
+
+        return $i1;
+
+     label05:
+        $i4 = <com.fasterxml.jackson.core.io.NumberOutput: int BILLION>;
+
+        if $i1 < $i4 goto label09;
+
+        $z0 = 1;
+
+     label06:
+        if $z0 == 0 goto label07;
+
+        $i4 = <com.fasterxml.jackson.core.io.NumberOutput: int BILLION>;
+
+        $i1 = $i1 - $i4;
+
+        $i4 = <com.fasterxml.jackson.core.io.NumberOutput: int BILLION>;
+
+        if $i1 < $i4 goto label10;
+
+        $i4 = <com.fasterxml.jackson.core.io.NumberOutput: int BILLION>;
+
+        $i1 = $i1 - $i4;
+
+        $r0[$i2] = 50;
+
+        $i2 = $i2 + 1;
+
+     label07:
+        $i4 = $i1 / 1000;
+
+        $i0 = $i4 * 1000;
+
+        $i1 = $i1 - $i0;
+
+        $i0 = $i4 / 1000;
+
+        $i6 = $i0 * 1000;
+
+        $i4 = $i4 - $i6;
+
+        if $z0 == 0 goto label11;
+
+        $i2 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputFullTriplet(int,char[],int)>($i0, $r0, $i2);
+
+     label08:
+        $i2 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputFullTriplet(int,char[],int)>($i4, $r0, $i2);
+
+        $i1 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputFullTriplet(int,char[],int)>($i1, $r0, $i2);
+
+        return $i1;
+
+     label09:
+        $z0 = 0;
+
+        goto label06;
+
+     label10:
+        $r0[$i2] = 49;
+
+        $i2 = $i2 + 1;
+
+        goto label07;
+
+     label11:
+        $i2 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputLeadingTriplet(int,char[],int)>($i0, $r0, $i2);
+
+        goto label08;
+    }
+
+    private static int outputLeadingTriplet(int, char[], int)
+    {
+        int $i0, $i1, $i2;
+        char[] $r0, $r1;
+        char $c3;
+
+        $i0 := @parameter0: int;
+
+        $r0 := @parameter1: char[];
+
+        $i1 := @parameter2: int;
+
+        $i2 = $i0 << 2;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] LEADING_TRIPLETS>;
+
+        $i0 = $i2 + 1;
+
+        $c3 = $r1[$i2];
+
+        if $c3 == 0 goto label1;
+
+        $r0[$i1] = $c3;
+
+        $i1 = $i1 + 1;
+
+     label1:
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] LEADING_TRIPLETS>;
+
+        $i2 = $i0 + 1;
+
+        $c3 = $r1[$i0];
+
+        if $c3 == 0 goto label2;
+
+        $r0[$i1] = $c3;
+
+        $i1 = $i1 + 1;
+
+     label2:
+        $i0 = $i1 + 1;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: char[] LEADING_TRIPLETS>;
+
+        $c3 = $r1[$i2];
+
+        $r0[$i1] = $c3;
+
+        return $i0;
+    }
+
+    public static int outputLong(long, char[], int)
+    {
+        char[] $r0;
+        long $l0, $l3, $l6;
+        int $i1, $i4, $i5, $i7, $i8, $i9;
+        byte $b2;
+        java.lang.String $r1;
+
+        $l0 := @parameter0: long;
+
+        $r0 := @parameter1: char[];
+
+        $i1 := @parameter2: int;
+
+        $b2 = $l0 cmp 0L;
+
+        if $b2 >= 0 goto label5;
+
+        $l3 = <com.fasterxml.jackson.core.io.NumberOutput: long MIN_INT_AS_LONG>;
+
+        $b2 = $l0 cmp $l3;
+
+        if $b2 <= 0 goto label1;
+
+        $i4 = (int) $l0;
+
+        $i1 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputInt(int,char[],int)>($i4, $r0, $i1);
+
+        return $i1;
+
+     label1:
+        $b2 = $l0 cmp -9223372036854775808L;
+
+        if $b2 != 0 goto label2;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: java.lang.String SMALLEST_LONG>;
+
+        $i4 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: java.lang.String SMALLEST_LONG>;
+
+        virtualinvoke $r1.<java.lang.String: void getChars(int,int,char[],int)>(0, $i4, $r0, $i1);
+
+        $i1 = $i1 + $i4;
+
+        return $i1;
+
+     label2:
+        $r0[$i1] = 45;
+
+        $l0 = neg $l0;
+
+        $i1 = $i1 + 1;
+
+     label3:
+        $i4 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int calcLongStrLength(long)>($l0);
+
+        $i4 = $i1 + $i4;
+
+        $i5 = $i4;
+
+     label4:
+        $l3 = <com.fasterxml.jackson.core.io.NumberOutput: long MAX_INT_AS_LONG>;
+
+        $b2 = $l0 cmp $l3;
+
+        if $b2 <= 0 goto label6;
+
+        $i5 = $i5 + -3;
+
+        $l3 = <com.fasterxml.jackson.core.io.NumberOutput: long THOUSAND_L>;
+
+        $l3 = $l0 / $l3;
+
+        $l6 = <com.fasterxml.jackson.core.io.NumberOutput: long THOUSAND_L>;
+
+        $l6 = $l6 * $l3;
+
+        $l0 = $l0 - $l6;
+
+        $i7 = (int) $l0;
+
+        staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputFullTriplet(int,char[],int)>($i7, $r0, $i5);
+
+        $l0 = $l3;
+
+        goto label4;
+
+     label5:
+        $l3 = <com.fasterxml.jackson.core.io.NumberOutput: long MAX_INT_AS_LONG>;
+
+        $b2 = $l0 cmp $l3;
+
+        if $b2 > 0 goto label3;
+
+        $i4 = (int) $l0;
+
+        $i1 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputInt(int,char[],int)>($i4, $r0, $i1);
+
+        return $i1;
+
+     label6:
+        $i8 = $i5;
+
+        $i5 = (int) $l0;
+
+     label7:
+        if $i5 < 1000 goto label8;
+
+        $i7 = $i8 + -3;
+
+        $i8 = $i5 / 1000;
+
+        $i9 = $i8 * 1000;
+
+        $i5 = $i5 - $i9;
+
+        staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputFullTriplet(int,char[],int)>($i5, $r0, $i7);
+
+        $i5 = $i8;
+
+        $i8 = $i7;
+
+        goto label7;
+
+     label8:
+        staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: int outputLeadingTriplet(int,char[],int)>($i5, $r0, $i1);
+
+        return $i4;
+    }
+
+    public static java.lang.String toString(double)
+    {
+        double $d0;
+        java.lang.String $r0;
+
+        $d0 := @parameter0: double;
+
+        $r0 = staticinvoke <java.lang.Double: java.lang.String toString(double)>($d0);
+
+        return $r0;
+    }
+
+    public static java.lang.String toString(int)
+    {
+        int $i0, $i1, $i2;
+        java.lang.String $r0;
+        java.lang.String[] $r1;
+
+        $i0 := @parameter0: int;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: java.lang.String[] sSmallIntStrs>;
+
+        $i1 = lengthof $r1;
+
+        if $i0 >= $i1 goto label2;
+
+        if $i0 < 0 goto label1;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: java.lang.String[] sSmallIntStrs>;
+
+        $r0 = $r1[$i0];
+
+        return $r0;
+
+     label1:
+        $i1 = neg $i0;
+
+        $i1 = $i1 + -1;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: java.lang.String[] sSmallIntStrs2>;
+
+        $i2 = lengthof $r1;
+
+        if $i1 >= $i2 goto label2;
+
+        $r1 = <com.fasterxml.jackson.core.io.NumberOutput: java.lang.String[] sSmallIntStrs2>;
+
+        $r0 = $r1[$i1];
+
+        return $r0;
+
+     label2:
+        $r0 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>($i0);
+
+        return $r0;
+    }
+
+    public static java.lang.String toString(long)
+    {
+        long $l0;
+        byte $b1;
+        int $i2;
+        java.lang.String $r0;
+
+        $l0 := @parameter0: long;
+
+        $b1 = $l0 cmp 2147483647L;
+
+        if $b1 > 0 goto label1;
+
+        $b1 = $l0 cmp -2147483648L;
+
+        if $b1 < 0 goto label1;
+
+        $i2 = (int) $l0;
+
+        $r0 = staticinvoke <com.fasterxml.jackson.core.io.NumberOutput: java.lang.String toString(int)>($i2);
+
+        return $r0;
+
+     label1:
+        $r0 = staticinvoke <java.lang.Long: java.lang.String toString(long)>($l0);
+
+        return $r0;
+    }
+}

@@ -1,0 +1,76 @@
+final class com.speedsoftware.rootexplorer.fc extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.speedsoftware.rootexplorer.RootExplorer a;
+    private final java.lang.String[] b;
+
+    void <init>(com.speedsoftware.rootexplorer.RootExplorer, java.lang.String[])
+    {
+        com.speedsoftware.rootexplorer.fc $r0;
+        com.speedsoftware.rootexplorer.RootExplorer $r1;
+        java.lang.String[] $r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fc;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.RootExplorer;
+
+        $r2 := @parameter1: java.lang.String[];
+
+        $r0.<com.speedsoftware.rootexplorer.fc: com.speedsoftware.rootexplorer.RootExplorer a> = $r1;
+
+        $r0.<com.speedsoftware.rootexplorer.fc: java.lang.String[] b> = $r2;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void onClick(android.content.DialogInterface, int)
+    {
+        com.speedsoftware.rootexplorer.fc $r0;
+        android.content.DialogInterface $r1;
+        int $i0;
+        java.lang.String $r2, $r4, $r8;
+        com.speedsoftware.rootexplorer.RootExplorer $r3;
+        java.lang.String[] $r5;
+        android.content.Context $r6;
+        byte[] $r7;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fc;
+
+        $r1 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.fc: java.lang.String[] b>;
+
+        $r2 = $r5[$i0];
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.fc: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r4 = new java.lang.String;
+
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: android.content.Context f()>();
+
+        if $r6 != null goto label2;
+
+        $i0 = 0;
+
+     label1:
+        $r7 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cu(int)>($i0);
+
+        specialinvoke $r4.<java.lang.String: void <init>(byte[])>($r7);
+
+        staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: void a(com.speedsoftware.rootexplorer.RootExplorer,java.lang.String,java.lang.String,java.lang.Class)>($r3, $r2, $r4, class "com/speedsoftware/rootexplorer/r");
+
+        return;
+
+     label2:
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: android.content.Context f()>();
+
+        $r8 = virtualinvoke $r6.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label1;
+    }
+}

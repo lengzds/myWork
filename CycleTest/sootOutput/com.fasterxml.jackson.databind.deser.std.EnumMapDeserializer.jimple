@@ -1,0 +1,286 @@
+public class com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer extends com.fasterxml.jackson.databind.deser.std.StdDeserializer implements com.fasterxml.jackson.databind.deser.ContextualDeserializer
+{
+    protected final java.lang.Class _enumClass;
+    protected com.fasterxml.jackson.databind.JsonDeserializer _keyDeserializer;
+    protected final com.fasterxml.jackson.databind.JavaType _mapType;
+    protected com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer;
+
+    public void <init>(com.fasterxml.jackson.databind.JavaType, com.fasterxml.jackson.databind.JsonDeserializer, com.fasterxml.jackson.databind.JsonDeserializer)
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        com.fasterxml.jackson.databind.JsonDeserializer $r2, $r3;
+        java.lang.Class $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdDeserializer: void <init>(java.lang.Class)>(class "java/util/EnumMap");
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.JavaType _mapType> = $r1;
+
+        $r1 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: com.fasterxml.jackson.databind.JavaType getKeyType()>();
+
+        $r4 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: java.lang.Class _enumClass> = $r4;
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _keyDeserializer> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer> = $r3;
+
+        return;
+    }
+
+    private java.util.EnumMap constructMap()
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer $r0;
+        java.util.EnumMap $r1;
+        java.lang.Class $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer;
+
+        $r1 = new java.util.EnumMap;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: java.lang.Class _enumClass>;
+
+        specialinvoke $r1.<java.util.EnumMap: void <init>(java.lang.Class)>($r2);
+
+        return $r1;
+    }
+
+    public com.fasterxml.jackson.databind.JsonDeserializer createContextual(com.fasterxml.jackson.databind.DeserializationContext, com.fasterxml.jackson.databind.BeanProperty)
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        com.fasterxml.jackson.databind.BeanProperty $r2;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JsonDeserializer $r3, $r5;
+        com.fasterxml.jackson.databind.JavaType $r4;
+        com.fasterxml.jackson.databind.deser.ContextualDeserializer $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _keyDeserializer>;
+
+        if $r3 != null goto label4;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.JavaType _mapType>;
+
+        $r4 = virtualinvoke $r4.<com.fasterxml.jackson.databind.JavaType: com.fasterxml.jackson.databind.JavaType getKeyType()>();
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonDeserializer findContextualValueDeserializer(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.BeanProperty)>($r4, $r2);
+
+     label1:
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer>;
+
+        if $r5 != null goto label3;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.JavaType _mapType>;
+
+        $r4 = virtualinvoke $r4.<com.fasterxml.jackson.databind.JavaType: com.fasterxml.jackson.databind.JavaType getContentType()>();
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonDeserializer findContextualValueDeserializer(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.BeanProperty)>($r4, $r2);
+
+     label2:
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer withResolved(com.fasterxml.jackson.databind.JsonDeserializer,com.fasterxml.jackson.databind.JsonDeserializer)>($r3, $r5);
+
+        return $r0;
+
+     label3:
+        $z0 = $r5 instanceof com.fasterxml.jackson.databind.deser.ContextualDeserializer;
+
+        if $z0 == 0 goto label2;
+
+        $r6 = (com.fasterxml.jackson.databind.deser.ContextualDeserializer) $r5;
+
+        $r5 = interfaceinvoke $r6.<com.fasterxml.jackson.databind.deser.ContextualDeserializer: com.fasterxml.jackson.databind.JsonDeserializer createContextual(com.fasterxml.jackson.databind.DeserializationContext,com.fasterxml.jackson.databind.BeanProperty)>($r1, $r2);
+
+        goto label2;
+
+     label4:
+        goto label1;
+    }
+
+    public volatile java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.util.EnumMap $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: java.util.EnumMap deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public java.util.EnumMap deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.core.JsonToken $r3, $r4;
+        com.fasterxml.jackson.databind.JsonMappingException $r5;
+        java.util.EnumMap $r6;
+        com.fasterxml.jackson.databind.JsonDeserializer $r7;
+        java.lang.Object $r8;
+        java.lang.Enum $r9;
+        com.fasterxml.jackson.databind.DeserializationFeature $r10;
+        boolean $z0;
+        java.lang.Class $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken START_OBJECT>;
+
+        if $r3 == $r4 goto label1;
+
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.Class)>(class "java/util/EnumMap");
+
+        throw $r5;
+
+     label1:
+        $r6 = specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: java.util.EnumMap constructMap()>();
+
+     label2:
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken END_OBJECT>;
+
+        if $r3 == $r4 goto label7;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _keyDeserializer>;
+
+        $r8 = virtualinvoke $r7.<com.fasterxml.jackson.databind.JsonDeserializer: java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        $r9 = (java.lang.Enum) $r8;
+
+        if $r9 != null goto label4;
+
+        $r10 = <com.fasterxml.jackson.databind.DeserializationFeature: com.fasterxml.jackson.databind.DeserializationFeature READ_UNKNOWN_ENUM_VALUES_AS_NULL>;
+
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)>($r10);
+
+        if $z0 != 0 goto label3;
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: java.lang.Class _enumClass>;
+
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException weirdStringException(java.lang.Class,java.lang.String)>($r11, "value not one of declared Enum instance names");
+
+        throw $r5;
+
+     label3:
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonParser skipChildren()>();
+
+        goto label2;
+
+     label4:
+        $r4 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        $r3 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NULL>;
+
+        if $r4 != $r3 goto label6;
+
+        $r8 = null;
+
+     label5:
+        virtualinvoke $r6.<java.util.EnumMap: java.lang.Object put(java.lang.Enum,java.lang.Object)>($r9, $r8);
+
+        goto label2;
+
+     label6:
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer>;
+
+        $r8 = virtualinvoke $r7.<com.fasterxml.jackson.databind.JsonDeserializer: java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        goto label5;
+
+     label7:
+        return $r6;
+    }
+
+    public java.lang.Object deserializeWithType(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, com.fasterxml.jackson.databind.jsontype.TypeDeserializer)
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeDeserializer $r3;
+        java.lang.Object $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.jsontype.TypeDeserializer;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.databind.jsontype.TypeDeserializer: java.lang.Object deserializeTypedFromObject(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r4;
+    }
+
+    public boolean isCachable()
+    {
+        com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer;
+
+        return 1;
+    }
+
+    public com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer withResolved(com.fasterxml.jackson.databind.JsonDeserializer, com.fasterxml.jackson.databind.JsonDeserializer)
+    {
+        com.fasterxml.jackson.databind.JsonDeserializer $r0, $r1, $r4;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer $r3, $r5;
+
+        $r3 := @this: com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        $r4 = $r3.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _keyDeserializer>;
+
+        if $r0 != $r4 goto label1;
+
+        $r4 = $r3.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer>;
+
+        if $r1 != $r4 goto label1;
+
+        return $r3;
+
+     label1:
+        $r5 = new com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer;
+
+        $r2 = $r3.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: com.fasterxml.jackson.databind.JavaType _mapType>;
+
+        specialinvoke $r5.<com.fasterxml.jackson.databind.deser.std.EnumMapDeserializer: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.JsonDeserializer,com.fasterxml.jackson.databind.JsonDeserializer)>($r2, $r0, $r1);
+
+        return $r5;
+    }
+}

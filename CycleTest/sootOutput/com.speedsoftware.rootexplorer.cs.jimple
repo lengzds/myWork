@@ -1,0 +1,192 @@
+public final class com.speedsoftware.rootexplorer.cs extends java.lang.Object
+{
+    final com.speedsoftware.rootexplorer.cq a;
+    private java.lang.String b;
+    private int c;
+    private java.util.HashMap d;
+    private java.util.ArrayList e;
+
+    void <init>(com.speedsoftware.rootexplorer.cq, java.lang.String, int)
+    {
+        com.speedsoftware.rootexplorer.cs $r0;
+        com.speedsoftware.rootexplorer.cq $r1;
+        java.lang.String $r2;
+        int $i0;
+        java.util.HashMap $r3;
+        java.util.ArrayList $r4;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cs;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.cq;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $i0 := @parameter2: int;
+
+        $r0.<com.speedsoftware.rootexplorer.cs: com.speedsoftware.rootexplorer.cq a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r3 = new java.util.HashMap;
+
+        specialinvoke $r3.<java.util.HashMap: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.cs: java.util.HashMap d> = $r3;
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<java.util.ArrayList: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.cs: java.util.ArrayList e> = $r4;
+
+        $r0.<com.speedsoftware.rootexplorer.cs: java.lang.String b> = $r2;
+
+        $r0.<com.speedsoftware.rootexplorer.cs: int c> = $i0;
+
+        return;
+    }
+
+    static java.util.HashMap a(com.speedsoftware.rootexplorer.cs)
+    {
+        com.speedsoftware.rootexplorer.cs $r0;
+        java.util.HashMap r1;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.cs;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.cs: java.util.HashMap d>;
+
+        return r1;
+    }
+
+    static int b(com.speedsoftware.rootexplorer.cs)
+    {
+        com.speedsoftware.rootexplorer.cs $r0;
+        int i0;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.cs;
+
+        i0 = $r0.<com.speedsoftware.rootexplorer.cs: int c>;
+
+        return i0;
+    }
+
+    public final java.lang.String a()
+    {
+        com.speedsoftware.rootexplorer.cs $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cs;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.cs: java.lang.String b>;
+
+        return r1;
+    }
+
+    public final java.util.ArrayList b()
+    {
+        com.speedsoftware.rootexplorer.cs $r0;
+        java.util.ArrayList r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cs;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.cs: java.util.ArrayList e>;
+
+        return r1;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.speedsoftware.rootexplorer.cs $r0, $r9;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        java.util.HashMap $r3;
+        java.util.Set $r4;
+        java.util.Iterator $r5;
+        boolean $z0;
+        java.util.ArrayList $r6;
+        java.lang.Object $r7;
+        java.util.Map$Entry $r8;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cs;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("<");
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cs: java.lang.String b>;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.cs: java.util.HashMap d>;
+
+        $r4 = virtualinvoke $r3.<java.util.HashMap: java.util.Set entrySet()>();
+
+        $r5 = interfaceinvoke $r4.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label3;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(">");
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.cs: java.util.ArrayList e>;
+
+        $r5 = virtualinvoke $r6.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label4;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n</");
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cs: java.lang.String b>;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(">");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+
+     label3:
+        $r7 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r8 = (java.util.Map$Entry) $r7;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r7 = interfaceinvoke $r8.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r2 = (java.lang.String) $r7;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("=\"");
+
+        $r7 = interfaceinvoke $r8.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r2 = (java.lang.String) $r7;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        goto label1;
+
+     label4:
+        $r7 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r9 = (com.speedsoftware.rootexplorer.cs) $r7;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n");
+
+        $r2 = virtualinvoke $r9.<com.speedsoftware.rootexplorer.cs: java.lang.String toString()>();
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        goto label2;
+    }
+}

@@ -1,0 +1,236 @@
+public final class com.google.android.gms.internal.cz extends java.lang.Object
+{
+
+    public static int a(android.os.Bundle)
+    {
+        android.os.Bundle $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.lang.Integer $r2;
+        int $i0;
+        java.lang.Long $r3;
+        long $l1;
+        java.lang.StringBuilder $r4;
+        java.lang.Class $r5;
+        java.lang.String $r6;
+
+        $r0 := @parameter0: android.os.Bundle;
+
+        $r1 = virtualinvoke $r0.<android.os.Bundle: java.lang.Object get(java.lang.String)>("RESPONSE_CODE");
+
+        if $r1 != null goto label1;
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>("Bundle with null response code, assuming OK (known issue)");
+
+        return 0;
+
+     label1:
+        $z0 = $r1 instanceof java.lang.Integer;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = (java.lang.Integer) $r1;
+
+        $i0 = virtualinvoke $r2.<java.lang.Integer: int intValue()>();
+
+        return $i0;
+
+     label2:
+        $z0 = $r1 instanceof java.lang.Long;
+
+        if $z0 == 0 goto label3;
+
+        $r3 = (java.lang.Long) $r1;
+
+        $l1 = virtualinvoke $r3.<java.lang.Long: long longValue()>();
+
+        $i0 = (int) $l1;
+
+        return $i0;
+
+     label3:
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Unexpected type for intent response code. ");
+
+        $r5 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r6 = virtualinvoke $r5.<java.lang.Class: java.lang.String getName()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>($r6);
+
+        return 5;
+    }
+
+    public static int c(android.content.Intent)
+    {
+        android.content.Intent $r0;
+        android.os.Bundle $r1;
+        java.lang.Object $r2;
+        boolean $z0;
+        java.lang.Integer $r3;
+        int $i0;
+        java.lang.Long $r4;
+        long $l1;
+        java.lang.StringBuilder $r5;
+        java.lang.Class $r6;
+        java.lang.String $r7;
+
+        $r0 := @parameter0: android.content.Intent;
+
+        $r1 = virtualinvoke $r0.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        $r2 = virtualinvoke $r1.<android.os.Bundle: java.lang.Object get(java.lang.String)>("RESPONSE_CODE");
+
+        if $r2 != null goto label1;
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>("Intent with no response code, assuming OK (known issue)");
+
+        return 0;
+
+     label1:
+        $z0 = $r2 instanceof java.lang.Integer;
+
+        if $z0 == 0 goto label2;
+
+        $r3 = (java.lang.Integer) $r2;
+
+        $i0 = virtualinvoke $r3.<java.lang.Integer: int intValue()>();
+
+        return $i0;
+
+     label2:
+        $z0 = $r2 instanceof java.lang.Long;
+
+        if $z0 == 0 goto label3;
+
+        $r4 = (java.lang.Long) $r2;
+
+        $l1 = virtualinvoke $r4.<java.lang.Long: long longValue()>();
+
+        $i0 = (int) $l1;
+
+        return $i0;
+
+     label3:
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Unexpected type for intent response code. ");
+
+        $r6 = virtualinvoke $r2.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r7 = virtualinvoke $r6.<java.lang.Class: java.lang.String getName()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r7 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>($r7);
+
+        return 5;
+    }
+
+    public static java.lang.String d(android.content.Intent)
+    {
+        android.content.Intent $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: android.content.Intent;
+
+        if $r0 != null goto label1;
+
+        return null;
+
+     label1:
+        $r1 = virtualinvoke $r0.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("INAPP_PURCHASE_DATA");
+
+        return $r1;
+    }
+
+    public static java.lang.String e(android.content.Intent)
+    {
+        android.content.Intent $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: android.content.Intent;
+
+        if $r0 != null goto label1;
+
+        return null;
+
+     label1:
+        $r1 = virtualinvoke $r0.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("INAPP_DATA_SIGNATURE");
+
+        return $r1;
+    }
+
+    public static java.lang.String p(java.lang.String)
+    {
+        java.lang.String $r0;
+        org.json.JSONObject $r1;
+        org.json.JSONException $r2;
+
+        $r0 := @parameter0: java.lang.String;
+
+        if $r0 != null goto label1;
+
+        return null;
+
+     label1:
+        $r1 = new org.json.JSONObject;
+
+     label2:
+        specialinvoke $r1.<org.json.JSONObject: void <init>(java.lang.String)>($r0);
+
+        $r0 = virtualinvoke $r1.<org.json.JSONObject: java.lang.String getString(java.lang.String)>("developerPayload");
+
+     label3:
+        return $r0;
+
+     label4:
+        $r2 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>("Fail to parse purchase data");
+
+        return null;
+
+        catch org.json.JSONException from label2 to label3 with label4;
+    }
+
+    public static java.lang.String q(java.lang.String)
+    {
+        java.lang.String $r0;
+        org.json.JSONObject $r1;
+        org.json.JSONException $r2;
+
+        $r0 := @parameter0: java.lang.String;
+
+        if $r0 != null goto label1;
+
+        return null;
+
+     label1:
+        $r1 = new org.json.JSONObject;
+
+     label2:
+        specialinvoke $r1.<org.json.JSONObject: void <init>(java.lang.String)>($r0);
+
+        $r0 = virtualinvoke $r1.<org.json.JSONObject: java.lang.String getString(java.lang.String)>("purchaseToken");
+
+     label3:
+        return $r0;
+
+     label4:
+        $r2 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void D(java.lang.String)>("Fail to parse purchase data");
+
+        return null;
+
+        catch org.json.JSONException from label2 to label3 with label4;
+    }
+}

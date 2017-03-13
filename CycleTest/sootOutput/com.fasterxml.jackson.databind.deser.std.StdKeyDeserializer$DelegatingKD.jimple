@@ -1,0 +1,90 @@
+final class com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$DelegatingKD extends com.fasterxml.jackson.databind.KeyDeserializer
+{
+    protected final com.fasterxml.jackson.databind.JsonDeserializer _delegate;
+    protected final java.lang.Class _keyClass;
+
+    protected void <init>(java.lang.Class, com.fasterxml.jackson.databind.JsonDeserializer)
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$DelegatingKD $r0;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.JsonDeserializer $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$DelegatingKD;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.KeyDeserializer: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$DelegatingKD: java.lang.Class _keyClass> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$DelegatingKD: com.fasterxml.jackson.databind.JsonDeserializer _delegate> = $r2;
+
+        return;
+    }
+
+    public final java.lang.Object deserializeKey(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$DelegatingKD $r0;
+        java.lang.String $r1, $r10;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.lang.StringBuilder $r3;
+        com.fasterxml.jackson.databind.JsonDeserializer $r4;
+        com.fasterxml.jackson.core.JsonParser $r5;
+        java.lang.Object $r6;
+        java.lang.Class $r7;
+        com.fasterxml.jackson.databind.JsonMappingException $r8;
+        java.lang.Exception $r9;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$DelegatingKD;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$DelegatingKD: com.fasterxml.jackson.databind.JsonDeserializer _delegate>;
+
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.core.JsonParser getParser()>();
+
+        $r6 = virtualinvoke $r4.<com.fasterxml.jackson.databind.JsonDeserializer: java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r5, $r2);
+
+     label2:
+        if $r6 != null goto label4;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$DelegatingKD: java.lang.Class _keyClass>;
+
+        $r8 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException weirdKeyException(java.lang.Class,java.lang.String,java.lang.String)>($r7, $r1, "not a valid representation");
+
+        throw $r8;
+
+     label3:
+        $r9 := @caughtexception;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$DelegatingKD: java.lang.Class _keyClass>;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("not a valid representation: ");
+
+        $r10 = virtualinvoke $r9.<java.lang.Exception: java.lang.String getMessage()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r10);
+
+        $r10 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r8 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException weirdKeyException(java.lang.Class,java.lang.String,java.lang.String)>($r7, $r1, $r10);
+
+        throw $r8;
+
+     label4:
+        return $r6;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+}

@@ -1,0 +1,50 @@
+public class com.fasterxml.jackson.databind.deser.std.JdkDeserializers$URIDeserializer extends com.fasterxml.jackson.databind.deser.std.FromStringDeserializer
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$URIDeserializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$URIDeserializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.FromStringDeserializer: void <init>(java.lang.Class)>(class "java/net/URI");
+
+        return;
+    }
+
+    protected volatile java.lang.Object _deserialize(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$URIDeserializer $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.net.URI $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$URIDeserializer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$URIDeserializer: java.net.URI _deserialize(java.lang.String,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r3;
+    }
+
+    protected java.net.URI _deserialize(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$URIDeserializer $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.net.URI $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$URIDeserializer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = staticinvoke <java.net.URI: java.net.URI create(java.lang.String)>($r1);
+
+        return $r3;
+    }
+}

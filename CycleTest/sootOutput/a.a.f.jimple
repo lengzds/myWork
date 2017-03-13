@@ -1,0 +1,459 @@
+public abstract class a.a.f extends java.lang.Object implements a.a.c
+{
+    private static int g;
+    protected a.a.b a;
+    protected int b;
+    protected int c;
+    protected int d;
+    protected a.a.i f;
+
+    static void <clinit>()
+    {
+        <a.a.f: int g> = 1;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        a.a.f $r0;
+        int $i0;
+
+        $r0 := @this: a.a.f;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<a.a.f: int b> = 4280;
+
+        $i0 = $r0.<a.a.f: int b>;
+
+        $r0.<a.a.f: int c> = $i0;
+
+        $r0.<a.a.f: int d> = 0;
+
+        $r0.<a.a.f: a.a.i f> = null;
+
+        return;
+    }
+
+    public static a.a.f a(java.lang.String, a.d.t)
+    {
+        java.lang.String $r0;
+        a.d.t $r1;
+        boolean $z0;
+        a.a.h $r2;
+        a.a.e $r3;
+        java.lang.StringBuilder $r4;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: a.d.t;
+
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean startsWith(java.lang.String)>("ncacn_np:");
+
+        if $z0 == 0 goto label1;
+
+        $r2 = new a.a.h;
+
+        specialinvoke $r2.<a.a.h: void <init>(java.lang.String,a.d.t)>($r0, $r1);
+
+        return $r2;
+
+     label1:
+        $r3 = new a.a.e;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("DCERPC transport not supported: ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r0 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<a.a.e: void <init>(java.lang.String)>($r0);
+
+        throw $r3;
+    }
+
+    public abstract void a();
+
+    public final void a(a.a.g)
+    {
+        a.a.f $r0;
+        a.a.g $r1;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        boolean $z0, $z1;
+        a.a.a $r2;
+        a.a.b $r3;
+        byte[] $r4, $r5, $r11;
+        a.a.b.a $r6, $r8;
+        a.a.i $r7;
+        java.io.IOException $r9;
+        java.lang.Throwable $r10, $r13;
+        a.a.e $r12;
+
+        $r0 := @this: a.a.f;
+
+        $r1 := @parameter0: a.a.g;
+
+        $i1 = 24;
+
+        $z0 = 1;
+
+        $i2 = $r0.<a.a.f: int d>;
+
+        if $i2 != 0 goto label04;
+
+        entermonitor $r0;
+
+     label01:
+        $r0.<a.a.f: int d> = 1;
+
+        $r2 = new a.a.a;
+
+        $r3 = $r0.<a.a.f: a.a.b a>;
+
+     label02:
+        specialinvoke $r2.<a.a.a: void <init>(a.a.b,a.a.f)>($r3, $r0);
+
+        virtualinvoke $r0.<a.a.f: void a(a.a.g)>($r2);
+
+     label03:
+        exitmonitor $r0;
+
+     label04:
+        $r4 = staticinvoke <a.d.c: byte[] a()>();
+
+        $r5 = $r4;
+
+     label05:
+        $r6 = new a.a.b.a;
+
+        specialinvoke $r6.<a.a.b.a: void <init>(byte[],int)>($r4, 0);
+
+        $r1.<a.a.g: int g> = 3;
+
+        $i2 = <a.a.f: int g>;
+
+     label06:
+        $i3 = $i2 + 1;
+
+     label07:
+        <a.a.f: int g> = $i3;
+
+        $r1.<a.a.g: int i> = $i2;
+
+        virtualinvoke $r1.<a.a.g: void e(a.a.b.a)>($r6);
+
+        $r7 = $r0.<a.a.f: a.a.i f>;
+
+     label08:
+        if $r7 == null goto label10;
+
+     label09:
+        $r6.<a.a.b.a: int c> = 0;
+
+     label10:
+        $r8 = $r6.<a.a.b.a: a.a.b.a e>;
+
+        $i2 = $r8.<a.a.b.a: int d>;
+
+     label11:
+        $i2 = $i2 + -24;
+
+        $i3 = 0;
+
+     label12:
+        if $i3 >= $i2 goto label37;
+
+        $i4 = $i2 - $i3;
+
+        $i5 = $i4 + 24;
+
+     label13:
+        $i0 = $r0.<a.a.f: int b>;
+
+     label14:
+        if $i5 <= $i0 goto label33;
+
+     label15:
+        $i4 = $r1.<a.a.g: int g>;
+
+     label16:
+        $i4 = $i4 & -3;
+
+     label17:
+        $r1.<a.a.g: int g> = $i4;
+
+        $i4 = $r0.<a.a.f: int b>;
+
+     label18:
+        $i4 = $i4 + -24;
+
+     label19:
+        $i0 = $i4 + 24;
+
+     label20:
+        $r1.<a.a.g: int h> = $i0;
+
+     label21:
+        if $i3 <= 0 goto label25;
+
+     label22:
+        $i0 = $r1.<a.a.g: int g>;
+
+     label23:
+        $i0 = $i0 & -2;
+
+     label24:
+        $r1.<a.a.g: int g> = $i0;
+
+     label25:
+        $i0 = $r1.<a.a.g: int g>;
+
+     label26:
+        $i0 = $i0 & 3;
+
+        if $i0 == 3 goto label28;
+
+     label27:
+        $r6.<a.a.b.a: int b> = $i3;
+
+        virtualinvoke $r6.<a.a.b.a: void a()>();
+
+        virtualinvoke $r1.<a.a.g: void c(a.a.b.a)>($r6);
+
+        $i0 = $r1.<a.a.g: int j>;
+
+        virtualinvoke $r6.<a.a.b.a: void g(int)>($i0);
+
+        virtualinvoke $r6.<a.a.b.a: void f(int)>(0);
+
+        $i0 = virtualinvoke $r1.<a.a.g: int b()>();
+
+        virtualinvoke $r6.<a.a.b.a: void f(int)>($i0);
+
+     label28:
+        $i0 = $r1.<a.a.g: int h>;
+
+        virtualinvoke $r0.<a.a.f: void a(byte[],int,int,boolean)>($r4, $i3, $i0, $z0);
+
+     label29:
+        $i3 = $i4 + $i3;
+
+        goto label12;
+
+     label30:
+        $r9 := @caughtexception;
+
+     label31:
+        $r0.<a.a.f: int d> = 0;
+
+        throw $r9;
+
+     label32:
+        $r10 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r10;
+
+     label33:
+        $i0 = $r1.<a.a.g: int g>;
+
+     label34:
+        $i0 = $i0 | 2;
+
+     label35:
+        $r1.<a.a.g: int g> = $i0;
+
+        $r1.<a.a.g: int j> = $i4;
+
+     label36:
+        $z0 = 0;
+
+        goto label19;
+
+     label37:
+        virtualinvoke $r0.<a.a.f: void a(byte[],boolean)>($r4, $z0);
+
+        virtualinvoke $r6.<a.a.b.a: void a()>();
+
+        $r6.<a.a.b.a: int c> = 8;
+
+        $i2 = virtualinvoke $r6.<a.a.b.a: int c()>();
+
+        virtualinvoke $r6.<a.a.b.a: void b(int)>($i2);
+
+        $r7 = $r0.<a.a.f: a.a.i f>;
+
+     label38:
+        if $r7 == null goto label39;
+
+     label39:
+        $r6.<a.a.b.a: int c> = 0;
+
+        virtualinvoke $r1.<a.a.g: void d(a.a.b.a)>($r6);
+
+        $i2 = $r1.<a.a.g: int f>;
+
+     label40:
+        if $i2 != 2 goto label44;
+
+     label41:
+        $z1 = virtualinvoke $r1.<a.a.g: boolean c()>();
+
+     label42:
+        if $z1 != 0 goto label44;
+
+     label43:
+        $i1 = $r1.<a.a.g: int h>;
+
+     label44:
+        $r4 = null;
+
+        $r6 = null;
+
+     label45:
+        $z1 = virtualinvoke $r1.<a.a.g: boolean c()>();
+
+     label46:
+        if $z1 != 0 goto label58;
+
+        if $r4 != null goto label48;
+
+     label47:
+        $i2 = $r0.<a.a.f: int c>;
+
+        $r4 = newarray (byte)[$i2];
+
+        $r6 = new a.a.b.a;
+
+        specialinvoke $r6.<a.a.b.a: void <init>(byte[],int)>($r4, 0);
+
+     label48:
+        virtualinvoke $r0.<a.a.f: void a(byte[],boolean)>($r4, $z0);
+
+        virtualinvoke $r6.<a.a.b.a: void a()>();
+
+        $r6.<a.a.b.a: int c> = 8;
+
+        $i2 = virtualinvoke $r6.<a.a.b.a: int c()>();
+
+        virtualinvoke $r6.<a.a.b.a: void b(int)>($i2);
+
+        $r7 = $r0.<a.a.f: a.a.i f>;
+
+     label49:
+        if $r7 == null goto label50;
+
+     label50:
+        virtualinvoke $r6.<a.a.b.a: void a()>();
+
+        virtualinvoke $r1.<a.a.g: void d(a.a.b.a)>($r6);
+
+        $i2 = $r1.<a.a.g: int h>;
+
+     label51:
+        $i2 = $i2 + -24;
+
+        $i3 = $i1 + $i2;
+
+     label52:
+        $i4 = lengthof $r5;
+
+     label53:
+        if $i3 <= $i4 goto label56;
+
+        $i3 = $i1 + $i2;
+
+     label54:
+        $r11 = newarray (byte)[$i3];
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r5, 0, $r11, 0, $i1);
+
+     label55:
+        $r5 = $r11;
+
+     label56:
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r4, 24, $r5, $i1, $i2);
+
+     label57:
+        $i1 = $i1 + $i2;
+
+        goto label45;
+
+     label58:
+        $r6 = new a.a.b.a;
+
+        specialinvoke $r6.<a.a.b.a: void <init>(byte[],int)>($r5, 0);
+
+        virtualinvoke $r1.<a.a.g: void f(a.a.b.a)>($r6);
+
+     label59:
+        staticinvoke <a.d.c: void a(byte[])>($r5);
+
+        $r12 = virtualinvoke $r1.<a.a.g: a.a.e a()>();
+
+        if $r12 == null goto label61;
+
+        throw $r12;
+
+     label60:
+        $r13 := @caughtexception;
+
+        staticinvoke <a.d.c: void a(byte[])>($r5);
+
+        throw $r13;
+
+     label61:
+        return;
+
+        catch java.io.IOException from label02 to label03 with label30;
+        catch java.lang.Throwable from label01 to label03 with label32;
+        catch java.lang.Throwable from label03 to label04 with label32;
+        catch java.lang.Throwable from label05 to label06 with label60;
+        catch java.lang.Throwable from label07 to label08 with label60;
+        catch java.lang.Throwable from label09 to label11 with label60;
+        catch java.lang.Throwable from label13 to label14 with label60;
+        catch java.lang.Throwable from label15 to label16 with label60;
+        catch java.lang.Throwable from label17 to label18 with label60;
+        catch java.lang.Throwable from label20 to label21 with label60;
+        catch java.lang.Throwable from label22 to label23 with label60;
+        catch java.lang.Throwable from label24 to label26 with label60;
+        catch java.lang.Throwable from label27 to label29 with label60;
+        catch java.lang.Throwable from label31 to label32 with label32;
+        catch java.lang.Throwable from label33 to label34 with label60;
+        catch java.lang.Throwable from label35 to label36 with label60;
+        catch java.lang.Throwable from label37 to label38 with label60;
+        catch java.lang.Throwable from label39 to label40 with label60;
+        catch java.lang.Throwable from label41 to label42 with label60;
+        catch java.lang.Throwable from label43 to label44 with label60;
+        catch java.lang.Throwable from label45 to label46 with label60;
+        catch java.lang.Throwable from label47 to label49 with label60;
+        catch java.lang.Throwable from label50 to label51 with label60;
+        catch java.lang.Throwable from label52 to label53 with label60;
+        catch java.lang.Throwable from label54 to label55 with label60;
+        catch java.lang.Throwable from label56 to label57 with label60;
+        catch java.lang.Throwable from label58 to label59 with label60;
+    }
+
+    protected abstract void a(byte[], int, int, boolean);
+
+    protected abstract void a(byte[], boolean);
+
+    public java.lang.String toString()
+    {
+        a.a.f $r0;
+        java.lang.String $r1;
+        a.a.b $r2;
+
+        $r0 := @this: a.a.f;
+
+        $r2 = $r0.<a.a.f: a.a.b a>;
+
+        $r1 = virtualinvoke $r2.<a.a.b: java.lang.String toString()>();
+
+        return $r1;
+    }
+}

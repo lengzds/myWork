@@ -1,0 +1,110 @@
+public final class com.fasterxml.jackson.core.sym.NameN extends com.fasterxml.jackson.core.sym.Name
+{
+    final int mQuadLen;
+    final int[] mQuads;
+
+    void <init>(java.lang.String, int, int[], int)
+    {
+        com.fasterxml.jackson.core.sym.NameN $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+        int[] $r2;
+        java.lang.IllegalArgumentException $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.sym.NameN;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: int[];
+
+        $i1 := @parameter3: int;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.sym.Name: void <init>(java.lang.String,int)>($r1, $i0);
+
+        if $i1 >= 3 goto label1;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Qlen must >= 3");
+
+        throw $r3;
+
+     label1:
+        $r0.<com.fasterxml.jackson.core.sym.NameN: int[] mQuads> = $r2;
+
+        $r0.<com.fasterxml.jackson.core.sym.NameN: int mQuadLen> = $i1;
+
+        return;
+    }
+
+    public final boolean equals(int)
+    {
+        com.fasterxml.jackson.core.sym.NameN $r0;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.core.sym.NameN;
+
+        $i0 := @parameter0: int;
+
+        return 0;
+    }
+
+    public final boolean equals(int, int)
+    {
+        com.fasterxml.jackson.core.sym.NameN $r0;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.core.sym.NameN;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        return 0;
+    }
+
+    public final boolean equals(int[], int)
+    {
+        com.fasterxml.jackson.core.sym.NameN $r0;
+        int[] $r1, $r2;
+        int $i0, $i1, $i2, $i3;
+
+        $r0 := @this: com.fasterxml.jackson.core.sym.NameN;
+
+        $r1 := @parameter0: int[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.sym.NameN: int mQuadLen>;
+
+        if $i0 == $i1 goto label1;
+
+        return 0;
+
+     label1:
+        $i2 = 0;
+
+     label2:
+        if $i2 >= $i0 goto label3;
+
+        $i1 = $r1[$i2];
+
+        $r2 = $r0.<com.fasterxml.jackson.core.sym.NameN: int[] mQuads>;
+
+        $i3 = $r2[$i2];
+
+        if $i1 != $i3 goto label4;
+
+        $i2 = $i2 + 1;
+
+        goto label2;
+
+     label3:
+        return 1;
+
+     label4:
+        return 0;
+    }
+}

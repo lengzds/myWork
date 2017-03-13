@@ -1,0 +1,158 @@
+public abstract class com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer extends com.fasterxml.jackson.databind.KeyDeserializer
+{
+    protected final java.lang.Class _keyClass;
+
+    protected void <init>(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer $r0;
+        java.lang.Class $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.KeyDeserializer: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer: java.lang.Class _keyClass> = $r1;
+
+        return;
+    }
+
+    protected abstract java.lang.Object _parse(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext);
+
+    protected double _parseDouble(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer $r0;
+        java.lang.String $r1;
+        double $d0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $d0 = staticinvoke <com.fasterxml.jackson.core.io.NumberInput: double parseDouble(java.lang.String)>($r1);
+
+        return $d0;
+    }
+
+    protected int _parseInt(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer $r0;
+        java.lang.String $r1;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r1);
+
+        return $i0;
+    }
+
+    protected long _parseLong(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer $r0;
+        java.lang.String $r1;
+        long $l0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $l0 = staticinvoke <java.lang.Long: long parseLong(java.lang.String)>($r1);
+
+        return $l0;
+    }
+
+    public final java.lang.Object deserializeKey(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer $r0;
+        java.lang.String $r1, $r7;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.lang.Object $r3;
+        java.lang.Exception $r4;
+        java.lang.Class $r5;
+        java.lang.StringBuilder $r6;
+        com.fasterxml.jackson.databind.JsonMappingException $r8;
+        boolean $z0;
+        com.fasterxml.jackson.databind.DeserializationConfig $r9;
+        com.fasterxml.jackson.databind.DeserializationFeature $r10;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer: java.lang.Object _parse(java.lang.String,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+     label2:
+        if $r3 == null goto label4;
+
+        return $r3;
+
+     label3:
+        $r4 := @caughtexception;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer: java.lang.Class _keyClass>;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("not a valid representation: ");
+
+        $r7 = virtualinvoke $r4.<java.lang.Exception: java.lang.String getMessage()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r8 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException weirdKeyException(java.lang.Class,java.lang.String,java.lang.String)>($r5, $r1, $r7);
+
+        throw $r8;
+
+     label4:
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer: java.lang.Class _keyClass>;
+
+        $z0 = virtualinvoke $r5.<java.lang.Class: boolean isEnum()>();
+
+        if $z0 == 0 goto label5;
+
+        $r9 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig getConfig()>();
+
+        $r10 = <com.fasterxml.jackson.databind.DeserializationFeature: com.fasterxml.jackson.databind.DeserializationFeature READ_UNKNOWN_ENUM_VALUES_AS_NULL>;
+
+        $z0 = virtualinvoke $r9.<com.fasterxml.jackson.databind.DeserializationConfig: boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)>($r10);
+
+        if $z0 != 0 goto label6;
+
+     label5:
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer: java.lang.Class _keyClass>;
+
+        $r8 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException weirdKeyException(java.lang.Class,java.lang.String,java.lang.String)>($r5, $r1, "not a valid representation");
+
+        throw $r8;
+
+     label6:
+        return null;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public java.lang.Class getKeyClass()
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer $r0;
+        java.lang.Class r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer: java.lang.Class _keyClass>;
+
+        return r1;
+    }
+}

@@ -1,0 +1,272 @@
+public class com.speedsoftware.rootexplorer.GetContentProvider extends android.content.ContentProvider
+{
+    static java.lang.String a;
+
+    static void <clinit>()
+    {
+        <com.speedsoftware.rootexplorer.GetContentProvider: java.lang.String a> = "content://com.speedsoftware.rootexplorer.content";
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.speedsoftware.rootexplorer.GetContentProvider $r0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.GetContentProvider;
+
+        specialinvoke $r0.<android.content.ContentProvider: void <init>()>();
+
+        return;
+    }
+
+    public int delete(android.net.Uri, java.lang.String, java.lang.String[])
+    {
+        com.speedsoftware.rootexplorer.GetContentProvider $r0;
+        android.net.Uri $r1;
+        java.lang.String $r2;
+        java.lang.String[] $r3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.GetContentProvider;
+
+        $r1 := @parameter0: android.net.Uri;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 := @parameter2: java.lang.String[];
+
+        return 0;
+    }
+
+    public java.lang.String getType(android.net.Uri)
+    {
+        com.speedsoftware.rootexplorer.GetContentProvider $r0;
+        android.net.Uri $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.GetContentProvider;
+
+        $r1 := @parameter0: android.net.Uri;
+
+        return null;
+    }
+
+    public android.net.Uri insert(android.net.Uri, android.content.ContentValues)
+    {
+        com.speedsoftware.rootexplorer.GetContentProvider $r0;
+        android.net.Uri $r1;
+        android.content.ContentValues $r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.GetContentProvider;
+
+        $r1 := @parameter0: android.net.Uri;
+
+        $r2 := @parameter1: android.content.ContentValues;
+
+        return null;
+    }
+
+    public boolean onCreate()
+    {
+        com.speedsoftware.rootexplorer.GetContentProvider $r0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.GetContentProvider;
+
+        return 1;
+    }
+
+    public android.content.res.AssetFileDescriptor openAssetFile(android.net.Uri, java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.GetContentProvider $r0;
+        android.net.Uri $r1;
+        java.lang.String $r2;
+        android.content.res.AssetFileDescriptor $r3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.GetContentProvider;
+
+        $r1 := @parameter0: android.net.Uri;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = specialinvoke $r0.<android.content.ContentProvider: android.content.res.AssetFileDescriptor openAssetFile(android.net.Uri,java.lang.String)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public android.os.ParcelFileDescriptor openFile(android.net.Uri, java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.GetContentProvider $r0;
+        android.net.Uri $r1;
+        java.lang.String $r2, $r3, $r4;
+        int $i0, $i1;
+        java.io.File $r5;
+        boolean $z0;
+        android.os.ParcelFileDescriptor $r6;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.GetContentProvider;
+
+        $r1 := @parameter0: android.net.Uri;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $i0 = 805306368;
+
+        $r3 = virtualinvoke $r1.<android.net.Uri: java.lang.String toString()>();
+
+        $r4 = <com.speedsoftware.rootexplorer.GetContentProvider: java.lang.String a>;
+
+        $i1 = virtualinvoke $r4.<java.lang.String: int length()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String substring(int)>($i1);
+
+        $r5 = new java.io.File;
+
+        specialinvoke $r5.<java.io.File: void <init>(java.lang.String)>($r3);
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>("r");
+
+        if $z0 != 0 goto label3;
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>("rw");
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        $r6 = staticinvoke <android.os.ParcelFileDescriptor: android.os.ParcelFileDescriptor open(java.io.File,int)>($r5, $i0);
+
+        return $r6;
+
+     label2:
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>("rwt");
+
+        if $z0 != 0 goto label1;
+
+     label3:
+        $i0 = 268435456;
+
+        goto label1;
+    }
+
+    public android.database.Cursor query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.GetContentProvider $r0;
+        android.net.Uri $r1;
+        java.lang.String $r2, $r4, $r9;
+        java.lang.String[] $r3, $r5;
+        int $i0, $i1;
+        java.io.File $r6;
+        long $l2;
+        android.database.MatrixCursor $r7;
+        java.lang.Object[] $r8;
+        boolean $z0;
+        java.lang.Long $r10;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.GetContentProvider;
+
+        $r1 := @parameter0: android.net.Uri;
+
+        $r5 := @parameter1: java.lang.String[];
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r3 := @parameter3: java.lang.String[];
+
+        $r4 := @parameter4: java.lang.String;
+
+        $i0 = 0;
+
+        if $r5 != null goto label1;
+
+        $r5 = newarray (java.lang.String)[1];
+
+        $r5[0] = "_data";
+
+     label1:
+        $r2 = virtualinvoke $r1.<android.net.Uri: java.lang.String toString()>();
+
+        $r4 = <com.speedsoftware.rootexplorer.GetContentProvider: java.lang.String a>;
+
+        $i1 = virtualinvoke $r4.<java.lang.String: int length()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.String: java.lang.String substring(int)>($i1);
+
+        $r6 = new java.io.File;
+
+        specialinvoke $r6.<java.io.File: void <init>(java.lang.String)>($r2);
+
+        $r4 = virtualinvoke $r6.<java.io.File: java.lang.String getName()>();
+
+        $l2 = virtualinvoke $r6.<java.io.File: long length()>();
+
+        $r7 = new android.database.MatrixCursor;
+
+        specialinvoke $r7.<android.database.MatrixCursor: void <init>(java.lang.String[])>($r5);
+
+        $i1 = lengthof $r5;
+
+        $r8 = newarray (java.lang.Object)[$i1];
+
+     label2:
+        $i1 = lengthof $r8;
+
+        if $i0 < $i1 goto label3;
+
+        virtualinvoke $r7.<android.database.MatrixCursor: void addRow(java.lang.Object[])>($r8);
+
+        return $r7;
+
+     label3:
+        $r9 = $r5[$i0];
+
+        $z0 = virtualinvoke $r9.<java.lang.String: boolean equals(java.lang.Object)>("_display_name");
+
+        if $z0 == 0 goto label5;
+
+        $r8[$i0] = $r4;
+
+     label4:
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label5:
+        $z0 = virtualinvoke $r9.<java.lang.String: boolean equals(java.lang.Object)>("_size");
+
+        if $z0 == 0 goto label6;
+
+        $r10 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l2);
+
+        $r8[$i0] = $r10;
+
+        goto label4;
+
+     label6:
+        $z0 = virtualinvoke $r9.<java.lang.String: boolean equals(java.lang.Object)>("_data");
+
+        if $z0 == 0 goto label4;
+
+        $r8[$i0] = $r2;
+
+        goto label4;
+    }
+
+    public int update(android.net.Uri, android.content.ContentValues, java.lang.String, java.lang.String[])
+    {
+        com.speedsoftware.rootexplorer.GetContentProvider $r0;
+        android.net.Uri $r1;
+        android.content.ContentValues $r2;
+        java.lang.String $r3;
+        java.lang.String[] $r4;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.GetContentProvider;
+
+        $r1 := @parameter0: android.net.Uri;
+
+        $r2 := @parameter1: android.content.ContentValues;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r4 := @parameter3: java.lang.String[];
+
+        return 0;
+    }
+}

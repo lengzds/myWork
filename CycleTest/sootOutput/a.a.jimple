@@ -1,0 +1,532 @@
+public class a.a extends java.lang.Object
+{
+    public static int a;
+    public static java.lang.String b;
+    private static java.util.Properties c;
+    private static a.e.e d;
+
+    static void <clinit>()
+    {
+        java.util.Properties $r0, $r4;
+        java.io.FileInputStream $r1;
+        a.e.e $r2;
+        java.lang.String $r3, $r5;
+        int $i0;
+        java.lang.SecurityException $r6;
+        java.io.IOException $r7, $r10;
+        java.io.UnsupportedEncodingException $r8;
+        java.lang.StringBuilder $r9;
+
+        <a.a: int a> = 0;
+
+        $r0 = new java.util.Properties;
+
+        specialinvoke $r0.<java.util.Properties: void <init>()>();
+
+        <a.a: java.util.Properties c> = $r0;
+
+        <a.a: java.lang.String b> = "Cp850";
+
+        $r1 = null;
+
+        $r2 = staticinvoke <a.e.e: a.e.e a()>();
+
+        <a.a: a.e.e d> = $r2;
+
+     label01:
+        $r3 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("jcifs.properties");
+
+     label02:
+        if $r3 == null goto label06;
+
+     label03:
+        $i0 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+     label04:
+        if $i0 <= 1 goto label06;
+
+        $r1 = new java.io.FileInputStream;
+
+     label05:
+        specialinvoke $r1.<java.io.FileInputStream: void <init>(java.lang.String)>($r3);
+
+     label06:
+        if $r1 == null goto label08;
+
+        $r0 = <a.a: java.util.Properties c>;
+
+     label07:
+        virtualinvoke $r0.<java.util.Properties: void load(java.io.InputStream)>($r1);
+
+     label08:
+        $r0 = <a.a: java.util.Properties c>;
+
+     label09:
+        $r4 = staticinvoke <java.lang.System: java.util.Properties getProperties()>();
+
+        virtualinvoke $r0.<java.util.Properties: void putAll(java.util.Map)>($r4);
+
+     label10:
+        if $r1 == null goto label12;
+
+     label11:
+        virtualinvoke $r1.<java.io.FileInputStream: void close()>();
+
+     label12:
+        $i0 = staticinvoke <a.a: int a(java.lang.String,int)>("jcifs.util.loglevel", -1);
+
+        if $i0 == -1 goto label13;
+
+        staticinvoke <a.e.e: void a(int)>($i0);
+
+     label13:
+        $r3 = "";
+
+        $r5 = <a.a: java.lang.String b>;
+
+     label14:
+        virtualinvoke $r3.<java.lang.String: byte[] getBytes(java.lang.String)>($r5);
+
+     label15:
+        $r2 = <a.a: a.e.e d>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 < 4 goto label25;
+
+        $r0 = <a.a: java.util.Properties c>;
+
+        $r2 = <a.a: a.e.e d>;
+
+     label16:
+        virtualinvoke $r0.<java.util.Properties: void store(java.io.OutputStream,java.lang.String)>($r2, "JCIFS PROPERTIES");
+
+     label17:
+        return;
+
+     label18:
+        $r6 := @caughtexception;
+
+        $r2 = <a.a: a.e.e d>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 <= 1 goto label10;
+
+        $r2 = <a.a: a.e.e d>;
+
+     label19:
+        virtualinvoke $r2.<a.e.e: void println(java.lang.String)>("SecurityException: jcifs will ignore System properties");
+
+     label20:
+        goto label10;
+
+     label21:
+        $r7 := @caughtexception;
+
+        $r2 = <a.a: a.e.e d>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 <= 0 goto label12;
+
+        $r2 = <a.a: a.e.e d>;
+
+        virtualinvoke $r7.<java.io.IOException: void printStackTrace(java.io.PrintStream)>($r2);
+
+        goto label12;
+
+     label22:
+        $r8 := @caughtexception;
+
+        $r2 = <a.a: a.e.e d>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 < 2 goto label23;
+
+        $r2 = <a.a: a.e.e d>;
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>("WARNING: The default OEM encoding ");
+
+        $r3 = <a.a: java.lang.String b>;
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" does not appear to be supported by this JRE. The default encoding will be US-ASCII.");
+
+        $r3 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r2.<a.e.e: void println(java.lang.String)>($r3);
+
+     label23:
+        <a.a: java.lang.String b> = "US-ASCII";
+
+        goto label15;
+
+     label24:
+        $r10 := @caughtexception;
+
+     label25:
+        return;
+
+        catch java.io.IOException from label01 to label02 with label21;
+        catch java.io.IOException from label03 to label04 with label21;
+        catch java.io.IOException from label05 to label06 with label21;
+        catch java.io.IOException from label07 to label08 with label21;
+        catch java.lang.SecurityException from label09 to label10 with label18;
+        catch java.io.IOException from label09 to label10 with label21;
+        catch java.io.IOException from label11 to label12 with label21;
+        catch java.io.UnsupportedEncodingException from label14 to label15 with label22;
+        catch java.io.IOException from label16 to label17 with label24;
+        catch java.io.IOException from label19 to label20 with label21;
+    }
+
+    void <init>()
+    {
+        a.a $r0;
+
+        $r0 := @this: a.a;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static int a(java.lang.String, int)
+    {
+        java.lang.String $r0;
+        int $i0, $i1;
+        java.util.Properties $r1;
+        java.lang.NumberFormatException $r2;
+        a.e.e $r3;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $r1 = <a.a: java.util.Properties c>;
+
+        $r0 = virtualinvoke $r1.<java.util.Properties: java.lang.String getProperty(java.lang.String)>($r0);
+
+        if $r0 == null goto label4;
+
+     label1:
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r0);
+
+     label2:
+        return $i0;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r3 = <a.a: a.e.e d>;
+
+        $i1 = <a.e.e: int a>;
+
+        if $i1 <= 0 goto label4;
+
+        $r3 = <a.a: a.e.e d>;
+
+        virtualinvoke $r2.<java.lang.NumberFormatException: void printStackTrace(java.io.PrintStream)>($r3);
+
+     label4:
+        return $i0;
+
+        catch java.lang.NumberFormatException from label1 to label2 with label3;
+    }
+
+    public static long a(java.lang.String, long)
+    {
+        java.lang.String $r0;
+        long $l0;
+        java.util.Properties $r1;
+        java.lang.NumberFormatException $r2;
+        a.e.e $r3;
+        int $i1;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $l0 := @parameter1: long;
+
+        $r1 = <a.a: java.util.Properties c>;
+
+        $r0 = virtualinvoke $r1.<java.util.Properties: java.lang.String getProperty(java.lang.String)>($r0);
+
+        if $r0 == null goto label4;
+
+     label1:
+        $l0 = staticinvoke <java.lang.Long: long parseLong(java.lang.String)>($r0);
+
+     label2:
+        return $l0;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r3 = <a.a: a.e.e d>;
+
+        $i1 = <a.e.e: int a>;
+
+        if $i1 <= 0 goto label4;
+
+        $r3 = <a.a: a.e.e d>;
+
+        virtualinvoke $r2.<java.lang.NumberFormatException: void printStackTrace(java.io.PrintStream)>($r3);
+
+     label4:
+        return $l0;
+
+        catch java.lang.NumberFormatException from label1 to label2 with label3;
+    }
+
+    public static java.lang.Object a(java.lang.String, java.lang.String)
+    {
+        java.lang.String $r0, $r1;
+        java.lang.Object $r2;
+        java.util.Properties $r3;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r3 = <a.a: java.util.Properties c>;
+
+        $r2 = virtualinvoke $r3.<java.util.Properties: java.lang.Object setProperty(java.lang.String,java.lang.String)>($r0, $r1);
+
+        return $r2;
+    }
+
+    public static java.lang.String a(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.util.Properties $r1;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 = <a.a: java.util.Properties c>;
+
+        $r0 = virtualinvoke $r1.<java.util.Properties: java.lang.String getProperty(java.lang.String)>($r0);
+
+        return $r0;
+    }
+
+    public static java.net.InetAddress a()
+    {
+        java.lang.StringBuilder $r0;
+        java.util.Properties $r1;
+        java.lang.String $r2;
+        java.net.InetAddress $r3;
+        java.net.UnknownHostException $r4;
+        a.e.e $r5;
+        int $i0;
+
+        $r1 = <a.a: java.util.Properties c>;
+
+        $r2 = virtualinvoke $r1.<java.util.Properties: java.lang.String getProperty(java.lang.String)>("jcifs.smb.client.laddr");
+
+        if $r2 == null goto label4;
+
+     label1:
+        $r3 = staticinvoke <java.net.InetAddress: java.net.InetAddress getByName(java.lang.String)>($r2);
+
+     label2:
+        return $r3;
+
+     label3:
+        $r4 := @caughtexception;
+
+        $r5 = <a.a: a.e.e d>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 <= 0 goto label4;
+
+        $r5 = <a.a: a.e.e d>;
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: void <init>(java.lang.String)>("Ignoring jcifs.smb.client.laddr address: ");
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r5.<a.e.e: void println(java.lang.String)>($r2);
+
+        $r5 = <a.a: a.e.e d>;
+
+        virtualinvoke $r4.<java.net.UnknownHostException: void printStackTrace(java.io.PrintStream)>($r5);
+
+     label4:
+        return null;
+
+        catch java.net.UnknownHostException from label1 to label2 with label3;
+    }
+
+    public static java.net.InetAddress a(java.lang.String, java.net.InetAddress)
+    {
+        java.lang.String $r0;
+        java.net.UnknownHostException $r1;
+        java.net.InetAddress $r2;
+        java.util.Properties $r3;
+        a.e.e $r4;
+        int $i0;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.net.InetAddress;
+
+        $r3 = <a.a: java.util.Properties c>;
+
+        $r0 = virtualinvoke $r3.<java.util.Properties: java.lang.String getProperty(java.lang.String)>($r0);
+
+        if $r0 == null goto label4;
+
+     label1:
+        $r2 = staticinvoke <java.net.InetAddress: java.net.InetAddress getByName(java.lang.String)>($r0);
+
+     label2:
+        return $r2;
+
+     label3:
+        $r1 := @caughtexception;
+
+        $r4 = <a.a: a.e.e d>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 <= 0 goto label4;
+
+        $r4 = <a.a: a.e.e d>;
+
+        virtualinvoke $r4.<a.e.e: void println(java.lang.String)>($r0);
+
+        $r4 = <a.a: a.e.e d>;
+
+        virtualinvoke $r1.<java.net.UnknownHostException: void printStackTrace(java.io.PrintStream)>($r4);
+
+     label4:
+        return $r2;
+
+        catch java.net.UnknownHostException from label1 to label2 with label3;
+    }
+
+    public static boolean a(java.lang.String, boolean)
+    {
+        java.lang.String $r0;
+        boolean $z0;
+        java.util.Properties $r1;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $z0 := @parameter1: boolean;
+
+        $r1 = <a.a: java.util.Properties c>;
+
+        $r0 = virtualinvoke $r1.<java.util.Properties: java.lang.String getProperty(java.lang.String)>($r0);
+
+        if $r0 == null goto label1;
+
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean equals(java.lang.Object)>("true");
+
+     label1:
+        return $z0;
+    }
+
+    public static java.net.InetAddress[] a(java.lang.String, java.lang.String, java.net.InetAddress[])
+    {
+        java.lang.String $r0, $r1;
+        java.util.StringTokenizer $r2;
+        java.net.InetAddress[] $r3, $r5;
+        java.util.Properties $r4;
+        int $i0, $i1;
+        java.net.InetAddress $r6;
+        java.net.UnknownHostException $r7;
+        a.e.e $r8;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r3 := @parameter2: java.net.InetAddress[];
+
+        $r4 = <a.a: java.util.Properties c>;
+
+        $r0 = virtualinvoke $r4.<java.util.Properties: java.lang.String getProperty(java.lang.String)>($r0);
+
+        if $r0 == null goto label6;
+
+        $r2 = new java.util.StringTokenizer;
+
+        specialinvoke $r2.<java.util.StringTokenizer: void <init>(java.lang.String,java.lang.String)>($r0, $r1);
+
+        $i0 = virtualinvoke $r2.<java.util.StringTokenizer: int countTokens()>();
+
+        $r5 = newarray (java.net.InetAddress)[$i0];
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label5;
+
+        $r0 = virtualinvoke $r2.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+     label2:
+        $r6 = staticinvoke <java.net.InetAddress: java.net.InetAddress getByName(java.lang.String)>($r0);
+
+     label3:
+        $r5[$i1] = $r6;
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label4:
+        $r7 := @caughtexception;
+
+        $r8 = <a.a: a.e.e d>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 <= 0 goto label6;
+
+        $r8 = <a.a: a.e.e d>;
+
+        virtualinvoke $r8.<a.e.e: void println(java.lang.String)>($r0);
+
+        $r8 = <a.a: a.e.e d>;
+
+        virtualinvoke $r7.<java.net.UnknownHostException: void printStackTrace(java.io.PrintStream)>($r8);
+
+        return $r3;
+
+     label5:
+        return $r5;
+
+     label6:
+        return $r3;
+
+        catch java.net.UnknownHostException from label2 to label3 with label4;
+    }
+
+    public static java.lang.String b(java.lang.String, java.lang.String)
+    {
+        java.lang.String $r0, $r1;
+        java.util.Properties $r2;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 = <a.a: java.util.Properties c>;
+
+        $r0 = virtualinvoke $r2.<java.util.Properties: java.lang.String getProperty(java.lang.String,java.lang.String)>($r0, $r1);
+
+        return $r0;
+    }
+}

@@ -1,0 +1,612 @@
+public final class com.speedsoftware.b.e extends java.lang.Object implements java.lang.Cloneable
+{
+    public java.lang.StringBuffer a;
+    public int b;
+    public int c;
+    public int d;
+    public long e;
+    public long f;
+    public int g;
+    public byte h;
+    public java.lang.StringBuffer i;
+    public java.lang.StringBuffer j;
+    public java.lang.StringBuffer k;
+    public java.lang.StringBuffer l;
+    public int m;
+    public int n;
+
+    public void <init>()
+    {
+        com.speedsoftware.b.e $r0;
+        java.lang.StringBuffer $r1;
+        java.lang.String $r2, $r3;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.b.e;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = new java.lang.StringBuffer;
+
+        specialinvoke $r1.<java.lang.StringBuffer: void <init>(java.lang.String)>("ustar");
+
+        $r0.<com.speedsoftware.b.e: java.lang.StringBuffer j> = $r1;
+
+        $r1 = new java.lang.StringBuffer;
+
+        specialinvoke $r1.<java.lang.StringBuffer: void <init>()>();
+
+        $r0.<com.speedsoftware.b.e: java.lang.StringBuffer a> = $r1;
+
+        $r1 = new java.lang.StringBuffer;
+
+        specialinvoke $r1.<java.lang.StringBuffer: void <init>()>();
+
+        $r0.<com.speedsoftware.b.e: java.lang.StringBuffer i> = $r1;
+
+        $r2 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String,java.lang.String)>("user.name", "");
+
+        $r3 = $r2;
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        if $i0 <= 31 goto label1;
+
+        $r3 = virtualinvoke $r2.<java.lang.String: java.lang.String substring(int,int)>(0, 31);
+
+     label1:
+        $r0.<com.speedsoftware.b.e: int c> = 0;
+
+        $r0.<com.speedsoftware.b.e: int d> = 0;
+
+        $r1 = new java.lang.StringBuffer;
+
+        specialinvoke $r1.<java.lang.StringBuffer: void <init>(java.lang.String)>($r3);
+
+        $r0.<com.speedsoftware.b.e: java.lang.StringBuffer k> = $r1;
+
+        $r1 = new java.lang.StringBuffer;
+
+        specialinvoke $r1.<java.lang.StringBuffer: void <init>(java.lang.String)>("");
+
+        $r0.<com.speedsoftware.b.e: java.lang.StringBuffer l> = $r1;
+
+        return;
+    }
+
+    public static int a(long, byte[], int)
+    {
+        long $l0;
+        byte[] $r0, $r1;
+        int $i1;
+
+        $l0 := @parameter0: long;
+
+        $r0 := @parameter1: byte[];
+
+        $i1 := @parameter2: int;
+
+        $r1 = newarray (byte)[13];
+
+        staticinvoke <com.speedsoftware.b.e: int a(long,byte[],int,int)>($l0, $r1, 0, 13);
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r1, 0, $r0, $i1, 12);
+
+        $i1 = $i1 + 12;
+
+        return $i1;
+    }
+
+    public static int a(long, byte[], int, int)
+    {
+        byte[] $r0;
+        int $i0, $i1, $i3, $i4, $i7;
+        long $l2, $l6;
+        byte $b5;
+
+        $l2 := @parameter0: long;
+
+        $r0 := @parameter1: byte[];
+
+        $i0 := @parameter2: int;
+
+        $i1 := @parameter3: int;
+
+        $i3 = $i1 + -1;
+
+        $i4 = $i0 + $i3;
+
+        $r0[$i4] = 0;
+
+        $i3 = $i3 + -1;
+
+        $i4 = $i0 + $i3;
+
+        $r0[$i4] = 32;
+
+        $i3 = $i3 + -1;
+
+        $b5 = $l2 cmp 0L;
+
+        if $b5 != 0 goto label3;
+
+        $i4 = $i0 + $i3;
+
+        $r0[$i4] = 48;
+
+        $i3 = $i3 + -1;
+
+     label1:
+        if $i3 >= 0 goto label4;
+
+        $i0 = $i0 + $i1;
+
+        return $i0;
+
+     label2:
+        $i4 = $i0 + $i3;
+
+        $l6 = 7L & $l2;
+
+        $i7 = (int) $l6;
+
+        $b5 = (byte) $i7;
+
+        $i7 = $b5 + 48;
+
+        $b5 = (byte) $i7;
+
+        $r0[$i4] = $b5;
+
+        $l2 = $l2 >> 3;
+
+        $i3 = $i3 + -1;
+
+     label3:
+        if $i3 < 0 goto label1;
+
+        $b5 = $l2 cmp 0L;
+
+        if $b5 > 0 goto label2;
+
+        goto label1;
+
+     label4:
+        $i4 = $i0 + $i3;
+
+        $r0[$i4] = 32;
+
+        $i3 = $i3 + -1;
+
+        goto label1;
+    }
+
+    public static int a(java.lang.StringBuffer, byte[], int, int)
+    {
+        java.lang.StringBuffer $r0;
+        byte[] $r1;
+        int $i0, $i1, $i2, $i3;
+        char $c4;
+        byte $b5;
+
+        $r0 := @parameter0: java.lang.StringBuffer;
+
+        $r1 := @parameter1: byte[];
+
+        $i0 := @parameter2: int;
+
+        $i1 := @parameter3: int;
+
+        $i2 = 0;
+
+     label1:
+        if $i2 >= $i1 goto label2;
+
+        $i3 = virtualinvoke $r0.<java.lang.StringBuffer: int length()>();
+
+        if $i2 < $i3 goto label3;
+
+     label2:
+        if $i2 < $i1 goto label4;
+
+        $i0 = $i0 + $i1;
+
+        return $i0;
+
+     label3:
+        $i3 = $i0 + $i2;
+
+        $c4 = virtualinvoke $r0.<java.lang.StringBuffer: char charAt(int)>($i2);
+
+        $b5 = (byte) $c4;
+
+        $r1[$i3] = $b5;
+
+        $i2 = $i2 + 1;
+
+        goto label1;
+
+     label4:
+        $i3 = $i0 + $i2;
+
+        $r1[$i3] = 0;
+
+        $i2 = $i2 + 1;
+
+        goto label2;
+    }
+
+    public static long a(byte[], int, int)
+    {
+        byte[] $r0;
+        int $i0, $i1, $i4;
+        long $l2, $l5;
+        boolean $z0;
+        byte $b3;
+
+        $r0 := @parameter0: byte[];
+
+        $i1 := @parameter1: int;
+
+        $i0 := @parameter2: int;
+
+        $l2 = 0L;
+
+        $z0 = 1;
+
+        $i0 = $i1 + $i0;
+
+     label1:
+        if $i1 < $i0 goto label2;
+
+        return $l2;
+
+     label2:
+        $b3 = $r0[$i1];
+
+        if $b3 == 0 goto label6;
+
+        $b3 = $r0[$i1];
+
+        if $b3 == 32 goto label3;
+
+        $b3 = $r0[$i1];
+
+        if $b3 != 48 goto label4;
+
+     label3:
+        if $z0 != 0 goto label5;
+
+        $b3 = $r0[$i1];
+
+        if $b3 == 32 goto label6;
+
+     label4:
+        $z0 = 0;
+
+        $l2 = $l2 << 3;
+
+        $b3 = $r0[$i1];
+
+        $i4 = $b3 + -48;
+
+        $l5 = (long) $i4;
+
+        $l2 = $l2 + $l5;
+
+     label5:
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label6:
+        return $l2;
+    }
+
+    public static java.lang.StringBuffer a(byte[])
+    {
+        byte[] $r0;
+        java.lang.StringBuffer $r1;
+        int $i0;
+        byte $b1;
+        char $c2;
+
+        $r0 := @parameter0: byte[];
+
+        $i0 = 345;
+
+        $r1 = new java.lang.StringBuffer;
+
+        specialinvoke $r1.<java.lang.StringBuffer: void <init>(int)>(256);
+
+        $b1 = $r0[345];
+
+        if $b1 == 0 goto label3;
+
+     label1:
+        if $i0 >= 500 goto label2;
+
+        $b1 = $r0[$i0];
+
+        if $b1 != 0 goto label5;
+
+     label2:
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>("/");
+
+     label3:
+        $i0 = 0;
+
+     label4:
+        if $i0 >= 100 goto label7;
+
+        $b1 = $r0[$i0];
+
+        if $b1 != 0 goto label6;
+
+        return $r1;
+
+     label5:
+        $b1 = $r0[$i0];
+
+        $c2 = (char) $b1;
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($c2);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label6:
+        $b1 = $r0[$i0];
+
+        $c2 = (char) $b1;
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($c2);
+
+        $i0 = $i0 + 1;
+
+        goto label4;
+
+     label7:
+        return $r1;
+    }
+
+    public static java.lang.StringBuffer b(byte[], int, int)
+    {
+        byte[] $r0;
+        int $i0, $i1;
+        java.lang.StringBuffer $r1;
+        byte $b2;
+        char $c3;
+
+        $r0 := @parameter0: byte[];
+
+        $i1 := @parameter1: int;
+
+        $i0 := @parameter2: int;
+
+        $r1 = new java.lang.StringBuffer;
+
+        specialinvoke $r1.<java.lang.StringBuffer: void <init>(int)>($i0);
+
+        $i0 = $i1 + $i0;
+
+     label1:
+        if $i1 < $i0 goto label2;
+
+        return $r1;
+
+     label2:
+        $b2 = $r0[$i1];
+
+        if $b2 == 0 goto label3;
+
+        $b2 = $r0[$i1];
+
+        $c3 = (char) $b2;
+
+        virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($c3);
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label3:
+        return $r1;
+    }
+
+    public final java.lang.Object clone()
+    {
+        com.speedsoftware.b.e $r0, $r3;
+        java.lang.StringBuffer $r1, $r4, $r5;
+        java.lang.Object $r2;
+        int $i0;
+        long $l1;
+        byte $b2;
+        java.lang.String $r6;
+        java.lang.CloneNotSupportedException $r7, $r9;
+        java.io.PrintStream $r8;
+
+        $r0 := @this: com.speedsoftware.b.e;
+
+        $r1 = null;
+
+     label01:
+        $r2 = specialinvoke $r0.<java.lang.Object: java.lang.Object clone()>();
+
+     label02:
+        $r3 = (com.speedsoftware.b.e) $r2;
+
+        $r4 = $r0.<com.speedsoftware.b.e: java.lang.StringBuffer a>;
+
+        if $r4 != null goto label08;
+
+        $r4 = null;
+
+     label03:
+        $r3.<com.speedsoftware.b.e: java.lang.StringBuffer a> = $r4;
+
+        $i0 = $r0.<com.speedsoftware.b.e: int b>;
+
+        $r3.<com.speedsoftware.b.e: int b> = $i0;
+
+        $i0 = $r0.<com.speedsoftware.b.e: int c>;
+
+        $r3.<com.speedsoftware.b.e: int c> = $i0;
+
+        $i0 = $r0.<com.speedsoftware.b.e: int d>;
+
+        $r3.<com.speedsoftware.b.e: int d> = $i0;
+
+        $l1 = $r0.<com.speedsoftware.b.e: long e>;
+
+        $r3.<com.speedsoftware.b.e: long e> = $l1;
+
+        $l1 = $r0.<com.speedsoftware.b.e: long f>;
+
+        $r3.<com.speedsoftware.b.e: long f> = $l1;
+
+        $i0 = $r0.<com.speedsoftware.b.e: int g>;
+
+        $r3.<com.speedsoftware.b.e: int g> = $i0;
+
+        $b2 = $r0.<com.speedsoftware.b.e: byte h>;
+
+        $r3.<com.speedsoftware.b.e: byte h> = $b2;
+
+        $r4 = $r0.<com.speedsoftware.b.e: java.lang.StringBuffer i>;
+
+        if $r4 != null goto label13;
+
+        $r4 = null;
+
+     label04:
+        $r3.<com.speedsoftware.b.e: java.lang.StringBuffer i> = $r4;
+
+        $r4 = $r0.<com.speedsoftware.b.e: java.lang.StringBuffer j>;
+
+        if $r4 != null goto label16;
+
+        $r4 = null;
+
+     label05:
+        $r3.<com.speedsoftware.b.e: java.lang.StringBuffer j> = $r4;
+
+        $r4 = $r0.<com.speedsoftware.b.e: java.lang.StringBuffer k>;
+
+        if $r4 != null goto label19;
+
+        $r4 = null;
+
+     label06:
+        $r3.<com.speedsoftware.b.e: java.lang.StringBuffer k> = $r4;
+
+        $r4 = $r0.<com.speedsoftware.b.e: java.lang.StringBuffer l>;
+
+        if $r4 != null goto label22;
+
+     label07:
+        $r3.<com.speedsoftware.b.e: java.lang.StringBuffer l> = $r1;
+
+        $i0 = $r0.<com.speedsoftware.b.e: int m>;
+
+        $r3.<com.speedsoftware.b.e: int m> = $i0;
+
+        $i0 = $r0.<com.speedsoftware.b.e: int n>;
+
+        $r3.<com.speedsoftware.b.e: int n> = $i0;
+
+        return $r3;
+
+     label08:
+        $r4 = new java.lang.StringBuffer;
+
+        $r5 = $r0.<com.speedsoftware.b.e: java.lang.StringBuffer a>;
+
+     label09:
+        $r6 = virtualinvoke $r5.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.StringBuffer: void <init>(java.lang.String)>($r6);
+
+     label10:
+        goto label03;
+
+     label11:
+        $r7 := @caughtexception;
+
+     label12:
+        $r8 = <java.lang.System: java.io.PrintStream err>;
+
+        virtualinvoke $r7.<java.lang.CloneNotSupportedException: void printStackTrace(java.io.PrintStream)>($r8);
+
+        return $r3;
+
+     label13:
+        $r4 = new java.lang.StringBuffer;
+
+        $r5 = $r0.<com.speedsoftware.b.e: java.lang.StringBuffer i>;
+
+     label14:
+        $r6 = virtualinvoke $r5.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.StringBuffer: void <init>(java.lang.String)>($r6);
+
+     label15:
+        goto label04;
+
+     label16:
+        $r4 = new java.lang.StringBuffer;
+
+        $r5 = $r0.<com.speedsoftware.b.e: java.lang.StringBuffer j>;
+
+     label17:
+        $r6 = virtualinvoke $r5.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.StringBuffer: void <init>(java.lang.String)>($r6);
+
+     label18:
+        goto label05;
+
+     label19:
+        $r4 = new java.lang.StringBuffer;
+
+        $r5 = $r0.<com.speedsoftware.b.e: java.lang.StringBuffer k>;
+
+     label20:
+        $r6 = virtualinvoke $r5.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.StringBuffer: void <init>(java.lang.String)>($r6);
+
+     label21:
+        goto label06;
+
+     label22:
+        $r1 = new java.lang.StringBuffer;
+
+        $r4 = $r0.<com.speedsoftware.b.e: java.lang.StringBuffer l>;
+
+     label23:
+        $r6 = virtualinvoke $r4.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.StringBuffer: void <init>(java.lang.String)>($r6);
+
+     label24:
+        goto label07;
+
+     label25:
+        $r9 := @caughtexception;
+
+        $r3 = null;
+
+        $r7 = $r9;
+
+        goto label12;
+
+        catch java.lang.CloneNotSupportedException from label01 to label02 with label25;
+        catch java.lang.CloneNotSupportedException from label09 to label10 with label11;
+        catch java.lang.CloneNotSupportedException from label14 to label15 with label11;
+        catch java.lang.CloneNotSupportedException from label17 to label18 with label11;
+        catch java.lang.CloneNotSupportedException from label20 to label21 with label11;
+        catch java.lang.CloneNotSupportedException from label23 to label24 with label11;
+    }
+}

@@ -1,0 +1,185 @@
+public class com.fasterxml.jackson.core.JsonProcessingException extends java.io.IOException
+{
+    protected com.fasterxml.jackson.core.JsonLocation _location;
+
+    protected void <init>(java.lang.String)
+    {
+        com.fasterxml.jackson.core.JsonProcessingException $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonProcessingException;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<java.io.IOException: void <init>(java.lang.String)>($r1);
+
+        return;
+    }
+
+    protected void <init>(java.lang.String, com.fasterxml.jackson.core.JsonLocation)
+    {
+        com.fasterxml.jackson.core.JsonProcessingException $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.core.JsonLocation $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonProcessingException;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonLocation;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.JsonProcessingException: void <init>(java.lang.String,com.fasterxml.jackson.core.JsonLocation,java.lang.Throwable)>($r1, $r2, null);
+
+        return;
+    }
+
+    protected void <init>(java.lang.String, com.fasterxml.jackson.core.JsonLocation, java.lang.Throwable)
+    {
+        com.fasterxml.jackson.core.JsonProcessingException $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.core.JsonLocation $r2;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonProcessingException;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonLocation;
+
+        $r3 := @parameter2: java.lang.Throwable;
+
+        specialinvoke $r0.<java.io.IOException: void <init>(java.lang.String)>($r1);
+
+        if $r3 == null goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.JsonProcessingException: java.lang.Throwable initCause(java.lang.Throwable)>($r3);
+
+     label1:
+        $r0.<com.fasterxml.jackson.core.JsonProcessingException: com.fasterxml.jackson.core.JsonLocation _location> = $r2;
+
+        return;
+    }
+
+    protected void <init>(java.lang.String, java.lang.Throwable)
+    {
+        com.fasterxml.jackson.core.JsonProcessingException $r0;
+        java.lang.String $r1;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonProcessingException;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Throwable;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.JsonProcessingException: void <init>(java.lang.String,com.fasterxml.jackson.core.JsonLocation,java.lang.Throwable)>($r1, null, $r2);
+
+        return;
+    }
+
+    public com.fasterxml.jackson.core.JsonLocation getLocation()
+    {
+        com.fasterxml.jackson.core.JsonProcessingException $r0;
+        com.fasterxml.jackson.core.JsonLocation r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonProcessingException;
+
+        r1 = $r0.<com.fasterxml.jackson.core.JsonProcessingException: com.fasterxml.jackson.core.JsonLocation _location>;
+
+        return r1;
+    }
+
+    public java.lang.String getMessage()
+    {
+        com.fasterxml.jackson.core.JsonProcessingException $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2, $r3;
+        com.fasterxml.jackson.core.JsonLocation $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonProcessingException;
+
+        $r2 = specialinvoke $r0.<java.io.IOException: java.lang.String getMessage()>();
+
+        $r3 = $r2;
+
+        if $r2 != null goto label1;
+
+        $r3 = "N/A";
+
+     label1:
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonProcessingException: com.fasterxml.jackson.core.JsonLocation getLocation()>();
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonProcessingException: java.lang.String getMessageSuffix()>();
+
+        if $r4 != null goto label2;
+
+        if $r2 == null goto label5;
+
+     label2:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(int)>(100);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        if $r2 == null goto label3;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+     label3:
+        if $r4 == null goto label4;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(10);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" at ");
+
+        $r3 = virtualinvoke $r4.<com.fasterxml.jackson.core.JsonLocation: java.lang.String toString()>();
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+     label4:
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label5:
+        return $r3;
+    }
+
+    protected java.lang.String getMessageSuffix()
+    {
+        com.fasterxml.jackson.core.JsonProcessingException $r0;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonProcessingException;
+
+        return null;
+    }
+
+    public java.lang.String toString()
+    {
+        com.fasterxml.jackson.core.JsonProcessingException $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.Class $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonProcessingException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r2.<java.lang.Class: java.lang.String getName()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonProcessingException: java.lang.String getMessage()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r3;
+    }
+}

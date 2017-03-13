@@ -1,0 +1,299 @@
+public class com.fasterxml.jackson.core.json.JsonWriteContext extends com.fasterxml.jackson.core.JsonStreamContext
+{
+    protected com.fasterxml.jackson.core.json.JsonWriteContext _child;
+    protected java.lang.String _currentName;
+    protected final com.fasterxml.jackson.core.json.JsonWriteContext _parent;
+
+    protected void <init>(int, com.fasterxml.jackson.core.json.JsonWriteContext)
+    {
+        com.fasterxml.jackson.core.json.JsonWriteContext $r0, $r1;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.JsonStreamContext: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext _child> = null;
+
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _type> = $i0;
+
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext _parent> = $r1;
+
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _index> = -1;
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.core.json.JsonWriteContext createRootContext()
+    {
+        com.fasterxml.jackson.core.json.JsonWriteContext $r0;
+
+        $r0 = new com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: void <init>(int,com.fasterxml.jackson.core.json.JsonWriteContext)>(0, null);
+
+        return $r0;
+    }
+
+    private final com.fasterxml.jackson.core.json.JsonWriteContext reset(int)
+    {
+        com.fasterxml.jackson.core.json.JsonWriteContext $r0;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        $i0 := @parameter0: int;
+
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _type> = $i0;
+
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _index> = -1;
+
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: java.lang.String _currentName> = null;
+
+        return $r0;
+    }
+
+    protected final void appendDesc(java.lang.StringBuilder)
+    {
+        com.fasterxml.jackson.core.json.JsonWriteContext $r0;
+        java.lang.StringBuilder $r1;
+        int $i0;
+        java.lang.String $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        $r1 := @parameter0: java.lang.StringBuilder;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _type>;
+
+        if $i0 != 2 goto label3;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(123);
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: java.lang.String _currentName>;
+
+        if $r2 == null goto label2;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(34);
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: java.lang.String _currentName>;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(34);
+
+     label1:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        return;
+
+     label2:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(63);
+
+        goto label1;
+
+     label3:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _type>;
+
+        if $i0 != 1 goto label4;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(91);
+
+        $i0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int getCurrentIndex()>();
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(93);
+
+        return;
+
+     label4:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        return;
+    }
+
+    public final com.fasterxml.jackson.core.json.JsonWriteContext createChildArrayContext()
+    {
+        com.fasterxml.jackson.core.json.JsonWriteContext $r0, $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext _child>;
+
+        if $r1 != null goto label1;
+
+        $r1 = new com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        specialinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: void <init>(int,com.fasterxml.jackson.core.json.JsonWriteContext)>(1, $r0);
+
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext _child> = $r1;
+
+        return $r1;
+
+     label1:
+        $r0 = specialinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext reset(int)>(1);
+
+        return $r0;
+    }
+
+    public final com.fasterxml.jackson.core.json.JsonWriteContext createChildObjectContext()
+    {
+        com.fasterxml.jackson.core.json.JsonWriteContext $r0, $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext _child>;
+
+        if $r1 != null goto label1;
+
+        $r1 = new com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        specialinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: void <init>(int,com.fasterxml.jackson.core.json.JsonWriteContext)>(2, $r0);
+
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext _child> = $r1;
+
+        return $r1;
+
+     label1:
+        $r0 = specialinvoke $r1.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext reset(int)>(2);
+
+        return $r0;
+    }
+
+    public final com.fasterxml.jackson.core.json.JsonWriteContext getParent()
+    {
+        com.fasterxml.jackson.core.json.JsonWriteContext $r0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        $r0 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: com.fasterxml.jackson.core.json.JsonWriteContext _parent>;
+
+        return $r0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.fasterxml.jackson.core.json.JsonWriteContext $r0;
+        java.lang.String $r1;
+        java.lang.StringBuilder $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(int)>(64);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: void appendDesc(java.lang.StringBuilder)>($r2);
+
+        $r1 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r1;
+    }
+
+    public final int writeFieldName(java.lang.String)
+    {
+        com.fasterxml.jackson.core.json.JsonWriteContext $r0;
+        java.lang.String $r1, $r2;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _type>;
+
+        if $i0 != 2 goto label3;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: java.lang.String _currentName>;
+
+        if $r2 == null goto label1;
+
+        return 4;
+
+     label1:
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: java.lang.String _currentName> = $r1;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _index>;
+
+        if $i0 >= 0 goto label2;
+
+        return 0;
+
+     label2:
+        return 1;
+
+     label3:
+        return 4;
+    }
+
+    public final int writeValue()
+    {
+        com.fasterxml.jackson.core.json.JsonWriteContext $r0;
+        int $i0, $i1;
+        java.lang.String $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.JsonWriteContext;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _type>;
+
+        if $i0 != 2 goto label2;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: java.lang.String _currentName>;
+
+        if $r1 != null goto label1;
+
+        return 5;
+
+     label1:
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: java.lang.String _currentName> = null;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _index>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _index> = $i0;
+
+        return 2;
+
+     label2:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _type>;
+
+        if $i0 != 1 goto label4;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _index>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _index>;
+
+        $i1 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _index> = $i1;
+
+        if $i0 >= 0 goto label3;
+
+        return 0;
+
+     label3:
+        return 1;
+
+     label4:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _index>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _index> = $i0;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.JsonWriteContext: int _index>;
+
+        if $i0 != 0 goto label5;
+
+        return 0;
+
+     label5:
+        return 3;
+    }
+}

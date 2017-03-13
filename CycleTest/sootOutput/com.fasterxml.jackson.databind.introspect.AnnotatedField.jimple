@@ -1,0 +1,311 @@
+public final class com.fasterxml.jackson.databind.introspect.AnnotatedField extends com.fasterxml.jackson.databind.introspect.AnnotatedMember
+{
+    protected final java.lang.reflect.Field _field;
+
+    public void <init>(java.lang.reflect.Field, com.fasterxml.jackson.databind.introspect.AnnotationMap)
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.reflect.Field $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotationMap $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r1 := @parameter0: java.lang.reflect.Field;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.introspect.AnnotationMap;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: void <init>(com.fasterxml.jackson.databind.introspect.AnnotationMap)>($r2);
+
+        $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.reflect.Field _field> = $r1;
+
+        return;
+    }
+
+    public final volatile java.lang.reflect.AnnotatedElement getAnnotated()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.reflect.Field $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.reflect.Field getAnnotated()>();
+
+        return $r1;
+    }
+
+    public final java.lang.reflect.Field getAnnotated()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.reflect.Field r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.reflect.Field _field>;
+
+        return r1;
+    }
+
+    public final java.lang.annotation.Annotation getAnnotation(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.Class $r1;
+        java.lang.'annotation'.Annotation $r2;
+        com.fasterxml.jackson.databind.introspect.AnnotationMap $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: com.fasterxml.jackson.databind.introspect.AnnotationMap _annotations>;
+
+        $r2 = virtualinvoke $r3.<com.fasterxml.jackson.databind.introspect.AnnotationMap: java.lang.'annotation'.Annotation get(java.lang.Class)>($r1);
+
+        return $r2;
+    }
+
+    public final java.lang.Class getDeclaringClass()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.Class $r1;
+        java.lang.reflect.Field $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.reflect.Field _field>;
+
+        $r1 = virtualinvoke $r2.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        return $r1;
+    }
+
+    public final java.lang.String getFullName()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.Class $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.Class getDeclaringClass()>();
+
+        $r3 = virtualinvoke $r2.<java.lang.Class: java.lang.String getName()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("#");
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.String getName()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r3;
+    }
+
+    public final java.lang.reflect.Type getGenericType()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.reflect.Type $r1;
+        java.lang.reflect.Field $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.reflect.Field _field>;
+
+        $r1 = virtualinvoke $r2.<java.lang.reflect.Field: java.lang.reflect.Type getGenericType()>();
+
+        return $r1;
+    }
+
+    public final java.lang.reflect.Member getMember()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.reflect.Field r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.reflect.Field _field>;
+
+        return r1;
+    }
+
+    public final java.lang.String getName()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.String $r1;
+        java.lang.reflect.Field $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.reflect.Field _field>;
+
+        $r1 = virtualinvoke $r2.<java.lang.reflect.Field: java.lang.String getName()>();
+
+        return $r1;
+    }
+
+    public final java.lang.Class getRawType()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.Class $r1;
+        java.lang.reflect.Field $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.reflect.Field _field>;
+
+        $r1 = virtualinvoke $r2.<java.lang.reflect.Field: java.lang.Class getType()>();
+
+        return $r1;
+    }
+
+    public final java.lang.Object getValue(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.Object $r1;
+        java.lang.IllegalArgumentException $r2;
+        java.lang.reflect.Field $r3;
+        java.lang.IllegalAccessException $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.reflect.Field _field>;
+
+     label1:
+        $r1 = virtualinvoke $r3.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>($r1);
+
+     label2:
+        return $r1;
+
+     label3:
+        $r4 := @caughtexception;
+
+        $r2 = new java.lang.IllegalArgumentException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Failed to getValue() for field ");
+
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.String getFullName()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $r6 = virtualinvoke $r4.<java.lang.IllegalAccessException: java.lang.String getMessage()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String,java.lang.Throwable)>($r6, $r4);
+
+        throw $r2;
+
+        catch java.lang.IllegalAccessException from label1 to label2 with label3;
+    }
+
+    public final void setValue(java.lang.Object, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.Object $r1, $r2;
+        java.lang.IllegalArgumentException $r3;
+        java.lang.reflect.Field $r4;
+        java.lang.IllegalAccessException $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.reflect.Field _field>;
+
+     label1:
+        virtualinvoke $r4.<java.lang.reflect.Field: void set(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+     label2:
+        return;
+
+     label3:
+        $r5 := @caughtexception;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("Failed to setValue() for field ");
+
+        $r7 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.String getFullName()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $r7 = virtualinvoke $r5.<java.lang.IllegalAccessException: java.lang.String getMessage()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String,java.lang.Throwable)>($r7, $r5);
+
+        throw $r3;
+
+        catch java.lang.IllegalAccessException from label1 to label2 with label3;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("[field ");
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.String getFullName()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public final com.fasterxml.jackson.databind.introspect.AnnotatedField withAnnotations(com.fasterxml.jackson.databind.introspect.AnnotationMap)
+    {
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r0, $r2;
+        com.fasterxml.jackson.databind.introspect.AnnotationMap $r1;
+        java.lang.reflect.Field $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotationMap;
+
+        $r2 = new com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.introspect.AnnotatedField: java.lang.reflect.Field _field>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedField: void <init>(java.lang.reflect.Field,com.fasterxml.jackson.databind.introspect.AnnotationMap)>($r3, $r1);
+
+        return $r2;
+    }
+}

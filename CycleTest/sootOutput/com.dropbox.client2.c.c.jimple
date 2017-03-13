@@ -1,0 +1,54 @@
+final class com.dropbox.client2.c.c extends org.apache.http.impl.client.DefaultHttpClient
+{
+    final com.dropbox.client2.c.a a;
+
+    void <init>(com.dropbox.client2.c.a, org.apache.http.conn.ClientConnectionManager, org.apache.http.params.HttpParams)
+    {
+        com.dropbox.client2.c.c $r0;
+        com.dropbox.client2.c.a $r1;
+        org.apache.http.conn.ClientConnectionManager $r2;
+        org.apache.http.params.HttpParams $r3;
+
+        $r0 := @this: com.dropbox.client2.c.c;
+
+        $r1 := @parameter0: com.dropbox.client2.c.a;
+
+        $r2 := @parameter1: org.apache.http.conn.ClientConnectionManager;
+
+        $r3 := @parameter2: org.apache.http.params.HttpParams;
+
+        $r0.<com.dropbox.client2.c.c: com.dropbox.client2.c.a a> = $r1;
+
+        specialinvoke $r0.<org.apache.http.impl.client.DefaultHttpClient: void <init>(org.apache.http.conn.ClientConnectionManager,org.apache.http.params.HttpParams)>($r2, $r3);
+
+        return;
+    }
+
+    protected final org.apache.http.conn.ConnectionKeepAliveStrategy createConnectionKeepAliveStrategy()
+    {
+        com.dropbox.client2.c.c $r0;
+        com.dropbox.client2.c.h $r1;
+
+        $r0 := @this: com.dropbox.client2.c.c;
+
+        $r1 = new com.dropbox.client2.c.h;
+
+        specialinvoke $r1.<com.dropbox.client2.c.h: void <init>(byte)>(0);
+
+        return $r1;
+    }
+
+    protected final org.apache.http.ConnectionReuseStrategy createConnectionReuseStrategy()
+    {
+        com.dropbox.client2.c.c $r0;
+        com.dropbox.client2.c.g $r1;
+
+        $r0 := @this: com.dropbox.client2.c.c;
+
+        $r1 = new com.dropbox.client2.c.g;
+
+        specialinvoke $r1.<com.dropbox.client2.c.g: void <init>(byte)>(0);
+
+        return $r1;
+    }
+}

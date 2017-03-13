@@ -1,0 +1,221 @@
+public final class com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer extends com.fasterxml.jackson.databind.ser.std.StdSerializer
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdSerializer: void <init>(java.lang.Class)>(class "[C");
+
+        return;
+    }
+
+    private final void _writeArrayContents(com.fasterxml.jackson.core.JsonGenerator, char[])
+    {
+        com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        char[] $r2;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter1: char[];
+
+        $i1 = 0;
+
+        $i0 = lengthof $r2;
+
+     label1:
+        if $i1 >= $i0 goto label2;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeString(char[],int,int)>($r2, $i1, 1);
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public final volatile boolean isEmpty(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer $r0;
+        boolean $z0;
+        java.lang.Object $r1;
+        char[] $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (char[]) $r1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer: boolean isEmpty(char[])>($r2);
+
+        return $z0;
+    }
+
+    public final boolean isEmpty(char[])
+    {
+        com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer $r0;
+        char[] $r1;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer;
+
+        $r1 := @parameter0: char[];
+
+        if $r1 == null goto label1;
+
+        $i0 = lengthof $r1;
+
+        if $i0 != 0 goto label2;
+
+     label1:
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public final volatile void serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        java.lang.Object $r3;
+        char[] $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer;
+
+        $r3 := @parameter0: java.lang.Object;
+
+        $r1 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = (char[]) $r3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer: void serialize(char[],com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r4, $r1, $r2);
+
+        return;
+    }
+
+    public final void serialize(char[], com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer $r0;
+        char[] $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        int $i0;
+        boolean $z0;
+        com.fasterxml.jackson.databind.SerializationFeature $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer;
+
+        $r1 := @parameter0: char[];
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = <com.fasterxml.jackson.databind.SerializationFeature: com.fasterxml.jackson.databind.SerializationFeature WRITE_CHAR_ARRAYS_AS_JSON_ARRAYS>;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializerProvider: boolean isEnabled(com.fasterxml.jackson.databind.SerializationFeature)>($r4);
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeStartArray()>();
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer: void _writeArrayContents(com.fasterxml.jackson.core.JsonGenerator,char[])>($r2, $r1);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeEndArray()>();
+
+        return;
+
+     label1:
+        $i0 = lengthof $r1;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeString(char[],int,int)>($r1, 0, $i0);
+
+        return;
+    }
+
+    public final volatile void serializeWithType(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r3;
+        java.lang.Object $r4;
+        char[] $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer;
+
+        $r4 := @parameter0: java.lang.Object;
+
+        $r1 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r3 := @parameter3: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r5 = (char[]) $r4;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer: void serializeWithType(char[],com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider,com.fasterxml.jackson.databind.jsontype.TypeSerializer)>($r5, $r1, $r2, $r3);
+
+        return;
+    }
+
+    public final void serializeWithType(char[], com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer $r0;
+        char[] $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r4;
+        int $i0;
+        boolean $z0;
+        com.fasterxml.jackson.databind.SerializationFeature $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer;
+
+        $r1 := @parameter0: char[];
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r5 = <com.fasterxml.jackson.databind.SerializationFeature: com.fasterxml.jackson.databind.SerializationFeature WRITE_CHAR_ARRAYS_AS_JSON_ARRAYS>;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializerProvider: boolean isEnabled(com.fasterxml.jackson.databind.SerializationFeature)>($r5);
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypePrefixForArray(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdArraySerializers$CharArraySerializer: void _writeArrayContents(com.fasterxml.jackson.core.JsonGenerator,char[])>($r2, $r1);
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypeSuffixForArray(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        return;
+
+     label1:
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypePrefixForScalar(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        $i0 = lengthof $r1;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeString(char[],int,int)>($r1, 0, $i0);
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypeSuffixForScalar(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        return;
+    }
+}

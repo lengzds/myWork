@@ -1,0 +1,102 @@
+final class com.speedsoftware.rootexplorer.hz extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.speedsoftware.rootexplorer.ge a;
+    private final com.speedsoftware.rootexplorer.bn b;
+
+    void <init>(com.speedsoftware.rootexplorer.ge, com.speedsoftware.rootexplorer.bn)
+    {
+        com.speedsoftware.rootexplorer.hz $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+        com.speedsoftware.rootexplorer.bn $r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.hz;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r2 := @parameter1: com.speedsoftware.rootexplorer.bn;
+
+        $r0.<com.speedsoftware.rootexplorer.hz: com.speedsoftware.rootexplorer.ge a> = $r1;
+
+        $r0.<com.speedsoftware.rootexplorer.hz: com.speedsoftware.rootexplorer.bn b> = $r2;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void onClick(android.content.DialogInterface, int)
+    {
+        com.speedsoftware.rootexplorer.hz $r0;
+        android.content.DialogInterface $r1;
+        int $i0;
+        java.lang.String $r2, $r11;
+        com.speedsoftware.rootexplorer.bn $r3;
+        android.content.Context $r4;
+        android.content.Intent $r5;
+        android.content.ActivityNotFoundException $r6;
+        android.app.Activity $r7, $r8;
+        byte[] $r9;
+        android.widget.Toast $r10;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.hz;
+
+        $r1 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.hz: com.speedsoftware.rootexplorer.bn b>;
+
+        $r4 = <com.speedsoftware.rootexplorer.ge: android.content.Context r>;
+
+     label1:
+        $r5 = virtualinvoke $r3.<com.speedsoftware.rootexplorer.bn: android.content.Intent c(android.content.Context)>($r4);
+
+     label2:
+        if $r5 == null goto label8;
+
+     label3:
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void a(android.content.Intent)>($r5);
+
+     label4:
+        return;
+
+     label5:
+        $r6 := @caughtexception;
+
+        $r7 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r2 = new java.lang.String;
+
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        if $r8 != null goto label7;
+
+        $i0 = 0;
+
+     label6:
+        $r9 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] aP(int)>($i0);
+
+        specialinvoke $r2.<java.lang.String: void <init>(byte[])>($r9);
+
+        $r10 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r7, $r2, 1);
+
+        virtualinvoke $r10.<android.widget.Toast: void show()>();
+
+        return;
+
+     label7:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r11 = virtualinvoke $r8.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r11);
+
+        goto label6;
+
+     label8:
+        return;
+
+        catch android.content.ActivityNotFoundException from label1 to label2 with label5;
+        catch android.content.ActivityNotFoundException from label3 to label4 with label5;
+    }
+}

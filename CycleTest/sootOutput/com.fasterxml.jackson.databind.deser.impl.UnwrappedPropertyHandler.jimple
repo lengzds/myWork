@@ -1,0 +1,155 @@
+public class com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler extends java.lang.Object
+{
+    protected final java.util.ArrayList _properties;
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler $r0;
+        java.util.ArrayList $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler: java.util.ArrayList _properties> = $r1;
+
+        return;
+    }
+
+    public void addProperty(com.fasterxml.jackson.databind.deser.SettableBeanProperty)
+    {
+        com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler $r0;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty $r1;
+        java.util.ArrayList $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.deser.SettableBeanProperty;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler: java.util.ArrayList _properties>;
+
+        virtualinvoke $r2.<java.util.ArrayList: boolean add(java.lang.Object)>($r1);
+
+        return;
+    }
+
+    public java.lang.Object processUnwrapped(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, java.lang.Object, com.fasterxml.jackson.databind.util.TokenBuffer)
+    {
+        com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.lang.Object $r3, $r6;
+        com.fasterxml.jackson.databind.util.TokenBuffer $r4;
+        java.util.ArrayList $r5;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: java.lang.Object;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler: java.util.ArrayList _properties>;
+
+        $i0 = virtualinvoke $r5.<java.util.ArrayList: int size()>();
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label2;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler: java.util.ArrayList _properties>;
+
+        $r6 = virtualinvoke $r5.<java.util.ArrayList: java.lang.Object get(int)>($i1);
+
+        $r7 = (com.fasterxml.jackson.databind.deser.SettableBeanProperty) $r6;
+
+        $r1 = virtualinvoke $r4.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.JsonParser asParser()>();
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        virtualinvoke $r7.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: void deserializeAndSet(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext,java.lang.Object)>($r1, $r2, $r3);
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label2:
+        return $r3;
+    }
+
+    public void renameAll(com.fasterxml.jackson.databind.util.NameTransformer)
+    {
+        com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler $r0;
+        com.fasterxml.jackson.databind.util.NameTransformer $r1;
+        java.util.ArrayList $r2, $r3;
+        java.util.Iterator $r4;
+        boolean $z0;
+        java.lang.Object $r5;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty $r6, $r8;
+        java.lang.String $r7;
+        com.fasterxml.jackson.databind.JsonDeserializer $r9, $r10;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.util.NameTransformer;
+
+        $r2 = new java.util.ArrayList;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler: java.util.ArrayList _properties>;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>(java.util.Collection)>($r3);
+
+        $r4 = virtualinvoke $r2.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler: java.util.ArrayList _properties>;
+
+        virtualinvoke $r2.<java.util.ArrayList: void clear()>();
+
+     label1:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (com.fasterxml.jackson.databind.deser.SettableBeanProperty) $r5;
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: java.lang.String getName()>();
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.util.NameTransformer: java.lang.String transform(java.lang.String)>($r7);
+
+        $r6 = virtualinvoke $r6.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: com.fasterxml.jackson.databind.deser.SettableBeanProperty withName(java.lang.String)>($r7);
+
+        $r8 = $r6;
+
+        $r9 = virtualinvoke $r6.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: com.fasterxml.jackson.databind.JsonDeserializer getValueDeserializer()>();
+
+        if $r9 == null goto label2;
+
+        $r10 = virtualinvoke $r9.<com.fasterxml.jackson.databind.JsonDeserializer: com.fasterxml.jackson.databind.JsonDeserializer unwrappingDeserializer(com.fasterxml.jackson.databind.util.NameTransformer)>($r1);
+
+        if $r10 == $r9 goto label2;
+
+        $r8 = virtualinvoke $r6.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: com.fasterxml.jackson.databind.deser.SettableBeanProperty withValueDeserializer(com.fasterxml.jackson.databind.JsonDeserializer)>($r10);
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.databind.deser.impl.UnwrappedPropertyHandler: java.util.ArrayList _properties>;
+
+        virtualinvoke $r2.<java.util.ArrayList: boolean add(java.lang.Object)>($r8);
+
+        goto label1;
+
+     label3:
+        return;
+    }
+}

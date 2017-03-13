@@ -1,0 +1,90 @@
+public final class com.google.api.a.f.ai extends java.lang.Object implements com.google.api.a.f.ar
+{
+    private final com.google.api.a.f.ar a;
+    private final int b;
+    private final java.util.logging.Level c;
+    private final java.util.logging.Logger d;
+
+    public void <init>(com.google.api.a.f.ar, java.util.logging.Logger, java.util.logging.Level, int)
+    {
+        com.google.api.a.f.ai $r0;
+        com.google.api.a.f.ar $r1;
+        java.util.logging.Logger $r2;
+        java.util.logging.Level $r3;
+        int $i0;
+
+        $r0 := @this: com.google.api.a.f.ai;
+
+        $r1 := @parameter0: com.google.api.a.f.ar;
+
+        $r2 := @parameter1: java.util.logging.Logger;
+
+        $r3 := @parameter2: java.util.logging.Level;
+
+        $i0 := @parameter3: int;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.api.a.f.ai: com.google.api.a.f.ar a> = $r1;
+
+        $r0.<com.google.api.a.f.ai: java.util.logging.Logger d> = $r2;
+
+        $r0.<com.google.api.a.f.ai: java.util.logging.Level c> = $r3;
+
+        $r0.<com.google.api.a.f.ai: int b> = $i0;
+
+        return;
+    }
+
+    public final void a(java.io.OutputStream)
+    {
+        com.google.api.a.f.ai $r0;
+        java.io.OutputStream $r1;
+        java.util.logging.Level $r2;
+        int $i0;
+        com.google.api.a.f.ah $r3;
+        java.util.logging.Logger $r4;
+        com.google.api.a.f.ar $r5;
+        com.google.api.a.f.af $r6;
+        java.lang.Throwable $r7;
+
+        $r0 := @this: com.google.api.a.f.ai;
+
+        $r1 := @parameter0: java.io.OutputStream;
+
+        $r3 = new com.google.api.a.f.ah;
+
+        $r4 = $r0.<com.google.api.a.f.ai: java.util.logging.Logger d>;
+
+        $r2 = $r0.<com.google.api.a.f.ai: java.util.logging.Level c>;
+
+        $i0 = $r0.<com.google.api.a.f.ai: int b>;
+
+        specialinvoke $r3.<com.google.api.a.f.ah: void <init>(java.io.OutputStream,java.util.logging.Logger,java.util.logging.Level,int)>($r1, $r4, $r2, $i0);
+
+     label1:
+        $r5 = $r0.<com.google.api.a.f.ai: com.google.api.a.f.ar a>;
+
+        interfaceinvoke $r5.<com.google.api.a.f.ar: void a(java.io.OutputStream)>($r3);
+
+     label2:
+        $r6 = virtualinvoke $r3.<com.google.api.a.f.ah: com.google.api.a.f.af a()>();
+
+        virtualinvoke $r6.<com.google.api.a.f.af: void close()>();
+
+        virtualinvoke $r1.<java.io.OutputStream: void flush()>();
+
+        return;
+
+     label3:
+        $r7 := @caughtexception;
+
+        $r6 = virtualinvoke $r3.<com.google.api.a.f.ah: com.google.api.a.f.af a()>();
+
+        virtualinvoke $r6.<com.google.api.a.f.af: void close()>();
+
+        throw $r7;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

@@ -1,0 +1,658 @@
+public final class com.speedsoftware.b.f extends java.io.FilterInputStream
+{
+    protected boolean a;
+    protected boolean b;
+    protected long c;
+    protected long d;
+    protected byte[] e;
+    protected byte[] f;
+    protected com.speedsoftware.b.c g;
+    protected com.speedsoftware.b.d h;
+    protected com.speedsoftware.b.g i;
+
+    public void <init>(java.io.InputStream)
+    {
+        com.speedsoftware.b.f $r0;
+        java.io.InputStream $r1;
+        com.speedsoftware.b.c $r2;
+        byte[] $r3;
+
+        $r0 := @this: com.speedsoftware.b.f;
+
+        $r1 := @parameter0: java.io.InputStream;
+
+        specialinvoke $r0.<java.io.FilterInputStream: void <init>(java.io.InputStream)>($r1);
+
+        $r2 = new com.speedsoftware.b.c;
+
+        specialinvoke $r2.<com.speedsoftware.b.c: void <init>(java.io.InputStream)>($r1);
+
+        $r0.<com.speedsoftware.b.f: com.speedsoftware.b.c g> = $r2;
+
+        $r0.<com.speedsoftware.b.f: byte[] f> = null;
+
+        $r3 = newarray (byte)[1];
+
+        $r0.<com.speedsoftware.b.f: byte[] e> = $r3;
+
+        $r0.<com.speedsoftware.b.f: boolean a> = 0;
+
+        $r0.<com.speedsoftware.b.f: boolean b> = 0;
+
+        $r0.<com.speedsoftware.b.f: com.speedsoftware.b.g i> = null;
+
+        return;
+    }
+
+    public final int a()
+    {
+        com.speedsoftware.b.f $r0;
+        int $i0;
+        com.speedsoftware.b.c $r1;
+
+        $r0 := @this: com.speedsoftware.b.f;
+
+        $r1 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.c g>;
+
+        $i0 = virtualinvoke $r1.<com.speedsoftware.b.c: int a()>();
+
+        return $i0;
+    }
+
+    public final int available()
+    {
+        com.speedsoftware.b.f $r0;
+        long $l0, $l1;
+        int $i2;
+
+        $r0 := @this: com.speedsoftware.b.f;
+
+        $l1 = $r0.<com.speedsoftware.b.f: long c>;
+
+        $l0 = $r0.<com.speedsoftware.b.f: long d>;
+
+        $l0 = $l1 - $l0;
+
+        $i2 = (int) $l0;
+
+        return $i2;
+    }
+
+    public final com.speedsoftware.b.d b()
+    {
+        com.speedsoftware.b.f $r0;
+        boolean $z0;
+        com.speedsoftware.b.d $r1;
+        long $l0, $l1;
+        java.io.PrintStream $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r4;
+        byte $b2;
+        com.speedsoftware.b.c $r5;
+        byte[] $r6;
+        com.speedsoftware.b.g $r7;
+        com.speedsoftware.b.a $r8, $r9;
+        int $i3;
+
+        $r0 := @this: com.speedsoftware.b.f;
+
+        $z0 = $r0.<com.speedsoftware.b.f: boolean b>;
+
+        if $z0 == 0 goto label01;
+
+        return null;
+
+     label01:
+        $r1 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.d h>;
+
+        if $r1 == null goto label04;
+
+        $l0 = $r0.<com.speedsoftware.b.f: long c>;
+
+        $l1 = $r0.<com.speedsoftware.b.f: long d>;
+
+        $l0 = $l0 - $l1;
+
+        $z0 = $r0.<com.speedsoftware.b.f: boolean a>;
+
+        if $z0 == 0 goto label02;
+
+        $r2 = <java.lang.System: java.io.PrintStream err>;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("TarInputStream: SKIP currENTRY \'");
+
+        $r1 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.d h>;
+
+        $r4 = virtualinvoke $r1.<com.speedsoftware.b.d: java.lang.String c()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' SZ ");
+
+        $l1 = $r0.<com.speedsoftware.b.f: long c>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" OFF ");
+
+        $l1 = $r0.<com.speedsoftware.b.f: long d>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  skipping ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes");
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r2.<java.io.PrintStream: void println(java.lang.String)>($r4);
+
+     label02:
+        $b2 = $l0 cmp 0L;
+
+        if $b2 <= 0 goto label03;
+
+        virtualinvoke $r0.<com.speedsoftware.b.f: long skip(long)>($l0);
+
+     label03:
+        $r0.<com.speedsoftware.b.f: byte[] f> = null;
+
+     label04:
+        $r5 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.c g>;
+
+        $r6 = virtualinvoke $r5.<com.speedsoftware.b.c: byte[] b()>();
+
+        if $r6 != null goto label08;
+
+        $z0 = $r0.<com.speedsoftware.b.f: boolean a>;
+
+        if $z0 == 0 goto label05;
+
+        $r2 = <java.lang.System: java.io.PrintStream err>;
+
+        virtualinvoke $r2.<java.io.PrintStream: void println(java.lang.String)>("READ NULL RECORD");
+
+     label05:
+        $r0.<com.speedsoftware.b.f: boolean b> = 1;
+
+     label06:
+        $z0 = $r0.<com.speedsoftware.b.f: boolean b>;
+
+        if $z0 == 0 goto label10;
+
+        $r0.<com.speedsoftware.b.f: com.speedsoftware.b.d h> = null;
+
+     label07:
+        $r1 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.d h>;
+
+        return $r1;
+
+     label08:
+        $r5 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.c g>;
+
+        $z0 = virtualinvoke $r5.<com.speedsoftware.b.c: boolean a(byte[])>($r6);
+
+        if $z0 == 0 goto label06;
+
+        $z0 = $r0.<com.speedsoftware.b.f: boolean a>;
+
+        if $z0 == 0 goto label09;
+
+        $r2 = <java.lang.System: java.io.PrintStream err>;
+
+        virtualinvoke $r2.<java.io.PrintStream: void println(java.lang.String)>("READ EOF RECORD");
+
+     label09:
+        $r0.<com.speedsoftware.b.f: boolean b> = 1;
+
+        goto label06;
+
+     label10:
+        $r7 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.g i>;
+
+        if $r7 != null goto label23;
+
+        $r1 = new com.speedsoftware.b.d;
+
+     label11:
+        specialinvoke $r1.<com.speedsoftware.b.d: void <init>(byte[])>($r6);
+
+     label12:
+        $r0.<com.speedsoftware.b.f: com.speedsoftware.b.d h> = $r1;
+
+     label13:
+        $z0 = $r0.<com.speedsoftware.b.f: boolean a>;
+
+        if $z0 == 0 goto label19;
+
+        $r2 = <java.lang.System: java.io.PrintStream err>;
+
+        $r3 = new java.lang.StringBuilder;
+
+     label14:
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("TarInputStream: SET CURRENTRY \'");
+
+     label15:
+        $r1 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.d h>;
+
+     label16:
+        $r4 = virtualinvoke $r1.<com.speedsoftware.b.d: java.lang.String c()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' size = ");
+
+     label17:
+        $r1 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.d h>;
+
+     label18:
+        $l0 = virtualinvoke $r1.<com.speedsoftware.b.d: long g()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r2.<java.io.PrintStream: void println(java.lang.String)>($r4);
+
+     label19:
+        $r0.<com.speedsoftware.b.f: long d> = 0L;
+
+        $r1 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.d h>;
+
+     label20:
+        $l0 = virtualinvoke $r1.<com.speedsoftware.b.d: long g()>();
+
+     label21:
+        $r0.<com.speedsoftware.b.f: long c> = $l0;
+
+        goto label07;
+
+     label22:
+        $r8 := @caughtexception;
+
+        $r0.<com.speedsoftware.b.f: long c> = 0L;
+
+        $r0.<com.speedsoftware.b.f: long d> = 0L;
+
+        $r0.<com.speedsoftware.b.f: com.speedsoftware.b.d h> = null;
+
+        $r9 = new com.speedsoftware.b.a;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("bad header in block ");
+
+        $r5 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.c g>;
+
+        $i3 = virtualinvoke $r5.<com.speedsoftware.b.c: int c()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i3);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" record ");
+
+        $r5 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.c g>;
+
+        $i3 = virtualinvoke $r5.<com.speedsoftware.b.c: int d()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i3);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", ");
+
+        $r4 = virtualinvoke $r8.<com.speedsoftware.b.a: java.lang.String getMessage()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<com.speedsoftware.b.a: void <init>(java.lang.String)>($r4);
+
+        throw $r9;
+
+     label23:
+        $r7 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.g i>;
+
+     label24:
+        $r1 = interfaceinvoke $r7.<com.speedsoftware.b.g: com.speedsoftware.b.d a()>();
+
+     label25:
+        $r0.<com.speedsoftware.b.f: com.speedsoftware.b.d h> = $r1;
+
+        goto label13;
+
+        catch com.speedsoftware.b.a from label11 to label12 with label22;
+        catch com.speedsoftware.b.a from label14 to label15 with label22;
+        catch com.speedsoftware.b.a from label16 to label17 with label22;
+        catch com.speedsoftware.b.a from label18 to label19 with label22;
+        catch com.speedsoftware.b.a from label20 to label21 with label22;
+        catch com.speedsoftware.b.a from label24 to label25 with label22;
+    }
+
+    public final void close()
+    {
+        com.speedsoftware.b.f $r0;
+        com.speedsoftware.b.c $r1;
+
+        $r0 := @this: com.speedsoftware.b.f;
+
+        $r1 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.c g>;
+
+        virtualinvoke $r1.<com.speedsoftware.b.c: void e()>();
+
+        return;
+    }
+
+    public final void mark(int)
+    {
+        com.speedsoftware.b.f $r0;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.b.f;
+
+        $i0 := @parameter0: int;
+
+        return;
+    }
+
+    public final boolean markSupported()
+    {
+        com.speedsoftware.b.f $r0;
+
+        $r0 := @this: com.speedsoftware.b.f;
+
+        return 0;
+    }
+
+    public final int read()
+    {
+        com.speedsoftware.b.f $r0;
+        int $i0;
+        byte[] $r1;
+        byte $b1;
+
+        $r0 := @this: com.speedsoftware.b.f;
+
+        $r1 = $r0.<com.speedsoftware.b.f: byte[] e>;
+
+        $i0 = virtualinvoke $r0.<com.speedsoftware.b.f: int read(byte[],int,int)>($r1, 0, 1);
+
+        if $i0 != -1 goto label1;
+
+        return $i0;
+
+     label1:
+        $r1 = $r0.<com.speedsoftware.b.f: byte[] e>;
+
+        $b1 = $r1[0];
+
+        return $b1;
+    }
+
+    public final int read(byte[])
+    {
+        com.speedsoftware.b.f $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.b.f;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 = lengthof $r1;
+
+        $i0 = virtualinvoke $r0.<com.speedsoftware.b.f: int read(byte[],int,int)>($r1, 0, $i0);
+
+        return $i0;
+    }
+
+    public final int read(byte[], int, int)
+    {
+        com.speedsoftware.b.f $r0;
+        byte[] $r1, $r2, $r3;
+        int $i0, $i1, $i5, $i6, $i7;
+        long $l2, $l3;
+        byte $b4;
+        com.speedsoftware.b.c $r4;
+        java.io.IOException $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r7;
+
+        $r0 := @this: com.speedsoftware.b.f;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $l2 = $r0.<com.speedsoftware.b.f: long d>;
+
+        $l3 = $r0.<com.speedsoftware.b.f: long c>;
+
+        $b4 = $l2 cmp $l3;
+
+        if $b4 < 0 goto label01;
+
+        return -1;
+
+     label01:
+        $l2 = (long) $i1;
+
+        $l3 = $r0.<com.speedsoftware.b.f: long d>;
+
+        $l2 = $l2 + $l3;
+
+        $l3 = $r0.<com.speedsoftware.b.f: long c>;
+
+        $b4 = $l2 cmp $l3;
+
+        if $b4 <= 0 goto label02;
+
+        $l2 = $r0.<com.speedsoftware.b.f: long c>;
+
+        $l3 = $r0.<com.speedsoftware.b.f: long d>;
+
+        $l2 = $l2 - $l3;
+
+        $i1 = (int) $l2;
+
+     label02:
+        $r2 = $r0.<com.speedsoftware.b.f: byte[] f>;
+
+        if $r2 == null goto label12;
+
+        $r2 = $r0.<com.speedsoftware.b.f: byte[] f>;
+
+        $i5 = lengthof $r2;
+
+        if $i1 <= $i5 goto label06;
+
+        $r2 = $r0.<com.speedsoftware.b.f: byte[] f>;
+
+        $i5 = lengthof $r2;
+
+     label03:
+        $r2 = $r0.<com.speedsoftware.b.f: byte[] f>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r2, 0, $r1, $i0, $i5);
+
+        $r2 = $r0.<com.speedsoftware.b.f: byte[] f>;
+
+        $i6 = lengthof $r2;
+
+        if $i5 < $i6 goto label07;
+
+        $r0.<com.speedsoftware.b.f: byte[] f> = null;
+
+     label04:
+        $i6 = $i5 + 0;
+
+        $i1 = $i1 - $i5;
+
+        $i0 = $i0 + $i5;
+
+     label05:
+        if $i1 > 0 goto label08;
+
+        $l2 = $r0.<com.speedsoftware.b.f: long d>;
+
+        $l3 = (long) $i6;
+
+        $l2 = $l2 + $l3;
+
+        $r0.<com.speedsoftware.b.f: long d> = $l2;
+
+        return $i6;
+
+     label06:
+        $i5 = $i1;
+
+        goto label03;
+
+     label07:
+        $r2 = $r0.<com.speedsoftware.b.f: byte[] f>;
+
+        $i6 = lengthof $r2;
+
+        $i6 = $i6 - $i5;
+
+        $r2 = newarray (byte)[$i6];
+
+        $r3 = $r0.<com.speedsoftware.b.f: byte[] f>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r3, $i5, $r2, 0, $i6);
+
+        $r0.<com.speedsoftware.b.f: byte[] f> = $r2;
+
+        goto label04;
+
+     label08:
+        $r4 = $r0.<com.speedsoftware.b.f: com.speedsoftware.b.c g>;
+
+        $r2 = virtualinvoke $r4.<com.speedsoftware.b.c: byte[] b()>();
+
+        if $r2 != null goto label09;
+
+        $r5 = new java.io.IOException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("unexpected EOF with ");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes unread");
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<java.io.IOException: void <init>(java.lang.String)>($r7);
+
+        throw $r5;
+
+     label09:
+        $i5 = lengthof $r2;
+
+        if $i5 <= $i1 goto label11;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r2, 0, $r1, $i0, $i1);
+
+        $i7 = $i5 - $i1;
+
+        $r3 = newarray (byte)[$i7];
+
+        $r0.<com.speedsoftware.b.f: byte[] f> = $r3;
+
+        $r3 = $r0.<com.speedsoftware.b.f: byte[] f>;
+
+        $i5 = $i5 - $i1;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r2, $i1, $r3, 0, $i5);
+
+        $i5 = $i1;
+
+     label10:
+        $i6 = $i6 + $i5;
+
+        $i1 = $i1 - $i5;
+
+        $i0 = $i0 + $i5;
+
+        goto label05;
+
+     label11:
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r2, 0, $r1, $i0, $i5);
+
+        goto label10;
+
+     label12:
+        $i6 = 0;
+
+        goto label05;
+    }
+
+    public final void reset()
+    {
+        com.speedsoftware.b.f $r0;
+
+        $r0 := @this: com.speedsoftware.b.f;
+
+        return;
+    }
+
+    public final long skip(long)
+    {
+        com.speedsoftware.b.f $r0;
+        long $l0, $l1, $l3;
+        byte[] $r1;
+        int $i2;
+        byte $b4;
+
+        $r0 := @this: com.speedsoftware.b.f;
+
+        $l0 := @parameter0: long;
+
+        $r1 = newarray (byte)[8192];
+
+        $l3 = $l0;
+
+     label1:
+        $b4 = $l3 cmp 0L;
+
+        if $b4 > 0 goto label3;
+
+     label2:
+        $l0 = $l0 - $l3;
+
+        return $l0;
+
+     label3:
+        $i2 = lengthof $r1;
+
+        $l1 = (long) $i2;
+
+        $b4 = $l3 cmp $l1;
+
+        if $b4 <= 0 goto label5;
+
+        $i2 = lengthof $r1;
+
+     label4:
+        $i2 = virtualinvoke $r0.<com.speedsoftware.b.f: int read(byte[],int,int)>($r1, 0, $i2);
+
+        if $i2 == -1 goto label2;
+
+        $l1 = (long) $i2;
+
+        $l3 = $l3 - $l1;
+
+        goto label1;
+
+     label5:
+        $i2 = (int) $l3;
+
+        goto label4;
+    }
+}

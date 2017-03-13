@@ -1,0 +1,106 @@
+final class com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator extends java.lang.Object implements java.lang.Iterable, java.util.Iterator
+{
+    private final java.lang.Object[] _array;
+    private int _index;
+
+    public void <init>(java.lang.Object[])
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator $r0;
+        java.lang.Object[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator: java.lang.Object[] _array> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator: int _index> = 0;
+
+        return;
+    }
+
+    public final boolean hasNext()
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator $r0;
+        int $i0, $i1;
+        java.lang.Object[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator;
+
+        $i0 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator: int _index>;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator: java.lang.Object[] _array>;
+
+        $i1 = lengthof $r1;
+
+        if $i0 >= $i1 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final java.util.Iterator iterator()
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator;
+
+        return $r0;
+    }
+
+    public final java.lang.Object next()
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator $r0;
+        int $i0, $i1;
+        java.lang.Object[] $r1;
+        java.util.NoSuchElementException $r2;
+        java.lang.Object $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator;
+
+        $i0 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator: int _index>;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator: java.lang.Object[] _array>;
+
+        $i1 = lengthof $r1;
+
+        if $i0 < $i1 goto label1;
+
+        $r2 = new java.util.NoSuchElementException;
+
+        specialinvoke $r2.<java.util.NoSuchElementException: void <init>()>();
+
+        throw $r2;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator: java.lang.Object[] _array>;
+
+        $i1 = $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator: int _index>;
+
+        $i0 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator: int _index> = $i0;
+
+        $r3 = $r1[$i1];
+
+        return $r3;
+    }
+
+    public final void remove()
+    {
+        com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator $r0;
+        java.lang.UnsupportedOperationException $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ArrayBuilders$ArrayIterator;
+
+        $r1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r1.<java.lang.UnsupportedOperationException: void <init>()>();
+
+        throw $r1;
+    }
+}

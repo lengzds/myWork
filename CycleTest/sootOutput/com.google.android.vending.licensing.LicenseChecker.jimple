@@ -1,0 +1,394 @@
+public class com.google.android.vending.licensing.LicenseChecker extends java.lang.Object implements android.content.ServiceConnection
+{
+    private static final java.security.SecureRandom a;
+    private com.google.android.vending.licensing.ILicensingService b;
+    private java.security.PublicKey c;
+    private final android.content.Context d;
+    private final com.google.android.vending.licensing.Policy e;
+    private android.os.Handler f;
+    private final java.util.Set g;
+    private final java.util.Queue h;
+
+    static void <clinit>()
+    {
+        java.security.SecureRandom $r0;
+
+        $r0 = new java.security.SecureRandom;
+
+        specialinvoke $r0.<java.security.SecureRandom: void <init>()>();
+
+        <com.google.android.vending.licensing.LicenseChecker: java.security.SecureRandom a> = $r0;
+
+        return;
+    }
+
+    static android.os.Handler a(com.google.android.vending.licensing.LicenseChecker)
+    {
+        com.google.android.vending.licensing.LicenseChecker $r0;
+        android.os.Handler r1;
+
+        $r0 := @parameter0: com.google.android.vending.licensing.LicenseChecker;
+
+        r1 = $r0.<com.google.android.vending.licensing.LicenseChecker: android.os.Handler f>;
+
+        return r1;
+    }
+
+    static void a(com.google.android.vending.licensing.LicenseChecker, com.google.android.vending.licensing.LicenseValidator)
+    {
+        com.google.android.vending.licensing.LicenseChecker $r0;
+        com.google.android.vending.licensing.LicenseValidator $r1;
+
+        $r0 := @parameter0: com.google.android.vending.licensing.LicenseChecker;
+
+        $r1 := @parameter1: com.google.android.vending.licensing.LicenseValidator;
+
+        specialinvoke $r0.<com.google.android.vending.licensing.LicenseChecker: void handleServiceConnectionError(com.google.android.vending.licensing.LicenseValidator)>($r1);
+
+        return;
+    }
+
+    static java.util.Set b(com.google.android.vending.licensing.LicenseChecker)
+    {
+        com.google.android.vending.licensing.LicenseChecker $r0;
+        java.util.Set r1;
+
+        $r0 := @parameter0: com.google.android.vending.licensing.LicenseChecker;
+
+        r1 = $r0.<com.google.android.vending.licensing.LicenseChecker: java.util.Set g>;
+
+        return r1;
+    }
+
+    static void b(com.google.android.vending.licensing.LicenseChecker, com.google.android.vending.licensing.LicenseValidator)
+    {
+        com.google.android.vending.licensing.LicenseChecker $r0;
+        com.google.android.vending.licensing.LicenseValidator $r1;
+
+        $r0 := @parameter0: com.google.android.vending.licensing.LicenseChecker;
+
+        $r1 := @parameter1: com.google.android.vending.licensing.LicenseValidator;
+
+        specialinvoke $r0.<com.google.android.vending.licensing.LicenseChecker: void finishCheck(com.google.android.vending.licensing.LicenseValidator)>($r1);
+
+        return;
+    }
+
+    static java.security.PublicKey c(com.google.android.vending.licensing.LicenseChecker)
+    {
+        com.google.android.vending.licensing.LicenseChecker $r0;
+        java.security.PublicKey r1;
+
+        $r0 := @parameter0: com.google.android.vending.licensing.LicenseChecker;
+
+        r1 = $r0.<com.google.android.vending.licensing.LicenseChecker: java.security.PublicKey c>;
+
+        return r1;
+    }
+
+    private void cleanupService()
+    {
+        com.google.android.vending.licensing.LicenseChecker $r0;
+        com.google.android.vending.licensing.ILicensingService $r1;
+        android.content.Context $r2;
+        java.lang.IllegalArgumentException $r3;
+
+        $r0 := @this: com.google.android.vending.licensing.LicenseChecker;
+
+        $r1 = $r0.<com.google.android.vending.licensing.LicenseChecker: com.google.android.vending.licensing.ILicensingService b>;
+
+        if $r1 == null goto label4;
+
+        $r2 = $r0.<com.google.android.vending.licensing.LicenseChecker: android.content.Context d>;
+
+     label1:
+        virtualinvoke $r2.<android.content.Context: void unbindService(android.content.ServiceConnection)>($r0);
+
+     label2:
+        $r0.<com.google.android.vending.licensing.LicenseChecker: com.google.android.vending.licensing.ILicensingService b> = null;
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("LicenseChecker", "Unable to unbind from licensing service (already unbound)");
+
+        goto label2;
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    private void finishCheck(com.google.android.vending.licensing.LicenseValidator)
+    {
+        com.google.android.vending.licensing.LicenseChecker $r0;
+        com.google.android.vending.licensing.LicenseValidator $r1;
+        boolean $z0;
+        java.util.Set $r2;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: com.google.android.vending.licensing.LicenseChecker;
+
+        $r1 := @parameter0: com.google.android.vending.licensing.LicenseValidator;
+
+        entermonitor $r0;
+
+     label1:
+        $r2 = $r0.<com.google.android.vending.licensing.LicenseChecker: java.util.Set g>;
+
+        interfaceinvoke $r2.<java.util.Set: boolean remove(java.lang.Object)>($r1);
+
+        $r2 = $r0.<com.google.android.vending.licensing.LicenseChecker: java.util.Set g>;
+
+        $z0 = interfaceinvoke $r2.<java.util.Set: boolean isEmpty()>();
+
+        if $z0 == 0 goto label2;
+
+        specialinvoke $r0.<com.google.android.vending.licensing.LicenseChecker: void cleanupService()>();
+
+     label2:
+        exitmonitor $r0;
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    private void handleServiceConnectionError(com.google.android.vending.licensing.LicenseValidator)
+    {
+        com.google.android.vending.licensing.LicenseChecker $r0;
+        com.google.android.vending.licensing.LicenseValidator $r1;
+        com.google.android.vending.licensing.Policy $r2;
+        boolean $z0;
+        com.google.android.vending.licensing.LicenseCheckerCallback $r3;
+        java.lang.Throwable $r4;
+
+        $r0 := @this: com.google.android.vending.licensing.LicenseChecker;
+
+        $r1 := @parameter0: com.google.android.vending.licensing.LicenseValidator;
+
+        entermonitor $r0;
+
+     label1:
+        $r2 = $r0.<com.google.android.vending.licensing.LicenseChecker: com.google.android.vending.licensing.Policy e>;
+
+        interfaceinvoke $r2.<com.google.android.vending.licensing.Policy: void processServerResponse(int,com.google.android.vending.licensing.ResponseData)>(291, null);
+
+        $r2 = $r0.<com.google.android.vending.licensing.LicenseChecker: com.google.android.vending.licensing.Policy e>;
+
+        $z0 = interfaceinvoke $r2.<com.google.android.vending.licensing.Policy: boolean allowAccess()>();
+
+        if $z0 == 0 goto label3;
+
+        $r3 = virtualinvoke $r1.<com.google.android.vending.licensing.LicenseValidator: com.google.android.vending.licensing.LicenseCheckerCallback getCallback()>();
+
+        interfaceinvoke $r3.<com.google.android.vending.licensing.LicenseCheckerCallback: void allow(int)>(291);
+
+     label2:
+        exitmonitor $r0;
+
+        return;
+
+     label3:
+        $r3 = virtualinvoke $r1.<com.google.android.vending.licensing.LicenseValidator: com.google.android.vending.licensing.LicenseCheckerCallback getCallback()>();
+
+        interfaceinvoke $r3.<com.google.android.vending.licensing.LicenseCheckerCallback: void dontAllow(int)>(291);
+
+     label4:
+        goto label2;
+
+     label5:
+        $r4 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label5;
+        catch java.lang.Throwable from label3 to label4 with label5;
+    }
+
+    private void runChecks()
+    {
+        com.google.android.vending.licensing.LicenseChecker $r0;
+        com.google.android.vending.licensing.LicenseChecker$ResultListener $r1;
+        java.util.Queue $r2;
+        java.lang.Object $r3;
+        com.google.android.vending.licensing.LicenseValidator $r4;
+        com.google.android.vending.licensing.ILicensingService $r5;
+        int $i0;
+        long $l1;
+        java.lang.String $r6;
+        java.util.Set $r7;
+        android.os.RemoteException $r8;
+
+        $r0 := @this: com.google.android.vending.licensing.LicenseChecker;
+
+     label01:
+        $r2 = $r0.<com.google.android.vending.licensing.LicenseChecker: java.util.Queue h>;
+
+        $r3 = interfaceinvoke $r2.<java.util.Queue: java.lang.Object poll()>();
+
+        $r4 = (com.google.android.vending.licensing.LicenseValidator) $r3;
+
+        if $r4 != null goto label02;
+
+        return;
+
+     label02:
+        $r5 = $r0.<com.google.android.vending.licensing.LicenseChecker: com.google.android.vending.licensing.ILicensingService b>;
+
+     label03:
+        $i0 = virtualinvoke $r4.<com.google.android.vending.licensing.LicenseValidator: int getNonce()>();
+
+     label04:
+        $l1 = (long) $i0;
+
+     label05:
+        $r6 = virtualinvoke $r4.<com.google.android.vending.licensing.LicenseValidator: java.lang.String getPackageName()>();
+
+     label06:
+        $r1 = new com.google.android.vending.licensing.LicenseChecker$ResultListener;
+
+     label07:
+        specialinvoke $r1.<com.google.android.vending.licensing.LicenseChecker$ResultListener: void <init>(com.google.android.vending.licensing.LicenseChecker,com.google.android.vending.licensing.LicenseValidator)>($r0, $r4);
+
+        interfaceinvoke $r5.<com.google.android.vending.licensing.ILicensingService: void checkLicense(long,java.lang.String,com.google.android.vending.licensing.ILicenseResultListener)>($l1, $r6, $r1);
+
+     label08:
+        $r7 = $r0.<com.google.android.vending.licensing.LicenseChecker: java.util.Set g>;
+
+     label09:
+        interfaceinvoke $r7.<java.util.Set: boolean add(java.lang.Object)>($r4);
+
+     label10:
+        goto label01;
+
+     label11:
+        $r8 := @caughtexception;
+
+        specialinvoke $r0.<com.google.android.vending.licensing.LicenseChecker: void handleServiceConnectionError(com.google.android.vending.licensing.LicenseValidator)>($r4);
+
+        goto label01;
+
+        catch android.os.RemoteException from label03 to label04 with label11;
+        catch android.os.RemoteException from label05 to label06 with label11;
+        catch android.os.RemoteException from label07 to label08 with label11;
+        catch android.os.RemoteException from label09 to label10 with label11;
+    }
+
+    public void onDestroy()
+    {
+        com.google.android.vending.licensing.LicenseChecker $r0;
+        android.os.Looper $r1;
+        android.os.Handler $r2;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: com.google.android.vending.licensing.LicenseChecker;
+
+        entermonitor $r0;
+
+     label1:
+        specialinvoke $r0.<com.google.android.vending.licensing.LicenseChecker: void cleanupService()>();
+
+        $r2 = $r0.<com.google.android.vending.licensing.LicenseChecker: android.os.Handler f>;
+
+        $r1 = virtualinvoke $r2.<android.os.Handler: android.os.Looper getLooper()>();
+
+        virtualinvoke $r1.<android.os.Looper: void quit()>();
+
+     label2:
+        exitmonitor $r0;
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void onServiceConnected(android.content.ComponentName, android.os.IBinder)
+    {
+        com.google.android.vending.licensing.LicenseChecker $r0;
+        android.content.ComponentName $r1;
+        android.os.IBinder $r2;
+        com.google.android.vending.licensing.ILicensingService $r3;
+        java.lang.Throwable $r4;
+
+        $r0 := @this: com.google.android.vending.licensing.LicenseChecker;
+
+        $r1 := @parameter0: android.content.ComponentName;
+
+        $r2 := @parameter1: android.os.IBinder;
+
+        entermonitor $r0;
+
+     label1:
+        $r3 = staticinvoke <com.google.android.vending.licensing.ILicensingService$Stub: com.google.android.vending.licensing.ILicensingService asInterface(android.os.IBinder)>($r2);
+
+        $r0.<com.google.android.vending.licensing.LicenseChecker: com.google.android.vending.licensing.ILicensingService b> = $r3;
+
+        specialinvoke $r0.<com.google.android.vending.licensing.LicenseChecker: void runChecks()>();
+
+     label2:
+        exitmonitor $r0;
+
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void onServiceDisconnected(android.content.ComponentName)
+    {
+        com.google.android.vending.licensing.LicenseChecker $r0;
+        android.content.ComponentName $r1;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: com.google.android.vending.licensing.LicenseChecker;
+
+        $r1 := @parameter0: android.content.ComponentName;
+
+        entermonitor $r0;
+
+     label1:
+        staticinvoke <android.util.Log: int w(java.lang.String,java.lang.String)>("LicenseChecker", "Service unexpectedly disconnected.");
+
+        $r0.<com.google.android.vending.licensing.LicenseChecker: com.google.android.vending.licensing.ILicensingService b> = null;
+
+     label2:
+        exitmonitor $r0;
+
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

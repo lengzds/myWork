@@ -1,0 +1,464 @@
+final class com.speedsoftware.rootexplorer.fo extends java.lang.Thread
+{
+    final com.speedsoftware.rootexplorer.RootExplorer a;
+
+    void <init>(com.speedsoftware.rootexplorer.RootExplorer)
+    {
+        com.speedsoftware.rootexplorer.fo $r0;
+        com.speedsoftware.rootexplorer.RootExplorer $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fo;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.RootExplorer;
+
+        $r0.<com.speedsoftware.rootexplorer.fo: com.speedsoftware.rootexplorer.RootExplorer a> = $r1;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.fo $r0;
+        com.speedsoftware.rootexplorer.bz $r1;
+        int $i0, $i2;
+        java.util.zip.CRC32 $r2;
+        android.content.Context $r3;
+        com.speedsoftware.rootexplorer.RootExplorer $r4;
+        boolean $z0;
+        java.io.File $r5, $r13;
+        java.lang.String $r6, $r12;
+        java.io.File[] $r7;
+        long $l1, $l3, $l4, $l5;
+        android.database.Cursor $r8, $r11;
+        java.lang.InterruptedException $r9, $r10, $r24, $r26;
+        byte[] $r14;
+        byte $b6;
+        java.lang.Exception $r15, $r17, $r18, $r19, $r20, $r22, $r23, $r27, $r28, $r29;
+        java.lang.Throwable $r16, $r21, $r25;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fo;
+
+     label01:
+        staticinvoke <java.lang.Thread: void sleep(long)>(4000L);
+
+     label02:
+        $r1 = new com.speedsoftware.rootexplorer.bz;
+
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: android.content.Context f()>();
+
+        specialinvoke $r1.<com.speedsoftware.rootexplorer.bz: void <init>(android.content.Context)>($r3);
+
+     label03:
+        $r4 = $r0.<com.speedsoftware.rootexplorer.fo: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $z0 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: boolean f(com.speedsoftware.rootexplorer.RootExplorer)>($r4);
+
+     label04:
+        if $z0 == 0 goto label17;
+
+     label05:
+        $z0 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.bz: boolean c()>();
+
+     label06:
+        if $z0 != 0 goto label08;
+
+     label07:
+        virtualinvoke $r1.<com.speedsoftware.rootexplorer.bz: com.speedsoftware.rootexplorer.bz a()>();
+
+     label08:
+        $r5 = new java.io.File;
+
+        $r6 = <com.speedsoftware.rootexplorer.bn: java.lang.String d>;
+
+     label09:
+        specialinvoke $r5.<java.io.File: void <init>(java.lang.String)>($r6);
+
+        $r7 = virtualinvoke $r5.<java.io.File: java.io.File[] listFiles()>();
+
+        $l1 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+     label10:
+        $i0 = lengthof $r7;
+
+     label11:
+        $r8 = null;
+
+        $i2 = 0;
+
+     label12:
+        if $i2 < $i0 goto label21;
+
+     label13:
+        virtualinvoke $r1.<com.speedsoftware.rootexplorer.bz: boolean b(long)>($l1);
+
+     label14:
+        $z0 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.bz: boolean c()>();
+
+     label15:
+        if $z0 == 0 goto label17;
+
+     label16:
+        virtualinvoke $r1.<com.speedsoftware.rootexplorer.bz: void b()>();
+
+     label17:
+        staticinvoke <java.lang.Thread: void sleep(long)>(60000L);
+
+     label18:
+        goto label03;
+
+     label19:
+        $r9 := @caughtexception;
+
+        virtualinvoke $r9.<java.lang.InterruptedException: void printStackTrace()>();
+
+        goto label03;
+
+     label20:
+        $r10 := @caughtexception;
+
+        virtualinvoke $r10.<java.lang.InterruptedException: void printStackTrace()>();
+
+        goto label02;
+
+     label21:
+        $r5 = $r7[$i2];
+
+     label22:
+        $r6 = virtualinvoke $r5.<java.io.File: java.lang.String getName()>();
+
+        $r11 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.bz: android.database.Cursor a(java.lang.String)>($r6);
+
+     label23:
+        $r8 = $r11;
+
+        if $r11 == null goto label69;
+
+     label24:
+        $z0 = interfaceinvoke $r11.<android.database.Cursor: boolean moveToFirst()>();
+
+     label25:
+        if $z0 == 0 goto label69;
+
+     label26:
+        $l3 = interfaceinvoke $r11.<android.database.Cursor: long getLong(int)>(0);
+
+        $r12 = interfaceinvoke $r11.<android.database.Cursor: java.lang.String getString(int)>(2);
+
+        $z0 = virtualinvoke $r12.<java.lang.String: boolean startsWith(java.lang.String)>("/");
+
+     label27:
+        if $z0 == 0 goto label52;
+
+     label28:
+        $r13 = new java.io.File;
+
+     label29:
+        specialinvoke $r13.<java.io.File: void <init>(java.lang.String)>($r12);
+
+     label30:
+        $r2 = new java.util.zip.CRC32;
+
+     label31:
+        specialinvoke $r2.<java.util.zip.CRC32: void <init>()>();
+
+        $r14 = virtualinvoke $r12.<java.lang.String: byte[] getBytes()>();
+
+        virtualinvoke $r2.<java.util.zip.CRC32: void update(byte[])>($r14);
+
+        $l4 = staticinvoke <java.lang.Long: long parseLong(java.lang.String)>($r6);
+
+        $l5 = virtualinvoke $r2.<java.util.zip.CRC32: long getValue()>();
+
+     label32:
+        $b6 = $l5 cmp $l4;
+
+        if $b6 != 0 goto label44;
+
+        $z0 = 1;
+
+     label33:
+        if $z0 != 0 goto label45;
+
+     label34:
+        $z0 = virtualinvoke $r13.<java.io.File: boolean exists()>();
+
+     label35:
+        if $z0 == 0 goto label45;
+
+     label36:
+        virtualinvoke $r1.<com.speedsoftware.rootexplorer.bz: long c(long)>($l3);
+
+     label37:
+        if $r11 == null goto label73;
+
+     label38:
+        $z0 = interfaceinvoke $r11.<android.database.Cursor: boolean isClosed()>();
+
+     label39:
+        if $z0 != 0 goto label73;
+
+     label40:
+        interfaceinvoke $r11.<android.database.Cursor: void close()>();
+
+     label41:
+        $r8 = $r11;
+
+     label42:
+        staticinvoke <java.lang.Thread: void sleep(long)>(50L);
+
+     label43:
+        $i2 = $i2 + 1;
+
+        goto label12;
+
+     label44:
+        $z0 = 0;
+
+        goto label33;
+
+     label45:
+        virtualinvoke $r5.<java.io.File: boolean delete()>();
+
+     label46:
+        goto label37;
+
+     label47:
+        $r15 := @caughtexception;
+
+        if $r8 == null goto label73;
+
+     label48:
+        $z0 = interfaceinvoke $r8.<android.database.Cursor: boolean isClosed()>();
+
+     label49:
+        if $z0 != 0 goto label73;
+
+     label50:
+        interfaceinvoke $r8.<android.database.Cursor: void close()>();
+
+     label51:
+        goto label42;
+
+     label52:
+        $l4 = virtualinvoke $r5.<java.io.File: long lastModified()>();
+
+        $l5 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+     label53:
+        $l4 = $l5 - $l4;
+
+        $l4 = $l4 / 1000L;
+
+        $b6 = $l4 cmp 2592000L;
+
+        if $b6 >= 0 goto label67;
+
+     label54:
+        virtualinvoke $r1.<com.speedsoftware.rootexplorer.bz: long c(long)>($l3);
+
+     label55:
+        goto label37;
+
+     label56:
+        $r16 := @caughtexception;
+
+        if $r8 == null goto label60;
+
+     label57:
+        $z0 = interfaceinvoke $r8.<android.database.Cursor: boolean isClosed()>();
+
+     label58:
+        if $z0 != 0 goto label60;
+
+     label59:
+        interfaceinvoke $r8.<android.database.Cursor: void close()>();
+
+     label60:
+        throw $r16;
+
+     label61:
+        $r17 := @caughtexception;
+
+     label62:
+        $z0 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.bz: boolean c()>();
+
+     label63:
+        if $z0 == 0 goto label17;
+
+     label64:
+        virtualinvoke $r1.<com.speedsoftware.rootexplorer.bz: void b()>();
+
+     label65:
+        goto label17;
+
+     label66:
+        $r18 := @caughtexception;
+
+        goto label17;
+
+     label67:
+        virtualinvoke $r5.<java.io.File: boolean delete()>();
+
+     label68:
+        goto label37;
+
+     label69:
+        virtualinvoke $r5.<java.io.File: boolean delete()>();
+
+     label70:
+        goto label37;
+
+     label71:
+        $r19 := @caughtexception;
+
+        goto label42;
+
+     label72:
+        $r20 := @caughtexception;
+
+     label73:
+        goto label42;
+
+     label74:
+        $r21 := @caughtexception;
+
+     label75:
+        $z0 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.bz: boolean c()>();
+
+     label76:
+        if $z0 == 0 goto label78;
+
+     label77:
+        virtualinvoke $r1.<com.speedsoftware.rootexplorer.bz: void b()>();
+
+     label78:
+        throw $r21;
+
+     label79:
+        $r22 := @caughtexception;
+
+        goto label17;
+
+     label80:
+        $r23 := @caughtexception;
+
+     label81:
+        virtualinvoke $r23.<java.lang.Exception: void printStackTrace()>();
+
+     label82:
+        staticinvoke <java.lang.Thread: void sleep(long)>(60000L);
+
+     label83:
+        goto label03;
+
+     label84:
+        $r24 := @caughtexception;
+
+        virtualinvoke $r24.<java.lang.InterruptedException: void printStackTrace()>();
+
+        goto label03;
+
+     label85:
+        $r25 := @caughtexception;
+
+     label86:
+        staticinvoke <java.lang.Thread: void sleep(long)>(60000L);
+
+     label87:
+        throw $r25;
+
+     label88:
+        $r26 := @caughtexception;
+
+        virtualinvoke $r26.<java.lang.InterruptedException: void printStackTrace()>();
+
+        goto label87;
+
+     label89:
+        $r27 := @caughtexception;
+
+        goto label17;
+
+     label90:
+        $r28 := @caughtexception;
+
+        goto label78;
+
+     label91:
+        $r29 := @caughtexception;
+
+        goto label60;
+
+        catch java.lang.InterruptedException from label01 to label02 with label20;
+        catch java.lang.Exception from label03 to label04 with label80;
+        catch java.lang.Throwable from label03 to label04 with label85;
+        catch java.lang.Exception from label05 to label06 with label79;
+        catch java.lang.Exception from label07 to label08 with label79;
+        catch java.lang.Throwable from label05 to label06 with label85;
+        catch java.lang.Throwable from label07 to label08 with label85;
+        catch java.lang.Exception from label09 to label11 with label61;
+        catch java.lang.Exception from label13 to label14 with label61;
+        catch java.lang.Throwable from label08 to label10 with label74;
+        catch java.lang.Throwable from label13 to label14 with label74;
+        catch java.lang.Exception from label14 to label15 with label89;
+        catch java.lang.Exception from label16 to label17 with label89;
+        catch java.lang.Throwable from label14 to label15 with label85;
+        catch java.lang.Throwable from label16 to label17 with label85;
+        catch java.lang.InterruptedException from label17 to label18 with label19;
+        catch java.lang.Exception from label21 to label22 with label61;
+        catch java.lang.Exception from label22 to label23 with label47;
+        catch java.lang.Exception from label24 to label25 with label47;
+        catch java.lang.Exception from label26 to label27 with label47;
+        catch java.lang.Exception from label29 to label30 with label47;
+        catch java.lang.Exception from label31 to label32 with label47;
+        catch java.lang.Exception from label34 to label35 with label47;
+        catch java.lang.Exception from label36 to label37 with label47;
+        catch java.lang.Throwable from label22 to label23 with label56;
+        catch java.lang.Throwable from label24 to label25 with label56;
+        catch java.lang.Throwable from label26 to label27 with label56;
+        catch java.lang.Throwable from label28 to label32 with label56;
+        catch java.lang.Throwable from label34 to label35 with label56;
+        catch java.lang.Throwable from label36 to label37 with label56;
+        catch java.lang.Exception from label38 to label39 with label72;
+        catch java.lang.Exception from label40 to label41 with label72;
+        catch java.lang.Throwable from label38 to label39 with label74;
+        catch java.lang.Throwable from label40 to label41 with label74;
+        catch java.lang.Exception from label42 to label43 with label61;
+        catch java.lang.Throwable from label42 to label43 with label74;
+        catch java.lang.Exception from label45 to label46 with label47;
+        catch java.lang.Throwable from label45 to label46 with label56;
+        catch java.lang.Exception from label48 to label49 with label71;
+        catch java.lang.Exception from label50 to label51 with label71;
+        catch java.lang.Throwable from label48 to label49 with label74;
+        catch java.lang.Throwable from label50 to label51 with label74;
+        catch java.lang.Exception from label52 to label53 with label47;
+        catch java.lang.Exception from label54 to label55 with label47;
+        catch java.lang.Throwable from label52 to label53 with label56;
+        catch java.lang.Throwable from label54 to label55 with label56;
+        catch java.lang.Exception from label57 to label58 with label91;
+        catch java.lang.Exception from label59 to label60 with label91;
+        catch java.lang.Throwable from label57 to label58 with label74;
+        catch java.lang.Throwable from label59 to label60 with label74;
+        catch java.lang.Exception from label60 to label61 with label61;
+        catch java.lang.Throwable from label60 to label61 with label74;
+        catch java.lang.Exception from label62 to label63 with label66;
+        catch java.lang.Exception from label64 to label65 with label66;
+        catch java.lang.Throwable from label62 to label63 with label85;
+        catch java.lang.Throwable from label64 to label65 with label85;
+        catch java.lang.Exception from label67 to label68 with label47;
+        catch java.lang.Exception from label69 to label70 with label47;
+        catch java.lang.Throwable from label67 to label68 with label56;
+        catch java.lang.Throwable from label69 to label70 with label56;
+        catch java.lang.Exception from label75 to label76 with label90;
+        catch java.lang.Exception from label77 to label78 with label90;
+        catch java.lang.Throwable from label75 to label76 with label85;
+        catch java.lang.Throwable from label77 to label78 with label85;
+        catch java.lang.Exception from label78 to label79 with label79;
+        catch java.lang.Throwable from label78 to label79 with label85;
+        catch java.lang.Throwable from label81 to label82 with label85;
+        catch java.lang.InterruptedException from label82 to label83 with label84;
+        catch java.lang.InterruptedException from label86 to label87 with label88;
+    }
+}

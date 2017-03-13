@@ -1,0 +1,292 @@
+public class com.fasterxml.jackson.databind.ser.BeanSerializerBuilder extends java.lang.Object
+{
+    private static final com.fasterxml.jackson.databind.ser.BeanPropertyWriter[] NO_PROPERTIES;
+    protected com.fasterxml.jackson.databind.ser.AnyGetterWriter _anyGetter;
+    protected final com.fasterxml.jackson.databind.BeanDescription _beanDesc;
+    protected java.lang.Object _filterId;
+    protected com.fasterxml.jackson.databind.ser.BeanPropertyWriter[] _filteredProperties;
+    protected com.fasterxml.jackson.databind.ser.impl.ObjectIdWriter _objectIdWriter;
+    protected java.util.List _properties;
+    protected com.fasterxml.jackson.databind.introspect.AnnotatedMember _typeId;
+
+    static void <clinit>()
+    {
+        com.fasterxml.jackson.databind.ser.BeanPropertyWriter[] $r0;
+
+        $r0 = newarray (com.fasterxml.jackson.databind.ser.BeanPropertyWriter)[0];
+
+        <com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.ser.BeanPropertyWriter[] NO_PROPERTIES> = $r0;
+
+        return;
+    }
+
+    public void <init>(com.fasterxml.jackson.databind.BeanDescription)
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        com.fasterxml.jackson.databind.BeanDescription $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.BeanDescription;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.BeanDescription _beanDesc> = $r1;
+
+        return;
+    }
+
+    public com.fasterxml.jackson.databind.JsonSerializer build()
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        com.fasterxml.jackson.databind.ser.BeanPropertyWriter[] $r1, $r4;
+        java.util.List $r2, $r8;
+        boolean $z0;
+        com.fasterxml.jackson.databind.ser.AnyGetterWriter $r3;
+        com.fasterxml.jackson.databind.ser.BeanSerializer $r5;
+        com.fasterxml.jackson.databind.BeanDescription $r6;
+        com.fasterxml.jackson.databind.JavaType $r7;
+        int $i0;
+        java.lang.Object[] $r9;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: java.util.List _properties>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: java.util.List _properties>;
+
+        $z0 = interfaceinvoke $r2.<java.util.List: boolean isEmpty()>();
+
+        if $z0 == 0 goto label4;
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.ser.AnyGetterWriter _anyGetter>;
+
+        if $r3 != null goto label2;
+
+        return null;
+
+     label2:
+        $r4 = <com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.ser.BeanPropertyWriter[] NO_PROPERTIES>;
+
+     label3:
+        $r5 = new com.fasterxml.jackson.databind.ser.BeanSerializer;
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.BeanDescription _beanDesc>;
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.BeanDescription: com.fasterxml.jackson.databind.JavaType getType()>();
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.ser.BeanPropertyWriter[] _filteredProperties>;
+
+        specialinvoke $r5.<com.fasterxml.jackson.databind.ser.BeanSerializer: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.ser.BeanSerializerBuilder,com.fasterxml.jackson.databind.ser.BeanPropertyWriter[],com.fasterxml.jackson.databind.ser.BeanPropertyWriter[])>($r7, $r0, $r4, $r1);
+
+        return $r5;
+
+     label4:
+        $r2 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: java.util.List _properties>;
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: java.util.List _properties>;
+
+        $i0 = interfaceinvoke $r8.<java.util.List: int size()>();
+
+        $r1 = newarray (com.fasterxml.jackson.databind.ser.BeanPropertyWriter)[$i0];
+
+        $r9 = interfaceinvoke $r2.<java.util.List: java.lang.Object[] toArray(java.lang.Object[])>($r1);
+
+        $r4 = (com.fasterxml.jackson.databind.ser.BeanPropertyWriter[]) $r9;
+
+        goto label3;
+    }
+
+    public com.fasterxml.jackson.databind.ser.BeanSerializer createDummy()
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        com.fasterxml.jackson.databind.BeanDescription $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        com.fasterxml.jackson.databind.ser.BeanSerializer $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.BeanDescription _beanDesc>;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.BeanDescription: com.fasterxml.jackson.databind.JavaType getType()>();
+
+        $r3 = staticinvoke <com.fasterxml.jackson.databind.ser.BeanSerializer: com.fasterxml.jackson.databind.ser.BeanSerializer createDummy(com.fasterxml.jackson.databind.JavaType)>($r2);
+
+        return $r3;
+    }
+
+    public com.fasterxml.jackson.databind.ser.AnyGetterWriter getAnyGetter()
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        com.fasterxml.jackson.databind.ser.AnyGetterWriter r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.ser.AnyGetterWriter _anyGetter>;
+
+        return r1;
+    }
+
+    public java.lang.Object getFilterId()
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        java.lang.Object r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: java.lang.Object _filterId>;
+
+        return r1;
+    }
+
+    public com.fasterxml.jackson.databind.ser.impl.ObjectIdWriter getObjectIdWriter()
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        com.fasterxml.jackson.databind.ser.impl.ObjectIdWriter r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.ser.impl.ObjectIdWriter _objectIdWriter>;
+
+        return r1;
+    }
+
+    public java.util.List getProperties()
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        java.util.List r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: java.util.List _properties>;
+
+        return r1;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedMember getTypeId()
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.introspect.AnnotatedMember _typeId>;
+
+        return r1;
+    }
+
+    public void setAnyGetter(com.fasterxml.jackson.databind.ser.AnyGetterWriter)
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        com.fasterxml.jackson.databind.ser.AnyGetterWriter $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.ser.AnyGetterWriter;
+
+        $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.ser.AnyGetterWriter _anyGetter> = $r1;
+
+        return;
+    }
+
+    public void setFilterId(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: java.lang.Object _filterId> = $r1;
+
+        return;
+    }
+
+    public void setFilteredProperties(com.fasterxml.jackson.databind.ser.BeanPropertyWriter[])
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        com.fasterxml.jackson.databind.ser.BeanPropertyWriter[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.ser.BeanPropertyWriter[];
+
+        $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.ser.BeanPropertyWriter[] _filteredProperties> = $r1;
+
+        return;
+    }
+
+    public void setObjectIdWriter(com.fasterxml.jackson.databind.ser.impl.ObjectIdWriter)
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        com.fasterxml.jackson.databind.ser.impl.ObjectIdWriter $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.ser.impl.ObjectIdWriter;
+
+        $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.ser.impl.ObjectIdWriter _objectIdWriter> = $r1;
+
+        return;
+    }
+
+    public void setProperties(java.util.List)
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        java.util.List $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        $r1 := @parameter0: java.util.List;
+
+        $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: java.util.List _properties> = $r1;
+
+        return;
+    }
+
+    public void setTypeId(com.fasterxml.jackson.databind.introspect.AnnotatedMember)
+    {
+        com.fasterxml.jackson.databind.ser.BeanSerializerBuilder $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1, $r2;
+        java.lang.IllegalArgumentException $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.BeanSerializerBuilder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.introspect.AnnotatedMember _typeId>;
+
+        if $r2 == null goto label1;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Multiple type ids specified with ");
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.introspect.AnnotatedMember _typeId>;
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" and ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r1);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r5);
+
+        throw $r3;
+
+     label1:
+        $r0.<com.fasterxml.jackson.databind.ser.BeanSerializerBuilder: com.fasterxml.jackson.databind.introspect.AnnotatedMember _typeId> = $r1;
+
+        return;
+    }
+}

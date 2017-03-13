@@ -1,0 +1,415 @@
+public class com.google.android.gms.internal.hr extends java.lang.Object
+{
+    private final java.util.LinkedHashMap a;
+    private int b;
+    private int c;
+    private int d;
+    private int e;
+    private int f;
+    private int g;
+
+    private int c(java.lang.Object, java.lang.Object)
+    {
+        com.google.android.gms.internal.hr $r0;
+        java.lang.Object $r1, $r2;
+        int $i0;
+        java.lang.IllegalStateException $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: com.google.android.gms.internal.hr;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.internal.hr: int a(java.lang.Object)>($r2);
+
+        if $i0 >= 0 goto label1;
+
+        $r3 = new java.lang.IllegalStateException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Negative size: ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r1);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("=");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r5);
+
+        throw $r3;
+
+     label1:
+        return $i0;
+    }
+
+    protected int a(java.lang.Object)
+    {
+        com.google.android.gms.internal.hr $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.google.android.gms.internal.hr;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        return 1;
+    }
+
+    public final void evictAll()
+    {
+        com.google.android.gms.internal.hr $r0;
+
+        $r0 := @this: com.google.android.gms.internal.hr;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.hr: void trimToSize(int)>(-1);
+
+        return;
+    }
+
+    public final java.lang.Object get(java.lang.Object)
+    {
+        com.google.android.gms.internal.hr $r0;
+        java.lang.Object $r1;
+        java.lang.NullPointerException $r2;
+        java.util.LinkedHashMap $r3;
+        int $i0;
+        java.lang.Throwable $r4;
+
+        $r0 := @this: com.google.android.gms.internal.hr;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.NullPointerException;
+
+        specialinvoke $r2.<java.lang.NullPointerException: void <init>(java.lang.String)>("key == null");
+
+        throw $r2;
+
+     label1:
+        entermonitor $r0;
+
+     label2:
+        $r3 = $r0.<com.google.android.gms.internal.hr: java.util.LinkedHashMap a>;
+
+        $r1 = virtualinvoke $r3.<java.util.LinkedHashMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        if $r1 == null goto label4;
+
+        $i0 = $r0.<com.google.android.gms.internal.hr: int f>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.google.android.gms.internal.hr: int f> = $i0;
+
+        exitmonitor $r0;
+
+     label3:
+        return $r1;
+
+     label4:
+        $i0 = $r0.<com.google.android.gms.internal.hr: int g>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.google.android.gms.internal.hr: int g> = $i0;
+
+        exitmonitor $r0;
+
+     label5:
+        return null;
+
+     label6:
+        $r4 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label2 to label3 with label6;
+        catch java.lang.Throwable from label4 to label5 with label6;
+    }
+
+    public final java.lang.Object put(java.lang.Object, java.lang.Object)
+    {
+        com.google.android.gms.internal.hr $r0;
+        java.lang.Object $r1, $r2;
+        java.lang.NullPointerException $r3;
+        int $i0, $i1;
+        java.util.LinkedHashMap $r4;
+        java.lang.Throwable $r5;
+
+        $r0 := @this: com.google.android.gms.internal.hr;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        if $r1 == null goto label1;
+
+        if $r2 != null goto label2;
+
+     label1:
+        $r3 = new java.lang.NullPointerException;
+
+        specialinvoke $r3.<java.lang.NullPointerException: void <init>(java.lang.String)>("key == null || value == null");
+
+        throw $r3;
+
+     label2:
+        entermonitor $r0;
+
+     label3:
+        $i0 = $r0.<com.google.android.gms.internal.hr: int d>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.google.android.gms.internal.hr: int d> = $i0;
+
+        $i0 = $r0.<com.google.android.gms.internal.hr: int b>;
+
+        $i1 = specialinvoke $r0.<com.google.android.gms.internal.hr: int c(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        $i0 = $i0 + $i1;
+
+        $r0.<com.google.android.gms.internal.hr: int b> = $i0;
+
+        $r4 = $r0.<com.google.android.gms.internal.hr: java.util.LinkedHashMap a>;
+
+        $r2 = virtualinvoke $r4.<java.util.LinkedHashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        if $r2 == null goto label4;
+
+        $i0 = $r0.<com.google.android.gms.internal.hr: int b>;
+
+        $i1 = specialinvoke $r0.<com.google.android.gms.internal.hr: int c(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        $i0 = $i0 - $i1;
+
+        $r0.<com.google.android.gms.internal.hr: int b> = $i0;
+
+     label4:
+        exitmonitor $r0;
+
+     label5:
+        $i0 = $r0.<com.google.android.gms.internal.hr: int c>;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.hr: void trimToSize(int)>($i0);
+
+        return $r2;
+
+     label6:
+        $r5 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r5;
+
+        catch java.lang.Throwable from label3 to label5 with label6;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.internal.hr $r0;
+        int $i0, $i1, $i2;
+        java.lang.Object[] $r1;
+        java.lang.Integer $r2;
+        java.lang.String $r3;
+        java.lang.Throwable $r4;
+
+        $r0 := @this: com.google.android.gms.internal.hr;
+
+        $i0 = 0;
+
+        entermonitor $r0;
+
+     label1:
+        $i1 = $r0.<com.google.android.gms.internal.hr: int f>;
+
+        $i2 = $r0.<com.google.android.gms.internal.hr: int g>;
+
+        $i1 = $i1 + $i2;
+
+        if $i1 == 0 goto label2;
+
+        $i0 = $r0.<com.google.android.gms.internal.hr: int f>;
+
+        $i0 = $i0 * 100;
+
+        $i0 = $i0 / $i1;
+
+     label2:
+        $r1 = newarray (java.lang.Object)[4];
+
+        $i1 = $r0.<com.google.android.gms.internal.hr: int c>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $r1[0] = $r2;
+
+        $i1 = $r0.<com.google.android.gms.internal.hr: int f>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $r1[1] = $r2;
+
+        $i1 = $r0.<com.google.android.gms.internal.hr: int g>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $r1[2] = $r2;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1[3] = $r2;
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", $r1);
+
+     label3:
+        exitmonitor $r0;
+
+        return $r3;
+
+     label4:
+        $r4 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+    }
+
+    public void trimToSize(int)
+    {
+        com.google.android.gms.internal.hr $r0;
+        int $i0, $i1, $i2;
+        java.util.LinkedHashMap $r1;
+        boolean $z0;
+        java.lang.IllegalStateException $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.Class $r4;
+        java.lang.String $r5;
+        java.lang.Throwable $r6;
+        java.util.Set $r7;
+        java.util.Iterator $r8;
+        java.lang.Object $r9, $r11;
+        java.util.Map$Entry $r10;
+
+        $r0 := @this: com.google.android.gms.internal.hr;
+
+        $i0 := @parameter0: int;
+
+     label1:
+        entermonitor $r0;
+
+     label2:
+        $i1 = $r0.<com.google.android.gms.internal.hr: int b>;
+
+        if $i1 < 0 goto label3;
+
+        $r1 = $r0.<com.google.android.gms.internal.hr: java.util.LinkedHashMap a>;
+
+        $z0 = virtualinvoke $r1.<java.util.LinkedHashMap: boolean isEmpty()>();
+
+        if $z0 == 0 goto label5;
+
+        $i1 = $r0.<com.google.android.gms.internal.hr: int b>;
+
+        if $i1 == 0 goto label5;
+
+     label3:
+        $r2 = new java.lang.IllegalStateException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r4 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r5 = virtualinvoke $r4.<java.lang.Class: java.lang.String getName()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".sizeOf() is reporting inconsistent results!");
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r5);
+
+        throw $r2;
+
+     label4:
+        $r6 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r6;
+
+     label5:
+        $i1 = $r0.<com.google.android.gms.internal.hr: int b>;
+
+        if $i1 <= $i0 goto label6;
+
+        $r1 = $r0.<com.google.android.gms.internal.hr: java.util.LinkedHashMap a>;
+
+        $z0 = virtualinvoke $r1.<java.util.LinkedHashMap: boolean isEmpty()>();
+
+        if $z0 == 0 goto label8;
+
+     label6:
+        exitmonitor $r0;
+
+     label7:
+        return;
+
+     label8:
+        $r1 = $r0.<com.google.android.gms.internal.hr: java.util.LinkedHashMap a>;
+
+        $r7 = virtualinvoke $r1.<java.util.LinkedHashMap: java.util.Set entrySet()>();
+
+        $r8 = interfaceinvoke $r7.<java.util.Set: java.util.Iterator iterator()>();
+
+        $r9 = interfaceinvoke $r8.<java.util.Iterator: java.lang.Object next()>();
+
+        $r10 = (java.util.Map$Entry) $r9;
+
+        $r9 = interfaceinvoke $r10.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r11 = interfaceinvoke $r10.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r1 = $r0.<com.google.android.gms.internal.hr: java.util.LinkedHashMap a>;
+
+        virtualinvoke $r1.<java.util.LinkedHashMap: java.lang.Object remove(java.lang.Object)>($r9);
+
+        $i1 = $r0.<com.google.android.gms.internal.hr: int b>;
+
+        $i2 = specialinvoke $r0.<com.google.android.gms.internal.hr: int c(java.lang.Object,java.lang.Object)>($r9, $r11);
+
+        $i1 = $i1 - $i2;
+
+        $r0.<com.google.android.gms.internal.hr: int b> = $i1;
+
+        $i1 = $r0.<com.google.android.gms.internal.hr: int e>;
+
+        $i1 = $i1 + 1;
+
+        $r0.<com.google.android.gms.internal.hr: int e> = $i1;
+
+        exitmonitor $r0;
+
+     label9:
+        goto label1;
+
+        catch java.lang.Throwable from label2 to label4 with label4;
+        catch java.lang.Throwable from label5 to label7 with label4;
+        catch java.lang.Throwable from label8 to label9 with label4;
+    }
+}

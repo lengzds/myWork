@@ -1,0 +1,172 @@
+final class com.speedsoftware.rootexplorer.hr extends java.lang.Object implements java.lang.Runnable
+{
+    final com.speedsoftware.rootexplorer.ge a;
+    private final boolean b;
+    private final boolean c;
+    private final boolean d;
+
+    void <init>(com.speedsoftware.rootexplorer.ge, boolean, boolean, boolean)
+    {
+        com.speedsoftware.rootexplorer.hr $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+        boolean $z0, $z1, $z2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.hr;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $z0 := @parameter1: boolean;
+
+        $z1 := @parameter2: boolean;
+
+        $z2 := @parameter3: boolean;
+
+        $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a> = $r1;
+
+        $r0.<com.speedsoftware.rootexplorer.hr: boolean b> = $z0;
+
+        $r0.<com.speedsoftware.rootexplorer.hr: boolean c> = $z1;
+
+        $r0.<com.speedsoftware.rootexplorer.hr: boolean d> = $z2;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.hr $r0;
+        boolean $z0, $z1;
+        com.speedsoftware.rootexplorer.ge $r1, $r9;
+        com.speedsoftware.rootexplorer.bn $r2;
+        com.speedsoftware.rootexplorer.ay $r3;
+        java.lang.String $r4;
+        android.app.Activity $r5;
+        android.widget.LinearLayout $r6;
+        android.widget.TextView $r7;
+        android.widget.AbsListView $r8;
+        int $i0;
+        com.speedsoftware.rootexplorer.lx $r10;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.hr;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $r2 = $r1.<com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.bn aN>;
+
+        $z0 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.bn: boolean aK()>();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $r2 = $r1.<com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.bn aN>;
+
+        $z0 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.bn: boolean aD()>();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.ay aT>;
+
+        $z0 = virtualinvoke $r3.<com.speedsoftware.rootexplorer.ay: boolean c()>();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $r4 = $r1.<com.speedsoftware.rootexplorer.ge: java.lang.String aM>;
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean startsWith(java.lang.String)>("/mnt");
+
+        if $z0 != 0 goto label1;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $r4 = $r1.<com.speedsoftware.rootexplorer.ge: java.lang.String aM>;
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean startsWith(java.lang.String)>("/sdcard");
+
+        if $z0 != 0 goto label1;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $r4 = $r1.<com.speedsoftware.rootexplorer.ge: java.lang.String aM>;
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean startsWith(java.lang.String)>("/storage");
+
+        if $z0 != 0 goto label1;
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        virtualinvoke $r5.<android.app.Activity: void setProgressBarIndeterminateVisibility(boolean)>(0);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void Q(com.speedsoftware.rootexplorer.ge)>($r1);
+
+        return;
+
+     label1:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $r6 = $r1.<com.speedsoftware.rootexplorer.ge: android.widget.LinearLayout ay>;
+
+        virtualinvoke $r6.<android.widget.LinearLayout: void setVisibility(int)>(8);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $r7 = $r1.<com.speedsoftware.rootexplorer.ge: android.widget.TextView az>;
+
+        virtualinvoke $r7.<android.widget.TextView: void setVisibility(int)>(8);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $r8 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.ge: android.widget.AbsListView Z()>();
+
+        virtualinvoke $r8.<android.widget.AbsListView: void setVisibility(int)>(0);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        virtualinvoke $r1.<com.speedsoftware.rootexplorer.ge: void s()>();
+
+        $z0 = $r0.<com.speedsoftware.rootexplorer.hr: boolean b>;
+
+        if $z0 == 0 goto label2;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $r9 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $i0 = staticinvoke <com.speedsoftware.rootexplorer.ge: int g(com.speedsoftware.rootexplorer.ge)>($r9);
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void b(com.speedsoftware.rootexplorer.ge,int)>($r1, $i0);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void h(com.speedsoftware.rootexplorer.ge)>($r1);
+
+     label2:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $r10 = new com.speedsoftware.rootexplorer.lx;
+
+        $r9 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $z1 = $r0.<com.speedsoftware.rootexplorer.hr: boolean c>;
+
+        $z0 = $r0.<com.speedsoftware.rootexplorer.hr: boolean d>;
+
+        specialinvoke $r10.<com.speedsoftware.rootexplorer.lx: void <init>(com.speedsoftware.rootexplorer.ge,boolean,boolean)>($r9, $z1, $z0);
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void a(com.speedsoftware.rootexplorer.ge,com.speedsoftware.rootexplorer.lx)>($r1, $r10);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hr: com.speedsoftware.rootexplorer.ge a>;
+
+        $r10 = staticinvoke <com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.lx R(com.speedsoftware.rootexplorer.ge)>($r1);
+
+        virtualinvoke $r10.<com.speedsoftware.rootexplorer.lx: void start()>();
+
+        return;
+    }
+}

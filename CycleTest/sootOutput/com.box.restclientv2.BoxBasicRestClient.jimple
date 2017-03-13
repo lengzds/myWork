@@ -1,0 +1,62 @@
+public class com.box.restclientv2.BoxBasicRestClient extends java.lang.Object implements com.box.restclientv2.interfaces.IBoxRESTClient
+{
+
+    public void <init>()
+    {
+        com.box.restclientv2.BoxBasicRestClient $r0;
+
+        $r0 := @this: com.box.restclientv2.BoxBasicRestClient;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public com.box.restclientv2.interfaces.IBoxResponse a(com.box.restclientv2.interfaces.IBoxRequest)
+    {
+        com.box.restclientv2.BoxBasicRestClient $r0;
+        com.box.restclientv2.interfaces.IBoxRequest $r1;
+        org.apache.http.client.methods.HttpUriRequest $r2;
+        org.apache.http.impl.client.DefaultHttpClient $r3;
+        org.apache.http.HttpResponse $r4;
+        com.box.restclientv2.responses.DefaultBoxResponse $r5;
+        int $i0;
+        java.lang.Exception $r6;
+        com.box.restclientv2.exceptions.BoxRestException $r7;
+
+        $r0 := @this: com.box.restclientv2.BoxBasicRestClient;
+
+        $r1 := @parameter0: com.box.restclientv2.interfaces.IBoxRequest;
+
+        $r2 = interfaceinvoke $r1.<com.box.restclientv2.interfaces.IBoxRequest: org.apache.http.client.methods.HttpUriRequest e()>();
+
+        $r3 = new org.apache.http.impl.client.DefaultHttpClient;
+
+     label1:
+        specialinvoke $r3.<org.apache.http.impl.client.DefaultHttpClient: void <init>()>();
+
+        $r4 = interfaceinvoke $r3.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r2);
+
+     label2:
+        $r5 = new com.box.restclientv2.responses.DefaultBoxResponse;
+
+        specialinvoke $r5.<com.box.restclientv2.responses.DefaultBoxResponse: void <init>(org.apache.http.HttpResponse)>($r4);
+
+        $i0 = interfaceinvoke $r1.<com.box.restclientv2.interfaces.IBoxRequest: int f()>();
+
+        virtualinvoke $r5.<com.box.restclientv2.responses.DefaultBoxResponse: void a(int)>($i0);
+
+        return $r5;
+
+     label3:
+        $r6 := @caughtexception;
+
+        $r7 = new com.box.restclientv2.exceptions.BoxRestException;
+
+        specialinvoke $r7.<com.box.restclientv2.exceptions.BoxRestException: void <init>(java.lang.Exception)>($r6);
+
+        throw $r7;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+}

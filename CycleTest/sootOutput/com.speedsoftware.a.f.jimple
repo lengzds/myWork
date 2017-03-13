@@ -1,0 +1,177 @@
+public class com.speedsoftware.a.f extends java.lang.Object
+{
+    protected int a;
+    protected int b;
+    protected byte[] c;
+
+    public void <init>()
+    {
+        com.speedsoftware.a.f $r0;
+        byte[] $r1;
+
+        $r0 := @this: com.speedsoftware.a.f;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = newarray (byte)[32768];
+
+        $r0.<com.speedsoftware.a.f: byte[] c> = $r1;
+
+        return;
+    }
+
+    public final void a()
+    {
+        com.speedsoftware.a.f $r0;
+
+        $r0 := @this: com.speedsoftware.a.f;
+
+        $r0.<com.speedsoftware.a.f: int a> = 0;
+
+        $r0.<com.speedsoftware.a.f: int b> = 0;
+
+        return;
+    }
+
+    public final void a(int)
+    {
+        com.speedsoftware.a.f $r0;
+        int $i0, $i1, $i2;
+
+        $r0 := @this: com.speedsoftware.a.f;
+
+        $i0 := @parameter0: int;
+
+        $i1 = $r0.<com.speedsoftware.a.f: int b>;
+
+        $i0 = $i1 + $i0;
+
+        $i2 = $r0.<com.speedsoftware.a.f: int a>;
+
+        $i1 = $i0 >> 3;
+
+        $i1 = $i2 + $i1;
+
+        $r0.<com.speedsoftware.a.f: int a> = $i1;
+
+        $i0 = $i0 & 7;
+
+        $r0.<com.speedsoftware.a.f: int b> = $i0;
+
+        return;
+    }
+
+    public final int b()
+    {
+        com.speedsoftware.a.f $r0;
+        byte[] $r1;
+        int $i0, $i3;
+        byte $b1;
+        short $s2;
+
+        $r0 := @this: com.speedsoftware.a.f;
+
+        $r1 = $r0.<com.speedsoftware.a.f: byte[] c>;
+
+        $i0 = $r0.<com.speedsoftware.a.f: int a>;
+
+        $b1 = $r1[$i0];
+
+        $s2 = $b1 & 255;
+
+        $i0 = $s2 << 16;
+
+        $r1 = $r0.<com.speedsoftware.a.f: byte[] c>;
+
+        $i3 = $r0.<com.speedsoftware.a.f: int a>;
+
+        $i3 = $i3 + 1;
+
+        $b1 = $r1[$i3];
+
+        $s2 = $b1 & 255;
+
+        $i3 = $s2 << 8;
+
+        $i0 = $i0 + $i3;
+
+        $r1 = $r0.<com.speedsoftware.a.f: byte[] c>;
+
+        $i3 = $r0.<com.speedsoftware.a.f: int a>;
+
+        $i3 = $i3 + 2;
+
+        $b1 = $r1[$i3];
+
+        $s2 = $b1 & 255;
+
+        $i0 = $i0 + $s2;
+
+        $i3 = $r0.<com.speedsoftware.a.f: int b>;
+
+        $i3 = 8 - $i3;
+
+        $i0 = $i0 >>> $i3;
+
+        $i0 = $i0 & 65535;
+
+        return $i0;
+    }
+
+    public final void b(int)
+    {
+        com.speedsoftware.a.f $r0;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.a.f;
+
+        $i0 := @parameter0: int;
+
+        virtualinvoke $r0.<com.speedsoftware.a.f: void a(int)>($i0);
+
+        return;
+    }
+
+    public final int c()
+    {
+        com.speedsoftware.a.f $r0;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.a.f;
+
+        $i0 = virtualinvoke $r0.<com.speedsoftware.a.f: int b()>();
+
+        return $i0;
+    }
+
+    public final boolean d()
+    {
+        com.speedsoftware.a.f $r0;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.a.f;
+
+        $i0 = $r0.<com.speedsoftware.a.f: int a>;
+
+        $i0 = $i0 + 3;
+
+        if $i0 < 32768 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final byte[] e()
+    {
+        com.speedsoftware.a.f $r0;
+        byte[] r1;
+
+        $r0 := @this: com.speedsoftware.a.f;
+
+        r1 = $r0.<com.speedsoftware.a.f: byte[] c>;
+
+        return r1;
+    }
+}

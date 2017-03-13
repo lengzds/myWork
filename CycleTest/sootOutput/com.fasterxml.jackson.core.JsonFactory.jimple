@@ -1,0 +1,427 @@
+public class com.fasterxml.jackson.core.JsonFactory extends java.lang.Object
+{
+    protected static final int DEFAULT_FACTORY_FEATURE_FLAGS;
+    protected static final int DEFAULT_GENERATOR_FEATURE_FLAGS;
+    protected static final int DEFAULT_PARSER_FEATURE_FLAGS;
+    protected static final java.lang.ThreadLocal _recyclerRef;
+    protected com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes;
+    protected int _factoryFeatures;
+    protected int _generatorFeatures;
+    protected com.fasterxml.jackson.core.io.InputDecorator _inputDecorator;
+    protected com.fasterxml.jackson.core.ObjectCodec _objectCodec;
+    protected com.fasterxml.jackson.core.io.OutputDecorator _outputDecorator;
+    protected int _parserFeatures;
+    protected com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _rootByteSymbols;
+    protected com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer _rootCharSymbols;
+
+    static void <clinit>()
+    {
+        int $i0;
+        java.lang.ThreadLocal $r0;
+
+        $i0 = staticinvoke <com.fasterxml.jackson.core.JsonFactory$Feature: int collectDefaults()>();
+
+        <com.fasterxml.jackson.core.JsonFactory: int DEFAULT_FACTORY_FEATURE_FLAGS> = $i0;
+
+        $i0 = staticinvoke <com.fasterxml.jackson.core.JsonParser$Feature: int collectDefaults()>();
+
+        <com.fasterxml.jackson.core.JsonFactory: int DEFAULT_PARSER_FEATURE_FLAGS> = $i0;
+
+        $i0 = staticinvoke <com.fasterxml.jackson.core.JsonGenerator$Feature: int collectDefaults()>();
+
+        <com.fasterxml.jackson.core.JsonFactory: int DEFAULT_GENERATOR_FEATURE_FLAGS> = $i0;
+
+        $r0 = new java.lang.ThreadLocal;
+
+        specialinvoke $r0.<java.lang.ThreadLocal: void <init>()>();
+
+        <com.fasterxml.jackson.core.JsonFactory: java.lang.ThreadLocal _recyclerRef> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.JsonFactory: void <init>(com.fasterxml.jackson.core.ObjectCodec)>(null);
+
+        return;
+    }
+
+    public void <init>(com.fasterxml.jackson.core.ObjectCodec)
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+        com.fasterxml.jackson.core.ObjectCodec $r1;
+        com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer $r2;
+        com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer $r3;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.ObjectCodec;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r2 = staticinvoke <com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer: com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer createRoot()>();
+
+        $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer _rootCharSymbols> = $r2;
+
+        $r3 = staticinvoke <com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer createRoot()>();
+
+        $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _rootByteSymbols> = $r3;
+
+        $i0 = <com.fasterxml.jackson.core.JsonFactory: int DEFAULT_FACTORY_FEATURE_FLAGS>;
+
+        $r0.<com.fasterxml.jackson.core.JsonFactory: int _factoryFeatures> = $i0;
+
+        $i0 = <com.fasterxml.jackson.core.JsonFactory: int DEFAULT_PARSER_FEATURE_FLAGS>;
+
+        $r0.<com.fasterxml.jackson.core.JsonFactory: int _parserFeatures> = $i0;
+
+        $i0 = <com.fasterxml.jackson.core.JsonFactory: int DEFAULT_GENERATOR_FEATURE_FLAGS>;
+
+        $r0.<com.fasterxml.jackson.core.JsonFactory: int _generatorFeatures> = $i0;
+
+        $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.ObjectCodec _objectCodec> = $r1;
+
+        return;
+    }
+
+    protected com.fasterxml.jackson.core.io.IOContext _createContext(java.lang.Object, boolean)
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        com.fasterxml.jackson.core.io.IOContext $r2;
+        com.fasterxml.jackson.core.util.BufferRecycler $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $z0 := @parameter1: boolean;
+
+        $r2 = new com.fasterxml.jackson.core.io.IOContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.util.BufferRecycler _getBufferRecycler()>();
+
+        specialinvoke $r2.<com.fasterxml.jackson.core.io.IOContext: void <init>(com.fasterxml.jackson.core.util.BufferRecycler,java.lang.Object,boolean)>($r3, $r1, $z0);
+
+        return $r2;
+    }
+
+    protected com.fasterxml.jackson.core.JsonGenerator _createJsonGenerator(java.io.Writer, com.fasterxml.jackson.core.io.IOContext)
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+        java.io.Writer $r1;
+        com.fasterxml.jackson.core.io.IOContext $r2;
+        com.fasterxml.jackson.core.json.WriterBasedJsonGenerator $r3;
+        com.fasterxml.jackson.core.ObjectCodec $r4;
+        int $i0;
+        com.fasterxml.jackson.core.io.CharacterEscapes $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        $r1 := @parameter0: java.io.Writer;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.io.IOContext;
+
+        $r3 = new com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.JsonFactory: int _generatorFeatures>;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.ObjectCodec _objectCodec>;
+
+        specialinvoke $r3.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: void <init>(com.fasterxml.jackson.core.io.IOContext,int,com.fasterxml.jackson.core.ObjectCodec,java.io.Writer)>($r2, $i0, $r4, $r1);
+
+        $r5 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes>;
+
+        if $r5 == null goto label1;
+
+        $r5 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.io.CharacterEscapes _characterEscapes>;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator: com.fasterxml.jackson.core.JsonGenerator setCharacterEscapes(com.fasterxml.jackson.core.io.CharacterEscapes)>($r5);
+
+     label1:
+        return $r3;
+    }
+
+    protected com.fasterxml.jackson.core.JsonParser _createJsonParser(java.io.InputStream, com.fasterxml.jackson.core.io.IOContext)
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+        java.io.InputStream $r1;
+        com.fasterxml.jackson.core.io.IOContext $r2;
+        int $i0;
+        com.fasterxml.jackson.core.ObjectCodec $r3;
+        com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer $r4;
+        com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer $r5;
+        com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper $r6;
+        com.fasterxml.jackson.core.JsonFactory$Feature $r7;
+        boolean $z0, $z1;
+        com.fasterxml.jackson.core.JsonParser $r8;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        $r1 := @parameter0: java.io.InputStream;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.io.IOContext;
+
+        $r6 = new com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper;
+
+        specialinvoke $r6.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: void <init>(com.fasterxml.jackson.core.io.IOContext,java.io.InputStream)>($r2, $r1);
+
+        $i0 = $r0.<com.fasterxml.jackson.core.JsonFactory: int _parserFeatures>;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.ObjectCodec _objectCodec>;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _rootByteSymbols>;
+
+        $r5 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer _rootCharSymbols>;
+
+        $r7 = <com.fasterxml.jackson.core.JsonFactory$Feature: com.fasterxml.jackson.core.JsonFactory$Feature CANONICALIZE_FIELD_NAMES>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonFactory: boolean isEnabled(com.fasterxml.jackson.core.JsonFactory$Feature)>($r7);
+
+        $r7 = <com.fasterxml.jackson.core.JsonFactory$Feature: com.fasterxml.jackson.core.JsonFactory$Feature INTERN_FIELD_NAMES>;
+
+        $z1 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonFactory: boolean isEnabled(com.fasterxml.jackson.core.JsonFactory$Feature)>($r7);
+
+        $r8 = virtualinvoke $r6.<com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper: com.fasterxml.jackson.core.JsonParser constructParser(int,com.fasterxml.jackson.core.ObjectCodec,com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer,com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer,boolean,boolean)>($i0, $r3, $r4, $r5, $z0, $z1);
+
+        return $r8;
+    }
+
+    protected com.fasterxml.jackson.core.JsonParser _createJsonParser(java.io.Reader, com.fasterxml.jackson.core.io.IOContext)
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+        java.io.Reader $r1;
+        com.fasterxml.jackson.core.io.IOContext $r2;
+        com.fasterxml.jackson.core.json.ReaderBasedJsonParser $r3;
+        int $i0;
+        com.fasterxml.jackson.core.ObjectCodec $r4;
+        com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer $r5;
+        com.fasterxml.jackson.core.JsonFactory$Feature $r6;
+        boolean $z0, $z1;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        $r1 := @parameter0: java.io.Reader;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.io.IOContext;
+
+        $r3 = new com.fasterxml.jackson.core.json.ReaderBasedJsonParser;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.JsonFactory: int _parserFeatures>;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.ObjectCodec _objectCodec>;
+
+        $r5 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer _rootCharSymbols>;
+
+        $r6 = <com.fasterxml.jackson.core.JsonFactory$Feature: com.fasterxml.jackson.core.JsonFactory$Feature CANONICALIZE_FIELD_NAMES>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonFactory: boolean isEnabled(com.fasterxml.jackson.core.JsonFactory$Feature)>($r6);
+
+        $r6 = <com.fasterxml.jackson.core.JsonFactory$Feature: com.fasterxml.jackson.core.JsonFactory$Feature INTERN_FIELD_NAMES>;
+
+        $z1 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonFactory: boolean isEnabled(com.fasterxml.jackson.core.JsonFactory$Feature)>($r6);
+
+        $r5 = virtualinvoke $r5.<com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer: com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer makeChild(boolean,boolean)>($z0, $z1);
+
+        specialinvoke $r3.<com.fasterxml.jackson.core.json.ReaderBasedJsonParser: void <init>(com.fasterxml.jackson.core.io.IOContext,int,java.io.Reader,com.fasterxml.jackson.core.ObjectCodec,com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer)>($r2, $i0, $r1, $r4, $r5);
+
+        return $r3;
+    }
+
+    public com.fasterxml.jackson.core.util.BufferRecycler _getBufferRecycler()
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+        java.lang.ThreadLocal $r1;
+        java.lang.ref.SoftReference $r2;
+        java.lang.Object $r3;
+        com.fasterxml.jackson.core.util.BufferRecycler $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        $r1 = <com.fasterxml.jackson.core.JsonFactory: java.lang.ThreadLocal _recyclerRef>;
+
+        $r3 = virtualinvoke $r1.<java.lang.ThreadLocal: java.lang.Object get()>();
+
+        $r2 = (java.lang.ref.SoftReference) $r3;
+
+        if $r2 != null goto label2;
+
+        $r4 = null;
+
+     label1:
+        if $r4 != null goto label3;
+
+        $r4 = new com.fasterxml.jackson.core.util.BufferRecycler;
+
+        specialinvoke $r4.<com.fasterxml.jackson.core.util.BufferRecycler: void <init>()>();
+
+        $r1 = <com.fasterxml.jackson.core.JsonFactory: java.lang.ThreadLocal _recyclerRef>;
+
+        $r2 = new java.lang.ref.SoftReference;
+
+        specialinvoke $r2.<java.lang.ref.SoftReference: void <init>(java.lang.Object)>($r4);
+
+        virtualinvoke $r1.<java.lang.ThreadLocal: void set(java.lang.Object)>($r2);
+
+        return $r4;
+
+     label2:
+        $r3 = virtualinvoke $r2.<java.lang.ref.SoftReference: java.lang.Object get()>();
+
+        $r4 = (com.fasterxml.jackson.core.util.BufferRecycler) $r3;
+
+        goto label1;
+
+     label3:
+        return $r4;
+    }
+
+    public com.fasterxml.jackson.core.JsonGenerator createJsonGenerator(java.io.Writer)
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+        java.io.Writer $r1;
+        com.fasterxml.jackson.core.io.IOContext $r2;
+        com.fasterxml.jackson.core.io.OutputDecorator $r3;
+        com.fasterxml.jackson.core.JsonGenerator $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        $r1 := @parameter0: java.io.Writer;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.io.IOContext _createContext(java.lang.Object,boolean)>($r1, 0);
+
+        $r3 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.io.OutputDecorator _outputDecorator>;
+
+        if $r3 == null goto label1;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.io.OutputDecorator _outputDecorator>;
+
+        $r1 = virtualinvoke $r3.<com.fasterxml.jackson.core.io.OutputDecorator: java.io.Writer decorate(com.fasterxml.jackson.core.io.IOContext,java.io.Writer)>($r2, $r1);
+
+     label1:
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.JsonGenerator _createJsonGenerator(java.io.Writer,com.fasterxml.jackson.core.io.IOContext)>($r1, $r2);
+
+        return $r4;
+    }
+
+    public com.fasterxml.jackson.core.JsonParser createJsonParser(java.io.InputStream)
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+        java.io.InputStream $r1;
+        com.fasterxml.jackson.core.io.IOContext $r2;
+        com.fasterxml.jackson.core.io.InputDecorator $r3;
+        com.fasterxml.jackson.core.JsonParser $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        $r1 := @parameter0: java.io.InputStream;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.io.IOContext _createContext(java.lang.Object,boolean)>($r1, 0);
+
+        $r3 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.io.InputDecorator _inputDecorator>;
+
+        if $r3 == null goto label1;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.io.InputDecorator _inputDecorator>;
+
+        $r1 = virtualinvoke $r3.<com.fasterxml.jackson.core.io.InputDecorator: java.io.InputStream decorate(com.fasterxml.jackson.core.io.IOContext,java.io.InputStream)>($r2, $r1);
+
+     label1:
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.JsonParser _createJsonParser(java.io.InputStream,com.fasterxml.jackson.core.io.IOContext)>($r1, $r2);
+
+        return $r4;
+    }
+
+    public com.fasterxml.jackson.core.JsonParser createJsonParser(java.lang.String)
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+        java.lang.String $r1;
+        java.io.Reader $r2;
+        com.fasterxml.jackson.core.io.IOContext $r3;
+        com.fasterxml.jackson.core.io.InputDecorator $r4;
+        com.fasterxml.jackson.core.JsonParser $r5;
+        java.io.StringReader r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        $r1 := @parameter0: java.lang.String;
+
+        r6 = new java.io.StringReader;
+
+        $r2 = r6;
+
+        specialinvoke r6.<java.io.StringReader: void <init>(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.io.IOContext _createContext(java.lang.Object,boolean)>(r6, 1);
+
+        $r4 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.io.InputDecorator _inputDecorator>;
+
+        if $r4 == null goto label1;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.io.InputDecorator _inputDecorator>;
+
+        $r2 = virtualinvoke $r4.<com.fasterxml.jackson.core.io.InputDecorator: java.io.Reader decorate(com.fasterxml.jackson.core.io.IOContext,java.io.Reader)>($r3, r6);
+
+     label1:
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.JsonParser _createJsonParser(java.io.Reader,com.fasterxml.jackson.core.io.IOContext)>($r2, $r3);
+
+        return $r5;
+    }
+
+    public com.fasterxml.jackson.core.ObjectCodec getCodec()
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+        com.fasterxml.jackson.core.ObjectCodec r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        r1 = $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.ObjectCodec _objectCodec>;
+
+        return r1;
+    }
+
+    public final boolean isEnabled(com.fasterxml.jackson.core.JsonFactory$Feature)
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+        com.fasterxml.jackson.core.JsonFactory$Feature $r1;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonFactory$Feature;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.JsonFactory: int _factoryFeatures>;
+
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonFactory$Feature: int getMask()>();
+
+        $i0 = $i1 & $i0;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public com.fasterxml.jackson.core.JsonFactory setCodec(com.fasterxml.jackson.core.ObjectCodec)
+    {
+        com.fasterxml.jackson.core.JsonFactory $r0;
+        com.fasterxml.jackson.core.ObjectCodec $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonFactory;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.ObjectCodec;
+
+        $r0.<com.fasterxml.jackson.core.JsonFactory: com.fasterxml.jackson.core.ObjectCodec _objectCodec> = $r1;
+
+        return $r0;
+    }
+}

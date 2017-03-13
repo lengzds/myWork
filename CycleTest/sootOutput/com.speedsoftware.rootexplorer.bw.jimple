@@ -1,0 +1,433 @@
+public final class com.speedsoftware.rootexplorer.bw extends com.speedsoftware.rootexplorer.s
+{
+
+    public void <init>(android.support.v4.app.Fragment, java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.bw $r0;
+        android.support.v4.app.Fragment $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bw;
+
+        $r1 := @parameter0: android.support.v4.app.Fragment;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.s: void <init>(android.support.v4.app.Fragment,java.lang.String)>($r1, $r2);
+
+        return;
+    }
+
+    public final void c()
+    {
+        com.speedsoftware.rootexplorer.bw $r0;
+        int $i0, $i3;
+        com.speedsoftware.rootexplorer.bn $r1;
+        com.speedsoftware.rootexplorer.by $r2;
+        com.dropbox.client2.a $r3;
+        java.lang.String $r4, $r6, $r7;
+        android.content.Intent $r5;
+        boolean $z0;
+        com.dropbox.client2.c.m $r8;
+        com.dropbox.client2.android.a $r9;
+        java.lang.IllegalStateException $r10;
+        java.lang.IllegalArgumentException $r11;
+        com.dropbox.client2.b $r12;
+        long $l1;
+        com.dropbox.client2.c.k $r13;
+        byte $b2;
+        com.dropbox.client2.a.a $r14;
+        java.lang.StringBuilder $r15;
+        android.app.AlertDialog$Builder $r16;
+        android.content.Context $r17;
+        android.app.Activity $r18;
+        byte[] $r19;
+        com.speedsoftware.rootexplorer.bx $r20;
+        android.app.AlertDialog $r21;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bw;
+
+        $i0 = 0;
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.s: void c()>();
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bw: com.speedsoftware.rootexplorer.bn aN>;
+
+        if $r1 == null goto label62;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bw: com.speedsoftware.rootexplorer.bn aN>;
+
+        $r2 = (com.speedsoftware.rootexplorer.by) $r1;
+
+        $r3 = $r2.<com.speedsoftware.rootexplorer.by: com.dropbox.client2.a a>;
+
+        if $r3 == null goto label62;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bw: com.speedsoftware.rootexplorer.bn aN>;
+
+        $r4 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.bn: java.lang.String aU()>();
+
+        if $r4 == null goto label01;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bw: com.speedsoftware.rootexplorer.bn aN>;
+
+        $r4 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.bn: java.lang.String H()>();
+
+        if $r4 != null goto label62;
+
+     label01:
+        $r3 = $r2.<com.speedsoftware.rootexplorer.by: com.dropbox.client2.a a>;
+
+        virtualinvoke $r3.<com.dropbox.client2.a: com.dropbox.client2.c.m a()>();
+
+        $r5 = <com.dropbox.client2.android.AuthActivity: android.content.Intent a>;
+
+        if $r5 == null goto label07;
+
+        $r4 = virtualinvoke $r5.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("ACCESS_TOKEN");
+
+        $r6 = virtualinvoke $r5.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("ACCESS_SECRET");
+
+        $r7 = virtualinvoke $r5.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("UID");
+
+        if $r4 == null goto label07;
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 != 0 goto label07;
+
+        if $r6 == null goto label07;
+
+        $z0 = virtualinvoke $r6.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 != 0 goto label07;
+
+        if $r7 == null goto label07;
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 != 0 goto label07;
+
+        $z0 = 1;
+
+     label02:
+        if $z0 == 0 goto label55;
+
+        $r3 = $r2.<com.speedsoftware.rootexplorer.by: com.dropbox.client2.a a>;
+
+     label03:
+        $r8 = virtualinvoke $r3.<com.dropbox.client2.a: com.dropbox.client2.c.m a()>();
+
+     label04:
+        $r9 = (com.dropbox.client2.android.a) $r8;
+
+        $r5 = <com.dropbox.client2.android.AuthActivity: android.content.Intent a>;
+
+        if $r5 != null goto label08;
+
+        $r10 = new java.lang.IllegalStateException;
+
+     label05:
+        specialinvoke $r10.<java.lang.IllegalStateException: void <init>()>();
+
+        throw $r10;
+
+     label06:
+        $r10 := @caughtexception;
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String,java.lang.Throwable)>("RootExplorer", "Dropbox authentication error", $r10);
+
+        return;
+
+     label07:
+        $z0 = 0;
+
+        goto label02;
+
+     label08:
+        $r4 = virtualinvoke $r5.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("ACCESS_TOKEN");
+
+     label09:
+        if $r4 == null goto label12;
+
+     label10:
+        $i0 = virtualinvoke $r4.<java.lang.String: int length()>();
+
+     label11:
+        if $i0 != 0 goto label15;
+
+     label12:
+        $r11 = new java.lang.IllegalArgumentException;
+
+     label13:
+        specialinvoke $r11.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Invalid result intent passed in. Missing access token.");
+
+     label14:
+        throw $r11;
+
+     label15:
+        $r6 = virtualinvoke $r5.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("ACCESS_SECRET");
+
+     label16:
+        if $r6 == null goto label19;
+
+     label17:
+        $i0 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+     label18:
+        if $i0 != 0 goto label22;
+
+     label19:
+        $r11 = new java.lang.IllegalArgumentException;
+
+     label20:
+        specialinvoke $r11.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Invalid result intent passed in. Missing access secret.");
+
+     label21:
+        throw $r11;
+
+     label22:
+        $r7 = virtualinvoke $r5.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("UID");
+
+     label23:
+        if $r7 == null goto label26;
+
+     label24:
+        $i0 = virtualinvoke $r7.<java.lang.String: int length()>();
+
+     label25:
+        if $i0 != 0 goto label29;
+
+     label26:
+        $r11 = new java.lang.IllegalArgumentException;
+
+     label27:
+        specialinvoke $r11.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Invalid result intent passed in. Missing uid.");
+
+     label28:
+        throw $r11;
+
+     label29:
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>("oauth2:");
+
+     label30:
+        if $z0 == 0 goto label46;
+
+     label31:
+        virtualinvoke $r9.<com.dropbox.client2.android.a: void a(java.lang.String)>($r6);
+
+     label32:
+        $r3 = $r2.<com.speedsoftware.rootexplorer.by: com.dropbox.client2.a a>;
+
+     label33:
+        $r12 = virtualinvoke $r3.<com.dropbox.client2.a: com.dropbox.client2.b b()>();
+
+     label34:
+        $l1 = $r12.<com.dropbox.client2.b: long f>;
+
+     label35:
+        $r3 = $r2.<com.speedsoftware.rootexplorer.by: com.dropbox.client2.a a>;
+
+     label36:
+        $r8 = virtualinvoke $r3.<com.dropbox.client2.a: com.dropbox.client2.c.m a()>();
+
+     label37:
+        $r9 = (com.dropbox.client2.android.a) $r8;
+
+     label38:
+        $r13 = virtualinvoke $r9.<com.dropbox.client2.android.a: com.dropbox.client2.c.k b()>();
+
+     label39:
+        $b2 = $l1 cmp -1L;
+
+        if $b2 != 0 goto label50;
+
+        $r4 = $r13.<com.dropbox.client2.c.k: java.lang.String a>;
+
+     label40:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bw: com.speedsoftware.rootexplorer.bn aN>;
+
+        if $r1 == null goto label44;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bw: com.speedsoftware.rootexplorer.bn aN>;
+
+     label41:
+        virtualinvoke $r1.<com.speedsoftware.rootexplorer.bn: void w(java.lang.String)>($r4);
+
+     label42:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bw: com.speedsoftware.rootexplorer.bn aN>;
+
+        $r4 = $r13.<com.dropbox.client2.c.k: java.lang.String b>;
+
+     label43:
+        virtualinvoke $r1.<com.speedsoftware.rootexplorer.bn: void x(java.lang.String)>($r4);
+
+     label44:
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.bw: void z()>();
+
+     label45:
+        return;
+
+     label46:
+        $r13 = new com.dropbox.client2.c.k;
+
+     label47:
+        specialinvoke $r13.<com.dropbox.client2.c.k: void <init>(java.lang.String,java.lang.String)>($r4, $r6);
+
+        virtualinvoke $r9.<com.dropbox.client2.android.a: void a(com.dropbox.client2.c.k)>($r13);
+
+     label48:
+        goto label32;
+
+     label49:
+        $r14 := @caughtexception;
+
+        $l1 = -1L;
+
+        goto label35;
+
+     label50:
+        $r15 = new java.lang.StringBuilder;
+
+     label51:
+        $r4 = staticinvoke <java.lang.String: java.lang.String valueOf(long)>($l1);
+
+        specialinvoke $r15.<java.lang.StringBuilder: void <init>(java.lang.String)>($r4);
+
+        $r15 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("@");
+
+     label52:
+        $r4 = $r13.<com.dropbox.client2.c.k: java.lang.String a>;
+
+     label53:
+        $r15 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r4 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label54:
+        goto label40;
+
+     label55:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bw: com.speedsoftware.rootexplorer.bn aN>;
+
+        $r4 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.bn: java.lang.String aU()>();
+
+        if $r4 == null goto label56;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bw: com.speedsoftware.rootexplorer.bn aN>;
+
+        $r4 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.bn: java.lang.String H()>();
+
+        if $r4 != null goto label62;
+
+     label56:
+        <com.speedsoftware.rootexplorer.ge: boolean y> = 1;
+
+        $r16 = new android.app.AlertDialog$Builder;
+
+        $r17 = <com.speedsoftware.rootexplorer.bw: android.content.Context r>;
+
+        specialinvoke $r16.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r17);
+
+        $r4 = new java.lang.String;
+
+        $r18 = staticinvoke <com.speedsoftware.rootexplorer.bw: android.app.Activity Q()>();
+
+        if $r18 != null goto label60;
+
+        $i3 = 0;
+
+     label57:
+        $r19 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cQ(int)>($i3);
+
+        specialinvoke $r4.<java.lang.String: void <init>(byte[])>($r19);
+
+        $r16 = virtualinvoke $r16.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setTitle(java.lang.CharSequence)>($r4);
+
+        $r4 = new java.lang.String;
+
+        $r18 = staticinvoke <com.speedsoftware.rootexplorer.bw: android.app.Activity Q()>();
+
+        if $r18 == null goto label58;
+
+        $r18 = staticinvoke <com.speedsoftware.rootexplorer.bw: android.app.Activity Q()>();
+
+        $r6 = virtualinvoke $r18.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+     label58:
+        $r19 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] c()>();
+
+        specialinvoke $r4.<java.lang.String: void <init>(byte[])>($r19);
+
+        $r16 = virtualinvoke $r16.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>($r4);
+
+        $r4 = new java.lang.String;
+
+        $r18 = staticinvoke <com.speedsoftware.rootexplorer.bw: android.app.Activity Q()>();
+
+        if $r18 != null goto label61;
+
+     label59:
+        $r19 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cK(int)>($i0);
+
+        specialinvoke $r4.<java.lang.String: void <init>(byte[])>($r19);
+
+        $r20 = new com.speedsoftware.rootexplorer.bx;
+
+        specialinvoke $r20.<com.speedsoftware.rootexplorer.bx: void <init>(com.speedsoftware.rootexplorer.bw)>($r0);
+
+        $r16 = virtualinvoke $r16.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>($r4, $r20);
+
+        $r21 = virtualinvoke $r16.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r21.<android.app.AlertDialog: void show()>();
+
+        return;
+
+     label60:
+        $r18 = staticinvoke <com.speedsoftware.rootexplorer.bw: android.app.Activity Q()>();
+
+        $r6 = virtualinvoke $r18.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i3 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+        goto label57;
+
+     label61:
+        $r18 = staticinvoke <com.speedsoftware.rootexplorer.bw: android.app.Activity Q()>();
+
+        $r6 = virtualinvoke $r18.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+        goto label59;
+
+     label62:
+        return;
+
+        catch java.lang.IllegalStateException from label03 to label04 with label06;
+        catch java.lang.IllegalStateException from label05 to label06 with label06;
+        catch java.lang.IllegalStateException from label08 to label09 with label06;
+        catch java.lang.IllegalStateException from label10 to label11 with label06;
+        catch java.lang.IllegalStateException from label13 to label14 with label06;
+        catch java.lang.IllegalStateException from label15 to label16 with label06;
+        catch java.lang.IllegalStateException from label17 to label18 with label06;
+        catch java.lang.IllegalStateException from label20 to label21 with label06;
+        catch java.lang.IllegalStateException from label22 to label23 with label06;
+        catch java.lang.IllegalStateException from label24 to label25 with label06;
+        catch java.lang.IllegalStateException from label27 to label28 with label06;
+        catch java.lang.IllegalStateException from label29 to label30 with label06;
+        catch java.lang.IllegalStateException from label31 to label32 with label06;
+        catch com.dropbox.client2.a.a from label33 to label34 with label49;
+        catch java.lang.IllegalStateException from label33 to label34 with label06;
+        catch java.lang.IllegalStateException from label36 to label37 with label06;
+        catch java.lang.IllegalStateException from label38 to label39 with label06;
+        catch java.lang.IllegalStateException from label41 to label42 with label06;
+        catch java.lang.IllegalStateException from label43 to label45 with label06;
+        catch java.lang.IllegalStateException from label47 to label48 with label06;
+        catch java.lang.IllegalStateException from label51 to label52 with label06;
+        catch java.lang.IllegalStateException from label53 to label54 with label06;
+    }
+}

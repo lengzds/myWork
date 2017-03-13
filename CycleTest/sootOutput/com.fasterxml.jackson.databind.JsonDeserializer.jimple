@@ -1,0 +1,126 @@
+public abstract class com.fasterxml.jackson.databind.JsonDeserializer extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.JsonDeserializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public abstract java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext);
+
+    public java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.JsonDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.lang.Object $r3;
+        java.lang.UnsupportedOperationException $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.Class $r6;
+        java.lang.String $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: java.lang.Object;
+
+        $r4 = new java.lang.UnsupportedOperationException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Can not update object of type ");
+
+        $r6 = virtualinvoke $r3.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r7 = virtualinvoke $r6.<java.lang.Class: java.lang.String getName()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r7 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>($r7);
+
+        throw $r4;
+    }
+
+    public java.lang.Object deserializeWithType(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, com.fasterxml.jackson.databind.jsontype.TypeDeserializer)
+    {
+        com.fasterxml.jackson.databind.JsonDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeDeserializer $r3;
+        java.lang.Object $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.jsontype.TypeDeserializer;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.databind.jsontype.TypeDeserializer: java.lang.Object deserializeTypedFromAny(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r4;
+    }
+
+    public java.lang.Object getEmptyValue()
+    {
+        com.fasterxml.jackson.databind.JsonDeserializer $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.JsonDeserializer: java.lang.Object getNullValue()>();
+
+        return $r1;
+    }
+
+    public java.util.Collection getKnownPropertyNames()
+    {
+        com.fasterxml.jackson.databind.JsonDeserializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        return null;
+    }
+
+    public java.lang.Object getNullValue()
+    {
+        com.fasterxml.jackson.databind.JsonDeserializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        return null;
+    }
+
+    public boolean isCachable()
+    {
+        com.fasterxml.jackson.databind.JsonDeserializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        return 0;
+    }
+
+    public com.fasterxml.jackson.databind.JsonDeserializer unwrappingDeserializer(com.fasterxml.jackson.databind.util.NameTransformer)
+    {
+        com.fasterxml.jackson.databind.JsonDeserializer $r0;
+        com.fasterxml.jackson.databind.util.NameTransformer $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.util.NameTransformer;
+
+        return $r0;
+    }
+}

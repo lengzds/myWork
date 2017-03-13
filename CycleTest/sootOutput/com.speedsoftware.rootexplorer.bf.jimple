@@ -1,0 +1,83 @@
+final class com.speedsoftware.rootexplorer.bf extends java.lang.Object implements java.lang.Runnable
+{
+    final com.speedsoftware.rootexplorer.DataGrid a;
+
+    void <init>(com.speedsoftware.rootexplorer.DataGrid)
+    {
+        com.speedsoftware.rootexplorer.bf $r0;
+        com.speedsoftware.rootexplorer.DataGrid $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bf;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.DataGrid;
+
+        $r0.<com.speedsoftware.rootexplorer.bf: com.speedsoftware.rootexplorer.DataGrid a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.bf $r0;
+        com.speedsoftware.rootexplorer.DataGrid $r1, $r3;
+        android.widget.Scroller $r2;
+        boolean $z0;
+        int $i0;
+        float $f0;
+        android.os.Handler $r4;
+        java.lang.Runnable $r5;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bf;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bf: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.DataGrid: android.widget.Scroller k(com.speedsoftware.rootexplorer.DataGrid)>($r1);
+
+        $z0 = virtualinvoke $r2.<android.widget.Scroller: boolean computeScrollOffset()>();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bf: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bf: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.DataGrid: android.widget.Scroller k(com.speedsoftware.rootexplorer.DataGrid)>($r3);
+
+        $i0 = virtualinvoke $r2.<android.widget.Scroller: int getCurrX()>();
+
+        $f0 = (float) $i0;
+
+        staticinvoke <com.speedsoftware.rootexplorer.DataGrid: void a(com.speedsoftware.rootexplorer.DataGrid,float)>($r1, $f0);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bf: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bf: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.DataGrid: android.widget.Scroller k(com.speedsoftware.rootexplorer.DataGrid)>($r3);
+
+        $i0 = virtualinvoke $r2.<android.widget.Scroller: int getCurrY()>();
+
+        $f0 = (float) $i0;
+
+        staticinvoke <com.speedsoftware.rootexplorer.DataGrid: void b(com.speedsoftware.rootexplorer.DataGrid,float)>($r1, $f0);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bf: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        virtualinvoke $r1.<com.speedsoftware.rootexplorer.DataGrid: void invalidate()>();
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bf: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.DataGrid: android.os.Handler f(com.speedsoftware.rootexplorer.DataGrid)>($r1);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.bf: com.speedsoftware.rootexplorer.DataGrid a>;
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.DataGrid: java.lang.Runnable l(com.speedsoftware.rootexplorer.DataGrid)>($r1);
+
+        virtualinvoke $r4.<android.os.Handler: boolean post(java.lang.Runnable)>($r5);
+
+     label1:
+        return;
+    }
+}

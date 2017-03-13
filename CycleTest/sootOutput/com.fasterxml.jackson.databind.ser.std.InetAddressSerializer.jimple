@@ -1,0 +1,146 @@
+public class com.fasterxml.jackson.databind.ser.std.InetAddressSerializer extends com.fasterxml.jackson.databind.ser.std.StdScalarSerializer
+{
+    public static final com.fasterxml.jackson.databind.ser.std.InetAddressSerializer instance;
+
+    static void <clinit>()
+    {
+        com.fasterxml.jackson.databind.ser.std.InetAddressSerializer $r0;
+
+        $r0 = new com.fasterxml.jackson.databind.ser.std.InetAddressSerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.InetAddressSerializer: void <init>()>();
+
+        <com.fasterxml.jackson.databind.ser.std.InetAddressSerializer: com.fasterxml.jackson.databind.ser.std.InetAddressSerializer instance> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.ser.std.InetAddressSerializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.InetAddressSerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdScalarSerializer: void <init>(java.lang.Class)>(class "java/net/InetAddress");
+
+        return;
+    }
+
+    public volatile void serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.InetAddressSerializer $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        java.lang.Object $r3;
+        java.net.InetAddress $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.InetAddressSerializer;
+
+        $r3 := @parameter0: java.lang.Object;
+
+        $r1 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = (java.net.InetAddress) $r3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.InetAddressSerializer: void serialize(java.net.InetAddress,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r4, $r1, $r2);
+
+        return;
+    }
+
+    public void serialize(java.net.InetAddress, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.InetAddressSerializer $r0;
+        java.net.InetAddress $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        java.lang.String $r4, $r5;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.InetAddressSerializer;
+
+        $r1 := @parameter0: java.net.InetAddress;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = virtualinvoke $r1.<java.net.InetAddress: java.lang.String toString()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.String: java.lang.String trim()>();
+
+        $r5 = $r4;
+
+        $i0 = virtualinvoke $r4.<java.lang.String: int indexOf(int)>(47);
+
+        if $i0 < 0 goto label1;
+
+        if $i0 != 0 goto label2;
+
+        $r5 = virtualinvoke $r4.<java.lang.String: java.lang.String substring(int)>(1);
+
+     label1:
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeString(java.lang.String)>($r5);
+
+        return;
+
+     label2:
+        $r5 = virtualinvoke $r4.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+        goto label1;
+    }
+
+    public volatile void serializeWithType(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.std.InetAddressSerializer $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r3;
+        java.lang.Object $r4;
+        java.net.InetAddress $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.InetAddressSerializer;
+
+        $r4 := @parameter0: java.lang.Object;
+
+        $r1 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r3 := @parameter3: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r5 = (java.net.InetAddress) $r4;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.InetAddressSerializer: void serializeWithType(java.net.InetAddress,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider,com.fasterxml.jackson.databind.jsontype.TypeSerializer)>($r5, $r1, $r2, $r3);
+
+        return;
+    }
+
+    public void serializeWithType(java.net.InetAddress, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.std.InetAddressSerializer $r0;
+        java.net.InetAddress $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.InetAddressSerializer;
+
+        $r1 := @parameter0: java.net.InetAddress;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypePrefixForScalar(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator,java.lang.Class)>($r1, $r2, class "java/net/InetAddress");
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.InetAddressSerializer: void serialize(java.net.InetAddress,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r1, $r2, $r3);
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypeSuffixForScalar(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        return;
+    }
+}

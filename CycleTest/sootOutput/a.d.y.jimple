@@ -1,0 +1,222 @@
+final class a.d.y extends a.d.u
+{
+    private int a;
+    private long b;
+
+    void <init>(int)
+    {
+        a.d.y $r0;
+        int $i0;
+
+        $r0 := @this: a.d.y;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<a.d.u: void <init>()>();
+
+        $r0.<a.d.y: int a> = $i0;
+
+        $r0.<a.d.y: long b> = 0L;
+
+        $r0.<a.d.y: byte g> = 4;
+
+        return;
+    }
+
+    final int i(byte[], int)
+    {
+        a.d.y $r0;
+        byte[] $r1;
+        int $i0, $i1;
+        long $l2;
+        byte $b3;
+        java.util.TimeZone $r2, $r3;
+        java.util.Date $r4;
+        boolean $z0;
+        java.lang.Throwable $r5;
+
+        $r0 := @this: a.d.y;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = $r0.<a.d.y: int a>;
+
+        $l2 = (long) $i1;
+
+        staticinvoke <a.d.y: void a(long,byte[],int)>($l2, $r1, $i0);
+
+        $i0 = $i0 + 2;
+
+        $l2 = $r0.<a.d.y: long b>;
+
+        $b3 = $l2 cmp 0L;
+
+        if $b3 == 0 goto label1;
+
+        $b3 = $l2 cmp -1L;
+
+        if $b3 != 0 goto label3;
+
+     label1:
+        staticinvoke <a.d.u: void b(long,byte[],int)>(-1L, $r1, $i0);
+
+     label2:
+        return 6;
+
+     label3:
+        $r2 = <a.d.u: java.util.TimeZone ak>;
+
+        entermonitor $r2;
+
+     label4:
+        $r3 = <a.d.u: java.util.TimeZone ak>;
+
+        $r4 = new java.util.Date;
+
+        specialinvoke $r4.<java.util.Date: void <init>()>();
+
+        $z0 = virtualinvoke $r3.<java.util.TimeZone: boolean inDaylightTime(java.util.Date)>($r4);
+
+        if $z0 == 0 goto label7;
+
+        $r3 = <a.d.u: java.util.TimeZone ak>;
+
+        $r4 = new java.util.Date;
+
+        specialinvoke $r4.<java.util.Date: void <init>(long)>($l2);
+
+        $z0 = virtualinvoke $r3.<java.util.TimeZone: boolean inDaylightTime(java.util.Date)>($r4);
+
+        if $z0 != 0 goto label5;
+
+        $l2 = $l2 - 3600000L;
+
+     label5:
+        exitmonitor $r2;
+
+     label6:
+        $l2 = $l2 / 1000L;
+
+        $i1 = (int) $l2;
+
+        $l2 = (long) $i1;
+
+        staticinvoke <a.d.u: void b(long,byte[],int)>($l2, $r1, $i0);
+
+        goto label2;
+
+     label7:
+        $r3 = <a.d.u: java.util.TimeZone ak>;
+
+        $r4 = new java.util.Date;
+
+        specialinvoke $r4.<java.util.Date: void <init>(long)>($l2);
+
+        $z0 = virtualinvoke $r3.<java.util.TimeZone: boolean inDaylightTime(java.util.Date)>($r4);
+
+     label8:
+        if $z0 == 0 goto label5;
+
+        $l2 = $l2 + 3600000L;
+
+        goto label5;
+
+     label9:
+        $r5 := @caughtexception;
+
+        exitmonitor $r2;
+
+        throw $r5;
+
+        catch java.lang.Throwable from label4 to label6 with label9;
+        catch java.lang.Throwable from label7 to label8 with label9;
+    }
+
+    final int j(byte[], int)
+    {
+        a.d.y $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.y;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int k(byte[], int)
+    {
+        a.d.y $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.y;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int l(byte[], int)
+    {
+        a.d.y $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.y;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.y $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+        int $i0;
+        long $l1;
+
+        $r0 := @this: a.d.y;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("SmbComClose[");
+
+        $r3 = specialinvoke $r0.<a.d.u: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",fid=");
+
+        $i0 = $r0.<a.d.y: int a>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",lastWriteTime=");
+
+        $l1 = $r0.<a.d.y: long b>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

@@ -1,0 +1,50 @@
+public class com.fasterxml.jackson.databind.deser.std.JdkDeserializers$CharsetDeserializer extends com.fasterxml.jackson.databind.deser.std.FromStringDeserializer
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$CharsetDeserializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$CharsetDeserializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.FromStringDeserializer: void <init>(java.lang.Class)>(class "java/nio/charset/Charset");
+
+        return;
+    }
+
+    protected volatile java.lang.Object _deserialize(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$CharsetDeserializer $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.nio.charset.Charset $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$CharsetDeserializer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$CharsetDeserializer: java.nio.charset.Charset _deserialize(java.lang.String,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r3;
+    }
+
+    protected java.nio.charset.Charset _deserialize(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$CharsetDeserializer $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.nio.charset.Charset $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$CharsetDeserializer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = staticinvoke <java.nio.charset.Charset: java.nio.charset.Charset forName(java.lang.String)>($r1);
+
+        return $r3;
+    }
+}

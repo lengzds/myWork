@@ -1,0 +1,113 @@
+public abstract class com.fasterxml.jackson.databind.type.TypeBase extends com.fasterxml.jackson.databind.JavaType implements com.fasterxml.jackson.databind.JsonSerializable
+{
+    volatile java.lang.String _canonicalName;
+
+    protected void <init>(java.lang.Class, int, java.lang.Object, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.TypeBase $r0;
+        java.lang.Class $r1;
+        int $i0;
+        java.lang.Object $r2, $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeBase;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.lang.Object;
+
+        $r3 := @parameter3: java.lang.Object;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.JavaType: void <init>(java.lang.Class,int,java.lang.Object,java.lang.Object)>($r1, $i0, $r2, $r3);
+
+        return;
+    }
+
+    protected abstract java.lang.String buildCanonicalName();
+
+    public java.lang.Object getTypeHandler()
+    {
+        com.fasterxml.jackson.databind.type.TypeBase $r0;
+        java.lang.Object r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeBase;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.type.TypeBase: java.lang.Object _typeHandler>;
+
+        return r1;
+    }
+
+    public java.lang.Object getValueHandler()
+    {
+        com.fasterxml.jackson.databind.type.TypeBase $r0;
+        java.lang.Object r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeBase;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.type.TypeBase: java.lang.Object _valueHandler>;
+
+        return r1;
+    }
+
+    public void serialize(com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.type.TypeBase $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeBase;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeBase: java.lang.String toCanonical()>();
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonGenerator: void writeString(java.lang.String)>($r3);
+
+        return;
+    }
+
+    public void serializeWithType(com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.type.TypeBase $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeBase;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypePrefixForScalar(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r0, $r1);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeBase: void serialize(com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r1, $r2);
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypeSuffixForScalar(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r0, $r1);
+
+        return;
+    }
+
+    public java.lang.String toCanonical()
+    {
+        com.fasterxml.jackson.databind.type.TypeBase $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.TypeBase;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.type.TypeBase: java.lang.String _canonicalName>;
+
+        if $r1 != null goto label1;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.TypeBase: java.lang.String buildCanonicalName()>();
+
+     label1:
+        return $r1;
+    }
+}

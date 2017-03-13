@@ -1,0 +1,77 @@
+final class com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$BoolKD extends com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer
+{
+
+    void <init>()
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$BoolKD $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$BoolKD;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer: void <init>(java.lang.Class)>(class "java/lang/Boolean");
+
+        return;
+    }
+
+    public final java.lang.Boolean _parse(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$BoolKD $r0;
+        java.lang.String $r1, $r3;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        boolean $z0;
+        java.lang.Class $r4;
+        com.fasterxml.jackson.databind.JsonMappingException $r5;
+        java.lang.Boolean r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$BoolKD;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = "true";
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r1);
+
+        if $z0 == 0 goto label1;
+
+        r6 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return r6;
+
+     label1:
+        $r3 = "false";
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r1);
+
+        if $z0 == 0 goto label2;
+
+        r6 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return r6;
+
+     label2:
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$BoolKD: java.lang.Class _keyClass>;
+
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException weirdKeyException(java.lang.Class,java.lang.String,java.lang.String)>($r4, $r1, "value not \'true\' or \'false\'");
+
+        throw $r5;
+    }
+
+    public final volatile java.lang.Object _parse(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$BoolKD $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.lang.Boolean $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$BoolKD;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$BoolKD: java.lang.Boolean _parse(java.lang.String,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r3;
+    }
+}

@@ -1,0 +1,63 @@
+public final class com.google.android.gms.internal.im extends java.lang.Object implements com.google.android.gms.internal.ik
+{
+    private static com.google.android.gms.internal.im a;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.im $r0;
+
+        $r0 := @this: com.google.android.gms.internal.im;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ik fW()
+    {
+        com.google.android.gms.internal.im $r0;
+        java.lang.Throwable $r1;
+
+        entermonitor class "com/google/android/gms/internal/im";
+
+     label1:
+        $r0 = <com.google.android.gms.internal.im: com.google.android.gms.internal.im a>;
+
+        if $r0 != null goto label2;
+
+        $r0 = new com.google.android.gms.internal.im;
+
+        specialinvoke $r0.<com.google.android.gms.internal.im: void <init>()>();
+
+        <com.google.android.gms.internal.im: com.google.android.gms.internal.im a> = $r0;
+
+     label2:
+        $r0 = <com.google.android.gms.internal.im: com.google.android.gms.internal.im a>;
+
+     label3:
+        exitmonitor class "com/google/android/gms/internal/im";
+
+        return $r0;
+
+     label4:
+        $r1 := @caughtexception;
+
+        exitmonitor class "com/google/android/gms/internal/im";
+
+        throw $r1;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+    }
+
+    public final long currentTimeMillis()
+    {
+        com.google.android.gms.internal.im $r0;
+        long $l0;
+
+        $r0 := @this: com.google.android.gms.internal.im;
+
+        $l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        return $l0;
+    }
+}

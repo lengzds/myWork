@@ -1,0 +1,57 @@
+class com.google.android.gms.tagmanager.v$b extends java.lang.Object
+{
+    final java.lang.String a;
+    final byte[] b;
+
+    void <init>(java.lang.String, byte[])
+    {
+        com.google.android.gms.tagmanager.v$b $r0;
+        java.lang.String $r1;
+        byte[] $r2;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v$b;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: byte[];
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.tagmanager.v$b: java.lang.String a> = $r1;
+
+        $r0.<com.google.android.gms.tagmanager.v$b: byte[] b> = $r2;
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        com.google.android.gms.tagmanager.v$b $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        byte[] $r3;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.tagmanager.v$b;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("KeyAndSerialized: key = ");
+
+        $r2 = $r0.<com.google.android.gms.tagmanager.v$b: java.lang.String a>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" serialized hash = ");
+
+        $r3 = $r0.<com.google.android.gms.tagmanager.v$b: byte[] b>;
+
+        $i0 = staticinvoke <java.util.Arrays: int hashCode(byte[])>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+}

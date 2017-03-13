@@ -1,0 +1,95 @@
+final class com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$EnumKD extends com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer
+{
+    protected final com.fasterxml.jackson.databind.introspect.AnnotatedMethod _factory;
+    protected final com.fasterxml.jackson.databind.util.EnumResolver _resolver;
+
+    protected void <init>(com.fasterxml.jackson.databind.util.EnumResolver, com.fasterxml.jackson.databind.introspect.AnnotatedMethod)
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$EnumKD $r0;
+        com.fasterxml.jackson.databind.util.EnumResolver $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r2;
+        java.lang.Class $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$EnumKD;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.util.EnumResolver;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Class getEnumClass()>();
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer: void <init>(java.lang.Class)>($r3);
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$EnumKD: com.fasterxml.jackson.databind.util.EnumResolver _resolver> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$EnumKD: com.fasterxml.jackson.databind.introspect.AnnotatedMethod _factory> = $r2;
+
+        return;
+    }
+
+    public final java.lang.Object _parse(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$EnumKD $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.databind.DeserializationFeature $r3;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r4;
+        java.lang.Object $r5;
+        java.lang.Exception $r6;
+        com.fasterxml.jackson.databind.util.EnumResolver $r7;
+        java.lang.Enum $r8;
+        com.fasterxml.jackson.databind.DeserializationConfig $r9;
+        boolean $z0;
+        java.lang.Class $r10;
+        com.fasterxml.jackson.databind.JsonMappingException $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$EnumKD;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$EnumKD: com.fasterxml.jackson.databind.introspect.AnnotatedMethod _factory>;
+
+        if $r4 == null goto label4;
+
+     label1:
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$EnumKD: com.fasterxml.jackson.databind.introspect.AnnotatedMethod _factory>;
+
+        $r5 = virtualinvoke $r4.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: java.lang.Object call1(java.lang.Object)>($r1);
+
+     label2:
+        return $r5;
+
+     label3:
+        $r6 := @caughtexception;
+
+        staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: void unwrapAndThrowAsIAE(java.lang.Throwable)>($r6);
+
+     label4:
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$EnumKD: com.fasterxml.jackson.databind.util.EnumResolver _resolver>;
+
+        $r8 = virtualinvoke $r7.<com.fasterxml.jackson.databind.util.EnumResolver: java.lang.Enum findEnum(java.lang.String)>($r1);
+
+        if $r8 != null goto label5;
+
+        $r9 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig getConfig()>();
+
+        $r3 = <com.fasterxml.jackson.databind.DeserializationFeature: com.fasterxml.jackson.databind.DeserializationFeature READ_UNKNOWN_ENUM_VALUES_AS_NULL>;
+
+        $z0 = virtualinvoke $r9.<com.fasterxml.jackson.databind.DeserializationConfig: boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)>($r3);
+
+        if $z0 != 0 goto label5;
+
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$EnumKD: java.lang.Class _keyClass>;
+
+        $r11 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException weirdKeyException(java.lang.Class,java.lang.String,java.lang.String)>($r10, $r1, "not one of values for Enum class");
+
+        throw $r11;
+
+     label5:
+        return $r8;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+}

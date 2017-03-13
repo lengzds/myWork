@@ -1,0 +1,120 @@
+public abstract class com.fasterxml.jackson.databind.JsonSerializer extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.JsonSerializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonSerializer;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.Class handledType()
+    {
+        com.fasterxml.jackson.databind.JsonSerializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonSerializer;
+
+        return null;
+    }
+
+    public boolean isEmpty(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.JsonSerializer $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r1 != null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isUnwrappingSerializer()
+    {
+        com.fasterxml.jackson.databind.JsonSerializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonSerializer;
+
+        return 0;
+    }
+
+    public abstract void serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider);
+
+    public void serializeWithType(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.JsonSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r4;
+        java.lang.UnsupportedOperationException $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.Class $r7, $r8;
+        java.lang.String $r9;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r7 = virtualinvoke $r0.<com.fasterxml.jackson.databind.JsonSerializer: java.lang.Class handledType()>();
+
+        $r8 = $r7;
+
+        if $r7 != null goto label1;
+
+        $r8 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+     label1:
+        $r5 = new java.lang.UnsupportedOperationException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("Type id handling not implemented for type ");
+
+        $r9 = virtualinvoke $r8.<java.lang.Class: java.lang.String getName()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r9);
+
+        $r9 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>($r9);
+
+        throw $r5;
+    }
+
+    public com.fasterxml.jackson.databind.JsonSerializer unwrappingSerializer(com.fasterxml.jackson.databind.util.NameTransformer)
+    {
+        com.fasterxml.jackson.databind.JsonSerializer $r0;
+        com.fasterxml.jackson.databind.util.NameTransformer $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.util.NameTransformer;
+
+        return $r0;
+    }
+
+    public boolean usesObjectId()
+    {
+        com.fasterxml.jackson.databind.JsonSerializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.JsonSerializer;
+
+        return 0;
+    }
+}

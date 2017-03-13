@@ -1,0 +1,206 @@
+final class com.google.api.a.c.b.a extends com.google.api.a.c.ae
+{
+    private final java.net.HttpURLConnection a;
+
+    void <init>(java.net.HttpURLConnection)
+    {
+        com.google.api.a.c.b.a $r0;
+        java.net.HttpURLConnection $r1;
+
+        $r0 := @this: com.google.api.a.c.b.a;
+
+        $r1 := @parameter0: java.net.HttpURLConnection;
+
+        specialinvoke $r0.<com.google.api.a.c.ae: void <init>()>();
+
+        $r0.<com.google.api.a.c.b.a: java.net.HttpURLConnection a> = $r1;
+
+        virtualinvoke $r1.<java.net.HttpURLConnection: void setInstanceFollowRedirects(boolean)>(0);
+
+        return;
+    }
+
+    public final com.google.api.a.c.af a()
+    {
+        com.google.api.a.c.b.a $r0;
+        java.net.HttpURLConnection $r1;
+        com.google.api.a.f.ar $r2;
+        java.lang.String $r3, $r4;
+        long $l0;
+        byte $b1;
+        boolean $z0;
+        int $i2;
+        java.io.OutputStream $r5;
+        com.google.api.a.c.b.b $r6;
+        java.lang.Throwable $r7, $r9;
+        java.lang.Object[] $r8;
+
+        $r0 := @this: com.google.api.a.c.b.a;
+
+        $r1 = $r0.<com.google.api.a.c.b.a: java.net.HttpURLConnection a>;
+
+        $r2 = virtualinvoke $r0.<com.google.api.a.c.b.a: com.google.api.a.f.ar e()>();
+
+        if $r2 == null goto label08;
+
+        $r3 = virtualinvoke $r0.<com.google.api.a.c.b.a: java.lang.String d()>();
+
+        if $r3 == null goto label01;
+
+        virtualinvoke $r0.<com.google.api.a.c.b.a: void a(java.lang.String,java.lang.String)>("Content-Type", $r3);
+
+     label01:
+        $r3 = virtualinvoke $r0.<com.google.api.a.c.b.a: java.lang.String c()>();
+
+        if $r3 == null goto label02;
+
+        virtualinvoke $r0.<com.google.api.a.c.b.a: void a(java.lang.String,java.lang.String)>("Content-Encoding", $r3);
+
+     label02:
+        $l0 = virtualinvoke $r0.<com.google.api.a.c.b.a: long b()>();
+
+        $b1 = $l0 cmp 0L;
+
+        if $b1 < 0 goto label03;
+
+        $r3 = staticinvoke <java.lang.Long: java.lang.String toString(long)>($l0);
+
+        virtualinvoke $r0.<com.google.api.a.c.b.a: void a(java.lang.String,java.lang.String)>("Content-Length", $r3);
+
+     label03:
+        $r3 = virtualinvoke $r1.<java.net.HttpURLConnection: java.lang.String getRequestMethod()>();
+
+        $r4 = "POST";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 != 0 goto label04;
+
+        $r4 = "PUT";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label12;
+
+     label04:
+        virtualinvoke $r1.<java.net.HttpURLConnection: void setDoOutput(boolean)>(1);
+
+        $b1 = $l0 cmp 0L;
+
+        if $b1 < 0 goto label10;
+
+        $b1 = $l0 cmp 2147483647L;
+
+        if $b1 > 0 goto label10;
+
+        $i2 = (int) $l0;
+
+        virtualinvoke $r1.<java.net.HttpURLConnection: void setFixedLengthStreamingMode(int)>($i2);
+
+     label05:
+        $r5 = virtualinvoke $r1.<java.net.HttpURLConnection: java.io.OutputStream getOutputStream()>();
+
+     label06:
+        $r2 = virtualinvoke $r0.<com.google.api.a.c.b.a: com.google.api.a.f.ar e()>();
+
+        interfaceinvoke $r2.<com.google.api.a.f.ar: void a(java.io.OutputStream)>($r5);
+
+     label07:
+        virtualinvoke $r5.<java.io.OutputStream: void close()>();
+
+     label08:
+        virtualinvoke $r1.<java.net.HttpURLConnection: void connect()>();
+
+        $r6 = new com.google.api.a.c.b.b;
+
+        specialinvoke $r6.<com.google.api.a.c.b.b: void <init>(java.net.HttpURLConnection)>($r1);
+
+     label09:
+        return $r6;
+
+     label10:
+        virtualinvoke $r1.<java.net.HttpURLConnection: void setChunkedStreamingMode(int)>(0);
+
+        goto label05;
+
+     label11:
+        $r7 := @caughtexception;
+
+        virtualinvoke $r5.<java.io.OutputStream: void close()>();
+
+        throw $r7;
+
+     label12:
+        $b1 = $l0 cmp 0L;
+
+        if $b1 != 0 goto label14;
+
+        $z0 = 1;
+
+     label13:
+        $r8 = newarray (java.lang.Object)[1];
+
+        $r8[0] = $r3;
+
+        staticinvoke <com.google.api.a.e.a.a.a.a.b: void a(boolean,java.lang.String,java.lang.Object[])>($z0, "%s with non-zero content length is not supported", $r8);
+
+        goto label08;
+
+     label14:
+        $z0 = 0;
+
+        goto label13;
+
+     label15:
+        $r9 := @caughtexception;
+
+        virtualinvoke $r1.<java.net.HttpURLConnection: void disconnect()>();
+
+        throw $r9;
+
+        catch java.lang.Throwable from label06 to label07 with label11;
+        catch java.lang.Throwable from label08 to label09 with label15;
+    }
+
+    public final void a(int, int)
+    {
+        com.google.api.a.c.b.a $r0;
+        int $i0, $i1;
+        java.net.HttpURLConnection $r1;
+
+        $r0 := @this: com.google.api.a.c.b.a;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r1 = $r0.<com.google.api.a.c.b.a: java.net.HttpURLConnection a>;
+
+        virtualinvoke $r1.<java.net.HttpURLConnection: void setReadTimeout(int)>($i1);
+
+        $r1 = $r0.<com.google.api.a.c.b.a: java.net.HttpURLConnection a>;
+
+        virtualinvoke $r1.<java.net.HttpURLConnection: void setConnectTimeout(int)>($i0);
+
+        return;
+    }
+
+    public final void a(java.lang.String, java.lang.String)
+    {
+        com.google.api.a.c.b.a $r0;
+        java.lang.String $r1, $r2;
+        java.net.HttpURLConnection $r3;
+
+        $r0 := @this: com.google.api.a.c.b.a;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = $r0.<com.google.api.a.c.b.a: java.net.HttpURLConnection a>;
+
+        virtualinvoke $r3.<java.net.HttpURLConnection: void addRequestProperty(java.lang.String,java.lang.String)>($r1, $r2);
+
+        return;
+    }
+}

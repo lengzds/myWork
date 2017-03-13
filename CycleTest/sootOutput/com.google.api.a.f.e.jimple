@@ -1,0 +1,169 @@
+public final class com.google.api.a.f.e extends java.lang.Object
+{
+    private final java.util.Map a;
+    private final java.util.Map b;
+    private final java.lang.Object c;
+
+    public void <init>(java.lang.Object)
+    {
+        com.google.api.a.f.e $r0;
+        java.lang.Object $r1;
+        com.google.api.a.f.a $r2;
+
+        $r0 := @this: com.google.api.a.f.e;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r2 = staticinvoke <com.google.api.a.f.a: com.google.api.a.f.a a()>();
+
+        $r0.<com.google.api.a.f.e: java.util.Map a> = $r2;
+
+        $r2 = staticinvoke <com.google.api.a.f.a: com.google.api.a.f.a a()>();
+
+        $r0.<com.google.api.a.f.e: java.util.Map b> = $r2;
+
+        $r0.<com.google.api.a.f.e: java.lang.Object c> = $r1;
+
+        return;
+    }
+
+    public final void a()
+    {
+        com.google.api.a.f.e $r0;
+        java.util.Map $r1;
+        java.util.Set $r2;
+        java.util.Iterator $r3;
+        boolean $z0;
+        java.lang.Object $r4, $r6;
+        java.util.Map$Entry $r5;
+        com.google.api.a.f.f $r7;
+        java.lang.reflect.Field $r8;
+
+        $r0 := @this: com.google.api.a.f.e;
+
+        $r1 = $r0.<com.google.api.a.f.e: java.util.Map a>;
+
+        $r2 = interfaceinvoke $r1.<java.util.Map: java.util.Set entrySet()>();
+
+        $r3 = interfaceinvoke $r2.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r4 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (java.util.Map$Entry) $r4;
+
+        $r4 = $r0.<com.google.api.a.f.e: java.lang.Object c>;
+
+        $r1 = (java.util.Map) $r4;
+
+        $r4 = interfaceinvoke $r5.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r6 = interfaceinvoke $r5.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r7 = (com.google.api.a.f.f) $r6;
+
+        $r6 = virtualinvoke $r7.<com.google.api.a.f.f: java.lang.Object a()>();
+
+        interfaceinvoke $r1.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r4, $r6);
+
+        goto label1;
+
+     label2:
+        $r1 = $r0.<com.google.api.a.f.e: java.util.Map b>;
+
+        $r2 = interfaceinvoke $r1.<java.util.Map: java.util.Set entrySet()>();
+
+        $r3 = interfaceinvoke $r2.<java.util.Set: java.util.Iterator iterator()>();
+
+     label3:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label4;
+
+        $r4 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (java.util.Map$Entry) $r4;
+
+        $r4 = interfaceinvoke $r5.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r8 = (java.lang.reflect.Field) $r4;
+
+        $r4 = $r0.<com.google.api.a.f.e: java.lang.Object c>;
+
+        $r6 = interfaceinvoke $r5.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r7 = (com.google.api.a.f.f) $r6;
+
+        $r6 = virtualinvoke $r7.<com.google.api.a.f.f: java.lang.Object a()>();
+
+        staticinvoke <com.google.api.a.f.x: void a(java.lang.reflect.Field,java.lang.Object,java.lang.Object)>($r8, $r4, $r6);
+
+        goto label3;
+
+     label4:
+        return;
+    }
+
+    public final void a(java.lang.reflect.Field, java.lang.Class, java.lang.Object)
+    {
+        com.google.api.a.f.e $r0;
+        java.lang.reflect.Field $r1;
+        java.lang.Class $r2, $r7;
+        java.lang.Object $r3, $r4;
+        java.util.Map $r5;
+        com.google.api.a.f.f $r6;
+        boolean $z0;
+        java.util.ArrayList $r8;
+
+        $r0 := @this: com.google.api.a.f.e;
+
+        $r1 := @parameter0: java.lang.reflect.Field;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r3 := @parameter2: java.lang.Object;
+
+        $r5 = $r0.<com.google.api.a.f.e: java.util.Map b>;
+
+        $r4 = interfaceinvoke $r5.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r6 = (com.google.api.a.f.f) $r4;
+
+        if $r6 != null goto label1;
+
+        $r6 = new com.google.api.a.f.f;
+
+        specialinvoke $r6.<com.google.api.a.f.f: void <init>(java.lang.Class)>($r2);
+
+        $r5 = $r0.<com.google.api.a.f.e: java.util.Map b>;
+
+        interfaceinvoke $r5.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r6);
+
+     label1:
+        $r7 = $r6.<com.google.api.a.f.f: java.lang.Class a>;
+
+        if $r2 != $r7 goto label3;
+
+        $z0 = 1;
+
+     label2:
+        staticinvoke <com.google.api.a.f.ao: void a(boolean)>($z0);
+
+        $r8 = $r6.<com.google.api.a.f.f: java.util.ArrayList b>;
+
+        virtualinvoke $r8.<java.util.ArrayList: boolean add(java.lang.Object)>($r3);
+
+        return;
+
+     label3:
+        $z0 = 0;
+
+        goto label2;
+    }
+}

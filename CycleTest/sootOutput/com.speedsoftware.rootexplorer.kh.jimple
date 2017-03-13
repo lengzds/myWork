@@ -1,0 +1,70 @@
+final class com.speedsoftware.rootexplorer.kh extends java.lang.Object implements android.view.View$OnClickListener
+{
+    final com.speedsoftware.rootexplorer.kg a;
+
+    void <init>(com.speedsoftware.rootexplorer.kg)
+    {
+        com.speedsoftware.rootexplorer.kh $r0;
+        com.speedsoftware.rootexplorer.kg $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.kh;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.kg;
+
+        $r0.<com.speedsoftware.rootexplorer.kh: com.speedsoftware.rootexplorer.kg a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void onClick(android.view.View)
+    {
+        com.speedsoftware.rootexplorer.kh $r0;
+        android.view.View $r1;
+        android.view.ViewParent $r2;
+        java.lang.Object $r3;
+        com.speedsoftware.rootexplorer.la $r4;
+        com.speedsoftware.rootexplorer.bn $r5;
+        android.widget.CheckBox $r6;
+        boolean $z0;
+        com.speedsoftware.rootexplorer.kg $r7;
+        com.speedsoftware.rootexplorer.ge $r8;
+        android.widget.GridView $r9;
+        int $i0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.kh;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r2 = virtualinvoke $r1.<android.view.View: android.view.ViewParent getParent()>();
+
+        $r1 = (android.view.View) $r2;
+
+        $r3 = virtualinvoke $r1.<android.view.View: java.lang.Object getTag()>();
+
+        $r4 = (com.speedsoftware.rootexplorer.la) $r3;
+
+        $r5 = $r4.<com.speedsoftware.rootexplorer.la: com.speedsoftware.rootexplorer.bn h>;
+
+        $r6 = $r4.<com.speedsoftware.rootexplorer.la: android.widget.CheckBox f>;
+
+        $z0 = virtualinvoke $r6.<android.widget.CheckBox: boolean isChecked()>();
+
+        virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: void b(boolean)>($z0);
+
+        $r7 = $r0.<com.speedsoftware.rootexplorer.kh: com.speedsoftware.rootexplorer.kg a>;
+
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.kg: com.speedsoftware.rootexplorer.ge a(com.speedsoftware.rootexplorer.kg)>($r7);
+
+        $r9 = $r8.<com.speedsoftware.rootexplorer.ge: android.widget.GridView aV>;
+
+        $i0 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: int an()>();
+
+        $z0 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: boolean ac()>();
+
+        virtualinvoke $r9.<android.widget.GridView: void setItemChecked(int,boolean)>($i0, $z0);
+
+        return;
+    }
+}

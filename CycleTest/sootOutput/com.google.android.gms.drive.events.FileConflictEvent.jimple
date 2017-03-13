@@ -1,0 +1,124 @@
+public final class com.google.android.gms.drive.events.FileConflictEvent extends java.lang.Object implements com.google.android.gms.common.internal.safeparcel.SafeParcelable, com.google.android.gms.drive.events.DriveEvent
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    final int a;
+    final com.google.android.gms.drive.DriveId b;
+    final java.lang.String c;
+    final android.os.ParcelFileDescriptor d;
+    final android.os.ParcelFileDescriptor e;
+    final com.google.android.gms.drive.metadata.internal.MetadataBundle f;
+    final java.util.ArrayList g;
+    private boolean h;
+    private boolean i;
+    private boolean j;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.drive.events.c $r0;
+
+        $r0 = new com.google.android.gms.drive.events.c;
+
+        specialinvoke $r0.<com.google.android.gms.drive.events.c: void <init>()>();
+
+        <com.google.android.gms.drive.events.FileConflictEvent: android.os.Parcelable$Creator CREATOR> = $r0;
+
+        return;
+    }
+
+    void <init>(int, com.google.android.gms.drive.DriveId, java.lang.String, android.os.ParcelFileDescriptor, android.os.ParcelFileDescriptor, com.google.android.gms.drive.metadata.internal.MetadataBundle, java.util.ArrayList)
+    {
+        com.google.android.gms.drive.events.FileConflictEvent $r0;
+        int $i0;
+        com.google.android.gms.drive.DriveId $r1;
+        java.lang.String $r2;
+        android.os.ParcelFileDescriptor $r3, $r4;
+        com.google.android.gms.drive.metadata.internal.MetadataBundle $r5;
+        java.util.ArrayList $r6;
+
+        $r0 := @this: com.google.android.gms.drive.events.FileConflictEvent;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: com.google.android.gms.drive.DriveId;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r3 := @parameter3: android.os.ParcelFileDescriptor;
+
+        $r4 := @parameter4: android.os.ParcelFileDescriptor;
+
+        $r5 := @parameter5: com.google.android.gms.drive.metadata.internal.MetadataBundle;
+
+        $r6 := @parameter6: java.util.ArrayList;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.drive.events.FileConflictEvent: boolean h> = 0;
+
+        $r0.<com.google.android.gms.drive.events.FileConflictEvent: boolean i> = 0;
+
+        $r0.<com.google.android.gms.drive.events.FileConflictEvent: boolean j> = 0;
+
+        $r0.<com.google.android.gms.drive.events.FileConflictEvent: int a> = $i0;
+
+        $r0.<com.google.android.gms.drive.events.FileConflictEvent: com.google.android.gms.drive.DriveId b> = $r1;
+
+        $r0.<com.google.android.gms.drive.events.FileConflictEvent: java.lang.String c> = $r2;
+
+        $r0.<com.google.android.gms.drive.events.FileConflictEvent: android.os.ParcelFileDescriptor d> = $r3;
+
+        $r0.<com.google.android.gms.drive.events.FileConflictEvent: android.os.ParcelFileDescriptor e> = $r4;
+
+        $r0.<com.google.android.gms.drive.events.FileConflictEvent: com.google.android.gms.drive.metadata.internal.MetadataBundle f> = $r5;
+
+        $r0.<com.google.android.gms.drive.events.FileConflictEvent: java.util.ArrayList g> = $r6;
+
+        return;
+    }
+
+    public final int describeContents()
+    {
+        com.google.android.gms.drive.events.FileConflictEvent $r0;
+
+        $r0 := @this: com.google.android.gms.drive.events.FileConflictEvent;
+
+        return 0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.drive.events.FileConflictEvent $r0;
+        com.google.android.gms.drive.DriveId $r1;
+        java.lang.String $r2;
+        java.lang.Object[] $r3;
+
+        $r0 := @this: com.google.android.gms.drive.events.FileConflictEvent;
+
+        $r3 = newarray (java.lang.Object)[1];
+
+        $r1 = $r0.<com.google.android.gms.drive.events.FileConflictEvent: com.google.android.gms.drive.DriveId b>;
+
+        $r3[0] = $r1;
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("FileConflictEvent [id=%s]", $r3);
+
+        return $r2;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.drive.events.FileConflictEvent $r0;
+        android.os.Parcel $r1;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.drive.events.FileConflictEvent;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        staticinvoke <com.google.android.gms.drive.events.c: void a(com.google.android.gms.drive.events.FileConflictEvent,android.os.Parcel,int)>($r0, $r1, $i0);
+
+        return;
+    }
+}

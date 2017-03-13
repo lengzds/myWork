@@ -1,0 +1,125 @@
+public class com.google.android.gms.internal.lt extends com.google.android.gms.dynamic.g
+{
+    private static com.google.android.gms.internal.lt a;
+
+    protected void <init>()
+    {
+        com.google.android.gms.internal.lt $r0;
+
+        $r0 := @this: com.google.android.gms.internal.lt;
+
+        specialinvoke $r0.<com.google.android.gms.dynamic.g: void <init>(java.lang.String)>("com.google.android.gms.wallet.dynamite.WalletDynamiteCreatorImpl");
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ll a(android.app.Activity, com.google.android.gms.dynamic.c, com.google.android.gms.wallet.fragment.WalletFragmentOptions, com.google.android.gms.internal.lm)
+    {
+        android.app.Activity $r0;
+        com.google.android.gms.dynamic.c $r1;
+        com.google.android.gms.wallet.fragment.WalletFragmentOptions $r2;
+        com.google.android.gms.internal.lm $r3;
+        int $i0;
+        com.google.android.gms.common.GooglePlayServicesNotAvailableException $r4;
+        com.google.android.gms.internal.lt $r5;
+        java.lang.Object $r6;
+        com.google.android.gms.internal.lo $r7;
+        com.google.android.gms.dynamic.d $r8;
+        com.google.android.gms.internal.ll $r9;
+        android.os.RemoteException $r10;
+        java.lang.RuntimeException $r11;
+        com.google.android.gms.dynamic.g$a $r12;
+
+        $r0 := @parameter0: android.app.Activity;
+
+        $r1 := @parameter1: com.google.android.gms.dynamic.c;
+
+        $r2 := @parameter2: com.google.android.gms.wallet.fragment.WalletFragmentOptions;
+
+        $r3 := @parameter3: com.google.android.gms.internal.lm;
+
+        $i0 = staticinvoke <com.google.android.gms.common.GooglePlayServicesUtil: int isGooglePlayServicesAvailable(android.content.Context)>($r0);
+
+        if $i0 == 0 goto label1;
+
+        $r4 = new com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+
+        specialinvoke $r4.<com.google.android.gms.common.GooglePlayServicesNotAvailableException: void <init>(int)>($i0);
+
+        throw $r4;
+
+     label1:
+        $r5 = staticinvoke <com.google.android.gms.internal.lt: com.google.android.gms.internal.lt ne()>();
+
+        $r6 = virtualinvoke $r5.<com.google.android.gms.internal.lt: java.lang.Object a(android.content.Context)>($r0);
+
+     label2:
+        $r7 = (com.google.android.gms.internal.lo) $r6;
+
+     label3:
+        $r8 = staticinvoke <com.google.android.gms.dynamic.e: com.google.android.gms.dynamic.d h(java.lang.Object)>($r0);
+
+        $r9 = interfaceinvoke $r7.<com.google.android.gms.internal.lo: com.google.android.gms.internal.ll a(com.google.android.gms.dynamic.d,com.google.android.gms.dynamic.c,com.google.android.gms.wallet.fragment.WalletFragmentOptions,com.google.android.gms.internal.lm)>($r8, $r1, $r2, $r3);
+
+     label4:
+        return $r9;
+
+     label5:
+        $r10 := @caughtexception;
+
+        $r11 = new java.lang.RuntimeException;
+
+        specialinvoke $r11.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($r10);
+
+        throw $r11;
+
+     label6:
+        $r12 := @caughtexception;
+
+        $r11 = new java.lang.RuntimeException;
+
+        specialinvoke $r11.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($r12);
+
+        throw $r11;
+
+        catch android.os.RemoteException from label1 to label2 with label5;
+        catch android.os.RemoteException from label3 to label4 with label5;
+        catch com.google.android.gms.dynamic.g$a from label1 to label2 with label6;
+        catch com.google.android.gms.dynamic.g$a from label3 to label4 with label6;
+    }
+
+    private static com.google.android.gms.internal.lt ne()
+    {
+        com.google.android.gms.internal.lt $r0;
+
+        $r0 = <com.google.android.gms.internal.lt: com.google.android.gms.internal.lt a>;
+
+        if $r0 != null goto label1;
+
+        $r0 = new com.google.android.gms.internal.lt;
+
+        specialinvoke $r0.<com.google.android.gms.internal.lt: void <init>()>();
+
+        <com.google.android.gms.internal.lt: com.google.android.gms.internal.lt a> = $r0;
+
+     label1:
+        $r0 = <com.google.android.gms.internal.lt: com.google.android.gms.internal.lt a>;
+
+        return $r0;
+    }
+
+    protected java.lang.Object d(android.os.IBinder)
+    {
+        com.google.android.gms.internal.lt $r0;
+        android.os.IBinder $r1;
+        com.google.android.gms.internal.lo $r2;
+
+        $r0 := @this: com.google.android.gms.internal.lt;
+
+        $r1 := @parameter0: android.os.IBinder;
+
+        $r2 = staticinvoke <com.google.android.gms.internal.lo$a: com.google.android.gms.internal.lo br(android.os.IBinder)>($r1);
+
+        return $r2;
+    }
+}

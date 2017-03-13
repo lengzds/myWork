@@ -1,0 +1,154 @@
+public final class com.fasterxml.jackson.databind.type.ClassKey extends java.lang.Object implements java.lang.Comparable
+{
+    private java.lang.Class _class;
+    private java.lang.String _className;
+    private int _hashCode;
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.type.ClassKey $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.ClassKey;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.type.ClassKey: java.lang.Class _class> = null;
+
+        $r0.<com.fasterxml.jackson.databind.type.ClassKey: java.lang.String _className> = null;
+
+        $r0.<com.fasterxml.jackson.databind.type.ClassKey: int _hashCode> = 0;
+
+        return;
+    }
+
+    public void <init>(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.type.ClassKey $r0;
+        java.lang.Class $r1;
+        java.lang.String $r2;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.ClassKey;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.type.ClassKey: java.lang.Class _class> = $r1;
+
+        $r2 = virtualinvoke $r1.<java.lang.Class: java.lang.String getName()>();
+
+        $r0.<com.fasterxml.jackson.databind.type.ClassKey: java.lang.String _className> = $r2;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.type.ClassKey: java.lang.String _className>;
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int hashCode()>();
+
+        $r0.<com.fasterxml.jackson.databind.type.ClassKey: int _hashCode> = $i0;
+
+        return;
+    }
+
+    public final int compareTo(com.fasterxml.jackson.databind.type.ClassKey)
+    {
+        com.fasterxml.jackson.databind.type.ClassKey $r0, $r1;
+        java.lang.String $r2, $r3;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.ClassKey;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.type.ClassKey;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.ClassKey: java.lang.String _className>;
+
+        $r2 = $r1.<com.fasterxml.jackson.databind.type.ClassKey: java.lang.String _className>;
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int compareTo(java.lang.String)>($r2);
+
+        return $i0;
+    }
+
+    public final volatile int compareTo(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.ClassKey $r0, $r2;
+        int $i0;
+        java.lang.Object $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.ClassKey;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (com.fasterxml.jackson.databind.type.ClassKey) $r1;
+
+        $i0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.type.ClassKey: int compareTo(com.fasterxml.jackson.databind.type.ClassKey)>($r2);
+
+        return $i0;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.type.ClassKey $r0, $r4;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.ClassKey;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r1 != $r0 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 != null goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r2 == $r3 goto label3;
+
+        return 0;
+
+     label3:
+        $r4 = (com.fasterxml.jackson.databind.type.ClassKey) $r1;
+
+        $r2 = $r4.<com.fasterxml.jackson.databind.type.ClassKey: java.lang.Class _class>;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.ClassKey: java.lang.Class _class>;
+
+        if $r2 == $r3 goto label4;
+
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    public final int hashCode()
+    {
+        com.fasterxml.jackson.databind.type.ClassKey $r0;
+        int i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.ClassKey;
+
+        i0 = $r0.<com.fasterxml.jackson.databind.type.ClassKey: int _hashCode>;
+
+        return i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.fasterxml.jackson.databind.type.ClassKey $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.ClassKey;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.type.ClassKey: java.lang.String _className>;
+
+        return r1;
+    }
+}

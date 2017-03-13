@@ -1,0 +1,212 @@
+public class com.fasterxml.jackson.databind.node.JsonNodeFactory extends java.lang.Object
+{
+    public static final com.fasterxml.jackson.databind.node.JsonNodeFactory instance;
+
+    static void <clinit>()
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+
+        $r0 = new com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.node.JsonNodeFactory: void <init>()>();
+
+        <com.fasterxml.jackson.databind.node.JsonNodeFactory: com.fasterxml.jackson.databind.node.JsonNodeFactory instance> = $r0;
+
+        return;
+    }
+
+    protected void <init>()
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public com.fasterxml.jackson.databind.node.POJONode POJONode(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.databind.node.POJONode $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = new com.fasterxml.jackson.databind.node.POJONode;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.node.POJONode: void <init>(java.lang.Object)>($r1);
+
+        return $r2;
+    }
+
+    public com.fasterxml.jackson.databind.node.ArrayNode arrayNode()
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+        com.fasterxml.jackson.databind.node.ArrayNode $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        $r1 = new com.fasterxml.jackson.databind.node.ArrayNode;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.node.ArrayNode: void <init>(com.fasterxml.jackson.databind.node.JsonNodeFactory)>($r0);
+
+        return $r1;
+    }
+
+    public com.fasterxml.jackson.databind.node.BinaryNode binaryNode(byte[])
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+        byte[] $r1;
+        com.fasterxml.jackson.databind.node.BinaryNode $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        $r1 := @parameter0: byte[];
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.node.BinaryNode: com.fasterxml.jackson.databind.node.BinaryNode valueOf(byte[])>($r1);
+
+        return $r2;
+    }
+
+    public com.fasterxml.jackson.databind.node.BooleanNode booleanNode(boolean)
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+        boolean $z0;
+        com.fasterxml.jackson.databind.node.BooleanNode $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        $z0 := @parameter0: boolean;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.databind.node.BooleanNode: com.fasterxml.jackson.databind.node.BooleanNode getTrue()>();
+
+        return $r1;
+
+     label1:
+        $r1 = staticinvoke <com.fasterxml.jackson.databind.node.BooleanNode: com.fasterxml.jackson.databind.node.BooleanNode getFalse()>();
+
+        return $r1;
+    }
+
+    public com.fasterxml.jackson.databind.node.NullNode nullNode()
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+        com.fasterxml.jackson.databind.node.NullNode $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.databind.node.NullNode: com.fasterxml.jackson.databind.node.NullNode getInstance()>();
+
+        return $r1;
+    }
+
+    public com.fasterxml.jackson.databind.node.NumericNode numberNode(double)
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+        double $d0;
+        com.fasterxml.jackson.databind.node.DoubleNode $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        $d0 := @parameter0: double;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.databind.node.DoubleNode: com.fasterxml.jackson.databind.node.DoubleNode valueOf(double)>($d0);
+
+        return $r1;
+    }
+
+    public com.fasterxml.jackson.databind.node.NumericNode numberNode(int)
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+        int $i0;
+        com.fasterxml.jackson.databind.node.IntNode $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        $i0 := @parameter0: int;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.databind.node.IntNode: com.fasterxml.jackson.databind.node.IntNode valueOf(int)>($i0);
+
+        return $r1;
+    }
+
+    public com.fasterxml.jackson.databind.node.NumericNode numberNode(long)
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+        long $l0;
+        com.fasterxml.jackson.databind.node.LongNode $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        $l0 := @parameter0: long;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.databind.node.LongNode: com.fasterxml.jackson.databind.node.LongNode valueOf(long)>($l0);
+
+        return $r1;
+    }
+
+    public com.fasterxml.jackson.databind.node.NumericNode numberNode(java.math.BigDecimal)
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+        java.math.BigDecimal $r1;
+        com.fasterxml.jackson.databind.node.DecimalNode $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        $r1 := @parameter0: java.math.BigDecimal;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.node.DecimalNode: com.fasterxml.jackson.databind.node.DecimalNode valueOf(java.math.BigDecimal)>($r1);
+
+        return $r2;
+    }
+
+    public com.fasterxml.jackson.databind.node.NumericNode numberNode(java.math.BigInteger)
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+        java.math.BigInteger $r1;
+        com.fasterxml.jackson.databind.node.BigIntegerNode $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        $r1 := @parameter0: java.math.BigInteger;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.node.BigIntegerNode: com.fasterxml.jackson.databind.node.BigIntegerNode valueOf(java.math.BigInteger)>($r1);
+
+        return $r2;
+    }
+
+    public com.fasterxml.jackson.databind.node.ObjectNode objectNode()
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+        com.fasterxml.jackson.databind.node.ObjectNode $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        $r1 = new com.fasterxml.jackson.databind.node.ObjectNode;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.node.ObjectNode: void <init>(com.fasterxml.jackson.databind.node.JsonNodeFactory)>($r0);
+
+        return $r1;
+    }
+
+    public com.fasterxml.jackson.databind.node.TextNode textNode(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.databind.node.TextNode $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.node.TextNode: com.fasterxml.jackson.databind.node.TextNode valueOf(java.lang.String)>($r1);
+
+        return $r2;
+    }
+}

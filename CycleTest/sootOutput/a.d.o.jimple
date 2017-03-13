@@ -1,0 +1,202 @@
+final class a.d.o extends a.d.at
+{
+    private int S;
+    private int a;
+
+    void <init>()
+    {
+        a.d.o $r0;
+
+        $r0 := @this: a.d.o;
+
+        specialinvoke $r0.<a.d.at: void <init>()>();
+
+        return;
+    }
+
+    final int a(byte[], int)
+    {
+        a.d.o $r0;
+        byte[] $r1;
+        int $i0, $i1, $i2;
+
+        $r0 := @this: a.d.o;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = staticinvoke <a.d.o: int d(byte[],int)>($r1, $i0);
+
+        $r0.<a.d.o: int P> = $i1;
+
+        $i1 = $i0 + 2;
+
+        $i2 = staticinvoke <a.d.o: int d(byte[],int)>($r1, $i1);
+
+        $r0.<a.d.o: int a> = $i2;
+
+        $i1 = $i1 + 2;
+
+        $i2 = staticinvoke <a.d.o: int d(byte[],int)>($r1, $i1);
+
+        $r0.<a.d.o: int Q> = $i2;
+
+        $i1 = $i1 + 2;
+
+        $i2 = staticinvoke <a.d.o: int d(byte[],int)>($r1, $i1);
+
+        $r0.<a.d.o: int S> = $i2;
+
+        $i1 = $i1 + 2;
+
+        $i0 = $i1 - $i0;
+
+        return $i0;
+    }
+
+    final int a(byte[], int, int)
+    {
+        a.d.o $r0;
+        byte[] $r1;
+        int $i0, $i1, $i2, $i3, $i4;
+        a.d.bl $r2;
+        a.d.bl[] $r3;
+        a.d.h[] $r4;
+        java.lang.String $r5;
+        a.e.e $r6;
+
+        $r0 := @this: a.d.o;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r0.<a.d.o: boolean t> = 0;
+
+        $i1 = $r0.<a.d.o: int Q>;
+
+        $r3 = newarray (a.d.bl)[$i1];
+
+        $r0.<a.d.o: a.d.h[] R> = $r3;
+
+        $i1 = 0;
+
+        $i2 = $i0;
+
+     label1:
+        $i3 = $r0.<a.d.o: int Q>;
+
+        if $i1 >= $i3 goto label3;
+
+        $r4 = $r0.<a.d.o: a.d.h[] R>;
+
+        $r2 = new a.d.bl;
+
+        specialinvoke $r2.<a.d.bl: void <init>()>();
+
+        $r4[$i1] = $r2;
+
+        $r5 = virtualinvoke $r0.<a.d.o: java.lang.String a(byte[],int,int,boolean)>($r1, $i2, 13, 0);
+
+        $r2.<a.d.bl: java.lang.String b> = $r5;
+
+        $i2 = $i2 + 14;
+
+        $i3 = staticinvoke <a.d.o: int d(byte[],int)>($r1, $i2);
+
+        $r2.<a.d.bl: int c> = $i3;
+
+        $i2 = $i2 + 2;
+
+        $i3 = staticinvoke <a.d.o: int e(byte[],int)>($r1, $i2);
+
+        $i2 = $i2 + 4;
+
+        $i3 = $i3 & 65535;
+
+        $i4 = $r0.<a.d.o: int a>;
+
+        $i3 = $i3 - $i4;
+
+        $i3 = $i3 + $i0;
+
+        $r5 = virtualinvoke $r0.<a.d.o: java.lang.String a(byte[],int,int,boolean)>($r1, $i3, 128, 0);
+
+        $r2.<a.d.bl: java.lang.String d> = $r5;
+
+        $r6 = <a.d.o: a.e.e e>;
+
+        $i3 = <a.e.e: int a>;
+
+        if $i3 < 4 goto label2;
+
+        $r6 = <a.d.o: a.e.e e>;
+
+        virtualinvoke $r6.<a.e.e: void println(java.lang.Object)>($r2);
+
+     label2:
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label3:
+        $i0 = $i2 - $i0;
+
+        return $i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.o $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+        int $i0;
+
+        $r0 := @this: a.d.o;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("NetShareEnumResponse[");
+
+        $r3 = specialinvoke $r0.<a.d.at: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",status=");
+
+        $i0 = $r0.<a.d.o: int P>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",converter=");
+
+        $i0 = $r0.<a.d.o: int a>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",entriesReturned=");
+
+        $i0 = $r0.<a.d.o: int Q>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",totalAvailableEntries=");
+
+        $i0 = $r0.<a.d.o: int S>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

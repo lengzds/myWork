@@ -1,0 +1,61 @@
+final class com.speedsoftware.rootexplorer.mk extends java.lang.Object implements android.view.View$OnClickListener
+{
+    final com.speedsoftware.rootexplorer.SearchCriteria a;
+
+    void <init>(com.speedsoftware.rootexplorer.SearchCriteria)
+    {
+        com.speedsoftware.rootexplorer.mk $r0;
+        com.speedsoftware.rootexplorer.SearchCriteria $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.mk;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.SearchCriteria;
+
+        $r0.<com.speedsoftware.rootexplorer.mk: com.speedsoftware.rootexplorer.SearchCriteria a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void onClick(android.view.View)
+    {
+        com.speedsoftware.rootexplorer.mk $r0;
+        android.view.View $r1;
+        com.speedsoftware.rootexplorer.SearchCriteria $r2;
+        android.widget.TextView $r3;
+        android.content.Intent $r4;
+        java.lang.CharSequence $r5;
+        java.lang.String $r6;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.mk;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.mk: com.speedsoftware.rootexplorer.SearchCriteria a>;
+
+        $r1 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.SearchCriteria: android.view.View findViewById(int)>(2131493081);
+
+        $r3 = (android.widget.TextView) $r1;
+
+        $r4 = new android.content.Intent;
+
+        specialinvoke $r4.<android.content.Intent: void <init>()>();
+
+        $r5 = virtualinvoke $r3.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r6 = interfaceinvoke $r5.<java.lang.CharSequence: java.lang.String toString()>();
+
+        virtualinvoke $r4.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("text", $r6);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.mk: com.speedsoftware.rootexplorer.SearchCriteria a>;
+
+        virtualinvoke $r2.<com.speedsoftware.rootexplorer.SearchCriteria: void setResult(int,android.content.Intent)>(-1, $r4);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.mk: com.speedsoftware.rootexplorer.SearchCriteria a>;
+
+        virtualinvoke $r2.<com.speedsoftware.rootexplorer.SearchCriteria: void finish()>();
+
+        return;
+    }
+}

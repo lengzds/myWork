@@ -1,0 +1,84 @@
+public class com.fasterxml.jackson.databind.ser.std.StdKeySerializers extends java.lang.Object
+{
+    protected static final com.fasterxml.jackson.databind.JsonSerializer DEFAULT_KEY_SERIALIZER;
+    protected static final com.fasterxml.jackson.databind.JsonSerializer DEFAULT_STRING_SERIALIZER;
+
+    static void <clinit>()
+    {
+        com.fasterxml.jackson.databind.ser.std.StdKeySerializer $r0;
+        com.fasterxml.jackson.databind.ser.std.StdKeySerializers$StringKeySerializer $r1;
+
+        $r0 = new com.fasterxml.jackson.databind.ser.std.StdKeySerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdKeySerializer: void <init>()>();
+
+        <com.fasterxml.jackson.databind.ser.std.StdKeySerializers: com.fasterxml.jackson.databind.JsonSerializer DEFAULT_KEY_SERIALIZER> = $r0;
+
+        $r1 = new com.fasterxml.jackson.databind.ser.std.StdKeySerializers$StringKeySerializer;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.ser.std.StdKeySerializers$StringKeySerializer: void <init>()>();
+
+        <com.fasterxml.jackson.databind.ser.std.StdKeySerializers: com.fasterxml.jackson.databind.JsonSerializer DEFAULT_STRING_SERIALIZER> = $r1;
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.databind.JsonSerializer getStdKeySerializer(com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.JavaType $r0;
+        java.lang.Class $r1, $r2;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JsonSerializer r3;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        if $r0 != null goto label1;
+
+        r3 = <com.fasterxml.jackson.databind.ser.std.StdKeySerializers: com.fasterxml.jackson.databind.JsonSerializer DEFAULT_KEY_SERIALIZER>;
+
+        return r3;
+
+     label1:
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        if $r1 != class "java/lang/String" goto label2;
+
+        r3 = <com.fasterxml.jackson.databind.ser.std.StdKeySerializers: com.fasterxml.jackson.databind.JsonSerializer DEFAULT_STRING_SERIALIZER>;
+
+        return r3;
+
+     label2:
+        if $r1 != class "java/lang/Object" goto label3;
+
+        r3 = <com.fasterxml.jackson.databind.ser.std.StdKeySerializers: com.fasterxml.jackson.databind.JsonSerializer DEFAULT_KEY_SERIALIZER>;
+
+        return r3;
+
+     label3:
+        $r2 = class "java/util/Date";
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r1);
+
+        if $z0 == 0 goto label4;
+
+        r3 = <com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer: com.fasterxml.jackson.databind.JsonSerializer instance>;
+
+        return r3;
+
+     label4:
+        $r2 = class "java/util/Calendar";
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r1);
+
+        if $z0 == 0 goto label5;
+
+        r3 = <com.fasterxml.jackson.databind.ser.std.StdKeySerializers$CalendarKeySerializer: com.fasterxml.jackson.databind.JsonSerializer instance>;
+
+        return r3;
+
+     label5:
+        r3 = <com.fasterxml.jackson.databind.ser.std.StdKeySerializers: com.fasterxml.jackson.databind.JsonSerializer DEFAULT_KEY_SERIALIZER>;
+
+        return r3;
+    }
+}

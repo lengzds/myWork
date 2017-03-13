@@ -1,0 +1,163 @@
+public class com.google.api.a.d.b extends com.google.api.a.f.y implements java.lang.Cloneable
+{
+    private com.google.api.a.d.d c;
+
+    public void <init>()
+    {
+        com.google.api.a.d.b $r0;
+
+        $r0 := @this: com.google.api.a.d.b;
+
+        specialinvoke $r0.<com.google.api.a.f.y: void <init>()>();
+
+        return;
+    }
+
+    public com.google.api.a.d.b clone()
+    {
+        com.google.api.a.d.b $r0;
+        com.google.api.a.f.y $r1;
+
+        $r0 := @this: com.google.api.a.d.b;
+
+        $r1 = specialinvoke $r0.<com.google.api.a.f.y: com.google.api.a.f.y clone()>();
+
+        $r0 = (com.google.api.a.d.b) $r1;
+
+        return $r0;
+    }
+
+    public volatile com.google.api.a.f.y clone()
+    {
+        com.google.api.a.d.b $r0;
+
+        $r0 := @this: com.google.api.a.d.b;
+
+        $r0 = virtualinvoke $r0.<com.google.api.a.d.b: com.google.api.a.d.b clone()>();
+
+        return $r0;
+    }
+
+    public volatile java.lang.Object clone()
+    {
+        com.google.api.a.d.b $r0;
+
+        $r0 := @this: com.google.api.a.d.b;
+
+        $r0 = virtualinvoke $r0.<com.google.api.a.d.b: com.google.api.a.d.b clone()>();
+
+        return $r0;
+    }
+
+    public com.google.api.a.d.b set(java.lang.String, java.lang.Object)
+    {
+        com.google.api.a.d.b $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        com.google.api.a.f.y $r3;
+
+        $r0 := @this: com.google.api.a.d.b;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r3 = specialinvoke $r0.<com.google.api.a.f.y: com.google.api.a.f.y set(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        $r0 = (com.google.api.a.d.b) $r3;
+
+        return $r0;
+    }
+
+    public volatile com.google.api.a.f.y set(java.lang.String, java.lang.Object)
+    {
+        com.google.api.a.d.b $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+
+        $r0 := @this: com.google.api.a.d.b;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r0 = virtualinvoke $r0.<com.google.api.a.d.b: com.google.api.a.d.b set(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+    }
+
+    public final void setFactory(com.google.api.a.d.d)
+    {
+        com.google.api.a.d.b $r0;
+        com.google.api.a.d.d $r1;
+
+        $r0 := @this: com.google.api.a.d.b;
+
+        $r1 := @parameter0: com.google.api.a.d.d;
+
+        $r0.<com.google.api.a.d.b: com.google.api.a.d.d c> = $r1;
+
+        return;
+    }
+
+    public java.lang.String toPrettyString()
+    {
+        com.google.api.a.d.b $r0;
+        com.google.api.a.d.d $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.google.api.a.d.b;
+
+        $r1 = $r0.<com.google.api.a.d.b: com.google.api.a.d.d c>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<com.google.api.a.d.b: com.google.api.a.d.d c>;
+
+        $r2 = virtualinvoke $r1.<com.google.api.a.d.d: java.lang.String b(java.lang.Object)>($r0);
+
+        return $r2;
+
+     label1:
+        $r2 = specialinvoke $r0.<com.google.api.a.f.y: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public java.lang.String toString()
+    {
+        com.google.api.a.d.b $r0;
+        com.google.api.a.d.d $r1;
+        java.lang.String $r2;
+        java.io.IOException $r3;
+        java.lang.RuntimeException $r4;
+
+        $r0 := @this: com.google.api.a.d.b;
+
+        $r1 = $r0.<com.google.api.a.d.b: com.google.api.a.d.d c>;
+
+        if $r1 == null goto label4;
+
+        $r1 = $r0.<com.google.api.a.d.b: com.google.api.a.d.d c>;
+
+     label1:
+        $r2 = virtualinvoke $r1.<com.google.api.a.d.d: java.lang.String a(java.lang.Object)>($r0);
+
+     label2:
+        return $r2;
+
+     label3:
+        $r3 := @caughtexception;
+
+        $r4 = staticinvoke <com.google.api.a.f.au: java.lang.RuntimeException a(java.lang.Throwable)>($r3);
+
+        throw $r4;
+
+     label4:
+        $r2 = specialinvoke $r0.<com.google.api.a.f.y: java.lang.String toString()>();
+
+        return $r2;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+}

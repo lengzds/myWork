@@ -1,0 +1,65 @@
+public abstract class com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase extends com.fasterxml.jackson.databind.jsontype.TypeSerializer
+{
+    protected final com.fasterxml.jackson.databind.jsontype.TypeIdResolver _idResolver;
+    protected final com.fasterxml.jackson.databind.BeanProperty _property;
+
+    protected void <init>(com.fasterxml.jackson.databind.jsontype.TypeIdResolver, com.fasterxml.jackson.databind.BeanProperty)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase $r0;
+        com.fasterxml.jackson.databind.jsontype.TypeIdResolver $r1;
+        com.fasterxml.jackson.databind.BeanProperty $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.jsontype.TypeIdResolver;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.BeanProperty;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase: com.fasterxml.jackson.databind.jsontype.TypeIdResolver _idResolver> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase: com.fasterxml.jackson.databind.BeanProperty _property> = $r2;
+
+        return;
+    }
+
+    protected java.lang.String idFromValue(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase $r0;
+        java.lang.Object $r1;
+        java.lang.String $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeIdResolver $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase: com.fasterxml.jackson.databind.jsontype.TypeIdResolver _idResolver>;
+
+        $r2 = interfaceinvoke $r3.<com.fasterxml.jackson.databind.jsontype.TypeIdResolver: java.lang.String idFromValue(java.lang.Object)>($r1);
+
+        return $r2;
+    }
+
+    protected java.lang.String idFromValueAndType(java.lang.Object, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase $r0;
+        java.lang.Object $r1;
+        java.lang.Class $r2;
+        java.lang.String $r3;
+        com.fasterxml.jackson.databind.jsontype.TypeIdResolver $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase: com.fasterxml.jackson.databind.jsontype.TypeIdResolver _idResolver>;
+
+        $r3 = interfaceinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeIdResolver: java.lang.String idFromValueAndType(java.lang.Object,java.lang.Class)>($r1, $r2);
+
+        return $r3;
+    }
+}

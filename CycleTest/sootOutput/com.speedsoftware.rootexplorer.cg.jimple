@@ -1,0 +1,71 @@
+final class com.speedsoftware.rootexplorer.cg extends java.lang.Object implements android.view.View$OnClickListener
+{
+    final com.speedsoftware.rootexplorer.Filter a;
+
+    void <init>(com.speedsoftware.rootexplorer.Filter)
+    {
+        com.speedsoftware.rootexplorer.cg $r0;
+        com.speedsoftware.rootexplorer.Filter $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cg;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.Filter;
+
+        $r0.<com.speedsoftware.rootexplorer.cg: com.speedsoftware.rootexplorer.Filter a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void onClick(android.view.View)
+    {
+        com.speedsoftware.rootexplorer.cg $r0;
+        android.view.View $r1;
+        android.content.Intent $r2;
+        com.speedsoftware.rootexplorer.Filter $r3;
+        android.widget.Spinner $r4;
+        int $i0;
+        android.widget.EditText $r5;
+        android.text.Editable $r6;
+        java.lang.String $r7;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cg;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r2 = new android.content.Intent;
+
+        specialinvoke $r2.<android.content.Intent: void <init>()>();
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.cg: com.speedsoftware.rootexplorer.Filter a>;
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.Filter: android.widget.Spinner a(com.speedsoftware.rootexplorer.Filter)>($r3);
+
+        $i0 = virtualinvoke $r4.<android.widget.Spinner: int getSelectedItemPosition()>();
+
+        $i0 = $i0 + -1;
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,int)>("field_index", $i0);
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.cg: com.speedsoftware.rootexplorer.Filter a>;
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.Filter: android.widget.EditText b(com.speedsoftware.rootexplorer.Filter)>($r3);
+
+        $r6 = virtualinvoke $r5.<android.widget.EditText: android.text.Editable getText()>();
+
+        $r7 = interfaceinvoke $r6.<android.text.Editable: java.lang.String toString()>();
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("value", $r7);
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.cg: com.speedsoftware.rootexplorer.Filter a>;
+
+        virtualinvoke $r3.<com.speedsoftware.rootexplorer.Filter: void setResult(int,android.content.Intent)>(-1, $r2);
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.cg: com.speedsoftware.rootexplorer.Filter a>;
+
+        virtualinvoke $r3.<com.speedsoftware.rootexplorer.Filter: void finish()>();
+
+        return;
+    }
+}

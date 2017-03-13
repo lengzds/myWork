@@ -1,0 +1,5320 @@
+public final class com.speedsoftware.a.al extends com.speedsoftware.a.f
+{
+    private static int[] j;
+    private static int[] k;
+    private byte[] d;
+    private int[] e;
+    private int f;
+    private int g;
+    private int h;
+    private int i;
+
+    public void <init>()
+    {
+        com.speedsoftware.a.al $r0;
+        int[] $r1;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        specialinvoke $r0.<com.speedsoftware.a.f: void <init>()>();
+
+        $r1 = newarray (int)[8];
+
+        $r0.<com.speedsoftware.a.al: int[] e> = $r1;
+
+        $r0.<com.speedsoftware.a.al: int g> = 25000000;
+
+        $r0.<com.speedsoftware.a.al: byte[] d> = null;
+
+        return;
+    }
+
+    private int a(int, int, int)
+    {
+        com.speedsoftware.a.al $r0;
+        int $i0, $i1, $i2, $i3, $i4, $i8;
+        byte[] $r1;
+        byte $b5;
+        short $s6, $s7;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $i2 := @parameter2: int;
+
+        $i3 = $i1 / 8;
+
+        $i1 = $i1 & 7;
+
+        $r1 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i4 = $i3 + 1;
+
+        $i3 = $i3 + $i0;
+
+        $b5 = $r1[$i3];
+
+        $s6 = $b5 & 255;
+
+        $r1 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i3 = $i4 + 1;
+
+        $i4 = $i4 + $i0;
+
+        $b5 = $r1[$i4];
+
+        $s7 = $b5 & 255;
+
+        $i4 = $s7 << 8;
+
+        $i8 = $s6 | $i4;
+
+        $r1 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i4 = $i3 + 1;
+
+        $i3 = $i3 + $i0;
+
+        $b5 = $r1[$i3];
+
+        $s6 = $b5 & 255;
+
+        $i3 = $s6 << 16;
+
+        $i3 = $i8 | $i3;
+
+        $r1 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = $i4 + $i0;
+
+        $b5 = $r1[$i0];
+
+        $s6 = $b5 & 255;
+
+        $i0 = $s6 << 24;
+
+        $i0 = $i3 | $i0;
+
+        $i0 = $i0 >>> $i1;
+
+        $i1 = 32 - $i2;
+
+        $b5 = -1 >>> $i1;
+
+        $i0 = $i0 & $b5;
+
+        return $i0;
+    }
+
+    private int a(com.speedsoftware.a.bj)
+    {
+        com.speedsoftware.a.al $r0;
+        com.speedsoftware.a.bj $r1;
+        com.speedsoftware.a.bh $r2, $r3;
+        int $i0, $i1;
+        byte[] $r4;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        $r1 := @parameter0: com.speedsoftware.a.bj;
+
+        $r2 = virtualinvoke $r1.<com.speedsoftware.a.bj: com.speedsoftware.a.bh c()>();
+
+        $r3 = <com.speedsoftware.a.bh: com.speedsoftware.a.bh c>;
+
+        if $r2 != $r3 goto label1;
+
+        $i0 = virtualinvoke $r1.<com.speedsoftware.a.bj: int d()>();
+
+        $i1 = virtualinvoke $r1.<com.speedsoftware.a.bj: int a()>();
+
+        $i0 = $i0 + $i1;
+
+        $i0 = $i0 & 262143;
+
+        $r4 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = staticinvoke <com.speedsoftware.a.am: int b(byte[],int)>($r4, $i0);
+
+        return $i0;
+
+     label1:
+        $i0 = virtualinvoke $r1.<com.speedsoftware.a.bj: int d()>();
+
+        $r4 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = staticinvoke <com.speedsoftware.a.am: int b(byte[],int)>($r4, $i0);
+
+        return $i0;
+    }
+
+    public static int a(com.speedsoftware.a.f)
+    {
+        com.speedsoftware.a.f $r0;
+        int $i0, $i1;
+
+        $r0 := @parameter0: com.speedsoftware.a.f;
+
+        $i0 = virtualinvoke $r0.<com.speedsoftware.a.f: int c()>();
+
+        $i1 = 49152 & $i0;
+
+        lookupswitch($i1)
+        {
+            case 0: goto label2;
+            case 16384: goto label3;
+            case 32768: goto label5;
+            default: goto label1;
+        };
+
+     label1:
+        virtualinvoke $r0.<com.speedsoftware.a.f: void b(int)>(2);
+
+        $i0 = virtualinvoke $r0.<com.speedsoftware.a.f: int c()>();
+
+        $i0 = $i0 << 16;
+
+        virtualinvoke $r0.<com.speedsoftware.a.f: void b(int)>(16);
+
+        $i1 = virtualinvoke $r0.<com.speedsoftware.a.f: int c()>();
+
+        $i0 = $i0 | $i1;
+
+        virtualinvoke $r0.<com.speedsoftware.a.f: void b(int)>(16);
+
+        return $i0;
+
+     label2:
+        virtualinvoke $r0.<com.speedsoftware.a.f: void b(int)>(6);
+
+        $i0 = $i0 >> 10;
+
+        $i0 = $i0 & 15;
+
+        return $i0;
+
+     label3:
+        $i1 = $i0 & 15360;
+
+        if $i1 != 0 goto label4;
+
+        $i0 = $i0 >> 2;
+
+        $i0 = $i0 & 255;
+
+        $i0 = $i0 | -256;
+
+        virtualinvoke $r0.<com.speedsoftware.a.f: void b(int)>(14);
+
+        return $i0;
+
+     label4:
+        $i0 = $i0 >> 6;
+
+        $i0 = $i0 & 255;
+
+        virtualinvoke $r0.<com.speedsoftware.a.f: void b(int)>(10);
+
+        return $i0;
+
+     label5:
+        virtualinvoke $r0.<com.speedsoftware.a.f: void b(int)>(2);
+
+        $i0 = virtualinvoke $r0.<com.speedsoftware.a.f: int c()>();
+
+        virtualinvoke $r0.<com.speedsoftware.a.f: void b(int)>(16);
+
+        return $i0;
+    }
+
+    private int a(boolean, byte[], int)
+    {
+        com.speedsoftware.a.al $r0;
+        boolean $z0;
+        byte[] $r1;
+        int $i0, $i3, $i4;
+        byte $b1;
+        short $s2;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        $z0 := @parameter0: boolean;
+
+        $r1 := @parameter1: byte[];
+
+        $i0 := @parameter2: int;
+
+        if $z0 == 0 goto label2;
+
+        $z0 = specialinvoke $r0.<com.speedsoftware.a.al: boolean a(byte[])>($r1);
+
+        if $z0 == 0 goto label1;
+
+        $b1 = $r1[$i0];
+
+        return $b1;
+
+     label1:
+        $b1 = $r1[$i0];
+
+        $s2 = $b1 & 255;
+
+        return $s2;
+
+     label2:
+        $z0 = specialinvoke $r0.<com.speedsoftware.a.al: boolean a(byte[])>($r1);
+
+        if $z0 == 0 goto label3;
+
+        $i0 = staticinvoke <com.speedsoftware.a.am: int b(byte[],int)>($r1, $i0);
+
+        return $i0;
+
+     label3:
+        $b1 = $r1[$i0];
+
+        $s2 = $b1 & 255;
+
+        $s2 = $s2 | 0;
+
+        $i3 = $s2 << 8;
+
+        $i4 = $i0 + 1;
+
+        $b1 = $r1[$i4];
+
+        $s2 = $b1 & 255;
+
+        $i3 = $i3 | $s2;
+
+        $i3 = $i3 << 8;
+
+        $i4 = $i0 + 2;
+
+        $b1 = $r1[$i4];
+
+        $s2 = $b1 & 255;
+
+        $i3 = $i3 | $s2;
+
+        $i3 = $i3 << 8;
+
+        $i0 = $i0 + 3;
+
+        $b1 = $r1[$i0];
+
+        $s2 = $b1 & 255;
+
+        $i0 = $i3 | $s2;
+
+        return $i0;
+    }
+
+    private void a(com.speedsoftware.a.bj, boolean)
+    {
+        com.speedsoftware.a.al $r0;
+        com.speedsoftware.a.bj $r1;
+        boolean $z0;
+        int $i0, $i1;
+        com.speedsoftware.a.bh $r2;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        $r1 := @parameter0: com.speedsoftware.a.bj;
+
+        $z0 := @parameter1: boolean;
+
+        $i0 = virtualinvoke $r0.<com.speedsoftware.a.al: int c()>();
+
+        $i1 = 32768 & $i0;
+
+        if $i1 == 0 goto label1;
+
+        $r2 = <com.speedsoftware.a.bh: com.speedsoftware.a.bh a>;
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void a(com.speedsoftware.a.bh)>($r2);
+
+        $i0 = $i0 >> 12;
+
+        $i0 = $i0 & 7;
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void b(int)>($i0);
+
+        $i0 = virtualinvoke $r1.<com.speedsoftware.a.bj: int b()>();
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void c(int)>($i0);
+
+        virtualinvoke $r0.<com.speedsoftware.a.al: void b(int)>(4);
+
+        return;
+
+     label1:
+        $i1 = 49152 & $i0;
+
+        if $i1 != 0 goto label3;
+
+        $r2 = <com.speedsoftware.a.bh: com.speedsoftware.a.bh b>;
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void a(com.speedsoftware.a.bh)>($r2);
+
+        if $z0 == 0 goto label2;
+
+        $i0 = $i0 >> 6;
+
+        $i0 = $i0 & 255;
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void b(int)>($i0);
+
+        virtualinvoke $r0.<com.speedsoftware.a.al: void b(int)>(10);
+
+        return;
+
+     label2:
+        virtualinvoke $r0.<com.speedsoftware.a.al: void b(int)>(2);
+
+        $i0 = staticinvoke <com.speedsoftware.a.al: int a(com.speedsoftware.a.f)>($r0);
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void b(int)>($i0);
+
+        return;
+
+     label3:
+        $r2 = <com.speedsoftware.a.bh: com.speedsoftware.a.bh c>;
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void a(com.speedsoftware.a.bh)>($r2);
+
+        $i1 = $i0 & 8192;
+
+        if $i1 != 0 goto label4;
+
+        $i0 = $i0 >> 10;
+
+        $i0 = $i0 & 7;
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void b(int)>($i0);
+
+        $i0 = virtualinvoke $r1.<com.speedsoftware.a.bj: int b()>();
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void c(int)>($i0);
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void a(int)>(0);
+
+        virtualinvoke $r0.<com.speedsoftware.a.al: void b(int)>(6);
+
+        return;
+
+     label4:
+        $i1 = $i0 & 4096;
+
+        if $i1 != 0 goto label6;
+
+        $i0 = $i0 >> 9;
+
+        $i0 = $i0 & 7;
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void b(int)>($i0);
+
+        $i0 = virtualinvoke $r1.<com.speedsoftware.a.bj: int b()>();
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void c(int)>($i0);
+
+        virtualinvoke $r0.<com.speedsoftware.a.al: void b(int)>(7);
+
+     label5:
+        $i0 = staticinvoke <com.speedsoftware.a.al: int a(com.speedsoftware.a.f)>($r0);
+
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void a(int)>($i0);
+
+        return;
+
+     label6:
+        virtualinvoke $r1.<com.speedsoftware.a.bj: void b(int)>(0);
+
+        virtualinvoke $r0.<com.speedsoftware.a.al: void b(int)>(4);
+
+        goto label5;
+    }
+
+    public static void a(java.util.Vector, int, int)
+    {
+        java.util.Vector $r0;
+        int $i0, $i1, $i2, $i3;
+        byte $b4;
+        java.lang.Byte $r1;
+
+        $r0 := @parameter0: java.util.Vector;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 = $i0 + 0;
+
+        $i3 = $i1 & 255;
+
+        $b4 = (byte) $i3;
+
+        $r1 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>($b4);
+
+        virtualinvoke $r0.<java.util.Vector: java.lang.Object set(int,java.lang.Object)>($i2, $r1);
+
+        $i2 = $i0 + 1;
+
+        $i3 = $i1 >>> 8;
+
+        $i3 = $i3 & 255;
+
+        $b4 = (byte) $i3;
+
+        $r1 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>($b4);
+
+        virtualinvoke $r0.<java.util.Vector: java.lang.Object set(int,java.lang.Object)>($i2, $r1);
+
+        $i2 = $i0 + 2;
+
+        $i3 = $i1 >>> 16;
+
+        $i3 = $i3 & 255;
+
+        $b4 = (byte) $i3;
+
+        $r1 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>($b4);
+
+        virtualinvoke $r0.<java.util.Vector: java.lang.Object set(int,java.lang.Object)>($i2, $r1);
+
+        $i0 = $i0 + 3;
+
+        $i1 = $i1 >>> 24;
+
+        $i1 = $i1 & 255;
+
+        $b4 = (byte) $i1;
+
+        $r1 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>($b4);
+
+        virtualinvoke $r0.<java.util.Vector: java.lang.Object set(int,java.lang.Object)>($i0, $r1);
+
+        return;
+    }
+
+    private void a(boolean, byte[], int, int)
+    {
+        com.speedsoftware.a.al $r0;
+        boolean $z0;
+        byte[] $r1;
+        int $i0, $i1, $i3, $i4;
+        byte $b2;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        $z0 := @parameter0: boolean;
+
+        $r1 := @parameter1: byte[];
+
+        $i0 := @parameter2: int;
+
+        $i1 := @parameter3: int;
+
+        if $z0 == 0 goto label2;
+
+        $z0 = specialinvoke $r0.<com.speedsoftware.a.al: boolean a(byte[])>($r1);
+
+        if $z0 == 0 goto label1;
+
+        $b2 = (byte) $i1;
+
+        $r1[$i0] = $b2;
+
+        return;
+
+     label1:
+        $i1 = $i1 & 255;
+
+        $b2 = (byte) $i1;
+
+        $b2 = $b2 | 0;
+
+        $b2 = (byte) $b2;
+
+        $r1[$i0] = $b2;
+
+        return;
+
+     label2:
+        $z0 = specialinvoke $r0.<com.speedsoftware.a.al: boolean a(byte[])>($r1);
+
+        if $z0 == 0 goto label3;
+
+        staticinvoke <com.speedsoftware.a.am: void a(byte[],int,int)>($r1, $i0, $i1);
+
+        return;
+
+     label3:
+        $i3 = $i1 >>> 24;
+
+        $i3 = $i3 & 255;
+
+        $b2 = (byte) $i3;
+
+        $r1[$i0] = $b2;
+
+        $i3 = $i0 + 1;
+
+        $i4 = $i1 >>> 16;
+
+        $i4 = $i4 & 255;
+
+        $b2 = (byte) $i4;
+
+        $r1[$i3] = $b2;
+
+        $i3 = $i0 + 2;
+
+        $i4 = $i1 >>> 8;
+
+        $i4 = $i4 & 255;
+
+        $b2 = (byte) $i4;
+
+        $r1[$i3] = $b2;
+
+        $i0 = $i0 + 3;
+
+        $i1 = $i1 & 255;
+
+        $b2 = (byte) $i1;
+
+        $r1[$i0] = $b2;
+
+        return;
+    }
+
+    private boolean a(byte[])
+    {
+        com.speedsoftware.a.al $r0;
+        byte[] $r1, $r2;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        $r1 := @parameter0: byte[];
+
+        $r2 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        if $r2 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    private boolean c(int)
+    {
+        com.speedsoftware.a.al $r0;
+        int $i0, $i1;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        $i0 := @parameter0: int;
+
+        $i1 = $r0.<com.speedsoftware.a.al: int h>;
+
+        if $i0 < $i1 goto label1;
+
+        return 1;
+
+     label1:
+        $i1 = $r0.<com.speedsoftware.a.al: int g>;
+
+        $i1 = $i1 + -1;
+
+        $r0.<com.speedsoftware.a.al: int g> = $i1;
+
+        if $i1 > 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r0.<com.speedsoftware.a.al: int i> = $i0;
+
+        return 1;
+    }
+
+    private static int[] h()
+    {
+        int[] $r0;
+        com.speedsoftware.a.bf[] $r1;
+        int $i0;
+        com.speedsoftware.a.bf $r2;
+        java.lang.NoSuchFieldError $r3, $r4, $r5, $r6, $r7, $r8, $r9, $r10, $r11, $r12, $r13, $r14, $r15, $r16, $r17, $r18, $r19, $r20, $r21, $r22, $r23, $r24, $r25, $r26, $r27, $r28, $r29, $r30, $r31, $r32, $r33, $r34, $r35, $r36, $r37, $r38, $r39, $r40, $r41, $r42, $r43, $r44, $r45, $r46, $r47, $r48, $r49, $r50, $r51, $r52, $r53, $r54, $r55, $r56, $r57;
+
+        $r0 = <com.speedsoftware.a.al: int[] j>;
+
+        if $r0 == null goto label001;
+
+        return $r0;
+
+     label001:
+        $r1 = staticinvoke <com.speedsoftware.a.bf: com.speedsoftware.a.bf[] values()>();
+
+        $i0 = lengthof $r1;
+
+        $r0 = newarray (int)[$i0];
+
+     label002:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf L>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label003:
+        $r0[$i0] = 38;
+
+     label004:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf c>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label005:
+        $r0[$i0] = 3;
+
+     label006:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf S>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label007:
+        $r0[$i0] = 45;
+
+     label008:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf T>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label009:
+        $r0[$i0] = 46;
+
+     label010:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf k>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label011:
+        $r0[$i0] = 11;
+
+     label012:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf v>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label013:
+        $r0[$i0] = 22;
+
+     label014:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf b>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label015:
+        $r0[$i0] = 2;
+
+     label016:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf Q>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label017:
+        $r0[$i0] = 43;
+
+     label018:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf R>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label019:
+        $r0[$i0] = 44;
+
+     label020:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf h>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label021:
+        $r0[$i0] = 8;
+
+     label022:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf Y>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label023:
+        $r0[$i0] = 51;
+
+     label024:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf Z>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label025:
+        $r0[$i0] = 52;
+
+     label026:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf K>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label027:
+        $r0[$i0] = 37;
+
+     label028:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf g>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label029:
+        $r0[$i0] = 7;
+
+     label030:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf W>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label031:
+        $r0[$i0] = 49;
+
+     label032:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf X>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label033:
+        $r0[$i0] = 50;
+
+     label034:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf r>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label035:
+        $r0[$i0] = 18;
+
+     label036:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf s>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label037:
+        $r0[$i0] = 19;
+
+     label038:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf p>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label039:
+        $r0[$i0] = 16;
+
+     label040:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf q>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label041:
+        $r0[$i0] = 17;
+
+     label042:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf i>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label043:
+        $r0[$i0] = 9;
+
+     label044:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf o>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label045:
+        $r0[$i0] = 15;
+
+     label046:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf f>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label047:
+        $r0[$i0] = 6;
+
+     label048:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf n>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label049:
+        $r0[$i0] = 14;
+
+     label050:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf e>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label051:
+        $r0[$i0] = 5;
+
+     label052:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf a>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label053:
+        $r0[$i0] = 1;
+
+     label054:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf O>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label055:
+        $r0[$i0] = 41;
+
+     label056:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf P>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label057:
+        $r0[$i0] = 42;
+
+     label058:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf H>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label059:
+        $r0[$i0] = 34;
+
+     label060:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf G>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label061:
+        $r0[$i0] = 33;
+
+     label062:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf J>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label063:
+        $r0[$i0] = 36;
+
+     label064:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf B>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label065:
+        $r0[$i0] = 28;
+
+     label066:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf aa>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label067:
+        $r0[$i0] = 53;
+
+     label068:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf ab>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label069:
+        $r0[$i0] = 54;
+
+     label070:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf x>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label071:
+        $r0[$i0] = 24;
+
+     label072:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf l>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label073:
+        $r0[$i0] = 12;
+
+     label074:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf u>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label075:
+        $r0[$i0] = 21;
+
+     label076:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf D>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label077:
+        $r0[$i0] = 30;
+
+     label078:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf F>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label079:
+        $r0[$i0] = 32;
+
+     label080:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf N>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label081:
+        $r0[$i0] = 40;
+
+     label082:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf t>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label083:
+        $r0[$i0] = 20;
+
+     label084:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf C>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label085:
+        $r0[$i0] = 29;
+
+     label086:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf E>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label087:
+        $r0[$i0] = 31;
+
+     label088:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf w>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label089:
+        $r0[$i0] = 23;
+
+     label090:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf A>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label091:
+        $r0[$i0] = 27;
+
+     label092:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf M>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label093:
+        $r0[$i0] = 39;
+
+     label094:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf y>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label095:
+        $r0[$i0] = 25;
+
+     label096:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf z>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label097:
+        $r0[$i0] = 26;
+
+     label098:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf ac>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label099:
+        $r0[$i0] = 55;
+
+     label100:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf d>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label101:
+        $r0[$i0] = 4;
+
+     label102:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf U>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label103:
+        $r0[$i0] = 47;
+
+     label104:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf V>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label105:
+        $r0[$i0] = 48;
+
+     label106:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf m>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label107:
+        $r0[$i0] = 13;
+
+     label108:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf I>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label109:
+        $r0[$i0] = 35;
+
+     label110:
+        $r2 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf j>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bf: int ordinal()>();
+
+     label111:
+        $r0[$i0] = 10;
+
+     label112:
+        <com.speedsoftware.a.al: int[] j> = $r0;
+
+        return $r0;
+
+     label113:
+        $r3 := @caughtexception;
+
+        goto label112;
+
+     label114:
+        $r4 := @caughtexception;
+
+        goto label110;
+
+     label115:
+        $r5 := @caughtexception;
+
+        goto label108;
+
+     label116:
+        $r6 := @caughtexception;
+
+        goto label106;
+
+     label117:
+        $r7 := @caughtexception;
+
+        goto label104;
+
+     label118:
+        $r8 := @caughtexception;
+
+        goto label102;
+
+     label119:
+        $r9 := @caughtexception;
+
+        goto label100;
+
+     label120:
+        $r10 := @caughtexception;
+
+        goto label098;
+
+     label121:
+        $r11 := @caughtexception;
+
+        goto label096;
+
+     label122:
+        $r12 := @caughtexception;
+
+        goto label094;
+
+     label123:
+        $r13 := @caughtexception;
+
+        goto label092;
+
+     label124:
+        $r14 := @caughtexception;
+
+        goto label090;
+
+     label125:
+        $r15 := @caughtexception;
+
+        goto label088;
+
+     label126:
+        $r16 := @caughtexception;
+
+        goto label086;
+
+     label127:
+        $r17 := @caughtexception;
+
+        goto label084;
+
+     label128:
+        $r18 := @caughtexception;
+
+        goto label082;
+
+     label129:
+        $r19 := @caughtexception;
+
+        goto label080;
+
+     label130:
+        $r20 := @caughtexception;
+
+        goto label078;
+
+     label131:
+        $r21 := @caughtexception;
+
+        goto label076;
+
+     label132:
+        $r22 := @caughtexception;
+
+        goto label074;
+
+     label133:
+        $r23 := @caughtexception;
+
+        goto label072;
+
+     label134:
+        $r24 := @caughtexception;
+
+        goto label070;
+
+     label135:
+        $r25 := @caughtexception;
+
+        goto label068;
+
+     label136:
+        $r26 := @caughtexception;
+
+        goto label066;
+
+     label137:
+        $r27 := @caughtexception;
+
+        goto label064;
+
+     label138:
+        $r28 := @caughtexception;
+
+        goto label062;
+
+     label139:
+        $r29 := @caughtexception;
+
+        goto label060;
+
+     label140:
+        $r30 := @caughtexception;
+
+        goto label058;
+
+     label141:
+        $r31 := @caughtexception;
+
+        goto label056;
+
+     label142:
+        $r32 := @caughtexception;
+
+        goto label054;
+
+     label143:
+        $r33 := @caughtexception;
+
+        goto label052;
+
+     label144:
+        $r34 := @caughtexception;
+
+        goto label050;
+
+     label145:
+        $r35 := @caughtexception;
+
+        goto label048;
+
+     label146:
+        $r36 := @caughtexception;
+
+        goto label046;
+
+     label147:
+        $r37 := @caughtexception;
+
+        goto label044;
+
+     label148:
+        $r38 := @caughtexception;
+
+        goto label042;
+
+     label149:
+        $r39 := @caughtexception;
+
+        goto label040;
+
+     label150:
+        $r40 := @caughtexception;
+
+        goto label038;
+
+     label151:
+        $r41 := @caughtexception;
+
+        goto label036;
+
+     label152:
+        $r42 := @caughtexception;
+
+        goto label034;
+
+     label153:
+        $r43 := @caughtexception;
+
+        goto label032;
+
+     label154:
+        $r44 := @caughtexception;
+
+        goto label030;
+
+     label155:
+        $r45 := @caughtexception;
+
+        goto label028;
+
+     label156:
+        $r46 := @caughtexception;
+
+        goto label026;
+
+     label157:
+        $r47 := @caughtexception;
+
+        goto label024;
+
+     label158:
+        $r48 := @caughtexception;
+
+        goto label022;
+
+     label159:
+        $r49 := @caughtexception;
+
+        goto label020;
+
+     label160:
+        $r50 := @caughtexception;
+
+        goto label018;
+
+     label161:
+        $r51 := @caughtexception;
+
+        goto label016;
+
+     label162:
+        $r52 := @caughtexception;
+
+        goto label014;
+
+     label163:
+        $r53 := @caughtexception;
+
+        goto label012;
+
+     label164:
+        $r54 := @caughtexception;
+
+        goto label010;
+
+     label165:
+        $r55 := @caughtexception;
+
+        goto label008;
+
+     label166:
+        $r56 := @caughtexception;
+
+        goto label006;
+
+     label167:
+        $r57 := @caughtexception;
+
+        goto label004;
+
+        catch java.lang.NoSuchFieldError from label002 to label003 with label167;
+        catch java.lang.NoSuchFieldError from label004 to label005 with label166;
+        catch java.lang.NoSuchFieldError from label006 to label007 with label165;
+        catch java.lang.NoSuchFieldError from label008 to label009 with label164;
+        catch java.lang.NoSuchFieldError from label010 to label011 with label163;
+        catch java.lang.NoSuchFieldError from label012 to label013 with label162;
+        catch java.lang.NoSuchFieldError from label014 to label015 with label161;
+        catch java.lang.NoSuchFieldError from label016 to label017 with label160;
+        catch java.lang.NoSuchFieldError from label018 to label019 with label159;
+        catch java.lang.NoSuchFieldError from label020 to label021 with label158;
+        catch java.lang.NoSuchFieldError from label022 to label023 with label157;
+        catch java.lang.NoSuchFieldError from label024 to label025 with label156;
+        catch java.lang.NoSuchFieldError from label026 to label027 with label155;
+        catch java.lang.NoSuchFieldError from label028 to label029 with label154;
+        catch java.lang.NoSuchFieldError from label030 to label031 with label153;
+        catch java.lang.NoSuchFieldError from label032 to label033 with label152;
+        catch java.lang.NoSuchFieldError from label034 to label035 with label151;
+        catch java.lang.NoSuchFieldError from label036 to label037 with label150;
+        catch java.lang.NoSuchFieldError from label038 to label039 with label149;
+        catch java.lang.NoSuchFieldError from label040 to label041 with label148;
+        catch java.lang.NoSuchFieldError from label042 to label043 with label147;
+        catch java.lang.NoSuchFieldError from label044 to label045 with label146;
+        catch java.lang.NoSuchFieldError from label046 to label047 with label145;
+        catch java.lang.NoSuchFieldError from label048 to label049 with label144;
+        catch java.lang.NoSuchFieldError from label050 to label051 with label143;
+        catch java.lang.NoSuchFieldError from label052 to label053 with label142;
+        catch java.lang.NoSuchFieldError from label054 to label055 with label141;
+        catch java.lang.NoSuchFieldError from label056 to label057 with label140;
+        catch java.lang.NoSuchFieldError from label058 to label059 with label139;
+        catch java.lang.NoSuchFieldError from label060 to label061 with label138;
+        catch java.lang.NoSuchFieldError from label062 to label063 with label137;
+        catch java.lang.NoSuchFieldError from label064 to label065 with label136;
+        catch java.lang.NoSuchFieldError from label066 to label067 with label135;
+        catch java.lang.NoSuchFieldError from label068 to label069 with label134;
+        catch java.lang.NoSuchFieldError from label070 to label071 with label133;
+        catch java.lang.NoSuchFieldError from label072 to label073 with label132;
+        catch java.lang.NoSuchFieldError from label074 to label075 with label131;
+        catch java.lang.NoSuchFieldError from label076 to label077 with label130;
+        catch java.lang.NoSuchFieldError from label078 to label079 with label129;
+        catch java.lang.NoSuchFieldError from label080 to label081 with label128;
+        catch java.lang.NoSuchFieldError from label082 to label083 with label127;
+        catch java.lang.NoSuchFieldError from label084 to label085 with label126;
+        catch java.lang.NoSuchFieldError from label086 to label087 with label125;
+        catch java.lang.NoSuchFieldError from label088 to label089 with label124;
+        catch java.lang.NoSuchFieldError from label090 to label091 with label123;
+        catch java.lang.NoSuchFieldError from label092 to label093 with label122;
+        catch java.lang.NoSuchFieldError from label094 to label095 with label121;
+        catch java.lang.NoSuchFieldError from label096 to label097 with label120;
+        catch java.lang.NoSuchFieldError from label098 to label099 with label119;
+        catch java.lang.NoSuchFieldError from label100 to label101 with label118;
+        catch java.lang.NoSuchFieldError from label102 to label103 with label117;
+        catch java.lang.NoSuchFieldError from label104 to label105 with label116;
+        catch java.lang.NoSuchFieldError from label106 to label107 with label115;
+        catch java.lang.NoSuchFieldError from label108 to label109 with label114;
+        catch java.lang.NoSuchFieldError from label110 to label111 with label113;
+    }
+
+    private static int[] i()
+    {
+        int[] $r0;
+        com.speedsoftware.a.bm[] $r1;
+        int $i0;
+        com.speedsoftware.a.bm $r2;
+        java.lang.NoSuchFieldError $r3, $r4, $r5, $r6, $r7, $r8, $r9, $r10;
+
+        $r0 = <com.speedsoftware.a.al: int[] k>;
+
+        if $r0 == null goto label01;
+
+        return $r0;
+
+     label01:
+        $r1 = staticinvoke <com.speedsoftware.a.bm: com.speedsoftware.a.bm[] values()>();
+
+        $i0 = lengthof $r1;
+
+        $r0 = newarray (int)[$i0];
+
+     label02:
+        $r2 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm f>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bm: int ordinal()>();
+
+     label03:
+        $r0[$i0] = 6;
+
+     label04:
+        $r2 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm g>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bm: int ordinal()>();
+
+     label05:
+        $r0[$i0] = 7;
+
+     label06:
+        $r2 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm b>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bm: int ordinal()>();
+
+     label07:
+        $r0[$i0] = 2;
+
+     label08:
+        $r2 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm c>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bm: int ordinal()>();
+
+     label09:
+        $r0[$i0] = 3;
+
+     label10:
+        $r2 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm d>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bm: int ordinal()>();
+
+     label11:
+        $r0[$i0] = 4;
+
+     label12:
+        $r2 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm a>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bm: int ordinal()>();
+
+     label13:
+        $r0[$i0] = 1;
+
+     label14:
+        $r2 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm e>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bm: int ordinal()>();
+
+     label15:
+        $r0[$i0] = 5;
+
+     label16:
+        $r2 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm h>;
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bm: int ordinal()>();
+
+     label17:
+        $r0[$i0] = 8;
+
+     label18:
+        <com.speedsoftware.a.al: int[] k> = $r0;
+
+        return $r0;
+
+     label19:
+        $r3 := @caughtexception;
+
+        goto label18;
+
+     label20:
+        $r4 := @caughtexception;
+
+        goto label16;
+
+     label21:
+        $r5 := @caughtexception;
+
+        goto label14;
+
+     label22:
+        $r6 := @caughtexception;
+
+        goto label12;
+
+     label23:
+        $r7 := @caughtexception;
+
+        goto label10;
+
+     label24:
+        $r8 := @caughtexception;
+
+        goto label08;
+
+     label25:
+        $r9 := @caughtexception;
+
+        goto label06;
+
+     label26:
+        $r10 := @caughtexception;
+
+        goto label04;
+
+        catch java.lang.NoSuchFieldError from label02 to label03 with label26;
+        catch java.lang.NoSuchFieldError from label04 to label05 with label25;
+        catch java.lang.NoSuchFieldError from label06 to label07 with label24;
+        catch java.lang.NoSuchFieldError from label08 to label09 with label23;
+        catch java.lang.NoSuchFieldError from label10 to label11 with label22;
+        catch java.lang.NoSuchFieldError from label12 to label13 with label21;
+        catch java.lang.NoSuchFieldError from label14 to label15 with label20;
+        catch java.lang.NoSuchFieldError from label16 to label17 with label19;
+    }
+
+    public final void a(int, byte[], int, int)
+    {
+        com.speedsoftware.a.al $r0;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        byte[] $r1, $r2;
+        byte $b6;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: byte[];
+
+        $i1 := @parameter2: int;
+
+        $i2 := @parameter3: int;
+
+        if $i0 >= 262144 goto label3;
+
+        $i4 = 0;
+
+     label1:
+        $i3 = lengthof $r1;
+
+        $i3 = $i3 - $i1;
+
+        $i3 = staticinvoke <java.lang.Math: int min(int,int)>($i3, $i2);
+
+        if $i4 < $i3 goto label2;
+
+        return;
+
+     label2:
+        $i3 = 262144 - $i0;
+
+        if $i3 < $i4 goto label3;
+
+        $r2 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i3 = $i0 + $i4;
+
+        $i5 = $i1 + $i4;
+
+        $b6 = $r1[$i5];
+
+        $r2[$i3] = $b6;
+
+        $i4 = $i4 + 1;
+
+        goto label1;
+
+     label3:
+        return;
+    }
+
+    public final void a(com.speedsoftware.a.bk)
+    {
+        com.speedsoftware.a.al $r0;
+        com.speedsoftware.a.bk $r1;
+        int $i0, $i1, $i6, $i7, $i8, $i12, $i13, $i14, $i15, $i17, $i18, $i19, $i20, $i21;
+        int[] $r2, $r9;
+        java.util.Vector $r3;
+        long $l2, $l4, $l5, $l11, $l22;
+        byte $b3, $b10;
+        java.util.List $r4;
+        java.lang.Object $r5;
+        com.speedsoftware.a.bi $r6;
+        com.speedsoftware.a.bj $r7;
+        com.speedsoftware.a.bf $r8;
+        byte[] $r10, $r12;
+        java.lang.Byte $r11;
+        boolean $z0, $z1;
+        com.speedsoftware.a.bg $r13;
+        com.speedsoftware.a.bm $r14, $r15;
+        short $s9, $s16;
+        long[] $r16;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        $r1 := @parameter0: com.speedsoftware.a.bk;
+
+        $i0 = 0;
+
+     label001:
+        $r2 = virtualinvoke $r1.<com.speedsoftware.a.bk: int[] g()>();
+
+        $i1 = lengthof $r2;
+
+        if $i0 < $i1 goto label009;
+
+        $r3 = virtualinvoke $r1.<com.speedsoftware.a.bk: java.util.Vector f()>();
+
+        $i0 = virtualinvoke $r3.<java.util.Vector: int size()>();
+
+        $i0 = staticinvoke <java.lang.Math: int min(int,int)>($i0, 8192);
+
+        $i0 = $i0 & -1;
+
+        $l2 = (long) $i0;
+
+        $b3 = $l2 cmp 0L;
+
+        if $b3 == 0 goto label003;
+
+        $i0 = 0;
+
+     label002:
+        $l4 = (long) $i0;
+
+        $b3 = $l4 cmp $l2;
+
+        if $b3 < 0 goto label010;
+
+     label003:
+        $r3 = virtualinvoke $r1.<com.speedsoftware.a.bk: java.util.Vector h()>();
+
+        $i0 = virtualinvoke $r3.<java.util.Vector: int size()>();
+
+        $l4 = (long) $i0;
+
+        $l5 = 8192L - $l2;
+
+        $l4 = staticinvoke <java.lang.Math: long min(long,long)>($l4, $l5);
+
+        $l4 = -1L & $l4;
+
+        $b3 = $l4 cmp 0L;
+
+        if $b3 == 0 goto label005;
+
+        $i0 = 0;
+
+     label004:
+        $l5 = (long) $i0;
+
+        $b3 = $l5 cmp $l4;
+
+        if $b3 < 0 goto label011;
+
+     label005:
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $r2[7] = 262144;
+
+        $r0.<com.speedsoftware.a.al: int f> = 0;
+
+        $r4 = virtualinvoke $r1.<com.speedsoftware.a.bk: java.util.List a()>();
+
+        $i0 = interfaceinvoke $r4.<java.util.List: int size()>();
+
+        if $i0 == 0 goto label012;
+
+        $r4 = virtualinvoke $r1.<com.speedsoftware.a.bk: java.util.List a()>();
+
+     label006:
+        $i0 = virtualinvoke $r1.<com.speedsoftware.a.bk: int c()>();
+
+        $r0.<com.speedsoftware.a.al: int g> = 25000000;
+
+        $r0.<com.speedsoftware.a.al: int h> = $i0;
+
+        $r0.<com.speedsoftware.a.al: int i> = 0;
+
+     label007:
+        $i0 = $r0.<com.speedsoftware.a.al: int i>;
+
+        $r5 = interfaceinvoke $r4.<java.util.List: java.lang.Object get(int)>($i0);
+
+        $r6 = (com.speedsoftware.a.bi) $r5;
+
+        $r7 = virtualinvoke $r6.<com.speedsoftware.a.bi: com.speedsoftware.a.bj b()>();
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(com.speedsoftware.a.bj)>($r7);
+
+        $r7 = virtualinvoke $r6.<com.speedsoftware.a.bi: com.speedsoftware.a.bj c()>();
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(com.speedsoftware.a.bj)>($r7);
+
+        $r2 = staticinvoke <com.speedsoftware.a.al: int[] h()>();
+
+        $r8 = virtualinvoke $r6.<com.speedsoftware.a.bi: com.speedsoftware.a.bf d()>();
+
+        $i6 = virtualinvoke $r8.<com.speedsoftware.a.bf: int ordinal()>();
+
+        $i6 = $r2[$i6];
+
+        lookupswitch($i6)
+        {
+            case 1: goto label013;
+            case 2: goto label016;
+            case 3: goto label028;
+            case 4: goto label040;
+            case 5: goto label046;
+            case 6: goto label047;
+            case 7: goto label048;
+            case 8: goto label054;
+            case 9: goto label059;
+            case 10: goto label060;
+            case 11: goto label063;
+            case 12: goto label066;
+            case 13: goto label069;
+            case 14: goto label072;
+            case 15: goto label073;
+            case 16: goto label074;
+            case 17: goto label075;
+            case 18: goto label076;
+            case 19: goto label077;
+            case 20: goto label078;
+            case 21: goto label079;
+            case 22: goto label080;
+            case 23: goto label122;
+            case 24: goto label081;
+            case 25: goto label082;
+            case 26: goto label087;
+            case 27: goto label090;
+            case 28: goto label093;
+            case 29: goto label098;
+            case 30: goto label101;
+            case 31: goto label103;
+            case 32: goto label104;
+            case 33: goto label105;
+            case 34: goto label106;
+            case 35: goto label107;
+            case 36: goto label108;
+            case 37: goto label109;
+            case 38: goto label110;
+            case 39: goto label116;
+            case 40: goto label008;
+            case 41: goto label014;
+            case 42: goto label015;
+            case 43: goto label020;
+            case 44: goto label024;
+            case 45: goto label038;
+            case 46: goto label039;
+            case 47: goto label044;
+            case 48: goto label045;
+            case 49: goto label052;
+            case 50: goto label053;
+            case 51: goto label057;
+            case 52: goto label058;
+            case 53: goto label096;
+            case 54: goto label097;
+            case 55: goto label123;
+            default: goto label008;
+        };
+
+     label008:
+        $i0 = $r0.<com.speedsoftware.a.al: int i>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.speedsoftware.a.al: int i> = $i0;
+
+        $i0 = $r0.<com.speedsoftware.a.al: int g>;
+
+        $i0 = $i0 + -1;
+
+        $r0.<com.speedsoftware.a.al: int g> = $i0;
+
+        goto label007;
+
+     label009:
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $r9 = virtualinvoke $r1.<com.speedsoftware.a.bk: int[] g()>();
+
+        $i1 = $r9[$i0];
+
+        $r2[$i0] = $i1;
+
+        $i0 = $i0 + 1;
+
+        goto label001;
+
+     label010:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = 245760 + $i0;
+
+        $r3 = virtualinvoke $r1.<com.speedsoftware.a.bk: java.util.Vector f()>();
+
+        $r5 = virtualinvoke $r3.<java.util.Vector: java.lang.Object get(int)>($i0);
+
+        $r11 = (java.lang.Byte) $r5;
+
+        $b3 = virtualinvoke $r11.<java.lang.Byte: byte byteValue()>();
+
+        $r10[$i1] = $b3;
+
+        $i0 = $i0 + 1;
+
+        goto label002;
+
+     label011:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = (int) $l2;
+
+        $i1 = 245760 + $i1;
+
+        $i1 = $i1 + $i0;
+
+        $r3 = virtualinvoke $r1.<com.speedsoftware.a.bk: java.util.Vector h()>();
+
+        $r5 = virtualinvoke $r3.<java.util.Vector: java.lang.Object get(int)>($i0);
+
+        $r11 = (java.lang.Byte) $r5;
+
+        $b3 = virtualinvoke $r11.<java.lang.Byte: byte byteValue()>();
+
+        $r10[$i1] = $b3;
+
+        $i0 = $i0 + 1;
+
+        goto label004;
+
+     label012:
+        $r4 = virtualinvoke $r1.<com.speedsoftware.a.bk: java.util.List b()>();
+
+        goto label006;
+
+     label013:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $z1 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z1, $r12, $i1);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label014:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(1, $r12, $i1);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(1, $r10, $i0, $i1);
+
+        goto label008;
+
+     label015:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r12, $i1);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label016:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $i1 = $i0 - $i1;
+
+        if $i1 != 0 goto label017;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i0 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $r0.<com.speedsoftware.a.al: int f> = $i0;
+
+        goto label008;
+
+     label017:
+        if $i1 <= $i0 goto label019;
+
+        $i0 = 1;
+
+     label018:
+        $r0.<com.speedsoftware.a.al: int f> = $i0;
+
+        goto label008;
+
+     label019:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i0 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i0 = $i1 & $i0;
+
+        goto label018;
+
+     label020:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(1, $r10, $i0);
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(1, $r10, $i1);
+
+        $i1 = $i0 - $i1;
+
+        if $i1 != 0 goto label021;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i0 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $r0.<com.speedsoftware.a.al: int f> = $i0;
+
+        goto label008;
+
+     label021:
+        if $i1 <= $i0 goto label023;
+
+        $i0 = 1;
+
+     label022:
+        $r0.<com.speedsoftware.a.al: int f> = $i0;
+
+        goto label008;
+
+     label023:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i0 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i0 = $i0 & $i1;
+
+        goto label022;
+
+     label024:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i1);
+
+        $i1 = $i0 - $i1;
+
+        if $i1 != 0 goto label025;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i0 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $r0.<com.speedsoftware.a.al: int f> = $i0;
+
+        goto label008;
+
+     label025:
+        if $i1 <= $i0 goto label027;
+
+        $i0 = 1;
+
+     label026:
+        $r0.<com.speedsoftware.a.al: int f> = $i0;
+
+        goto label008;
+
+     label027:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i0 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i0 = $i0 & $i1;
+
+        goto label026;
+
+     label028:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $l2 = (long) $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $l4 = (long) $i1;
+
+        $l2 = $l4 + $l2;
+
+        $l2 = $l2 & -1L;
+
+        $i1 = (int) $l2;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        if $z0 == 0 goto label034;
+
+        $i1 = $i1 & 255;
+
+        if $i1 >= $i6 goto label031;
+
+        $i6 = 1;
+
+     label029:
+        $r0.<com.speedsoftware.a.al: int f> = $i6;
+
+     label030:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label031:
+        if $i1 != 0 goto label032;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        goto label029;
+
+     label032:
+        $i6 = $i1 & 128;
+
+        if $i6 == 0 goto label033;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        goto label029;
+
+     label033:
+        $i6 = 0;
+
+        goto label029;
+
+     label034:
+        if $i1 >= $i6 goto label036;
+
+        $i6 = 1;
+
+     label035:
+        $r0.<com.speedsoftware.a.al: int f> = $i6;
+
+        goto label030;
+
+     label036:
+        if $i1 != 0 goto label037;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        goto label035;
+
+     label037:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i6 = $i6 & $i1;
+
+        goto label035;
+
+     label038:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(1, $r12, $i0);
+
+        $l2 = (long) $i6;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(1, $r12, $i1);
+
+        $l4 = (long) $i1;
+
+        $l4 = -1L + $l4;
+
+        $l2 = $l2 & $l4;
+
+        $l2 = $l2 & -1L;
+
+        $i1 = (int) $l2;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(1, $r10, $i0, $i1);
+
+        goto label008;
+
+     label039:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r12, $i0);
+
+        $l2 = (long) $i6;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r12, $i1);
+
+        $l4 = (long) $i1;
+
+        $l4 = -1L + $l4;
+
+        $l2 = $l2 & $l4;
+
+        $l2 = $l2 & -1L;
+
+        $i1 = (int) $l2;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label040:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $l2 = (long) $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $l4 = (long) $i1;
+
+        $l4 = -1L - $l4;
+
+        $l2 = $l2 & $l4;
+
+        $l2 = $l2 & -1L;
+
+        $i1 = (int) $l2;
+
+        if $i1 != 0 goto label042;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+     label041:
+        $r0.<com.speedsoftware.a.al: int f> = $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label042:
+        if $i1 <= $i6 goto label043;
+
+        $i6 = 1;
+
+        goto label041;
+
+     label043:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i6 = $i6 & $i1;
+
+        goto label041;
+
+     label044:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(1, $r12, $i0);
+
+        $l2 = (long) $i6;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(1, $r12, $i1);
+
+        $l4 = (long) $i1;
+
+        $l4 = -1L - $l4;
+
+        $l2 = $l2 & $l4;
+
+        $l2 = $l2 & -1L;
+
+        $i1 = (int) $l2;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(1, $r10, $i0, $i1);
+
+        goto label008;
+
+     label045:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r12, $i0);
+
+        $l2 = (long) $i6;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r12, $i1);
+
+        $l4 = (long) $i1;
+
+        $l4 = -1L - $l4;
+
+        $l2 = $l2 & $l4;
+
+        $l2 = $l2 & -1L;
+
+        $i1 = (int) $l2;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label046:
+        $i1 = $r0.<com.speedsoftware.a.al: int f>;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i1 = $i1 & $i6;
+
+        if $i1 == 0 goto label008;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: boolean c(int)>($i0);
+
+        goto label007;
+
+     label047:
+        $i1 = $r0.<com.speedsoftware.a.al: int f>;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i1 = $i1 & $i6;
+
+        if $i1 != 0 goto label008;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: boolean c(int)>($i0);
+
+        goto label007;
+
+     label048:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $l2 = (long) $i1;
+
+        $l2 = $l2 & 0L;
+
+        $i1 = (int) $l2;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        if $z0 == 0 goto label049;
+
+        $i1 = $i1 & 255;
+
+     label049:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        if $i1 != 0 goto label051;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i0 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+     label050:
+        $r0.<com.speedsoftware.a.al: int f> = $i0;
+
+        goto label008;
+
+     label051:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i0 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i0 = $i0 & $i1;
+
+        goto label050;
+
+     label052:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(1, $r12, $i0);
+
+        $l2 = (long) $i1;
+
+        $l2 = $l2 & 0L;
+
+        $i1 = (int) $l2;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(1, $r10, $i0, $i1);
+
+        goto label008;
+
+     label053:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r12, $i0);
+
+        $l2 = (long) $i1;
+
+        $l2 = $l2 & 0L;
+
+        $i1 = (int) $l2;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label054:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $l2 = (long) $i1;
+
+        $l2 = $l2 & -2L;
+
+        $i1 = (int) $l2;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        if $i1 != 0 goto label056;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i0 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+     label055:
+        $r0.<com.speedsoftware.a.al: int f> = $i0;
+
+        goto label008;
+
+     label056:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i0 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i0 = $i0 & $i1;
+
+        goto label055;
+
+     label057:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(1, $r12, $i0);
+
+        $l2 = (long) $i1;
+
+        $l2 = $l2 & -2L;
+
+        $i1 = (int) $l2;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(1, $r10, $i0, $i1);
+
+        goto label008;
+
+     label058:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r12, $i0);
+
+        $l2 = (long) $i1;
+
+        $l2 = $l2 & -2L;
+
+        $i1 = (int) $l2;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label059:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: boolean c(int)>($i0);
+
+        goto label007;
+
+     label060:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $i1 = $i6 ^ $i1;
+
+        if $i1 != 0 goto label062;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+     label061:
+        $r0.<com.speedsoftware.a.al: int f> = $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label062:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i6 = $i6 & $i1;
+
+        goto label061;
+
+     label063:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $i1 = $i6 & $i1;
+
+        if $i1 != 0 goto label065;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+     label064:
+        $r0.<com.speedsoftware.a.al: int f> = $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label065:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i6 = $i6 & $i1;
+
+        goto label064;
+
+     label066:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $i1 = $i6 | $i1;
+
+        if $i1 != 0 goto label068;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+     label067:
+        $r0.<com.speedsoftware.a.al: int f> = $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label068:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i6 = $i6 & $i1;
+
+        goto label067;
+
+     label069:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $i0 = $i1 & $i0;
+
+        if $i0 != 0 goto label071;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i0 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+     label070:
+        $r0.<com.speedsoftware.a.al: int f> = $i0;
+
+        goto label008;
+
+     label071:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i1 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i0 = $i0 & $i1;
+
+        goto label070;
+
+     label072:
+        $i1 = $r0.<com.speedsoftware.a.al: int f>;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i1 = $i1 & $i6;
+
+        if $i1 == 0 goto label008;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: boolean c(int)>($i0);
+
+        goto label007;
+
+     label073:
+        $i1 = $r0.<com.speedsoftware.a.al: int f>;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i1 = $i1 & $i6;
+
+        if $i1 != 0 goto label008;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: boolean c(int)>($i0);
+
+        goto label007;
+
+     label074:
+        $i1 = $r0.<com.speedsoftware.a.al: int f>;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg a>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i1 = $i1 & $i6;
+
+        if $i1 == 0 goto label008;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: boolean c(int)>($i0);
+
+        goto label007;
+
+     label075:
+        $i1 = $r0.<com.speedsoftware.a.al: int f>;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg a>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i7 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i6 = $i6 | $i7;
+
+        $i1 = $i1 & $i6;
+
+        if $i1 == 0 goto label008;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: boolean c(int)>($i0);
+
+        goto label007;
+
+     label076:
+        $i1 = $r0.<com.speedsoftware.a.al: int f>;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg a>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i7 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i6 = $i6 | $i7;
+
+        $i1 = $i1 & $i6;
+
+        if $i1 != 0 goto label008;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: boolean c(int)>($i0);
+
+        goto label007;
+
+     label077:
+        $i1 = $r0.<com.speedsoftware.a.al: int f>;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg a>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i1 = $i1 & $i6;
+
+        if $i1 != 0 goto label008;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: boolean c(int)>($i0);
+
+        goto label007;
+
+     label078:
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[7];
+
+        $i1 = $i1 + -4;
+
+        $r2[7] = $i1;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[7];
+
+        $i1 = $i1 & 262143;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r12, $i0);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i1, $i0);
+
+        goto label008;
+
+     label079:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[7];
+
+        $i1 = $i1 & 262143;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r12, $i1);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i0, $i1);
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[7];
+
+        $i0 = $i0 + 4;
+
+        $r2[7] = $i0;
+
+        goto label008;
+
+     label080:
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[7];
+
+        $i1 = $i1 + -4;
+
+        $r2[7] = $i1;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[7];
+
+        $i1 = $i1 & 262143;
+
+        $i6 = $r0.<com.speedsoftware.a.al: int i>;
+
+        $i6 = $i6 + 1;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i1, $i6);
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: boolean c(int)>($i0);
+
+        goto label007;
+
+     label081:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $z1 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z1, $r12, $i0);
+
+        $i1 = $i1 ^ -1;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label082:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i8 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $i1 = $i6 << $i8;
+
+        if $i1 != 0 goto label085;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i7 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+     label083:
+        $i8 = $i8 + -1;
+
+        $i6 = $i6 << $i8;
+
+        $i6 = $i6 & -2147483648;
+
+        if $i6 == 0 goto label086;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg a>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+     label084:
+        $i6 = $i6 | $i7;
+
+        $r0.<com.speedsoftware.a.al: int f> = $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label085:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i7 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i7 = $i7 & $i1;
+
+        goto label083;
+
+     label086:
+        $i6 = 0;
+
+        goto label084;
+
+     label087:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i8 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $i1 = $i6 >>> $i8;
+
+        if $i1 != 0 goto label089;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i7 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+     label088:
+        $i8 = $i8 + -1;
+
+        $i6 = $i6 >>> $i8;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg a>;
+
+        $i8 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i6 = $i6 & $i8;
+
+        $i6 = $i7 | $i6;
+
+        $r0.<com.speedsoftware.a.al: int f> = $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label089:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i7 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i7 = $i7 & $i1;
+
+        goto label088;
+
+     label090:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i8 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $i1 = $i6 >> $i8;
+
+        if $i1 != 0 goto label092;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i7 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+     label091:
+        $i8 = $i8 + -1;
+
+        $i6 = $i6 >> $i8;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg a>;
+
+        $i8 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i6 = $i6 & $i8;
+
+        $i6 = $i7 | $i6;
+
+        $r0.<com.speedsoftware.a.al: int f> = $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label092:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i7 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i7 = $i7 & $i1;
+
+        goto label091;
+
+     label093:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $i1 = neg $i1;
+
+        if $i1 != 0 goto label095;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+     label094:
+        $r0.<com.speedsoftware.a.al: int f> = $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label095:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg a>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i7 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i7 = $i7 & $i1;
+
+        $i6 = $i6 | $i7;
+
+        goto label094;
+
+     label096:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(1, $r12, $i0);
+
+        $i1 = neg $i1;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(1, $r10, $i0, $i1);
+
+        goto label008;
+
+     label097:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r12, $i0);
+
+        $i1 = neg $i1;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label098:
+        $i0 = 0;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[7];
+
+        $i1 = $i1 + -4;
+
+     label099:
+        if $i0 < 8 goto label100;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[7];
+
+        $i0 = $i0 + -32;
+
+        $r2[7] = $i0;
+
+        goto label008;
+
+     label100:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = 262143 & $i1;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i7 = $r2[$i0];
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i6, $i7);
+
+        $i0 = $i0 + 1;
+
+        $i1 = $i1 + -4;
+
+        goto label099;
+
+     label101:
+        $i0 = 0;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[7];
+
+     label102:
+        if $i0 >= 8 goto label008;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i6 = 7 - $i0;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i7 = 262143 & $i1;
+
+        $i7 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i7);
+
+        $r2[$i6] = $i7;
+
+        $i0 = $i0 + 1;
+
+        $i1 = $i1 + 4;
+
+        goto label102;
+
+     label103:
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[7];
+
+        $i0 = $i0 + -4;
+
+        $r2[7] = $i0;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[7];
+
+        $i0 = $i0 & 262143;
+
+        $i1 = $r0.<com.speedsoftware.a.al: int f>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label104:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[7];
+
+        $i0 = $i0 & 262143;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        $r0.<com.speedsoftware.a.al: int f> = $i0;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[7];
+
+        $i0 = $i0 + 4;
+
+        $r2[7] = $i0;
+
+        goto label008;
+
+     label105:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(1, $r12, $i1);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label106:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(1, $r12, $i1);
+
+        $b3 = (byte) $i1;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i0, $b3);
+
+        goto label008;
+
+     label107:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $z1 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i7 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z1, $r12, $i1);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i7);
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i1, $i6);
+
+        goto label008;
+
+     label108:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $l2 = (long) $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $l4 = (long) $i1;
+
+        $l4 = $l4 * -1L;
+
+        $l2 = $l4 & $l2;
+
+        $l2 = $l2 & -1L;
+
+        $l2 = $l2 & -1L;
+
+        $i1 = (int) $l2;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label109:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        if $i1 == 0 goto label008;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $i1 = $i6 / $i1;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label110:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $i7 = $r0.<com.speedsoftware.a.al: int f>;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg a>;
+
+        $i8 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i7 = $i8 & $i7;
+
+        $l2 = (long) $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $l4 = (long) $i1;
+
+        $l4 = $l4 + -1L;
+
+        $l2 = $l4 & $l2;
+
+        $l4 = (long) $i7;
+
+        $l4 = -1L + $l4;
+
+        $l2 = $l2 & $l4;
+
+        $l2 = $l2 & -1L;
+
+        $i1 = (int) $l2;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        if $z0 == 0 goto label178;
+
+        $i1 = $i1 & 255;
+
+     label111:
+        if $i1 < $i6 goto label112;
+
+        if $i1 != $i6 goto label114;
+
+        if $i7 == 0 goto label114;
+
+     label112:
+        $i6 = 1;
+
+     label113:
+        $r0.<com.speedsoftware.a.al: int f> = $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label114:
+        if $i1 != 0 goto label115;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        goto label113;
+
+     label115:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i6 = $i6 & $i1;
+
+        goto label113;
+
+     label116:
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i0);
+
+        $i7 = $r0.<com.speedsoftware.a.al: int f>;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg a>;
+
+        $i8 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i7 = $i8 & $i7;
+
+        $l2 = (long) $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>($z0, $r10, $i1);
+
+        $l4 = (long) $i1;
+
+        $l4 = -1L - $l4;
+
+        $l2 = $l4 & $l2;
+
+        $l4 = (long) $i7;
+
+        $l4 = -1L - $l4;
+
+        $l2 = $l2 & $l4;
+
+        $l2 = $l2 & -1L;
+
+        $i1 = (int) $l2;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        if $z0 == 0 goto label177;
+
+        $i1 = $i1 & 255;
+
+     label117:
+        if $i1 > $i6 goto label118;
+
+        if $i1 != $i6 goto label120;
+
+        if $i7 == 0 goto label120;
+
+     label118:
+        $i6 = 1;
+
+     label119:
+        $r0.<com.speedsoftware.a.al: int f> = $i6;
+
+        $z0 = virtualinvoke $r6.<com.speedsoftware.a.bi: boolean a()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>($z0, $r10, $i0, $i1);
+
+        goto label008;
+
+     label120:
+        if $i1 != 0 goto label121;
+
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg b>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        goto label119;
+
+     label121:
+        $r13 = <com.speedsoftware.a.bg: com.speedsoftware.a.bg c>;
+
+        $i6 = virtualinvoke $r13.<com.speedsoftware.a.bg: int a()>();
+
+        $i6 = $i6 & $i1;
+
+        goto label119;
+
+     label122:
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[7];
+
+        if $i0 >= 262144 goto label171;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[7];
+
+        $i0 = $i0 & 262143;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i0);
+
+        specialinvoke $r0.<com.speedsoftware.a.al: boolean c(int)>($i0);
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[7];
+
+        $i0 = $i0 + 4;
+
+        $r2[7] = $i0;
+
+        goto label007;
+
+     label123:
+        $r7 = virtualinvoke $r6.<com.speedsoftware.a.bi: com.speedsoftware.a.bj b()>();
+
+        $i0 = virtualinvoke $r7.<com.speedsoftware.a.bj: int b()>();
+
+        $r14 = staticinvoke <com.speedsoftware.a.bm: com.speedsoftware.a.bm a(int)>($i0);
+
+        $r2 = staticinvoke <com.speedsoftware.a.al: int[] i()>();
+
+        $i0 = virtualinvoke $r14.<com.speedsoftware.a.bm: int ordinal()>();
+
+        $i0 = $r2[$i0];
+
+        lookupswitch($i0)
+        {
+            case 2: goto label125;
+            case 3: goto label125;
+            case 4: goto label132;
+            case 5: goto label144;
+            case 6: goto label153;
+            case 7: goto label140;
+            case 8: goto label167;
+            default: goto label124;
+        };
+
+     label124:
+        goto label008;
+
+     label125:
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[4];
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[6];
+
+        $i1 = $i1 & -1;
+
+        $l2 = (long) $i1;
+
+        if $i0 >= 245760 goto label008;
+
+        $r15 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm c>;
+
+        if $r14 != $r15 goto label130;
+
+        $s9 = 233;
+
+     label126:
+        $b3 = (byte) $s9;
+
+        $i6 = 0;
+
+     label127:
+        $i1 = $i0 + -4;
+
+        if $i6 >= $i1 goto label008;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = $i6 + 1;
+
+        $b10 = $r10[$i6];
+
+        if $b10 == 232 goto label128;
+
+        if $b10 != $b3 goto label176;
+
+     label128:
+        $l4 = (long) $i1;
+
+        $l5 = $l4 + $l2;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, $i1);
+
+        $l4 = (long) $i6;
+
+        $l11 = -2147483648L & $l4;
+
+        $b10 = $l11 cmp 0L;
+
+        if $b10 == 0 goto label131;
+
+        $l5 = $l5 + $l4;
+
+        $l5 = $l5 & -2147483648L;
+
+        $b10 = $l5 cmp 0L;
+
+        if $b10 != 0 goto label129;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = (int) $l4;
+
+        $i6 = $i6 + 16777216;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i1, $i6);
+
+     label129:
+        $i6 = $i1 + 4;
+
+        goto label127;
+
+     label130:
+        $s9 = 232;
+
+        goto label126;
+
+     label131:
+        $l11 = $l4 - 16777216L;
+
+        $l11 = $l11 & -2147483648L;
+
+        $b10 = $l11 cmp 0L;
+
+        if $b10 == 0 goto label129;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $l4 = $l4 - $l5;
+
+        $i6 = (int) $l4;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, $i1, $i6);
+
+        goto label129;
+
+     label132:
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[4];
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[6];
+
+        $i1 = $i1 & -1;
+
+        $l2 = (long) $i1;
+
+        if $i0 >= 245760 goto label008;
+
+        $r10 = newarray (byte)[16];
+
+        $r10[0] = 4;
+
+        $r10[1] = 4;
+
+        $r10[2] = 6;
+
+        $r10[3] = 6;
+
+        $r10[6] = 7;
+
+        $r10[7] = 7;
+
+        $r10[8] = 4;
+
+        $r10[9] = 4;
+
+        $r10[12] = 4;
+
+        $r10[13] = 4;
+
+        $l2 = $l2 >>> 4;
+
+        $i1 = 0;
+
+     label133:
+        $i6 = $i0 + -21;
+
+        if $i1 >= $i6 goto label008;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $b3 = $r12[$i1];
+
+        $b3 = $b3 & 31;
+
+        $i6 = $b3 + -16;
+
+        if $i6 < 0 goto label135;
+
+        $b3 = $r10[$i6];
+
+        if $b3 == 0 goto label135;
+
+        $i6 = 0;
+
+     label134:
+        if $i6 <= 2 goto label136;
+
+     label135:
+        $l2 = 1L + $l2;
+
+        $i1 = $i1 + 16;
+
+        goto label133;
+
+     label136:
+        $i7 = 1 << $i6;
+
+        $i7 = $i7 & $b3;
+
+        if $i7 == 0 goto label138;
+
+        $i7 = $i6 * 41;
+
+        $i7 = $i7 + 5;
+
+        $i8 = $i7 + 37;
+
+        $i8 = specialinvoke $r0.<com.speedsoftware.a.al: int a(int,int,int)>($i1, $i8, 4);
+
+        if $i8 != 5 goto label138;
+
+        $i8 = $i7 + 13;
+
+        $i8 = specialinvoke $r0.<com.speedsoftware.a.al: int a(int,int,int)>($i1, $i8, 20);
+
+        $l4 = (long) $i8;
+
+        $l4 = $l4 - $l2;
+
+        $i8 = (int) $l4;
+
+        $i12 = $i8 & 1048575;
+
+        $i8 = $i7 + 13;
+
+        $i7 = $i8 / 8;
+
+        $i13 = $i8 & 7;
+
+        $i8 = 1048575 << $i13;
+
+        $i8 = $i8 ^ -1;
+
+        $i12 = $i12 << $i13;
+
+        $i13 = 0;
+
+     label137:
+        if $i13 < 4 goto label139;
+
+     label138:
+        $i6 = $i6 + 1;
+
+        goto label134;
+
+     label139:
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i14 = $i1 + $i7;
+
+        $i14 = $i14 + $i13;
+
+        $b10 = $r12[$i14];
+
+        $i15 = $b10 & $i8;
+
+        $b10 = (byte) $i15;
+
+        $r12[$i14] = $b10;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i14 = $i1 + $i7;
+
+        $i14 = $i14 + $i13;
+
+        $b10 = $r12[$i14];
+
+        $i15 = $b10 | $i12;
+
+        $b10 = (byte) $i15;
+
+        $r12[$i14] = $b10;
+
+        $i8 = $i8 >>> 8;
+
+        $i8 = $i8 | -16777216;
+
+        $i12 = $i12 >>> 8;
+
+        $i13 = $i13 + 1;
+
+        goto label137;
+
+     label140:
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[4];
+
+        $i0 = $i0 & -1;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[0];
+
+        $i1 = $i1 & -1;
+
+        $i6 = 0;
+
+        $i7 = $i0 * 2;
+
+        $i7 = $i7 & -1;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, 245792, $i0);
+
+        if $i0 >= 122880 goto label008;
+
+        $i8 = 0;
+
+     label141:
+        if $i8 >= $i1 goto label008;
+
+        $b3 = 0;
+
+        $i12 = $i0 + $i8;
+
+     label142:
+        if $i12 < $i7 goto label143;
+
+        $i8 = $i8 + 1;
+
+        goto label141;
+
+     label143:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r12 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i13 = $i6 + 1;
+
+        $b10 = $r12[$i6];
+
+        $i6 = $b3 - $b10;
+
+        $b3 = (byte) $i6;
+
+        $r10[$i12] = $b3;
+
+        $i12 = $i12 + $i1;
+
+        $i6 = $i13;
+
+        goto label142;
+
+     label144:
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[4];
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[0];
+
+        $i6 = $i1 + -3;
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[1];
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, 245792, $i0);
+
+        if $i0 >= 122880 goto label008;
+
+        if $i1 < 0 goto label008;
+
+        $i7 = 0;
+
+        $i8 = 0;
+
+     label145:
+        if $i7 < 3 goto label147;
+
+        $i6 = $i0 + -2;
+
+     label146:
+        if $i1 >= $i6 goto label008;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i7 = $i0 + $i1;
+
+        $i7 = $i7 + 1;
+
+        $b3 = $r10[$i7];
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i7 = $i0 + $i1;
+
+        $b10 = $r10[$i7];
+
+        $i8 = $b10 + $b3;
+
+        $b10 = (byte) $i8;
+
+        $r10[$i7] = $b10;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i7 = $i0 + $i1;
+
+        $i7 = $i7 + 2;
+
+        $b10 = $r10[$i7];
+
+        $i8 = $b3 + $b10;
+
+        $b3 = (byte) $i8;
+
+        $r10[$i7] = $b3;
+
+        $i1 = $i1 + 3;
+
+        goto label146;
+
+     label147:
+        $i12 = $i8;
+
+        $l2 = 0L;
+
+        $i8 = $i7;
+
+     label148:
+        if $i8 < $i0 goto label149;
+
+        $i7 = $i7 + 1;
+
+        $i8 = $i12;
+
+        goto label145;
+
+     label149:
+        $i13 = $i8 - $i6;
+
+        if $i13 < 3 goto label151;
+
+        $i13 = $i13 + $i0;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $b3 = $r10[$i13];
+
+        $s9 = $b3 & 255;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i13 = $i13 + -3;
+
+        $b3 = $r10[$i13];
+
+        $s16 = $b3 & 255;
+
+        $l4 = (long) $s9;
+
+        $l4 = $l4 + $l2;
+
+        $l5 = (long) $s16;
+
+        $l4 = $l4 - $l5;
+
+        $l5 = $l4 - $l2;
+
+        $i13 = (int) $l5;
+
+        $i13 = staticinvoke <java.lang.Math: int abs(int)>($i13);
+
+        $l5 = (long) $s9;
+
+        $l5 = $l4 - $l5;
+
+        $i14 = (int) $l5;
+
+        $i14 = staticinvoke <java.lang.Math: int abs(int)>($i14);
+
+        $l5 = (long) $s16;
+
+        $l4 = $l4 - $l5;
+
+        $i15 = (int) $l4;
+
+        $i15 = staticinvoke <java.lang.Math: int abs(int)>($i15);
+
+        if $i13 > $i14 goto label150;
+
+        if $i13 <= $i15 goto label151;
+
+     label150:
+        if $i14 > $i15 goto label152;
+
+        $l2 = (long) $s9;
+
+     label151:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i13 = $i12 + 1;
+
+        $b3 = $r10[$i12];
+
+        $l4 = (long) $b3;
+
+        $l2 = $l2 - $l4;
+
+        $l2 = $l2 & 255L;
+
+        $l2 = 255L & $l2;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i12 = $i0 + $i8;
+
+        $l4 = 255L & $l2;
+
+        $i14 = (int) $l4;
+
+        $b3 = (byte) $i14;
+
+        $r10[$i12] = $b3;
+
+        $i8 = $i8 + 3;
+
+        $i12 = $i13;
+
+        goto label148;
+
+     label152:
+        $l2 = (long) $s16;
+
+        goto label151;
+
+     label153:
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[4];
+
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i1 = $r2[0];
+
+        $i17 = 0;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, 245792, $i0);
+
+        if $i0 >= 122880 goto label008;
+
+        $i6 = 0;
+
+     label154:
+        if $i6 >= $i1 goto label008;
+
+        $l5 = 0L;
+
+        $r16 = newarray (long)[7];
+
+        $i12 = 0;
+
+        $i18 = 0;
+
+        $i7 = 0;
+
+        $i8 = $i6;
+
+        $i19 = 0;
+
+        $l4 = 0L;
+
+        $i20 = 0;
+
+        $i14 = 0;
+
+     label155:
+        if $i8 < $i0 goto label156;
+
+        $i6 = $i6 + 1;
+
+        goto label154;
+
+     label156:
+        $i13 = (int) $l5;
+
+        $i12 = $i13 - $i12;
+
+        $i13 = (int) $l5;
+
+        $l2 = 8L * $l4;
+
+        $i15 = $i19 * $i13;
+
+        $l5 = (long) $i15;
+
+        $l2 = $l2 + $l5;
+
+        $i15 = $i20 * $i12;
+
+        $l5 = (long) $i15;
+
+        $l2 = $l2 + $l5;
+
+        $i15 = $i14 * $i18;
+
+        $l5 = (long) $i15;
+
+        $l2 = $l2 + $l5;
+
+        $l2 = $l2 >>> 3;
+
+        $l2 = $l2 & 255L;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i15 = $i17 + 1;
+
+        $b3 = $r10[$i17];
+
+        $s9 = $b3 & 255;
+
+        $l5 = (long) $s9;
+
+        $l2 = $l2 - $l5;
+
+        $l2 = -1L & $l2;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i17 = $i0 + $i8;
+
+        $i21 = (int) $l2;
+
+        $b3 = (byte) $i21;
+
+        $r10[$i17] = $b3;
+
+        $l4 = $l2 - $l4;
+
+        $i17 = (int) $l4;
+
+        $b3 = (byte) $i17;
+
+        $l4 = (long) $b3;
+
+        $i17 = (int) $l5;
+
+        $b3 = (byte) $i17;
+
+        $i17 = $b3 << 3;
+
+        $l5 = $r16[0];
+
+        $i21 = staticinvoke <java.lang.Math: int abs(int)>($i17);
+
+        $l11 = (long) $i21;
+
+        $l5 = $l5 + $l11;
+
+        $r16[0] = $l5;
+
+        $l5 = $r16[1];
+
+        $i21 = $i17 - $i13;
+
+        $i21 = staticinvoke <java.lang.Math: int abs(int)>($i21);
+
+        $l11 = (long) $i21;
+
+        $l5 = $l5 + $l11;
+
+        $r16[1] = $l5;
+
+        $l5 = $r16[2];
+
+        $i21 = $i17 + $i13;
+
+        $i21 = staticinvoke <java.lang.Math: int abs(int)>($i21);
+
+        $l11 = (long) $i21;
+
+        $l5 = $l5 + $l11;
+
+        $r16[2] = $l5;
+
+        $l5 = $r16[3];
+
+        $i21 = $i17 - $i12;
+
+        $i21 = staticinvoke <java.lang.Math: int abs(int)>($i21);
+
+        $l11 = (long) $i21;
+
+        $l5 = $l5 + $l11;
+
+        $r16[3] = $l5;
+
+        $l5 = $r16[4];
+
+        $i21 = $i17 + $i12;
+
+        $i21 = staticinvoke <java.lang.Math: int abs(int)>($i21);
+
+        $l11 = (long) $i21;
+
+        $l5 = $l5 + $l11;
+
+        $r16[4] = $l5;
+
+        $l5 = $r16[5];
+
+        $i21 = $i17 - $i18;
+
+        $i21 = staticinvoke <java.lang.Math: int abs(int)>($i21);
+
+        $l11 = (long) $i21;
+
+        $l5 = $l5 + $l11;
+
+        $r16[5] = $l5;
+
+        $l5 = $r16[6];
+
+        $i18 = $i17 + $i18;
+
+        $i18 = staticinvoke <java.lang.Math: int abs(int)>($i18);
+
+        $l11 = (long) $i18;
+
+        $l5 = $l5 + $l11;
+
+        $r16[6] = $l5;
+
+        $i18 = $i7 & 31;
+
+        if $i18 != 0 goto label158;
+
+        $l5 = $r16[0];
+
+        $l11 = 0L;
+
+        $r16[0] = 0L;
+
+        $i18 = 1;
+
+     label157:
+        $i17 = lengthof $r16;
+
+        if $i18 < $i17 goto label159;
+
+        $i18 = (int) $l11;
+
+        lookupswitch($i18)
+        {
+            case 1: goto label161;
+            case 2: goto label162;
+            case 3: goto label163;
+            case 4: goto label164;
+            case 5: goto label165;
+            case 6: goto label166;
+            default: goto label158;
+        };
+
+     label158:
+        $i7 = $i7 + 1;
+
+        $i8 = $i8 + $i1;
+
+        $i18 = $i12;
+
+        $i12 = $i13;
+
+        $l5 = $l4;
+
+        $i17 = $i15;
+
+        $l4 = $l2;
+
+        goto label155;
+
+     label159:
+        $l22 = $r16[$i18];
+
+        $b3 = $l22 cmp $l5;
+
+        if $b3 >= 0 goto label160;
+
+        $l5 = $r16[$i18];
+
+        $l11 = (long) $i18;
+
+     label160:
+        $r16[$i18] = 0L;
+
+        $i18 = $i18 + 1;
+
+        goto label157;
+
+     label161:
+        if $i19 < -16 goto label158;
+
+        $i19 = $i19 + -1;
+
+        goto label158;
+
+     label162:
+        if $i19 >= 16 goto label158;
+
+        $i19 = $i19 + 1;
+
+        goto label158;
+
+     label163:
+        if $i20 < -16 goto label158;
+
+        $i20 = $i20 + -1;
+
+        goto label158;
+
+     label164:
+        if $i20 >= 16 goto label158;
+
+        $i20 = $i20 + 1;
+
+        goto label158;
+
+     label165:
+        if $i14 < -16 goto label158;
+
+        $i14 = $i14 + -1;
+
+        goto label158;
+
+     label166:
+        if $i14 >= 16 goto label158;
+
+        $i14 = $i14 + 1;
+
+        goto label158;
+
+     label167:
+        $r2 = $r0.<com.speedsoftware.a.al: int[] e>;
+
+        $i0 = $r2[4];
+
+        $i1 = 0;
+
+        if $i0 >= 122880 goto label008;
+
+        $i6 = $i0;
+
+     label168:
+        if $i1 < $i0 goto label169;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = $i6 - $i0;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, 245788, $i1);
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(boolean,byte[],int,int)>(0, $r10, 245792, $i0);
+
+        goto label008;
+
+     label169:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i7 = $i1 + 1;
+
+        $b3 = $r10[$i1];
+
+        if $b3 != 2 goto label175;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = $i7 + 1;
+
+        $b3 = $r10[$i7];
+
+        if $b3 == 2 goto label170;
+
+        $i7 = $b3 + -32;
+
+        $b3 = (byte) $i7;
+
+     label170:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $r10[$i6] = $b3;
+
+        $i6 = $i6 + 1;
+
+        goto label168;
+
+     label171:
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, 245792);
+
+        $i0 = 262143 & $i0;
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i1 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, 245788);
+
+        $i1 = $i1 & 262143;
+
+        $i6 = $i0 + $i1;
+
+        if $i6 < 262144 goto label172;
+
+        $i0 = 0;
+
+        $i1 = 0;
+
+     label172:
+        virtualinvoke $r1.<com.speedsoftware.a.bk: void b(int)>($i0);
+
+        virtualinvoke $r1.<com.speedsoftware.a.bk: void c(int)>($i1);
+
+        $r3 = virtualinvoke $r1.<com.speedsoftware.a.bk: java.util.Vector f()>();
+
+        virtualinvoke $r3.<java.util.Vector: void clear()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i0 = specialinvoke $r0.<com.speedsoftware.a.al: int a(boolean,byte[],int)>(0, $r10, 245808);
+
+        $i0 = staticinvoke <java.lang.Math: int min(int,int)>($i0, 8128);
+
+        if $i0 == 0 goto label179;
+
+        $r3 = virtualinvoke $r1.<com.speedsoftware.a.bk: java.util.Vector f()>();
+
+        $i1 = $i0 + 64;
+
+        virtualinvoke $r3.<java.util.Vector: void setSize(int)>($i1);
+
+        $i1 = 0;
+
+     label173:
+        $i6 = $i0 + 64;
+
+        if $i1 < $i6 goto label174;
+
+        return;
+
+     label174:
+        $r3 = virtualinvoke $r1.<com.speedsoftware.a.bk: java.util.Vector f()>();
+
+        $r10 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        $i6 = 245760 + $i1;
+
+        $b3 = $r10[$i6];
+
+        $r11 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>($b3);
+
+        virtualinvoke $r3.<java.util.Vector: java.lang.Object set(int,java.lang.Object)>($i1, $r11);
+
+        $i1 = $i1 + 1;
+
+        goto label173;
+
+     label175:
+        $i1 = $i7;
+
+        goto label170;
+
+     label176:
+        $i6 = $i1;
+
+        goto label127;
+
+     label177:
+        goto label117;
+
+     label178:
+        goto label111;
+
+     label179:
+        return;
+    }
+
+    public final void a(byte[], int, com.speedsoftware.a.bk)
+    {
+        com.speedsoftware.a.al $r0;
+        byte[] $r1, $r13;
+        com.speedsoftware.a.bk $r2;
+        int $i0, $i1, $i2, $i5, $i8;
+        byte $b3, $b4;
+        com.speedsoftware.a.bl[] $r3;
+        com.speedsoftware.a.bl $r4;
+        com.speedsoftware.a.bm $r5, $r6;
+        com.speedsoftware.a.bi $r7, $r19;
+        com.speedsoftware.a.bf $r8;
+        com.speedsoftware.a.bj $r9;
+        com.speedsoftware.a.bh $r10, $r16;
+        java.util.List $r11;
+        long $l6, $l7;
+        java.util.Iterator $r12;
+        boolean $z0;
+        java.util.Vector $r14;
+        java.lang.Byte $r15;
+        java.lang.Object $r17;
+        int[] $r18;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: com.speedsoftware.a.bk;
+
+        virtualinvoke $r0.<com.speedsoftware.a.al: void a()>();
+
+        $i1 = staticinvoke <java.lang.Math: int min(int,int)>(32768, $i0);
+
+        $i2 = 0;
+
+     label01:
+        if $i2 < $i1 goto label10;
+
+        $b3 = 0;
+
+        $i1 = 1;
+
+     label02:
+        if $i1 < $i0 goto label11;
+
+        virtualinvoke $r0.<com.speedsoftware.a.al: void b(int)>(8);
+
+        virtualinvoke $r2.<com.speedsoftware.a.bk: void a(int)>(0);
+
+        $b4 = $r1[0];
+
+        if $b3 != $b4 goto label08;
+
+        $r3 = newarray (com.speedsoftware.a.bl)[7];
+
+        $r4 = new com.speedsoftware.a.bl;
+
+        $r5 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm b>;
+
+        specialinvoke $r4.<com.speedsoftware.a.bl: void <init>(int,int,com.speedsoftware.a.bm)>(53, -1386780537, $r5);
+
+        $r3[0] = $r4;
+
+        $r4 = new com.speedsoftware.a.bl;
+
+        $r5 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm c>;
+
+        specialinvoke $r4.<com.speedsoftware.a.bl: void <init>(int,int,com.speedsoftware.a.bm)>(57, 1020781950, $r5);
+
+        $r3[1] = $r4;
+
+        $r4 = new com.speedsoftware.a.bl;
+
+        $r5 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm d>;
+
+        specialinvoke $r4.<com.speedsoftware.a.bl: void <init>(int,int,com.speedsoftware.a.bm)>(120, 929663295, $r5);
+
+        $r3[2] = $r4;
+
+        $r4 = new com.speedsoftware.a.bl;
+
+        $r5 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm g>;
+
+        specialinvoke $r4.<com.speedsoftware.a.bl: void <init>(int,int,com.speedsoftware.a.bm)>(29, 235276157, $r5);
+
+        $r3[3] = $r4;
+
+        $r4 = new com.speedsoftware.a.bl;
+
+        $r5 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm e>;
+
+        specialinvoke $r4.<com.speedsoftware.a.bl: void <init>(int,int,com.speedsoftware.a.bm)>(149, 472669640, $r5);
+
+        $r3[4] = $r4;
+
+        $r4 = new com.speedsoftware.a.bl;
+
+        $r5 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm f>;
+
+        specialinvoke $r4.<com.speedsoftware.a.bl: void <init>(int,int,com.speedsoftware.a.bm)>(216, -1132075263, $r5);
+
+        $r3[5] = $r4;
+
+        $r4 = new com.speedsoftware.a.bl;
+
+        $r5 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm h>;
+
+        specialinvoke $r4.<com.speedsoftware.a.bl: void <init>(int,int,com.speedsoftware.a.bm)>(40, 1186579808, $r5);
+
+        $r3[6] = $r4;
+
+        $i1 = lengthof $r1;
+
+        $i1 = staticinvoke <com.speedsoftware.a.ag: int a(int,byte[],int,int)>(-1, $r1, 0, $i1);
+
+        $i1 = $i1 ^ -1;
+
+        $i2 = 0;
+
+     label03:
+        $i5 = lengthof $r3;
+
+        if $i2 < $i5 goto label12;
+
+        $r5 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm a>;
+
+     label04:
+        $r6 = <com.speedsoftware.a.bm: com.speedsoftware.a.bm a>;
+
+        if $r5 == $r6 goto label05;
+
+        $r7 = new com.speedsoftware.a.bi;
+
+        specialinvoke $r7.<com.speedsoftware.a.bi: void <init>()>();
+
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf ac>;
+
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(com.speedsoftware.a.bf)>($r8);
+
+        $r9 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bj b()>();
+
+        $i0 = virtualinvoke $r5.<com.speedsoftware.a.bm: int a()>();
+
+        virtualinvoke $r9.<com.speedsoftware.a.bj: void b(int)>($i0);
+
+        $r9 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bj b()>();
+
+        $r10 = <com.speedsoftware.a.bh: com.speedsoftware.a.bh d>;
+
+        virtualinvoke $r9.<com.speedsoftware.a.bj: void a(com.speedsoftware.a.bh)>($r10);
+
+        $r9 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bj c()>();
+
+        $r10 = <com.speedsoftware.a.bh: com.speedsoftware.a.bh d>;
+
+        virtualinvoke $r9.<com.speedsoftware.a.bj: void a(com.speedsoftware.a.bh)>($r10);
+
+        $r11 = virtualinvoke $r2.<com.speedsoftware.a.bk: java.util.List b()>();
+
+        interfaceinvoke $r11.<java.util.List: boolean add(java.lang.Object)>($r7);
+
+        $i0 = virtualinvoke $r2.<com.speedsoftware.a.bk: int c()>();
+
+        $i0 = $i0 + 1;
+
+        virtualinvoke $r2.<com.speedsoftware.a.bk: void a(int)>($i0);
+
+        $i0 = 0;
+
+     label05:
+        $i1 = virtualinvoke $r0.<com.speedsoftware.a.al: int c()>();
+
+        virtualinvoke $r0.<com.speedsoftware.a.al: void b(int)>(1);
+
+        $i1 = $i1 & 32768;
+
+        if $i1 == 0 goto label07;
+
+        $i1 = staticinvoke <com.speedsoftware.a.al: int a(com.speedsoftware.a.f)>($r0);
+
+        $l6 = (long) $i1;
+
+        $l6 = 0L & $l6;
+
+        $i1 = 0;
+
+     label06:
+        $i2 = $r0.<com.speedsoftware.a.al: int a>;
+
+        if $i2 >= $i0 goto label07;
+
+        $l7 = (long) $i1;
+
+        $b3 = $l7 cmp $l6;
+
+        if $b3 < 0 goto label14;
+
+     label07:
+        $i1 = $r0.<com.speedsoftware.a.al: int a>;
+
+        if $i1 < $i0 goto label15;
+
+     label08:
+        $r7 = new com.speedsoftware.a.bi;
+
+        specialinvoke $r7.<com.speedsoftware.a.bi: void <init>()>();
+
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf w>;
+
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(com.speedsoftware.a.bf)>($r8);
+
+        $r9 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bj b()>();
+
+        $r10 = <com.speedsoftware.a.bh: com.speedsoftware.a.bh d>;
+
+        virtualinvoke $r9.<com.speedsoftware.a.bj: void a(com.speedsoftware.a.bh)>($r10);
+
+        $r9 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bj c()>();
+
+        $r10 = <com.speedsoftware.a.bh: com.speedsoftware.a.bh d>;
+
+        virtualinvoke $r9.<com.speedsoftware.a.bj: void a(com.speedsoftware.a.bh)>($r10);
+
+        $r11 = virtualinvoke $r2.<com.speedsoftware.a.bk: java.util.List b()>();
+
+        interfaceinvoke $r11.<java.util.List: boolean add(java.lang.Object)>($r7);
+
+        $i1 = virtualinvoke $r2.<com.speedsoftware.a.bk: int c()>();
+
+        $i1 = $i1 + 1;
+
+        virtualinvoke $r2.<com.speedsoftware.a.bk: void a(int)>($i1);
+
+        if $i0 == 0 goto label58;
+
+        $r11 = virtualinvoke $r2.<com.speedsoftware.a.bk: java.util.List b()>();
+
+        $r12 = interfaceinvoke $r11.<java.util.List: java.util.Iterator iterator()>();
+
+     label09:
+        $z0 = interfaceinvoke $r12.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label29;
+
+        return;
+
+     label10:
+        $r13 = $r0.<com.speedsoftware.a.al: byte[] c>;
+
+        $b3 = $r13[$i2];
+
+        $b4 = $r1[$i2];
+
+        $b3 = $b3 | $b4;
+
+        $b3 = (byte) $b3;
+
+        $r13[$i2] = $b3;
+
+        $i2 = $i2 + 1;
+
+        goto label01;
+
+     label11:
+        $b4 = $r1[$i1];
+
+        $b3 = $b3 ^ $b4;
+
+        $b3 = (byte) $b3;
+
+        $i1 = $i1 + 1;
+
+        goto label02;
+
+     label12:
+        $r4 = $r3[$i2];
+
+        $i5 = virtualinvoke $r4.<com.speedsoftware.a.bl: int a()>();
+
+        if $i5 != $i1 goto label13;
+
+        $r4 = $r3[$i2];
+
+        $i5 = virtualinvoke $r4.<com.speedsoftware.a.bl: int b()>();
+
+        $i8 = lengthof $r1;
+
+        if $i5 != $i8 goto label13;
+
+        $r4 = $r3[$i2];
+
+        $r5 = virtualinvoke $r4.<com.speedsoftware.a.bl: com.speedsoftware.a.bm c()>();
+
+        goto label04;
+
+     label13:
+        $i2 = $i2 + 1;
+
+        goto label03;
+
+     label14:
+        $r14 = virtualinvoke $r2.<com.speedsoftware.a.bk: java.util.Vector h()>();
+
+        $i2 = virtualinvoke $r0.<com.speedsoftware.a.al: int c()>();
+
+        $i2 = $i2 >> 8;
+
+        $b3 = (byte) $i2;
+
+        $r15 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>($b3);
+
+        virtualinvoke $r14.<java.util.Vector: boolean add(java.lang.Object)>($r15);
+
+        virtualinvoke $r0.<com.speedsoftware.a.al: void b(int)>(8);
+
+        $i1 = $i1 + 1;
+
+        goto label06;
+
+     label15:
+        $r7 = new com.speedsoftware.a.bi;
+
+        specialinvoke $r7.<com.speedsoftware.a.bi: void <init>()>();
+
+        $i1 = virtualinvoke $r0.<com.speedsoftware.a.al: int c()>();
+
+        $i2 = $i1 & 32768;
+
+        if $i2 != 0 goto label20;
+
+        $i1 = $i1 >> 12;
+
+        $r8 = staticinvoke <com.speedsoftware.a.bf: com.speedsoftware.a.bf a(int)>($i1);
+
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(com.speedsoftware.a.bf)>($r8);
+
+        virtualinvoke $r0.<com.speedsoftware.a.al: void b(int)>(4);
+
+     label16:
+        $r1 = <com.speedsoftware.a.be: byte[] a>;
+
+        $r8 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bf d()>();
+
+        $i1 = virtualinvoke $r8.<com.speedsoftware.a.bf: int a()>();
+
+        $b3 = $r1[$i1];
+
+        $b3 = $b3 & 4;
+
+        if $b3 == 0 goto label22;
+
+        $i1 = virtualinvoke $r0.<com.speedsoftware.a.al: int c()>();
+
+        $i1 = $i1 >> 15;
+
+        if $i1 != 1 goto label21;
+
+        $z0 = 1;
+
+     label17:
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(boolean)>($z0);
+
+        virtualinvoke $r0.<com.speedsoftware.a.al: void b(int)>(1);
+
+     label18:
+        $r9 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bj b()>();
+
+        $r10 = <com.speedsoftware.a.bh: com.speedsoftware.a.bh d>;
+
+        virtualinvoke $r9.<com.speedsoftware.a.bj: void a(com.speedsoftware.a.bh)>($r10);
+
+        $r9 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bj c()>();
+
+        $r10 = <com.speedsoftware.a.bh: com.speedsoftware.a.bh d>;
+
+        virtualinvoke $r9.<com.speedsoftware.a.bj: void a(com.speedsoftware.a.bh)>($r10);
+
+        $r1 = <com.speedsoftware.a.be: byte[] a>;
+
+        $r8 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bf d()>();
+
+        $i1 = virtualinvoke $r8.<com.speedsoftware.a.bf: int a()>();
+
+        $b3 = $r1[$i1];
+
+        $b3 = $b3 & 3;
+
+        if $b3 <= 0 goto label19;
+
+        $r9 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bj b()>();
+
+        $z0 = virtualinvoke $r7.<com.speedsoftware.a.bi: boolean a()>();
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(com.speedsoftware.a.bj,boolean)>($r9, $z0);
+
+        if $b3 != 2 goto label23;
+
+        $r9 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bj c()>();
+
+        $z0 = virtualinvoke $r7.<com.speedsoftware.a.bi: boolean a()>();
+
+        specialinvoke $r0.<com.speedsoftware.a.al: void a(com.speedsoftware.a.bj,boolean)>($r9, $z0);
+
+     label19:
+        $i1 = virtualinvoke $r2.<com.speedsoftware.a.bk: int c()>();
+
+        $i1 = $i1 + 1;
+
+        virtualinvoke $r2.<com.speedsoftware.a.bk: void a(int)>($i1);
+
+        $r11 = virtualinvoke $r2.<com.speedsoftware.a.bk: java.util.List b()>();
+
+        interfaceinvoke $r11.<java.util.List: boolean add(java.lang.Object)>($r7);
+
+        goto label07;
+
+     label20:
+        $i1 = $i1 >> 10;
+
+        $i1 = $i1 + -24;
+
+        $r8 = staticinvoke <com.speedsoftware.a.bf: com.speedsoftware.a.bf a(int)>($i1);
+
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(com.speedsoftware.a.bf)>($r8);
+
+        virtualinvoke $r0.<com.speedsoftware.a.al: void b(int)>(6);
+
+        goto label16;
+
+     label21:
+        $z0 = 0;
+
+        goto label17;
+
+     label22:
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(boolean)>(0);
+
+        goto label18;
+
+     label23:
+        $r9 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bj b()>();
+
+        $r10 = virtualinvoke $r9.<com.speedsoftware.a.bj: com.speedsoftware.a.bh c()>();
+
+        $r16 = <com.speedsoftware.a.bh: com.speedsoftware.a.bh b>;
+
+        if $r10 != $r16 goto label19;
+
+        $r1 = <com.speedsoftware.a.be: byte[] a>;
+
+        $r8 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bf d()>();
+
+        $i1 = virtualinvoke $r8.<com.speedsoftware.a.bf: int a()>();
+
+        $b3 = $r1[$i1];
+
+        $b3 = $b3 & 24;
+
+        if $b3 == 0 goto label19;
+
+        $r9 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bj b()>();
+
+        $i2 = virtualinvoke $r9.<com.speedsoftware.a.bj: int b()>();
+
+        $i1 = $i2;
+
+        if $i2 < 256 goto label25;
+
+        $i1 = $i2 + -256;
+
+     label24:
+        $r9 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bj b()>();
+
+        virtualinvoke $r9.<com.speedsoftware.a.bj: void b(int)>($i1);
+
+        goto label19;
+
+     label25:
+        if $i2 < 136 goto label27;
+
+        $i1 = $i2 + -264;
+
+     label26:
+        $i2 = virtualinvoke $r2.<com.speedsoftware.a.bk: int c()>();
+
+        $i1 = $i1 + $i2;
+
+        goto label24;
+
+     label27:
+        if $i2 < 16 goto label28;
+
+        $i1 = $i2 + -8;
+
+        goto label26;
+
+     label28:
+        if $i2 < 8 goto label26;
+
+        $i1 = $i2 + -16;
+
+        goto label26;
+
+     label29:
+        $r17 = interfaceinvoke $r12.<java.util.Iterator: java.lang.Object next()>();
+
+        $r7 = (com.speedsoftware.a.bi) $r17;
+
+        $r18 = staticinvoke <com.speedsoftware.a.al: int[] h()>();
+
+        $r8 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bf d()>();
+
+        $i0 = virtualinvoke $r8.<com.speedsoftware.a.bf: int ordinal()>();
+
+        $i0 = $r18[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label37;
+            case 2: goto label40;
+            default: goto label30;
+        };
+
+     label30:
+        $r1 = <com.speedsoftware.a.be: byte[] a>;
+
+        $r8 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bf d()>();
+
+        $i0 = virtualinvoke $r8.<com.speedsoftware.a.bf: int a()>();
+
+        $b3 = $r1[$i0];
+
+        $b3 = $b3 & 64;
+
+        if $b3 == 0 goto label09;
+
+        $i0 = interfaceinvoke $r11.<java.util.List: int indexOf(java.lang.Object)>($r7);
+
+        $i0 = $i0 + 1;
+
+     label31:
+        $i1 = interfaceinvoke $r11.<java.util.List: int size()>();
+
+        if $i0 < $i1 goto label43;
+
+     label32:
+        $z0 = 0;
+
+     label33:
+        if $z0 != 0 goto label09;
+
+        $r18 = staticinvoke <com.speedsoftware.a.al: int[] h()>();
+
+        $r8 = virtualinvoke $r7.<com.speedsoftware.a.bi: com.speedsoftware.a.bf d()>();
+
+        $i0 = virtualinvoke $r8.<com.speedsoftware.a.bf: int ordinal()>();
+
+        $i0 = $r18[$i0];
+
+        lookupswitch($i0)
+        {
+            case 3: goto label35;
+            case 4: goto label46;
+            case 7: goto label49;
+            case 8: goto label52;
+            case 28: goto label55;
+            default: goto label34;
+        };
+
+     label34:
+        goto label09;
+
+     label35:
+        $z0 = virtualinvoke $r7.<com.speedsoftware.a.bi: boolean a()>();
+
+        if $z0 == 0 goto label45;
+
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf S>;
+
+     label36:
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(com.speedsoftware.a.bf)>($r8);
+
+        goto label09;
+
+     label37:
+        $z0 = virtualinvoke $r7.<com.speedsoftware.a.bi: boolean a()>();
+
+        if $z0 == 0 goto label39;
+
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf O>;
+
+     label38:
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(com.speedsoftware.a.bf)>($r8);
+
+        goto label09;
+
+     label39:
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf P>;
+
+        goto label38;
+
+     label40:
+        $z0 = virtualinvoke $r7.<com.speedsoftware.a.bi: boolean a()>();
+
+        if $z0 == 0 goto label42;
+
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf Q>;
+
+     label41:
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(com.speedsoftware.a.bf)>($r8);
+
+        goto label09;
+
+     label42:
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf R>;
+
+        goto label41;
+
+     label43:
+        $r1 = <com.speedsoftware.a.be: byte[] a>;
+
+        $r17 = interfaceinvoke $r11.<java.util.List: java.lang.Object get(int)>($i0);
+
+        $r19 = (com.speedsoftware.a.bi) $r17;
+
+        $r8 = virtualinvoke $r19.<com.speedsoftware.a.bi: com.speedsoftware.a.bf d()>();
+
+        $i1 = virtualinvoke $r8.<com.speedsoftware.a.bf: int a()>();
+
+        $b3 = $r1[$i1];
+
+        $b4 = $b3 & 56;
+
+        if $b4 == 0 goto label44;
+
+        $z0 = 1;
+
+        goto label33;
+
+     label44:
+        $b3 = $b3 & 64;
+
+        if $b3 != 0 goto label32;
+
+        $i0 = $i0 + 1;
+
+        goto label31;
+
+     label45:
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf T>;
+
+        goto label36;
+
+     label46:
+        $z0 = virtualinvoke $r7.<com.speedsoftware.a.bi: boolean a()>();
+
+        if $z0 == 0 goto label48;
+
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf U>;
+
+     label47:
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(com.speedsoftware.a.bf)>($r8);
+
+        goto label09;
+
+     label48:
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf V>;
+
+        goto label47;
+
+     label49:
+        $z0 = virtualinvoke $r7.<com.speedsoftware.a.bi: boolean a()>();
+
+        if $z0 == 0 goto label51;
+
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf W>;
+
+     label50:
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(com.speedsoftware.a.bf)>($r8);
+
+        goto label09;
+
+     label51:
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf X>;
+
+        goto label50;
+
+     label52:
+        $z0 = virtualinvoke $r7.<com.speedsoftware.a.bi: boolean a()>();
+
+        if $z0 == 0 goto label54;
+
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf Y>;
+
+     label53:
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(com.speedsoftware.a.bf)>($r8);
+
+        goto label09;
+
+     label54:
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf Z>;
+
+        goto label53;
+
+     label55:
+        $z0 = virtualinvoke $r7.<com.speedsoftware.a.bi: boolean a()>();
+
+        if $z0 == 0 goto label57;
+
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf aa>;
+
+     label56:
+        virtualinvoke $r7.<com.speedsoftware.a.bi: void a(com.speedsoftware.a.bf)>($r8);
+
+        goto label09;
+
+     label57:
+        $r8 = <com.speedsoftware.a.bf: com.speedsoftware.a.bf ab>;
+
+        goto label56;
+
+     label58:
+        return;
+    }
+
+    public final void f()
+    {
+        com.speedsoftware.a.al $r0;
+        byte[] $r1;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        $r1 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        if $r1 != null goto label1;
+
+        $r1 = newarray (byte)[262148];
+
+        $r0.<com.speedsoftware.a.al: byte[] d> = $r1;
+
+     label1:
+        return;
+    }
+
+    public final byte[] g()
+    {
+        com.speedsoftware.a.al $r0;
+        byte[] r1;
+
+        $r0 := @this: com.speedsoftware.a.al;
+
+        r1 = $r0.<com.speedsoftware.a.al: byte[] d>;
+
+        return r1;
+    }
+}

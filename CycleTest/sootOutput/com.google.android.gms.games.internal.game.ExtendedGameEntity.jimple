@@ -1,0 +1,861 @@
+public final class com.google.android.gms.games.internal.game.ExtendedGameEntity extends com.google.android.gms.games.internal.GamesDowngradeableSafeParcel implements com.google.android.gms.games.internal.game.ExtendedGame
+{
+    public static final com.google.android.gms.games.internal.game.ExtendedGameEntityCreator CREATOR;
+    private final int a;
+    private final com.google.android.gms.games.GameEntity b;
+    private final int c;
+    private final boolean d;
+    private final int e;
+    private final long f;
+    private final long g;
+    private final java.lang.String h;
+    private final long i;
+    private final java.lang.String j;
+    private final java.util.ArrayList k;
+    private final com.google.android.gms.games.snapshot.SnapshotMetadataEntity l;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity$ExtendedGameEntityCreatorCompat $r0;
+
+        $r0 = new com.google.android.gms.games.internal.game.ExtendedGameEntity$ExtendedGameEntityCreatorCompat;
+
+        specialinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity$ExtendedGameEntityCreatorCompat: void <init>()>();
+
+        <com.google.android.gms.games.internal.game.ExtendedGameEntity: com.google.android.gms.games.internal.game.ExtendedGameEntityCreator CREATOR> = $r0;
+
+        return;
+    }
+
+    void <init>(int, com.google.android.gms.games.GameEntity, int, boolean, int, long, long, java.lang.String, long, java.lang.String, java.util.ArrayList, com.google.android.gms.games.snapshot.SnapshotMetadataEntity)
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        int $i0, $i1, $i2;
+        com.google.android.gms.games.GameEntity $r1;
+        boolean $z0;
+        long $l3, $l4, $l5;
+        java.lang.String $r2, $r3;
+        java.util.ArrayList $r4;
+        com.google.android.gms.games.snapshot.SnapshotMetadataEntity $r5;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: com.google.android.gms.games.GameEntity;
+
+        $i1 := @parameter2: int;
+
+        $z0 := @parameter3: boolean;
+
+        $i2 := @parameter4: int;
+
+        $l3 := @parameter5: long;
+
+        $l4 := @parameter6: long;
+
+        $r2 := @parameter7: java.lang.String;
+
+        $l5 := @parameter8: long;
+
+        $r3 := @parameter9: java.lang.String;
+
+        $r4 := @parameter10: java.util.ArrayList;
+
+        $r5 := @parameter11: com.google.android.gms.games.snapshot.SnapshotMetadataEntity;
+
+        specialinvoke $r0.<com.google.android.gms.games.internal.GamesDowngradeableSafeParcel: void <init>()>();
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: int a> = $i0;
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: com.google.android.gms.games.GameEntity b> = $r1;
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: int c> = $i1;
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: boolean d> = $z0;
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: int e> = $i2;
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: long f> = $l3;
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: long g> = $l4;
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.lang.String h> = $r2;
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: long i> = $l5;
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.lang.String j> = $r3;
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.util.ArrayList k> = $r4;
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: com.google.android.gms.games.snapshot.SnapshotMetadataEntity l> = $r5;
+
+        return;
+    }
+
+    public void <init>(com.google.android.gms.games.internal.game.ExtendedGame)
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        com.google.android.gms.games.internal.game.ExtendedGame $r1;
+        java.util.ArrayList $r2, $r8;
+        com.google.android.gms.games.snapshot.SnapshotMetadataEntity $r3;
+        com.google.android.gms.games.Game $r4;
+        com.google.android.gms.games.GameEntity $r5;
+        int $i0, $i2;
+        boolean $z0;
+        long $l1;
+        java.lang.String $r6;
+        com.google.android.gms.games.snapshot.SnapshotMetadata $r7;
+        java.lang.Object $r9;
+        com.google.android.gms.games.internal.game.GameBadge $r10;
+        com.google.android.gms.games.internal.game.GameBadgeEntity $r11;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        $r1 := @parameter0: com.google.android.gms.games.internal.game.ExtendedGame;
+
+        $r3 = null;
+
+        specialinvoke $r0.<com.google.android.gms.games.internal.GamesDowngradeableSafeParcel: void <init>()>();
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: int a> = 2;
+
+        $r4 = interfaceinvoke $r1.<com.google.android.gms.games.internal.game.ExtendedGame: com.google.android.gms.games.Game getGame()>();
+
+        if $r4 != null goto label4;
+
+        $r5 = null;
+
+     label1:
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: com.google.android.gms.games.GameEntity b> = $r5;
+
+        $i0 = interfaceinvoke $r1.<com.google.android.gms.games.internal.game.ExtendedGame: int hM()>();
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: int c> = $i0;
+
+        $z0 = interfaceinvoke $r1.<com.google.android.gms.games.internal.game.ExtendedGame: boolean hN()>();
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: boolean d> = $z0;
+
+        $i0 = interfaceinvoke $r1.<com.google.android.gms.games.internal.game.ExtendedGame: int hO()>();
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: int e> = $i0;
+
+        $l1 = interfaceinvoke $r1.<com.google.android.gms.games.internal.game.ExtendedGame: long hP()>();
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: long f> = $l1;
+
+        $l1 = interfaceinvoke $r1.<com.google.android.gms.games.internal.game.ExtendedGame: long hQ()>();
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: long g> = $l1;
+
+        $r6 = interfaceinvoke $r1.<com.google.android.gms.games.internal.game.ExtendedGame: java.lang.String hR()>();
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.lang.String h> = $r6;
+
+        $l1 = interfaceinvoke $r1.<com.google.android.gms.games.internal.game.ExtendedGame: long hS()>();
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: long i> = $l1;
+
+        $r6 = interfaceinvoke $r1.<com.google.android.gms.games.internal.game.ExtendedGame: java.lang.String hT()>();
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.lang.String j> = $r6;
+
+        $r7 = interfaceinvoke $r1.<com.google.android.gms.games.internal.game.ExtendedGame: com.google.android.gms.games.snapshot.SnapshotMetadata hU()>();
+
+        if $r7 != null goto label5;
+
+     label2:
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: com.google.android.gms.games.snapshot.SnapshotMetadataEntity l> = $r3;
+
+        $r8 = interfaceinvoke $r1.<com.google.android.gms.games.internal.game.ExtendedGame: java.util.ArrayList hL()>();
+
+        $i0 = virtualinvoke $r8.<java.util.ArrayList: int size()>();
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>(int)>($i0);
+
+        $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.util.ArrayList k> = $r2;
+
+        $i2 = 0;
+
+     label3:
+        if $i2 >= $i0 goto label6;
+
+        $r2 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.util.ArrayList k>;
+
+        $r9 = virtualinvoke $r8.<java.util.ArrayList: java.lang.Object get(int)>($i2);
+
+        $r10 = (com.google.android.gms.games.internal.game.GameBadge) $r9;
+
+        $r9 = interfaceinvoke $r10.<com.google.android.gms.games.internal.game.GameBadge: java.lang.Object freeze()>();
+
+        $r11 = (com.google.android.gms.games.internal.game.GameBadgeEntity) $r9;
+
+        virtualinvoke $r2.<java.util.ArrayList: boolean add(java.lang.Object)>($r11);
+
+        $i2 = $i2 + 1;
+
+        goto label3;
+
+     label4:
+        $r5 = new com.google.android.gms.games.GameEntity;
+
+        specialinvoke $r5.<com.google.android.gms.games.GameEntity: void <init>(com.google.android.gms.games.Game)>($r4);
+
+        goto label1;
+
+     label5:
+        $r3 = new com.google.android.gms.games.snapshot.SnapshotMetadataEntity;
+
+        specialinvoke $r3.<com.google.android.gms.games.snapshot.SnapshotMetadataEntity: void <init>(com.google.android.gms.games.snapshot.SnapshotMetadata)>($r7);
+
+        goto label2;
+
+     label6:
+        return;
+    }
+
+    static int a(com.google.android.gms.games.internal.game.ExtendedGame)
+    {
+        com.google.android.gms.games.internal.game.ExtendedGame $r0;
+        java.lang.Object[] $r1;
+        com.google.android.gms.games.Game $r2;
+        int $i0;
+        java.lang.Integer $r3;
+        boolean $z0;
+        java.lang.Boolean $r4;
+        long $l1;
+        java.lang.Long $r5;
+        java.lang.String $r6;
+
+        $r0 := @parameter0: com.google.android.gms.games.internal.game.ExtendedGame;
+
+        $r1 = newarray (java.lang.Object)[9];
+
+        $r2 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: com.google.android.gms.games.Game getGame()>();
+
+        $r1[0] = $r2;
+
+        $i0 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: int hM()>();
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1[1] = $r3;
+
+        $z0 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: boolean hN()>();
+
+        $r4 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        $r1[2] = $r4;
+
+        $i0 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: int hO()>();
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1[3] = $r3;
+
+        $l1 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: long hP()>();
+
+        $r5 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $r1[4] = $r5;
+
+        $l1 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: long hQ()>();
+
+        $r5 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $r1[5] = $r5;
+
+        $r6 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: java.lang.String hR()>();
+
+        $r1[6] = $r6;
+
+        $l1 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: long hS()>();
+
+        $r5 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $r1[7] = $r5;
+
+        $r6 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: java.lang.String hT()>();
+
+        $r1[8] = $r6;
+
+        $i0 = staticinvoke <com.google.android.gms.internal.hl: int hashCode(java.lang.Object[])>($r1);
+
+        return $i0;
+    }
+
+    static java.lang.Integer a()
+    {
+        java.lang.Integer $r0;
+
+        $r0 = staticinvoke <com.google.android.gms.games.internal.game.ExtendedGameEntity: java.lang.Integer b()>();
+
+        return $r0;
+    }
+
+    static boolean a(com.google.android.gms.games.internal.game.ExtendedGame, java.lang.Object)
+    {
+        com.google.android.gms.games.internal.game.ExtendedGame $r0, $r2;
+        java.lang.Object $r1;
+        boolean $z0;
+        com.google.android.gms.games.Game $r3, $r4;
+        int $i0;
+        java.lang.Integer $r5, $r6;
+        java.lang.Boolean $r7, $r8;
+        long $l1;
+        java.lang.Long $r9, $r10;
+        java.lang.String $r11, $r12;
+
+        $r0 := @parameter0: com.google.android.gms.games.internal.game.ExtendedGame;
+
+        $r1 := @parameter1: java.lang.Object;
+
+        $z0 = $r1 instanceof com.google.android.gms.games.internal.game.ExtendedGame;
+
+        if $z0 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        if $r0 != $r1 goto label2;
+
+        return 1;
+
+     label2:
+        $r2 = (com.google.android.gms.games.internal.game.ExtendedGame) $r1;
+
+        $r3 = interfaceinvoke $r2.<com.google.android.gms.games.internal.game.ExtendedGame: com.google.android.gms.games.Game getGame()>();
+
+        $r4 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: com.google.android.gms.games.Game getGame()>();
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r3, $r4);
+
+        if $z0 == 0 goto label3;
+
+        $i0 = interfaceinvoke $r2.<com.google.android.gms.games.internal.game.ExtendedGame: int hM()>();
+
+        $r5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $i0 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: int hM()>();
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r5, $r6);
+
+        if $z0 == 0 goto label3;
+
+        $z0 = interfaceinvoke $r2.<com.google.android.gms.games.internal.game.ExtendedGame: boolean hN()>();
+
+        $r7 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        $z0 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: boolean hN()>();
+
+        $r8 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r7, $r8);
+
+        if $z0 == 0 goto label3;
+
+        $i0 = interfaceinvoke $r2.<com.google.android.gms.games.internal.game.ExtendedGame: int hO()>();
+
+        $r5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $i0 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: int hO()>();
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r5, $r6);
+
+        if $z0 == 0 goto label3;
+
+        $l1 = interfaceinvoke $r2.<com.google.android.gms.games.internal.game.ExtendedGame: long hP()>();
+
+        $r9 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $l1 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: long hP()>();
+
+        $r10 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r9, $r10);
+
+        if $z0 == 0 goto label3;
+
+        $l1 = interfaceinvoke $r2.<com.google.android.gms.games.internal.game.ExtendedGame: long hQ()>();
+
+        $r9 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $l1 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: long hQ()>();
+
+        $r10 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r9, $r10);
+
+        if $z0 == 0 goto label3;
+
+        $r11 = interfaceinvoke $r2.<com.google.android.gms.games.internal.game.ExtendedGame: java.lang.String hR()>();
+
+        $r12 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: java.lang.String hR()>();
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r11, $r12);
+
+        if $z0 == 0 goto label3;
+
+        $l1 = interfaceinvoke $r2.<com.google.android.gms.games.internal.game.ExtendedGame: long hS()>();
+
+        $r9 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $l1 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: long hS()>();
+
+        $r10 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r9, $r10);
+
+        if $z0 == 0 goto label3;
+
+        $r11 = interfaceinvoke $r2.<com.google.android.gms.games.internal.game.ExtendedGame: java.lang.String hT()>();
+
+        $r12 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: java.lang.String hT()>();
+
+        $z0 = staticinvoke <com.google.android.gms.internal.hl: boolean equal(java.lang.Object,java.lang.Object)>($r11, $r12);
+
+        if $z0 == 0 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    static boolean a(java.lang.Integer)
+    {
+        java.lang.Integer $r0;
+        boolean $z0;
+
+        $r0 := @parameter0: java.lang.Integer;
+
+        $z0 = staticinvoke <com.google.android.gms.games.internal.game.ExtendedGameEntity: boolean b(java.lang.Integer)>($r0);
+
+        return $z0;
+    }
+
+    static boolean a(java.lang.String)
+    {
+        java.lang.String $r0;
+        boolean $z0;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $z0 = staticinvoke <com.google.android.gms.games.internal.game.ExtendedGameEntity: boolean b(java.lang.String)>($r0);
+
+        return $z0;
+    }
+
+    static java.lang.String b(com.google.android.gms.games.internal.game.ExtendedGame)
+    {
+        com.google.android.gms.games.internal.game.ExtendedGame $r0;
+        com.google.android.gms.internal.hl$a $r1;
+        com.google.android.gms.games.Game $r2;
+        int $i0;
+        java.lang.Integer $r3;
+        boolean $z0;
+        java.lang.Boolean $r4;
+        long $l1;
+        java.lang.Long $r5;
+        java.lang.String $r6;
+        com.google.android.gms.games.snapshot.SnapshotMetadata $r7;
+
+        $r0 := @parameter0: com.google.android.gms.games.internal.game.ExtendedGame;
+
+        $r1 = staticinvoke <com.google.android.gms.internal.hl: com.google.android.gms.internal.hl$a e(java.lang.Object)>($r0);
+
+        $r2 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: com.google.android.gms.games.Game getGame()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("Game", $r2);
+
+        $i0 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: int hM()>();
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("Availability", $r3);
+
+        $z0 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: boolean hN()>();
+
+        $r4 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("Owned", $r4);
+
+        $i0 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: int hO()>();
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("AchievementUnlockedCount", $r3);
+
+        $l1 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: long hP()>();
+
+        $r5 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("LastPlayedServerTimestamp", $r5);
+
+        $l1 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: long hQ()>();
+
+        $r5 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("PriceMicros", $r5);
+
+        $r6 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: java.lang.String hR()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("FormattedPrice", $r6);
+
+        $l1 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: long hS()>();
+
+        $r5 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("FullPriceMicros", $r5);
+
+        $r6 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: java.lang.String hT()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("FormattedFullPrice", $r6);
+
+        $r7 = interfaceinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGame: com.google.android.gms.games.snapshot.SnapshotMetadata hU()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("Snapshot", $r7);
+
+        $r6 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: java.lang.String toString()>();
+
+        return $r6;
+    }
+
+    public final int describeContents()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        return 0;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $z0 = staticinvoke <com.google.android.gms.games.internal.game.ExtendedGameEntity: boolean a(com.google.android.gms.games.internal.game.ExtendedGame,java.lang.Object)>($r0, $r1);
+
+        return $z0;
+    }
+
+    public final java.lang.Object freeze()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        com.google.android.gms.games.internal.game.ExtendedGame $r1;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: com.google.android.gms.games.internal.game.ExtendedGame hW()>();
+
+        return $r1;
+    }
+
+    public final com.google.android.gms.games.Game getGame()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        com.google.android.gms.games.GameEntity $r1;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: com.google.android.gms.games.GameEntity hV()>();
+
+        return $r1;
+    }
+
+    public final int getVersionCode()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        i0 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: int a>;
+
+        return i0;
+    }
+
+    public final java.util.ArrayList hL()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        java.util.ArrayList $r1, $r2;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        $r1 = new java.util.ArrayList;
+
+        $r2 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.util.ArrayList k>;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>(java.util.Collection)>($r2);
+
+        return $r1;
+    }
+
+    public final int hM()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        i0 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: int c>;
+
+        return i0;
+    }
+
+    public final boolean hN()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        boolean z0;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        z0 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: boolean d>;
+
+        return z0;
+    }
+
+    public final int hO()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        i0 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: int e>;
+
+        return i0;
+    }
+
+    public final long hP()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        long l0;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        l0 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: long f>;
+
+        return l0;
+    }
+
+    public final long hQ()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        long l0;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        l0 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: long g>;
+
+        return l0;
+    }
+
+    public final java.lang.String hR()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        r1 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.lang.String h>;
+
+        return r1;
+    }
+
+    public final long hS()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        long l0;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        l0 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: long i>;
+
+        return l0;
+    }
+
+    public final java.lang.String hT()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        r1 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.lang.String j>;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.games.snapshot.SnapshotMetadata hU()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        com.google.android.gms.games.snapshot.SnapshotMetadataEntity r1;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        r1 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: com.google.android.gms.games.snapshot.SnapshotMetadataEntity l>;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.games.GameEntity hV()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        com.google.android.gms.games.GameEntity r1;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        r1 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: com.google.android.gms.games.GameEntity b>;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.games.internal.game.ExtendedGame hW()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        return $r0;
+    }
+
+    public final int hashCode()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        $i0 = staticinvoke <com.google.android.gms.games.internal.game.ExtendedGameEntity: int a(com.google.android.gms.games.internal.game.ExtendedGame)>($r0);
+
+        return $i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        $r1 = staticinvoke <com.google.android.gms.games.internal.game.ExtendedGameEntity: java.lang.String b(com.google.android.gms.games.internal.game.ExtendedGame)>($r0);
+
+        return $r1;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.games.internal.game.ExtendedGameEntity $r0;
+        android.os.Parcel $r1;
+        int $i0, $i1, $i2;
+        boolean $z0;
+        com.google.android.gms.games.GameEntity $r2;
+        byte $b3;
+        long $l4;
+        java.lang.String $r3;
+        java.util.ArrayList $r4;
+        java.lang.Object $r5;
+        com.google.android.gms.games.internal.game.GameBadgeEntity $r6;
+
+        $r0 := @this: com.google.android.gms.games.internal.game.ExtendedGameEntity;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        $i1 = 0;
+
+        $z0 = virtualinvoke $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: boolean c()>();
+
+        if $z0 != 0 goto label1;
+
+        staticinvoke <com.google.android.gms.games.internal.game.ExtendedGameEntityCreator: void a(com.google.android.gms.games.internal.game.ExtendedGameEntity,android.os.Parcel,int)>($r0, $r1, $i0);
+
+        return;
+
+     label1:
+        $r2 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: com.google.android.gms.games.GameEntity b>;
+
+        virtualinvoke $r2.<com.google.android.gms.games.GameEntity: void writeToParcel(android.os.Parcel,int)>($r1, $i0);
+
+        $i2 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: int c>;
+
+        virtualinvoke $r1.<android.os.Parcel: void writeInt(int)>($i2);
+
+        $z0 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: boolean d>;
+
+        if $z0 == 0 goto label4;
+
+        $b3 = 1;
+
+     label2:
+        virtualinvoke $r1.<android.os.Parcel: void writeInt(int)>($b3);
+
+        $i2 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: int e>;
+
+        virtualinvoke $r1.<android.os.Parcel: void writeInt(int)>($i2);
+
+        $l4 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: long f>;
+
+        virtualinvoke $r1.<android.os.Parcel: void writeLong(long)>($l4);
+
+        $l4 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: long g>;
+
+        virtualinvoke $r1.<android.os.Parcel: void writeLong(long)>($l4);
+
+        $r3 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.lang.String h>;
+
+        virtualinvoke $r1.<android.os.Parcel: void writeString(java.lang.String)>($r3);
+
+        $l4 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: long i>;
+
+        virtualinvoke $r1.<android.os.Parcel: void writeLong(long)>($l4);
+
+        $r3 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.lang.String j>;
+
+        virtualinvoke $r1.<android.os.Parcel: void writeString(java.lang.String)>($r3);
+
+        $r4 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.util.ArrayList k>;
+
+        $i2 = virtualinvoke $r4.<java.util.ArrayList: int size()>();
+
+        virtualinvoke $r1.<android.os.Parcel: void writeInt(int)>($i2);
+
+     label3:
+        if $i1 >= $i2 goto label5;
+
+        $r4 = $r0.<com.google.android.gms.games.internal.game.ExtendedGameEntity: java.util.ArrayList k>;
+
+        $r5 = virtualinvoke $r4.<java.util.ArrayList: java.lang.Object get(int)>($i1);
+
+        $r6 = (com.google.android.gms.games.internal.game.GameBadgeEntity) $r5;
+
+        virtualinvoke $r6.<com.google.android.gms.games.internal.game.GameBadgeEntity: void writeToParcel(android.os.Parcel,int)>($r1, $i0);
+
+        $i1 = $i1 + 1;
+
+        goto label3;
+
+     label4:
+        $b3 = 0;
+
+        goto label2;
+
+     label5:
+        return;
+    }
+}

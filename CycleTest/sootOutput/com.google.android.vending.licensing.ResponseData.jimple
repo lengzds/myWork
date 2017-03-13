@@ -1,0 +1,164 @@
+public class com.google.android.vending.licensing.ResponseData extends java.lang.Object
+{
+    public int a;
+    public int b;
+    public java.lang.String c;
+    public java.lang.String d;
+    public java.lang.String e;
+    public long f;
+    public java.lang.String g;
+
+    public void <init>()
+    {
+        com.google.android.vending.licensing.ResponseData $r0;
+
+        $r0 := @this: com.google.android.vending.licensing.ResponseData;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static com.google.android.vending.licensing.ResponseData parse(java.lang.String)
+    {
+        java.lang.String $r0, $r1, $r2;
+        int $i0, $i1;
+        java.lang.String[] $r3;
+        java.lang.IllegalArgumentException $r4;
+        com.google.android.vending.licensing.ResponseData $r5;
+        long $l2;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 = virtualinvoke $r0.<java.lang.String: int indexOf(int)>(58);
+
+        if -1 != $i0 goto label2;
+
+        $r1 = "";
+
+     label1:
+        $r2 = staticinvoke <java.util.regex.Pattern: java.lang.String quote(java.lang.String)>("|");
+
+        $r3 = staticinvoke <android.text.TextUtils: java.lang.String[] split(java.lang.String,java.lang.String)>($r0, $r2);
+
+        $i0 = lengthof $r3;
+
+        if $i0 >= 6 goto label4;
+
+        $r4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Wrong number of fields.");
+
+        throw $r4;
+
+     label2:
+        $r2 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+        $i1 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        if $i0 < $i1 goto label3;
+
+        $r1 = "";
+
+        $r0 = $r2;
+
+        goto label1;
+
+     label3:
+        $i0 = $i0 + 1;
+
+        $r1 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int)>($i0);
+
+        $r0 = $r2;
+
+        goto label1;
+
+     label4:
+        $r5 = new com.google.android.vending.licensing.ResponseData;
+
+        specialinvoke $r5.<com.google.android.vending.licensing.ResponseData: void <init>()>();
+
+        $r5.<com.google.android.vending.licensing.ResponseData: java.lang.String g> = $r1;
+
+        $r0 = $r3[0];
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r0);
+
+        $r5.<com.google.android.vending.licensing.ResponseData: int a> = $i0;
+
+        $r0 = $r3[1];
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r0);
+
+        $r5.<com.google.android.vending.licensing.ResponseData: int b> = $i0;
+
+        $r0 = $r3[2];
+
+        $r5.<com.google.android.vending.licensing.ResponseData: java.lang.String c> = $r0;
+
+        $r0 = $r3[3];
+
+        $r5.<com.google.android.vending.licensing.ResponseData: java.lang.String d> = $r0;
+
+        $r0 = $r3[4];
+
+        $r5.<com.google.android.vending.licensing.ResponseData: java.lang.String e> = $r0;
+
+        $r0 = $r3[5];
+
+        $l2 = staticinvoke <java.lang.Long: long parseLong(java.lang.String)>($r0);
+
+        $r5.<com.google.android.vending.licensing.ResponseData: long f> = $l2;
+
+        return $r5;
+    }
+
+    public java.lang.String toString()
+    {
+        com.google.android.vending.licensing.ResponseData $r0;
+        long $l0;
+        java.lang.Object[] $r1;
+        int $i1;
+        java.lang.Integer $r2;
+        java.lang.String $r3;
+        java.lang.Long $r4;
+
+        $r0 := @this: com.google.android.vending.licensing.ResponseData;
+
+        $r1 = newarray (java.lang.Object)[6];
+
+        $i1 = $r0.<com.google.android.vending.licensing.ResponseData: int a>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $r1[0] = $r2;
+
+        $i1 = $r0.<com.google.android.vending.licensing.ResponseData: int b>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $r1[1] = $r2;
+
+        $r3 = $r0.<com.google.android.vending.licensing.ResponseData: java.lang.String c>;
+
+        $r1[2] = $r3;
+
+        $r3 = $r0.<com.google.android.vending.licensing.ResponseData: java.lang.String d>;
+
+        $r1[3] = $r3;
+
+        $r3 = $r0.<com.google.android.vending.licensing.ResponseData: java.lang.String e>;
+
+        $r1[4] = $r3;
+
+        $l0 = $r0.<com.google.android.vending.licensing.ResponseData: long f>;
+
+        $r4 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l0);
+
+        $r1[5] = $r4;
+
+        $r3 = staticinvoke <android.text.TextUtils: java.lang.String join(java.lang.CharSequence,java.lang.Object[])>("|", $r1);
+
+        return $r3;
+    }
+}

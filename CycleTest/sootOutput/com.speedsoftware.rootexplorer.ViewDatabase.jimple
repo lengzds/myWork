@@ -1,0 +1,1869 @@
+public class com.speedsoftware.rootexplorer.ViewDatabase extends android.app.ListActivity
+{
+    protected static android.content.Context a;
+    protected java.lang.String b;
+    protected java.lang.String c;
+    protected android.net.Uri d;
+    private com.speedsoftware.rootexplorer.bi e;
+    private java.lang.String f;
+
+    static void <clinit>()
+    {
+        <com.speedsoftware.rootexplorer.ViewDatabase: android.content.Context a> = null;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.speedsoftware.rootexplorer.ViewDatabase $r0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ViewDatabase;
+
+        specialinvoke $r0.<android.app.ListActivity: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.ViewDatabase: com.speedsoftware.rootexplorer.bi e> = null;
+
+        $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String f> = null;
+
+        $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String b> = null;
+
+        $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String c> = null;
+
+        $r0.<com.speedsoftware.rootexplorer.ViewDatabase: android.net.Uri d> = null;
+
+        return;
+    }
+
+    private void a(com.speedsoftware.rootexplorer.bk)
+    {
+        com.speedsoftware.rootexplorer.ViewDatabase $r0;
+        com.speedsoftware.rootexplorer.bk $r1;
+        android.content.Intent $r2;
+        java.lang.String $r3;
+        android.content.Context $r4;
+        android.net.Uri $r5;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ViewDatabase;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.bk;
+
+        $r2 = new android.content.Intent;
+
+        $r4 = <com.speedsoftware.rootexplorer.ViewDatabase: android.content.Context a>;
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r4, class "com/speedsoftware/rootexplorer/ViewTable");
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.ViewDatabase: android.net.Uri d>;
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent setData(android.net.Uri)>($r5);
+
+        $r3 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.bk: java.lang.String d()>();
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("table", $r3);
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String b>;
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("make_writeable_cmd", $r3);
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String c>;
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("restore_permissions_cmd", $r3);
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: void startActivityForResult(android.content.Intent,int)>($r2, 0);
+
+        return;
+    }
+
+    private void a(java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.ViewDatabase $r0;
+        java.lang.String $r1, $r2, $r8;
+        int $i0, $i1;
+        android.app.AlertDialog$Builder $r3;
+        byte[] $r4;
+        java.lang.StringBuilder $r5;
+        com.speedsoftware.rootexplorer.nf $r6;
+        android.app.AlertDialog $r7;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ViewDatabase;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 = 0;
+
+        $r3 = new android.app.AlertDialog$Builder;
+
+        specialinvoke $r3.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r0);
+
+        $r2 = new java.lang.String;
+
+        if $r0 != null goto label4;
+
+        $i1 = 0;
+
+     label1:
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] dU(int)>($i1);
+
+        specialinvoke $r2.<java.lang.String: void <init>(byte[])>($r4);
+
+        $r3 = virtualinvoke $r3.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setTitle(java.lang.CharSequence)>($r2);
+
+        $r5 = new java.lang.StringBuilder;
+
+        $r2 = new java.lang.String;
+
+        if $r0 != null goto label5;
+
+        $i1 = 0;
+
+     label2:
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] O(int)>($i1);
+
+        specialinvoke $r2.<java.lang.String: void <init>(byte[])>($r4);
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r2);
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>($r2);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r3 = virtualinvoke $r3.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>($r1);
+
+        $r1 = new java.lang.String;
+
+        if $r0 != null goto label6;
+
+     label3:
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cK(int)>($i0);
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r4);
+
+        $r6 = new com.speedsoftware.rootexplorer.nf;
+
+        specialinvoke $r6.<com.speedsoftware.rootexplorer.nf: void <init>(com.speedsoftware.rootexplorer.ViewDatabase)>($r0);
+
+        $r3 = virtualinvoke $r3.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>($r1, $r6);
+
+        $r7 = virtualinvoke $r3.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r7.<android.app.AlertDialog: void show()>();
+
+        return;
+
+     label4:
+        $r8 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String getString(int)>(2131034157);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label1;
+
+     label5:
+        $r8 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String getString(int)>(2131034157);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label2;
+
+     label6:
+        $r2 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r2);
+
+        goto label3;
+    }
+
+    public boolean onContextItemSelected(android.view.MenuItem)
+    {
+        com.speedsoftware.rootexplorer.ViewDatabase $r0;
+        android.view.MenuItem $r1;
+        android.view.ContextMenu$ContextMenuInfo $r2;
+        android.widget.AdapterView$AdapterContextMenuInfo $r3;
+        int $i0;
+        java.lang.ClassCastException $r4;
+        com.speedsoftware.rootexplorer.bi $r5;
+        java.util.ArrayList $r6;
+        java.lang.Object $r7;
+        com.speedsoftware.rootexplorer.bk $r8;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ViewDatabase;
+
+        $r1 := @parameter0: android.view.MenuItem;
+
+     label1:
+        $r2 = interfaceinvoke $r1.<android.view.MenuItem: android.view.ContextMenu$ContextMenuInfo getMenuInfo()>();
+
+        $r3 = (android.widget.AdapterView$AdapterContextMenuInfo) $r2;
+
+     label2:
+        $i0 = interfaceinvoke $r1.<android.view.MenuItem: int getItemId()>();
+
+        lookupswitch($i0)
+        {
+            case 101: goto label5;
+            default: goto label3;
+        };
+
+     label3:
+        return 0;
+
+     label4:
+        $r4 := @caughtexception;
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String,java.lang.Throwable)>("ViewDatabase", "bad menuInfo", $r4);
+
+        return 0;
+
+     label5:
+        $r5 = $r0.<com.speedsoftware.rootexplorer.ViewDatabase: com.speedsoftware.rootexplorer.bi e>;
+
+        $r6 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bi: java.util.ArrayList a()>();
+
+        $i0 = $r3.<android.widget.AdapterView$AdapterContextMenuInfo: int position>;
+
+        $r7 = virtualinvoke $r6.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r8 = (com.speedsoftware.rootexplorer.bk) $r7;
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: void a(com.speedsoftware.rootexplorer.bk)>($r8);
+
+        return 1;
+
+        catch java.lang.ClassCastException from label1 to label2 with label4;
+    }
+
+    protected void onCreate(android.os.Bundle)
+    {
+        com.speedsoftware.rootexplorer.ViewDatabase $r0;
+        android.os.Bundle $r1;
+        int $i0, $i1, $i2;
+        android.view.View $r2;
+        android.widget.TextView $r3;
+        java.lang.String $r4, $r8, $r11;
+        byte[] $r5;
+        android.content.Intent $r6;
+        android.net.Uri $r7;
+        android.widget.ListView $r9;
+        com.speedsoftware.rootexplorer.bi $r10;
+        com.speedsoftware.rootexplorer.ng $r12;
+        java.util.ArrayList $r13;
+        android.database.sqlite.SQLiteException $r14;
+        boolean $z0;
+        android.app.AlertDialog$Builder $r15;
+        com.speedsoftware.rootexplorer.ne $r16;
+        android.app.AlertDialog $r17;
+        java.lang.Exception $r18;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ViewDatabase;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        $i0 = 0;
+
+        specialinvoke $r0.<android.app.ListActivity: void onCreate(android.os.Bundle)>($r1);
+
+        staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: void b()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: void b(android.content.Context)>($r0);
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: void setContentView(int)>(2130903061);
+
+        $r2 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: android.view.View findViewById(int)>(2131492984);
+
+        $r3 = (android.widget.TextView) $r2;
+
+        if $r3 == null goto label04;
+
+        $r4 = new java.lang.String;
+
+        if $r0 != null goto label12;
+
+        $i1 = 0;
+
+     label01:
+        lookupswitch($i1)
+        {
+            case 1: goto label13;
+            case 2: goto label14;
+            case 3: goto label15;
+            case 4: goto label16;
+            case 5: goto label17;
+            case 6: goto label18;
+            case 7: goto label19;
+            case 8: goto label20;
+            case 9: goto label21;
+            case 10: goto label22;
+            case 11: goto label23;
+            case 12: goto label24;
+            default: goto label02;
+        };
+
+     label02:
+        $r5 = newarray (byte)[16];
+
+        $r5[0] = 78;
+
+        $r5[1] = 111;
+
+        $r5[2] = 32;
+
+        $r5[3] = 116;
+
+        $r5[4] = 97;
+
+        $r5[5] = 98;
+
+        $r5[6] = 108;
+
+        $r5[7] = 101;
+
+        $r5[8] = 115;
+
+        $r5[9] = 32;
+
+        $r5[10] = 102;
+
+        $r5[11] = 111;
+
+        $r5[12] = 117;
+
+        $r5[13] = 110;
+
+        $r5[14] = 100;
+
+        $r5[15] = 46;
+
+     label03:
+        specialinvoke $r4.<java.lang.String: void <init>(byte[])>($r5);
+
+        virtualinvoke $r3.<android.widget.TextView: void setText(java.lang.CharSequence)>($r4);
+
+     label04:
+        $r6 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: android.content.Intent getIntent()>();
+
+        $r4 = virtualinvoke $r6.<android.content.Intent: java.lang.String getDataString()>();
+
+        $r7 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>($r4);
+
+        $r0.<com.speedsoftware.rootexplorer.ViewDatabase: android.net.Uri d> = $r7;
+
+        $r6 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: android.content.Intent getIntent()>();
+
+        $r4 = virtualinvoke $r6.<android.content.Intent: java.lang.String getDataString()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.String: java.lang.String substring(int)>(7);
+
+        $r4 = staticinvoke <android.net.Uri: java.lang.String decode(java.lang.String)>($r4);
+
+        $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String f> = $r4;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String f>;
+
+        $i1 = virtualinvoke $r4.<java.lang.String: int lastIndexOf(java.lang.String)>("/");
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String f>;
+
+        $i1 = $i1 + 1;
+
+        $r8 = $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String f>;
+
+        $i2 = virtualinvoke $r8.<java.lang.String: int length()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.String: java.lang.String substring(int,int)>($i1, $i2);
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: void setTitle(java.lang.CharSequence)>($r4);
+
+        $r6 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: android.content.Intent getIntent()>();
+
+        $r4 = virtualinvoke $r6.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("make_writeable_cmd");
+
+        $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String b> = $r4;
+
+        $r6 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: android.content.Intent getIntent()>();
+
+        $r4 = virtualinvoke $r6.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("restore_permissions_cmd");
+
+        $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String c> = $r4;
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: android.widget.ListView getListView()>();
+
+        $r2 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: android.view.View findViewById(int)>(2131492984);
+
+        virtualinvoke $r9.<android.widget.ListView: void setEmptyView(android.view.View)>($r2);
+
+        $r10 = new com.speedsoftware.rootexplorer.bi;
+
+     label05:
+        $r4 = $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String f>;
+
+        $r8 = $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String b>;
+
+        $r11 = $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String c>;
+
+     label06:
+        specialinvoke $r10.<com.speedsoftware.rootexplorer.bi: void <init>(java.lang.String,java.lang.String,java.lang.String,android.content.Context)>($r4, $r8, $r11, $r0);
+
+     label07:
+        $r0.<com.speedsoftware.rootexplorer.ViewDatabase: com.speedsoftware.rootexplorer.bi e> = $r10;
+
+     label08:
+        $r12 = new com.speedsoftware.rootexplorer.ng;
+
+     label09:
+        $r10 = $r0.<com.speedsoftware.rootexplorer.ViewDatabase: com.speedsoftware.rootexplorer.bi e>;
+
+     label10:
+        $r13 = virtualinvoke $r10.<com.speedsoftware.rootexplorer.bi: java.util.ArrayList a()>();
+
+        specialinvoke $r12.<com.speedsoftware.rootexplorer.ng: void <init>(com.speedsoftware.rootexplorer.ViewDatabase,android.content.Context,java.util.ArrayList)>($r0, $r0, $r13);
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: void setListAdapter(android.widget.ListAdapter)>($r12);
+
+        $r9 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: android.widget.ListView getListView()>();
+
+        virtualinvoke $r9.<android.widget.ListView: void setOnCreateContextMenuListener(android.view.View$OnCreateContextMenuListener)>($r0);
+
+     label11:
+        return;
+
+     label12:
+        $r8 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String getString(int)>(2131034157);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label01;
+
+     label13:
+        $r5 = newarray (byte)[24];
+
+        $r5[0] = 75;
+
+        $r5[1] = 101;
+
+        $r5[2] = 105;
+
+        $r5[3] = 110;
+
+        $r5[4] = 101;
+
+        $r5[5] = 32;
+
+        $r5[6] = 84;
+
+        $r5[7] = 97;
+
+        $r5[8] = 98;
+
+        $r5[9] = 101;
+
+        $r5[10] = 108;
+
+        $r5[11] = 108;
+
+        $r5[12] = 101;
+
+        $r5[13] = 110;
+
+        $r5[14] = 32;
+
+        $r5[15] = 103;
+
+        $r5[16] = 101;
+
+        $r5[17] = 102;
+
+        $r5[18] = 117;
+
+        $r5[19] = 110;
+
+        $r5[20] = 100;
+
+        $r5[21] = 101;
+
+        $r5[22] = 110;
+
+        $r5[23] = 46;
+
+        goto label03;
+
+     label14:
+        $r5 = newarray (byte)[25];
+
+        $r5[0] = 78;
+
+        $r5[1] = 111;
+
+        $r5[2] = 32;
+
+        $r5[3] = 115;
+
+        $r5[4] = 101;
+
+        $r5[5] = 32;
+
+        $r5[6] = 101;
+
+        $r5[7] = 110;
+
+        $r5[8] = 99;
+
+        $r5[9] = 111;
+
+        $r5[10] = 110;
+
+        $r5[11] = 116;
+
+        $r5[12] = 114;
+
+        $r5[13] = 97;
+
+        $r5[14] = 114;
+
+        $r5[15] = 111;
+
+        $r5[16] = 110;
+
+        $r5[17] = 32;
+
+        $r5[18] = 116;
+
+        $r5[19] = 97;
+
+        $r5[20] = 98;
+
+        $r5[21] = 108;
+
+        $r5[22] = 97;
+
+        $r5[23] = 115;
+
+        $r5[24] = 46;
+
+        goto label03;
+
+     label15:
+        $r5 = newarray (byte)[51];
+
+        $r5[0] = -48;
+
+        $r5[1] = -99;
+
+        $r5[2] = -48;
+
+        $r5[3] = -75;
+
+        $r5[4] = 32;
+
+        $r5[5] = -48;
+
+        $r5[6] = -67;
+
+        $r5[7] = -48;
+
+        $r5[8] = -80;
+
+        $r5[9] = -48;
+
+        $r5[10] = -71;
+
+        $r5[11] = -48;
+
+        $r5[12] = -76;
+
+        $r5[13] = -48;
+
+        $r5[14] = -75;
+
+        $r5[15] = -48;
+
+        $r5[16] = -67;
+
+        $r5[17] = -48;
+
+        $r5[18] = -66;
+
+        $r5[19] = 32;
+
+        $r5[20] = -48;
+
+        $r5[21] = -67;
+
+        $r5[22] = -48;
+
+        $r5[23] = -72;
+
+        $r5[24] = 32;
+
+        $r5[25] = -48;
+
+        $r5[26] = -66;
+
+        $r5[27] = -48;
+
+        $r5[28] = -76;
+
+        $r5[29] = -48;
+
+        $r5[30] = -67;
+
+        $r5[31] = -48;
+
+        $r5[32] = -66;
+
+        $r5[33] = -48;
+
+        $r5[34] = -71;
+
+        $r5[35] = 32;
+
+        $r5[36] = -47;
+
+        $r5[37] = -126;
+
+        $r5[38] = -48;
+
+        $r5[39] = -80;
+
+        $r5[40] = -48;
+
+        $r5[41] = -79;
+
+        $r5[42] = -48;
+
+        $r5[43] = -69;
+
+        $r5[44] = -48;
+
+        $r5[45] = -72;
+
+        $r5[46] = -47;
+
+        $r5[47] = -122;
+
+        $r5[48] = -47;
+
+        $r5[49] = -117;
+
+        $r5[50] = 46;
+
+        goto label03;
+
+     label16:
+        $r5 = newarray (byte)[31];
+
+        $r5[0] = 78;
+
+        $r5[1] = -61;
+
+        $r5[2] = -93;
+
+        $r5[3] = 111;
+
+        $r5[4] = 32;
+
+        $r5[5] = 102;
+
+        $r5[6] = 111;
+
+        $r5[7] = 114;
+
+        $r5[8] = 97;
+
+        $r5[9] = 109;
+
+        $r5[10] = 32;
+
+        $r5[11] = 101;
+
+        $r5[12] = 110;
+
+        $r5[13] = 99;
+
+        $r5[14] = 111;
+
+        $r5[15] = 110;
+
+        $r5[16] = 116;
+
+        $r5[17] = 114;
+
+        $r5[18] = 97;
+
+        $r5[19] = 100;
+
+        $r5[20] = 97;
+
+        $r5[21] = 115;
+
+        $r5[22] = 32;
+
+        $r5[23] = 116;
+
+        $r5[24] = 97;
+
+        $r5[25] = 98;
+
+        $r5[26] = 101;
+
+        $r5[27] = 108;
+
+        $r5[28] = 97;
+
+        $r5[29] = 115;
+
+        $r5[30] = 46;
+
+        goto label03;
+
+     label17:
+        $r5 = newarray (byte)[22];
+
+        $r5[0] = 73;
+
+        $r5[1] = 110;
+
+        $r5[2] = 103;
+
+        $r5[3] = 101;
+
+        $r5[4] = 110;
+
+        $r5[5] = 32;
+
+        $r5[6] = 116;
+
+        $r5[7] = 97;
+
+        $r5[8] = 98;
+
+        $r5[9] = 101;
+
+        $r5[10] = 108;
+
+        $r5[11] = 108;
+
+        $r5[12] = 101;
+
+        $r5[13] = 114;
+
+        $r5[14] = 32;
+
+        $r5[15] = 102;
+
+        $r5[16] = 117;
+
+        $r5[17] = 110;
+
+        $r5[18] = 100;
+
+        $r5[19] = 101;
+
+        $r5[20] = 116;
+
+        $r5[21] = 46;
+
+        goto label03;
+
+     label18:
+        $r5 = newarray (byte)[29];
+
+        $r5[0] = -41;
+
+        $r5[1] = -100;
+
+        $r5[2] = -41;
+
+        $r5[3] = -112;
+
+        $r5[4] = 32;
+
+        $r5[5] = -41;
+
+        $r5[6] = -96;
+
+        $r5[7] = -41;
+
+        $r5[8] = -98;
+
+        $r5[9] = -41;
+
+        $r5[10] = -90;
+
+        $r5[11] = -41;
+
+        $r5[12] = -112;
+
+        $r5[13] = -41;
+
+        $r5[14] = -107;
+
+        $r5[15] = 32;
+
+        $r5[16] = -41;
+
+        $r5[17] = -104;
+
+        $r5[18] = -41;
+
+        $r5[19] = -111;
+
+        $r5[20] = -41;
+
+        $r5[21] = -100;
+
+        $r5[22] = -41;
+
+        $r5[23] = -112;
+
+        $r5[24] = -41;
+
+        $r5[25] = -107;
+
+        $r5[26] = -41;
+
+        $r5[27] = -86;
+
+        $r5[28] = 46;
+
+        goto label03;
+
+     label19:
+        $r5 = newarray (byte)[22];
+
+        $r5[0] = 65;
+
+        $r5[1] = 117;
+
+        $r5[2] = 99;
+
+        $r5[3] = 117;
+
+        $r5[4] = 110;
+
+        $r5[5] = 101;
+
+        $r5[6] = 32;
+
+        $r5[7] = 116;
+
+        $r5[8] = 97;
+
+        $r5[9] = 98;
+
+        $r5[10] = 108;
+
+        $r5[11] = 101;
+
+        $r5[12] = 32;
+
+        $r5[13] = 116;
+
+        $r5[14] = 114;
+
+        $r5[15] = 111;
+
+        $r5[16] = 117;
+
+        $r5[17] = 118;
+
+        $r5[18] = -61;
+
+        $r5[19] = -87;
+
+        $r5[20] = 101;
+
+        $r5[21] = 46;
+
+        goto label03;
+
+     label20:
+        $r5 = newarray (byte)[23];
+
+        $r5[0] = 78;
+
+        $r5[1] = 101;
+
+        $r5[2] = 115;
+
+        $r5[3] = 115;
+
+        $r5[4] = 117;
+
+        $r5[5] = 110;
+
+        $r5[6] = 97;
+
+        $r5[7] = 32;
+
+        $r5[8] = 116;
+
+        $r5[9] = 97;
+
+        $r5[10] = 98;
+
+        $r5[11] = 101;
+
+        $r5[12] = 108;
+
+        $r5[13] = 108;
+
+        $r5[14] = 97;
+
+        $r5[15] = 32;
+
+        $r5[16] = 116;
+
+        $r5[17] = 114;
+
+        $r5[18] = 111;
+
+        $r5[19] = 118;
+
+        $r5[20] = 97;
+
+        $r5[21] = 116;
+
+        $r5[22] = 97;
+
+        goto label03;
+
+     label21:
+        $r5 = newarray (byte)[39];
+
+        $r5[0] = -29;
+
+        $r5[1] = -125;
+
+        $r5[2] = -122;
+
+        $r5[3] = -29;
+
+        $r5[4] = -125;
+
+        $r5[5] = -68;
+
+        $r5[6] = -29;
+
+        $r5[7] = -125;
+
+        $r5[8] = -106;
+
+        $r5[9] = -29;
+
+        $r5[10] = -125;
+
+        $r5[11] = -85;
+
+        $r5[12] = -29;
+
+        $r5[13] = -127;
+
+        $r5[14] = -116;
+
+        $r5[15] = -24;
+
+        $r5[16] = -90;
+
+        $r5[17] = -117;
+
+        $r5[18] = -29;
+
+        $r5[19] = -127;
+
+        $r5[20] = -92;
+
+        $r5[21] = -29;
+
+        $r5[22] = -127;
+
+        $r5[23] = -117;
+
+        $r5[24] = -29;
+
+        $r5[25] = -126;
+
+        $r5[26] = -118;
+
+        $r5[27] = -29;
+
+        $r5[28] = -127;
+
+        $r5[29] = -66;
+
+        $r5[30] = -29;
+
+        $r5[31] = -127;
+
+        $r5[32] = -101;
+
+        $r5[33] = -29;
+
+        $r5[34] = -126;
+
+        $r5[35] = -109;
+
+        $r5[36] = -29;
+
+        $r5[37] = -128;
+
+        $r5[38] = -126;
+
+        goto label03;
+
+     label22:
+        $r5 = newarray (byte)[37];
+
+        $r5[0] = -19;
+
+        $r5[1] = -123;
+
+        $r5[2] = -116;
+
+        $r5[3] = -20;
+
+        $r5[4] = -99;
+
+        $r5[5] = -76;
+
+        $r5[6] = -21;
+
+        $r5[7] = -72;
+
+        $r5[8] = -108;
+
+        $r5[9] = -20;
+
+        $r5[10] = -99;
+
+        $r5[11] = -124;
+
+        $r5[12] = 32;
+
+        $r5[13] = -20;
+
+        $r5[14] = -80;
+
+        $r5[15] = -66;
+
+        $r5[16] = -20;
+
+        $r5[17] = -99;
+
+        $r5[18] = -124;
+
+        $r5[19] = 32;
+
+        $r5[20] = -20;
+
+        $r5[21] = -120;
+
+        $r5[22] = -104;
+
+        $r5[23] = 32;
+
+        $r5[24] = -20;
+
+        $r5[25] = -105;
+
+        $r5[26] = -122;
+
+        $r5[27] = -20;
+
+        $r5[28] = -118;
+
+        $r5[29] = -75;
+
+        $r5[30] = -21;
+
+        $r5[31] = -117;
+
+        $r5[32] = -120;
+
+        $r5[33] = -21;
+
+        $r5[34] = -117;
+
+        $r5[35] = -92;
+
+        $r5[36] = 46;
+
+        goto label03;
+
+     label23:
+        $r5 = newarray (byte)[29];
+
+        $r5[0] = -41;
+
+        $r5[1] = -100;
+
+        $r5[2] = -41;
+
+        $r5[3] = -112;
+
+        $r5[4] = 32;
+
+        $r5[5] = -41;
+
+        $r5[6] = -96;
+
+        $r5[7] = -41;
+
+        $r5[8] = -98;
+
+        $r5[9] = -41;
+
+        $r5[10] = -90;
+
+        $r5[11] = -41;
+
+        $r5[12] = -112;
+
+        $r5[13] = -41;
+
+        $r5[14] = -107;
+
+        $r5[15] = 32;
+
+        $r5[16] = -41;
+
+        $r5[17] = -104;
+
+        $r5[18] = -41;
+
+        $r5[19] = -111;
+
+        $r5[20] = -41;
+
+        $r5[21] = -100;
+
+        $r5[22] = -41;
+
+        $r5[23] = -112;
+
+        $r5[24] = -41;
+
+        $r5[25] = -107;
+
+        $r5[26] = -41;
+
+        $r5[27] = -86;
+
+        $r5[28] = 46;
+
+        goto label03;
+
+     label24:
+        $r5 = newarray (byte)[15];
+
+        $r5[0] = -26;
+
+        $r5[1] = -100;
+
+        $r5[2] = -86;
+
+        $r5[3] = -26;
+
+        $r5[4] = -119;
+
+        $r5[5] = -66;
+
+        $r5[6] = -27;
+
+        $r5[7] = -120;
+
+        $r5[8] = -80;
+
+        $r5[9] = -24;
+
+        $r5[10] = -95;
+
+        $r5[11] = -88;
+
+        $r5[12] = -26;
+
+        $r5[13] = -96;
+
+        $r5[14] = -68;
+
+        goto label03;
+
+     label25:
+        $r14 := @caughtexception;
+
+        $r4 = virtualinvoke $r14.<android.database.sqlite.SQLiteException: java.lang.String getMessage()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean contains(java.lang.CharSequence)>("locked");
+
+        if $z0 == 0 goto label32;
+
+        $r15 = new android.app.AlertDialog$Builder;
+
+        specialinvoke $r15.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r0);
+
+        $r4 = new java.lang.String;
+
+        if $r0 != null goto label29;
+
+        $i1 = 0;
+
+     label26:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] n(int)>($i1);
+
+        specialinvoke $r4.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r15 = virtualinvoke $r15.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setTitle(java.lang.CharSequence)>($r4);
+
+        $r4 = new java.lang.String;
+
+        if $r0 != null goto label30;
+
+        $i1 = 0;
+
+     label27:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] A(int)>($i1);
+
+        specialinvoke $r4.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r15 = virtualinvoke $r15.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>($r4);
+
+        $r4 = new java.lang.String;
+
+        if $r0 != null goto label31;
+
+     label28:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cK(int)>($i0);
+
+        specialinvoke $r4.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r16 = new com.speedsoftware.rootexplorer.ne;
+
+        specialinvoke $r16.<com.speedsoftware.rootexplorer.ne: void <init>(com.speedsoftware.rootexplorer.ViewDatabase)>($r0);
+
+        $r15 = virtualinvoke $r15.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>($r4, $r16);
+
+        $r17 = virtualinvoke $r15.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r17.<android.app.AlertDialog: void show()>();
+
+        return;
+
+     label29:
+        $r8 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String getString(int)>(2131034157);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label26;
+
+     label30:
+        $r8 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String getString(int)>(2131034157);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label27;
+
+     label31:
+        $r8 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label28;
+
+     label32:
+        $r4 = virtualinvoke $r14.<android.database.sqlite.SQLiteException: java.lang.String getMessage()>();
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: void a(java.lang.String)>($r4);
+
+        return;
+
+     label33:
+        $r18 := @caughtexception;
+
+        $r4 = virtualinvoke $r18.<java.lang.Exception: java.lang.String getMessage()>();
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: void a(java.lang.String)>($r4);
+
+        return;
+
+        catch android.database.sqlite.SQLiteException from label06 to label07 with label25;
+        catch android.database.sqlite.SQLiteException from label10 to label11 with label25;
+        catch java.lang.Exception from label05 to label08 with label33;
+        catch java.lang.Exception from label09 to label11 with label33;
+    }
+
+    public void onCreateContextMenu(android.view.ContextMenu, android.view.View, android.view.ContextMenu$ContextMenuInfo)
+    {
+        com.speedsoftware.rootexplorer.ViewDatabase $r0;
+        android.view.ContextMenu $r1;
+        android.view.View $r2;
+        android.view.ContextMenu$ContextMenuInfo $r3;
+        java.lang.String $r4, $r6;
+        int $i0;
+        byte[] $r5;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ViewDatabase;
+
+        $r1 := @parameter0: android.view.ContextMenu;
+
+        $r2 := @parameter1: android.view.View;
+
+        $r3 := @parameter2: android.view.ContextMenu$ContextMenuInfo;
+
+        $r4 = new java.lang.String;
+
+        if $r0 != null goto label04;
+
+        $i0 = 0;
+
+     label01:
+        lookupswitch($i0)
+        {
+            case 1: goto label05;
+            case 2: goto label06;
+            case 3: goto label07;
+            case 4: goto label08;
+            case 5: goto label09;
+            case 6: goto label10;
+            case 7: goto label11;
+            case 8: goto label12;
+            case 9: goto label13;
+            case 10: goto label14;
+            case 11: goto label15;
+            case 12: goto label16;
+            default: goto label02;
+        };
+
+     label02:
+        $r5 = newarray (byte)[10];
+
+        $r5[0] = 79;
+
+        $r5[1] = 112;
+
+        $r5[2] = 101;
+
+        $r5[3] = 110;
+
+        $r5[4] = 32;
+
+        $r5[5] = 84;
+
+        $r5[6] = 97;
+
+        $r5[7] = 98;
+
+        $r5[8] = 108;
+
+        $r5[9] = 101;
+
+     label03:
+        specialinvoke $r4.<java.lang.String: void <init>(byte[])>($r5);
+
+        interfaceinvoke $r1.<android.view.ContextMenu: android.view.MenuItem add(int,int,int,java.lang.CharSequence)>(0, 101, 0, $r4);
+
+        return;
+
+     label04:
+        $r6 = virtualinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+        goto label01;
+
+     label05:
+        $r5 = newarray (byte)[15];
+
+        $r5[0] = 84;
+
+        $r5[1] = 97;
+
+        $r5[2] = 98;
+
+        $r5[3] = 101;
+
+        $r5[4] = 108;
+
+        $r5[5] = 108;
+
+        $r5[6] = 101;
+
+        $r5[7] = 32;
+
+        $r5[8] = -61;
+
+        $r5[9] = -74;
+
+        $r5[10] = 102;
+
+        $r5[11] = 102;
+
+        $r5[12] = 110;
+
+        $r5[13] = 101;
+
+        $r5[14] = 110;
+
+        goto label03;
+
+     label06:
+        $r5 = newarray (byte)[11];
+
+        $r5[0] = 65;
+
+        $r5[1] = 98;
+
+        $r5[2] = 114;
+
+        $r5[3] = 105;
+
+        $r5[4] = 114;
+
+        $r5[5] = 32;
+
+        $r5[6] = 116;
+
+        $r5[7] = 97;
+
+        $r5[8] = 98;
+
+        $r5[9] = 108;
+
+        $r5[10] = 97;
+
+        goto label03;
+
+     label07:
+        $r5 = newarray (byte)[29];
+
+        $r5[0] = -48;
+
+        $r5[1] = -98;
+
+        $r5[2] = -47;
+
+        $r5[3] = -126;
+
+        $r5[4] = -48;
+
+        $r5[5] = -70;
+
+        $r5[6] = -47;
+
+        $r5[7] = -128;
+
+        $r5[8] = -47;
+
+        $r5[9] = -117;
+
+        $r5[10] = -47;
+
+        $r5[11] = -126;
+
+        $r5[12] = -47;
+
+        $r5[13] = -116;
+
+        $r5[14] = 32;
+
+        $r5[15] = -47;
+
+        $r5[16] = -126;
+
+        $r5[17] = -48;
+
+        $r5[18] = -80;
+
+        $r5[19] = -48;
+
+        $r5[20] = -79;
+
+        $r5[21] = -48;
+
+        $r5[22] = -69;
+
+        $r5[23] = -48;
+
+        $r5[24] = -72;
+
+        $r5[25] = -47;
+
+        $r5[26] = -122;
+
+        $r5[27] = -47;
+
+        $r5[28] = -125;
+
+        goto label03;
+
+     label08:
+        $r5 = newarray (byte)[12];
+
+        $r5[0] = 65;
+
+        $r5[1] = 98;
+
+        $r5[2] = 114;
+
+        $r5[3] = 105;
+
+        $r5[4] = 114;
+
+        $r5[5] = 32;
+
+        $r5[6] = 116;
+
+        $r5[7] = 97;
+
+        $r5[8] = 98;
+
+        $r5[9] = 101;
+
+        $r5[10] = 108;
+
+        $r5[11] = 97;
+
+        goto label03;
+
+     label09:
+        $r5 = newarray (byte)[10];
+
+        $r5[0] = -61;
+
+        $r5[1] = -123;
+
+        $r5[2] = 98;
+
+        $r5[3] = 110;
+
+        $r5[4] = 32;
+
+        $r5[5] = 116;
+
+        $r5[6] = 97;
+
+        $r5[7] = 98;
+
+        $r5[8] = 101;
+
+        $r5[9] = 108;
+
+        goto label03;
+
+     label10:
+        $r5 = newarray (byte)[15];
+
+        $r5[0] = -41;
+
+        $r5[1] = -92;
+
+        $r5[2] = -41;
+
+        $r5[3] = -86;
+
+        $r5[4] = -41;
+
+        $r5[5] = -105;
+
+        $r5[6] = 32;
+
+        $r5[7] = -41;
+
+        $r5[8] = -104;
+
+        $r5[9] = -41;
+
+        $r5[10] = -111;
+
+        $r5[11] = -41;
+
+        $r5[12] = -100;
+
+        $r5[13] = -41;
+
+        $r5[14] = -108;
+
+        goto label03;
+
+     label11:
+        $r5 = newarray (byte)[15];
+
+        $r5[0] = 79;
+
+        $r5[1] = 117;
+
+        $r5[2] = 118;
+
+        $r5[3] = 114;
+
+        $r5[4] = 105;
+
+        $r5[5] = 114;
+
+        $r5[6] = 32;
+
+        $r5[7] = 108;
+
+        $r5[8] = 97;
+
+        $r5[9] = 32;
+
+        $r5[10] = 116;
+
+        $r5[11] = 97;
+
+        $r5[12] = 98;
+
+        $r5[13] = 108;
+
+        $r5[14] = 101;
+
+        goto label03;
+
+     label12:
+        $r5 = newarray (byte)[15];
+
+        $r5[0] = 65;
+
+        $r5[1] = 112;
+
+        $r5[2] = 114;
+
+        $r5[3] = 105;
+
+        $r5[4] = 32;
+
+        $r5[5] = 108;
+
+        $r5[6] = 97;
+
+        $r5[7] = 32;
+
+        $r5[8] = 116;
+
+        $r5[9] = 97;
+
+        $r5[10] = 98;
+
+        $r5[11] = 101;
+
+        $r5[12] = 108;
+
+        $r5[13] = 108;
+
+        $r5[14] = 97;
+
+        goto label03;
+
+     label13:
+        $r5 = newarray (byte)[21];
+
+        $r5[0] = -29;
+
+        $r5[1] = -125;
+
+        $r5[2] = -122;
+
+        $r5[3] = -29;
+
+        $r5[4] = -125;
+
+        $r5[5] = -68;
+
+        $r5[6] = -29;
+
+        $r5[7] = -125;
+
+        $r5[8] = -106;
+
+        $r5[9] = -29;
+
+        $r5[10] = -125;
+
+        $r5[11] = -85;
+
+        $r5[12] = -29;
+
+        $r5[13] = -126;
+
+        $r5[14] = -110;
+
+        $r5[15] = -23;
+
+        $r5[16] = -106;
+
+        $r5[17] = -117;
+
+        $r5[18] = -29;
+
+        $r5[19] = -127;
+
+        $r5[20] = -113;
+
+        goto label03;
+
+     label14:
+        $r5 = newarray (byte)[16];
+
+        $r5[0] = -19;
+
+        $r5[1] = -123;
+
+        $r5[2] = -116;
+
+        $r5[3] = -20;
+
+        $r5[4] = -99;
+
+        $r5[5] = -76;
+
+        $r5[6] = -21;
+
+        $r5[7] = -72;
+
+        $r5[8] = -108;
+
+        $r5[9] = 32;
+
+        $r5[10] = -20;
+
+        $r5[11] = -105;
+
+        $r5[12] = -76;
+
+        $r5[13] = -22;
+
+        $r5[14] = -72;
+
+        $r5[15] = -80;
+
+        goto label03;
+
+     label15:
+        $r5 = newarray (byte)[15];
+
+        $r5[0] = -41;
+
+        $r5[1] = -92;
+
+        $r5[2] = -41;
+
+        $r5[3] = -86;
+
+        $r5[4] = -41;
+
+        $r5[5] = -105;
+
+        $r5[6] = 32;
+
+        $r5[7] = -41;
+
+        $r5[8] = -104;
+
+        $r5[9] = -41;
+
+        $r5[10] = -111;
+
+        $r5[11] = -41;
+
+        $r5[12] = -100;
+
+        $r5[13] = -41;
+
+        $r5[14] = -108;
+
+        goto label03;
+
+     label16:
+        $r5 = newarray (byte)[12];
+
+        $r5[0] = -26;
+
+        $r5[1] = -119;
+
+        $r5[2] = -109;
+
+        $r5[3] = -27;
+
+        $r5[4] = -68;
+
+        $r5[5] = -128;
+
+        $r5[6] = -24;
+
+        $r5[7] = -95;
+
+        $r5[8] = -88;
+
+        $r5[9] = -26;
+
+        $r5[10] = -96;
+
+        $r5[11] = -68;
+
+        goto label03;
+    }
+
+    protected void onDestroy()
+    {
+        com.speedsoftware.rootexplorer.ViewDatabase $r0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ViewDatabase;
+
+        $r0.<com.speedsoftware.rootexplorer.ViewDatabase: com.speedsoftware.rootexplorer.bi e> = null;
+
+        specialinvoke $r0.<android.app.ListActivity: void onDestroy()>();
+
+        return;
+    }
+
+    protected void onListItemClick(android.widget.ListView, android.view.View, int, long)
+    {
+        com.speedsoftware.rootexplorer.ViewDatabase $r0;
+        android.widget.ListView $r1;
+        android.view.View $r2;
+        int $i0;
+        long $l1;
+        com.speedsoftware.rootexplorer.bi $r3;
+        java.util.ArrayList $r4;
+        java.lang.Object $r5;
+        com.speedsoftware.rootexplorer.bk $r6;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ViewDatabase;
+
+        $r1 := @parameter0: android.widget.ListView;
+
+        $r2 := @parameter1: android.view.View;
+
+        $i0 := @parameter2: int;
+
+        $l1 := @parameter3: long;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.ViewDatabase: com.speedsoftware.rootexplorer.bi e>;
+
+        $r4 = virtualinvoke $r3.<com.speedsoftware.rootexplorer.bi: java.util.ArrayList a()>();
+
+        $r5 = virtualinvoke $r4.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r6 = (com.speedsoftware.rootexplorer.bk) $r5;
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.ViewDatabase: void a(com.speedsoftware.rootexplorer.bk)>($r6);
+
+        return;
+    }
+
+    protected void onStart()
+    {
+        com.speedsoftware.rootexplorer.ViewDatabase $r0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.ViewDatabase;
+
+        <com.speedsoftware.rootexplorer.ViewDatabase: android.content.Context a> = $r0;
+
+        specialinvoke $r0.<android.app.ListActivity: void onStart()>();
+
+        return;
+    }
+}

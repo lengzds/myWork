@@ -1,0 +1,76 @@
+final class com.speedsoftware.rootexplorer.jw extends java.lang.Thread
+{
+    final com.speedsoftware.rootexplorer.ge a;
+    private final com.speedsoftware.rootexplorer.bn b;
+    private final java.lang.String c;
+
+    void <init>(com.speedsoftware.rootexplorer.ge, com.speedsoftware.rootexplorer.bn, java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.jw $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+        com.speedsoftware.rootexplorer.bn $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.jw;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r2 := @parameter1: com.speedsoftware.rootexplorer.bn;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r0.<com.speedsoftware.rootexplorer.jw: com.speedsoftware.rootexplorer.ge a> = $r1;
+
+        $r0.<com.speedsoftware.rootexplorer.jw: com.speedsoftware.rootexplorer.bn b> = $r2;
+
+        $r0.<com.speedsoftware.rootexplorer.jw: java.lang.String c> = $r3;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.jw $r0;
+        android.net.Uri $r1;
+        com.speedsoftware.rootexplorer.bn $r2;
+        java.lang.String $r3;
+        android.content.Intent $r4;
+        android.content.ActivityNotFoundException $r5;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.jw;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.jw: com.speedsoftware.rootexplorer.bn b>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.jw: java.lang.String c>;
+
+        $r1 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.bn: android.net.Uri g(java.lang.String)>($r3);
+
+        if $r1 == null goto label4;
+
+        $r4 = new android.content.Intent;
+
+        specialinvoke $r4.<android.content.Intent: void <init>(java.lang.String)>("android.intent.action.VIEW");
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.jw: java.lang.String c>;
+
+        virtualinvoke $r4.<android.content.Intent: android.content.Intent setDataAndType(android.net.Uri,java.lang.String)>($r1, $r3);
+
+     label1:
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void a(android.content.Intent)>($r4);
+
+     label2:
+        return;
+
+     label3:
+        $r5 := @caughtexception;
+
+        virtualinvoke $r5.<android.content.ActivityNotFoundException: void printStackTrace()>();
+
+     label4:
+        return;
+
+        catch android.content.ActivityNotFoundException from label1 to label2 with label3;
+    }
+}

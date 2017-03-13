@@ -1,0 +1,1490 @@
+public final class a.d.t extends java.lang.Object implements java.io.Serializable, java.security.Principal
+{
+    static java.lang.String a;
+    static java.lang.String b;
+    static java.lang.String c;
+    public static final a.d.t d;
+    static final a.d.t e;
+    static final a.d.t f;
+    static final a.d.t g;
+    private static final int p;
+    private static final java.util.Random q;
+    private static a.e.e r;
+    private static final byte[] s;
+    java.lang.String h;
+    java.lang.String i;
+    java.lang.String j;
+    byte[] k;
+    byte[] l;
+    boolean m;
+    byte[] n;
+    byte[] o;
+
+    static void <clinit>()
+    {
+        int $i0;
+        java.util.Random $r0;
+        a.e.e $r1;
+        byte[] $r2;
+        a.d.t $r3;
+
+        $i0 = staticinvoke <a.a: int a(java.lang.String,int)>("jcifs.smb.lmCompatibility", 3);
+
+        <a.d.t: int p> = $i0;
+
+        $r0 = new java.util.Random;
+
+        specialinvoke $r0.<java.util.Random: void <init>()>();
+
+        <a.d.t: java.util.Random q> = $r0;
+
+        $r1 = staticinvoke <a.e.e: a.e.e a()>();
+
+        <a.d.t: a.e.e r> = $r1;
+
+        $r2 = newarray (byte)[8];
+
+        $r2[0] = 75;
+
+        $r2[1] = 71;
+
+        $r2[2] = 83;
+
+        $r2[3] = 33;
+
+        $r2[4] = 64;
+
+        $r2[5] = 35;
+
+        $r2[6] = 36;
+
+        $r2[7] = 37;
+
+        <a.d.t: byte[] s> = $r2;
+
+        $r3 = new a.d.t;
+
+        specialinvoke $r3.<a.d.t: void <init>(java.lang.String,java.lang.String,java.lang.String)>("", "", "");
+
+        <a.d.t: a.d.t d> = $r3;
+
+        $r3 = new a.d.t;
+
+        specialinvoke $r3.<a.d.t: void <init>(java.lang.String,java.lang.String,java.lang.String)>("", "", "");
+
+        <a.d.t: a.d.t e> = $r3;
+
+        $r3 = new a.d.t;
+
+        specialinvoke $r3.<a.d.t: void <init>(java.lang.String,java.lang.String,java.lang.String)>("?", "GUEST", "");
+
+        <a.d.t: a.d.t f> = $r3;
+
+        $r3 = new a.d.t;
+
+        specialinvoke $r3.<a.d.t: void <init>(java.lang.String)>(null);
+
+        <a.d.t: a.d.t g> = $r3;
+
+        return;
+    }
+
+    public void <init>(java.lang.String)
+    {
+        a.d.t $r0;
+        java.lang.String $r1, $r2;
+        int $i0, $i1, $i2;
+        char $c3;
+        java.io.UnsupportedEncodingException $r3;
+
+        $r0 := @this: a.d.t;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<a.d.t: boolean m> = 0;
+
+        $r0.<a.d.t: byte[] n> = null;
+
+        $r0.<a.d.t: byte[] o> = null;
+
+        $r0.<a.d.t: java.lang.String j> = null;
+
+        $r0.<a.d.t: java.lang.String i> = null;
+
+        $r0.<a.d.t: java.lang.String h> = null;
+
+        if $r1 == null goto label07;
+
+     label01:
+        $r1 = staticinvoke <a.d.t: java.lang.String b(java.lang.String)>($r1);
+
+     label02:
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        $i1 = 0;
+
+        $i2 = 0;
+
+     label03:
+        if $i2 >= $i0 goto label06;
+
+        $c3 = virtualinvoke $r1.<java.lang.String: char charAt(int)>($i2);
+
+        if $c3 != 59 goto label05;
+
+        $r2 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>(0, $i2);
+
+        $r0.<a.d.t: java.lang.String h> = $r2;
+
+        $i1 = $i2 + 1;
+
+     label04:
+        $i2 = $i2 + 1;
+
+        goto label03;
+
+     label05:
+        if $c3 != 58 goto label04;
+
+        $i0 = $i2 + 1;
+
+        $r2 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int)>($i0);
+
+        $r0.<a.d.t: java.lang.String j> = $r2;
+
+     label06:
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>($i1, $i2);
+
+        $r0.<a.d.t: java.lang.String i> = $r1;
+
+     label07:
+        staticinvoke <a.d.t: void a()>();
+
+        $r1 = $r0.<a.d.t: java.lang.String h>;
+
+        if $r1 != null goto label08;
+
+        $r1 = <a.d.t: java.lang.String a>;
+
+        $r0.<a.d.t: java.lang.String h> = $r1;
+
+     label08:
+        $r1 = $r0.<a.d.t: java.lang.String i>;
+
+        if $r1 != null goto label09;
+
+        $r1 = <a.d.t: java.lang.String b>;
+
+        $r0.<a.d.t: java.lang.String i> = $r1;
+
+     label09:
+        $r1 = $r0.<a.d.t: java.lang.String j>;
+
+        if $r1 != null goto label11;
+
+        $r1 = <a.d.t: java.lang.String c>;
+
+        $r0.<a.d.t: java.lang.String j> = $r1;
+
+        return;
+
+     label10:
+        $r3 := @caughtexception;
+
+        goto label02;
+
+     label11:
+        return;
+
+        catch java.io.UnsupportedEncodingException from label01 to label02 with label10;
+    }
+
+    public void <init>(java.lang.String, java.lang.String, java.lang.String)
+    {
+        a.d.t $r0;
+        java.lang.String $r1, $r2, $r3;
+        int $i0, $i1;
+
+        $r0 := @this: a.d.t;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r3 := @parameter1: java.lang.String;
+
+        $r1 := @parameter2: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<a.d.t: boolean m> = 0;
+
+        $r0.<a.d.t: byte[] n> = null;
+
+        $r0.<a.d.t: byte[] o> = null;
+
+        if $r3 == null goto label1;
+
+        $i1 = virtualinvoke $r3.<java.lang.String: int indexOf(int)>(64);
+
+        if $i1 <= 0 goto label4;
+
+        $i0 = $i1 + 1;
+
+        $r2 = virtualinvoke $r3.<java.lang.String: java.lang.String substring(int)>($i0);
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String substring(int,int)>(0, $i1);
+
+     label1:
+        $r0.<a.d.t: java.lang.String h> = $r2;
+
+        $r0.<a.d.t: java.lang.String i> = $r3;
+
+        $r0.<a.d.t: java.lang.String j> = $r1;
+
+        staticinvoke <a.d.t: void a()>();
+
+        if $r2 != null goto label2;
+
+        $r2 = <a.d.t: java.lang.String a>;
+
+        $r0.<a.d.t: java.lang.String h> = $r2;
+
+     label2:
+        if $r3 != null goto label3;
+
+        $r2 = <a.d.t: java.lang.String b>;
+
+        $r0.<a.d.t: java.lang.String i> = $r2;
+
+     label3:
+        if $r1 != null goto label5;
+
+        $r2 = <a.d.t: java.lang.String c>;
+
+        $r0.<a.d.t: java.lang.String j> = $r2;
+
+        return;
+
+     label4:
+        $i0 = virtualinvoke $r3.<java.lang.String: int indexOf(int)>(92);
+
+        if $i0 <= 0 goto label1;
+
+        $r2 = virtualinvoke $r3.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+        $i0 = $i0 + 1;
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String substring(int)>($i0);
+
+        goto label1;
+
+     label5:
+        return;
+    }
+
+    static void a()
+    {
+        java.lang.String $r0;
+
+        $r0 = <a.d.t: java.lang.String a>;
+
+        if $r0 == null goto label1;
+
+        return;
+
+     label1:
+        $r0 = staticinvoke <a.a: java.lang.String b(java.lang.String,java.lang.String)>("jcifs.smb.client.domain", "?");
+
+        <a.d.t: java.lang.String a> = $r0;
+
+        $r0 = staticinvoke <a.a: java.lang.String b(java.lang.String,java.lang.String)>("jcifs.smb.client.username", "GUEST");
+
+        <a.d.t: java.lang.String b> = $r0;
+
+        $r0 = staticinvoke <a.a: java.lang.String b(java.lang.String,java.lang.String)>("jcifs.smb.client.password", "");
+
+        <a.d.t: java.lang.String c> = $r0;
+
+        return;
+    }
+
+    public static byte[] a(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.lang.RuntimeException $r1;
+        a.e.f $r2;
+        byte[] $r3;
+        java.io.UnsupportedEncodingException $r4;
+
+        $r0 := @parameter0: java.lang.String;
+
+        if $r0 != null goto label1;
+
+        $r1 = new java.lang.RuntimeException;
+
+        specialinvoke $r1.<java.lang.RuntimeException: void <init>(java.lang.String)>("Password parameter is required");
+
+        throw $r1;
+
+     label1:
+        $r2 = new a.e.f;
+
+     label2:
+        specialinvoke $r2.<a.e.f: void <init>()>();
+
+        $r3 = virtualinvoke $r0.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+        virtualinvoke $r2.<a.e.f: void update(byte[])>($r3);
+
+        $r3 = virtualinvoke $r2.<a.e.f: byte[] digest()>();
+
+     label3:
+        return $r3;
+
+     label4:
+        $r4 := @caughtexception;
+
+        $r1 = new java.lang.RuntimeException;
+
+        $r0 = virtualinvoke $r4.<java.io.UnsupportedEncodingException: java.lang.String getMessage()>();
+
+        specialinvoke $r1.<java.lang.RuntimeException: void <init>(java.lang.String)>($r0);
+
+        throw $r1;
+
+        catch java.io.UnsupportedEncodingException from label2 to label3 with label4;
+    }
+
+    public static byte[] a(java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.String $r0, $r1, $r2;
+        a.e.f $r3;
+        byte[] $r4;
+        a.e.c $r5;
+        java.io.UnsupportedEncodingException $r6;
+        java.lang.RuntimeException $r7;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r3 = new a.e.f;
+
+     label1:
+        specialinvoke $r3.<a.e.f: void <init>()>();
+
+        $r4 = virtualinvoke $r2.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+        virtualinvoke $r3.<a.e.f: void update(byte[])>($r4);
+
+     label2:
+        $r5 = new a.e.c;
+
+     label3:
+        $r4 = virtualinvoke $r3.<a.e.f: byte[] digest()>();
+
+        specialinvoke $r5.<a.e.c: void <init>(byte[])>($r4);
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $r4 = virtualinvoke $r1.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+        virtualinvoke $r5.<a.e.c: void update(byte[])>($r4);
+
+        $r4 = virtualinvoke $r0.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+        virtualinvoke $r5.<a.e.c: void update(byte[])>($r4);
+
+        $r4 = virtualinvoke $r5.<a.e.c: byte[] digest()>();
+
+     label4:
+        return $r4;
+
+     label5:
+        $r6 := @caughtexception;
+
+        $r7 = new java.lang.RuntimeException;
+
+        $r0 = virtualinvoke $r6.<java.io.UnsupportedEncodingException: java.lang.String getMessage()>();
+
+        specialinvoke $r7.<java.lang.RuntimeException: void <init>(java.lang.String)>($r0);
+
+        throw $r7;
+
+        catch java.io.UnsupportedEncodingException from label1 to label2 with label5;
+        catch java.io.UnsupportedEncodingException from label3 to label4 with label5;
+    }
+
+    public static byte[] a(java.lang.String, java.lang.String, java.lang.String, byte[], byte[])
+    {
+        java.lang.String $r0, $r1, $r2;
+        byte[] $r3, $r4, $r5, $r7;
+        a.e.f $r6;
+        a.e.c $r8, $r9;
+        java.lang.Exception $r10;
+        a.e.e $r11;
+        int $i0;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r3 := @parameter3: byte[];
+
+        $r4 := @parameter4: byte[];
+
+     label01:
+        $r5 = newarray (byte)[24];
+
+     label02:
+        $r6 = new a.e.f;
+
+     label03:
+        specialinvoke $r6.<a.e.f: void <init>()>();
+
+        $r7 = virtualinvoke $r2.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+        virtualinvoke $r6.<a.e.f: void update(byte[])>($r7);
+
+     label04:
+        $r8 = new a.e.c;
+
+     label05:
+        $r7 = virtualinvoke $r6.<a.e.f: byte[] digest()>();
+
+        specialinvoke $r8.<a.e.c: void <init>(byte[])>($r7);
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $r7 = virtualinvoke $r1.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+        virtualinvoke $r8.<a.e.c: void update(byte[])>($r7);
+
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $r7 = virtualinvoke $r0.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+        virtualinvoke $r8.<a.e.c: void update(byte[])>($r7);
+
+     label06:
+        $r9 = new a.e.c;
+
+     label07:
+        $r7 = virtualinvoke $r8.<a.e.c: byte[] digest()>();
+
+        specialinvoke $r9.<a.e.c: void <init>(byte[])>($r7);
+
+        virtualinvoke $r9.<a.e.c: void update(byte[])>($r3);
+
+        virtualinvoke $r9.<a.e.c: void update(byte[])>($r4);
+
+        virtualinvoke $r9.<a.e.c: int digest(byte[],int,int)>($r5, 0, 16);
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r4, 0, $r5, 16, 8);
+
+     label08:
+        return $r5;
+
+     label09:
+        $r10 := @caughtexception;
+
+        $r11 = <a.d.t: a.e.e r>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 <= 0 goto label10;
+
+        $r11 = <a.d.t: a.e.e r>;
+
+        virtualinvoke $r10.<java.lang.Exception: void printStackTrace(java.io.PrintStream)>($r11);
+
+     label10:
+        return null;
+
+        catch java.lang.Exception from label01 to label02 with label09;
+        catch java.lang.Exception from label03 to label04 with label09;
+        catch java.lang.Exception from label05 to label06 with label09;
+        catch java.lang.Exception from label07 to label08 with label09;
+    }
+
+    public static byte[] a(java.lang.String, byte[])
+    {
+        java.lang.String $r0, $r5;
+        byte[] $r1, $r2, $r3, $r4, $r6;
+        int $i0, $i1;
+        java.io.UnsupportedEncodingException $r7;
+        java.lang.RuntimeException $r8;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: byte[];
+
+        $i0 = 14;
+
+        $r4 = newarray (byte)[14];
+
+        $r2 = newarray (byte)[21];
+
+        $r3 = newarray (byte)[24];
+
+     label1:
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String toUpperCase()>();
+
+     label2:
+        $r5 = <a.d.u: java.lang.String am>;
+
+     label3:
+        $r6 = virtualinvoke $r0.<java.lang.String: byte[] getBytes(java.lang.String)>($r5);
+
+     label4:
+        $i1 = lengthof $r6;
+
+        if $i1 <= 14 goto label7;
+
+     label5:
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r6, 0, $r4, 0, $i0);
+
+        $r6 = <a.d.t: byte[] s>;
+
+        staticinvoke <a.d.t: void b(byte[],byte[],byte[])>($r4, $r6, $r2);
+
+        staticinvoke <a.d.t: void b(byte[],byte[],byte[])>($r2, $r1, $r3);
+
+        return $r3;
+
+     label6:
+        $r7 := @caughtexception;
+
+        $r8 = new java.lang.RuntimeException;
+
+        specialinvoke $r8.<java.lang.RuntimeException: void <init>(java.lang.String,java.lang.Throwable)>("Try setting jcifs.encoding=US-ASCII", $r7);
+
+        throw $r8;
+
+     label7:
+        $i0 = $i1;
+
+        goto label5;
+
+        catch java.io.UnsupportedEncodingException from label1 to label2 with label6;
+        catch java.io.UnsupportedEncodingException from label3 to label4 with label6;
+    }
+
+    public static byte[] a(byte[], byte[], byte[])
+    {
+        byte[] $r0, $r1, $r2, $r3;
+        java.security.MessageDigest $r4;
+        java.security.GeneralSecurityException $r5;
+        a.e.e $r6;
+        int $i0;
+        java.lang.RuntimeException $r7;
+
+        $r0 := @parameter0: byte[];
+
+        $r1 := @parameter1: byte[];
+
+        $r2 := @parameter2: byte[];
+
+        $r3 = newarray (byte)[8];
+
+     label1:
+        $r4 = staticinvoke <java.security.MessageDigest: java.security.MessageDigest getInstance(java.lang.String)>("MD5");
+
+        virtualinvoke $r4.<java.security.MessageDigest: void update(byte[])>($r1);
+
+        virtualinvoke $r4.<java.security.MessageDigest: void update(byte[],int,int)>($r2, 0, 8);
+
+        $r1 = virtualinvoke $r4.<java.security.MessageDigest: byte[] digest()>();
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r1, 0, $r3, 0, 8);
+
+     label2:
+        $r1 = newarray (byte)[21];
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r0, 0, $r1, 0, 16);
+
+        $r0 = newarray (byte)[24];
+
+        staticinvoke <a.d.t: void b(byte[],byte[],byte[])>($r1, $r3, $r0);
+
+        return $r0;
+
+     label3:
+        $r5 := @caughtexception;
+
+        $r6 = <a.d.t: a.e.e r>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 <= 0 goto label4;
+
+        $r6 = <a.d.t: a.e.e r>;
+
+        virtualinvoke $r5.<java.security.GeneralSecurityException: void printStackTrace(java.io.PrintStream)>($r6);
+
+     label4:
+        $r7 = new java.lang.RuntimeException;
+
+        specialinvoke $r7.<java.lang.RuntimeException: void <init>(java.lang.String,java.lang.Throwable)>("MD5", $r5);
+
+        throw $r7;
+
+        catch java.security.GeneralSecurityException from label1 to label2 with label3;
+    }
+
+    public static byte[] a(byte[], byte[], byte[], long, byte[])
+    {
+        byte[] $r0, $r1, $r2, $r3, $r4;
+        long $l0, $l3;
+        int $i1, $i2;
+        a.e.c $r5;
+
+        $r0 := @parameter0: byte[];
+
+        $r1 := @parameter1: byte[];
+
+        $r2 := @parameter2: byte[];
+
+        $l0 := @parameter3: long;
+
+        $r3 := @parameter4: byte[];
+
+        if $r3 == null goto label3;
+
+        $i1 = lengthof $r3;
+
+     label1:
+        $i2 = $i1 + 28;
+
+        $i2 = $i2 + 4;
+
+        $r4 = newarray (byte)[$i2];
+
+        staticinvoke <a.e.b: int a(int,byte[],int)>(257, $r4, 0);
+
+        staticinvoke <a.e.b: int a(int,byte[],int)>(0, $r4, 4);
+
+        $l3 = $l0 & 4294967295L;
+
+        $i2 = (int) $l3;
+
+        staticinvoke <a.e.b: int a(int,byte[],int)>($i2, $r4, 8);
+
+        $l0 = $l0 >> 32;
+
+        $l0 = $l0 & 4294967295L;
+
+        $i2 = (int) $l0;
+
+        staticinvoke <a.e.b: int a(int,byte[],int)>($i2, $r4, 12);
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r2, 0, $r4, 16, 8);
+
+        staticinvoke <a.e.b: int a(int,byte[],int)>(0, $r4, 24);
+
+        if $r3 == null goto label2;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r3, 0, $r4, 28, $i1);
+
+     label2:
+        $i1 = $i1 + 28;
+
+        staticinvoke <a.e.b: int a(int,byte[],int)>(0, $r4, $i1);
+
+        $i1 = lengthof $r4;
+
+        $r5 = new a.e.c;
+
+        specialinvoke $r5.<a.e.c: void <init>(byte[])>($r0);
+
+        virtualinvoke $r5.<a.e.c: void update(byte[])>($r1);
+
+        virtualinvoke $r5.<a.e.c: void update(byte[],int,int)>($r4, 0, $i1);
+
+        $r0 = virtualinvoke $r5.<a.e.c: byte[] digest()>();
+
+        $i1 = lengthof $r0;
+
+        $i2 = lengthof $r4;
+
+        $i1 = $i1 + $i2;
+
+        $r1 = newarray (byte)[$i1];
+
+        $i1 = lengthof $r0;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r0, 0, $r1, 0, $i1);
+
+        $i1 = lengthof $r0;
+
+        $i2 = lengthof $r4;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r4, 0, $r1, $i1, $i2);
+
+        return $r1;
+
+     label3:
+        $i1 = 0;
+
+        goto label1;
+    }
+
+    private static java.lang.String b(java.lang.String)
+    {
+        java.lang.String $r0, $r3;
+        byte[] $r1;
+        char[] $r2;
+        int $i0, $i2, $i3, $i5;
+        byte $b1;
+        char $c4;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 = newarray (byte)[1];
+
+        if $r0 != null goto label1;
+
+        return null;
+
+     label1:
+        $i0 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        $r2 = newarray (char)[$i0];
+
+        $b1 = 0;
+
+        $i2 = 0;
+
+        $i3 = 0;
+
+     label2:
+        if $i3 >= $i0 goto label7;
+
+        lookupswitch($b1)
+        {
+            case 0: goto label4;
+            case 1: goto label6;
+            default: goto label3;
+        };
+
+     label3:
+        $i3 = $i3 + 1;
+
+        goto label2;
+
+     label4:
+        $c4 = virtualinvoke $r0.<java.lang.String: char charAt(int)>($i3);
+
+        if $c4 != 37 goto label5;
+
+        $b1 = 1;
+
+        goto label3;
+
+     label5:
+        $r2[$i2] = $c4;
+
+        $i2 = $i2 + 1;
+
+        goto label3;
+
+     label6:
+        $i5 = $i3 + 2;
+
+        $r3 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int,int)>($i3, $i5);
+
+        $i5 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String,int)>($r3, 16);
+
+        $i5 = $i5 & 255;
+
+        $b1 = (byte) $i5;
+
+        $r1[0] = $b1;
+
+        $r3 = new java.lang.String;
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[],int,int,java.lang.String)>($r1, 0, 1, "ASCII");
+
+        $c4 = virtualinvoke $r3.<java.lang.String: char charAt(int)>(0);
+
+        $r2[$i2] = $c4;
+
+        $i3 = $i3 + 1;
+
+        $i2 = $i2 + 1;
+
+        $b1 = 0;
+
+        goto label3;
+
+     label7:
+        $r0 = new java.lang.String;
+
+        specialinvoke $r0.<java.lang.String: void <init>(char[],int,int)>($r2, 0, $i2);
+
+        return $r0;
+    }
+
+    private static void b(byte[], byte[], byte[])
+    {
+        byte[] $r0, $r1, $r2, $r3, $r4;
+        int $i0, $i1;
+        a.e.a $r5;
+
+        $r0 := @parameter0: byte[];
+
+        $r1 := @parameter1: byte[];
+
+        $r2 := @parameter2: byte[];
+
+        $r3 = newarray (byte)[7];
+
+        $r4 = newarray (byte)[8];
+
+        $i0 = 0;
+
+     label1:
+        $i1 = lengthof $r0;
+
+        $i1 = $i1 / 7;
+
+        if $i0 >= $i1 goto label2;
+
+        $i1 = $i0 * 7;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r0, $i1, $r3, 0, 7);
+
+        $r5 = new a.e.a;
+
+        specialinvoke $r5.<a.e.a: void <init>(byte[])>($r3);
+
+        virtualinvoke $r5.<a.e.a: void a(byte[],byte[])>($r1, $r4);
+
+        $i1 = $i0 * 8;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r4, 0, $r2, $i1, 8);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public static byte[] b(java.lang.String, byte[])
+    {
+        java.lang.String $r0;
+        byte[] $r1, $r2, $r3, $r4;
+        a.e.f $r5;
+        java.io.UnsupportedEncodingException $r6;
+        a.e.e $r7;
+        int $i0;
+        java.lang.Exception $r8;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: byte[];
+
+        $r4 = null;
+
+        $r2 = newarray (byte)[21];
+
+        $r3 = newarray (byte)[24];
+
+     label1:
+        $r4 = virtualinvoke $r0.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+     label2:
+        $r5 = new a.e.f;
+
+        specialinvoke $r5.<a.e.f: void <init>()>();
+
+        virtualinvoke $r5.<a.e.f: void update(byte[])>($r4);
+
+     label3:
+        virtualinvoke $r5.<a.e.f: int digest(byte[],int,int)>($r2, 0, 16);
+
+     label4:
+        staticinvoke <a.d.t: void b(byte[],byte[],byte[])>($r2, $r1, $r3);
+
+        return $r3;
+
+     label5:
+        $r6 := @caughtexception;
+
+        $r7 = <a.d.t: a.e.e r>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 <= 0 goto label2;
+
+        $r7 = <a.d.t: a.e.e r>;
+
+        virtualinvoke $r6.<java.io.UnsupportedEncodingException: void printStackTrace(java.io.PrintStream)>($r7);
+
+        goto label2;
+
+     label6:
+        $r8 := @caughtexception;
+
+        $r7 = <a.d.t: a.e.e r>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 <= 0 goto label4;
+
+        $r7 = <a.d.t: a.e.e r>;
+
+        virtualinvoke $r8.<java.lang.Exception: void printStackTrace(java.io.PrintStream)>($r7);
+
+        goto label4;
+
+        catch java.io.UnsupportedEncodingException from label1 to label2 with label5;
+        catch java.lang.Exception from label3 to label4 with label6;
+    }
+
+    public final byte[] a(byte[])
+    {
+        a.d.t $r0;
+        byte[] $r1, $r3;
+        java.lang.String $r2, $r5, $r6;
+        boolean $z0;
+        int $i0;
+        java.util.Random $r4;
+
+        $r0 := @this: a.d.t;
+
+        $r1 := @parameter0: byte[];
+
+        $z0 = $r0.<a.d.t: boolean m>;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<a.d.t: byte[] k>;
+
+        return $r1;
+
+     label1:
+        $i0 = <a.d.t: int p>;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label3;
+            case 1: goto label3;
+            case 2: goto label4;
+            case 3: goto label5;
+            case 4: goto label5;
+            case 5: goto label5;
+            default: goto label2;
+        };
+
+     label2:
+        $r2 = $r0.<a.d.t: java.lang.String j>;
+
+        $r1 = staticinvoke <a.d.t: byte[] a(java.lang.String,byte[])>($r2, $r1);
+
+        return $r1;
+
+     label3:
+        $r2 = $r0.<a.d.t: java.lang.String j>;
+
+        $r1 = staticinvoke <a.d.t: byte[] a(java.lang.String,byte[])>($r2, $r1);
+
+        return $r1;
+
+     label4:
+        $r2 = $r0.<a.d.t: java.lang.String j>;
+
+        $r1 = staticinvoke <a.d.t: byte[] b(java.lang.String,byte[])>($r2, $r1);
+
+        return $r1;
+
+     label5:
+        $r3 = $r0.<a.d.t: byte[] n>;
+
+        if $r3 != null goto label6;
+
+        $r3 = newarray (byte)[8];
+
+        $r0.<a.d.t: byte[] n> = $r3;
+
+        $r4 = <a.d.t: java.util.Random q>;
+
+        $r3 = $r0.<a.d.t: byte[] n>;
+
+        virtualinvoke $r4.<java.util.Random: void nextBytes(byte[])>($r3);
+
+     label6:
+        $r5 = $r0.<a.d.t: java.lang.String h>;
+
+        $r6 = $r0.<a.d.t: java.lang.String i>;
+
+        $r2 = $r0.<a.d.t: java.lang.String j>;
+
+        $r3 = $r0.<a.d.t: byte[] n>;
+
+        $r1 = staticinvoke <a.d.t: byte[] a(java.lang.String,java.lang.String,java.lang.String,byte[],byte[])>($r5, $r6, $r2, $r1, $r3);
+
+        return $r1;
+    }
+
+    public final java.lang.String b()
+    {
+        a.d.t $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a.d.t;
+
+        r1 = $r0.<a.d.t: java.lang.String h>;
+
+        return r1;
+    }
+
+    public final byte[] b(byte[])
+    {
+        a.d.t $r0;
+        byte[] $r1;
+        boolean $z0;
+        int $i0;
+        java.lang.String $r2;
+
+        $r0 := @this: a.d.t;
+
+        $r1 := @parameter0: byte[];
+
+        $z0 = $r0.<a.d.t: boolean m>;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<a.d.t: byte[] l>;
+
+        return $r1;
+
+     label1:
+        $i0 = <a.d.t: int p>;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label3;
+            case 1: goto label3;
+            case 2: goto label3;
+            case 3: goto label4;
+            case 4: goto label4;
+            case 5: goto label4;
+            default: goto label2;
+        };
+
+     label2:
+        $r2 = $r0.<a.d.t: java.lang.String j>;
+
+        $r1 = staticinvoke <a.d.t: byte[] b(java.lang.String,byte[])>($r2, $r1);
+
+        return $r1;
+
+     label3:
+        $r2 = $r0.<a.d.t: java.lang.String j>;
+
+        $r1 = staticinvoke <a.d.t: byte[] b(java.lang.String,byte[])>($r2, $r1);
+
+        return $r1;
+
+     label4:
+        $r1 = newarray (byte)[0];
+
+        return $r1;
+    }
+
+    public final java.lang.String c()
+    {
+        a.d.t $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a.d.t;
+
+        r1 = $r0.<a.d.t: java.lang.String i>;
+
+        return r1;
+    }
+
+    public final byte[] c(byte[])
+    {
+        a.d.t $r0;
+        byte[] $r1, $r2, $r5, $r10;
+        int $i0;
+        boolean $z0;
+        a.e.f $r3;
+        java.lang.String $r4;
+        java.lang.Exception $r6;
+        a.d.bc $r7;
+        java.util.Random $r8;
+        a.e.c $r9, $r11;
+
+        $r0 := @this: a.d.t;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 = <a.d.t: int p>;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label02;
+            case 1: goto label02;
+            case 2: goto label02;
+            case 3: goto label22;
+            case 4: goto label22;
+            case 5: goto label22;
+            default: goto label01;
+        };
+
+     label01:
+        return null;
+
+     label02:
+        $r2 = newarray (byte)[40];
+
+        $z0 = $r0.<a.d.t: boolean m>;
+
+        if $z0 != 0 goto label06;
+
+        $r3 = new a.e.f;
+
+     label03:
+        specialinvoke $r3.<a.e.f: void <init>()>();
+
+        $r4 = $r0.<a.d.t: java.lang.String j>;
+
+        $r5 = virtualinvoke $r4.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+        virtualinvoke $r3.<a.e.f: void update(byte[])>($r5);
+
+     label04:
+        $i0 = <a.d.t: int p>;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label07;
+            case 1: goto label07;
+            case 2: goto label07;
+            case 3: goto label10;
+            case 4: goto label10;
+            case 5: goto label10;
+            default: goto label05;
+        };
+
+     label05:
+        $r5 = virtualinvoke $r3.<a.e.f: byte[] digest()>();
+
+        virtualinvoke $r3.<a.e.f: void update(byte[])>($r5);
+
+        virtualinvoke $r3.<a.e.f: int digest(byte[],int,int)>($r2, 0, 16);
+
+     label06:
+        $r1 = virtualinvoke $r0.<a.d.t: byte[] b(byte[])>($r1);
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r1, 0, $r2, 16, 24);
+
+        return $r2;
+
+     label07:
+        $r5 = virtualinvoke $r3.<a.e.f: byte[] digest()>();
+
+        virtualinvoke $r3.<a.e.f: void update(byte[])>($r5);
+
+        virtualinvoke $r3.<a.e.f: int digest(byte[],int,int)>($r2, 0, 16);
+
+     label08:
+        goto label06;
+
+     label09:
+        $r6 := @caughtexception;
+
+        $r7 = new a.d.bc;
+
+        specialinvoke $r7.<a.d.bc: void <init>(java.lang.String,java.lang.Throwable)>("", $r6);
+
+        throw $r7;
+
+     label10:
+        $r5 = $r0.<a.d.t: byte[] n>;
+
+     label11:
+        if $r5 != null goto label15;
+
+     label12:
+        $r5 = newarray (byte)[8];
+
+        $r0.<a.d.t: byte[] n> = $r5;
+
+     label13:
+        $r8 = <a.d.t: java.util.Random q>;
+
+     label14:
+        $r5 = $r0.<a.d.t: byte[] n>;
+
+        virtualinvoke $r8.<java.util.Random: void nextBytes(byte[])>($r5);
+
+     label15:
+        $r9 = new a.e.c;
+
+     label16:
+        $r5 = virtualinvoke $r3.<a.e.f: byte[] digest()>();
+
+        specialinvoke $r9.<a.e.c: void <init>(byte[])>($r5);
+
+        $r4 = $r0.<a.d.t: java.lang.String i>;
+
+        $r4 = virtualinvoke $r4.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $r5 = virtualinvoke $r4.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+        virtualinvoke $r9.<a.e.c: void update(byte[])>($r5);
+
+        $r4 = $r0.<a.d.t: java.lang.String h>;
+
+        $r4 = virtualinvoke $r4.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $r5 = virtualinvoke $r4.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+        virtualinvoke $r9.<a.e.c: void update(byte[])>($r5);
+
+        $r5 = virtualinvoke $r9.<a.e.c: byte[] digest()>();
+
+     label17:
+        $r9 = new a.e.c;
+
+     label18:
+        specialinvoke $r9.<a.e.c: void <init>(byte[])>($r5);
+
+        virtualinvoke $r9.<a.e.c: void update(byte[])>($r1);
+
+        $r10 = $r0.<a.d.t: byte[] n>;
+
+        virtualinvoke $r9.<a.e.c: void update(byte[])>($r10);
+
+     label19:
+        $r11 = new a.e.c;
+
+     label20:
+        specialinvoke $r11.<a.e.c: void <init>(byte[])>($r5);
+
+        $r5 = virtualinvoke $r9.<a.e.c: byte[] digest()>();
+
+        virtualinvoke $r11.<a.e.c: void update(byte[])>($r5);
+
+        virtualinvoke $r11.<a.e.c: int digest(byte[],int,int)>($r2, 0, 16);
+
+     label21:
+        goto label06;
+
+     label22:
+        $r7 = new a.d.bc;
+
+        specialinvoke $r7.<a.d.bc: void <init>(java.lang.String)>("NTLMv2 requires extended security (jcifs.smb.client.useExtendedSecurity must be true if jcifs.smb.lmCompatibility >= 3)");
+
+        throw $r7;
+
+        catch java.lang.Exception from label03 to label04 with label09;
+        catch java.lang.Exception from label05 to label06 with label09;
+        catch java.lang.Exception from label07 to label08 with label09;
+        catch java.lang.Exception from label10 to label11 with label09;
+        catch java.lang.Exception from label12 to label13 with label09;
+        catch java.lang.Exception from label14 to label15 with label09;
+        catch java.lang.Exception from label16 to label17 with label09;
+        catch java.lang.Exception from label18 to label19 with label09;
+        catch java.lang.Exception from label20 to label21 with label09;
+    }
+
+    public final java.lang.String d()
+    {
+        a.d.t $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a.d.t;
+
+        r1 = $r0.<a.d.t: java.lang.String j>;
+
+        return r1;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        a.d.t $r0, $r2;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.lang.String $r3, $r4;
+        byte[] $r5, $r6;
+
+        $r0 := @this: a.d.t;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $z0 = $r1 instanceof a.d.t;
+
+        if $z0 == 0 goto label3;
+
+        $r2 = (a.d.t) $r1;
+
+        $r3 = $r2.<a.d.t: java.lang.String h>;
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $r4 = $r0.<a.d.t: java.lang.String h>;
+
+        $r4 = virtualinvoke $r4.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r4);
+
+        if $z0 == 0 goto label3;
+
+        $r3 = $r2.<a.d.t: java.lang.String i>;
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $r4 = $r0.<a.d.t: java.lang.String i>;
+
+        $r4 = virtualinvoke $r4.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r4);
+
+        if $z0 == 0 goto label3;
+
+        $z0 = $r0.<a.d.t: boolean m>;
+
+        if $z0 == 0 goto label2;
+
+        $z0 = $r2.<a.d.t: boolean m>;
+
+        if $z0 == 0 goto label2;
+
+        $r5 = $r0.<a.d.t: byte[] k>;
+
+        $r6 = $r2.<a.d.t: byte[] k>;
+
+        $z0 = staticinvoke <java.util.Arrays: boolean equals(byte[],byte[])>($r5, $r6);
+
+        if $z0 == 0 goto label1;
+
+        $r5 = $r0.<a.d.t: byte[] l>;
+
+        $r6 = $r2.<a.d.t: byte[] l>;
+
+        $z0 = staticinvoke <java.util.Arrays: boolean equals(byte[],byte[])>($r5, $r6);
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+
+     label2:
+        $z0 = $r0.<a.d.t: boolean m>;
+
+        if $z0 != 0 goto label3;
+
+        $r3 = $r0.<a.d.t: java.lang.String j>;
+
+        $r4 = $r2.<a.d.t: java.lang.String j>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r4);
+
+        if $z0 != 0 goto label4;
+
+     label3:
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    public final java.lang.String getName()
+    {
+        a.d.t $r0;
+        java.lang.String $r1;
+        int $i0;
+        boolean $z0;
+        java.lang.StringBuilder $r2;
+
+        $r0 := @this: a.d.t;
+
+        $r1 = $r0.<a.d.t: java.lang.String h>;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        if $i0 <= 0 goto label2;
+
+        $r1 = $r0.<a.d.t: java.lang.String h>;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>("?");
+
+        if $z0 != 0 goto label2;
+
+        $z0 = 1;
+
+     label1:
+        if $z0 == 0 goto label3;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = $r0.<a.d.t: java.lang.String h>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\");
+
+        $r1 = $r0.<a.d.t: java.lang.String i>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r1;
+
+     label2:
+        $z0 = 0;
+
+        goto label1;
+
+     label3:
+        $r1 = $r0.<a.d.t: java.lang.String i>;
+
+        return $r1;
+    }
+
+    public final int hashCode()
+    {
+        a.d.t $r0;
+        java.lang.String $r1;
+        int $i0;
+
+        $r0 := @this: a.d.t;
+
+        $r1 = virtualinvoke $r0.<a.d.t: java.lang.String getName()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+        return $i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.t $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: a.d.t;
+
+        $r1 = virtualinvoke $r0.<a.d.t: java.lang.String getName()>();
+
+        return $r1;
+    }
+}

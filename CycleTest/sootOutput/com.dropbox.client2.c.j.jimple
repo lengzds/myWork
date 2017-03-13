@@ -1,0 +1,170 @@
+class com.dropbox.client2.c.j extends java.lang.Thread
+{
+    private static com.dropbox.client2.c.j d;
+    private final com.dropbox.client2.c.f a;
+    private final int b;
+    private final int c;
+
+    static void <clinit>()
+    {
+        <com.dropbox.client2.c.j: com.dropbox.client2.c.j d> = null;
+
+        return;
+    }
+
+    private void <init>(com.dropbox.client2.c.f)
+    {
+        com.dropbox.client2.c.j $r0;
+        com.dropbox.client2.c.f $r1;
+
+        $r0 := @this: com.dropbox.client2.c.j;
+
+        $r1 := @parameter0: com.dropbox.client2.c.f;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>()>();
+
+        $r0.<com.dropbox.client2.c.j: com.dropbox.client2.c.f a> = $r1;
+
+        $r0.<com.dropbox.client2.c.j: int b> = 20;
+
+        $r0.<com.dropbox.client2.c.j: int c> = 5000;
+
+        return;
+    }
+
+    public static void a(com.dropbox.client2.c.f)
+    {
+        com.dropbox.client2.c.f $r0;
+        com.dropbox.client2.c.j $r1;
+        java.lang.Throwable $r2;
+
+        $r0 := @parameter0: com.dropbox.client2.c.f;
+
+        entermonitor class "com/dropbox/client2/c/j";
+
+     label1:
+        $r1 = <com.dropbox.client2.c.j: com.dropbox.client2.c.j d>;
+
+        if $r1 != null goto label2;
+
+        $r1 = new com.dropbox.client2.c.j;
+
+        specialinvoke $r1.<com.dropbox.client2.c.j: void <init>(com.dropbox.client2.c.f)>($r0);
+
+        <com.dropbox.client2.c.j: com.dropbox.client2.c.j d> = $r1;
+
+        virtualinvoke $r1.<com.dropbox.client2.c.j: void start()>();
+
+     label2:
+        exitmonitor class "com/dropbox/client2/c/j";
+
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor class "com/dropbox/client2/c/j";
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void run()
+    {
+        com.dropbox.client2.c.j $r0;
+        long $l0;
+        int $i1;
+        com.dropbox.client2.c.f $r1;
+        java.util.concurrent.TimeUnit $r2;
+        java.lang.Throwable $r3, $r5;
+        java.lang.InterruptedException $r4;
+
+        $r0 := @this: com.dropbox.client2.c.j;
+
+     label01:
+        entermonitor $r0;
+
+     label02:
+        $i1 = $r0.<com.dropbox.client2.c.j: int c>;
+
+        $l0 = (long) $i1;
+
+        virtualinvoke $r0.<java.lang.Object: void wait(long)>($l0);
+
+        exitmonitor $r0;
+
+     label03:
+        $r1 = $r0.<com.dropbox.client2.c.j: com.dropbox.client2.c.f a>;
+
+     label04:
+        virtualinvoke $r1.<com.dropbox.client2.c.f: void closeExpiredConnections()>();
+
+     label05:
+        $r1 = $r0.<com.dropbox.client2.c.j: com.dropbox.client2.c.f a>;
+
+        $i1 = $r0.<com.dropbox.client2.c.j: int b>;
+
+        $l0 = (long) $i1;
+
+        $r2 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit SECONDS>;
+
+     label06:
+        virtualinvoke $r1.<com.dropbox.client2.c.f: void closeIdleConnections(long,java.util.concurrent.TimeUnit)>($l0, $r2);
+
+     label07:
+        entermonitor class "com/dropbox/client2/c/j";
+
+     label08:
+        $r1 = $r0.<com.dropbox.client2.c.j: com.dropbox.client2.c.f a>;
+
+        $i1 = virtualinvoke $r1.<com.dropbox.client2.c.f: int getConnectionsInPool()>();
+
+        if $i1 != 0 goto label13;
+
+        <com.dropbox.client2.c.j: com.dropbox.client2.c.j d> = null;
+
+        exitmonitor class "com/dropbox/client2/c/j";
+
+     label09:
+        return;
+
+     label10:
+        $r3 := @caughtexception;
+
+        exitmonitor $r0;
+
+     label11:
+        throw $r3;
+
+     label12:
+        $r4 := @caughtexception;
+
+        <com.dropbox.client2.c.j: com.dropbox.client2.c.j d> = null;
+
+        return;
+
+     label13:
+        exitmonitor class "com/dropbox/client2/c/j";
+
+        goto label01;
+
+     label14:
+        $r5 := @caughtexception;
+
+        exitmonitor class "com/dropbox/client2/c/j";
+
+     label15:
+        throw $r5;
+
+     label16:
+        nop;
+
+        catch java.lang.Throwable from label02 to label03 with label10;
+        catch java.lang.InterruptedException from label04 to label05 with label12;
+        catch java.lang.InterruptedException from label06 to label07 with label12;
+        catch java.lang.Throwable from label08 to label09 with label14;
+        catch java.lang.InterruptedException from label11 to label12 with label12;
+        catch java.lang.InterruptedException from label15 to label16 with label12;
+    }
+}

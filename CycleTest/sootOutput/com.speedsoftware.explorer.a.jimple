@@ -1,0 +1,50 @@
+final class com.speedsoftware.explorer.a extends java.lang.Object implements java.lang.Runnable
+{
+    final com.speedsoftware.explorer.Explorer a;
+
+    void <init>(com.speedsoftware.explorer.Explorer)
+    {
+        com.speedsoftware.explorer.a $r0;
+        com.speedsoftware.explorer.Explorer $r1;
+
+        $r0 := @this: com.speedsoftware.explorer.a;
+
+        $r1 := @parameter0: com.speedsoftware.explorer.Explorer;
+
+        $r0.<com.speedsoftware.explorer.a: com.speedsoftware.explorer.Explorer a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.explorer.a $r0;
+        android.app.Application $r1;
+        com.speedsoftware.explorer.Explorer $r2;
+        com.speedsoftware.rootexplorer.RootExplorerApp $r3;
+        java.lang.Exception $r4;
+
+        $r0 := @this: com.speedsoftware.explorer.a;
+
+     label1:
+        $r2 = $r0.<com.speedsoftware.explorer.a: com.speedsoftware.explorer.Explorer a>;
+
+        $r1 = virtualinvoke $r2.<com.speedsoftware.explorer.Explorer: android.app.Application getApplication()>();
+
+        $r3 = (com.speedsoftware.rootexplorer.RootExplorerApp) $r1;
+
+        virtualinvoke $r3.<com.speedsoftware.rootexplorer.RootExplorerApp: com.google.android.gms.analytics.Tracker a()>();
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+}

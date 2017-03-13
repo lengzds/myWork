@@ -1,0 +1,148 @@
+public abstract class com.google.android.gms.internal.dr extends com.google.android.gms.internal.en
+{
+    private final com.google.android.gms.internal.dt a;
+    private final com.google.android.gms.internal.dq$a b;
+
+    public void <init>(com.google.android.gms.internal.dt, com.google.android.gms.internal.dq$a)
+    {
+        com.google.android.gms.internal.dr $r0;
+        com.google.android.gms.internal.dt $r1;
+        com.google.android.gms.internal.dq$a $r2;
+
+        $r0 := @this: com.google.android.gms.internal.dr;
+
+        $r1 := @parameter0: com.google.android.gms.internal.dt;
+
+        $r2 := @parameter1: com.google.android.gms.internal.dq$a;
+
+        specialinvoke $r0.<com.google.android.gms.internal.en: void <init>()>();
+
+        $r0.<com.google.android.gms.internal.dr: com.google.android.gms.internal.dt a> = $r1;
+
+        $r0.<com.google.android.gms.internal.dr: com.google.android.gms.internal.dq$a b> = $r2;
+
+        return;
+    }
+
+    private static com.google.android.gms.internal.dv a(com.google.android.gms.internal.dx, com.google.android.gms.internal.dt)
+    {
+        com.google.android.gms.internal.dx $r0;
+        com.google.android.gms.internal.dt $r1;
+        com.google.android.gms.internal.dv $r2;
+        android.os.RemoteException $r3;
+        java.lang.NullPointerException $r4;
+        java.lang.SecurityException $r5;
+
+        $r0 := @parameter0: com.google.android.gms.internal.dx;
+
+        $r1 := @parameter1: com.google.android.gms.internal.dt;
+
+     label1:
+        $r2 = interfaceinvoke $r0.<com.google.android.gms.internal.dx: com.google.android.gms.internal.dv b(com.google.android.gms.internal.dt)>($r1);
+
+     label2:
+        return $r2;
+
+     label3:
+        $r3 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void c(java.lang.String,java.lang.Throwable)>("Could not fetch ad response from ad request service.", $r3);
+
+        return null;
+
+     label4:
+        $r4 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void c(java.lang.String,java.lang.Throwable)>("Could not fetch ad response from ad request service due to an Exception.", $r4);
+
+        return null;
+
+     label5:
+        $r5 := @caughtexception;
+
+        staticinvoke <com.google.android.gms.internal.ev: void c(java.lang.String,java.lang.Throwable)>("Could not fetch ad response from ad request service due to an Exception.", $r5);
+
+        return null;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+        catch java.lang.NullPointerException from label1 to label2 with label4;
+        catch java.lang.SecurityException from label1 to label2 with label5;
+    }
+
+    public final void bc()
+    {
+        com.google.android.gms.internal.dr $r0;
+        com.google.android.gms.internal.dx $r1;
+        com.google.android.gms.internal.dv $r2, $r5;
+        com.google.android.gms.internal.dq$a $r3;
+        com.google.android.gms.internal.dt $r4;
+        java.lang.Throwable $r6;
+
+        $r0 := @this: com.google.android.gms.internal.dr;
+
+     label1:
+        $r1 = virtualinvoke $r0.<com.google.android.gms.internal.dr: com.google.android.gms.internal.dx bo()>();
+
+     label2:
+        if $r1 != null goto label5;
+
+     label3:
+        $r2 = new com.google.android.gms.internal.dv;
+
+        specialinvoke $r2.<com.google.android.gms.internal.dv: void <init>(int)>(0);
+
+     label4:
+        virtualinvoke $r0.<com.google.android.gms.internal.dr: void bn()>();
+
+        $r3 = $r0.<com.google.android.gms.internal.dr: com.google.android.gms.internal.dq$a b>;
+
+        interfaceinvoke $r3.<com.google.android.gms.internal.dq$a: void a(com.google.android.gms.internal.dv)>($r2);
+
+        return;
+
+     label5:
+        $r4 = $r0.<com.google.android.gms.internal.dr: com.google.android.gms.internal.dt a>;
+
+        $r5 = staticinvoke <com.google.android.gms.internal.dr: com.google.android.gms.internal.dv a(com.google.android.gms.internal.dx,com.google.android.gms.internal.dt)>($r1, $r4);
+
+     label6:
+        $r2 = $r5;
+
+        if $r5 != null goto label4;
+
+     label7:
+        $r2 = new com.google.android.gms.internal.dv;
+
+        specialinvoke $r2.<com.google.android.gms.internal.dv: void <init>(int)>(0);
+
+     label8:
+        goto label4;
+
+     label9:
+        $r6 := @caughtexception;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.dr: void bn()>();
+
+        throw $r6;
+
+        catch java.lang.Throwable from label1 to label2 with label9;
+        catch java.lang.Throwable from label3 to label4 with label9;
+        catch java.lang.Throwable from label5 to label6 with label9;
+        catch java.lang.Throwable from label7 to label8 with label9;
+    }
+
+    public abstract void bn();
+
+    public abstract com.google.android.gms.internal.dx bo();
+
+    public final void onStop()
+    {
+        com.google.android.gms.internal.dr $r0;
+
+        $r0 := @this: com.google.android.gms.internal.dr;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.dr: void bn()>();
+
+        return;
+    }
+}

@@ -1,0 +1,88 @@
+public class com.box.restclientv2.responseparsers.DefaultFileResponseParser extends java.lang.Object implements com.box.restclientv2.interfaces.IBoxResponseParser
+{
+
+    public void <init>()
+    {
+        com.box.restclientv2.responseparsers.DefaultFileResponseParser $r0;
+
+        $r0 := @this: com.box.restclientv2.responseparsers.DefaultFileResponseParser;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final java.lang.Object a(com.box.restclientv2.interfaces.IBoxResponse)
+    {
+        com.box.restclientv2.responseparsers.DefaultFileResponseParser $r0;
+        com.box.restclientv2.interfaces.IBoxResponse $r1;
+        boolean $z0;
+        com.box.restclientv2.exceptions.BoxRestException $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.Class $r4;
+        java.lang.String $r5;
+        com.box.restclientv2.responses.DefaultBoxResponse $r6;
+        org.apache.http.HttpResponse $r7;
+        org.apache.http.HttpEntity $r8;
+        java.io.InputStream $r9;
+        java.lang.Exception $r10;
+
+        $r0 := @this: com.box.restclientv2.responseparsers.DefaultFileResponseParser;
+
+        $r1 := @parameter0: com.box.restclientv2.interfaces.IBoxResponse;
+
+        $z0 = $r1 instanceof com.box.restclientv2.responses.DefaultBoxResponse;
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new com.box.restclientv2.exceptions.BoxRestException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("class mismatch, expected:");
+
+        $r4 = class "com/box/restclientv2/responses/DefaultBoxResponse";
+
+        $r5 = virtualinvoke $r4.<java.lang.Class: java.lang.String getName()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(";current:");
+
+        $r4 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r5 = virtualinvoke $r4.<java.lang.Class: java.lang.String getCanonicalName()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<com.box.restclientv2.exceptions.BoxRestException: void <init>(java.lang.String)>($r5);
+
+        throw $r2;
+
+     label1:
+        $r6 = (com.box.restclientv2.responses.DefaultBoxResponse) $r1;
+
+        $r7 = virtualinvoke $r6.<com.box.restclientv2.responses.DefaultBoxResponse: org.apache.http.HttpResponse a()>();
+
+     label2:
+        $r8 = interfaceinvoke $r7.<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()>();
+
+        $r9 = interfaceinvoke $r8.<org.apache.http.HttpEntity: java.io.InputStream getContent()>();
+
+     label3:
+        return $r9;
+
+     label4:
+        $r10 := @caughtexception;
+
+        $r2 = new com.box.restclientv2.exceptions.BoxRestException;
+
+        specialinvoke $r2.<com.box.restclientv2.exceptions.BoxRestException: void <init>(java.lang.Exception)>($r10);
+
+        throw $r2;
+
+        catch java.lang.Exception from label2 to label3 with label4;
+    }
+}

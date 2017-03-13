@@ -1,0 +1,83 @@
+final class com.speedsoftware.rootexplorer.g extends java.lang.Object implements java.lang.Runnable
+{
+    final com.speedsoftware.rootexplorer.BackgroundWorker a;
+
+    void <init>(com.speedsoftware.rootexplorer.BackgroundWorker)
+    {
+        com.speedsoftware.rootexplorer.g $r0;
+        com.speedsoftware.rootexplorer.BackgroundWorker $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.g;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.BackgroundWorker;
+
+        $r0.<com.speedsoftware.rootexplorer.g: com.speedsoftware.rootexplorer.BackgroundWorker a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.g $r0;
+        com.speedsoftware.rootexplorer.eb $r1, $r7;
+        com.speedsoftware.rootexplorer.BackgroundWorker $r2;
+        java.util.ArrayList $r3;
+        java.util.Iterator $r4;
+        boolean $z0;
+        java.lang.Object $r5;
+        com.speedsoftware.rootexplorer.cm $r6;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.g;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.g: com.speedsoftware.rootexplorer.BackgroundWorker a>;
+
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.BackgroundWorker: java.util.ArrayList a(com.speedsoftware.rootexplorer.BackgroundWorker)>($r2);
+
+        $r4 = virtualinvoke $r3.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label3;
+
+        $z0 = 0;
+
+     label2:
+        if $z0 != 0 goto label5;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.g: com.speedsoftware.rootexplorer.BackgroundWorker a>;
+
+        virtualinvoke $r2.<com.speedsoftware.rootexplorer.BackgroundWorker: void stopForeground(boolean)>(1);
+
+        <com.speedsoftware.rootexplorer.BackgroundWorker: int e> = -1;
+
+        return;
+
+     label3:
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (com.speedsoftware.rootexplorer.cm) $r5;
+
+        $r7 = interfaceinvoke $r6.<com.speedsoftware.rootexplorer.cm: com.speedsoftware.rootexplorer.eb k()>();
+
+        $r1 = <com.speedsoftware.rootexplorer.eb: com.speedsoftware.rootexplorer.eb b>;
+
+        if $r7 == $r1 goto label4;
+
+        $r1 = interfaceinvoke $r6.<com.speedsoftware.rootexplorer.cm: com.speedsoftware.rootexplorer.eb k()>();
+
+        $r7 = <com.speedsoftware.rootexplorer.eb: com.speedsoftware.rootexplorer.eb a>;
+
+        if $r1 != $r7 goto label1;
+
+     label4:
+        $z0 = 1;
+
+        goto label2;
+
+     label5:
+        return;
+    }
+}

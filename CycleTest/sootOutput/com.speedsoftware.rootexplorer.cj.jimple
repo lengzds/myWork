@@ -1,0 +1,251 @@
+public final class com.speedsoftware.rootexplorer.cj extends com.speedsoftware.rootexplorer.s
+{
+
+    public void <init>(android.support.v4.app.Fragment, java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.cj $r0;
+        android.support.v4.app.Fragment $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cj;
+
+        $r1 := @parameter0: android.support.v4.app.Fragment;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.s: void <init>(android.support.v4.app.Fragment,java.lang.String)>($r1, $r2);
+
+        return;
+    }
+
+    final java.lang.String a()
+    {
+        com.speedsoftware.rootexplorer.cj $r0;
+        com.speedsoftware.rootexplorer.bn $r1;
+        com.speedsoftware.rootexplorer.cl $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cj;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cj: com.speedsoftware.rootexplorer.bn aN>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cj: com.speedsoftware.rootexplorer.bn aN>;
+
+        $r2 = (com.speedsoftware.rootexplorer.cl) $r1;
+
+        $r3 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.cl: java.lang.String B()>();
+
+        return $r3;
+
+     label1:
+        $r3 = specialinvoke $r0.<com.speedsoftware.rootexplorer.s: java.lang.String a()>();
+
+        return $r3;
+    }
+
+    public final void a(int, int, android.content.Intent)
+    {
+        com.speedsoftware.rootexplorer.cj $r0;
+        int $i0, $i1, $i2, $i3;
+        android.content.Intent $r1;
+        android.os.Bundle $r2;
+        java.lang.String $r3, $r9;
+        com.speedsoftware.rootexplorer.bn $r4;
+        android.app.AlertDialog$Builder $r5;
+        android.content.Context $r6;
+        android.app.Activity $r7;
+        byte[] $r8;
+        com.speedsoftware.rootexplorer.ck $r10;
+        android.app.AlertDialog $r11;
+        java.util.ArrayList $r12;
+        com.google.api.a.b.a.a.b.a.a $r13;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cj;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r1 := @parameter2: android.content.Intent;
+
+        $i2 = 0;
+
+        $i3 = 65535 & $i0;
+
+        lookupswitch($i3)
+        {
+            case 1001: goto label02;
+            case 1002: goto label09;
+            default: goto label01;
+        };
+
+     label01:
+        specialinvoke $r0.<com.speedsoftware.rootexplorer.s: void a(int,int,android.content.Intent)>($i0, $i1, $r1);
+
+        return;
+
+     label02:
+        if $i1 != -1 goto label03;
+
+        if $r1 == null goto label03;
+
+        $r2 = virtualinvoke $r1.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        if $r2 == null goto label03;
+
+        $r3 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("authAccount");
+
+        if $r3 == null goto label11;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.cj: com.speedsoftware.rootexplorer.bn aN>;
+
+        virtualinvoke $r4.<com.speedsoftware.rootexplorer.bn: void w(java.lang.String)>($r3);
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.cj: void z()>();
+
+        return;
+
+     label03:
+        <com.speedsoftware.rootexplorer.ge: boolean y> = 1;
+
+        $r5 = new android.app.AlertDialog$Builder;
+
+        $r6 = <com.speedsoftware.rootexplorer.cj: android.content.Context r>;
+
+        specialinvoke $r5.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r6);
+
+        $r3 = new java.lang.String;
+
+        $r7 = staticinvoke <com.speedsoftware.rootexplorer.cj: android.app.Activity Q()>();
+
+        if $r7 != null goto label07;
+
+        $i0 = 0;
+
+     label04:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cQ(int)>($i0);
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r8);
+
+        $r5 = virtualinvoke $r5.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setTitle(java.lang.CharSequence)>($r3);
+
+        $r3 = new java.lang.String;
+
+        $r7 = staticinvoke <com.speedsoftware.rootexplorer.cj: android.app.Activity Q()>();
+
+        if $r7 == null goto label05;
+
+        $r7 = staticinvoke <com.speedsoftware.rootexplorer.cj: android.app.Activity Q()>();
+
+        $r9 = virtualinvoke $r7.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r9);
+
+     label05:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] c()>();
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r8);
+
+        $r5 = virtualinvoke $r5.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>($r3);
+
+        $r3 = new java.lang.String;
+
+        $r7 = staticinvoke <com.speedsoftware.rootexplorer.cj: android.app.Activity Q()>();
+
+        if $r7 != null goto label08;
+
+     label06:
+        $r8 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cK(int)>($i2);
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r8);
+
+        $r10 = new com.speedsoftware.rootexplorer.ck;
+
+        specialinvoke $r10.<com.speedsoftware.rootexplorer.ck: void <init>(com.speedsoftware.rootexplorer.cj)>($r0);
+
+        $r5 = virtualinvoke $r5.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>($r3, $r10);
+
+        $r11 = virtualinvoke $r5.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r11.<android.app.AlertDialog: void show()>();
+
+        return;
+
+     label07:
+        $r7 = staticinvoke <com.speedsoftware.rootexplorer.cj: android.app.Activity Q()>();
+
+        $r9 = virtualinvoke $r7.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r9);
+
+        goto label04;
+
+     label08:
+        $r7 = staticinvoke <com.speedsoftware.rootexplorer.cj: android.app.Activity Q()>();
+
+        $r9 = virtualinvoke $r7.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i2 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r9);
+
+        goto label06;
+
+     label09:
+        if $i1 != -1 goto label10;
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.cj: void z()>();
+
+        return;
+
+     label10:
+        $r12 = new java.util.ArrayList;
+
+        specialinvoke $r12.<java.util.ArrayList: void <init>()>();
+
+        virtualinvoke $r12.<java.util.ArrayList: boolean add(java.lang.Object)>("https://www.googleapis.com/auth/drive");
+
+        $r7 = staticinvoke <com.speedsoftware.rootexplorer.cj: android.app.Activity Q()>();
+
+        $r13 = staticinvoke <com.google.api.a.b.a.a.b.a.a: com.google.api.a.b.a.a.b.a.a a(android.content.Context,java.util.Collection)>($r7, $r12);
+
+        $r1 = virtualinvoke $r13.<com.google.api.a.b.a.a.b.a.a: android.content.Intent b()>();
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.cj: void a(android.content.Intent,int)>($r1, 1001);
+
+     label11:
+        return;
+    }
+
+    protected final void b()
+    {
+        com.speedsoftware.rootexplorer.cj $r0;
+        java.lang.String $r1, $r4, $r5, $r6;
+        com.speedsoftware.rootexplorer.bn $r2;
+        com.speedsoftware.rootexplorer.cl $r3;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.cj;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.cj: java.lang.String aM>;
+
+        $r1 = staticinvoke <com.speedsoftware.rootexplorer.cj: java.lang.String f(java.lang.String)>($r1);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cj: com.speedsoftware.rootexplorer.bn aN>;
+
+        $r3 = (com.speedsoftware.rootexplorer.cl) $r2;
+
+        $r4 = virtualinvoke $r3.<com.speedsoftware.rootexplorer.cl: java.lang.String G()>();
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cj: com.speedsoftware.rootexplorer.bn aN>;
+
+        $r5 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.bn: java.lang.String aU()>();
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.cj: com.speedsoftware.rootexplorer.bn aN>;
+
+        $r6 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.bn: java.lang.String H()>();
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.cj: void a(com.speedsoftware.rootexplorer.bn,java.lang.String,boolean,boolean,boolean,boolean,boolean,java.lang.String,java.lang.String,java.lang.String)>(null, $r1, 0, 0, 0, 1, 1, $r5, $r6, $r4);
+
+        return;
+    }
+}

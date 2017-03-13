@@ -1,0 +1,736 @@
+public final class a.b.b extends java.lang.Object
+{
+    static final java.lang.String a;
+    private static final java.lang.String f;
+    public java.lang.String b;
+    public java.lang.String c;
+    public int d;
+    int e;
+
+    static void <clinit>()
+    {
+        java.lang.String $r0;
+
+        $r0 = staticinvoke <a.a: java.lang.String a(java.lang.String)>("jcifs.netbios.scope");
+
+        <a.b.b: java.lang.String f> = $r0;
+
+        $r0 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("file.encoding");
+
+        $r0 = staticinvoke <a.a: java.lang.String b(java.lang.String,java.lang.String)>("jcifs.encoding", $r0);
+
+        <a.b.b: java.lang.String a> = $r0;
+
+        return;
+    }
+
+    void <init>()
+    {
+        a.b.b $r0;
+
+        $r0 := @this: a.b.b;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void <init>(java.lang.String, int, java.lang.String)
+    {
+        a.b.b $r0;
+        int $i0, $i1;
+        java.lang.String $r1, $r2;
+
+        $r0 := @this: a.b.b;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        if $i1 <= 15 goto label1;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>(0, 15);
+
+     label1:
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $r0.<a.b.b: java.lang.String b> = $r1;
+
+        $r0.<a.b.b: int d> = $i0;
+
+        if $r2 == null goto label3;
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        if $i0 <= 0 goto label3;
+
+     label2:
+        $r0.<a.b.b: java.lang.String c> = $r2;
+
+        $r0.<a.b.b: int e> = 0;
+
+        return;
+
+     label3:
+        $r2 = <a.b.b: java.lang.String f>;
+
+        goto label2;
+    }
+
+    private int b(byte[], int)
+    {
+        a.b.b $r0;
+        byte[] $r1, $r4;
+        int $i0, $i1, $i2;
+        java.lang.String $r2, $r3;
+        byte $b3;
+        java.io.UnsupportedEncodingException $r5;
+
+        $r0 := @this: a.b.b;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $r2 = $r0.<a.b.b: java.lang.String c>;
+
+        if $r2 != null goto label01;
+
+        $r1[$i0] = 0;
+
+        return 1;
+
+     label01:
+        $i1 = $i0 + 1;
+
+        $r1[$i0] = 46;
+
+        $r2 = $r0.<a.b.b: java.lang.String c>;
+
+        $r3 = <a.b.b: java.lang.String a>;
+
+     label02:
+        $r4 = virtualinvoke $r2.<java.lang.String: byte[] getBytes(java.lang.String)>($r3);
+
+     label03:
+        $r2 = $r0.<a.b.b: java.lang.String c>;
+
+     label04:
+        $i0 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r4, 0, $r1, $i1, $i0);
+
+     label05:
+        $r2 = $r0.<a.b.b: java.lang.String c>;
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        $i0 = $i1 + $i0;
+
+        $i1 = $i0 + 1;
+
+        $r1[$i0] = 0;
+
+        $i1 = $i1 + -2;
+
+        $r2 = $r0.<a.b.b: java.lang.String c>;
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        $i0 = $i1 - $i0;
+
+        $i2 = 0;
+
+     label06:
+        $b3 = $r1[$i1];
+
+        if $b3 != 46 goto label08;
+
+        $b3 = (byte) $i2;
+
+        $r1[$i1] = $b3;
+
+        $i2 = 0;
+
+     label07:
+        if $i1 > $i0 goto label10;
+
+        $r2 = $r0.<a.b.b: java.lang.String c>;
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        $i0 = $i0 + 2;
+
+        return $i0;
+
+     label08:
+        $i2 = $i2 + 1;
+
+        goto label07;
+
+     label09:
+        $r5 := @caughtexception;
+
+        goto label05;
+
+     label10:
+        $i1 = $i1 + -1;
+
+        goto label06;
+
+        catch java.io.UnsupportedEncodingException from label02 to label03 with label09;
+        catch java.io.UnsupportedEncodingException from label04 to label05 with label09;
+    }
+
+    private int c(byte[], int)
+    {
+        a.b.b $r0;
+        byte[] $r1;
+        int $i0, $i3;
+        java.lang.StringBuffer $r2, $r5;
+        byte $b1;
+        short $s2;
+        java.lang.String $r3, $r4;
+        java.io.UnsupportedEncodingException $r6;
+
+        $r0 := @this: a.b.b;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i0 = $i0 + 1;
+
+        $b1 = $r1[45];
+
+        $s2 = $b1 & 255;
+
+        if $s2 != 0 goto label01;
+
+        $r0.<a.b.b: java.lang.String c> = null;
+
+        return 1;
+
+     label01:
+        $r2 = new java.lang.StringBuffer;
+
+        $r3 = new java.lang.String;
+
+        $r4 = <a.b.b: java.lang.String a>;
+
+     label02:
+        specialinvoke $r3.<java.lang.String: void <init>(byte[],int,int,java.lang.String)>($r1, 46, $s2, $r4);
+
+        specialinvoke $r2.<java.lang.StringBuffer: void <init>(java.lang.String)>($r3);
+
+     label03:
+        $i3 = $s2 + 46;
+
+     label04:
+        $i0 = $i3 + 1;
+
+        $b1 = $r1[$i3];
+
+        $s2 = $b1 & 255;
+
+        if $s2 == 0 goto label09;
+
+     label05:
+        $r5 = virtualinvoke $r2.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(46);
+
+     label06:
+        $r3 = new java.lang.String;
+
+        $r4 = <a.b.b: java.lang.String a>;
+
+     label07:
+        specialinvoke $r3.<java.lang.String: void <init>(byte[],int,int,java.lang.String)>($r1, $i0, $s2, $r4);
+
+        virtualinvoke $r5.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($r3);
+
+     label08:
+        $i3 = $i0 + $s2;
+
+        goto label04;
+
+     label09:
+        $r3 = virtualinvoke $r2.<java.lang.StringBuffer: java.lang.String toString()>();
+
+     label10:
+        $r0.<a.b.b: java.lang.String c> = $r3;
+
+     label11:
+        $i0 = $i0 + -45;
+
+        return $i0;
+
+     label12:
+        $r6 := @caughtexception;
+
+        goto label11;
+
+        catch java.io.UnsupportedEncodingException from label02 to label03 with label12;
+        catch java.io.UnsupportedEncodingException from label05 to label06 with label12;
+        catch java.io.UnsupportedEncodingException from label07 to label08 with label12;
+        catch java.io.UnsupportedEncodingException from label09 to label10 with label12;
+    }
+
+    final int a(byte[])
+    {
+        a.b.b $r0;
+        byte[] $r1, $r2;
+        int $i0, $i1, $i2;
+        byte $b3, $b5;
+        short $s4;
+        java.lang.String $r3, $r4;
+        java.io.UnsupportedEncodingException $r5;
+
+        $r0 := @this: a.b.b;
+
+        $r1 := @parameter0: byte[];
+
+        $r2 = newarray (byte)[33];
+
+        $i0 = 0;
+
+        $i1 = 15;
+
+     label1:
+        if $i0 >= 15 goto label3;
+
+        $i2 = $i0 * 2;
+
+        $i2 = $i2 + 1;
+
+        $i2 = $i2 + 12;
+
+        $b3 = $r1[$i2];
+
+        $s4 = $b3 & 255;
+
+        $i2 = $s4 + -65;
+
+        $i2 = $i2 << 4;
+
+        $b3 = (byte) $i2;
+
+        $r2[$i0] = $b3;
+
+        $b3 = $r2[$i0];
+
+        $i2 = $i0 * 2;
+
+        $i2 = $i2 + 2;
+
+        $i2 = $i2 + 12;
+
+        $b5 = $r1[$i2];
+
+        $s4 = $b5 & 255;
+
+        $i2 = $s4 + -65;
+
+        $i2 = $i2 & 15;
+
+        $b5 = (byte) $i2;
+
+        $b3 = $b3 | $b5;
+
+        $b3 = (byte) $b3;
+
+        $r2[$i0] = $b3;
+
+        $b3 = $r2[$i0];
+
+        if $b3 == 32 goto label2;
+
+        $i1 = $i0 + 1;
+
+     label2:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label3:
+        $r3 = new java.lang.String;
+
+        $r4 = <a.b.b: java.lang.String a>;
+
+     label4:
+        specialinvoke $r3.<java.lang.String: void <init>(byte[],int,int,java.lang.String)>($r2, 0, $i1, $r4);
+
+     label5:
+        $r0.<a.b.b: java.lang.String b> = $r3;
+
+     label6:
+        $b3 = $r1[43];
+
+        $s4 = $b3 & 255;
+
+        $i0 = $s4 + -65;
+
+        $i0 = $i0 << 4;
+
+        $r0.<a.b.b: int d> = $i0;
+
+        $i0 = $r0.<a.b.b: int d>;
+
+        $b3 = $r1[44];
+
+        $s4 = $b3 & 255;
+
+        $i1 = $s4 + -65;
+
+        $i1 = $i1 & 15;
+
+        $i0 = $i0 | $i1;
+
+        $r0.<a.b.b: int d> = $i0;
+
+        $i0 = specialinvoke $r0.<a.b.b: int c(byte[],int)>($r1, 45);
+
+        $i0 = $i0 + 33;
+
+        return $i0;
+
+     label7:
+        $r5 := @caughtexception;
+
+        goto label6;
+
+        catch java.io.UnsupportedEncodingException from label4 to label5 with label7;
+    }
+
+    final int a(byte[], int)
+    {
+        a.b.b $r0;
+        byte[] $r1, $r4;
+        int $i0, $i1, $i2, $i5;
+        java.lang.String $r2, $r3;
+        byte $b3;
+        short $s4;
+        java.io.UnsupportedEncodingException $r5;
+
+        $r0 := @this: a.b.b;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $r1[$i0] = 32;
+
+        $r2 = $r0.<a.b.b: java.lang.String b>;
+
+        $r3 = <a.b.b: java.lang.String a>;
+
+     label1:
+        $r4 = virtualinvoke $r2.<java.lang.String: byte[] getBytes(java.lang.String)>($r3);
+
+     label2:
+        $i1 = 0;
+
+     label3:
+        $i2 = lengthof $r4;
+
+        if $i1 >= $i2 goto label4;
+
+        $i2 = $i1 * 2;
+
+        $i2 = $i2 + 1;
+
+        $i2 = $i2 + $i0;
+
+        $b3 = $r4[$i1];
+
+        $s4 = $b3 & 240;
+
+        $s4 = $s4 >> 4;
+
+        $i5 = $s4 + 65;
+
+        $b3 = (byte) $i5;
+
+        $r1[$i2] = $b3;
+
+        $i2 = $i1 * 2;
+
+        $i2 = $i2 + 2;
+
+        $i2 = $i2 + $i0;
+
+        $b3 = $r4[$i1];
+
+        $b3 = $b3 & 15;
+
+        $i5 = $b3 + 65;
+
+        $b3 = (byte) $i5;
+
+        $r1[$i2] = $b3;
+
+        $i1 = $i1 + 1;
+
+        goto label3;
+
+     label4:
+        if $i1 >= 15 goto label5;
+
+        $i2 = $i1 * 2;
+
+        $i2 = $i2 + 1;
+
+        $i2 = $i2 + $i0;
+
+        $r1[$i2] = 67;
+
+        $i2 = $i1 * 2;
+
+        $i2 = $i2 + 2;
+
+        $i2 = $i2 + $i0;
+
+        $r1[$i2] = 65;
+
+        $i1 = $i1 + 1;
+
+        goto label4;
+
+     label5:
+        $i1 = $i0 + 31;
+
+        $i2 = $r0.<a.b.b: int d>;
+
+        $i2 = $i2 & 240;
+
+        $i2 = $i2 >> 4;
+
+        $i2 = $i2 + 65;
+
+        $b3 = (byte) $i2;
+
+        $r1[$i1] = $b3;
+
+        $i1 = $i0 + 31;
+
+        $i1 = $i1 + 1;
+
+        $i2 = $r0.<a.b.b: int d>;
+
+        $i2 = $i2 & 15;
+
+        $i2 = $i2 + 65;
+
+        $b3 = (byte) $i2;
+
+        $r1[$i1] = $b3;
+
+     label6:
+        $i0 = $i0 + 33;
+
+        $i0 = specialinvoke $r0.<a.b.b: int b(byte[],int)>($r1, $i0);
+
+        $i0 = $i0 + 33;
+
+        return $i0;
+
+     label7:
+        $r5 := @caughtexception;
+
+        goto label6;
+
+        catch java.io.UnsupportedEncodingException from label1 to label2 with label7;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        a.b.b $r0, $r2;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.lang.String $r3, $r4;
+        int $i0, $i1;
+
+        $r0 := @this: a.b.b;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $z0 = $r1 instanceof a.b.b;
+
+        if $z0 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        $r2 = (a.b.b) $r1;
+
+        $r3 = $r0.<a.b.b: java.lang.String c>;
+
+        if $r3 != null goto label2;
+
+        $r3 = $r2.<a.b.b: java.lang.String c>;
+
+        if $r3 != null goto label2;
+
+        $r3 = $r0.<a.b.b: java.lang.String b>;
+
+        $r4 = $r2.<a.b.b: java.lang.String b>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r4);
+
+        if $z0 == 0 goto label3;
+
+        $i0 = $r0.<a.b.b: int d>;
+
+        $i1 = $r2.<a.b.b: int d>;
+
+        if $i0 != $i1 goto label3;
+
+        return 1;
+
+     label2:
+        $r3 = $r0.<a.b.b: java.lang.String b>;
+
+        $r4 = $r2.<a.b.b: java.lang.String b>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r4);
+
+        if $z0 == 0 goto label3;
+
+        $i0 = $r0.<a.b.b: int d>;
+
+        $i1 = $r2.<a.b.b: int d>;
+
+        if $i0 != $i1 goto label3;
+
+        $r3 = $r0.<a.b.b: java.lang.String c>;
+
+        $r4 = $r2.<a.b.b: java.lang.String c>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r4);
+
+        if $z0 == 0 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    public final int hashCode()
+    {
+        a.b.b $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+
+        $r0 := @this: a.b.b;
+
+        $r1 = $r0.<a.b.b: java.lang.String b>;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+        $i1 = $r0.<a.b.b: int d>;
+
+        $i1 = $i1 * 65599;
+
+        $i0 = $i0 + $i1;
+
+        $i1 = $r0.<a.b.b: int e>;
+
+        $i1 = $i1 * 65599;
+
+        $i0 = $i0 + $i1;
+
+        $r1 = $r0.<a.b.b: java.lang.String c>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<a.b.b: java.lang.String c>;
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        if $i1 == 0 goto label1;
+
+        $r1 = $r0.<a.b.b: java.lang.String c>;
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+        $i0 = $i0 + $i1;
+
+     label1:
+        return $i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.b.b $r0;
+        java.lang.StringBuffer $r1, $r3;
+        java.lang.String $r2;
+        int $i0;
+        char $c1;
+        char[] $r4;
+
+        $r0 := @this: a.b.b;
+
+        $r1 = new java.lang.StringBuffer;
+
+        specialinvoke $r1.<java.lang.StringBuffer: void <init>()>();
+
+        $r2 = $r0.<a.b.b: java.lang.String b>;
+
+        if $r2 != null goto label3;
+
+        $r2 = "null";
+
+     label1:
+        $r3 = virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($r2);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>("<");
+
+        $i0 = $r0.<a.b.b: int d>;
+
+        $r2 = staticinvoke <a.e.d: java.lang.String a(int,int)>($i0, 2);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($r2);
+
+        virtualinvoke $r3.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>(">");
+
+        $r2 = $r0.<a.b.b: java.lang.String c>;
+
+        if $r2 == null goto label2;
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>(".");
+
+        $r2 = $r0.<a.b.b: java.lang.String c>;
+
+        virtualinvoke $r3.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($r2);
+
+     label2:
+        $r2 = virtualinvoke $r1.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        return $r2;
+
+     label3:
+        $c1 = virtualinvoke $r2.<java.lang.String: char charAt(int)>(0);
+
+        if $c1 != 1 goto label1;
+
+        $r4 = virtualinvoke $r2.<java.lang.String: char[] toCharArray()>();
+
+        $r4[0] = 46;
+
+        $r4[1] = 46;
+
+        $r4[14] = 46;
+
+        $r2 = new java.lang.String;
+
+        specialinvoke $r2.<java.lang.String: void <init>(char[])>($r4);
+
+        goto label1;
+    }
+}

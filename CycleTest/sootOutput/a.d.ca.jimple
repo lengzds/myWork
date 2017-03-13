@@ -1,0 +1,204 @@
+final class a.d.ca extends a.d.at
+{
+    private int S;
+    a.d.j a;
+
+    void <init>(int)
+    {
+        a.d.ca $r0;
+        int $i0;
+
+        $r0 := @this: a.d.ca;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<a.d.at: void <init>()>();
+
+        $r0.<a.d.ca: int S> = $i0;
+
+        $r0.<a.d.ca: byte L> = 5;
+
+        return;
+    }
+
+    final int a(byte[], int)
+    {
+        a.d.ca $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.ca;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 2;
+    }
+
+    final int a(byte[], int, int)
+    {
+        a.d.ca $r0;
+        byte[] $r1;
+        int $i0, $i1, $i3;
+        a.d.cc $r2;
+        boolean $z0, $z1;
+        a.d.cb $r3;
+        long $l2;
+        byte $b4;
+        short $s5;
+
+        $r0 := @this: a.d.ca;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $z0 = 1;
+
+        $i1 = $r0.<a.d.ca: int S>;
+
+        lookupswitch($i1)
+        {
+            case 257: goto label2;
+            case 258: goto label3;
+            default: goto label1;
+        };
+
+     label1:
+        return 0;
+
+     label2:
+        $r3 = new a.d.cb;
+
+        specialinvoke $r3.<a.d.cb: void <init>(a.d.ca)>($r0);
+
+        $l2 = staticinvoke <a.d.ca: long g(byte[],int)>($r1, $i0);
+
+        $r3.<a.d.cb: long a> = $l2;
+
+        $i1 = $i0 + 8;
+
+        $l2 = staticinvoke <a.d.ca: long g(byte[],int)>($r1, $i1);
+
+        $r3.<a.d.cb: long b> = $l2;
+
+        $i1 = $i1 + 8;
+
+        $l2 = staticinvoke <a.d.ca: long g(byte[],int)>($r1, $i1);
+
+        $r3.<a.d.cb: long c> = $l2;
+
+        $i1 = $i1 + 8;
+
+        $l2 = staticinvoke <a.d.ca: long g(byte[],int)>($r1, $i1);
+
+        $r3.<a.d.cb: long d> = $l2;
+
+        $i1 = $i1 + 8;
+
+        $i3 = staticinvoke <a.d.ca: int d(byte[],int)>($r1, $i1);
+
+        $r3.<a.d.cb: int e> = $i3;
+
+        $i1 = $i1 + 2;
+
+        $r0.<a.d.ca: a.d.j a> = $r3;
+
+        $i0 = $i1 - $i0;
+
+        return $i0;
+
+     label3:
+        $r2 = new a.d.cc;
+
+        specialinvoke $r2.<a.d.cc: void <init>(a.d.ca)>($r0);
+
+        $l2 = staticinvoke <a.d.ca: long f(byte[],int)>($r1, $i0);
+
+        $r2.<a.d.cc: long a> = $l2;
+
+        $i1 = $i0 + 8;
+
+        $l2 = staticinvoke <a.d.ca: long f(byte[],int)>($r1, $i1);
+
+        $r2.<a.d.cc: long b> = $l2;
+
+        $i1 = $i1 + 8;
+
+        $i3 = staticinvoke <a.d.ca: int e(byte[],int)>($r1, $i1);
+
+        $r2.<a.d.cc: int c> = $i3;
+
+        $i3 = $i1 + 4;
+
+        $i1 = $i3 + 1;
+
+        $b4 = $r1[$i3];
+
+        $s5 = $b4 & 255;
+
+        if $s5 <= 0 goto label6;
+
+        $z1 = 1;
+
+     label4:
+        $r2.<a.d.cc: boolean d> = $z1;
+
+        $i3 = $i1 + 1;
+
+        $b4 = $r1[$i1];
+
+        $s5 = $b4 & 255;
+
+        if $s5 <= 0 goto label7;
+
+     label5:
+        $r2.<a.d.cc: boolean e> = $z0;
+
+        $r0.<a.d.ca: a.d.j a> = $r2;
+
+        $i0 = $i3 - $i0;
+
+        return $i0;
+
+     label6:
+        $z1 = 0;
+
+        goto label4;
+
+     label7:
+        $z0 = 0;
+
+        goto label5;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.ca $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+
+        $r0 := @this: a.d.ca;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("Trans2QueryPathInformationResponse[");
+
+        $r3 = specialinvoke $r0.<a.d.at: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

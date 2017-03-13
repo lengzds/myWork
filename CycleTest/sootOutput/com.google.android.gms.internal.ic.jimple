@@ -1,0 +1,358 @@
+public class com.google.android.gms.internal.ic extends java.lang.Object implements com.google.android.gms.common.internal.safeparcel.SafeParcelable
+{
+    public static final com.google.android.gms.internal.id CREATOR;
+    private final int a;
+    private final java.util.HashMap b;
+    private final java.util.ArrayList c;
+    private final java.lang.String d;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.id $r0;
+
+        $r0 = new com.google.android.gms.internal.id;
+
+        specialinvoke $r0.<com.google.android.gms.internal.id: void <init>()>();
+
+        <com.google.android.gms.internal.ic: com.google.android.gms.internal.id CREATOR> = $r0;
+
+        return;
+    }
+
+    void <init>(int, java.util.ArrayList, java.lang.String)
+    {
+        com.google.android.gms.internal.ic $r0;
+        int $i0;
+        java.util.ArrayList $r1;
+        java.lang.String $r2;
+        java.util.HashMap $r3;
+        java.lang.Object $r4;
+
+        $r0 := @this: com.google.android.gms.internal.ic;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: java.util.ArrayList;
+
+        $r2 := @parameter2: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.internal.ic: int a> = $i0;
+
+        $r0.<com.google.android.gms.internal.ic: java.util.ArrayList c> = null;
+
+        $r3 = staticinvoke <com.google.android.gms.internal.ic: java.util.HashMap b(java.util.ArrayList)>($r1);
+
+        $r0.<com.google.android.gms.internal.ic: java.util.HashMap b> = $r3;
+
+        $r4 = staticinvoke <com.google.android.gms.internal.hn: java.lang.Object f(java.lang.Object)>($r2);
+
+        $r2 = (java.lang.String) $r4;
+
+        $r0.<com.google.android.gms.internal.ic: java.lang.String d> = $r2;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.ic: void fO()>();
+
+        return;
+    }
+
+    private static java.util.HashMap b(java.util.ArrayList)
+    {
+        java.util.ArrayList $r0;
+        java.util.HashMap $r1, $r5;
+        java.lang.String $r2;
+        int $i0, $i1;
+        java.lang.Object $r3;
+        com.google.android.gms.internal.ic$a $r4;
+
+        $r0 := @parameter0: java.util.ArrayList;
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<java.util.HashMap: void <init>()>();
+
+        $i0 = virtualinvoke $r0.<java.util.ArrayList: int size()>();
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label2;
+
+        $r3 = virtualinvoke $r0.<java.util.ArrayList: java.lang.Object get(int)>($i1);
+
+        $r4 = (com.google.android.gms.internal.ic$a) $r3;
+
+        $r2 = $r4.<com.google.android.gms.internal.ic$a: java.lang.String b>;
+
+        $r5 = virtualinvoke $r4.<com.google.android.gms.internal.ic$a: java.util.HashMap a()>();
+
+        virtualinvoke $r1.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r2, $r5);
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label2:
+        return $r1;
+    }
+
+    final int a()
+    {
+        com.google.android.gms.internal.ic $r0;
+        int i0;
+
+        $r0 := @this: com.google.android.gms.internal.ic;
+
+        i0 = $r0.<com.google.android.gms.internal.ic: int a>;
+
+        return i0;
+    }
+
+    public java.util.HashMap aJ(java.lang.String)
+    {
+        com.google.android.gms.internal.ic $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        java.util.HashMap $r3;
+
+        $r0 := @this: com.google.android.gms.internal.ic;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = $r0.<com.google.android.gms.internal.ic: java.util.HashMap b>;
+
+        $r2 = virtualinvoke $r3.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r3 = (java.util.HashMap) $r2;
+
+        return $r3;
+    }
+
+    final java.util.ArrayList b()
+    {
+        com.google.android.gms.internal.ic $r0;
+        java.util.ArrayList $r1;
+        com.google.android.gms.internal.ic$a $r2;
+        java.util.HashMap $r3;
+        java.util.Set $r4;
+        java.util.Iterator $r5;
+        boolean $z0;
+        java.lang.Object $r6;
+        java.lang.String $r7;
+
+        $r0 := @this: com.google.android.gms.internal.ic;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $r3 = $r0.<com.google.android.gms.internal.ic: java.util.HashMap b>;
+
+        $r4 = virtualinvoke $r3.<java.util.HashMap: java.util.Set keySet()>();
+
+        $r5 = interfaceinvoke $r4.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r6 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r7 = (java.lang.String) $r6;
+
+        $r2 = new com.google.android.gms.internal.ic$a;
+
+        $r3 = $r0.<com.google.android.gms.internal.ic: java.util.HashMap b>;
+
+        $r6 = virtualinvoke $r3.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r7);
+
+        $r3 = (java.util.HashMap) $r6;
+
+        specialinvoke $r2.<com.google.android.gms.internal.ic$a: void <init>(java.lang.String,java.util.HashMap)>($r7, $r3);
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r2);
+
+        goto label1;
+
+     label2:
+        return $r1;
+    }
+
+    public int describeContents()
+    {
+        com.google.android.gms.internal.ic $r0;
+        com.google.android.gms.internal.id $r1;
+
+        $r0 := @this: com.google.android.gms.internal.ic;
+
+        $r1 = <com.google.android.gms.internal.ic: com.google.android.gms.internal.id CREATOR>;
+
+        return 0;
+    }
+
+    public void fO()
+    {
+        com.google.android.gms.internal.ic $r0;
+        java.util.HashMap $r1;
+        java.util.Set $r2;
+        java.util.Iterator $r3, $r6;
+        boolean $z0;
+        java.lang.Object $r4;
+        java.lang.String $r5;
+        com.google.android.gms.internal.hz$a $r7;
+
+        $r0 := @this: com.google.android.gms.internal.ic;
+
+        $r1 = $r0.<com.google.android.gms.internal.ic: java.util.HashMap b>;
+
+        $r2 = virtualinvoke $r1.<java.util.HashMap: java.util.Set keySet()>();
+
+        $r3 = interfaceinvoke $r2.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r4 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (java.lang.String) $r4;
+
+        $r1 = $r0.<com.google.android.gms.internal.ic: java.util.HashMap b>;
+
+        $r4 = virtualinvoke $r1.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r5);
+
+        $r1 = (java.util.HashMap) $r4;
+
+        $r2 = virtualinvoke $r1.<java.util.HashMap: java.util.Set keySet()>();
+
+        $r6 = interfaceinvoke $r2.<java.util.Set: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke $r6.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label1;
+
+        $r4 = interfaceinvoke $r6.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (java.lang.String) $r4;
+
+        $r4 = virtualinvoke $r1.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r5);
+
+        $r7 = (com.google.android.gms.internal.hz$a) $r4;
+
+        virtualinvoke $r7.<com.google.android.gms.internal.hz$a: void a(com.google.android.gms.internal.ic)>($r0);
+
+        goto label2;
+
+     label3:
+        return;
+    }
+
+    public java.lang.String fR()
+    {
+        com.google.android.gms.internal.ic $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.android.gms.internal.ic;
+
+        r1 = $r0.<com.google.android.gms.internal.ic: java.lang.String d>;
+
+        return r1;
+    }
+
+    public java.lang.String toString()
+    {
+        com.google.android.gms.internal.ic $r0;
+        java.lang.StringBuilder $r1, $r7;
+        java.util.HashMap $r2;
+        java.util.Set $r3;
+        java.util.Iterator $r4, $r8;
+        boolean $z0;
+        java.lang.Object $r5;
+        java.lang.String $r6;
+
+        $r0 := @this: com.google.android.gms.internal.ic;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = $r0.<com.google.android.gms.internal.ic: java.util.HashMap b>;
+
+        $r3 = virtualinvoke $r2.<java.util.HashMap: java.util.Set keySet()>();
+
+        $r4 = interfaceinvoke $r3.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (java.lang.String) $r5;
+
+        $r7 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(":\n");
+
+        $r2 = $r0.<com.google.android.gms.internal.ic: java.util.HashMap b>;
+
+        $r5 = virtualinvoke $r2.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r6);
+
+        $r2 = (java.util.HashMap) $r5;
+
+        $r3 = virtualinvoke $r2.<java.util.HashMap: java.util.Set keySet()>();
+
+        $r8 = interfaceinvoke $r3.<java.util.Set: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke $r8.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label1;
+
+        $r5 = interfaceinvoke $r8.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (java.lang.String) $r5;
+
+        $r7 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  ");
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $r5 = virtualinvoke $r2.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r6);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        goto label2;
+
+     label3:
+        $r6 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r6;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.internal.ic $r0;
+        android.os.Parcel $r1;
+        int $i0;
+        com.google.android.gms.internal.id $r2;
+
+        $r0 := @this: com.google.android.gms.internal.ic;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        $r2 = <com.google.android.gms.internal.ic: com.google.android.gms.internal.id CREATOR>;
+
+        staticinvoke <com.google.android.gms.internal.id: void a(com.google.android.gms.internal.ic,android.os.Parcel)>($r0, $r1);
+
+        return;
+    }
+}

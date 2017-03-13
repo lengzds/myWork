@@ -1,0 +1,224 @@
+public abstract class com.fasterxml.jackson.core.JsonParser extends java.lang.Object implements java.io.Closeable
+{
+    protected int _features;
+
+    protected void <init>()
+    {
+        com.fasterxml.jackson.core.JsonParser $r0;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonParser;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    protected void <init>(int)
+    {
+        com.fasterxml.jackson.core.JsonParser $r0;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonParser;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.core.JsonParser: int _features> = $i0;
+
+        return;
+    }
+
+    protected com.fasterxml.jackson.core.JsonParseException _constructError(java.lang.String)
+    {
+        com.fasterxml.jackson.core.JsonParser $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.core.JsonParseException $r2;
+        com.fasterxml.jackson.core.JsonLocation $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonParser;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new com.fasterxml.jackson.core.JsonParseException;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonLocation getCurrentLocation()>();
+
+        specialinvoke $r2.<com.fasterxml.jackson.core.JsonParseException: void <init>(java.lang.String,com.fasterxml.jackson.core.JsonLocation)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public abstract void clearCurrentToken();
+
+    public abstract void close();
+
+    public abstract java.math.BigInteger getBigIntegerValue();
+
+    public abstract byte[] getBinaryValue(com.fasterxml.jackson.core.Base64Variant);
+
+    public byte getByteValue()
+    {
+        com.fasterxml.jackson.core.JsonParser $r0;
+        int $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        com.fasterxml.jackson.core.JsonParseException $r3;
+        byte $b1;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonParser;
+
+        $i0 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonParser: int getIntValue()>();
+
+        if $i0 < -128 goto label1;
+
+        if $i0 <= 255 goto label2;
+
+     label1:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("Numeric value (");
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonParser: java.lang.String getText()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") out of range of Java byte");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonParseException _constructError(java.lang.String)>($r2);
+
+        throw $r3;
+
+     label2:
+        $b1 = (byte) $i0;
+
+        return $b1;
+    }
+
+    public abstract com.fasterxml.jackson.core.ObjectCodec getCodec();
+
+    public abstract com.fasterxml.jackson.core.JsonLocation getCurrentLocation();
+
+    public abstract java.lang.String getCurrentName();
+
+    public abstract com.fasterxml.jackson.core.JsonToken getCurrentToken();
+
+    public abstract java.math.BigDecimal getDecimalValue();
+
+    public abstract double getDoubleValue();
+
+    public abstract java.lang.Object getEmbeddedObject();
+
+    public abstract float getFloatValue();
+
+    public abstract int getIntValue();
+
+    public abstract long getLongValue();
+
+    public abstract com.fasterxml.jackson.core.JsonParser$NumberType getNumberType();
+
+    public abstract java.lang.Number getNumberValue();
+
+    public short getShortValue()
+    {
+        com.fasterxml.jackson.core.JsonParser $r0;
+        int $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        com.fasterxml.jackson.core.JsonParseException $r3;
+        short $s1;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonParser;
+
+        $i0 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonParser: int getIntValue()>();
+
+        if $i0 < -32768 goto label1;
+
+        if $i0 <= 32767 goto label2;
+
+     label1:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("Numeric value (");
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonParser: java.lang.String getText()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") out of range of Java short");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonParseException _constructError(java.lang.String)>($r2);
+
+        throw $r3;
+
+     label2:
+        $s1 = (short) $i0;
+
+        return $s1;
+    }
+
+    public abstract java.lang.String getText();
+
+    public abstract char[] getTextCharacters();
+
+    public abstract int getTextLength();
+
+    public abstract int getTextOffset();
+
+    public abstract com.fasterxml.jackson.core.JsonLocation getTokenLocation();
+
+    public abstract boolean hasTextCharacters();
+
+    public boolean isEnabled(com.fasterxml.jackson.core.JsonParser$Feature)
+    {
+        com.fasterxml.jackson.core.JsonParser $r0;
+        com.fasterxml.jackson.core.JsonParser$Feature $r1;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonParser;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser$Feature;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.JsonParser: int _features>;
+
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser$Feature: int getMask()>();
+
+        $i0 = $i1 & $i0;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isExpectedStartArrayToken()
+    {
+        com.fasterxml.jackson.core.JsonParser $r0;
+        com.fasterxml.jackson.core.JsonToken $r1, $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken START_ARRAY>;
+
+        if $r2 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public abstract com.fasterxml.jackson.core.JsonToken nextToken();
+
+    public abstract com.fasterxml.jackson.core.JsonToken nextValue();
+
+    public abstract com.fasterxml.jackson.core.JsonParser skipChildren();
+}

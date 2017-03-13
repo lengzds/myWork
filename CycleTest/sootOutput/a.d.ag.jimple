@@ -1,0 +1,136 @@
+final class a.d.ag extends a.d.u
+{
+
+    void <init>()
+    {
+        a.d.ag $r0;
+        int $i0;
+
+        $r0 := @this: a.d.ag;
+
+        specialinvoke $r0.<a.d.u: void <init>()>();
+
+        $r0.<a.d.ag: byte g> = 114;
+
+        $i0 = <a.d.ag: int an>;
+
+        $r0.<a.d.ag: int m> = $i0;
+
+        return;
+    }
+
+    final int i(byte[], int)
+    {
+        a.d.ag $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.ag;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int j(byte[], int)
+    {
+        a.d.ag $r0;
+        byte[] $r1, $r2;
+        int $i0, $i1;
+        java.lang.String $r3;
+        java.io.UnsupportedEncodingException $r4;
+
+        $r0 := @this: a.d.ag;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $r3 = "\u0002NT LM 0.12\u0000";
+
+     label1:
+        $r2 = virtualinvoke $r3.<java.lang.String: byte[] getBytes(java.lang.String)>("ASCII");
+
+     label2:
+        $i1 = lengthof $r2;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r2, 0, $r1, $i0, $i1);
+
+        $i0 = lengthof $r2;
+
+        return $i0;
+
+     label3:
+        $r4 := @caughtexception;
+
+        return 0;
+
+        catch java.io.UnsupportedEncodingException from label1 to label2 with label3;
+    }
+
+    final int k(byte[], int)
+    {
+        a.d.ag $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.ag;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int l(byte[], int)
+    {
+        a.d.ag $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.ag;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.ag $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+        int $i0;
+
+        $r0 := @this: a.d.ag;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("SmbComNegotiate[");
+
+        $r3 = specialinvoke $r0.<a.d.u: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",wordCount=");
+
+        $i0 = $r0.<a.d.ag: int r>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",dialects=NT LM 0.12]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

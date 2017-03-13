@@ -1,0 +1,117 @@
+public class com.fasterxml.jackson.databind.ser.impl.UnknownSerializer extends com.fasterxml.jackson.databind.ser.std.StdSerializer
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.ser.impl.UnknownSerializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.UnknownSerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdSerializer: void <init>(java.lang.Class)>(class "java/lang/Object");
+
+        return;
+    }
+
+    protected void failForEmpty(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.ser.impl.UnknownSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.databind.JsonMappingException $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.Class $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.UnknownSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = new com.fasterxml.jackson.databind.JsonMappingException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("No serializer found for class ");
+
+        $r4 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r5 = virtualinvoke $r4.<java.lang.Class: java.lang.String getName()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationConfig.SerializationFeature.FAIL_ON_EMPTY_BEANS) )");
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.JsonMappingException: void <init>(java.lang.String)>($r5);
+
+        throw $r2;
+    }
+
+    public void serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.impl.UnknownSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        boolean $z0;
+        com.fasterxml.jackson.databind.SerializationFeature $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.UnknownSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = <com.fasterxml.jackson.databind.SerializationFeature: com.fasterxml.jackson.databind.SerializationFeature FAIL_ON_EMPTY_BEANS>;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializerProvider: boolean isEnabled(com.fasterxml.jackson.databind.SerializationFeature)>($r4);
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.impl.UnknownSerializer: void failForEmpty(java.lang.Object)>($r1);
+
+     label1:
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeStartObject()>();
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeEndObject()>();
+
+        return;
+    }
+
+    public final void serializeWithType(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.ser.impl.UnknownSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r4;
+        boolean $z0;
+        com.fasterxml.jackson.databind.SerializationFeature $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.UnknownSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        $r5 = <com.fasterxml.jackson.databind.SerializationFeature: com.fasterxml.jackson.databind.SerializationFeature FAIL_ON_EMPTY_BEANS>;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializerProvider: boolean isEnabled(com.fasterxml.jackson.databind.SerializationFeature)>($r5);
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.impl.UnknownSerializer: void failForEmpty(java.lang.Object)>($r1);
+
+     label1:
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypePrefixForObject(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypeSuffixForObject(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        return;
+    }
+}

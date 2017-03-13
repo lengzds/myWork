@@ -1,0 +1,278 @@
+public final class com.google.android.gms.internal.hc$h extends com.google.android.gms.internal.hc$b
+{
+    public final int b;
+    public final android.os.Bundle c;
+    public final android.os.IBinder d;
+    final com.google.android.gms.internal.hc e;
+
+    public void <init>(com.google.android.gms.internal.hc, int, android.os.IBinder, android.os.Bundle)
+    {
+        com.google.android.gms.internal.hc$h $r0;
+        com.google.android.gms.internal.hc $r1;
+        int $i0;
+        android.os.IBinder $r2;
+        android.os.Bundle $r3;
+        java.lang.Boolean $r4;
+
+        $r0 := @this: com.google.android.gms.internal.hc$h;
+
+        $r1 := @parameter0: com.google.android.gms.internal.hc;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: android.os.IBinder;
+
+        $r3 := @parameter3: android.os.Bundle;
+
+        $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e> = $r1;
+
+        $r4 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        specialinvoke $r0.<com.google.android.gms.internal.hc$b: void <init>(com.google.android.gms.internal.hc,java.lang.Object)>($r1, $r4);
+
+        $r0.<com.google.android.gms.internal.hc$h: int b> = $i0;
+
+        $r0.<com.google.android.gms.internal.hc$h: android.os.IBinder d> = $r2;
+
+        $r0.<com.google.android.gms.internal.hc$h: android.os.Bundle c> = $r3;
+
+        return;
+    }
+
+    protected final void a()
+    {
+        com.google.android.gms.internal.hc$h $r0;
+
+        $r0 := @this: com.google.android.gms.internal.hc$h;
+
+        return;
+    }
+
+    protected final void a(java.lang.Object)
+    {
+        com.google.android.gms.internal.hc$h $r0;
+        java.lang.Object $r1;
+        java.lang.Boolean $r2;
+        com.google.android.gms.internal.hc $r3, $r15;
+        int $i0;
+        android.os.Bundle $r4;
+        android.os.Parcelable $r5;
+        android.app.PendingIntent $r6;
+        com.google.android.gms.internal.hc$f $r7;
+        android.content.Context $r8;
+        com.google.android.gms.internal.he $r9;
+        java.lang.String $r10, $r14;
+        com.google.android.gms.internal.hd $r11;
+        com.google.android.gms.common.ConnectionResult $r12;
+        android.os.IBinder $r13;
+        boolean $z0;
+        android.os.IInterface $r16;
+        android.os.RemoteException $r17;
+        java.lang.IllegalStateException $r18;
+
+        $r0 := @this: com.google.android.gms.internal.hc$h;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.lang.Boolean) $r1;
+
+        if $r2 != null goto label01;
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        staticinvoke <com.google.android.gms.internal.hc: void a(com.google.android.gms.internal.hc,int)>($r3, 1);
+
+        return;
+
+     label01:
+        $i0 = $r0.<com.google.android.gms.internal.hc$h: int b>;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label05;
+            case 10: goto label20;
+            default: goto label02;
+        };
+
+     label02:
+        $r4 = $r0.<com.google.android.gms.internal.hc$h: android.os.Bundle c>;
+
+        if $r4 == null goto label21;
+
+        $r4 = $r0.<com.google.android.gms.internal.hc$h: android.os.Bundle c>;
+
+        $r5 = virtualinvoke $r4.<android.os.Bundle: android.os.Parcelable getParcelable(java.lang.String)>("pendingIntent");
+
+        $r6 = (android.app.PendingIntent) $r5;
+
+     label03:
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        $r7 = staticinvoke <com.google.android.gms.internal.hc: com.google.android.gms.internal.hc$f d(com.google.android.gms.internal.hc)>($r3);
+
+        if $r7 == null goto label04;
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        $r8 = staticinvoke <com.google.android.gms.internal.hc: android.content.Context e(com.google.android.gms.internal.hc)>($r3);
+
+        $r9 = staticinvoke <com.google.android.gms.internal.he: com.google.android.gms.internal.he B(android.content.Context)>($r8);
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        $r10 = virtualinvoke $r3.<com.google.android.gms.internal.hc: java.lang.String a()>();
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        $r7 = staticinvoke <com.google.android.gms.internal.hc: com.google.android.gms.internal.hc$f d(com.google.android.gms.internal.hc)>($r3);
+
+        virtualinvoke $r9.<com.google.android.gms.internal.he: void b(java.lang.String,com.google.android.gms.internal.hc$f)>($r10, $r7);
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        staticinvoke <com.google.android.gms.internal.hc: com.google.android.gms.internal.hc$f f(com.google.android.gms.internal.hc)>($r3);
+
+     label04:
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        staticinvoke <com.google.android.gms.internal.hc: void a(com.google.android.gms.internal.hc,int)>($r3, 1);
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        staticinvoke <com.google.android.gms.internal.hc: android.os.IInterface a(com.google.android.gms.internal.hc,android.os.IInterface)>($r3, null);
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        $r11 = staticinvoke <com.google.android.gms.internal.hc: com.google.android.gms.internal.hd a(com.google.android.gms.internal.hc)>($r3);
+
+        $r12 = new com.google.android.gms.common.ConnectionResult;
+
+        $i0 = $r0.<com.google.android.gms.internal.hc$h: int b>;
+
+        specialinvoke $r12.<com.google.android.gms.common.ConnectionResult: void <init>(int,android.app.PendingIntent)>($i0, $r6);
+
+        virtualinvoke $r11.<com.google.android.gms.internal.hd: void a(com.google.android.gms.common.ConnectionResult)>($r12);
+
+        return;
+
+     label05:
+        $r13 = $r0.<com.google.android.gms.internal.hc$h: android.os.IBinder d>;
+
+     label06:
+        $r10 = interfaceinvoke $r13.<android.os.IBinder: java.lang.String getInterfaceDescriptor()>();
+
+     label07:
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+     label08:
+        $r14 = virtualinvoke $r3.<com.google.android.gms.internal.hc: java.lang.String b()>();
+
+        $z0 = virtualinvoke $r14.<java.lang.String: boolean equals(java.lang.Object)>($r10);
+
+     label09:
+        if $z0 == 0 goto label19;
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        $r15 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        $r13 = $r0.<com.google.android.gms.internal.hc$h: android.os.IBinder d>;
+
+     label10:
+        $r16 = virtualinvoke $r15.<com.google.android.gms.internal.hc: android.os.IInterface a(android.os.IBinder)>($r13);
+
+        staticinvoke <com.google.android.gms.internal.hc: android.os.IInterface a(com.google.android.gms.internal.hc,android.os.IInterface)>($r3, $r16);
+
+     label11:
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+     label12:
+        $r16 = staticinvoke <com.google.android.gms.internal.hc: android.os.IInterface c(com.google.android.gms.internal.hc)>($r3);
+
+     label13:
+        if $r16 == null goto label19;
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+     label14:
+        staticinvoke <com.google.android.gms.internal.hc: void a(com.google.android.gms.internal.hc,int)>($r3, 3);
+
+     label15:
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+     label16:
+        $r11 = staticinvoke <com.google.android.gms.internal.hc: com.google.android.gms.internal.hd a(com.google.android.gms.internal.hc)>($r3);
+
+        virtualinvoke $r11.<com.google.android.gms.internal.hd: void a()>();
+
+     label17:
+        return;
+
+     label18:
+        $r17 := @caughtexception;
+
+     label19:
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        $r8 = staticinvoke <com.google.android.gms.internal.hc: android.content.Context e(com.google.android.gms.internal.hc)>($r3);
+
+        $r9 = staticinvoke <com.google.android.gms.internal.he: com.google.android.gms.internal.he B(android.content.Context)>($r8);
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        $r10 = virtualinvoke $r3.<com.google.android.gms.internal.hc: java.lang.String a()>();
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        $r7 = staticinvoke <com.google.android.gms.internal.hc: com.google.android.gms.internal.hc$f d(com.google.android.gms.internal.hc)>($r3);
+
+        virtualinvoke $r9.<com.google.android.gms.internal.he: void b(java.lang.String,com.google.android.gms.internal.hc$f)>($r10, $r7);
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        staticinvoke <com.google.android.gms.internal.hc: com.google.android.gms.internal.hc$f f(com.google.android.gms.internal.hc)>($r3);
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        staticinvoke <com.google.android.gms.internal.hc: void a(com.google.android.gms.internal.hc,int)>($r3, 1);
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        staticinvoke <com.google.android.gms.internal.hc: android.os.IInterface a(com.google.android.gms.internal.hc,android.os.IInterface)>($r3, null);
+
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        $r11 = staticinvoke <com.google.android.gms.internal.hc: com.google.android.gms.internal.hd a(com.google.android.gms.internal.hc)>($r3);
+
+        $r12 = new com.google.android.gms.common.ConnectionResult;
+
+        specialinvoke $r12.<com.google.android.gms.common.ConnectionResult: void <init>(int,android.app.PendingIntent)>(8, null);
+
+        virtualinvoke $r11.<com.google.android.gms.internal.hd: void a(com.google.android.gms.common.ConnectionResult)>($r12);
+
+        return;
+
+     label20:
+        $r3 = $r0.<com.google.android.gms.internal.hc$h: com.google.android.gms.internal.hc e>;
+
+        staticinvoke <com.google.android.gms.internal.hc: void a(com.google.android.gms.internal.hc,int)>($r3, 1);
+
+        $r18 = new java.lang.IllegalStateException;
+
+        specialinvoke $r18.<java.lang.IllegalStateException: void <init>(java.lang.String)>("A fatal developer error has occurred. Check the logs for further information.");
+
+        throw $r18;
+
+     label21:
+        $r6 = null;
+
+        goto label03;
+
+        catch android.os.RemoteException from label06 to label07 with label18;
+        catch android.os.RemoteException from label08 to label09 with label18;
+        catch android.os.RemoteException from label10 to label11 with label18;
+        catch android.os.RemoteException from label12 to label13 with label18;
+        catch android.os.RemoteException from label14 to label15 with label18;
+        catch android.os.RemoteException from label16 to label17 with label18;
+    }
+}

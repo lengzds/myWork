@@ -1,0 +1,54 @@
+public abstract class a.d.r extends java.lang.Object
+{
+    private static a.d.r a;
+    private java.lang.String b;
+    private a.d.w c;
+
+    public static a.d.t a(java.lang.String, a.d.w)
+    {
+        java.lang.String $r0;
+        a.d.w $r1;
+        a.d.r $r2, $r3;
+        java.lang.Throwable $r4;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: a.d.w;
+
+        $r2 = <a.d.r: a.d.r a>;
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = <a.d.r: a.d.r a>;
+
+        entermonitor $r2;
+
+     label2:
+        $r3 = <a.d.r: a.d.r a>;
+
+        $r3.<a.d.r: java.lang.String b> = $r0;
+
+        $r3 = <a.d.r: a.d.r a>;
+
+        $r3.<a.d.r: a.d.w c> = $r1;
+
+        $r3 = <a.d.r: a.d.r a>;
+
+        exitmonitor $r2;
+
+     label3:
+        return null;
+
+     label4:
+        $r4 := @caughtexception;
+
+        exitmonitor $r2;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label2 to label3 with label4;
+    }
+}

@@ -1,0 +1,118 @@
+public class com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer extends com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer implements com.fasterxml.jackson.databind.deser.ContextualDeserializer
+{
+    protected final com.fasterxml.jackson.databind.JavaType _referencedType;
+    protected final com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer;
+
+    public void <init>(com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.JsonDeserializer)>($r1, null);
+
+        return;
+    }
+
+    public void <init>(com.fasterxml.jackson.databind.JavaType, com.fasterxml.jackson.databind.JsonDeserializer)
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        com.fasterxml.jackson.databind.JsonDeserializer $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer: void <init>(java.lang.Class)>(class "java/util/concurrent/atomic/AtomicReference");
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer: com.fasterxml.jackson.databind.JavaType _referencedType> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer> = $r2;
+
+        return;
+    }
+
+    public com.fasterxml.jackson.databind.JsonDeserializer createContextual(com.fasterxml.jackson.databind.DeserializationContext, com.fasterxml.jackson.databind.BeanProperty)
+    {
+        com.fasterxml.jackson.databind.DeserializationContext $r0;
+        com.fasterxml.jackson.databind.BeanProperty $r1;
+        com.fasterxml.jackson.databind.JavaType $r2, $r6;
+        com.fasterxml.jackson.databind.JsonDeserializer $r3;
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer $r4, $r5;
+
+        $r4 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r3 = $r4.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer>;
+
+        if $r3 == null goto label1;
+
+        return $r4;
+
+     label1:
+        $r5 = new com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer;
+
+        $r2 = $r4.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer: com.fasterxml.jackson.databind.JavaType _referencedType>;
+
+        $r6 = $r4.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer: com.fasterxml.jackson.databind.JavaType _referencedType>;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonDeserializer findContextualValueDeserializer(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.BeanProperty)>($r6, $r1);
+
+        specialinvoke $r5.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.JsonDeserializer)>($r2, $r3);
+
+        return $r5;
+    }
+
+    public volatile java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.util.concurrent.atomic.AtomicReference $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer: java.util.concurrent.atomic.AtomicReference deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public java.util.concurrent.atomic.AtomicReference deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.util.concurrent.atomic.AtomicReference $r3;
+        java.lang.Object $r4;
+        com.fasterxml.jackson.databind.JsonDeserializer $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = new java.util.concurrent.atomic.AtomicReference;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.std.JdkDeserializers$AtomicReferenceDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer>;
+
+        $r4 = virtualinvoke $r5.<com.fasterxml.jackson.databind.JsonDeserializer: java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        specialinvoke $r3.<java.util.concurrent.atomic.AtomicReference: void <init>(java.lang.Object)>($r4);
+
+        return $r3;
+    }
+}

@@ -1,0 +1,413 @@
+public final class com.google.android.gms.games.GameRef extends com.google.android.gms.common.data.d implements com.google.android.gms.games.Game
+{
+
+    public void <init>(com.google.android.gms.common.data.DataHolder, int)
+    {
+        com.google.android.gms.games.GameRef $r0;
+        com.google.android.gms.common.data.DataHolder $r1;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 := @parameter0: com.google.android.gms.common.data.DataHolder;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r0.<com.google.android.gms.common.data.d: void <init>(com.google.android.gms.common.data.DataHolder,int)>($r1, $i0);
+
+        return;
+    }
+
+    public final boolean areSnapshotsEnabled()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: int b(java.lang.String)>("snapshots_enabled");
+
+        if $i0 <= 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final int describeContents()
+    {
+        com.google.android.gms.games.GameRef $r0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        return 0;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.games.GameRef $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $z0 = staticinvoke <com.google.android.gms.games.GameEntity: boolean a(com.google.android.gms.games.Game,java.lang.Object)>($r0, $r1);
+
+        return $z0;
+    }
+
+    public final com.google.android.gms.games.Game freeze()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        com.google.android.gms.games.GameEntity $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = new com.google.android.gms.games.GameEntity;
+
+        specialinvoke $r1.<com.google.android.gms.games.GameEntity: void <init>(com.google.android.gms.games.Game)>($r0);
+
+        return $r1;
+    }
+
+    public final volatile java.lang.Object freeze()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        com.google.android.gms.games.Game $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: com.google.android.gms.games.Game freeze()>();
+
+        return $r1;
+    }
+
+    public final boolean gH()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        boolean $z0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $z0 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: boolean c(java.lang.String)>("play_enabled_game");
+
+        return $z0;
+    }
+
+    public final boolean gI()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        boolean $z0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $z0 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: boolean c(java.lang.String)>("identity_sharing_confirmed");
+
+        return $z0;
+    }
+
+    public final boolean gJ()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: int b(java.lang.String)>("installed");
+
+        if $i0 <= 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final java.lang.String gK()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: java.lang.String d(java.lang.String)>("package_name");
+
+        return $r1;
+    }
+
+    public final int gL()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: int b(java.lang.String)>("gameplay_acl_status");
+
+        return $i0;
+    }
+
+    public final int getAchievementTotalCount()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: int b(java.lang.String)>("achievement_total_count");
+
+        return $i0;
+    }
+
+    public final java.lang.String getApplicationId()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: java.lang.String d(java.lang.String)>("external_game_id");
+
+        return $r1;
+    }
+
+    public final java.lang.String getDescription()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: java.lang.String d(java.lang.String)>("game_description");
+
+        return $r1;
+    }
+
+    public final java.lang.String getDeveloperName()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: java.lang.String d(java.lang.String)>("developer_name");
+
+        return $r1;
+    }
+
+    public final java.lang.String getDisplayName()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: java.lang.String d(java.lang.String)>("display_name");
+
+        return $r1;
+    }
+
+    public final android.net.Uri getFeaturedImageUri()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        android.net.Uri $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: android.net.Uri g(java.lang.String)>("featured_image_uri");
+
+        return $r1;
+    }
+
+    public final java.lang.String getFeaturedImageUrl()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: java.lang.String d(java.lang.String)>("featured_image_url");
+
+        return $r1;
+    }
+
+    public final android.net.Uri getHiResImageUri()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        android.net.Uri $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: android.net.Uri g(java.lang.String)>("game_hi_res_image_uri");
+
+        return $r1;
+    }
+
+    public final java.lang.String getHiResImageUrl()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: java.lang.String d(java.lang.String)>("game_hi_res_image_url");
+
+        return $r1;
+    }
+
+    public final android.net.Uri getIconImageUri()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        android.net.Uri $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: android.net.Uri g(java.lang.String)>("game_icon_image_uri");
+
+        return $r1;
+    }
+
+    public final java.lang.String getIconImageUrl()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: java.lang.String d(java.lang.String)>("game_icon_image_url");
+
+        return $r1;
+    }
+
+    public final int getLeaderboardCount()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: int b(java.lang.String)>("leaderboard_count");
+
+        return $i0;
+    }
+
+    public final java.lang.String getPrimaryCategory()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: java.lang.String d(java.lang.String)>("primary_category");
+
+        return $r1;
+    }
+
+    public final java.lang.String getSecondaryCategory()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: java.lang.String d(java.lang.String)>("secondary_category");
+
+        return $r1;
+    }
+
+    public final int hashCode()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $i0 = staticinvoke <com.google.android.gms.games.GameEntity: int a(com.google.android.gms.games.Game)>($r0);
+
+        return $i0;
+    }
+
+    public final boolean isMuted()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        boolean $z0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $z0 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: boolean c(java.lang.String)>("muted");
+
+        return $z0;
+    }
+
+    public final boolean isRealTimeMultiplayerEnabled()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: int b(java.lang.String)>("real_time_support");
+
+        if $i0 <= 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final boolean isTurnBasedMultiplayerEnabled()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: int b(java.lang.String)>("turn_based_support");
+
+        if $i0 <= 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.games.GameRef $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 = staticinvoke <com.google.android.gms.games.GameEntity: java.lang.String b(com.google.android.gms.games.Game)>($r0);
+
+        return $r1;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.games.GameRef $r0;
+        android.os.Parcel $r1;
+        int $i0;
+        com.google.android.gms.games.Game $r2;
+        com.google.android.gms.games.GameEntity $r3;
+
+        $r0 := @this: com.google.android.gms.games.GameRef;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        $r2 = virtualinvoke $r0.<com.google.android.gms.games.GameRef: com.google.android.gms.games.Game freeze()>();
+
+        $r3 = (com.google.android.gms.games.GameEntity) $r2;
+
+        virtualinvoke $r3.<com.google.android.gms.games.GameEntity: void writeToParcel(android.os.Parcel,int)>($r1, $i0);
+
+        return;
+    }
+}

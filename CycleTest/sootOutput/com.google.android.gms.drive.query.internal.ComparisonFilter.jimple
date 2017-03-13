@@ -1,0 +1,78 @@
+public class com.google.android.gms.drive.query.internal.ComparisonFilter extends java.lang.Object implements com.google.android.gms.common.internal.safeparcel.SafeParcelable, com.google.android.gms.drive.query.Filter
+{
+    public static final com.google.android.gms.drive.query.internal.a CREATOR;
+    final com.google.android.gms.drive.query.internal.Operator a;
+    final com.google.android.gms.drive.metadata.internal.MetadataBundle b;
+    final int c;
+    final com.google.android.gms.drive.metadata.MetadataField d;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.drive.query.internal.a $r0;
+
+        $r0 = new com.google.android.gms.drive.query.internal.a;
+
+        specialinvoke $r0.<com.google.android.gms.drive.query.internal.a: void <init>()>();
+
+        <com.google.android.gms.drive.query.internal.ComparisonFilter: com.google.android.gms.drive.query.internal.a CREATOR> = $r0;
+
+        return;
+    }
+
+    void <init>(int, com.google.android.gms.drive.query.internal.Operator, com.google.android.gms.drive.metadata.internal.MetadataBundle)
+    {
+        com.google.android.gms.drive.query.internal.ComparisonFilter $r0;
+        int $i0;
+        com.google.android.gms.drive.query.internal.Operator $r1;
+        com.google.android.gms.drive.metadata.internal.MetadataBundle $r2;
+        com.google.android.gms.drive.metadata.MetadataField $r3;
+
+        $r0 := @this: com.google.android.gms.drive.query.internal.ComparisonFilter;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: com.google.android.gms.drive.query.internal.Operator;
+
+        $r2 := @parameter2: com.google.android.gms.drive.metadata.internal.MetadataBundle;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.drive.query.internal.ComparisonFilter: int c> = $i0;
+
+        $r0.<com.google.android.gms.drive.query.internal.ComparisonFilter: com.google.android.gms.drive.query.internal.Operator a> = $r1;
+
+        $r0.<com.google.android.gms.drive.query.internal.ComparisonFilter: com.google.android.gms.drive.metadata.internal.MetadataBundle b> = $r2;
+
+        $r3 = staticinvoke <com.google.android.gms.drive.query.internal.e: com.google.android.gms.drive.metadata.MetadataField a(com.google.android.gms.drive.metadata.internal.MetadataBundle)>($r2);
+
+        $r0.<com.google.android.gms.drive.query.internal.ComparisonFilter: com.google.android.gms.drive.metadata.MetadataField d> = $r3;
+
+        return;
+    }
+
+    public int describeContents()
+    {
+        com.google.android.gms.drive.query.internal.ComparisonFilter $r0;
+
+        $r0 := @this: com.google.android.gms.drive.query.internal.ComparisonFilter;
+
+        return 0;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.drive.query.internal.ComparisonFilter $r0;
+        android.os.Parcel $r1;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.drive.query.internal.ComparisonFilter;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $i0 := @parameter1: int;
+
+        staticinvoke <com.google.android.gms.drive.query.internal.a: void a(com.google.android.gms.drive.query.internal.ComparisonFilter,android.os.Parcel,int)>($r0, $r1, $i0);
+
+        return;
+    }
+}

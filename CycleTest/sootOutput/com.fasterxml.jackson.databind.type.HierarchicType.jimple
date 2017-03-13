@@ -1,0 +1,262 @@
+public class com.fasterxml.jackson.databind.type.HierarchicType extends java.lang.Object
+{
+    protected final java.lang.reflect.Type _actualType;
+    protected final java.lang.reflect.ParameterizedType _genericType;
+    protected final java.lang.Class _rawClass;
+    protected com.fasterxml.jackson.databind.type.HierarchicType _subType;
+    protected com.fasterxml.jackson.databind.type.HierarchicType _superType;
+
+    public void <init>(java.lang.reflect.Type)
+    {
+        com.fasterxml.jackson.databind.type.HierarchicType $r0;
+        java.lang.reflect.Type $r1;
+        boolean $z0;
+        java.lang.Class $r2;
+        java.lang.reflect.ParameterizedType $r3;
+        java.lang.IllegalArgumentException $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r1 := @parameter0: java.lang.reflect.Type;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.Type _actualType> = $r1;
+
+        $z0 = $r1 instanceof java.lang.Class;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = (java.lang.Class) $r1;
+
+        $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.Class _rawClass> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.ParameterizedType _genericType> = null;
+
+        return;
+
+     label1:
+        $z0 = $r1 instanceof java.lang.reflect.ParameterizedType;
+
+        if $z0 == 0 goto label2;
+
+        $r3 = (java.lang.reflect.ParameterizedType) $r1;
+
+        $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.ParameterizedType _genericType> = $r3;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.ParameterizedType _genericType>;
+
+        $r1 = interfaceinvoke $r3.<java.lang.reflect.ParameterizedType: java.lang.reflect.Type getRawType()>();
+
+        $r2 = (java.lang.Class) $r1;
+
+        $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.Class _rawClass> = $r2;
+
+        return;
+
+     label2:
+        $r4 = new java.lang.IllegalArgumentException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Type ");
+
+        $r2 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r6 = virtualinvoke $r2.<java.lang.Class: java.lang.String getName()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" can not be used to construct HierarchicType");
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r6);
+
+        throw $r4;
+    }
+
+    private void <init>(java.lang.reflect.Type, java.lang.Class, java.lang.reflect.ParameterizedType, com.fasterxml.jackson.databind.type.HierarchicType, com.fasterxml.jackson.databind.type.HierarchicType)
+    {
+        com.fasterxml.jackson.databind.type.HierarchicType $r0, $r4, $r5;
+        java.lang.reflect.Type $r1;
+        java.lang.Class $r2;
+        java.lang.reflect.ParameterizedType $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r1 := @parameter0: java.lang.reflect.Type;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r3 := @parameter2: java.lang.reflect.ParameterizedType;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r5 := @parameter4: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.Type _actualType> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.Class _rawClass> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.ParameterizedType _genericType> = $r3;
+
+        $r0.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType _superType> = $r4;
+
+        $r0.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType _subType> = $r5;
+
+        return;
+    }
+
+    public final java.lang.reflect.ParameterizedType asGeneric()
+    {
+        com.fasterxml.jackson.databind.type.HierarchicType $r0;
+        java.lang.reflect.ParameterizedType r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.ParameterizedType _genericType>;
+
+        return r1;
+    }
+
+    public com.fasterxml.jackson.databind.type.HierarchicType deepCloneWithoutSubtype()
+    {
+        com.fasterxml.jackson.databind.type.HierarchicType $r0, $r4, $r5;
+        java.lang.reflect.Type $r1;
+        java.lang.Class $r2;
+        java.lang.reflect.ParameterizedType $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType _superType>;
+
+        if $r4 != null goto label2;
+
+        $r4 = null;
+
+     label1:
+        $r5 = new com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.Type _actualType>;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.Class _rawClass>;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.ParameterizedType _genericType>;
+
+        specialinvoke $r5.<com.fasterxml.jackson.databind.type.HierarchicType: void <init>(java.lang.reflect.Type,java.lang.Class,java.lang.reflect.ParameterizedType,com.fasterxml.jackson.databind.type.HierarchicType,com.fasterxml.jackson.databind.type.HierarchicType)>($r1, $r2, $r3, $r4, null);
+
+        if $r4 == null goto label3;
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.type.HierarchicType: void setSubType(com.fasterxml.jackson.databind.type.HierarchicType)>($r5);
+
+        return $r5;
+
+     label2:
+        $r4 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType _superType>;
+
+        $r4 = virtualinvoke $r4.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType deepCloneWithoutSubtype()>();
+
+        goto label1;
+
+     label3:
+        return $r5;
+    }
+
+    public final java.lang.Class getRawClass()
+    {
+        com.fasterxml.jackson.databind.type.HierarchicType $r0;
+        java.lang.Class r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.Class _rawClass>;
+
+        return r1;
+    }
+
+    public final com.fasterxml.jackson.databind.type.HierarchicType getSuperType()
+    {
+        com.fasterxml.jackson.databind.type.HierarchicType $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r0 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType _superType>;
+
+        return $r0;
+    }
+
+    public final boolean isGeneric()
+    {
+        com.fasterxml.jackson.databind.type.HierarchicType $r0;
+        java.lang.reflect.ParameterizedType $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.ParameterizedType _genericType>;
+
+        if $r1 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void setSubType(com.fasterxml.jackson.databind.type.HierarchicType)
+    {
+        com.fasterxml.jackson.databind.type.HierarchicType $r0, $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r0.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType _subType> = $r1;
+
+        return;
+    }
+
+    public void setSuperType(com.fasterxml.jackson.databind.type.HierarchicType)
+    {
+        com.fasterxml.jackson.databind.type.HierarchicType $r0, $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r0.<com.fasterxml.jackson.databind.type.HierarchicType: com.fasterxml.jackson.databind.type.HierarchicType _superType> = $r1;
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        com.fasterxml.jackson.databind.type.HierarchicType $r0;
+        java.lang.reflect.ParameterizedType $r1;
+        java.lang.String $r2;
+        java.lang.Class $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.type.HierarchicType;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.ParameterizedType _genericType>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.reflect.ParameterizedType _genericType>;
+
+        $r2 = virtualinvoke $r1.<java.lang.Object: java.lang.String toString()>();
+
+        return $r2;
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.databind.type.HierarchicType: java.lang.Class _rawClass>;
+
+        $r2 = virtualinvoke $r3.<java.lang.Class: java.lang.String getName()>();
+
+        return $r2;
+    }
+}

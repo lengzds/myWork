@@ -1,0 +1,266 @@
+final class com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser extends com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$Base
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$Base: void <init>(java.lang.Class)>(class "[B");
+
+        return;
+    }
+
+    private final byte[] handleNonArray(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.core.JsonToken $r3, $r4;
+        com.fasterxml.jackson.databind.DeserializationFeature $r5;
+        boolean $z0;
+        java.lang.String $r6;
+        int $i0;
+        java.lang.Class $r7;
+        com.fasterxml.jackson.databind.JsonMappingException $r8;
+        byte $b1;
+        byte[] $r9;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        if $r3 != $r4 goto label1;
+
+        $r5 = <com.fasterxml.jackson.databind.DeserializationFeature: com.fasterxml.jackson.databind.DeserializationFeature ACCEPT_EMPTY_STRING_AS_NULL_OBJECT>;
+
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)>($r5);
+
+        if $z0 == 0 goto label1;
+
+        $r6 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.String getText()>();
+
+        $i0 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+        if $i0 != 0 goto label1;
+
+        return null;
+
+     label1:
+        $r5 = <com.fasterxml.jackson.databind.DeserializationFeature: com.fasterxml.jackson.databind.DeserializationFeature ACCEPT_SINGLE_VALUE_AS_ARRAY>;
+
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)>($r5);
+
+        if $z0 != 0 goto label2;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser: java.lang.Class _valueClass>;
+
+        $r8 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.Class)>($r7);
+
+        throw $r8;
+
+     label2:
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_INT>;
+
+        if $r3 == $r4 goto label3;
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_FLOAT>;
+
+        if $r3 != $r4 goto label5;
+
+     label3:
+        $b1 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: byte getByteValue()>();
+
+     label4:
+        $r9 = newarray (byte)[1];
+
+        $r9[0] = $b1;
+
+        return $r9;
+
+     label5:
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NULL>;
+
+        if $r3 == $r4 goto label6;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser: java.lang.Class _valueClass>;
+
+        $r7 = virtualinvoke $r7.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        $r8 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.Class)>($r7);
+
+        throw $r8;
+
+     label6:
+        $b1 = 0;
+
+        goto label4;
+    }
+
+    public final volatile java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        byte[] $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser: byte[] deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public final byte[] deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.core.JsonToken $r3, $r4;
+        com.fasterxml.jackson.core.Base64Variant $r5;
+        byte[] $r6;
+        java.lang.Object $r7;
+        boolean $z0;
+        com.fasterxml.jackson.databind.util.ArrayBuilders $r8;
+        com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder $r9;
+        int $i0, $i2;
+        byte $b1;
+        java.lang.Class $r10;
+        com.fasterxml.jackson.databind.JsonMappingException $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        if $r3 != $r4 goto label01;
+
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.core.Base64Variant getBase64Variant()>();
+
+        $r6 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: byte[] getBinaryValue(com.fasterxml.jackson.core.Base64Variant)>($r5);
+
+        return $r6;
+
+     label01:
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_EMBEDDED_OBJECT>;
+
+        if $r3 != $r4 goto label03;
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.Object getEmbeddedObject()>();
+
+        if $r7 != null goto label02;
+
+        return null;
+
+     label02:
+        $z0 = $r7 instanceof byte[];
+
+        if $z0 == 0 goto label03;
+
+        $r6 = (byte[]) $r7;
+
+        return $r6;
+
+     label03:
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: boolean isExpectedStartArrayToken()>();
+
+        if $z0 != 0 goto label04;
+
+        $r6 = specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser: byte[] handleNonArray(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r6;
+
+     label04:
+        $r8 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.util.ArrayBuilders getArrayBuilders()>();
+
+        $r9 = virtualinvoke $r8.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder getByteBuilder()>();
+
+        $r7 = virtualinvoke $r9.<com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder: java.lang.Object resetAndStart()>();
+
+        $i0 = 0;
+
+        $r6 = (byte[]) $r7;
+
+     label05:
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken END_ARRAY>;
+
+        if $r3 == $r4 goto label11;
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_INT>;
+
+        if $r3 == $r4 goto label06;
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NUMBER_FLOAT>;
+
+        if $r3 != $r4 goto label09;
+
+     label06:
+        $b1 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: byte getByteValue()>();
+
+     label07:
+        $i2 = lengthof $r6;
+
+        if $i0 < $i2 goto label12;
+
+        $r7 = virtualinvoke $r9.<com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder: java.lang.Object appendCompletedChunk(java.lang.Object,int)>($r6, $i0);
+
+        $r6 = (byte[]) $r7;
+
+        $i0 = 0;
+
+     label08:
+        $r6[$i0] = $b1;
+
+        $i0 = $i0 + 1;
+
+        goto label05;
+
+     label09:
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NULL>;
+
+        if $r3 == $r4 goto label10;
+
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser: java.lang.Class _valueClass>;
+
+        $r10 = virtualinvoke $r10.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        $r11 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.Class)>($r10);
+
+        throw $r11;
+
+     label10:
+        $b1 = 0;
+
+        goto label07;
+
+     label11:
+        $r7 = virtualinvoke $r9.<com.fasterxml.jackson.databind.util.ArrayBuilders$ByteBuilder: java.lang.Object completeAndClearBuffer(java.lang.Object,int)>($r6, $i0);
+
+        $r6 = (byte[]) $r7;
+
+        return $r6;
+
+     label12:
+        goto label08;
+    }
+}

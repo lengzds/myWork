@@ -1,0 +1,50 @@
+public abstract class com.fasterxml.jackson.databind.node.ValueNode extends com.fasterxml.jackson.databind.node.BaseJsonNode
+{
+
+    protected void <init>()
+    {
+        com.fasterxml.jackson.databind.node.ValueNode $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.ValueNode;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.node.BaseJsonNode: void <init>()>();
+
+        return;
+    }
+
+    public void serializeWithType(com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.jsontype.TypeSerializer)
+    {
+        com.fasterxml.jackson.databind.node.ValueNode $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeSerializer $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.ValueNode;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypePrefixForScalar(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r0, $r1);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.node.ValueNode: void serialize(com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r1, $r2);
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.jsontype.TypeSerializer: void writeTypeSuffixForScalar(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r0, $r1);
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        com.fasterxml.jackson.databind.node.ValueNode $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.node.ValueNode;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.node.ValueNode: java.lang.String asText()>();
+
+        return $r1;
+    }
+}

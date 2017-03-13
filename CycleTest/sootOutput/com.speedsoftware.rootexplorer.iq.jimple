@@ -1,0 +1,93 @@
+final class com.speedsoftware.rootexplorer.iq extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.speedsoftware.rootexplorer.ge a;
+    private final com.speedsoftware.rootexplorer.bn b;
+
+    void <init>(com.speedsoftware.rootexplorer.ge, com.speedsoftware.rootexplorer.bn)
+    {
+        com.speedsoftware.rootexplorer.iq $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+        com.speedsoftware.rootexplorer.bn $r2;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.iq;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r2 := @parameter1: com.speedsoftware.rootexplorer.bn;
+
+        $r0.<com.speedsoftware.rootexplorer.iq: com.speedsoftware.rootexplorer.ge a> = $r1;
+
+        $r0.<com.speedsoftware.rootexplorer.iq: com.speedsoftware.rootexplorer.bn b> = $r2;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void onClick(android.content.DialogInterface, int)
+    {
+        com.speedsoftware.rootexplorer.iq $r0;
+        android.content.DialogInterface $r1;
+        int $i0;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r3, $r8;
+        android.app.Activity $r4;
+        byte[] $r5;
+        com.speedsoftware.rootexplorer.bn $r6;
+        com.speedsoftware.rootexplorer.ge $r7;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.iq;
+
+        $r1 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        $r2 = new java.lang.StringBuilder;
+
+        $r3 = new java.lang.String;
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        if $r4 != null goto label2;
+
+        $i0 = 0;
+
+     label1:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] bd(int)>($i0);
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r3);
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.iq: com.speedsoftware.rootexplorer.bn b>;
+
+        $r3 = virtualinvoke $r6.<com.speedsoftware.rootexplorer.bn: java.lang.String N()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("...");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r7 = $r0.<com.speedsoftware.rootexplorer.iq: com.speedsoftware.rootexplorer.ge a>;
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.iq: com.speedsoftware.rootexplorer.bn b>;
+
+        virtualinvoke $r7.<com.speedsoftware.rootexplorer.ge: void b(com.speedsoftware.rootexplorer.bn,java.lang.String)>($r6, $r3);
+
+        return;
+
+     label2:
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r8 = virtualinvoke $r4.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label1;
+    }
+}

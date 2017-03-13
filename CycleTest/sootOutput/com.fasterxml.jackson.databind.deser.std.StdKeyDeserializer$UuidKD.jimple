@@ -1,0 +1,32 @@
+final class com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$UuidKD extends com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer
+{
+
+    protected void <init>()
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$UuidKD $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$UuidKD;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer: void <init>(java.lang.Class)>(class "java/util/UUID");
+
+        return;
+    }
+
+    public final java.lang.Object _parse(java.lang.String, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$UuidKD $r0;
+        java.lang.String $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.util.UUID $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer$UuidKD;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = staticinvoke <java.util.UUID: java.util.UUID fromString(java.lang.String)>($r1);
+
+        return $r3;
+    }
+}

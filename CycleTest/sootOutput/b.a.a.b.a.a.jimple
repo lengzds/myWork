@@ -1,0 +1,502 @@
+public final class b.a.a.b.a.a extends java.lang.Object
+{
+    private static final java.lang.ThreadLocal a;
+    private final int b;
+    private int c;
+
+    static void <clinit>()
+    {
+        java.lang.ThreadLocal $r0;
+
+        $r0 = new java.lang.ThreadLocal;
+
+        specialinvoke $r0.<java.lang.ThreadLocal: void <init>()>();
+
+        <b.a.a.b.a.a: java.lang.ThreadLocal a> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        b.a.a.b.a.a $r0;
+
+        $r0 := @this: b.a.a.b.a.a;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<b.a.a.b.a.a: int c> = 0;
+
+        $r0.<b.a.a.b.a.a: int b> = 37;
+
+        $r0.<b.a.a.b.a.a: int c> = 17;
+
+        return;
+    }
+
+    private b.a.a.b.a.a a(long)
+    {
+        b.a.a.b.a.a $r0;
+        long $l0, $l3;
+        int $i1, $i2;
+
+        $r0 := @this: b.a.a.b.a.a;
+
+        $l0 := @parameter0: long;
+
+        $i1 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i2 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i1 = $i1 * $i2;
+
+        $l3 = $l0 >> 32;
+
+        $l0 = $l3 ^ $l0;
+
+        $i2 = (int) $l0;
+
+        $i1 = $i1 + $i2;
+
+        $r0.<b.a.a.b.a.a: int c> = $i1;
+
+        return $r0;
+    }
+
+    public final int a()
+    {
+        b.a.a.b.a.a $r0;
+        int i0;
+
+        $r0 := @this: b.a.a.b.a.a;
+
+        i0 = $r0.<b.a.a.b.a.a: int c>;
+
+        return i0;
+    }
+
+    public final b.a.a.b.a.a a(java.lang.Object)
+    {
+        b.a.a.b.a.a $r0;
+        int $i0, $i1, $i3, $i4;
+        java.lang.Object $r1;
+        java.lang.Class $r2;
+        boolean $z0;
+        long[] $r3;
+        long $l2;
+        int[] $r4;
+        short[] $r5;
+        short $s5;
+        char[] $r6;
+        char $c6;
+        byte[] $r7;
+        byte $b7;
+        double[] $r8;
+        double $d0;
+        float[] $r9;
+        float $f0;
+        boolean[] $r10;
+        java.lang.Object[] $r11;
+
+        $r0 := @this: b.a.a.b.a.a;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $i1 = 0;
+
+        if $r1 != null goto label01;
+
+        $i1 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i0 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i1 = $i1 * $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i1;
+
+        return $r0;
+
+     label01:
+        $r2 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label22;
+
+        $z0 = $r1 instanceof long[];
+
+        if $z0 == 0 goto label03;
+
+        $r3 = (long[]) $r1;
+
+        if $r3 != null goto label02;
+
+        $i1 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i0 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i1 = $i1 * $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i1;
+
+        return $r0;
+
+     label02:
+        $i0 = lengthof $r3;
+
+        if $i1 >= $i0 goto label23;
+
+        $l2 = $r3[$i1];
+
+        specialinvoke $r0.<b.a.a.b.a.a: b.a.a.b.a.a a(long)>($l2);
+
+        $i1 = $i1 + 1;
+
+        goto label02;
+
+     label03:
+        $z0 = $r1 instanceof int[];
+
+        if $z0 == 0 goto label05;
+
+        $r4 = (int[]) $r1;
+
+        if $r4 != null goto label04;
+
+        $i1 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i0 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i1 = $i1 * $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i1;
+
+        return $r0;
+
+     label04:
+        $i0 = lengthof $r4;
+
+        if $i1 >= $i0 goto label23;
+
+        $i0 = $r4[$i1];
+
+        $i3 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i4 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i3 = $i3 * $i4;
+
+        $i0 = $i0 + $i3;
+
+        $r0.<b.a.a.b.a.a: int c> = $i0;
+
+        $i1 = $i1 + 1;
+
+        goto label04;
+
+     label05:
+        $z0 = $r1 instanceof short[];
+
+        if $z0 == 0 goto label07;
+
+        $r5 = (short[]) $r1;
+
+        if $r5 != null goto label06;
+
+        $i1 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i0 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i1 = $i1 * $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i1;
+
+        return $r0;
+
+     label06:
+        $i0 = lengthof $r5;
+
+        if $i1 >= $i0 goto label23;
+
+        $s5 = $r5[$i1];
+
+        $i0 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i3 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i0 = $i0 * $i3;
+
+        $i0 = $s5 + $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i0;
+
+        $i1 = $i1 + 1;
+
+        goto label06;
+
+     label07:
+        $z0 = $r1 instanceof char[];
+
+        if $z0 == 0 goto label09;
+
+        $r6 = (char[]) $r1;
+
+        if $r6 != null goto label08;
+
+        $i1 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i0 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i1 = $i1 * $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i1;
+
+        return $r0;
+
+     label08:
+        $i0 = lengthof $r6;
+
+        if $i1 >= $i0 goto label23;
+
+        $c6 = $r6[$i1];
+
+        $i0 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i3 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i0 = $i0 * $i3;
+
+        $i0 = $c6 + $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i0;
+
+        $i1 = $i1 + 1;
+
+        goto label08;
+
+     label09:
+        $z0 = $r1 instanceof byte[];
+
+        if $z0 == 0 goto label11;
+
+        $r7 = (byte[]) $r1;
+
+        if $r7 != null goto label10;
+
+        $i1 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i0 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i1 = $i1 * $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i1;
+
+        return $r0;
+
+     label10:
+        $i0 = lengthof $r7;
+
+        if $i1 >= $i0 goto label23;
+
+        $b7 = $r7[$i1];
+
+        $i0 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i3 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i0 = $i0 * $i3;
+
+        $i0 = $b7 + $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i0;
+
+        $i1 = $i1 + 1;
+
+        goto label10;
+
+     label11:
+        $z0 = $r1 instanceof double[];
+
+        if $z0 == 0 goto label13;
+
+        $r8 = (double[]) $r1;
+
+        if $r8 != null goto label12;
+
+        $i1 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i0 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i1 = $i1 * $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i1;
+
+        return $r0;
+
+     label12:
+        $i0 = lengthof $r8;
+
+        if $i1 >= $i0 goto label23;
+
+        $d0 = $r8[$i1];
+
+        $l2 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>($d0);
+
+        specialinvoke $r0.<b.a.a.b.a.a: b.a.a.b.a.a a(long)>($l2);
+
+        $i1 = $i1 + 1;
+
+        goto label12;
+
+     label13:
+        $z0 = $r1 instanceof float[];
+
+        if $z0 == 0 goto label15;
+
+        $r9 = (float[]) $r1;
+
+        if $r9 != null goto label14;
+
+        $i1 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i0 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i1 = $i1 * $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i1;
+
+        return $r0;
+
+     label14:
+        $i0 = lengthof $r9;
+
+        if $i1 >= $i0 goto label23;
+
+        $f0 = $r9[$i1];
+
+        $i0 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i3 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i0 = $i0 * $i3;
+
+        $i3 = staticinvoke <java.lang.Float: int floatToIntBits(float)>($f0);
+
+        $i0 = $i3 + $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i0;
+
+        $i1 = $i1 + 1;
+
+        goto label14;
+
+     label15:
+        $z0 = $r1 instanceof boolean[];
+
+        if $z0 == 0 goto label20;
+
+        $r10 = (boolean[]) $r1;
+
+        if $r10 != null goto label16;
+
+        $i1 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i0 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i1 = $i1 * $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i1;
+
+        return $r0;
+
+     label16:
+        $i1 = 0;
+
+     label17:
+        $i0 = lengthof $r10;
+
+        if $i1 >= $i0 goto label23;
+
+        $z0 = $r10[$i1];
+
+        $i3 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i0 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i0 = $i3 * $i0;
+
+        if $z0 == 0 goto label19;
+
+        $b7 = 0;
+
+     label18:
+        $i0 = $b7 + $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i0;
+
+        $i1 = $i1 + 1;
+
+        goto label17;
+
+     label19:
+        $b7 = 1;
+
+        goto label18;
+
+     label20:
+        $r11 = (java.lang.Object[]) $r1;
+
+        if $r11 != null goto label21;
+
+        $i1 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i0 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i1 = $i1 * $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i1;
+
+        return $r0;
+
+     label21:
+        $i0 = lengthof $r11;
+
+        if $i1 >= $i0 goto label23;
+
+        $r1 = $r11[$i1];
+
+        virtualinvoke $r0.<b.a.a.b.a.a: b.a.a.b.a.a a(java.lang.Object)>($r1);
+
+        $i1 = $i1 + 1;
+
+        goto label21;
+
+     label22:
+        $i1 = $r0.<b.a.a.b.a.a: int c>;
+
+        $i0 = $r0.<b.a.a.b.a.a: int b>;
+
+        $i1 = $i1 * $i0;
+
+        $i0 = virtualinvoke $r1.<java.lang.Object: int hashCode()>();
+
+        $i1 = $i1 + $i0;
+
+        $r0.<b.a.a.b.a.a: int c> = $i1;
+
+     label23:
+        return $r0;
+    }
+
+    public final int hashCode()
+    {
+        b.a.a.b.a.a $r0;
+        int i0;
+
+        $r0 := @this: b.a.a.b.a.a;
+
+        i0 = $r0.<b.a.a.b.a.a: int c>;
+
+        return i0;
+    }
+}

@@ -1,0 +1,127 @@
+public class com.fasterxml.jackson.databind.util.RootNameLookup extends java.lang.Object
+{
+    protected com.fasterxml.jackson.databind.util.LRUMap _rootNames;
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.util.RootNameLookup $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.RootNameLookup;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public com.fasterxml.jackson.core.io.SerializedString findRootName(com.fasterxml.jackson.databind.JavaType, com.fasterxml.jackson.databind.cfg.MapperConfig)
+    {
+        com.fasterxml.jackson.databind.util.RootNameLookup $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r2;
+        java.lang.Class $r3;
+        com.fasterxml.jackson.core.io.SerializedString $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.RootNameLookup;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.util.RootNameLookup: com.fasterxml.jackson.core.io.SerializedString findRootName(java.lang.Class,com.fasterxml.jackson.databind.cfg.MapperConfig)>($r3, $r2);
+
+        return $r4;
+    }
+
+    public com.fasterxml.jackson.core.io.SerializedString findRootName(java.lang.Class, com.fasterxml.jackson.databind.cfg.MapperConfig)
+    {
+        com.fasterxml.jackson.databind.util.RootNameLookup $r0;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r2;
+        com.fasterxml.jackson.databind.type.ClassKey $r3;
+        com.fasterxml.jackson.databind.util.LRUMap $r4;
+        com.fasterxml.jackson.databind.BeanDescription $r5;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r6;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r7;
+        java.lang.String $r8;
+        com.fasterxml.jackson.core.io.SerializedString $r9;
+        java.lang.Object $r10;
+        java.lang.Throwable $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.RootNameLookup;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        entermonitor $r0;
+
+     label1:
+        $r3 = new com.fasterxml.jackson.databind.type.ClassKey;
+
+        specialinvoke $r3.<com.fasterxml.jackson.databind.type.ClassKey: void <init>(java.lang.Class)>($r1);
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.util.RootNameLookup: com.fasterxml.jackson.databind.util.LRUMap _rootNames>;
+
+        if $r4 != null goto label5;
+
+        $r4 = new com.fasterxml.jackson.databind.util.LRUMap;
+
+        specialinvoke $r4.<com.fasterxml.jackson.databind.util.LRUMap: void <init>(int,int)>(20, 200);
+
+        $r0.<com.fasterxml.jackson.databind.util.RootNameLookup: com.fasterxml.jackson.databind.util.LRUMap _rootNames> = $r4;
+
+     label2:
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.BeanDescription introspectClassAnnotations(java.lang.Class)>($r1);
+
+        $r6 = virtualinvoke $r2.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.AnnotationIntrospector getAnnotationIntrospector()>();
+
+        $r7 = virtualinvoke $r5.<com.fasterxml.jackson.databind.BeanDescription: com.fasterxml.jackson.databind.introspect.AnnotatedClass getClassInfo()>();
+
+        $r8 = virtualinvoke $r6.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.String findRootName(com.fasterxml.jackson.databind.introspect.AnnotatedClass)>($r7);
+
+        if $r8 != null goto label8;
+
+        $r8 = virtualinvoke $r1.<java.lang.Class: java.lang.String getSimpleName()>();
+
+     label3:
+        $r9 = new com.fasterxml.jackson.core.io.SerializedString;
+
+        specialinvoke $r9.<com.fasterxml.jackson.core.io.SerializedString: void <init>(java.lang.String)>($r8);
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.util.RootNameLookup: com.fasterxml.jackson.databind.util.LRUMap _rootNames>;
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.util.LRUMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r3, $r9);
+
+     label4:
+        exitmonitor $r0;
+
+        return $r9;
+
+     label5:
+        $r4 = $r0.<com.fasterxml.jackson.databind.util.RootNameLookup: com.fasterxml.jackson.databind.util.LRUMap _rootNames>;
+
+        $r10 = virtualinvoke $r4.<com.fasterxml.jackson.databind.util.LRUMap: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r9 = (com.fasterxml.jackson.core.io.SerializedString) $r10;
+
+     label6:
+        if $r9 == null goto label2;
+
+        goto label4;
+
+     label7:
+        $r11 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r11;
+
+     label8:
+        goto label3;
+
+        catch java.lang.Throwable from label1 to label4 with label7;
+        catch java.lang.Throwable from label5 to label6 with label7;
+    }
+}

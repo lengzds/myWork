@@ -1,0 +1,301 @@
+public final class a.a.b extends java.lang.Object
+{
+    private static java.util.HashMap h;
+    java.lang.String a;
+    java.lang.String b;
+    java.lang.String c;
+    java.util.HashMap d;
+    a.a.j e;
+    int f;
+    int g;
+
+    static void <clinit>()
+    {
+        java.util.HashMap $r0;
+
+        $r0 = new java.util.HashMap;
+
+        specialinvoke $r0.<java.util.HashMap: void <init>()>();
+
+        <a.a.b: java.util.HashMap h> = $r0;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("srvsvc", "4b324fc8-1670-01d3-1278-5a47bf6ee188:3.0");
+
+        $r0 = <a.a.b: java.util.HashMap h>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("lsarpc", "12345778-1234-abcd-ef00-0123456789ab:0.0");
+
+        $r0 = <a.a.b: java.util.HashMap h>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("samr", "12345778-1234-abcd-ef00-0123456789ac:1.0");
+
+        $r0 = <a.a.b: java.util.HashMap h>;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("netdfs", "4fc742e0-4a10-11cf-8273-00aa004ae673:3.0");
+
+        return;
+    }
+
+    void <init>(java.lang.String, java.lang.String)
+    {
+        a.a.b $r0;
+        java.lang.String $r1, $r2;
+
+        $r0 := @this: a.a.b;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<a.a.b: java.lang.String c> = null;
+
+        $r0.<a.a.b: java.util.HashMap d> = null;
+
+        $r0.<a.a.b: a.a.j e> = null;
+
+        $r0.<a.a.b: java.lang.String a> = $r1;
+
+        $r0.<a.a.b: java.lang.String b> = $r2;
+
+        return;
+    }
+
+    final java.lang.Object a(java.lang.String)
+    {
+        a.a.b $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        java.util.HashMap $r2;
+        java.lang.Object $r3;
+
+        $r0 := @this: a.a.b;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>("endpoint");
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<a.a.b: java.lang.String c>;
+
+        return $r1;
+
+     label1:
+        $r2 = $r0.<a.a.b: java.util.HashMap d>;
+
+        if $r2 == null goto label2;
+
+        $r2 = $r0.<a.a.b: java.util.HashMap d>;
+
+        $r3 = virtualinvoke $r2.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        return $r3;
+
+     label2:
+        return null;
+    }
+
+    final void a(java.lang.String, java.lang.Object)
+    {
+        a.a.b $r0;
+        java.lang.String $r1, $r5;
+        java.lang.Object $r2;
+        boolean $z0;
+        java.util.HashMap $r3;
+        int $i0, $i1;
+        a.a.j $r4;
+        a.a.e $r6;
+        java.lang.StringBuilder $r7;
+
+        $r0 := @this: a.a.b;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>("endpoint");
+
+        if $z0 == 0 goto label2;
+
+        $r1 = virtualinvoke $r2.<java.lang.Object: java.lang.String toString()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r0.<a.a.b: java.lang.String c> = $r1;
+
+        $r1 = $r0.<a.a.b: java.lang.String c>;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("\\pipe\\");
+
+        if $z0 == 0 goto label1;
+
+        $r3 = <a.a.b: java.util.HashMap h>;
+
+        $r1 = $r0.<a.a.b: java.lang.String c>;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int)>(6);
+
+        $r2 = virtualinvoke $r3.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r1 = (java.lang.String) $r2;
+
+        if $r1 == null goto label1;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int indexOf(int)>(58);
+
+        $i1 = $i0 + 1;
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int indexOf(int,int)>(46, $i1);
+
+        $r4 = new a.a.j;
+
+        $r5 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+        specialinvoke $r4.<a.a.j: void <init>(java.lang.String)>($r5);
+
+        $r0.<a.a.b: a.a.j e> = $r4;
+
+        $i0 = $i0 + 1;
+
+        $r5 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>($i0, $i1);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r5);
+
+        $r0.<a.a.b: int f> = $i0;
+
+        $i1 = $i1 + 1;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int)>($i1);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r1);
+
+        $r0.<a.a.b: int g> = $i1;
+
+        return;
+
+     label1:
+        $r6 = new a.a.e;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>("Bad endpoint: ");
+
+        $r1 = $r0.<a.a.b: java.lang.String c>;
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r6.<a.a.e: void <init>(java.lang.String)>($r1);
+
+        throw $r6;
+
+     label2:
+        $r3 = $r0.<a.a.b: java.util.HashMap d>;
+
+        if $r3 != null goto label3;
+
+        $r3 = new java.util.HashMap;
+
+        specialinvoke $r3.<java.util.HashMap: void <init>()>();
+
+        $r0.<a.a.b: java.util.HashMap d> = $r3;
+
+     label3:
+        $r3 = $r0.<a.a.b: java.util.HashMap d>;
+
+        virtualinvoke $r3.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        return;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.a.b $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        java.util.HashMap $r3;
+        java.util.Set $r4;
+        java.util.Iterator $r5;
+        boolean $z0;
+        java.lang.Object $r6, $r7;
+
+        $r0 := @this: a.a.b;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = $r0.<a.a.b: java.lang.String a>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(":");
+
+        $r2 = $r0.<a.a.b: java.lang.String b>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $r2 = $r0.<a.a.b: java.lang.String c>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r3 = $r0.<a.a.b: java.util.HashMap d>;
+
+        if $r3 == null goto label2;
+
+        $r3 = $r0.<a.a.b: java.util.HashMap d>;
+
+        $r4 = virtualinvoke $r3.<java.util.HashMap: java.util.Set keySet()>();
+
+        $r5 = interfaceinvoke $r4.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r6 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r3 = $r0.<a.a.b: java.util.HashMap d>;
+
+        $r7 = virtualinvoke $r3.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r6);
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r6);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("=");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r7);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label1;
+
+     label2:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+}

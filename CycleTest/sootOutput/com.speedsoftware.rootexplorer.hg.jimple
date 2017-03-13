@@ -1,0 +1,361 @@
+final class com.speedsoftware.rootexplorer.hg extends java.lang.Thread
+{
+    final com.speedsoftware.rootexplorer.ge a;
+    private final int b;
+    private final int c;
+    private final int d;
+
+    void <init>(com.speedsoftware.rootexplorer.ge)
+    {
+        com.speedsoftware.rootexplorer.hg $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.hg;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a> = $r1;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.hg: int b> = 200;
+
+        $r0.<com.speedsoftware.rootexplorer.hg: int c> = 1000;
+
+        $r0.<com.speedsoftware.rootexplorer.hg: int d> = 50;
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.hg $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+        long $l0;
+        short $s1;
+        boolean $z0;
+        java.util.ArrayList $r2;
+        int $i2, $i3;
+        java.util.concurrent.locks.ReentrantLock $r3;
+        java.lang.Object $r4;
+        com.speedsoftware.rootexplorer.bn $r5;
+        java.lang.String $r6, $r7;
+        com.speedsoftware.rootexplorer.bz $r8;
+        android.graphics.Bitmap $r9;
+        android.os.Handler $r10;
+        com.speedsoftware.rootexplorer.kz $r11;
+        java.lang.Exception $r12;
+        java.lang.Throwable $r13, $r16;
+        android.widget.AbsListView $r14;
+        android.app.Activity $r15;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.hg;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $l0 = staticinvoke <com.speedsoftware.rootexplorer.ge: long ak()>();
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void a(com.speedsoftware.rootexplorer.ge,long)>($r1, $l0);
+
+        $s1 = 200;
+
+     label01:
+        $z0 = <com.speedsoftware.rootexplorer.RootExplorer: boolean m>;
+
+        if $z0 != 0 goto label02;
+
+        $s1 = 1000;
+
+     label02:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r2 = $r1.<com.speedsoftware.rootexplorer.ge: java.util.ArrayList bL>;
+
+        $i2 = virtualinvoke $r2.<java.util.ArrayList: int size()>();
+
+     label03:
+        if $i2 <= 0 goto label22;
+
+     label04:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $z0 = $r1.<com.speedsoftware.rootexplorer.ge: boolean t>;
+
+     label05:
+        if $z0 != 0 goto label22;
+
+     label06:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r3 = $r1.<com.speedsoftware.rootexplorer.ge: java.util.concurrent.locks.ReentrantLock o>;
+
+        virtualinvoke $r3.<java.util.concurrent.locks.ReentrantLock: void lock()>();
+
+     label07:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r2 = $r1.<com.speedsoftware.rootexplorer.ge: java.util.ArrayList bL>;
+
+        $i2 = virtualinvoke $r2.<java.util.ArrayList: int size()>();
+
+     label08:
+        $i2 = $i2 + -1;
+
+     label09:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r2 = $r1.<com.speedsoftware.rootexplorer.ge: java.util.ArrayList bL>;
+
+        $r4 = virtualinvoke $r2.<java.util.ArrayList: java.lang.Object get(int)>($i2);
+
+        $r5 = (com.speedsoftware.rootexplorer.bn) $r4;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r2 = $r1.<com.speedsoftware.rootexplorer.ge: java.util.ArrayList bL>;
+
+        virtualinvoke $r2.<java.util.ArrayList: java.lang.Object remove(int)>($i2);
+
+     label10:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r3 = $r1.<com.speedsoftware.rootexplorer.ge: java.util.concurrent.locks.ReentrantLock o>;
+
+        virtualinvoke $r3.<java.util.concurrent.locks.ReentrantLock: void unlock()>();
+
+     label11:
+        if $r5 == null goto label22;
+
+     label12:
+        $r6 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: java.lang.String ab()>();
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r7 = $r1.<com.speedsoftware.rootexplorer.ge: java.lang.String aM>;
+
+        $z0 = virtualinvoke $r6.<java.lang.String: boolean equals(java.lang.Object)>($r7);
+
+     label13:
+        if $z0 == 0 goto label22;
+
+     label14:
+        $z0 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: boolean as()>();
+
+     label15:
+        if $z0 == 0 goto label29;
+
+     label16:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r8 = $r1.<com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.bz aU>;
+
+        $r9 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: android.graphics.Bitmap a(com.speedsoftware.rootexplorer.bz)>($r8);
+
+     label17:
+        if $r9 == null goto label53;
+
+     label18:
+        virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: void a(android.graphics.Bitmap)>($r9);
+
+     label19:
+        $r10 = <com.speedsoftware.rootexplorer.ge: android.os.Handler s>;
+
+        $r11 = new com.speedsoftware.rootexplorer.kz;
+
+     label20:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        specialinvoke $r11.<com.speedsoftware.rootexplorer.kz: void <init>(com.speedsoftware.rootexplorer.ge,com.speedsoftware.rootexplorer.bn)>($r1, $r5);
+
+        virtualinvoke $r10.<android.os.Handler: boolean post(java.lang.Runnable)>($r11);
+
+     label21:
+        $s1 = 50;
+
+     label22:
+        $l0 = (long) $s1;
+
+     label23:
+        staticinvoke <java.lang.Thread: void sleep(long)>($l0);
+
+     label24:
+        goto label01;
+
+     label25:
+        $r12 := @caughtexception;
+
+     label26:
+        virtualinvoke $r12.<java.lang.Exception: void printStackTrace()>();
+
+        goto label01;
+
+     label27:
+        $r13 := @caughtexception;
+
+     label28:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r3 = $r1.<com.speedsoftware.rootexplorer.ge: java.util.concurrent.locks.ReentrantLock o>;
+
+        virtualinvoke $r3.<java.util.concurrent.locks.ReentrantLock: void unlock()>();
+
+        throw $r13;
+
+     label29:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $z0 = $r1.<com.speedsoftware.rootexplorer.ge: boolean t>;
+
+     label30:
+        if $z0 != 0 goto label44;
+
+     label31:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r14 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.widget.AbsListView c(com.speedsoftware.rootexplorer.ge)>($r1);
+
+        $z0 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: boolean aK()>();
+
+     label32:
+        if $z0 != 0 goto label37;
+
+     label33:
+        $i2 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: int an()>();
+
+        $i3 = virtualinvoke $r14.<android.widget.AbsListView: int getFirstVisiblePosition()>();
+
+     label34:
+        if $i2 < $i3 goto label43;
+
+     label35:
+        $i2 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: int an()>();
+
+        $i3 = virtualinvoke $r14.<android.widget.AbsListView: int getLastVisiblePosition()>();
+
+     label36:
+        if $i2 > $i3 goto label43;
+
+     label37:
+        $r15 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: void i(android.content.Context)>($r15);
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r8 = $r1.<com.speedsoftware.rootexplorer.ge: com.speedsoftware.rootexplorer.bz aU>;
+
+        $r9 = virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: android.graphics.Bitmap a(com.speedsoftware.rootexplorer.bz)>($r8);
+
+     label38:
+        if $r9 == null goto label52;
+
+     label39:
+        virtualinvoke $r5.<com.speedsoftware.rootexplorer.bn: void a(android.graphics.Bitmap)>($r9);
+
+     label40:
+        $r10 = <com.speedsoftware.rootexplorer.ge: android.os.Handler s>;
+
+        $r11 = new com.speedsoftware.rootexplorer.kz;
+
+     label41:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        specialinvoke $r11.<com.speedsoftware.rootexplorer.kz: void <init>(com.speedsoftware.rootexplorer.ge,com.speedsoftware.rootexplorer.bn)>($r1, $r5);
+
+        virtualinvoke $r10.<android.os.Handler: boolean post(java.lang.Runnable)>($r11);
+
+     label42:
+        $s1 = 200;
+
+        goto label22;
+
+     label43:
+        $s1 = 50;
+
+        goto label22;
+
+     label44:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r3 = $r1.<com.speedsoftware.rootexplorer.ge: java.util.concurrent.locks.ReentrantLock o>;
+
+        virtualinvoke $r3.<java.util.concurrent.locks.ReentrantLock: void lock()>();
+
+     label45:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r2 = $r1.<com.speedsoftware.rootexplorer.ge: java.util.ArrayList bL>;
+
+        virtualinvoke $r2.<java.util.ArrayList: boolean add(java.lang.Object)>($r5);
+
+     label46:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r3 = $r1.<com.speedsoftware.rootexplorer.ge: java.util.concurrent.locks.ReentrantLock o>;
+
+        virtualinvoke $r3.<java.util.concurrent.locks.ReentrantLock: void unlock()>();
+
+     label47:
+        goto label22;
+
+     label48:
+        $r16 := @caughtexception;
+
+     label49:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.hg: com.speedsoftware.rootexplorer.ge a>;
+
+        $r3 = $r1.<com.speedsoftware.rootexplorer.ge: java.util.concurrent.locks.ReentrantLock o>;
+
+        virtualinvoke $r3.<java.util.concurrent.locks.ReentrantLock: void unlock()>();
+
+        throw $r16;
+
+     label50:
+        $r12 := @caughtexception;
+
+        $s1 = 50;
+
+        goto label26;
+
+     label51:
+        $r12 := @caughtexception;
+
+        $s1 = 200;
+
+        goto label26;
+
+     label52:
+        $s1 = 200;
+
+        goto label22;
+
+     label53:
+        $s1 = 50;
+
+        goto label22;
+
+        catch java.lang.Exception from label02 to label03 with label25;
+        catch java.lang.Exception from label04 to label05 with label25;
+        catch java.lang.Exception from label06 to label07 with label25;
+        catch java.lang.Throwable from label07 to label08 with label27;
+        catch java.lang.Throwable from label09 to label10 with label27;
+        catch java.lang.Exception from label10 to label11 with label25;
+        catch java.lang.Exception from label12 to label13 with label25;
+        catch java.lang.Exception from label14 to label15 with label25;
+        catch java.lang.Exception from label16 to label17 with label50;
+        catch java.lang.Exception from label18 to label19 with label50;
+        catch java.lang.Exception from label20 to label21 with label50;
+        catch java.lang.Exception from label23 to label24 with label25;
+        catch java.lang.Exception from label28 to label30 with label25;
+        catch java.lang.Exception from label31 to label32 with label25;
+        catch java.lang.Exception from label33 to label34 with label25;
+        catch java.lang.Exception from label35 to label36 with label25;
+        catch java.lang.Exception from label37 to label38 with label51;
+        catch java.lang.Exception from label39 to label40 with label51;
+        catch java.lang.Exception from label41 to label42 with label51;
+        catch java.lang.Exception from label44 to label45 with label25;
+        catch java.lang.Throwable from label45 to label46 with label48;
+        catch java.lang.Exception from label46 to label47 with label25;
+        catch java.lang.Exception from label49 to label50 with label25;
+    }
+}

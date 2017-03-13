@@ -1,0 +1,171 @@
+public abstract class com.dropbox.client2.c.p extends java.lang.Object implements java.io.Serializable
+{
+    public final java.lang.String a;
+    public final java.lang.String b;
+
+    public void <init>(java.lang.String, java.lang.String)
+    {
+        com.dropbox.client2.c.p $r0;
+        java.lang.String $r1, $r2;
+        java.lang.IllegalArgumentException $r3;
+        boolean $z0;
+        java.lang.StringBuilder $r4;
+
+        $r0 := @this: com.dropbox.client2.c.p;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        if $r1 != null goto label1;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("\'key\' must be non-null");
+
+        throw $r3;
+
+     label1:
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean contains(java.lang.CharSequence)>("|");
+
+        if $z0 == 0 goto label2;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("\'key\' must not contain a \"|\" character: \"");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        $r1 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r1);
+
+        throw $r3;
+
+     label2:
+        if $r2 != null goto label3;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("\'secret\' must be non-null");
+
+        throw $r3;
+
+     label3:
+        $r0.<com.dropbox.client2.c.p: java.lang.String a> = $r1;
+
+        $r0.<com.dropbox.client2.c.p: java.lang.String b> = $r2;
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        com.dropbox.client2.c.p $r0, $r2;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.lang.String $r3, $r4;
+
+        $r0 := @this: com.dropbox.client2.c.p;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $z0 = $r1 instanceof com.dropbox.client2.c.p;
+
+        if $z0 == 0 goto label3;
+
+        $r2 = (com.dropbox.client2.c.p) $r1;
+
+        $r3 = $r0.<com.dropbox.client2.c.p: java.lang.String a>;
+
+        $r4 = $r2.<com.dropbox.client2.c.p: java.lang.String a>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r4);
+
+        if $z0 == 0 goto label2;
+
+        $r3 = $r0.<com.dropbox.client2.c.p: java.lang.String b>;
+
+        $r4 = $r2.<com.dropbox.client2.c.p: java.lang.String b>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r4);
+
+        if $z0 == 0 goto label2;
+
+        $z0 = 1;
+
+     label1:
+        if $z0 == 0 goto label3;
+
+        return 1;
+
+     label2:
+        $z0 = 0;
+
+        goto label1;
+
+     label3:
+        return 0;
+    }
+
+    public int hashCode()
+    {
+        com.dropbox.client2.c.p $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+
+        $r0 := @this: com.dropbox.client2.c.p;
+
+        $r1 = $r0.<com.dropbox.client2.c.p: java.lang.String a>;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+        $r1 = $r0.<com.dropbox.client2.c.p: java.lang.String b>;
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+        $i1 = $i1 << 1;
+
+        $i0 = $i0 ^ $i1;
+
+        return $i0;
+    }
+
+    public java.lang.String toString()
+    {
+        com.dropbox.client2.c.p $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        char $c0;
+
+        $r0 := @this: com.dropbox.client2.c.p;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("{key=\"");
+
+        $r2 = $r0.<com.dropbox.client2.c.p: java.lang.String a>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\", secret=\"");
+
+        $r2 = $r0.<com.dropbox.client2.c.p: java.lang.String b>;
+
+        $c0 = virtualinvoke $r2.<java.lang.String: char charAt(int)>(0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("...\"}");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+}

@@ -1,0 +1,68 @@
+public final class com.fasterxml.jackson.core.Base64Variants extends java.lang.Object
+{
+    public static final com.fasterxml.jackson.core.Base64Variant MIME;
+    public static final com.fasterxml.jackson.core.Base64Variant MIME_NO_LINEFEEDS;
+    public static final com.fasterxml.jackson.core.Base64Variant MODIFIED_FOR_URL;
+    public static final com.fasterxml.jackson.core.Base64Variant PEM;
+
+    static void <clinit>()
+    {
+        com.fasterxml.jackson.core.Base64Variant $r0, $r1;
+        java.lang.StringBuffer $r2;
+        int $i0;
+        java.lang.String $r3;
+
+        $r0 = new com.fasterxml.jackson.core.Base64Variant;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.Base64Variant: void <init>(java.lang.String,java.lang.String,boolean,char,int)>("MIME", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", 1, 61, 76);
+
+        <com.fasterxml.jackson.core.Base64Variants: com.fasterxml.jackson.core.Base64Variant MIME> = $r0;
+
+        $r0 = new com.fasterxml.jackson.core.Base64Variant;
+
+        $r1 = <com.fasterxml.jackson.core.Base64Variants: com.fasterxml.jackson.core.Base64Variant MIME>;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.Base64Variant: void <init>(com.fasterxml.jackson.core.Base64Variant,java.lang.String,int)>($r1, "MIME-NO-LINEFEEDS", 2147483647);
+
+        <com.fasterxml.jackson.core.Base64Variants: com.fasterxml.jackson.core.Base64Variant MIME_NO_LINEFEEDS> = $r0;
+
+        $r0 = new com.fasterxml.jackson.core.Base64Variant;
+
+        $r1 = <com.fasterxml.jackson.core.Base64Variants: com.fasterxml.jackson.core.Base64Variant MIME>;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.Base64Variant: void <init>(com.fasterxml.jackson.core.Base64Variant,java.lang.String,boolean,char,int)>($r1, "PEM", 1, 61, 64);
+
+        <com.fasterxml.jackson.core.Base64Variants: com.fasterxml.jackson.core.Base64Variant PEM> = $r0;
+
+        $r2 = new java.lang.StringBuffer;
+
+        specialinvoke $r2.<java.lang.StringBuffer: void <init>(java.lang.String)>("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
+
+        $i0 = virtualinvoke $r2.<java.lang.StringBuffer: int indexOf(java.lang.String)>("+");
+
+        virtualinvoke $r2.<java.lang.StringBuffer: void setCharAt(int,char)>($i0, 45);
+
+        $i0 = virtualinvoke $r2.<java.lang.StringBuffer: int indexOf(java.lang.String)>("/");
+
+        virtualinvoke $r2.<java.lang.StringBuffer: void setCharAt(int,char)>($i0, 95);
+
+        $r0 = new com.fasterxml.jackson.core.Base64Variant;
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.Base64Variant: void <init>(java.lang.String,java.lang.String,boolean,char,int)>("MODIFIED-FOR-URL", $r3, 0, 0, 2147483647);
+
+        <com.fasterxml.jackson.core.Base64Variants: com.fasterxml.jackson.core.Base64Variant MODIFIED_FOR_URL> = $r0;
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.core.Base64Variant getDefaultVariant()
+    {
+        com.fasterxml.jackson.core.Base64Variant r0;
+
+        r0 = <com.fasterxml.jackson.core.Base64Variants: com.fasterxml.jackson.core.Base64Variant MIME_NO_LINEFEEDS>;
+
+        return r0;
+    }
+}

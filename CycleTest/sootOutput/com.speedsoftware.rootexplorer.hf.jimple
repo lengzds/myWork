@@ -1,0 +1,75 @@
+final class com.speedsoftware.rootexplorer.hf extends java.lang.Object implements java.lang.Runnable
+{
+    final com.speedsoftware.rootexplorer.ge a;
+
+    void <init>(com.speedsoftware.rootexplorer.ge)
+    {
+        com.speedsoftware.rootexplorer.hf $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.hf;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r0.<com.speedsoftware.rootexplorer.hf: com.speedsoftware.rootexplorer.ge a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.hf $r0;
+        java.lang.String $r1, $r8;
+        android.content.Context $r2;
+        android.app.Activity $r3;
+        int $i0;
+        byte[] $r4;
+        android.widget.Toast $r5;
+        com.speedsoftware.rootexplorer.ge $r6;
+        java.util.Stack $r7;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.hf;
+
+        $r2 = <com.speedsoftware.rootexplorer.ge: android.content.Context r>;
+
+        $r1 = new java.lang.String;
+
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        if $r3 != null goto label2;
+
+        $i0 = 0;
+
+     label1:
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] ed(int)>($i0);
+
+        specialinvoke $r1.<java.lang.String: void <init>(byte[])>($r4);
+
+        $r5 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r2, $r1, 1);
+
+        virtualinvoke $r5.<android.widget.Toast: void show()>();
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.hf: com.speedsoftware.rootexplorer.ge a>;
+
+        $r7 = $r6.<com.speedsoftware.rootexplorer.ge: java.util.Stack ch>;
+
+        virtualinvoke $r7.<java.util.Stack: void clear()>();
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.hf: com.speedsoftware.rootexplorer.ge a>;
+
+        virtualinvoke $r6.<com.speedsoftware.rootexplorer.ge: void e(java.lang.String)>("/");
+
+        return;
+
+     label2:
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r8 = virtualinvoke $r3.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label1;
+    }
+}

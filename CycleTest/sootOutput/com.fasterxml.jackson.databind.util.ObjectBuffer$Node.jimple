@@ -1,0 +1,69 @@
+final class com.fasterxml.jackson.databind.util.ObjectBuffer$Node extends java.lang.Object
+{
+    final java.lang.Object[] _data;
+    com.fasterxml.jackson.databind.util.ObjectBuffer$Node _next;
+
+    public void <init>(java.lang.Object[])
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer$Node $r0;
+        java.lang.Object[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer$Node;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer$Node: java.lang.Object[] _data> = $r1;
+
+        return;
+    }
+
+    public final java.lang.Object[] getData()
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer$Node $r0;
+        java.lang.Object[] r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer$Node;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer$Node: java.lang.Object[] _data>;
+
+        return r1;
+    }
+
+    public final void linkNext(com.fasterxml.jackson.databind.util.ObjectBuffer$Node)
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer$Node $r0, $r1, $r2;
+        java.lang.IllegalStateException $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer$Node;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.util.ObjectBuffer$Node;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer$Node: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _next>;
+
+        if $r2 == null goto label1;
+
+        $r3 = new java.lang.IllegalStateException;
+
+        specialinvoke $r3.<java.lang.IllegalStateException: void <init>()>();
+
+        throw $r3;
+
+     label1:
+        $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer$Node: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _next> = $r1;
+
+        return;
+    }
+
+    public final com.fasterxml.jackson.databind.util.ObjectBuffer$Node next()
+    {
+        com.fasterxml.jackson.databind.util.ObjectBuffer$Node $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.ObjectBuffer$Node;
+
+        $r0 = $r0.<com.fasterxml.jackson.databind.util.ObjectBuffer$Node: com.fasterxml.jackson.databind.util.ObjectBuffer$Node _next>;
+
+        return $r0;
+    }
+}

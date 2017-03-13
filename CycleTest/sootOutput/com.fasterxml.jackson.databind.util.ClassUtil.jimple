@@ -1,0 +1,1093 @@
+public final class com.fasterxml.jackson.databind.util.ClassUtil extends java.lang.Object
+{
+
+    private static void _addSuperTypes(java.lang.Class, java.lang.Class, java.util.Collection, boolean)
+    {
+        java.lang.Class $r0, $r2, $r3;
+        java.util.Collection $r1;
+        int $i0, $i1;
+        boolean $z0;
+        java.lang.Class[] $r4;
+
+        $r3 := @parameter0: java.lang.Class;
+
+        $r0 := @parameter1: java.lang.Class;
+
+        $r1 := @parameter2: java.util.Collection;
+
+        $z0 := @parameter3: boolean;
+
+     label1:
+        if $r3 == $r0 goto label6;
+
+        if $r3 == null goto label6;
+
+        if $r3 != class "java/lang/Object" goto label2;
+
+        return;
+
+     label2:
+        if $z0 == 0 goto label3;
+
+        $z0 = interfaceinvoke $r1.<java.util.Collection: boolean contains(java.lang.Object)>($r3);
+
+        if $z0 != 0 goto label6;
+
+        interfaceinvoke $r1.<java.util.Collection: boolean add(java.lang.Object)>($r3);
+
+     label3:
+        $r4 = virtualinvoke $r3.<java.lang.Class: java.lang.Class[] getInterfaces()>();
+
+        $i0 = lengthof $r4;
+
+        $i1 = 0;
+
+     label4:
+        if $i1 >= $i0 goto label5;
+
+        $r2 = $r4[$i1];
+
+        staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: void _addSuperTypes(java.lang.Class,java.lang.Class,java.util.Collection,boolean)>($r2, $r0, $r1, 1);
+
+        $i1 = $i1 + 1;
+
+        goto label4;
+
+     label5:
+        $r3 = virtualinvoke $r3.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        $z0 = 1;
+
+        goto label1;
+
+     label6:
+        return;
+    }
+
+    public static java.lang.String canBeABeanType(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        boolean $z0;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $z0 = virtualinvoke $r0.<java.lang.Class: boolean isAnnotation()>();
+
+        if $z0 == 0 goto label1;
+
+        return "annotation";
+
+     label1:
+        $z0 = virtualinvoke $r0.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label2;
+
+        return "array";
+
+     label2:
+        $z0 = virtualinvoke $r0.<java.lang.Class: boolean isEnum()>();
+
+        if $z0 == 0 goto label3;
+
+        return "enum";
+
+     label3:
+        $z0 = virtualinvoke $r0.<java.lang.Class: boolean isPrimitive()>();
+
+        if $z0 == 0 goto label4;
+
+        return "primitive";
+
+     label4:
+        return null;
+    }
+
+    public static void checkAndFixAccess(java.lang.reflect.Member)
+    {
+        java.lang.reflect.Member $r0;
+        java.lang.IllegalArgumentException $r1;
+        java.lang.reflect.AccessibleObject $r2;
+        java.lang.SecurityException $r3;
+        boolean $z0;
+        java.lang.Class $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r6;
+
+        $r0 := @parameter0: java.lang.reflect.Member;
+
+        $r2 = (java.lang.reflect.AccessibleObject) $r0;
+
+     label1:
+        virtualinvoke $r2.<java.lang.reflect.AccessibleObject: void setAccessible(boolean)>(1);
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        $z0 = virtualinvoke $r2.<java.lang.reflect.AccessibleObject: boolean isAccessible()>();
+
+        if $z0 != 0 goto label4;
+
+        $r4 = interfaceinvoke $r0.<java.lang.reflect.Member: java.lang.Class getDeclaringClass()>();
+
+        $r1 = new java.lang.IllegalArgumentException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Can not access ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r0);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" (from class ");
+
+        $r6 = virtualinvoke $r4.<java.lang.Class: java.lang.String getName()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; failed to set access: ");
+
+        $r6 = virtualinvoke $r3.<java.lang.SecurityException: java.lang.String getMessage()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r6);
+
+        throw $r1;
+
+     label4:
+        return;
+
+        catch java.lang.SecurityException from label1 to label2 with label3;
+    }
+
+    public static java.lang.Object createInstance(java.lang.Class, boolean)
+    {
+        java.lang.Class $r0;
+        boolean $z0;
+        java.lang.reflect.Constructor $r1;
+        java.lang.IllegalArgumentException $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r4;
+        java.lang.Object[] $r5;
+        java.lang.Object $r6;
+        java.lang.Exception $r7;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $z0 := @parameter1: boolean;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.reflect.Constructor findConstructor(java.lang.Class,boolean)>($r0, $z0);
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.IllegalArgumentException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Class ");
+
+        $r4 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" has no default (no arg) constructor");
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r4);
+
+        throw $r2;
+
+     label1:
+        $r5 = newarray (java.lang.Object)[0];
+
+        $r6 = virtualinvoke $r1.<java.lang.reflect.Constructor: java.lang.Object newInstance(java.lang.Object[])>($r5);
+
+     label2:
+        return $r6;
+
+     label3:
+        $r7 := @caughtexception;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Failed to instantiate class ");
+
+        $r4 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", problem: ");
+
+        $r4 = virtualinvoke $r7.<java.lang.Exception: java.lang.String getMessage()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: void unwrapAndThrowAsIAE(java.lang.Throwable,java.lang.String)>($r7, $r4);
+
+        return null;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public static java.lang.Object defaultValue(java.lang.Class)
+    {
+        java.lang.Class $r0, $r1;
+        java.lang.Integer $r2;
+        java.lang.Long $r3;
+        java.lang.Double $r4;
+        java.lang.Float $r5;
+        java.lang.Byte $r6;
+        java.lang.Short $r7;
+        java.lang.Character $r8;
+        java.lang.IllegalArgumentException $r9;
+        java.lang.StringBuilder $r10;
+        java.lang.String $r11;
+        java.lang.Boolean r12;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        if $r0 != $r1 goto label1;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        return $r2;
+
+     label1:
+        $r1 = <java.lang.Long: java.lang.Class TYPE>;
+
+        if $r0 != $r1 goto label2;
+
+        $r3 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>(0L);
+
+        return $r3;
+
+     label2:
+        $r1 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        if $r0 != $r1 goto label3;
+
+        r12 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return r12;
+
+     label3:
+        $r1 = <java.lang.Double: java.lang.Class TYPE>;
+
+        if $r0 != $r1 goto label4;
+
+        $r4 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        return $r4;
+
+     label4:
+        $r1 = <java.lang.Float: java.lang.Class TYPE>;
+
+        if $r0 != $r1 goto label5;
+
+        $r5 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>(0.0F);
+
+        return $r5;
+
+     label5:
+        $r1 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        if $r0 != $r1 goto label6;
+
+        $r6 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>(0);
+
+        return $r6;
+
+     label6:
+        $r1 = <java.lang.Short: java.lang.Class TYPE>;
+
+        if $r0 != $r1 goto label7;
+
+        $r7 = staticinvoke <java.lang.Short: java.lang.Short valueOf(short)>(0);
+
+        return $r7;
+
+     label7:
+        $r1 = <java.lang.Character: java.lang.Class TYPE>;
+
+        if $r0 != $r1 goto label8;
+
+        $r8 = staticinvoke <java.lang.Character: java.lang.Character valueOf(char)>(0);
+
+        return $r8;
+
+     label8:
+        $r9 = new java.lang.IllegalArgumentException;
+
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("Class ");
+
+        $r11 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not a primitive type");
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r11);
+
+        throw $r9;
+    }
+
+    public static java.lang.Class findClass(java.lang.String)
+    {
+        java.lang.String $r0, $r1;
+        int $i0;
+        boolean $z0;
+        java.lang.Throwable $r2;
+        java.lang.Thread $r3;
+        java.lang.ClassLoader $r4;
+        java.lang.Class $r5;
+        java.lang.Exception $r6, $r7;
+        java.lang.RuntimeException $r8;
+        java.lang.ClassNotFoundException $r9;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 = virtualinvoke $r0.<java.lang.String: int indexOf(int)>(46);
+
+        if $i0 >= 0 goto label09;
+
+        $r1 = "int";
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r0);
+
+        if $z0 == 0 goto label01;
+
+        $r5 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        return $r5;
+
+     label01:
+        $r1 = "long";
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r0);
+
+        if $z0 == 0 goto label02;
+
+        $r5 = <java.lang.Long: java.lang.Class TYPE>;
+
+        return $r5;
+
+     label02:
+        $r1 = "float";
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r0);
+
+        if $z0 == 0 goto label03;
+
+        $r5 = <java.lang.Float: java.lang.Class TYPE>;
+
+        return $r5;
+
+     label03:
+        $r1 = "double";
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r0);
+
+        if $z0 == 0 goto label04;
+
+        $r5 = <java.lang.Double: java.lang.Class TYPE>;
+
+        return $r5;
+
+     label04:
+        $r1 = "boolean";
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r0);
+
+        if $z0 == 0 goto label05;
+
+        $r5 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        return $r5;
+
+     label05:
+        $r1 = "byte";
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r0);
+
+        if $z0 == 0 goto label06;
+
+        $r5 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        return $r5;
+
+     label06:
+        $r1 = "char";
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r0);
+
+        if $z0 == 0 goto label07;
+
+        $r5 = <java.lang.Character: java.lang.Class TYPE>;
+
+        return $r5;
+
+     label07:
+        $r1 = "short";
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r0);
+
+        if $z0 == 0 goto label08;
+
+        $r5 = <java.lang.Short: java.lang.Class TYPE>;
+
+        return $r5;
+
+     label08:
+        $r1 = "void";
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r0);
+
+        if $z0 == 0 goto label09;
+
+        $r5 = <java.lang.Void: java.lang.Class TYPE>;
+
+        return $r5;
+
+     label09:
+        $r2 = null;
+
+        $r3 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        $r4 = virtualinvoke $r3.<java.lang.Thread: java.lang.ClassLoader getContextClassLoader()>();
+
+        if $r4 == null goto label13;
+
+     label10:
+        $r5 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String,boolean,java.lang.ClassLoader)>($r0, 1, $r4);
+
+     label11:
+        return $r5;
+
+     label12:
+        $r6 := @caughtexception;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Throwable getRootCause(java.lang.Throwable)>($r6);
+
+     label13:
+        $r5 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r0);
+
+     label14:
+        return $r5;
+
+     label15:
+        $r7 := @caughtexception;
+
+        if $r2 != null goto label16;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Throwable getRootCause(java.lang.Throwable)>($r7);
+
+     label16:
+        $z0 = $r2 instanceof java.lang.RuntimeException;
+
+        if $z0 == 0 goto label17;
+
+        $r8 = (java.lang.RuntimeException) $r2;
+
+        throw $r8;
+
+     label17:
+        $r9 = new java.lang.ClassNotFoundException;
+
+        $r0 = virtualinvoke $r2.<java.lang.Throwable: java.lang.String getMessage()>();
+
+        specialinvoke $r9.<java.lang.ClassNotFoundException: void <init>(java.lang.String,java.lang.Throwable)>($r0, $r2);
+
+        throw $r9;
+
+        catch java.lang.Exception from label10 to label11 with label12;
+        catch java.lang.Exception from label13 to label14 with label15;
+    }
+
+    public static java.lang.reflect.Constructor findConstructor(java.lang.Class, boolean)
+    {
+        java.lang.Class $r0;
+        boolean $z0;
+        java.lang.Class[] $r1;
+        java.lang.reflect.Constructor $r2;
+        int $i0;
+        java.lang.IllegalArgumentException $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r5;
+        java.lang.NoSuchMethodException $r6;
+        java.lang.Exception $r7;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $z0 := @parameter1: boolean;
+
+     label01:
+        $r1 = newarray (java.lang.Class)[0];
+
+     label02:
+        $r2 = virtualinvoke $r0.<java.lang.Class: java.lang.reflect.Constructor getDeclaredConstructor(java.lang.Class[])>($r1);
+
+     label03:
+        if $z0 == 0 goto label06;
+
+     label04:
+        staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: void checkAndFixAccess(java.lang.reflect.Member)>($r2);
+
+     label05:
+        return $r2;
+
+     label06:
+        $i0 = virtualinvoke $r2.<java.lang.reflect.Constructor: int getModifiers()>();
+
+        $z0 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($i0);
+
+     label07:
+        if $z0 != 0 goto label13;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        $r4 = new java.lang.StringBuilder;
+
+     label08:
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Default constructor for ");
+
+        $r5 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not accessible (non-public?): not allowed to try modify access via Reflection: can not instantiate type");
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r5);
+
+     label09:
+        throw $r3;
+
+     label10:
+        $r6 := @caughtexception;
+
+     label11:
+        return null;
+
+     label12:
+        $r7 := @caughtexception;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Failed to find default constructor of class ");
+
+        $r5 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", problem: ");
+
+        $r5 = virtualinvoke $r7.<java.lang.Exception: java.lang.String getMessage()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: void unwrapAndThrowAsIAE(java.lang.Throwable,java.lang.String)>($r7, $r5);
+
+        goto label11;
+
+     label13:
+        return $r2;
+
+        catch java.lang.NoSuchMethodException from label02 to label03 with label10;
+        catch java.lang.NoSuchMethodException from label04 to label05 with label10;
+        catch java.lang.NoSuchMethodException from label06 to label07 with label10;
+        catch java.lang.NoSuchMethodException from label08 to label09 with label10;
+        catch java.lang.Exception from label01 to label03 with label12;
+        catch java.lang.Exception from label04 to label05 with label12;
+        catch java.lang.Exception from label06 to label07 with label12;
+        catch java.lang.Exception from label08 to label10 with label12;
+    }
+
+    public static java.lang.Class findEnumType(java.lang.Class)
+    {
+        java.lang.Class $r0, $r1;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        if $r1 == class "java/lang/Enum" goto label1;
+
+        $r0 = virtualinvoke $r0.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+     label1:
+        return $r0;
+    }
+
+    public static java.lang.Class findEnumType(java.lang.Enum)
+    {
+        java.lang.Enum $r0;
+        java.lang.Class $r1, $r2;
+
+        $r0 := @parameter0: java.lang.Enum;
+
+        $r1 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r2 = virtualinvoke $r1.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        if $r2 == class "java/lang/Enum" goto label1;
+
+        $r1 = virtualinvoke $r1.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+     label1:
+        return $r1;
+    }
+
+    public static java.lang.Class findEnumType(java.util.EnumMap)
+    {
+        java.util.EnumMap $r0;
+        boolean $z0;
+        java.util.Set $r1;
+        java.util.Iterator $r2;
+        java.lang.Object $r3;
+        java.lang.Enum $r4;
+        java.lang.Class $r5;
+        com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator $r6;
+
+        $r0 := @parameter0: java.util.EnumMap;
+
+        $z0 = virtualinvoke $r0.<java.util.EnumMap: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = virtualinvoke $r0.<java.util.EnumMap: java.util.Set keySet()>();
+
+        $r2 = interfaceinvoke $r1.<java.util.Set: java.util.Iterator iterator()>();
+
+        $r3 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r4 = (java.lang.Enum) $r3;
+
+        $r5 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Class findEnumType(java.lang.Enum)>($r4);
+
+        return $r5;
+
+     label1:
+        $r6 = <com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator instance>;
+
+        $r5 = virtualinvoke $r6.<com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: java.lang.Class enumTypeFor(java.util.EnumMap)>($r0);
+
+        return $r5;
+    }
+
+    public static java.lang.Class findEnumType(java.util.EnumSet)
+    {
+        java.util.EnumSet $r0;
+        boolean $z0;
+        java.util.Iterator $r1;
+        java.lang.Object $r2;
+        java.lang.Enum $r3;
+        java.lang.Class $r4;
+        com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator $r5;
+
+        $r0 := @parameter0: java.util.EnumSet;
+
+        $z0 = virtualinvoke $r0.<java.util.EnumSet: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = virtualinvoke $r0.<java.util.EnumSet: java.util.Iterator iterator()>();
+
+        $r2 = interfaceinvoke $r1.<java.util.Iterator: java.lang.Object next()>();
+
+        $r3 = (java.lang.Enum) $r2;
+
+        $r4 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Class findEnumType(java.lang.Enum)>($r3);
+
+        return $r4;
+
+     label1:
+        $r5 = <com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator instance>;
+
+        $r4 = virtualinvoke $r5.<com.fasterxml.jackson.databind.util.ClassUtil$EnumTypeLocator: java.lang.Class enumTypeFor(java.util.EnumSet)>($r0);
+
+        return $r4;
+    }
+
+    public static java.util.List findSuperTypes(java.lang.Class, java.lang.Class)
+    {
+        java.lang.Class $r0, $r1;
+        java.util.List $r2;
+        java.util.ArrayList $r3;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 := @parameter1: java.lang.Class;
+
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<java.util.ArrayList: void <init>(int)>(8);
+
+        $r2 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.util.List findSuperTypes(java.lang.Class,java.lang.Class,java.util.List)>($r0, $r1, $r3);
+
+        return $r2;
+    }
+
+    public static java.util.List findSuperTypes(java.lang.Class, java.lang.Class, java.util.List)
+    {
+        java.lang.Class $r0, $r1;
+        java.util.List $r2;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 := @parameter1: java.lang.Class;
+
+        $r2 := @parameter2: java.util.List;
+
+        staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: void _addSuperTypes(java.lang.Class,java.lang.Class,java.util.Collection,boolean)>($r0, $r1, $r2, 0);
+
+        return $r2;
+    }
+
+    public static java.lang.Class getOuterClass(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        java.lang.reflect.Method $r1;
+        int $i0;
+        boolean $z0;
+        java.lang.NullPointerException $r2;
+        java.lang.SecurityException $r3;
+
+        $r0 := @parameter0: java.lang.Class;
+
+     label1:
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.reflect.Method getEnclosingMethod()>();
+
+     label2:
+        if $r1 == null goto label3;
+
+        return null;
+
+     label3:
+        $i0 = virtualinvoke $r0.<java.lang.Class: int getModifiers()>();
+
+        $z0 = staticinvoke <java.lang.reflect.Modifier: boolean isStatic(int)>($i0);
+
+     label4:
+        if $z0 != 0 goto label9;
+
+     label5:
+        $r0 = virtualinvoke $r0.<java.lang.Class: java.lang.Class getEnclosingClass()>();
+
+     label6:
+        return $r0;
+
+     label7:
+        $r2 := @caughtexception;
+
+        return null;
+
+     label8:
+        $r3 := @caughtexception;
+
+     label9:
+        return null;
+
+        catch java.lang.SecurityException from label1 to label2 with label8;
+        catch java.lang.SecurityException from label3 to label4 with label8;
+        catch java.lang.SecurityException from label5 to label6 with label8;
+        catch java.lang.NullPointerException from label1 to label2 with label7;
+        catch java.lang.NullPointerException from label3 to label4 with label7;
+        catch java.lang.NullPointerException from label5 to label6 with label7;
+    }
+
+    public static java.lang.Throwable getRootCause(java.lang.Throwable)
+    {
+        java.lang.Throwable $r0, $r1;
+
+        $r0 := @parameter0: java.lang.Throwable;
+
+     label1:
+        $r1 = virtualinvoke $r0.<java.lang.Throwable: java.lang.Throwable getCause()>();
+
+        if $r1 == null goto label2;
+
+        $r0 = virtualinvoke $r0.<java.lang.Throwable: java.lang.Throwable getCause()>();
+
+        goto label1;
+
+     label2:
+        return $r0;
+    }
+
+    public static boolean isCollectionMapOrArray(java.lang.Class)
+    {
+        java.lang.Class $r0, $r1;
+        boolean $z0;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $z0 = virtualinvoke $r0.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        $r1 = class "java/util/Collection";
+
+        $z0 = virtualinvoke $r1.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r0);
+
+        if $z0 != 0 goto label2;
+
+        $r1 = class "java/util/Map";
+
+        $z0 = virtualinvoke $r1.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r0);
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public static boolean isConcrete(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        int $i0;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $i0 = virtualinvoke $r0.<java.lang.Class: int getModifiers()>();
+
+        $i0 = $i0 & 1536;
+
+        if $i0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public static boolean isJacksonStdImpl(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        java.lang.'annotation'.Annotation $r1;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.'annotation'.Annotation getAnnotation(java.lang.Class)>(class "com/fasterxml/jackson/databind/annotation/JacksonStdImpl");
+
+        if $r1 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public static boolean isJacksonStdImpl(java.lang.Object)
+    {
+        java.lang.Object $r0;
+        java.lang.Class $r1;
+        boolean $z0;
+
+        $r0 := @parameter0: java.lang.Object;
+
+        if $r0 == null goto label1;
+
+        $r1 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $z0 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: boolean isJacksonStdImpl(java.lang.Class)>($r1);
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public static java.lang.String isLocalType(java.lang.Class, boolean)
+    {
+        java.lang.Class $r0, $r2;
+        boolean $z0;
+        java.lang.reflect.Method $r1;
+        int $i0;
+        java.lang.NullPointerException $r3;
+        java.lang.SecurityException $r4;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $z0 := @parameter1: boolean;
+
+     label01:
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.reflect.Method getEnclosingMethod()>();
+
+     label02:
+        if $r1 == null goto label03;
+
+        return "local/anonymous";
+
+     label03:
+        if $z0 != 0 goto label09;
+
+     label04:
+        $r2 = virtualinvoke $r0.<java.lang.Class: java.lang.Class getEnclosingClass()>();
+
+     label05:
+        if $r2 == null goto label09;
+
+     label06:
+        $i0 = virtualinvoke $r0.<java.lang.Class: int getModifiers()>();
+
+        $z0 = staticinvoke <java.lang.reflect.Modifier: boolean isStatic(int)>($i0);
+
+     label07:
+        if $z0 != 0 goto label09;
+
+        return "non-static member class";
+
+     label08:
+        $r3 := @caughtexception;
+
+     label09:
+        return null;
+
+     label10:
+        $r4 := @caughtexception;
+
+        goto label09;
+
+        catch java.lang.SecurityException from label01 to label02 with label10;
+        catch java.lang.SecurityException from label04 to label05 with label10;
+        catch java.lang.SecurityException from label06 to label07 with label10;
+        catch java.lang.NullPointerException from label01 to label02 with label08;
+        catch java.lang.NullPointerException from label04 to label05 with label08;
+        catch java.lang.NullPointerException from label06 to label07 with label08;
+    }
+
+    public static boolean isProxyType(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        boolean $z0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $z0 = staticinvoke <java.lang.reflect.Proxy: boolean isProxyClass(java.lang.Class)>($r0);
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("net.sf.cglib.proxy.");
+
+        if $z0 != 0 goto label2;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("org.hibernate.proxy.");
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public static void throwAsIAE(java.lang.Throwable)
+    {
+        java.lang.Throwable $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: java.lang.Throwable;
+
+        $r1 = virtualinvoke $r0.<java.lang.Throwable: java.lang.String getMessage()>();
+
+        staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: void throwAsIAE(java.lang.Throwable,java.lang.String)>($r0, $r1);
+
+        return;
+    }
+
+    public static void throwAsIAE(java.lang.Throwable, java.lang.String)
+    {
+        java.lang.String $r0;
+        java.lang.Throwable $r1;
+        boolean $z0;
+        java.lang.RuntimeException $r2;
+        java.lang.Error $r3;
+        java.lang.IllegalArgumentException $r4;
+
+        $r1 := @parameter0: java.lang.Throwable;
+
+        $r0 := @parameter1: java.lang.String;
+
+        $z0 = $r1 instanceof java.lang.RuntimeException;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = (java.lang.RuntimeException) $r1;
+
+        throw $r2;
+
+     label1:
+        $z0 = $r1 instanceof java.lang.Error;
+
+        if $z0 == 0 goto label2;
+
+        $r3 = (java.lang.Error) $r1;
+
+        throw $r3;
+
+     label2:
+        $r4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r4.<java.lang.IllegalArgumentException: void <init>(java.lang.String,java.lang.Throwable)>($r0, $r1);
+
+        throw $r4;
+    }
+
+    public static void unwrapAndThrowAsIAE(java.lang.Throwable)
+    {
+        java.lang.Throwable $r0;
+
+        $r0 := @parameter0: java.lang.Throwable;
+
+        $r0 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Throwable getRootCause(java.lang.Throwable)>($r0);
+
+        staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: void throwAsIAE(java.lang.Throwable)>($r0);
+
+        return;
+    }
+
+    public static void unwrapAndThrowAsIAE(java.lang.Throwable, java.lang.String)
+    {
+        java.lang.Throwable $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: java.lang.Throwable;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r0 = staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: java.lang.Throwable getRootCause(java.lang.Throwable)>($r0);
+
+        staticinvoke <com.fasterxml.jackson.databind.util.ClassUtil: void throwAsIAE(java.lang.Throwable,java.lang.String)>($r0, $r1);
+
+        return;
+    }
+}

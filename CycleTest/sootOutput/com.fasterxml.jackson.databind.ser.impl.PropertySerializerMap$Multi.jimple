@@ -1,0 +1,108 @@
+final class com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi extends com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap
+{
+    private final com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer[] _entries;
+
+    public void <init>(com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer[])
+    {
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi $r0;
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer[] $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer[];
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer[] _entries> = $r1;
+
+        return;
+    }
+
+    public final com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap newWith(java.lang.Class, com.fasterxml.jackson.databind.JsonSerializer)
+    {
+        java.lang.Class $r0;
+        com.fasterxml.jackson.databind.JsonSerializer $r1;
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi $r2;
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer[] $r3, $r4;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer $r5;
+
+        $r2 := @this: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.JsonSerializer;
+
+        $r3 = $r2.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer[] _entries>;
+
+        $i0 = lengthof $r3;
+
+        if $i0 != 8 goto label1;
+
+        return $r2;
+
+     label1:
+        $i1 = $i0 + 1;
+
+        $r3 = newarray (com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer)[$i1];
+
+        $r4 = $r2.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer[] _entries>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r4, 0, $r3, 0, $i0);
+
+        $r5 = new com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer;
+
+        specialinvoke $r5.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer: void <init>(java.lang.Class,com.fasterxml.jackson.databind.JsonSerializer)>($r0, $r1);
+
+        $r3[$i0] = $r5;
+
+        $r2 = new com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi: void <init>(com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer[])>($r3);
+
+        return $r2;
+    }
+
+    public final com.fasterxml.jackson.databind.JsonSerializer serializerFor(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi $r0;
+        java.lang.Class $r1, $r2;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer[] $r3;
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer $r4;
+        com.fasterxml.jackson.databind.JsonSerializer r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $i0 = 0;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer[] _entries>;
+
+        $i1 = lengthof $r3;
+
+     label1:
+        if $i0 >= $i1 goto label3;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Multi: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer[] _entries>;
+
+        $r4 = $r3[$i0];
+
+        $r2 = $r4.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer: java.lang.Class type>;
+
+        if $r2 != $r1 goto label2;
+
+        r5 = $r4.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$TypeAndSerializer: com.fasterxml.jackson.databind.JsonSerializer serializer>;
+
+        return r5;
+
+     label2:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label3:
+        return null;
+    }
+}

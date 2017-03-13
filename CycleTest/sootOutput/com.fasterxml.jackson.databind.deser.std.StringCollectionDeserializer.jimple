@@ -1,0 +1,479 @@
+public final class com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer extends com.fasterxml.jackson.databind.deser.std.ContainerDeserializerBase implements com.fasterxml.jackson.databind.deser.ContextualDeserializer
+{
+    protected final com.fasterxml.jackson.databind.JavaType _collectionType;
+    protected final com.fasterxml.jackson.databind.JsonDeserializer _delegateDeserializer;
+    protected final com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer;
+    protected final com.fasterxml.jackson.databind.deser.ValueInstantiator _valueInstantiator;
+
+    public void <init>(com.fasterxml.jackson.databind.JavaType, com.fasterxml.jackson.databind.JsonDeserializer, com.fasterxml.jackson.databind.deser.ValueInstantiator)
+    {
+        com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        com.fasterxml.jackson.databind.JsonDeserializer $r2;
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.deser.ValueInstantiator,com.fasterxml.jackson.databind.JsonDeserializer,com.fasterxml.jackson.databind.JsonDeserializer)>($r1, $r3, null, $r2);
+
+        return;
+    }
+
+    protected void <init>(com.fasterxml.jackson.databind.JavaType, com.fasterxml.jackson.databind.deser.ValueInstantiator, com.fasterxml.jackson.databind.JsonDeserializer, com.fasterxml.jackson.databind.JsonDeserializer)
+    {
+        com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r2;
+        com.fasterxml.jackson.databind.JsonDeserializer $r3, $r4;
+        java.lang.Class $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.ContainerDeserializerBase: void <init>(java.lang.Class)>($r5);
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JavaType _collectionType> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer> = $r4;
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.deser.ValueInstantiator _valueInstantiator> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _delegateDeserializer> = $r3;
+
+        return;
+    }
+
+    private java.util.Collection deserializeUsingCustom(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, java.util.Collection, com.fasterxml.jackson.databind.JsonDeserializer)
+    {
+        com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.util.Collection $r3;
+        com.fasterxml.jackson.databind.JsonDeserializer $r4;
+        com.fasterxml.jackson.core.JsonToken $r5, $r6;
+        java.lang.String $r7;
+        java.lang.Object $r8;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: java.util.Collection;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.JsonDeserializer;
+
+     label1:
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        $r6 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken END_ARRAY>;
+
+        if $r5 == $r6 goto label4;
+
+        $r6 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NULL>;
+
+        if $r5 != $r6 goto label3;
+
+        $r7 = null;
+
+     label2:
+        interfaceinvoke $r3.<java.util.Collection: boolean add(java.lang.Object)>($r7);
+
+        goto label1;
+
+     label3:
+        $r8 = virtualinvoke $r4.<com.fasterxml.jackson.databind.JsonDeserializer: java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        $r7 = (java.lang.String) $r8;
+
+        goto label2;
+
+     label4:
+        return $r3;
+    }
+
+    private final java.util.Collection handleNonArray(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, java.util.Collection)
+    {
+        com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.util.Collection $r3;
+        com.fasterxml.jackson.core.JsonToken $r4, $r10;
+        com.fasterxml.jackson.databind.DeserializationFeature $r5;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JavaType $r6;
+        java.lang.Class $r7;
+        com.fasterxml.jackson.databind.JsonMappingException $r8;
+        com.fasterxml.jackson.databind.JsonDeserializer $r9;
+        java.lang.String $r11;
+        java.lang.Object $r12;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: java.util.Collection;
+
+        $r5 = <com.fasterxml.jackson.databind.DeserializationFeature: com.fasterxml.jackson.databind.DeserializationFeature ACCEPT_SINGLE_VALUE_AS_ARRAY>;
+
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)>($r5);
+
+        if $z0 != 0 goto label1;
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JavaType _collectionType>;
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        $r8 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.Class)>($r7);
+
+        throw $r8;
+
+     label1:
+        $r9 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer>;
+
+        $r10 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NULL>;
+
+        if $r10 != $r4 goto label3;
+
+        $r11 = null;
+
+     label2:
+        interfaceinvoke $r3.<java.util.Collection: boolean add(java.lang.Object)>($r11);
+
+        return $r3;
+
+     label3:
+        if $r9 != null goto label4;
+
+        $r11 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.String getText()>();
+
+        goto label2;
+
+     label4:
+        $r12 = virtualinvoke $r9.<com.fasterxml.jackson.databind.JsonDeserializer: java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        $r11 = (java.lang.String) $r12;
+
+        goto label2;
+    }
+
+    public final com.fasterxml.jackson.databind.JsonDeserializer createContextual(com.fasterxml.jackson.databind.DeserializationContext, com.fasterxml.jackson.databind.BeanProperty)
+    {
+        com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        com.fasterxml.jackson.databind.BeanProperty $r2;
+        com.fasterxml.jackson.databind.JsonDeserializer $r3, $r8, $r9;
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r4;
+        com.fasterxml.jackson.databind.introspect.AnnotatedWithParams $r5;
+        com.fasterxml.jackson.databind.DeserializationConfig $r6;
+        com.fasterxml.jackson.databind.JavaType $r7;
+        boolean $z0;
+        com.fasterxml.jackson.databind.deser.ContextualDeserializer $r10;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r3 = null;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.deser.ValueInstantiator _valueInstantiator>;
+
+        if $r4 == null goto label6;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.deser.ValueInstantiator _valueInstantiator>;
+
+        $r5 = virtualinvoke $r4.<com.fasterxml.jackson.databind.deser.ValueInstantiator: com.fasterxml.jackson.databind.introspect.AnnotatedWithParams getDelegateCreator()>();
+
+        if $r5 == null goto label6;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.deser.ValueInstantiator _valueInstantiator>;
+
+        $r6 = virtualinvoke $r1.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.DeserializationConfig getConfig()>();
+
+        $r7 = virtualinvoke $r4.<com.fasterxml.jackson.databind.deser.ValueInstantiator: com.fasterxml.jackson.databind.JavaType getDelegateType(com.fasterxml.jackson.databind.DeserializationConfig)>($r6);
+
+        $r8 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JsonDeserializer findDeserializer(com.fasterxml.jackson.databind.DeserializationContext,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.BeanProperty)>($r1, $r7, $r2);
+
+     label1:
+        $r9 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer>;
+
+        if $r9 != null goto label4;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JavaType _collectionType>;
+
+        $r7 = virtualinvoke $r7.<com.fasterxml.jackson.databind.JavaType: com.fasterxml.jackson.databind.JavaType getContentType()>();
+
+        $r9 = virtualinvoke $r1.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonDeserializer findContextualValueDeserializer(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.BeanProperty)>($r7, $r2);
+
+     label2:
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: boolean isDefaultDeserializer(com.fasterxml.jackson.databind.JsonDeserializer)>($r9);
+
+        if $z0 == 0 goto label5;
+
+     label3:
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer withResolved(com.fasterxml.jackson.databind.JsonDeserializer,com.fasterxml.jackson.databind.JsonDeserializer)>($r8, $r3);
+
+        return $r0;
+
+     label4:
+        $z0 = $r9 instanceof com.fasterxml.jackson.databind.deser.ContextualDeserializer;
+
+        if $z0 == 0 goto label2;
+
+        $r10 = (com.fasterxml.jackson.databind.deser.ContextualDeserializer) $r9;
+
+        $r9 = interfaceinvoke $r10.<com.fasterxml.jackson.databind.deser.ContextualDeserializer: com.fasterxml.jackson.databind.JsonDeserializer createContextual(com.fasterxml.jackson.databind.DeserializationContext,com.fasterxml.jackson.databind.BeanProperty)>($r1, $r2);
+
+        goto label2;
+
+     label5:
+        $r3 = $r9;
+
+        goto label3;
+
+     label6:
+        $r8 = null;
+
+        goto label1;
+    }
+
+    public final volatile java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.util.Collection $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: java.util.Collection deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public final volatile java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.util.Collection $r3;
+        java.lang.Object $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r4 := @parameter2: java.lang.Object;
+
+        $r3 = (java.util.Collection) $r4;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: java.util.Collection deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext,java.util.Collection)>($r1, $r2, $r3);
+
+        return $r3;
+    }
+
+    public final java.util.Collection deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.databind.JsonDeserializer $r3;
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r4;
+        java.lang.Object $r5;
+        java.util.Collection $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _delegateDeserializer>;
+
+        if $r3 == null goto label1;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.deser.ValueInstantiator _valueInstantiator>;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _delegateDeserializer>;
+
+        $r5 = virtualinvoke $r3.<com.fasterxml.jackson.databind.JsonDeserializer: java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        $r5 = virtualinvoke $r4.<com.fasterxml.jackson.databind.deser.ValueInstantiator: java.lang.Object createUsingDelegate(com.fasterxml.jackson.databind.DeserializationContext,java.lang.Object)>($r2, $r5);
+
+        $r6 = (java.util.Collection) $r5;
+
+        return $r6;
+
+     label1:
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.deser.ValueInstantiator _valueInstantiator>;
+
+        $r5 = virtualinvoke $r4.<com.fasterxml.jackson.databind.deser.ValueInstantiator: java.lang.Object createUsingDefault(com.fasterxml.jackson.databind.DeserializationContext)>($r2);
+
+        $r6 = (java.util.Collection) $r5;
+
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: java.util.Collection deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext,java.util.Collection)>($r1, $r2, $r6);
+
+        return $r6;
+    }
+
+    public final java.util.Collection deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, java.util.Collection)
+    {
+        com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.util.Collection $r3;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JsonDeserializer $r4;
+        com.fasterxml.jackson.core.JsonToken $r5, $r6;
+        java.lang.String $r7;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: java.util.Collection;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: boolean isExpectedStartArrayToken()>();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: java.util.Collection handleNonArray(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext,java.util.Collection)>($r1, $r2, $r3);
+
+        return $r3;
+
+     label1:
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer>;
+
+        if $r4 == null goto label2;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer>;
+
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: java.util.Collection deserializeUsingCustom(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext,java.util.Collection,com.fasterxml.jackson.databind.JsonDeserializer)>($r1, $r2, $r3, $r4);
+
+        return $r3;
+
+     label2:
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        $r6 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken END_ARRAY>;
+
+        if $r5 == $r6 goto label5;
+
+        $r6 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NULL>;
+
+        if $r5 != $r6 goto label4;
+
+        $r7 = null;
+
+     label3:
+        interfaceinvoke $r3.<java.util.Collection: boolean add(java.lang.Object)>($r7);
+
+        goto label2;
+
+     label4:
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.String getText()>();
+
+        goto label3;
+
+     label5:
+        return $r3;
+    }
+
+    public final java.lang.Object deserializeWithType(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, com.fasterxml.jackson.databind.jsontype.TypeDeserializer)
+    {
+        com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.databind.jsontype.TypeDeserializer $r3;
+        java.lang.Object $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.jsontype.TypeDeserializer;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.databind.jsontype.TypeDeserializer: java.lang.Object deserializeTypedFromArray(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r4;
+    }
+
+    public final com.fasterxml.jackson.databind.JsonDeserializer getContentDeserializer()
+    {
+        com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer $r0;
+        com.fasterxml.jackson.databind.JsonDeserializer r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer>;
+
+        return r1;
+    }
+
+    protected final com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer withResolved(com.fasterxml.jackson.databind.JsonDeserializer, com.fasterxml.jackson.databind.JsonDeserializer)
+    {
+        com.fasterxml.jackson.databind.JsonDeserializer $r0, $r1, $r5;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r3;
+        com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer $r4, $r6;
+
+        $r4 := @this: com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.JsonDeserializer;
+
+        $r5 = $r4.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _valueDeserializer>;
+
+        if $r5 != $r1 goto label1;
+
+        $r5 = $r4.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JsonDeserializer _delegateDeserializer>;
+
+        if $r5 != $r0 goto label1;
+
+        return $r4;
+
+     label1:
+        $r6 = new com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
+
+        $r2 = $r4.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.JavaType _collectionType>;
+
+        $r3 = $r4.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: com.fasterxml.jackson.databind.deser.ValueInstantiator _valueInstantiator>;
+
+        specialinvoke $r6.<com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.deser.ValueInstantiator,com.fasterxml.jackson.databind.JsonDeserializer,com.fasterxml.jackson.databind.JsonDeserializer)>($r2, $r3, $r0, $r1);
+
+        return $r6;
+    }
+}

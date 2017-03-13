@@ -1,0 +1,189 @@
+public final class b.a.a.a.b extends java.lang.Object
+{
+    public static final char a;
+    public static final java.lang.String b;
+
+    static void <clinit>()
+    {
+        java.lang.String $r0;
+        char $c0;
+        b.a.a.a.a.a $r1;
+        java.io.PrintWriter $r2;
+
+        $c0 = <java.io.File: char separatorChar>;
+
+        <b.a.a.a.b: char a> = $c0;
+
+        $r1 = new b.a.a.a.a.a;
+
+        specialinvoke $r1.<b.a.a.a.a.a: void <init>(byte)>(0);
+
+        $r2 = new java.io.PrintWriter;
+
+        specialinvoke $r2.<java.io.PrintWriter: void <init>(java.io.Writer)>($r1);
+
+        virtualinvoke $r2.<java.io.PrintWriter: void println()>();
+
+        $r0 = virtualinvoke $r1.<b.a.a.a.a.a: java.lang.String toString()>();
+
+        <b.a.a.a.b: java.lang.String b> = $r0;
+
+        virtualinvoke $r2.<java.io.PrintWriter: void close()>();
+
+        return;
+    }
+
+    public static int a(java.io.InputStream, java.io.OutputStream)
+    {
+        java.io.InputStream $r0;
+        java.io.OutputStream $r1;
+        int $i0;
+        byte[] $r2;
+        long $l1, $l2;
+        byte $b3;
+
+        $r0 := @parameter0: java.io.InputStream;
+
+        $r1 := @parameter1: java.io.OutputStream;
+
+        $r2 = newarray (byte)[4096];
+
+        $l1 = 0L;
+
+     label1:
+        $i0 = virtualinvoke $r0.<java.io.InputStream: int read(byte[])>($r2);
+
+        if -1 == $i0 goto label2;
+
+        virtualinvoke $r1.<java.io.OutputStream: void write(byte[],int,int)>($r2, 0, $i0);
+
+        $l2 = (long) $i0;
+
+        $l1 = $l1 + $l2;
+
+        goto label1;
+
+     label2:
+        $b3 = $l1 cmp 2147483647L;
+
+        if $b3 <= 0 goto label3;
+
+        return -1;
+
+     label3:
+        $i0 = (int) $l1;
+
+        return $i0;
+    }
+
+    private static long a(java.io.Reader, java.io.Writer, char[])
+    {
+        java.io.Reader $r0;
+        java.io.Writer $r1;
+        char[] $r2;
+        int $i0;
+        long $l1, $l2;
+
+        $r0 := @parameter0: java.io.Reader;
+
+        $r1 := @parameter1: java.io.Writer;
+
+        $r2 := @parameter2: char[];
+
+        $l1 = 0L;
+
+     label1:
+        $i0 = virtualinvoke $r0.<java.io.Reader: int read(char[])>($r2);
+
+        if -1 == $i0 goto label2;
+
+        virtualinvoke $r1.<java.io.Writer: void write(char[],int,int)>($r2, 0, $i0);
+
+        $l2 = (long) $i0;
+
+        $l1 = $l1 + $l2;
+
+        goto label1;
+
+     label2:
+        return $l1;
+    }
+
+    private static void a(java.io.Closeable)
+    {
+        java.io.Closeable $r0;
+        java.io.IOException $r1;
+
+        $r0 := @parameter0: java.io.Closeable;
+
+        if $r0 == null goto label4;
+
+     label1:
+        interfaceinvoke $r0.<java.io.Closeable: void close()>();
+
+     label2:
+        return;
+
+     label3:
+        $r1 := @caughtexception;
+
+     label4:
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public static void a(java.io.InputStream)
+    {
+        java.io.InputStream $r0;
+
+        $r0 := @parameter0: java.io.InputStream;
+
+        staticinvoke <b.a.a.a.b: void a(java.io.Closeable)>($r0);
+
+        return;
+    }
+
+    public static void a(java.io.OutputStream)
+    {
+        java.io.OutputStream $r0;
+
+        $r0 := @parameter0: java.io.OutputStream;
+
+        staticinvoke <b.a.a.a.b: void a(java.io.Closeable)>($r0);
+
+        return;
+    }
+
+    public static java.lang.String b(java.io.InputStream)
+    {
+        java.io.InputStream $r0;
+        b.a.a.a.a.a $r1;
+        java.io.InputStreamReader $r2;
+        java.nio.charset.Charset $r3;
+        char[] $r4;
+        java.lang.String $r5;
+
+        $r0 := @parameter0: java.io.InputStream;
+
+        $r3 = staticinvoke <java.nio.charset.Charset: java.nio.charset.Charset defaultCharset()>();
+
+        $r1 = new b.a.a.a.a.a;
+
+        specialinvoke $r1.<b.a.a.a.a.a: void <init>()>();
+
+        $r2 = new java.io.InputStreamReader;
+
+        $r3 = staticinvoke <b.a.a.a.a: java.nio.charset.Charset a(java.nio.charset.Charset)>($r3);
+
+        specialinvoke $r2.<java.io.InputStreamReader: void <init>(java.io.InputStream,java.nio.charset.Charset)>($r0, $r3);
+
+        $r4 = newarray (char)[4096];
+
+        staticinvoke <b.a.a.a.b: long a(java.io.Reader,java.io.Writer,char[])>($r2, $r1, $r4);
+
+        $r5 = virtualinvoke $r1.<b.a.a.a.a.a: java.lang.String toString()>();
+
+        return $r5;
+    }
+}

@@ -1,0 +1,42 @@
+public class com.google.android.gms.analytics.GoogleAnalytics extends com.google.android.gms.analytics.TrackerHandler
+{
+    private static com.google.android.gms.analytics.GoogleAnalytics b;
+    private com.google.android.gms.analytics.Logger a;
+
+    static com.google.android.gms.analytics.GoogleAnalytics a()
+    {
+        java.lang.Throwable $r0;
+        com.google.android.gms.analytics.GoogleAnalytics r1;
+
+        entermonitor class "com/google/android/gms/analytics/GoogleAnalytics";
+
+     label1:
+        r1 = <com.google.android.gms.analytics.GoogleAnalytics: com.google.android.gms.analytics.GoogleAnalytics b>;
+
+        exitmonitor class "com/google/android/gms/analytics/GoogleAnalytics";
+
+     label2:
+        return r1;
+
+     label3:
+        $r0 := @caughtexception;
+
+        exitmonitor class "com/google/android/gms/analytics/GoogleAnalytics";
+
+        throw $r0;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public com.google.android.gms.analytics.Logger getLogger()
+    {
+        com.google.android.gms.analytics.GoogleAnalytics $r0;
+        com.google.android.gms.analytics.Logger r1;
+
+        $r0 := @this: com.google.android.gms.analytics.GoogleAnalytics;
+
+        r1 = $r0.<com.google.android.gms.analytics.GoogleAnalytics: com.google.android.gms.analytics.Logger a>;
+
+        return r1;
+    }
+}

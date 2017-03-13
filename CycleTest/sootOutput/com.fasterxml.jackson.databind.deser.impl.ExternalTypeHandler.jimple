@@ -1,0 +1,631 @@
+public class com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler extends java.lang.Object
+{
+    private final java.util.HashMap _nameToPropertyIndex;
+    private final com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties;
+    private final com.fasterxml.jackson.databind.util.TokenBuffer[] _tokens;
+    private final java.lang.String[] _typeIds;
+
+    protected void <init>(com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler)
+    {
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler $r0, $r1;
+        java.lang.String[] $r2;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] $r3;
+        java.util.HashMap $r4;
+        int $i0;
+        com.fasterxml.jackson.databind.util.TokenBuffer[] $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r3 = $r1.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties> = $r3;
+
+        $r4 = $r1.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.util.HashMap _nameToPropertyIndex>;
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.util.HashMap _nameToPropertyIndex> = $r4;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $i0 = lengthof $r3;
+
+        $r2 = newarray (java.lang.String)[$i0];
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.lang.String[] _typeIds> = $r2;
+
+        $r5 = newarray (com.fasterxml.jackson.databind.util.TokenBuffer)[$i0];
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.util.TokenBuffer[] _tokens> = $r5;
+
+        return;
+    }
+
+    protected void <init>(com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[], java.util.HashMap, java.lang.String[], com.fasterxml.jackson.databind.util.TokenBuffer[])
+    {
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler $r0;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] $r1;
+        java.util.HashMap $r2;
+        java.lang.String[] $r3;
+        com.fasterxml.jackson.databind.util.TokenBuffer[] $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[];
+
+        $r2 := @parameter1: java.util.HashMap;
+
+        $r3 := @parameter2: java.lang.String[];
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.util.TokenBuffer[];
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.util.HashMap _nameToPropertyIndex> = $r2;
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.lang.String[] _typeIds> = $r3;
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.util.TokenBuffer[] _tokens> = $r4;
+
+        return;
+    }
+
+    protected final java.lang.Object _deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, int)
+    {
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler $r0;
+        com.fasterxml.jackson.core.JsonParser $r1, $r9;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        int $i0;
+        com.fasterxml.jackson.databind.util.TokenBuffer $r3, $r8;
+        com.fasterxml.jackson.core.ObjectCodec $r4;
+        java.lang.String[] $r5;
+        java.lang.String $r6;
+        com.fasterxml.jackson.databind.util.TokenBuffer[] $r7;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] $r10;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty $r11;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty $r12;
+        java.lang.Object $r13;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $i0 := @parameter2: int;
+
+        $r3 = new com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r4 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.ObjectCodec getCodec()>();
+
+        specialinvoke $r3.<com.fasterxml.jackson.databind.util.TokenBuffer: void <init>(com.fasterxml.jackson.core.ObjectCodec)>($r4);
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeStartArray()>();
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.lang.String[] _typeIds>;
+
+        $r6 = $r5[$i0];
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeString(java.lang.String)>($r6);
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.util.TokenBuffer[] _tokens>;
+
+        $r8 = $r7[$i0];
+
+        $r9 = virtualinvoke $r8.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.JsonParser asParser(com.fasterxml.jackson.core.JsonParser)>($r1);
+
+        virtualinvoke $r9.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.util.TokenBuffer: void copyCurrentStructure(com.fasterxml.jackson.core.JsonParser)>($r9);
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeEndArray()>();
+
+        $r1 = virtualinvoke $r3.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.JsonParser asParser(com.fasterxml.jackson.core.JsonParser)>($r1);
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $r11 = $r10[$i0];
+
+        $r12 = virtualinvoke $r11.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty: com.fasterxml.jackson.databind.deser.SettableBeanProperty getProperty()>();
+
+        $r13 = virtualinvoke $r12.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r13;
+    }
+
+    protected final void _deserializeAndSet(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, java.lang.Object, int)
+    {
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler $r0;
+        com.fasterxml.jackson.core.JsonParser $r1, $r10;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.lang.Object $r3;
+        int $i0;
+        com.fasterxml.jackson.databind.util.TokenBuffer $r4, $r9;
+        com.fasterxml.jackson.core.ObjectCodec $r5;
+        java.lang.String[] $r6;
+        java.lang.String $r7;
+        com.fasterxml.jackson.databind.util.TokenBuffer[] $r8;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] $r11;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty $r12;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty $r13;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: java.lang.Object;
+
+        $i0 := @parameter3: int;
+
+        $r4 = new com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.ObjectCodec getCodec()>();
+
+        specialinvoke $r4.<com.fasterxml.jackson.databind.util.TokenBuffer: void <init>(com.fasterxml.jackson.core.ObjectCodec)>($r5);
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeStartArray()>();
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.lang.String[] _typeIds>;
+
+        $r7 = $r6[$i0];
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeString(java.lang.String)>($r7);
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.util.TokenBuffer[] _tokens>;
+
+        $r9 = $r8[$i0];
+
+        $r10 = virtualinvoke $r9.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.JsonParser asParser(com.fasterxml.jackson.core.JsonParser)>($r1);
+
+        virtualinvoke $r10.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.util.TokenBuffer: void copyCurrentStructure(com.fasterxml.jackson.core.JsonParser)>($r10);
+
+        virtualinvoke $r4.<com.fasterxml.jackson.databind.util.TokenBuffer: void writeEndArray()>();
+
+        $r1 = virtualinvoke $r4.<com.fasterxml.jackson.databind.util.TokenBuffer: com.fasterxml.jackson.core.JsonParser asParser(com.fasterxml.jackson.core.JsonParser)>($r1);
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $r12 = $r11[$i0];
+
+        $r13 = virtualinvoke $r12.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty: com.fasterxml.jackson.databind.deser.SettableBeanProperty getProperty()>();
+
+        virtualinvoke $r13.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: void deserializeAndSet(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext,java.lang.Object)>($r1, $r2, $r3);
+
+        return;
+    }
+
+    public java.lang.Object complete(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer, com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator)
+    {
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer $r3;
+        com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator $r4;
+        int $i0, $i1, $i2, $i3;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] $r5;
+        java.lang.Object[] $r6;
+        java.lang.String[] $r7;
+        java.lang.String $r8;
+        com.fasterxml.jackson.databind.util.TokenBuffer[] $r9;
+        com.fasterxml.jackson.databind.util.TokenBuffer $r10;
+        java.lang.StringBuilder $r11;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty $r12;
+        com.fasterxml.jackson.databind.JsonMappingException $r13;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty $r14, $r16;
+        java.lang.Object $r15, $r17;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer;
+
+        $r4 := @parameter3: com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator;
+
+        $i0 = 0;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $i1 = lengthof $r5;
+
+        $r6 = newarray (java.lang.Object)[$i1];
+
+        $i2 = 0;
+
+     label01:
+        if $i2 >= $i1 goto label05;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.lang.String[] _typeIds>;
+
+        $r8 = $r7[$i2];
+
+        if $r8 != null goto label02;
+
+        $r9 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.util.TokenBuffer[] _tokens>;
+
+        $r10 = $r9[$i2];
+
+        if $r10 == null goto label04;
+
+        $r11 = new java.lang.StringBuilder;
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>(java.lang.String)>("Missing external type id property \'");
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $r12 = $r5[$i2];
+
+        $r8 = virtualinvoke $r12.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty: java.lang.String getTypePropertyName()>();
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r8 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r13 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.String)>($r8);
+
+        throw $r13;
+
+     label02:
+        $r9 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.util.TokenBuffer[] _tokens>;
+
+        $r10 = $r9[$i2];
+
+        if $r10 != null goto label03;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $r12 = $r5[$i2];
+
+        $r14 = virtualinvoke $r12.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty: com.fasterxml.jackson.databind.deser.SettableBeanProperty getProperty()>();
+
+        $r11 = new java.lang.StringBuilder;
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>(java.lang.String)>("Missing property \'");
+
+        $r8 = virtualinvoke $r14.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: java.lang.String getName()>();
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' for external type id \'");
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $r12 = $r5[$i2];
+
+        $r8 = virtualinvoke $r12.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty: java.lang.String getTypePropertyName()>();
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r8 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r13 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.String)>($r8);
+
+        throw $r13;
+
+     label03:
+        $r15 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.lang.Object _deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext,int)>($r1, $r2, $i2);
+
+        $r6[$i2] = $r15;
+
+     label04:
+        $i2 = $i2 + 1;
+
+        goto label01;
+
+     label05:
+        $i2 = 0;
+
+     label06:
+        if $i2 >= $i1 goto label08;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $r12 = $r5[$i2];
+
+        $r14 = virtualinvoke $r12.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty: com.fasterxml.jackson.databind.deser.SettableBeanProperty getProperty()>();
+
+        $r8 = virtualinvoke $r14.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: java.lang.String getName()>();
+
+        $r16 = virtualinvoke $r4.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: com.fasterxml.jackson.databind.deser.SettableBeanProperty findCreatorProperty(java.lang.String)>($r8);
+
+        if $r16 == null goto label07;
+
+        $i3 = virtualinvoke $r14.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: int getPropertyIndex()>();
+
+        $r15 = $r6[$i2];
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer: boolean assignParameter(int,java.lang.Object)>($i3, $r15);
+
+     label07:
+        $i2 = $i2 + 1;
+
+        goto label06;
+
+     label08:
+        $r15 = virtualinvoke $r4.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: java.lang.Object build(com.fasterxml.jackson.databind.DeserializationContext,com.fasterxml.jackson.databind.deser.impl.PropertyValueBuffer)>($r2, $r3);
+
+     label09:
+        if $i0 >= $i1 goto label11;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $r12 = $r5[$i0];
+
+        $r14 = virtualinvoke $r12.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty: com.fasterxml.jackson.databind.deser.SettableBeanProperty getProperty()>();
+
+        $r8 = virtualinvoke $r14.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: java.lang.String getName()>();
+
+        $r16 = virtualinvoke $r4.<com.fasterxml.jackson.databind.deser.impl.PropertyBasedCreator: com.fasterxml.jackson.databind.deser.SettableBeanProperty findCreatorProperty(java.lang.String)>($r8);
+
+        if $r16 != null goto label10;
+
+        $r17 = $r6[$i0];
+
+        virtualinvoke $r14.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: void set(java.lang.Object,java.lang.Object)>($r15, $r17);
+
+     label10:
+        $i0 = $i0 + 1;
+
+        goto label09;
+
+     label11:
+        return $r15;
+    }
+
+    public java.lang.Object complete(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.lang.Object $r3;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] $r4;
+        java.lang.String[] $r5;
+        java.lang.String $r6;
+        com.fasterxml.jackson.databind.util.TokenBuffer[] $r7;
+        com.fasterxml.jackson.databind.util.TokenBuffer $r8;
+        java.lang.StringBuilder $r9;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty $r10;
+        com.fasterxml.jackson.databind.JsonMappingException $r11;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty $r12;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: java.lang.Object;
+
+        $i0 = 0;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $i1 = lengthof $r4;
+
+     label1:
+        if $i0 >= $i1 goto label5;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.lang.String[] _typeIds>;
+
+        $r6 = $r5[$i0];
+
+        if $r6 != null goto label2;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.util.TokenBuffer[] _tokens>;
+
+        $r8 = $r7[$i0];
+
+        if $r8 == null goto label4;
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>("Missing external type id property \'");
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $r10 = $r4[$i0];
+
+        $r6 = virtualinvoke $r10.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty: java.lang.String getTypePropertyName()>();
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r11 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.String)>($r6);
+
+        throw $r11;
+
+     label2:
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.util.TokenBuffer[] _tokens>;
+
+        $r8 = $r7[$i0];
+
+        if $r8 != null goto label3;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $r10 = $r4[$i0];
+
+        $r12 = virtualinvoke $r10.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty: com.fasterxml.jackson.databind.deser.SettableBeanProperty getProperty()>();
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>("Missing property \'");
+
+        $r6 = virtualinvoke $r12.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: java.lang.String getName()>();
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' for external type id \'");
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $r10 = $r4[$i0];
+
+        $r6 = virtualinvoke $r10.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty: java.lang.String getTypePropertyName()>();
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r11 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.String)>($r6);
+
+        throw $r11;
+
+     label3:
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: void _deserializeAndSet(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext,java.lang.Object,int)>($r1, $r2, $r3, $i0);
+
+     label4:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label5:
+        return $r3;
+    }
+
+    public boolean handlePropertyValue(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext, java.lang.String, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        java.lang.String $r3;
+        java.lang.Object $r4, $r6;
+        boolean $z0, $z1;
+        java.util.HashMap $r5;
+        java.lang.Integer $r7;
+        int $i0;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] $r8;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty $r9;
+        java.lang.String[] $r10;
+        com.fasterxml.jackson.databind.util.TokenBuffer[] $r11;
+        com.fasterxml.jackson.databind.util.TokenBuffer $r12;
+        com.fasterxml.jackson.core.ObjectCodec $r13;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r4 := @parameter3: java.lang.Object;
+
+        $z0 = 0;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.util.HashMap _nameToPropertyIndex>;
+
+        $r6 = virtualinvoke $r5.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r7 = (java.lang.Integer) $r6;
+
+        if $r7 != null goto label1;
+
+        return 0;
+
+     label1:
+        $i0 = virtualinvoke $r7.<java.lang.Integer: int intValue()>();
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] _properties>;
+
+        $r9 = $r8[$i0];
+
+        $z1 = virtualinvoke $r9.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty: boolean hasTypePropertyName(java.lang.String)>($r3);
+
+        if $z1 == 0 goto label5;
+
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.lang.String[] _typeIds>;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.String getText()>();
+
+        $r10[$i0] = $r3;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonParser skipChildren()>();
+
+        if $r4 == null goto label4;
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.util.TokenBuffer[] _tokens>;
+
+        $r12 = $r11[$i0];
+
+        if $r12 == null goto label4;
+
+        $z0 = 1;
+
+     label2:
+        if $z0 == 0 goto label3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: void _deserializeAndSet(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext,java.lang.Object,int)>($r1, $r2, $r4, $i0);
+
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.lang.String[] _typeIds>;
+
+        $r10[$i0] = null;
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.util.TokenBuffer[] _tokens>;
+
+        $r11[$i0] = null;
+
+     label3:
+        return 1;
+
+     label4:
+        $z0 = 0;
+
+        goto label2;
+
+     label5:
+        $r12 = new com.fasterxml.jackson.databind.util.TokenBuffer;
+
+        $r13 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.ObjectCodec getCodec()>();
+
+        specialinvoke $r12.<com.fasterxml.jackson.databind.util.TokenBuffer: void <init>(com.fasterxml.jackson.core.ObjectCodec)>($r13);
+
+        virtualinvoke $r12.<com.fasterxml.jackson.databind.util.TokenBuffer: void copyCurrentStructure(com.fasterxml.jackson.core.JsonParser)>($r1);
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: com.fasterxml.jackson.databind.util.TokenBuffer[] _tokens>;
+
+        $r11[$i0] = $r12;
+
+        if $r4 == null goto label6;
+
+        $r10 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: java.lang.String[] _typeIds>;
+
+        $r3 = $r10[$i0];
+
+        if $r3 == null goto label6;
+
+        $z0 = 1;
+
+     label6:
+        goto label2;
+    }
+
+    public com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler start()
+    {
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler $r0, $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler;
+
+        $r1 = new com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: void <init>(com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler)>($r0);
+
+        return $r1;
+    }
+}

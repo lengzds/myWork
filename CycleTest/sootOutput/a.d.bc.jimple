@@ -1,0 +1,445 @@
+public class a.d.bc extends java.io.IOException implements a.d.cp, a.d.g, a.d.p
+{
+    private int a;
+    private java.lang.Throwable b;
+
+    void <init>()
+    {
+        a.d.bc $r0;
+
+        $r0 := @this: a.d.bc;
+
+        specialinvoke $r0.<java.io.IOException: void <init>()>();
+
+        return;
+    }
+
+    void <init>(int)
+    {
+        a.d.bc $r0;
+        int $i0;
+        java.lang.String $r1;
+
+        $r0 := @this: a.d.bc;
+
+        $i0 := @parameter0: int;
+
+        $r1 = staticinvoke <a.d.bc: java.lang.String a(int)>($i0);
+
+        specialinvoke $r0.<java.io.IOException: void <init>(java.lang.String)>($r1);
+
+        $i0 = staticinvoke <a.d.bc: int b(int)>($i0);
+
+        $r0.<a.d.bc: int a> = $i0;
+
+        $r0.<a.d.bc: java.lang.Throwable b> = null;
+
+        return;
+    }
+
+    public void <init>(int, boolean)
+    {
+        a.d.bc $r0;
+        boolean $z0;
+        int $i0;
+        java.lang.String $r1;
+
+        $r0 := @this: a.d.bc;
+
+        $i0 := @parameter0: int;
+
+        $z0 := @parameter1: boolean;
+
+        if $z0 == 0 goto label3;
+
+        $r1 = staticinvoke <a.d.bc: java.lang.String c(int)>($i0);
+
+     label1:
+        specialinvoke $r0.<java.io.IOException: void <init>(java.lang.String)>($r1);
+
+        if $z0 == 0 goto label4;
+
+     label2:
+        $r0.<a.d.bc: int a> = $i0;
+
+        return;
+
+     label3:
+        $r1 = staticinvoke <a.d.bc: java.lang.String a(int)>($i0);
+
+        goto label1;
+
+     label4:
+        $i0 = staticinvoke <a.d.bc: int b(int)>($i0);
+
+        goto label2;
+    }
+
+    void <init>(java.lang.String)
+    {
+        a.d.bc $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: a.d.bc;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<java.io.IOException: void <init>(java.lang.String)>($r1);
+
+        $r0.<a.d.bc: int a> = -1073741823;
+
+        return;
+    }
+
+    void <init>(java.lang.String, java.lang.Throwable)
+    {
+        a.d.bc $r0;
+        java.lang.String $r1;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: a.d.bc;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Throwable;
+
+        specialinvoke $r0.<java.io.IOException: void <init>(java.lang.String)>($r1);
+
+        $r0.<a.d.bc: java.lang.Throwable b> = $r2;
+
+        $r0.<a.d.bc: int a> = -1073741823;
+
+        return;
+    }
+
+    static java.lang.String a(int)
+    {
+        int $i0, $i1, $i2, $i3, $i4;
+        int[] $r0;
+        java.lang.String[] $r1;
+        java.lang.String $r2;
+        int[][] $r3;
+        java.lang.StringBuilder $r4;
+
+        $i0 := @parameter0: int;
+
+        if $i0 != 0 goto label1;
+
+        return "NT_STATUS_SUCCESS";
+
+     label1:
+        $i1 = $i0 & -1073741824;
+
+        if $i1 != -1073741824 goto label5;
+
+        $i1 = 1;
+
+        $r0 = <a.d.bc: int[] f_>;
+
+        $i2 = lengthof $r0;
+
+        $i2 = $i2 + -1;
+
+     label2:
+        if $i2 < $i1 goto label9;
+
+        $i3 = $i1 + $i2;
+
+        $i3 = $i3 / 2;
+
+        $r0 = <a.d.bc: int[] f_>;
+
+        $i4 = $r0[$i3];
+
+        if $i0 <= $i4 goto label3;
+
+        $i1 = $i3 + 1;
+
+        goto label2;
+
+     label3:
+        $r0 = <a.d.bc: int[] f_>;
+
+        $i2 = $r0[$i3];
+
+        if $i0 >= $i2 goto label4;
+
+        $i2 = $i3 + -1;
+
+        goto label2;
+
+     label4:
+        $r1 = <a.d.bc: java.lang.String[] g_>;
+
+        $r2 = $r1[$i3];
+
+        return $r2;
+
+     label5:
+        $r3 = <a.d.bc: int[][] l>;
+
+        $i1 = lengthof $r3;
+
+        $i2 = $i1 + -1;
+
+        $i1 = 0;
+
+     label6:
+        if $i2 < $i1 goto label9;
+
+        $i3 = $i1 + $i2;
+
+        $i3 = $i3 / 2;
+
+        $r3 = <a.d.bc: int[][] l>;
+
+        $r0 = $r3[$i3];
+
+        $i4 = $r0[0];
+
+        if $i0 <= $i4 goto label7;
+
+        $i1 = $i3 + 1;
+
+        goto label6;
+
+     label7:
+        $r3 = <a.d.bc: int[][] l>;
+
+        $r0 = $r3[$i3];
+
+        $i2 = $r0[0];
+
+        if $i0 >= $i2 goto label8;
+
+        $i2 = $i3 + -1;
+
+        goto label6;
+
+     label8:
+        $r1 = <a.d.bc: java.lang.String[] m>;
+
+        $r2 = $r1[$i3];
+
+        return $r2;
+
+     label9:
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("0x");
+
+        $r2 = staticinvoke <a.e.d: java.lang.String a(int,int)>($i0, 8);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    static int b(int)
+    {
+        int $i0, $i1, $i2, $i3, $i4;
+        int[][] $r0;
+        int[] $r1;
+
+        $i0 := @parameter0: int;
+
+        $i1 = -1073741824 & $i0;
+
+        if $i1 == 0 goto label1;
+
+        return $i0;
+
+     label1:
+        $r0 = <a.d.bc: int[][] l>;
+
+        $i1 = lengthof $r0;
+
+        $i2 = $i1 + -1;
+
+        $i1 = 0;
+
+     label2:
+        if $i2 < $i1 goto label5;
+
+        $i3 = $i1 + $i2;
+
+        $i3 = $i3 / 2;
+
+        $r0 = <a.d.bc: int[][] l>;
+
+        $r1 = $r0[$i3];
+
+        $i4 = $r1[0];
+
+        if $i0 <= $i4 goto label3;
+
+        $i1 = $i3 + 1;
+
+        goto label2;
+
+     label3:
+        $r0 = <a.d.bc: int[][] l>;
+
+        $r1 = $r0[$i3];
+
+        $i2 = $r1[0];
+
+        if $i0 >= $i2 goto label4;
+
+        $i2 = $i3 + -1;
+
+        goto label2;
+
+     label4:
+        $r0 = <a.d.bc: int[][] l>;
+
+        $r1 = $r0[$i3];
+
+        $i0 = $r1[1];
+
+        return $i0;
+
+     label5:
+        return -1073741823;
+    }
+
+    private static java.lang.String c(int)
+    {
+        int $i0, $i1, $i2, $i3, $i4;
+        int[] $r0;
+        java.lang.String[] $r1;
+        java.lang.String $r2;
+        java.lang.StringBuilder $r3;
+
+        $i0 := @parameter0: int;
+
+        $i1 = 0;
+
+        $r0 = <a.d.bc: int[] h_>;
+
+        $i2 = lengthof $r0;
+
+        $i2 = $i2 + -1;
+
+     label1:
+        if $i2 < $i1 goto label4;
+
+        $i3 = $i1 + $i2;
+
+        $i3 = $i3 / 2;
+
+        $r0 = <a.d.bc: int[] h_>;
+
+        $i4 = $r0[$i3];
+
+        if $i0 <= $i4 goto label2;
+
+        $i1 = $i3 + 1;
+
+        goto label1;
+
+     label2:
+        $r0 = <a.d.bc: int[] h_>;
+
+        $i2 = $r0[$i3];
+
+        if $i0 >= $i2 goto label3;
+
+        $i2 = $i3 + -1;
+
+        goto label1;
+
+     label3:
+        $r1 = <a.d.bc: java.lang.String[] i_>;
+
+        $r2 = $r1[$i3];
+
+        return $r2;
+
+     label4:
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public final int a()
+    {
+        a.d.bc $r0;
+        int i0;
+
+        $r0 := @this: a.d.bc;
+
+        i0 = $r0.<a.d.bc: int a>;
+
+        return i0;
+    }
+
+    public final java.lang.Throwable b()
+    {
+        a.d.bc $r0;
+        java.lang.Throwable r1;
+
+        $r0 := @this: a.d.bc;
+
+        r1 = $r0.<a.d.bc: java.lang.Throwable b>;
+
+        return r1;
+    }
+
+    public java.lang.String toString()
+    {
+        a.d.bc $r0;
+        java.lang.Throwable $r1;
+        java.io.StringWriter $r2;
+        java.io.PrintWriter $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: a.d.bc;
+
+        $r1 = $r0.<a.d.bc: java.lang.Throwable b>;
+
+        if $r1 == null goto label1;
+
+        $r2 = new java.io.StringWriter;
+
+        specialinvoke $r2.<java.io.StringWriter: void <init>()>();
+
+        $r3 = new java.io.PrintWriter;
+
+        specialinvoke $r3.<java.io.PrintWriter: void <init>(java.io.Writer)>($r2);
+
+        $r1 = $r0.<a.d.bc: java.lang.Throwable b>;
+
+        virtualinvoke $r1.<java.lang.Throwable: void printStackTrace(java.io.PrintWriter)>($r3);
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = specialinvoke $r0.<java.io.IOException: java.lang.String toString()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r5;
+
+     label1:
+        $r5 = specialinvoke $r0.<java.io.IOException: java.lang.String toString()>();
+
+        return $r5;
+    }
+}

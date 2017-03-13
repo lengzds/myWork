@@ -1,0 +1,335 @@
+public class com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver extends com.fasterxml.jackson.databind.jsontype.impl.TypeIdResolverBase
+{
+    protected final com.fasterxml.jackson.databind.cfg.MapperConfig _config;
+    protected final java.util.HashMap _idToType;
+    protected final java.util.HashMap _typeToId;
+
+    protected void <init>(com.fasterxml.jackson.databind.cfg.MapperConfig, com.fasterxml.jackson.databind.JavaType, java.util.HashMap, java.util.HashMap)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver $r0;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        java.util.HashMap $r3, $r4;
+        com.fasterxml.jackson.databind.type.TypeFactory $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JavaType;
+
+        $r3 := @parameter2: java.util.HashMap;
+
+        $r4 := @parameter3: java.util.HashMap;
+
+        $r5 = virtualinvoke $r1.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.type.TypeFactory getTypeFactory()>();
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeIdResolverBase: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.type.TypeFactory)>($r2, $r5);
+
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: com.fasterxml.jackson.databind.cfg.MapperConfig _config> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: java.util.HashMap _typeToId> = $r3;
+
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: java.util.HashMap _idToType> = $r4;
+
+        return;
+    }
+
+    protected static java.lang.String _defaultTypeId(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        java.lang.String $r1;
+        int $i0;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int lastIndexOf(int)>(46);
+
+        if $i0 >= 0 goto label1;
+
+        return $r1;
+
+     label1:
+        $i0 = $i0 + 1;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int)>($i0);
+
+        return $r1;
+    }
+
+    public static com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver construct(com.fasterxml.jackson.databind.cfg.MapperConfig, com.fasterxml.jackson.databind.JavaType, java.util.Collection, boolean, boolean)
+    {
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r0;
+        com.fasterxml.jackson.databind.JavaType $r1, $r12;
+        java.util.Collection $r2;
+        boolean $z0, $z1, $z2;
+        java.lang.IllegalArgumentException $r3;
+        java.util.HashMap $r4, $r5;
+        java.util.Iterator $r6;
+        java.lang.Object $r7;
+        com.fasterxml.jackson.databind.jsontype.NamedType $r8;
+        java.lang.Class $r9, $r13;
+        java.lang.String $r10, $r11;
+        com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver $r14;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        $r1 := @parameter1: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 := @parameter2: java.util.Collection;
+
+        $z0 := @parameter3: boolean;
+
+        $z1 := @parameter4: boolean;
+
+        if $z0 != $z1 goto label01;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>()>();
+
+        throw $r3;
+
+     label01:
+        if $z0 == 0 goto label11;
+
+        $r4 = new java.util.HashMap;
+
+        specialinvoke $r4.<java.util.HashMap: void <init>()>();
+
+     label02:
+        if $z1 == 0 goto label10;
+
+        $r5 = new java.util.HashMap;
+
+        specialinvoke $r5.<java.util.HashMap: void <init>()>();
+
+     label03:
+        if $r2 == null goto label09;
+
+        $r6 = interfaceinvoke $r2.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label04:
+        $z2 = interfaceinvoke $r6.<java.util.Iterator: boolean hasNext()>();
+
+        if $z2 == 0 goto label09;
+
+        $r7 = interfaceinvoke $r6.<java.util.Iterator: java.lang.Object next()>();
+
+        $r8 = (com.fasterxml.jackson.databind.jsontype.NamedType) $r7;
+
+        $r9 = virtualinvoke $r8.<com.fasterxml.jackson.databind.jsontype.NamedType: java.lang.Class getType()>();
+
+        $z2 = virtualinvoke $r8.<com.fasterxml.jackson.databind.jsontype.NamedType: boolean hasName()>();
+
+        if $z2 == 0 goto label08;
+
+        $r10 = virtualinvoke $r8.<com.fasterxml.jackson.databind.jsontype.NamedType: java.lang.String getName()>();
+
+     label05:
+        if $z0 == 0 goto label06;
+
+        $r11 = virtualinvoke $r9.<java.lang.Class: java.lang.String getName()>();
+
+        virtualinvoke $r4.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r11, $r10);
+
+     label06:
+        if $z1 == 0 goto label04;
+
+        $r7 = virtualinvoke $r5.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r10);
+
+        $r12 = (com.fasterxml.jackson.databind.JavaType) $r7;
+
+        if $r12 == null goto label07;
+
+        $r13 = virtualinvoke $r12.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        $z2 = virtualinvoke $r9.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r13);
+
+        if $z2 != 0 goto label04;
+
+     label07:
+        $r12 = virtualinvoke $r0.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.JavaType constructType(java.lang.Class)>($r9);
+
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r10, $r12);
+
+        goto label04;
+
+     label08:
+        $r10 = staticinvoke <com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: java.lang.String _defaultTypeId(java.lang.Class)>($r9);
+
+        goto label05;
+
+     label09:
+        $r14 = new com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver;
+
+        specialinvoke $r14.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: void <init>(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.JavaType,java.util.HashMap,java.util.HashMap)>($r0, $r1, $r4, $r5);
+
+        return $r14;
+
+     label10:
+        $r5 = null;
+
+        goto label03;
+
+     label11:
+        $r4 = null;
+
+        goto label02;
+    }
+
+    public java.lang.String idFromValue(java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver $r0;
+        java.lang.Object $r1;
+        java.util.HashMap $r2, $r5;
+        java.lang.Class $r3;
+        java.lang.String $r4, $r6;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r7;
+        boolean $z0;
+        com.fasterxml.jackson.databind.BeanDescription $r8;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r9;
+        com.fasterxml.jackson.databind.introspect.AnnotatedClass $r10;
+        java.lang.Throwable $r11;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r3 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r4 = virtualinvoke $r3.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: java.util.HashMap _typeToId>;
+
+        entermonitor $r2;
+
+     label1:
+        $r5 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: java.util.HashMap _typeToId>;
+
+        $r1 = virtualinvoke $r5.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r4);
+
+        $r6 = (java.lang.String) $r1;
+
+        if $r6 != null goto label4;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $z0 = virtualinvoke $r7.<com.fasterxml.jackson.databind.cfg.MapperConfig: boolean isAnnotationProcessingEnabled()>();
+
+        if $z0 == 0 goto label2;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $r8 = virtualinvoke $r7.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.BeanDescription introspectClassAnnotations(java.lang.Class)>($r3);
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: com.fasterxml.jackson.databind.cfg.MapperConfig _config>;
+
+        $r9 = virtualinvoke $r7.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.AnnotationIntrospector getAnnotationIntrospector()>();
+
+        $r10 = virtualinvoke $r8.<com.fasterxml.jackson.databind.BeanDescription: com.fasterxml.jackson.databind.introspect.AnnotatedClass getClassInfo()>();
+
+        $r6 = virtualinvoke $r9.<com.fasterxml.jackson.databind.AnnotationIntrospector: java.lang.String findTypeName(com.fasterxml.jackson.databind.introspect.AnnotatedClass)>($r10);
+
+     label2:
+        if $r6 != null goto label3;
+
+        $r6 = staticinvoke <com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: java.lang.String _defaultTypeId(java.lang.Class)>($r3);
+
+     label3:
+        $r5 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: java.util.HashMap _typeToId>;
+
+        virtualinvoke $r5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r4, $r6);
+
+     label4:
+        exitmonitor $r2;
+
+     label5:
+        return $r6;
+
+     label6:
+        $r11 := @caughtexception;
+
+        exitmonitor $r2;
+
+        throw $r11;
+
+        catch java.lang.Throwable from label1 to label5 with label6;
+    }
+
+    public java.lang.String idFromValueAndType(java.lang.Object, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver $r0;
+        java.lang.Object $r1;
+        java.lang.Class $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: java.lang.String idFromValue(java.lang.Object)>($r1);
+
+        return $r3;
+    }
+
+    public java.lang.String toString()
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver $r0;
+        java.lang.StringBuilder $r1, $r2;
+        java.lang.Class $r3;
+        java.lang.String $r4;
+        java.util.HashMap $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(91);
+
+        $r3 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r4 = virtualinvoke $r3.<java.lang.Class: java.lang.String getName()>();
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; id-to-type=");
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: java.util.HashMap _idToType>;
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(93);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r4;
+    }
+
+    public com.fasterxml.jackson.databind.JavaType typeFromId(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        java.util.HashMap $r3;
+        com.fasterxml.jackson.databind.JavaType $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: java.util.HashMap _idToType>;
+
+        $r2 = virtualinvoke $r3.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r4 = (com.fasterxml.jackson.databind.JavaType) $r2;
+
+        return $r4;
+    }
+}

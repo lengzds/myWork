@@ -1,0 +1,86 @@
+public abstract class com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap emptyMap()
+    {
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Empty r0;
+
+        r0 = <com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Empty: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$Empty instance>;
+
+        return r0;
+    }
+
+    public final com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$SerializerAndMapResult findAndAddSerializer(com.fasterxml.jackson.databind.JavaType, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.BeanProperty)
+    {
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        com.fasterxml.jackson.databind.BeanProperty $r3;
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$SerializerAndMapResult $r4;
+        com.fasterxml.jackson.databind.JsonSerializer $r5;
+        java.lang.Class $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.SerializerProvider: com.fasterxml.jackson.databind.JsonSerializer findValueSerializer(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.BeanProperty)>($r1, $r3);
+
+        $r4 = new com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$SerializerAndMapResult;
+
+        $r6 = virtualinvoke $r1.<com.fasterxml.jackson.databind.JavaType: java.lang.Class getRawClass()>();
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap newWith(java.lang.Class,com.fasterxml.jackson.databind.JsonSerializer)>($r6, $r5);
+
+        specialinvoke $r4.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$SerializerAndMapResult: void <init>(com.fasterxml.jackson.databind.JsonSerializer,com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap)>($r5, $r0);
+
+        return $r4;
+    }
+
+    public final com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$SerializerAndMapResult findAndAddSerializer(java.lang.Class, com.fasterxml.jackson.databind.SerializerProvider, com.fasterxml.jackson.databind.BeanProperty)
+    {
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap $r0;
+        java.lang.Class $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        com.fasterxml.jackson.databind.BeanProperty $r3;
+        com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$SerializerAndMapResult $r4;
+        com.fasterxml.jackson.databind.JsonSerializer $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.SerializerProvider: com.fasterxml.jackson.databind.JsonSerializer findValueSerializer(java.lang.Class,com.fasterxml.jackson.databind.BeanProperty)>($r1, $r3);
+
+        $r4 = new com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$SerializerAndMapResult;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap: com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap newWith(java.lang.Class,com.fasterxml.jackson.databind.JsonSerializer)>($r1, $r5);
+
+        specialinvoke $r4.<com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap$SerializerAndMapResult: void <init>(com.fasterxml.jackson.databind.JsonSerializer,com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap)>($r5, $r0);
+
+        return $r4;
+    }
+
+    public abstract com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap newWith(java.lang.Class, com.fasterxml.jackson.databind.JsonSerializer);
+
+    public abstract com.fasterxml.jackson.databind.JsonSerializer serializerFor(java.lang.Class);
+}

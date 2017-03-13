@@ -1,0 +1,581 @@
+public class com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder extends java.lang.Object implements com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder
+{
+    protected com.fasterxml.jackson.databind.jsontype.TypeIdResolver _customIdResolver;
+    protected java.lang.Class _defaultImpl;
+    protected com.fasterxml.jackson.annotation.JsonTypeInfo$Id _idType;
+    protected com.fasterxml.jackson.annotation.JsonTypeInfo$As _includeAs;
+    protected boolean _typeIdVisible;
+    protected java.lang.String _typeProperty;
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: boolean _typeIdVisible> = 0;
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder noTypeInfoBuilder()
+    {
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id $r0;
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r1;
+
+        $r1 = new com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: void <init>()>();
+
+        $r0 = <com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id: com.fasterxml.jackson.annotation.JsonTypeInfo$Id NONE>;
+
+        $r1 = virtualinvoke $r1.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder init(com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id,com.fasterxml.jackson.databind.jsontype.TypeIdResolver)>($r0, null);
+
+        return $r1;
+    }
+
+    public com.fasterxml.jackson.databind.jsontype.TypeDeserializer buildTypeDeserializer(com.fasterxml.jackson.databind.DeserializationConfig, com.fasterxml.jackson.databind.JavaType, java.util.Collection)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        com.fasterxml.jackson.databind.DeserializationConfig $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        java.util.Collection $r3;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id $r4, $r5;
+        com.fasterxml.jackson.databind.jsontype.TypeIdResolver $r6;
+        int[] $r7;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$As $r8;
+        int $i0;
+        java.lang.IllegalStateException $r9;
+        java.lang.StringBuilder $r10;
+        java.lang.String $r11;
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeDeserializer $r12;
+        boolean $z0;
+        java.lang.Class $r13;
+        com.fasterxml.jackson.databind.jsontype.impl.AsPropertyTypeDeserializer $r14;
+        com.fasterxml.jackson.databind.jsontype.impl.AsWrapperTypeDeserializer $r15;
+        com.fasterxml.jackson.databind.jsontype.impl.AsExternalTypeDeserializer $r16;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JavaType;
+
+        $r3 := @parameter2: java.util.Collection;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.annotation.JsonTypeInfo$Id _idType>;
+
+        $r5 = <com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id: com.fasterxml.jackson.annotation.JsonTypeInfo$Id NONE>;
+
+        if $r4 != $r5 goto label1;
+
+        return null;
+
+     label1:
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.TypeIdResolver idResolver(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.JavaType,java.util.Collection,boolean,boolean)>($r1, $r2, $r3, 0, 1);
+
+        $r7 = <com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder$1: int[] $SwitchMap$com$fasterxml$jackson$annotation$JsonTypeInfo$As>;
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.annotation.JsonTypeInfo$As _includeAs>;
+
+        $i0 = virtualinvoke $r8.<com.fasterxml.jackson.'annotation'.JsonTypeInfo$As: int ordinal()>();
+
+        $i0 = $r7[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label3;
+            case 2: goto label4;
+            case 3: goto label5;
+            case 4: goto label6;
+            default: goto label2;
+        };
+
+     label2:
+        $r9 = new java.lang.IllegalStateException;
+
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("Do not know how to construct standard type serializer for inclusion type: ");
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.annotation.JsonTypeInfo$As _includeAs>;
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r8);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r11);
+
+        throw $r9;
+
+     label3:
+        $r12 = new com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeDeserializer;
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.String _typeProperty>;
+
+        $z0 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: boolean _typeIdVisible>;
+
+        $r13 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.Class _defaultImpl>;
+
+        specialinvoke $r12.<com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeDeserializer: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.jsontype.TypeIdResolver,java.lang.String,boolean,java.lang.Class)>($r2, $r6, $r11, $z0, $r13);
+
+        return $r12;
+
+     label4:
+        $r14 = new com.fasterxml.jackson.databind.jsontype.impl.AsPropertyTypeDeserializer;
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.String _typeProperty>;
+
+        $z0 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: boolean _typeIdVisible>;
+
+        $r13 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.Class _defaultImpl>;
+
+        specialinvoke $r14.<com.fasterxml.jackson.databind.jsontype.impl.AsPropertyTypeDeserializer: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.jsontype.TypeIdResolver,java.lang.String,boolean,java.lang.Class)>($r2, $r6, $r11, $z0, $r13);
+
+        return $r14;
+
+     label5:
+        $r15 = new com.fasterxml.jackson.databind.jsontype.impl.AsWrapperTypeDeserializer;
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.String _typeProperty>;
+
+        $z0 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: boolean _typeIdVisible>;
+
+        $r13 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.Class _defaultImpl>;
+
+        specialinvoke $r15.<com.fasterxml.jackson.databind.jsontype.impl.AsWrapperTypeDeserializer: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.jsontype.TypeIdResolver,java.lang.String,boolean,java.lang.Class)>($r2, $r6, $r11, $z0, $r13);
+
+        return $r15;
+
+     label6:
+        $r16 = new com.fasterxml.jackson.databind.jsontype.impl.AsExternalTypeDeserializer;
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.String _typeProperty>;
+
+        $z0 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: boolean _typeIdVisible>;
+
+        $r13 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.Class _defaultImpl>;
+
+        specialinvoke $r16.<com.fasterxml.jackson.databind.jsontype.impl.AsExternalTypeDeserializer: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.jsontype.TypeIdResolver,java.lang.String,boolean,java.lang.Class)>($r2, $r6, $r11, $z0, $r13);
+
+        return $r16;
+    }
+
+    public com.fasterxml.jackson.databind.jsontype.TypeSerializer buildTypeSerializer(com.fasterxml.jackson.databind.SerializationConfig, com.fasterxml.jackson.databind.JavaType, java.util.Collection)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        com.fasterxml.jackson.databind.SerializationConfig $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        java.util.Collection $r3;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id $r4, $r5;
+        com.fasterxml.jackson.databind.jsontype.TypeIdResolver $r6;
+        int[] $r7;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$As $r8;
+        int $i0;
+        java.lang.IllegalStateException $r9;
+        java.lang.StringBuilder $r10;
+        java.lang.String $r11;
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r12;
+        com.fasterxml.jackson.databind.jsontype.impl.AsPropertyTypeSerializer $r13;
+        com.fasterxml.jackson.databind.jsontype.impl.AsWrapperTypeSerializer $r14;
+        com.fasterxml.jackson.databind.jsontype.impl.AsExternalTypeSerializer $r15;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.SerializationConfig;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JavaType;
+
+        $r3 := @parameter2: java.util.Collection;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.annotation.JsonTypeInfo$Id _idType>;
+
+        $r5 = <com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id: com.fasterxml.jackson.annotation.JsonTypeInfo$Id NONE>;
+
+        if $r4 != $r5 goto label1;
+
+        return null;
+
+     label1:
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.TypeIdResolver idResolver(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.JavaType,java.util.Collection,boolean,boolean)>($r1, $r2, $r3, 1, 0);
+
+        $r7 = <com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder$1: int[] $SwitchMap$com$fasterxml$jackson$annotation$JsonTypeInfo$As>;
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.annotation.JsonTypeInfo$As _includeAs>;
+
+        $i0 = virtualinvoke $r8.<com.fasterxml.jackson.'annotation'.JsonTypeInfo$As: int ordinal()>();
+
+        $i0 = $r7[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label3;
+            case 2: goto label4;
+            case 3: goto label5;
+            case 4: goto label6;
+            default: goto label2;
+        };
+
+     label2:
+        $r9 = new java.lang.IllegalStateException;
+
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("Do not know how to construct standard type serializer for inclusion type: ");
+
+        $r8 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.annotation.JsonTypeInfo$As _includeAs>;
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r8);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r11);
+
+        throw $r9;
+
+     label3:
+        $r12 = new com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        specialinvoke $r12.<com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer: void <init>(com.fasterxml.jackson.databind.jsontype.TypeIdResolver,com.fasterxml.jackson.databind.BeanProperty)>($r6, null);
+
+        return $r12;
+
+     label4:
+        $r13 = new com.fasterxml.jackson.databind.jsontype.impl.AsPropertyTypeSerializer;
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.String _typeProperty>;
+
+        specialinvoke $r13.<com.fasterxml.jackson.databind.jsontype.impl.AsPropertyTypeSerializer: void <init>(com.fasterxml.jackson.databind.jsontype.TypeIdResolver,com.fasterxml.jackson.databind.BeanProperty,java.lang.String)>($r6, null, $r11);
+
+        return $r13;
+
+     label5:
+        $r14 = new com.fasterxml.jackson.databind.jsontype.impl.AsWrapperTypeSerializer;
+
+        specialinvoke $r14.<com.fasterxml.jackson.databind.jsontype.impl.AsWrapperTypeSerializer: void <init>(com.fasterxml.jackson.databind.jsontype.TypeIdResolver,com.fasterxml.jackson.databind.BeanProperty)>($r6, null);
+
+        return $r14;
+
+     label6:
+        $r15 = new com.fasterxml.jackson.databind.jsontype.impl.AsExternalTypeSerializer;
+
+        $r11 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.String _typeProperty>;
+
+        specialinvoke $r15.<com.fasterxml.jackson.databind.jsontype.impl.AsExternalTypeSerializer: void <init>(com.fasterxml.jackson.databind.jsontype.TypeIdResolver,com.fasterxml.jackson.databind.BeanProperty,java.lang.String)>($r6, null, $r11);
+
+        return $r15;
+    }
+
+    public volatile com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder defaultImpl(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        java.lang.Class $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder defaultImpl(java.lang.Class)>($r1);
+
+        return $r0;
+    }
+
+    public com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder defaultImpl(java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        java.lang.Class $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.Class _defaultImpl> = $r1;
+
+        return $r0;
+    }
+
+    public java.lang.Class getDefaultImpl()
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        java.lang.Class r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.Class _defaultImpl>;
+
+        return r1;
+    }
+
+    protected com.fasterxml.jackson.databind.jsontype.TypeIdResolver idResolver(com.fasterxml.jackson.databind.cfg.MapperConfig, com.fasterxml.jackson.databind.JavaType, java.util.Collection, boolean, boolean)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        com.fasterxml.jackson.databind.cfg.MapperConfig $r1;
+        com.fasterxml.jackson.databind.JavaType $r2;
+        java.util.Collection $r3;
+        boolean $z0, $z1;
+        com.fasterxml.jackson.databind.jsontype.TypeIdResolver $r4;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id $r5;
+        java.lang.IllegalStateException $r6;
+        int[] $r7;
+        int $i0;
+        java.lang.StringBuilder $r8;
+        java.lang.String $r9;
+        com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver $r10;
+        com.fasterxml.jackson.databind.type.TypeFactory $r11;
+        com.fasterxml.jackson.databind.jsontype.impl.MinimalClassNameIdResolver $r12;
+        com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver $r13;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.cfg.MapperConfig;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.JavaType;
+
+        $r3 := @parameter2: java.util.Collection;
+
+        $z0 := @parameter3: boolean;
+
+        $z1 := @parameter4: boolean;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.TypeIdResolver _customIdResolver>;
+
+        if $r4 == null goto label1;
+
+        $r4 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.TypeIdResolver _customIdResolver>;
+
+        return $r4;
+
+     label1:
+        $r5 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.annotation.JsonTypeInfo$Id _idType>;
+
+        if $r5 != null goto label2;
+
+        $r6 = new java.lang.IllegalStateException;
+
+        specialinvoke $r6.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Can not build, \'init()\' not yet called");
+
+        throw $r6;
+
+     label2:
+        $r7 = <com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder$1: int[] $SwitchMap$com$fasterxml$jackson$annotation$JsonTypeInfo$Id>;
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.annotation.JsonTypeInfo$Id _idType>;
+
+        $i0 = virtualinvoke $r5.<com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id: int ordinal()>();
+
+        $i0 = $r7[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label4;
+            case 2: goto label5;
+            case 3: goto label6;
+            case 4: goto label7;
+            default: goto label3;
+        };
+
+     label3:
+        $r6 = new java.lang.IllegalStateException;
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<java.lang.StringBuilder: void <init>(java.lang.String)>("Do not know how to construct standard type id resolver for idType: ");
+
+        $r5 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.annotation.JsonTypeInfo$Id _idType>;
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r6.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r9);
+
+        throw $r6;
+
+     label4:
+        $r10 = new com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver;
+
+        $r11 = virtualinvoke $r1.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.type.TypeFactory getTypeFactory()>();
+
+        specialinvoke $r10.<com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.type.TypeFactory)>($r2, $r11);
+
+        return $r10;
+
+     label5:
+        $r12 = new com.fasterxml.jackson.databind.jsontype.impl.MinimalClassNameIdResolver;
+
+        $r11 = virtualinvoke $r1.<com.fasterxml.jackson.databind.cfg.MapperConfig: com.fasterxml.jackson.databind.type.TypeFactory getTypeFactory()>();
+
+        specialinvoke $r12.<com.fasterxml.jackson.databind.jsontype.impl.MinimalClassNameIdResolver: void <init>(com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.type.TypeFactory)>($r2, $r11);
+
+        return $r12;
+
+     label6:
+        $r13 = staticinvoke <com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver: com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver construct(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.JavaType,java.util.Collection,boolean,boolean)>($r1, $r2, $r3, $z0, $z1);
+
+        return $r13;
+
+     label7:
+        return null;
+    }
+
+    public volatile com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder inclusion(com.fasterxml.jackson.annotation.JsonTypeInfo$As)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$As $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.'annotation'.JsonTypeInfo$As;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder inclusion(com.fasterxml.jackson.'annotation'.JsonTypeInfo$As)>($r1);
+
+        return $r0;
+    }
+
+    public com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder inclusion(com.fasterxml.jackson.annotation.JsonTypeInfo$As)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$As $r1;
+        java.lang.IllegalArgumentException $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.'annotation'.JsonTypeInfo$As;
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("includeAs can not be null");
+
+        throw $r2;
+
+     label1:
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.annotation.JsonTypeInfo$As _includeAs> = $r1;
+
+        return $r0;
+    }
+
+    public volatile com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder init(com.fasterxml.jackson.annotation.JsonTypeInfo$Id, com.fasterxml.jackson.databind.jsontype.TypeIdResolver)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id $r1;
+        com.fasterxml.jackson.databind.jsontype.TypeIdResolver $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.jsontype.TypeIdResolver;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder init(com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id,com.fasterxml.jackson.databind.jsontype.TypeIdResolver)>($r1, $r2);
+
+        return $r0;
+    }
+
+    public com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder init(com.fasterxml.jackson.annotation.JsonTypeInfo$Id, com.fasterxml.jackson.databind.jsontype.TypeIdResolver)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id $r1;
+        com.fasterxml.jackson.databind.jsontype.TypeIdResolver $r2;
+        java.lang.String $r3;
+        java.lang.IllegalArgumentException $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.jsontype.TypeIdResolver;
+
+        if $r1 != null goto label1;
+
+        $r4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("idType can not be null");
+
+        throw $r4;
+
+     label1:
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.annotation.JsonTypeInfo$Id _idType> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.TypeIdResolver _customIdResolver> = $r2;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id: java.lang.String getDefaultPropertyName()>();
+
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.String _typeProperty> = $r3;
+
+        return $r0;
+    }
+
+    public volatile com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder typeIdVisibility(boolean)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $z0 := @parameter0: boolean;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder typeIdVisibility(boolean)>($z0);
+
+        return $r0;
+    }
+
+    public com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder typeIdVisibility(boolean)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: boolean _typeIdVisible> = $z0;
+
+        return $r0;
+    }
+
+    public volatile com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder typeProperty(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder typeProperty(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder typeProperty(java.lang.String)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder $r0;
+        java.lang.String $r1;
+        int $i0;
+        com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        if $r1 == null goto label1;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        if $i0 != 0 goto label2;
+
+     label1:
+        $r2 = $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: com.fasterxml.jackson.annotation.JsonTypeInfo$Id _idType>;
+
+        $r1 = virtualinvoke $r2.<com.fasterxml.jackson.'annotation'.JsonTypeInfo$Id: java.lang.String getDefaultPropertyName()>();
+
+     label2:
+        $r0.<com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder: java.lang.String _typeProperty> = $r1;
+
+        return $r0;
+    }
+}

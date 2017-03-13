@@ -1,0 +1,155 @@
+final class com.google.api.a.b.a.a.b.a.b extends java.lang.Object implements com.google.api.a.c.ac, com.google.api.a.c.n
+{
+    boolean a;
+    java.lang.String b;
+    final com.google.api.a.b.a.a.b.a.a c;
+
+    void <init>(com.google.api.a.b.a.a.b.a.a)
+    {
+        com.google.api.a.b.a.a.b.a.b $r0;
+        com.google.api.a.b.a.a.b.a.a $r1;
+
+        $r0 := @this: com.google.api.a.b.a.a.b.a.b;
+
+        $r1 := @parameter0: com.google.api.a.b.a.a.b.a.a;
+
+        $r0.<com.google.api.a.b.a.a.b.a.b: com.google.api.a.b.a.a.b.a.a c> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final boolean a(com.google.api.a.c.t, com.google.api.a.c.w, boolean)
+    {
+        com.google.api.a.b.a.a.b.a.b $r0;
+        com.google.api.a.c.t $r1;
+        com.google.api.a.c.w $r2;
+        boolean $z0;
+        int $i0;
+        com.google.api.a.b.a.a.b.a.a $r3;
+        android.content.Context $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: com.google.api.a.b.a.a.b.a.b;
+
+        $r1 := @parameter0: com.google.api.a.c.t;
+
+        $r2 := @parameter1: com.google.api.a.c.w;
+
+        $z0 := @parameter2: boolean;
+
+        $i0 = virtualinvoke $r2.<com.google.api.a.c.w: int d()>();
+
+        if $i0 != 401 goto label1;
+
+        $z0 = $r0.<com.google.api.a.b.a.a.b.a.b: boolean a>;
+
+        if $z0 != 0 goto label1;
+
+        $r0.<com.google.api.a.b.a.a.b.a.b: boolean a> = 1;
+
+        $r3 = $r0.<com.google.api.a.b.a.a.b.a.b: com.google.api.a.b.a.a.b.a.a c>;
+
+        $r4 = $r3.<com.google.api.a.b.a.a.b.a.a: android.content.Context a>;
+
+        $r5 = $r0.<com.google.api.a.b.a.a.b.a.b: java.lang.String b>;
+
+        staticinvoke <com.google.android.gms.auth.GoogleAuthUtil: void invalidateToken(android.content.Context,java.lang.String)>($r4, $r5);
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final void b(com.google.api.a.c.t)
+    {
+        com.google.api.a.b.a.a.b.a.b $r0;
+        com.google.api.a.c.t $r1;
+        com.google.api.a.b.a.a.b.a.a $r2;
+        java.lang.String $r3;
+        com.google.api.a.c.o $r4;
+        java.lang.StringBuilder $r5;
+        com.google.android.gms.auth.GooglePlayServicesAvailabilityException $r6;
+        com.google.api.a.b.a.a.b.a.d $r7;
+        com.google.android.gms.auth.UserRecoverableAuthException $r8;
+        com.google.api.a.b.a.a.b.a.e $r9;
+        com.google.android.gms.auth.GoogleAuthException $r10;
+        com.google.api.a.b.a.a.b.a.c $r11;
+
+        $r0 := @this: com.google.api.a.b.a.a.b.a.b;
+
+        $r1 := @parameter0: com.google.api.a.c.t;
+
+        $r2 = $r0.<com.google.api.a.b.a.a.b.a.b: com.google.api.a.b.a.a.b.a.a c>;
+
+     label01:
+        $r3 = virtualinvoke $r2.<com.google.api.a.b.a.a.b.a.a: java.lang.String c()>();
+
+     label02:
+        $r0.<com.google.api.a.b.a.a.b.a.b: java.lang.String b> = $r3;
+
+     label03:
+        $r4 = virtualinvoke $r1.<com.google.api.a.c.t: com.google.api.a.c.o g()>();
+
+     label04:
+        $r5 = new java.lang.StringBuilder;
+
+     label05:
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Bearer ");
+
+     label06:
+        $r3 = $r0.<com.google.api.a.b.a.a.b.a.b: java.lang.String b>;
+
+     label07:
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r4.<com.google.api.a.c.o: com.google.api.a.c.o a(java.lang.String)>($r3);
+
+     label08:
+        return;
+
+     label09:
+        $r6 := @caughtexception;
+
+        $r7 = new com.google.api.a.b.a.a.b.a.d;
+
+        specialinvoke $r7.<com.google.api.a.b.a.a.b.a.d: void <init>(com.google.android.gms.auth.GooglePlayServicesAvailabilityException)>($r6);
+
+        throw $r7;
+
+     label10:
+        $r8 := @caughtexception;
+
+        $r9 = new com.google.api.a.b.a.a.b.a.e;
+
+        specialinvoke $r9.<com.google.api.a.b.a.a.b.a.e: void <init>(com.google.android.gms.auth.UserRecoverableAuthException)>($r8);
+
+        throw $r9;
+
+     label11:
+        $r10 := @caughtexception;
+
+        $r11 = new com.google.api.a.b.a.a.b.a.c;
+
+        specialinvoke $r11.<com.google.api.a.b.a.a.b.a.c: void <init>(com.google.android.gms.auth.GoogleAuthException)>($r10);
+
+        throw $r11;
+
+        catch com.google.android.gms.auth.GooglePlayServicesAvailabilityException from label01 to label02 with label09;
+        catch com.google.android.gms.auth.GooglePlayServicesAvailabilityException from label03 to label04 with label09;
+        catch com.google.android.gms.auth.GooglePlayServicesAvailabilityException from label05 to label06 with label09;
+        catch com.google.android.gms.auth.GooglePlayServicesAvailabilityException from label07 to label08 with label09;
+        catch com.google.android.gms.auth.UserRecoverableAuthException from label01 to label02 with label10;
+        catch com.google.android.gms.auth.UserRecoverableAuthException from label03 to label04 with label10;
+        catch com.google.android.gms.auth.UserRecoverableAuthException from label05 to label06 with label10;
+        catch com.google.android.gms.auth.UserRecoverableAuthException from label07 to label08 with label10;
+        catch com.google.android.gms.auth.GoogleAuthException from label01 to label02 with label11;
+        catch com.google.android.gms.auth.GoogleAuthException from label03 to label04 with label11;
+        catch com.google.android.gms.auth.GoogleAuthException from label05 to label06 with label11;
+        catch com.google.android.gms.auth.GoogleAuthException from label07 to label08 with label11;
+    }
+}

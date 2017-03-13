@@ -1,0 +1,141 @@
+public abstract class com.google.android.gms.internal.mf extends java.lang.Object
+{
+    protected volatile int n;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.mf $r0;
+
+        $r0 := @this: com.google.android.gms.internal.mf;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.internal.mf: int n> = -1;
+
+        return;
+    }
+
+    public static final void a(com.google.android.gms.internal.mf, byte[], int, int)
+    {
+        com.google.android.gms.internal.mf $r0;
+        byte[] $r1;
+        int $i0, $i1;
+        java.lang.RuntimeException $r2;
+        com.google.android.gms.internal.ma $r3;
+        java.io.IOException $r4;
+
+        $r0 := @parameter0: com.google.android.gms.internal.mf;
+
+        $r1 := @parameter1: byte[];
+
+        $i0 := @parameter2: int;
+
+        $i1 := @parameter3: int;
+
+     label1:
+        $r3 = staticinvoke <com.google.android.gms.internal.ma: com.google.android.gms.internal.ma b(byte[],int,int)>($r1, $i0, $i1);
+
+        virtualinvoke $r0.<com.google.android.gms.internal.mf: void a(com.google.android.gms.internal.ma)>($r3);
+
+        virtualinvoke $r3.<com.google.android.gms.internal.ma: void nM()>();
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        $r2 = new java.lang.RuntimeException;
+
+        specialinvoke $r2.<java.lang.RuntimeException: void <init>(java.lang.String,java.lang.Throwable)>("Serializing to a byte array threw an IOException (should never happen).", $r4);
+
+        throw $r2;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public static final byte[] d(com.google.android.gms.internal.mf)
+    {
+        com.google.android.gms.internal.mf $r0;
+        int $i0;
+        byte[] $r1;
+
+        $r0 := @parameter0: com.google.android.gms.internal.mf;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.internal.mf: int nV()>();
+
+        $r1 = newarray (byte)[$i0];
+
+        $i0 = lengthof $r1;
+
+        staticinvoke <com.google.android.gms.internal.mf: void a(com.google.android.gms.internal.mf,byte[],int,int)>($r0, $r1, 0, $i0);
+
+        return $r1;
+    }
+
+    protected int a()
+    {
+        com.google.android.gms.internal.mf $r0;
+
+        $r0 := @this: com.google.android.gms.internal.mf;
+
+        return 0;
+    }
+
+    public void a(com.google.android.gms.internal.ma)
+    {
+        com.google.android.gms.internal.mf $r0;
+        com.google.android.gms.internal.ma $r1;
+
+        $r0 := @this: com.google.android.gms.internal.mf;
+
+        $r1 := @parameter0: com.google.android.gms.internal.ma;
+
+        return;
+    }
+
+    public int nU()
+    {
+        com.google.android.gms.internal.mf $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.internal.mf;
+
+        $i0 = $r0.<com.google.android.gms.internal.mf: int n>;
+
+        if $i0 >= 0 goto label1;
+
+        virtualinvoke $r0.<com.google.android.gms.internal.mf: int nV()>();
+
+     label1:
+        $i0 = $r0.<com.google.android.gms.internal.mf: int n>;
+
+        return $i0;
+    }
+
+    public int nV()
+    {
+        com.google.android.gms.internal.mf $r0;
+        int $i0;
+
+        $r0 := @this: com.google.android.gms.internal.mf;
+
+        $i0 = virtualinvoke $r0.<com.google.android.gms.internal.mf: int a()>();
+
+        $r0.<com.google.android.gms.internal.mf: int n> = $i0;
+
+        return $i0;
+    }
+
+    public java.lang.String toString()
+    {
+        com.google.android.gms.internal.mf $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.android.gms.internal.mf;
+
+        $r1 = staticinvoke <com.google.android.gms.internal.mg: java.lang.String e(com.google.android.gms.internal.mf)>($r0);
+
+        return $r1;
+    }
+}

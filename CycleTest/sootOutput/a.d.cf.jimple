@@ -1,0 +1,178 @@
+final class a.d.cf extends a.d.as
+{
+    private byte[] a;
+    private int b;
+    private int c;
+
+    void <init>(java.lang.String, byte[], int, int)
+    {
+        a.d.cf $r0;
+        java.lang.String $r1;
+        byte[] $r2;
+        int $i0, $i1;
+
+        $r0 := @this: a.d.cf;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: byte[];
+
+        $i0 := @parameter2: int;
+
+        $i1 := @parameter3: int;
+
+        specialinvoke $r0.<a.d.as: void <init>()>();
+
+        $r0.<a.d.cf: java.lang.String T> = $r1;
+
+        $r0.<a.d.cf: byte[] a> = $r2;
+
+        $r0.<a.d.cf: int b> = $i0;
+
+        $r0.<a.d.cf: int c> = $i1;
+
+        $r0.<a.d.cf: byte g> = 37;
+
+        $r0.<a.d.cf: byte S> = 84;
+
+        $r0.<a.d.cf: int Q> = -1;
+
+        $r0.<a.d.cf: int N> = 0;
+
+        $r0.<a.d.cf: int O> = 65535;
+
+        $r0.<a.d.cf: byte P> = 0;
+
+        $r0.<a.d.cf: int R> = 2;
+
+        return;
+    }
+
+    final int a(byte[], int)
+    {
+        a.d.cf $r0;
+        byte[] $r1;
+        int $i0, $i1;
+        byte $b2;
+
+        $r0 := @this: a.d.cf;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = $i0 + 1;
+
+        $b2 = $r0.<a.d.cf: byte S>;
+
+        $r1[$i0] = $b2;
+
+        $i0 = $i1 + 1;
+
+        $r1[$i1] = 0;
+
+        $i1 = $i0 + 1;
+
+        $r1[$i0] = 0;
+
+        $r1[$i1] = 0;
+
+        return 4;
+    }
+
+    final int b(byte[], int)
+    {
+        a.d.cf $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.cf;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int c(byte[], int)
+    {
+        a.d.cf $r0;
+        byte[] $r1, $r3;
+        int $i0, $i1, $i2;
+        a.e.e $r2;
+
+        $r0 := @this: a.d.cf;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = lengthof $r1;
+
+        $i1 = $i1 - $i0;
+
+        $i2 = $r0.<a.d.cf: int c>;
+
+        if $i1 >= $i2 goto label2;
+
+        $r2 = <a.d.cf: a.e.e e>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 < 3 goto label1;
+
+        $r2 = <a.d.cf: a.e.e e>;
+
+        virtualinvoke $r2.<a.e.e: void println(java.lang.String)>("TransCallNamedPipe data too long for buffer");
+
+     label1:
+        return 0;
+
+     label2:
+        $r3 = $r0.<a.d.cf: byte[] a>;
+
+        $i2 = $r0.<a.d.cf: int b>;
+
+        $i1 = $r0.<a.d.cf: int c>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r3, $i2, $r1, $i0, $i1);
+
+        $i0 = $r0.<a.d.cf: int c>;
+
+        return $i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.cf $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+
+        $r0 := @this: a.d.cf;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("TransCallNamedPipe[");
+
+        $r3 = specialinvoke $r0.<a.d.as: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",pipeName=");
+
+        $r3 = $r0.<a.d.cf: java.lang.String T>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

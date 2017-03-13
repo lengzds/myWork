@@ -1,0 +1,559 @@
+public final class com.google.api.a.c.s extends java.lang.Object
+{
+    private static final java.util.regex.Pattern a;
+    private static final java.util.regex.Pattern b;
+    private static final java.util.regex.Pattern c;
+    private static final java.util.regex.Pattern d;
+    private java.lang.String e;
+    private java.lang.String f;
+    private final java.util.SortedMap g;
+    private java.lang.String h;
+
+    static void <clinit>()
+    {
+        java.util.regex.Pattern $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        $r0 = staticinvoke <java.util.regex.Pattern: java.util.regex.Pattern compile(java.lang.String)>("[\\w!#$&.+\\-\\^_]+|[*]");
+
+        <com.google.api.a.c.s: java.util.regex.Pattern a> = $r0;
+
+        $r0 = staticinvoke <java.util.regex.Pattern: java.util.regex.Pattern compile(java.lang.String)>("[\\p{ASCII}&&[^\\p{Cntrl} ;/=\\[\\]\\(\\)\\<\\>\\@\\,\\:\\\"\\?\\=]]+");
+
+        <com.google.api.a.c.s: java.util.regex.Pattern b> = $r0;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("\\s*(");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[^\\s/=;\"]+");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")/(");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[^\\s/=;\"]+");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")\\s*(");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(";.*");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")?");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0 = staticinvoke <java.util.regex.Pattern: java.util.regex.Pattern compile(java.lang.String,int)>($r2, 32);
+
+        <com.google.api.a.c.s: java.util.regex.Pattern c> = $r0;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"([^\"]*)\"");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("|");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[^\\s;\"]*");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("\\s*;\\s*(");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[^\\s/=;\"]+");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")=(");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0 = staticinvoke <java.util.regex.Pattern: java.util.regex.Pattern compile(java.lang.String)>($r2);
+
+        <com.google.api.a.c.s: java.util.regex.Pattern d> = $r0;
+
+        return;
+    }
+
+    public void <init>(java.lang.String)
+    {
+        com.google.api.a.c.s $r0;
+        java.lang.String $r1;
+        java.util.TreeMap $r2;
+
+        $r0 := @this: com.google.api.a.c.s;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.api.a.c.s: java.lang.String e> = "application";
+
+        $r0.<com.google.api.a.c.s: java.lang.String f> = "octet-stream";
+
+        $r2 = new java.util.TreeMap;
+
+        specialinvoke $r2.<java.util.TreeMap: void <init>()>();
+
+        $r0.<com.google.api.a.c.s: java.util.SortedMap g> = $r2;
+
+        specialinvoke $r0.<com.google.api.a.c.s: com.google.api.a.c.s c(java.lang.String)>($r1);
+
+        return;
+    }
+
+    private boolean a(com.google.api.a.c.s)
+    {
+        com.google.api.a.c.s $r0, $r1;
+        java.lang.String $r2, $r3;
+        boolean $z0;
+
+        $r0 := @this: com.google.api.a.c.s;
+
+        $r1 := @parameter0: com.google.api.a.c.s;
+
+        if $r1 == null goto label1;
+
+        $r2 = $r0.<com.google.api.a.c.s: java.lang.String e>;
+
+        $r3 = $r1.<com.google.api.a.c.s: java.lang.String e>;
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r3);
+
+        if $z0 == 0 goto label1;
+
+        $r2 = $r0.<com.google.api.a.c.s: java.lang.String f>;
+
+        $r3 = $r1.<com.google.api.a.c.s: java.lang.String f>;
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r3);
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    static boolean b(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.util.regex.Pattern $r1;
+        java.util.regex.Matcher $r2;
+        boolean $z0;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 = <com.google.api.a.c.s: java.util.regex.Pattern b>;
+
+        $r2 = virtualinvoke $r1.<java.util.regex.Pattern: java.util.regex.Matcher matcher(java.lang.CharSequence)>($r0);
+
+        $z0 = virtualinvoke $r2.<java.util.regex.Matcher: boolean matches()>();
+
+        return $z0;
+    }
+
+    public static boolean b(java.lang.String, java.lang.String)
+    {
+        java.lang.String $r0, $r1;
+        com.google.api.a.c.s $r2, $r3;
+        boolean $z0;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        if $r0 != null goto label1;
+
+        if $r1 == null goto label2;
+
+     label1:
+        if $r0 == null goto label3;
+
+        if $r1 == null goto label3;
+
+        $r3 = new com.google.api.a.c.s;
+
+        specialinvoke $r3.<com.google.api.a.c.s: void <init>(java.lang.String)>($r0);
+
+        $r2 = new com.google.api.a.c.s;
+
+        specialinvoke $r2.<com.google.api.a.c.s: void <init>(java.lang.String)>($r1);
+
+        $z0 = specialinvoke $r3.<com.google.api.a.c.s: boolean a(com.google.api.a.c.s)>($r2);
+
+        if $z0 == 0 goto label3;
+
+     label2:
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    private com.google.api.a.c.s c(java.lang.String)
+    {
+        com.google.api.a.c.s $r0;
+        java.lang.String $r1, $r5, $r6;
+        java.util.regex.Pattern $r2;
+        java.util.regex.Matcher $r3, $r4;
+        boolean $z0;
+
+        $r0 := @this: com.google.api.a.c.s;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = <com.google.api.a.c.s: java.util.regex.Pattern c>;
+
+        $r3 = virtualinvoke $r2.<java.util.regex.Pattern: java.util.regex.Matcher matcher(java.lang.CharSequence)>($r1);
+
+        $z0 = virtualinvoke $r3.<java.util.regex.Matcher: boolean matches()>();
+
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, "Type must be in the \'maintype/subtype; parameter=value\' format");
+
+        $r1 = virtualinvoke $r3.<java.util.regex.Matcher: java.lang.String group(int)>(1);
+
+        $r2 = <com.google.api.a.c.s: java.util.regex.Pattern a>;
+
+        $r4 = virtualinvoke $r2.<java.util.regex.Pattern: java.util.regex.Matcher matcher(java.lang.CharSequence)>($r1);
+
+        $z0 = virtualinvoke $r4.<java.util.regex.Matcher: boolean matches()>();
+
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, "Type contains reserved characters");
+
+        $r0.<com.google.api.a.c.s: java.lang.String e> = $r1;
+
+        $r0.<com.google.api.a.c.s: java.lang.String h> = null;
+
+        $r1 = virtualinvoke $r3.<java.util.regex.Matcher: java.lang.String group(int)>(2);
+
+        $r2 = <com.google.api.a.c.s: java.util.regex.Pattern a>;
+
+        $r4 = virtualinvoke $r2.<java.util.regex.Pattern: java.util.regex.Matcher matcher(java.lang.CharSequence)>($r1);
+
+        $z0 = virtualinvoke $r4.<java.util.regex.Matcher: boolean matches()>();
+
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, "Subtype contains reserved characters");
+
+        $r0.<com.google.api.a.c.s: java.lang.String f> = $r1;
+
+        $r0.<com.google.api.a.c.s: java.lang.String h> = null;
+
+        $r1 = virtualinvoke $r3.<java.util.regex.Matcher: java.lang.String group(int)>(3);
+
+        if $r1 == null goto label3;
+
+        $r2 = <com.google.api.a.c.s: java.util.regex.Pattern d>;
+
+        $r3 = virtualinvoke $r2.<java.util.regex.Pattern: java.util.regex.Matcher matcher(java.lang.CharSequence)>($r1);
+
+     label1:
+        $z0 = virtualinvoke $r3.<java.util.regex.Matcher: boolean find()>();
+
+        if $z0 == 0 goto label3;
+
+        $r1 = virtualinvoke $r3.<java.util.regex.Matcher: java.lang.String group(int)>(1);
+
+        $r5 = virtualinvoke $r3.<java.util.regex.Matcher: java.lang.String group(int)>(3);
+
+        $r6 = $r5;
+
+        if $r5 != null goto label2;
+
+        $r6 = virtualinvoke $r3.<java.util.regex.Matcher: java.lang.String group(int)>(2);
+
+     label2:
+        virtualinvoke $r0.<com.google.api.a.c.s: com.google.api.a.c.s a(java.lang.String,java.lang.String)>($r1, $r6);
+
+        goto label1;
+
+     label3:
+        return $r0;
+    }
+
+    public final com.google.api.a.c.s a(java.lang.String, java.lang.String)
+    {
+        com.google.api.a.c.s $r0;
+        java.lang.String $r1, $r2;
+        java.util.SortedMap $r3;
+        java.util.regex.Pattern $r4;
+        java.util.regex.Matcher $r5;
+        boolean $z0;
+
+        $r0 := @this: com.google.api.a.c.s;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        if $r2 != null goto label1;
+
+        $r0.<com.google.api.a.c.s: java.lang.String h> = null;
+
+        $r3 = $r0.<com.google.api.a.c.s: java.util.SortedMap g>;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toLowerCase()>();
+
+        interfaceinvoke $r3.<java.util.SortedMap: java.lang.Object remove(java.lang.Object)>($r1);
+
+        return $r0;
+
+     label1:
+        $r4 = <com.google.api.a.c.s: java.util.regex.Pattern b>;
+
+        $r5 = virtualinvoke $r4.<java.util.regex.Pattern: java.util.regex.Matcher matcher(java.lang.CharSequence)>($r1);
+
+        $z0 = virtualinvoke $r5.<java.util.regex.Matcher: boolean matches()>();
+
+        staticinvoke <com.google.api.a.f.ao: void a(boolean,java.lang.Object)>($z0, "Name contains reserved characters");
+
+        $r0.<com.google.api.a.c.s: java.lang.String h> = null;
+
+        $r3 = $r0.<com.google.api.a.c.s: java.util.SortedMap g>;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toLowerCase()>();
+
+        interfaceinvoke $r3.<java.util.SortedMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+    }
+
+    public final com.google.api.a.c.s a(java.nio.charset.Charset)
+    {
+        com.google.api.a.c.s $r0;
+        java.nio.charset.Charset $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.google.api.a.c.s;
+
+        $r1 := @parameter0: java.nio.charset.Charset;
+
+        if $r1 != null goto label2;
+
+        $r2 = null;
+
+     label1:
+        virtualinvoke $r0.<com.google.api.a.c.s: com.google.api.a.c.s a(java.lang.String,java.lang.String)>("charset", $r2);
+
+        return $r0;
+
+     label2:
+        $r2 = virtualinvoke $r1.<java.nio.charset.Charset: java.lang.String name()>();
+
+        goto label1;
+    }
+
+    public final java.lang.String a()
+    {
+        com.google.api.a.c.s $r0;
+        java.lang.StringBuilder $r1, $r9;
+        java.lang.String $r2, $r8;
+        java.util.SortedMap $r3;
+        java.util.Set $r4;
+        java.util.Iterator $r5;
+        boolean $z0;
+        java.lang.Object $r6;
+        java.util.Map$Entry $r7;
+
+        $r0 := @this: com.google.api.a.c.s;
+
+        $r2 = $r0.<com.google.api.a.c.s: java.lang.String h>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.google.api.a.c.s: java.lang.String h>;
+
+        return $r2;
+
+     label1:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = $r0.<com.google.api.a.c.s: java.lang.String e>;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(47);
+
+        $r2 = $r0.<com.google.api.a.c.s: java.lang.String f>;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r3 = $r0.<com.google.api.a.c.s: java.util.SortedMap g>;
+
+        if $r3 == null goto label4;
+
+        $r3 = $r0.<com.google.api.a.c.s: java.util.SortedMap g>;
+
+        $r4 = interfaceinvoke $r3.<java.util.SortedMap: java.util.Set entrySet()>();
+
+        $r5 = interfaceinvoke $r4.<java.util.Set: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label4;
+
+        $r6 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r7 = (java.util.Map$Entry) $r6;
+
+        $r6 = interfaceinvoke $r7.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r2 = (java.lang.String) $r6;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; ");
+
+        $r6 = interfaceinvoke $r7.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r8 = (java.lang.String) $r6;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("=");
+
+        $z0 = staticinvoke <com.google.api.a.c.s: boolean b(java.lang.String)>($r2);
+
+        if $z0 != 0 goto label3;
+
+        $r2 = virtualinvoke $r2.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>("\\", "\\\\");
+
+        $r2 = virtualinvoke $r2.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>("\"", "\\\"");
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>("\"");
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        $r2 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label3:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        goto label2;
+
+     label4:
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0.<com.google.api.a.c.s: java.lang.String h> = $r2;
+
+        $r2 = $r0.<com.google.api.a.c.s: java.lang.String h>;
+
+        return $r2;
+    }
+
+    public final java.lang.String a(java.lang.String)
+    {
+        com.google.api.a.c.s $r0;
+        java.lang.String $r1;
+        java.util.SortedMap $r2;
+        java.lang.Object $r3;
+
+        $r0 := @this: com.google.api.a.c.s;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = $r0.<com.google.api.a.c.s: java.util.SortedMap g>;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r3 = interfaceinvoke $r2.<java.util.SortedMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r1 = (java.lang.String) $r3;
+
+        return $r1;
+    }
+
+    public final java.nio.charset.Charset b()
+    {
+        com.google.api.a.c.s $r0;
+        java.lang.String $r1;
+        java.nio.charset.Charset $r2;
+
+        $r0 := @this: com.google.api.a.c.s;
+
+        $r1 = virtualinvoke $r0.<com.google.api.a.c.s: java.lang.String a(java.lang.String)>("charset");
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = staticinvoke <java.nio.charset.Charset: java.nio.charset.Charset forName(java.lang.String)>($r1);
+
+        return $r2;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.google.api.a.c.s $r0, $r3;
+        java.util.SortedMap $r1, $r4;
+        java.lang.Object $r2;
+        boolean $z0;
+
+        $r0 := @this: com.google.api.a.c.s;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        $z0 = $r2 instanceof com.google.api.a.c.s;
+
+        if $z0 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        $r3 = (com.google.api.a.c.s) $r2;
+
+        $z0 = specialinvoke $r0.<com.google.api.a.c.s: boolean a(com.google.api.a.c.s)>($r3);
+
+        if $z0 == 0 goto label2;
+
+        $r4 = $r0.<com.google.api.a.c.s: java.util.SortedMap g>;
+
+        $r1 = $r3.<com.google.api.a.c.s: java.util.SortedMap g>;
+
+        $z0 = virtualinvoke $r4.<java.lang.Object: boolean equals(java.lang.Object)>($r1);
+
+        if $z0 == 0 goto label2;
+
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public final int hashCode()
+    {
+        com.google.api.a.c.s $r0;
+        java.lang.String $r1;
+        int $i0;
+
+        $r0 := @this: com.google.api.a.c.s;
+
+        $r1 = virtualinvoke $r0.<com.google.api.a.c.s: java.lang.String a()>();
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+        return $i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.api.a.c.s $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: com.google.api.a.c.s;
+
+        $r1 = virtualinvoke $r0.<com.google.api.a.c.s: java.lang.String a()>();
+
+        return $r1;
+    }
+}

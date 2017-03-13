@@ -1,0 +1,202 @@
+final class com.dropbox.client2.c.g extends org.apache.http.impl.DefaultConnectionReuseStrategy
+{
+
+    private void <init>()
+    {
+        com.dropbox.client2.c.g $r0;
+
+        $r0 := @this: com.dropbox.client2.c.g;
+
+        specialinvoke $r0.<org.apache.http.impl.DefaultConnectionReuseStrategy: void <init>()>();
+
+        return;
+    }
+
+    void <init>(byte)
+    {
+        com.dropbox.client2.c.g $r0;
+        byte $b0;
+
+        $r0 := @this: com.dropbox.client2.c.g;
+
+        $b0 := @parameter0: byte;
+
+        specialinvoke $r0.<com.dropbox.client2.c.g: void <init>()>();
+
+        return;
+    }
+
+    public final boolean keepAlive(org.apache.http.HttpResponse, org.apache.http.protocol.HttpContext)
+    {
+        com.dropbox.client2.c.g $r0;
+        org.apache.http.HttpResponse $r1;
+        org.apache.http.protocol.HttpContext $r2;
+        java.lang.IllegalArgumentException $r3;
+        org.apache.http.StatusLine $r4;
+        org.apache.http.ProtocolVersion $r5;
+        org.apache.http.Header $r6;
+        java.lang.String $r7, $r8;
+        boolean $z0, $z1;
+        org.apache.http.Header[] $r9;
+        int $i0;
+        java.lang.NumberFormatException $r10;
+        org.apache.http.HeaderIterator $r11, $r12;
+        org.apache.http.TokenIterator $r13;
+        org.apache.http.HttpVersion $r14;
+        org.apache.http.ParseException $r15;
+
+        $r0 := @this: com.dropbox.client2.c.g;
+
+        $r1 := @parameter0: org.apache.http.HttpResponse;
+
+        $r2 := @parameter1: org.apache.http.protocol.HttpContext;
+
+        if $r1 != null goto label01;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("HTTP response may not be null.");
+
+        throw $r3;
+
+     label01:
+        if $r2 != null goto label02;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("HTTP context may not be null.");
+
+        throw $r3;
+
+     label02:
+        $r4 = interfaceinvoke $r1.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        $r5 = interfaceinvoke $r4.<org.apache.http.StatusLine: org.apache.http.ProtocolVersion getProtocolVersion()>();
+
+        $r6 = interfaceinvoke $r1.<org.apache.http.HttpResponse: org.apache.http.Header getFirstHeader(java.lang.String)>("Transfer-Encoding");
+
+        if $r6 == null goto label03;
+
+        $r7 = "chunked";
+
+        $r8 = interfaceinvoke $r6.<org.apache.http.Header: java.lang.String getValue()>();
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r8);
+
+        if $z0 != 0 goto label09;
+
+        return 0;
+
+     label03:
+        $r9 = interfaceinvoke $r1.<org.apache.http.HttpResponse: org.apache.http.Header[] getHeaders(java.lang.String)>("Content-Length");
+
+        if $r9 == null goto label04;
+
+        $i0 = lengthof $r9;
+
+        if $i0 == 1 goto label05;
+
+     label04:
+        return 0;
+
+     label05:
+        $r6 = $r9[0];
+
+     label06:
+        $r7 = interfaceinvoke $r6.<org.apache.http.Header: java.lang.String getValue()>();
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r7);
+
+     label07:
+        if $i0 >= 0 goto label09;
+
+        return 0;
+
+     label08:
+        $r10 := @caughtexception;
+
+        return 0;
+
+     label09:
+        $r11 = interfaceinvoke $r1.<org.apache.http.HttpResponse: org.apache.http.HeaderIterator headerIterator(java.lang.String)>("Connection");
+
+        $r12 = $r11;
+
+        $z0 = interfaceinvoke $r11.<org.apache.http.HeaderIterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label10;
+
+        $r12 = interfaceinvoke $r1.<org.apache.http.HttpResponse: org.apache.http.HeaderIterator headerIterator(java.lang.String)>("Proxy-Connection");
+
+     label10:
+        $z0 = interfaceinvoke $r12.<org.apache.http.HeaderIterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label23;
+
+     label11:
+        $r13 = virtualinvoke $r0.<com.dropbox.client2.c.g: org.apache.http.TokenIterator createTokenIterator(org.apache.http.HeaderIterator)>($r12);
+
+     label12:
+        $z0 = 0;
+
+     label13:
+        $z1 = interfaceinvoke $r13.<org.apache.http.TokenIterator: boolean hasNext()>();
+
+     label14:
+        if $z1 == 0 goto label22;
+
+     label15:
+        $r7 = interfaceinvoke $r13.<org.apache.http.TokenIterator: java.lang.String nextToken()>();
+
+     label16:
+        $r8 = "Close";
+
+     label17:
+        $z1 = virtualinvoke $r8.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r7);
+
+     label18:
+        if $z1 == 0 goto label19;
+
+        return 0;
+
+     label19:
+        $r8 = "Keep-Alive";
+
+     label20:
+        $z1 = virtualinvoke $r8.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r7);
+
+     label21:
+        if $z1 == 0 goto label13;
+
+        $z0 = 1;
+
+        goto label13;
+
+     label22:
+        if $z0 != 0 goto label25;
+
+     label23:
+        $r14 = <org.apache.http.HttpVersion: org.apache.http.HttpVersion HTTP_1_0>;
+
+        $z0 = virtualinvoke $r5.<org.apache.http.ProtocolVersion: boolean lessEquals(org.apache.http.ProtocolVersion)>($r14);
+
+        if $z0 == 0 goto label25;
+
+        return 0;
+
+     label24:
+        $r15 := @caughtexception;
+
+        return 0;
+
+     label25:
+        return 1;
+
+        catch java.lang.NumberFormatException from label06 to label07 with label08;
+        catch org.apache.http.ParseException from label11 to label12 with label24;
+        catch org.apache.http.ParseException from label13 to label14 with label24;
+        catch org.apache.http.ParseException from label15 to label16 with label24;
+        catch org.apache.http.ParseException from label17 to label18 with label24;
+        catch org.apache.http.ParseException from label20 to label21 with label24;
+    }
+}

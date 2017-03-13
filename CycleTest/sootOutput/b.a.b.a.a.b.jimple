@@ -1,0 +1,162 @@
+public final class b.a.b.a.a.b extends java.lang.Object implements java.lang.Iterable
+{
+    private final java.util.List a;
+    private final java.util.Map b;
+
+    public void <init>()
+    {
+        b.a.b.a.a.b $r0;
+        java.util.LinkedList $r1;
+        java.util.HashMap $r2;
+
+        $r0 := @this: b.a.b.a.a.b;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = new java.util.LinkedList;
+
+        specialinvoke $r1.<java.util.LinkedList: void <init>()>();
+
+        $r0.<b.a.b.a.a.b: java.util.List a> = $r1;
+
+        $r2 = new java.util.HashMap;
+
+        specialinvoke $r2.<java.util.HashMap: void <init>()>();
+
+        $r0.<b.a.b.a.a.b: java.util.Map b> = $r2;
+
+        return;
+    }
+
+    public final b.a.b.a.a.g a(java.lang.String)
+    {
+        b.a.b.a.a.b $r0;
+        java.lang.String $r1;
+        java.util.Locale $r2;
+        java.util.Map $r3;
+        java.lang.Object $r4;
+        java.util.List $r5;
+        boolean $z0;
+        b.a.b.a.a.g $r6;
+
+        $r0 := @this: b.a.b.a.a.b;
+
+        $r1 := @parameter0: java.lang.String;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = <java.util.Locale: java.util.Locale US>;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toLowerCase(java.util.Locale)>($r2);
+
+        $r3 = $r0.<b.a.b.a.a.b: java.util.Map b>;
+
+        $r4 = interfaceinvoke $r3.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r5 = (java.util.List) $r4;
+
+        if $r5 == null goto label2;
+
+        $z0 = interfaceinvoke $r5.<java.util.List: boolean isEmpty()>();
+
+        if $z0 != 0 goto label2;
+
+        $r4 = interfaceinvoke $r5.<java.util.List: java.lang.Object get(int)>(0);
+
+        $r6 = (b.a.b.a.a.g) $r4;
+
+        return $r6;
+
+     label2:
+        return null;
+    }
+
+    public final void a(b.a.b.a.a.g)
+    {
+        b.a.b.a.a.b $r0;
+        b.a.b.a.a.g $r1;
+        java.util.Map $r2;
+        java.lang.String $r3;
+        java.util.Locale $r4;
+        java.lang.Object $r5;
+        java.util.List $r6;
+        java.util.LinkedList r7;
+
+        $r0 := @this: b.a.b.a.a.b;
+
+        $r1 := @parameter0: b.a.b.a.a.g;
+
+        if $r1 != null goto label1;
+
+        return;
+
+     label1:
+        $r3 = virtualinvoke $r1.<b.a.b.a.a.g: java.lang.String a()>();
+
+        $r4 = <java.util.Locale: java.util.Locale US>;
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase(java.util.Locale)>($r4);
+
+        $r2 = $r0.<b.a.b.a.a.b: java.util.Map b>;
+
+        $r5 = interfaceinvoke $r2.<java.util.Map: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r6 = (java.util.List) $r5;
+
+        if $r6 != null goto label2;
+
+        r7 = new java.util.LinkedList;
+
+        $r6 = r7;
+
+        specialinvoke r7.<java.util.LinkedList: void <init>()>();
+
+        $r2 = $r0.<b.a.b.a.a.b: java.util.Map b>;
+
+        interfaceinvoke $r2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r3, r7);
+
+     label2:
+        interfaceinvoke $r6.<java.util.List: boolean add(java.lang.Object)>($r1);
+
+        $r6 = $r0.<b.a.b.a.a.b: java.util.List a>;
+
+        interfaceinvoke $r6.<java.util.List: boolean add(java.lang.Object)>($r1);
+
+        return;
+    }
+
+    public final java.util.Iterator iterator()
+    {
+        b.a.b.a.a.b $r0;
+        java.util.List $r1;
+        java.util.Iterator $r2;
+
+        $r0 := @this: b.a.b.a.a.b;
+
+        $r1 = $r0.<b.a.b.a.a.b: java.util.List a>;
+
+        $r1 = staticinvoke <java.util.Collections: java.util.List unmodifiableList(java.util.List)>($r1);
+
+        $r2 = interfaceinvoke $r1.<java.util.List: java.util.Iterator iterator()>();
+
+        return $r2;
+    }
+
+    public final java.lang.String toString()
+    {
+        b.a.b.a.a.b $r0;
+        java.lang.String $r1;
+        java.util.List $r2;
+
+        $r0 := @this: b.a.b.a.a.b;
+
+        $r2 = $r0.<b.a.b.a.a.b: java.util.List a>;
+
+        $r1 = virtualinvoke $r2.<java.lang.Object: java.lang.String toString()>();
+
+        return $r1;
+    }
+}

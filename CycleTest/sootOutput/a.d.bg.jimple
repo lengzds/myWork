@@ -1,0 +1,670 @@
+public class a.d.bg extends java.io.InputStream
+{
+    a.d.bd a;
+    private long b;
+    private int c;
+    private int d;
+    private int e;
+    private int f;
+    private byte[] g;
+
+    public void <init>(a.d.bd)
+    {
+        a.d.bg $r0;
+        a.d.bd $r1;
+
+        $r0 := @this: a.d.bg;
+
+        $r1 := @parameter0: a.d.bd;
+
+        specialinvoke $r0.<a.d.bg: void <init>(a.d.bd,int)>($r1, 1);
+
+        return;
+    }
+
+    void <init>(a.d.bd, int)
+    {
+        a.d.bg $r0;
+        a.d.bd $r1;
+        int $i0, $i1;
+        byte[] $r2;
+        a.d.bo $r3;
+        a.d.bk $r4;
+        a.d.bm $r5;
+        a.d.bn $r6;
+
+        $r0 := @this: a.d.bg;
+
+        $r1 := @parameter0: a.d.bd;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r0.<java.io.InputStream: void <init>()>();
+
+        $r2 = newarray (byte)[1];
+
+        $r0.<a.d.bg: byte[] g> = $r2;
+
+        $r0.<a.d.bg: a.d.bd a> = $r1;
+
+        $i1 = $i0 & 65535;
+
+        $r0.<a.d.bg: int e> = $i1;
+
+        $i1 = $i0 >>> 16;
+
+        $i1 = $i1 & 65535;
+
+        $r0.<a.d.bg: int f> = $i1;
+
+        $i1 = $r1.<a.d.bd: int k>;
+
+        if $i1 == 16 goto label2;
+
+        $i1 = $r0.<a.d.bg: int f>;
+
+        virtualinvoke $r1.<a.d.bd: void a(int,int,int)>($i0, $i1, 128);
+
+        $i0 = $r0.<a.d.bg: int e>;
+
+        $i0 = $i0 & -81;
+
+        $r0.<a.d.bg: int e> = $i0;
+
+     label1:
+        $r3 = $r1.<a.d.bd: a.d.bo h>;
+
+        $r4 = $r3.<a.d.bo: a.d.bk f>;
+
+        $r5 = $r4.<a.d.bk: a.d.bm e>;
+
+        $i0 = $r5.<a.d.bm: int w>;
+
+        $i0 = $i0 + -70;
+
+        $r3 = $r1.<a.d.bd: a.d.bo h>;
+
+        $r4 = $r3.<a.d.bo: a.d.bk f>;
+
+        $r5 = $r4.<a.d.bk: a.d.bm e>;
+
+        $r6 = $r5.<a.d.bm: a.d.bn s>;
+
+        $i1 = $r6.<a.d.bn: int b>;
+
+        $i1 = $i1 + -70;
+
+        $i0 = staticinvoke <java.lang.Math: int min(int,int)>($i0, $i1);
+
+        $r0.<a.d.bg: int c> = $i0;
+
+        $r3 = $r1.<a.d.bd: a.d.bo h>;
+
+        $r4 = $r3.<a.d.bo: a.d.bk f>;
+
+        $r5 = $r4.<a.d.bk: a.d.bm e>;
+
+        $r6 = $r5.<a.d.bm: a.d.bn s>;
+
+        $i0 = $r6.<a.d.bn: int d>;
+
+        $i0 = $i0 & 16384;
+
+        if $i0 != 16384 goto label3;
+
+        $i0 = <a.d.bb: int aa>;
+
+        $i0 = $i0 + -70;
+
+        $i0 = staticinvoke <java.lang.Math: int min(int,int)>($i0, 65465);
+
+        $r0.<a.d.bg: int d> = $i0;
+
+        return;
+
+     label2:
+        virtualinvoke $r1.<a.d.bd: void a()>();
+
+        goto label1;
+
+     label3:
+        $i0 = $r0.<a.d.bg: int c>;
+
+        $r0.<a.d.bg: int d> = $i0;
+
+        return;
+    }
+
+    public void <init>(java.lang.String)
+    {
+        a.d.bg $r0;
+        java.lang.String $r1;
+        a.d.bd $r2;
+
+        $r0 := @this: a.d.bg;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new a.d.bd;
+
+        specialinvoke $r2.<a.d.bd: void <init>(java.lang.String)>($r1);
+
+        specialinvoke $r0.<a.d.bg: void <init>(a.d.bd)>($r2);
+
+        return;
+    }
+
+    private static java.io.IOException a(a.d.bc)
+    {
+        a.d.bc $r0;
+        java.lang.Throwable $r1;
+        boolean $z0;
+        java.io.IOException $r2;
+        a.e.a.d $r3;
+        java.io.InterruptedIOException $r4;
+        java.lang.String $r5;
+
+        $r0 := @parameter0: a.d.bc;
+
+        $r1 = virtualinvoke $r0.<a.d.bc: java.lang.Throwable b()>();
+
+        $z0 = $r1 instanceof a.e.a.d;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = (a.e.a.d) $r1;
+
+        $r3 = (a.e.a.d) $r2;
+
+        $r1 = virtualinvoke $r3.<a.e.a.d: java.lang.Throwable a()>();
+
+     label1:
+        $z0 = $r1 instanceof java.lang.InterruptedException;
+
+        if $z0 == 0 goto label3;
+
+        $r4 = new java.io.InterruptedIOException;
+
+        $r5 = virtualinvoke $r1.<java.lang.Throwable: java.lang.String getMessage()>();
+
+        specialinvoke $r4.<java.io.InterruptedIOException: void <init>(java.lang.String)>($r5);
+
+        virtualinvoke $r4.<java.io.IOException: java.lang.Throwable initCause(java.lang.Throwable)>($r1);
+
+        return $r4;
+
+     label2:
+        $r2 = $r0;
+
+        goto label1;
+
+     label3:
+        return $r2;
+    }
+
+    public final int a(byte[], int, int)
+    {
+        a.d.bg $r0;
+        byte[] $r1, $r2;
+        int $i0, $i2, $i4, $i5;
+        long $l1, $l3, $l7;
+        java.io.IOException $r3;
+        a.d.bd $r4;
+        a.e.e $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r7;
+        a.d.ao $r8;
+        a.d.an $r9;
+        byte $b6;
+        a.d.bc $r10;
+
+        $r0 := @this: a.d.bg;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i2 := @parameter2: int;
+
+        if $i2 > 0 goto label01;
+
+        return 0;
+
+     label01:
+        $l3 = $r0.<a.d.bg: long b>;
+
+        $r2 = $r0.<a.d.bg: byte[] g>;
+
+        if $r2 != null goto label02;
+
+        $r3 = new java.io.IOException;
+
+        specialinvoke $r3.<java.io.IOException: void <init>(java.lang.String)>("Bad file descriptor");
+
+        throw $r3;
+
+     label02:
+        $r4 = $r0.<a.d.bg: a.d.bd a>;
+
+        $i4 = $r0.<a.d.bg: int e>;
+
+        $i5 = $r0.<a.d.bg: int f>;
+
+        virtualinvoke $r4.<a.d.bd: void a(int,int,int)>($i4, $i5, 128);
+
+        $r5 = <a.d.bd: a.e.e c>;
+
+        $i4 = <a.e.e: int a>;
+
+        if $i4 < 4 goto label03;
+
+        $r5 = <a.d.bd: a.e.e c>;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("read: fid=");
+
+        $r4 = $r0.<a.d.bg: a.d.bd a>;
+
+        $i4 = $r4.<a.d.bd: int j>;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i4);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",off=");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",len=");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i2);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r5.<a.e.e: void println(java.lang.String)>($r7);
+
+     label03:
+        $r8 = new a.d.ao;
+
+        specialinvoke $r8.<a.d.ao: void <init>(byte[],int)>($r1, $i0);
+
+        $r4 = $r0.<a.d.bg: a.d.bd a>;
+
+        $i0 = $r4.<a.d.bd: int k>;
+
+        if $i0 != 16 goto label04;
+
+        $r8.<a.d.ao: long w> = 0L;
+
+     label04:
+        $r4 = $r0.<a.d.bg: a.d.bd a>;
+
+        $i0 = virtualinvoke $r4.<a.d.bd: int e()>();
+
+        if $i0 != 1 goto label14;
+
+        $i0 = $r0.<a.d.bg: int d>;
+
+     label05:
+        if $i2 <= $i0 goto label15;
+
+     label06:
+        $r5 = <a.d.bd: a.e.e c>;
+
+        $i4 = <a.e.e: int a>;
+
+        if $i4 < 4 goto label07;
+
+        $r5 = <a.d.bd: a.e.e c>;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("read: len=");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i2);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",r=");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",fp=");
+
+        $l1 = $r0.<a.d.bg: long b>;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l1);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r5.<a.e.e: void println(java.lang.String)>($r7);
+
+     label07:
+        $r9 = new a.d.an;
+
+        $r4 = $r0.<a.d.bg: a.d.bd a>;
+
+        $i4 = $r4.<a.d.bd: int j>;
+
+        $l1 = $r0.<a.d.bg: long b>;
+
+     label08:
+        specialinvoke $r9.<a.d.an: void <init>(int,long,int)>($i4, $l1, $i0);
+
+     label09:
+        $r4 = $r0.<a.d.bg: a.d.bd a>;
+
+        $i4 = $r4.<a.d.bd: int k>;
+
+        if $i4 != 16 goto label10;
+
+        $r9.<a.d.an: int d> = 1024;
+
+        $r9.<a.d.an: int b> = 1024;
+
+        $r9.<a.d.an: int c> = 1024;
+
+     label10:
+        $r4 = $r0.<a.d.bg: a.d.bd a>;
+
+     label11:
+        virtualinvoke $r4.<a.d.bd: void a(a.d.u,a.d.u)>($r9, $r8);
+
+     label12:
+        $i4 = $r8.<a.d.ao: int D>;
+
+        if $i4 > 0 goto label19;
+
+        $l1 = $r0.<a.d.bg: long b>;
+
+        $l1 = $l1 - $l3;
+
+        $b6 = $l1 cmp 0L;
+
+        if $b6 <= 0 goto label18;
+
+        $l1 = $r0.<a.d.bg: long b>;
+
+        $l3 = $l1 - $l3;
+
+     label13:
+        $i0 = (int) $l3;
+
+        return $i0;
+
+     label14:
+        $i0 = $r0.<a.d.bg: int c>;
+
+        goto label05;
+
+     label15:
+        $i0 = $i2;
+
+        goto label06;
+
+     label16:
+        $r10 := @caughtexception;
+
+        $r4 = $r0.<a.d.bg: a.d.bd a>;
+
+        $i0 = $r4.<a.d.bd: int k>;
+
+        if $i0 != 16 goto label17;
+
+        $i0 = virtualinvoke $r10.<a.d.bc: int a()>();
+
+        if $i0 != -1073741493 goto label17;
+
+        return -1;
+
+     label17:
+        $r3 = staticinvoke <a.d.bg: java.io.IOException a(a.d.bc)>($r10);
+
+        throw $r3;
+
+     label18:
+        $l3 = -1L;
+
+        goto label13;
+
+     label19:
+        $l7 = $r0.<a.d.bg: long b>;
+
+        $l1 = (long) $i4;
+
+        $l1 = $l7 + $l1;
+
+        $r0.<a.d.bg: long b> = $l1;
+
+        $i2 = $i2 - $i4;
+
+        $i5 = $r8.<a.d.ao: int c>;
+
+        $i5 = $i5 + $i4;
+
+        $r8.<a.d.ao: int c> = $i5;
+
+        if $i2 <= 0 goto label20;
+
+        if $i4 == $i0 goto label04;
+
+     label20:
+        $l1 = $r0.<a.d.bg: long b>;
+
+        $l3 = $l1 - $l3;
+
+        $i0 = (int) $l3;
+
+        return $i0;
+
+        catch a.d.bc from label08 to label09 with label16;
+        catch a.d.bc from label11 to label12 with label16;
+    }
+
+    public int available()
+    {
+        a.d.bg $r0;
+        java.io.IOException $r1;
+        a.d.bd $r2;
+        int $i0;
+        a.d.bj $r3;
+        a.d.ch $r4;
+        java.lang.String $r5;
+        a.d.ci $r6;
+        a.d.bc $r7;
+
+        $r0 := @this: a.d.bg;
+
+        $r2 = $r0.<a.d.bg: a.d.bd a>;
+
+        $i0 = $r2.<a.d.bd: int k>;
+
+        if $i0 == 16 goto label01;
+
+        return 0;
+
+     label01:
+        $r2 = $r0.<a.d.bg: a.d.bd a>;
+
+        $r3 = (a.d.bj) $r2;
+
+        $r2 = $r0.<a.d.bg: a.d.bd a>;
+
+        $i0 = $r3.<a.d.bj: int r>;
+
+        $i0 = $i0 & 16711680;
+
+     label02:
+        virtualinvoke $r2.<a.d.bd: void a(int,int,int)>(32, $i0, 128);
+
+     label03:
+        $r4 = new a.d.ch;
+
+        $r2 = $r0.<a.d.bg: a.d.bd a>;
+
+        $r5 = $r2.<a.d.bd: java.lang.String i>;
+
+        $r2 = $r0.<a.d.bg: a.d.bd a>;
+
+        $i0 = $r2.<a.d.bd: int j>;
+
+     label04:
+        specialinvoke $r4.<a.d.ch: void <init>(java.lang.String,int)>($r5, $i0);
+
+     label05:
+        $r6 = new a.d.ci;
+
+     label06:
+        specialinvoke $r6.<a.d.ci: void <init>(a.d.bj)>($r3);
+
+        virtualinvoke $r3.<a.d.bj: void a(a.d.u,a.d.u)>($r4, $r6);
+
+     label07:
+        $i0 = $r6.<a.d.ci: int a>;
+
+        if $i0 == 1 goto label08;
+
+        $i0 = $r6.<a.d.ci: int a>;
+
+        if $i0 != 4 goto label09;
+
+     label08:
+        $r2 = $r0.<a.d.bg: a.d.bd a>;
+
+        $r2.<a.d.bd: boolean l> = 0;
+
+        return 0;
+
+     label09:
+        $i0 = $r6.<a.d.ci: int S>;
+
+        return $i0;
+
+     label10:
+        $r7 := @caughtexception;
+
+        $r1 = staticinvoke <a.d.bg: java.io.IOException a(a.d.bc)>($r7);
+
+        throw $r1;
+
+        catch a.d.bc from label02 to label03 with label10;
+        catch a.d.bc from label04 to label05 with label10;
+        catch a.d.bc from label06 to label07 with label10;
+    }
+
+    public void close()
+    {
+        a.d.bg $r0;
+        java.io.IOException $r1;
+        a.d.bd $r2;
+        a.d.bc $r3;
+
+        $r0 := @this: a.d.bg;
+
+        $r2 = $r0.<a.d.bg: a.d.bd a>;
+
+     label1:
+        virtualinvoke $r2.<a.d.bd: void c()>();
+
+     label2:
+        $r0.<a.d.bg: byte[] g> = null;
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        $r1 = staticinvoke <a.d.bg: java.io.IOException a(a.d.bc)>($r3);
+
+        throw $r1;
+
+        catch a.d.bc from label1 to label2 with label3;
+    }
+
+    public int read()
+    {
+        a.d.bg $r0;
+        int $i0;
+        byte[] $r1;
+        byte $b1;
+        short $s2;
+
+        $r0 := @this: a.d.bg;
+
+        $r1 = $r0.<a.d.bg: byte[] g>;
+
+        $i0 = virtualinvoke $r0.<a.d.bg: int read(byte[],int,int)>($r1, 0, 1);
+
+        if $i0 != -1 goto label1;
+
+        return -1;
+
+     label1:
+        $r1 = $r0.<a.d.bg: byte[] g>;
+
+        $b1 = $r1[0];
+
+        $s2 = $b1 & 255;
+
+        return $s2;
+    }
+
+    public int read(byte[])
+    {
+        a.d.bg $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.bg;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 = lengthof $r1;
+
+        $i0 = virtualinvoke $r0.<a.d.bg: int read(byte[],int,int)>($r1, 0, $i0);
+
+        return $i0;
+    }
+
+    public int read(byte[], int, int)
+    {
+        a.d.bg $r0;
+        byte[] $r1;
+        int $i0, $i1;
+
+        $r0 := @this: a.d.bg;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i0 = virtualinvoke $r0.<a.d.bg: int a(byte[],int,int)>($r1, $i0, $i1);
+
+        return $i0;
+    }
+
+    public long skip(long)
+    {
+        a.d.bg $r0;
+        byte $b0;
+        long $l1, $l2;
+
+        $r0 := @this: a.d.bg;
+
+        $l1 := @parameter0: long;
+
+        $b0 = $l1 cmp 0L;
+
+        if $b0 <= 0 goto label1;
+
+        $l2 = $r0.<a.d.bg: long b>;
+
+        $l2 = $l2 + $l1;
+
+        $r0.<a.d.bg: long b> = $l2;
+
+        return $l1;
+
+     label1:
+        return 0L;
+    }
+}

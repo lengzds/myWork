@@ -1,0 +1,155 @@
+public final class com.google.android.gms.common.ConnectionResult extends java.lang.Object
+{
+    public static final com.google.android.gms.common.ConnectionResult a;
+    private final android.app.PendingIntent b;
+    private final int c;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.common.ConnectionResult $r0;
+
+        $r0 = new com.google.android.gms.common.ConnectionResult;
+
+        specialinvoke $r0.<com.google.android.gms.common.ConnectionResult: void <init>(int,android.app.PendingIntent)>(0, null);
+
+        <com.google.android.gms.common.ConnectionResult: com.google.android.gms.common.ConnectionResult a> = $r0;
+
+        return;
+    }
+
+    public void <init>(int, android.app.PendingIntent)
+    {
+        com.google.android.gms.common.ConnectionResult $r0;
+        int $i0;
+        android.app.PendingIntent $r1;
+
+        $r0 := @this: com.google.android.gms.common.ConnectionResult;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: android.app.PendingIntent;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.android.gms.common.ConnectionResult: int c> = $i0;
+
+        $r0.<com.google.android.gms.common.ConnectionResult: android.app.PendingIntent b> = $r1;
+
+        return;
+    }
+
+    private java.lang.String es()
+    {
+        com.google.android.gms.common.ConnectionResult $r0;
+        int $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.google.android.gms.common.ConnectionResult;
+
+        $i0 = $r0.<com.google.android.gms.common.ConnectionResult: int c>;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label02;
+            case 1: goto label03;
+            case 2: goto label04;
+            case 3: goto label05;
+            case 4: goto label06;
+            case 5: goto label07;
+            case 6: goto label08;
+            case 7: goto label09;
+            case 8: goto label10;
+            case 9: goto label11;
+            case 10: goto label12;
+            case 11: goto label13;
+            case 12: goto label01;
+            case 13: goto label14;
+            case 14: goto label15;
+            case 15: goto label16;
+            default: goto label01;
+        };
+
+     label01:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("unknown status code ");
+
+        $i0 = $r0.<com.google.android.gms.common.ConnectionResult: int c>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+
+     label02:
+        return "SUCCESS";
+
+     label03:
+        return "SERVICE_MISSING";
+
+     label04:
+        return "SERVICE_VERSION_UPDATE_REQUIRED";
+
+     label05:
+        return "SERVICE_DISABLED";
+
+     label06:
+        return "SIGN_IN_REQUIRED";
+
+     label07:
+        return "INVALID_ACCOUNT";
+
+     label08:
+        return "RESOLUTION_REQUIRED";
+
+     label09:
+        return "NETWORK_ERROR";
+
+     label10:
+        return "INTERNAL_ERROR";
+
+     label11:
+        return "SERVICE_INVALID";
+
+     label12:
+        return "DEVELOPER_ERROR";
+
+     label13:
+        return "LICENSE_CHECK_FAILED";
+
+     label14:
+        return "CANCELED";
+
+     label15:
+        return "TIMEOUT";
+
+     label16:
+        return "INTERRUPTED";
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.common.ConnectionResult $r0;
+        com.google.android.gms.internal.hl$a $r1;
+        java.lang.String $r2;
+        android.app.PendingIntent $r3;
+
+        $r0 := @this: com.google.android.gms.common.ConnectionResult;
+
+        $r1 = staticinvoke <com.google.android.gms.internal.hl: com.google.android.gms.internal.hl$a e(java.lang.Object)>($r0);
+
+        $r2 = specialinvoke $r0.<com.google.android.gms.common.ConnectionResult: java.lang.String es()>();
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("statusCode", $r2);
+
+        $r3 = $r0.<com.google.android.gms.common.ConnectionResult: android.app.PendingIntent b>;
+
+        $r1 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: com.google.android.gms.internal.hl$a a(java.lang.String,java.lang.Object)>("resolution", $r3);
+
+        $r2 = virtualinvoke $r1.<com.google.android.gms.internal.hl$a: java.lang.String toString()>();
+
+        return $r2;
+    }
+}

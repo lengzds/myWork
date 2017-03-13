@@ -1,0 +1,69 @@
+public abstract class a.b.m extends java.lang.Object
+{
+    int a;
+    int b;
+
+    public void <init>()
+    {
+        a.b.m $r0;
+
+        $r0 := @this: a.b.m;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    abstract int a(byte[]);
+
+    public final int b(byte[])
+    {
+        a.b.m $r0;
+        byte[] $r1;
+        int $i0, $i2;
+        byte $b1;
+
+        $r0 := @this: a.b.m;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 = virtualinvoke $r0.<a.b.m: int a(byte[])>($r1);
+
+        $r0.<a.b.m: int b> = $i0;
+
+        $i0 = $r0.<a.b.m: int a>;
+
+        $b1 = (byte) $i0;
+
+        $r1[0] = $b1;
+
+        $i0 = $r0.<a.b.m: int b>;
+
+        if $i0 <= 65535 goto label1;
+
+        $r1[1] = 1;
+
+     label1:
+        $i0 = $r0.<a.b.m: int b>;
+
+        $i2 = $i0 >> 8;
+
+        $i2 = $i2 & 255;
+
+        $b1 = (byte) $i2;
+
+        $r1[2] = $b1;
+
+        $i0 = $i0 & 255;
+
+        $b1 = (byte) $i0;
+
+        $r1[3] = $b1;
+
+        $i0 = $r0.<a.b.m: int b>;
+
+        $i0 = $i0 + 4;
+
+        return $i0;
+    }
+}

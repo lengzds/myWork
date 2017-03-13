@@ -1,0 +1,203 @@
+final class com.google.api.a.f.s extends java.lang.Object implements java.util.Iterator
+{
+    final com.google.api.a.f.q a;
+    private int b;
+    private com.google.api.a.f.x c;
+    private java.lang.Object d;
+    private boolean e;
+    private boolean f;
+    private com.google.api.a.f.x g;
+
+    void <init>(com.google.api.a.f.q)
+    {
+        com.google.api.a.f.s $r0;
+        com.google.api.a.f.q $r1;
+
+        $r0 := @this: com.google.api.a.f.s;
+
+        $r1 := @parameter0: com.google.api.a.f.q;
+
+        $r0.<com.google.api.a.f.s: com.google.api.a.f.q a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.api.a.f.s: int b> = -1;
+
+        return;
+    }
+
+    public final boolean hasNext()
+    {
+        com.google.api.a.f.s $r0;
+        int $i0, $i1;
+        boolean $z0;
+        java.lang.Object $r1;
+        com.google.api.a.f.q $r2;
+        com.google.api.a.f.n $r3, $r5;
+        java.util.List $r4;
+        java.lang.String $r6;
+        com.google.api.a.f.x $r7;
+
+        $r0 := @this: com.google.api.a.f.s;
+
+        $z0 = $r0.<com.google.api.a.f.s: boolean f>;
+
+        if $z0 != 0 goto label2;
+
+        $r0.<com.google.api.a.f.s: boolean f> = 1;
+
+        $r0.<com.google.api.a.f.s: java.lang.Object d> = null;
+
+     label1:
+        $r1 = $r0.<com.google.api.a.f.s: java.lang.Object d>;
+
+        if $r1 != null goto label2;
+
+        $i0 = $r0.<com.google.api.a.f.s: int b>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.google.api.a.f.s: int b> = $i0;
+
+        $r2 = $r0.<com.google.api.a.f.s: com.google.api.a.f.q a>;
+
+        $r3 = $r2.<com.google.api.a.f.q: com.google.api.a.f.n b>;
+
+        $r4 = $r3.<com.google.api.a.f.n: java.util.List a>;
+
+        $i1 = interfaceinvoke $r4.<java.util.List: int size()>();
+
+        if $i0 >= $i1 goto label2;
+
+        $r2 = $r0.<com.google.api.a.f.s: com.google.api.a.f.q a>;
+
+        $r3 = $r2.<com.google.api.a.f.q: com.google.api.a.f.n b>;
+
+        $r2 = $r0.<com.google.api.a.f.s: com.google.api.a.f.q a>;
+
+        $r5 = $r2.<com.google.api.a.f.q: com.google.api.a.f.n b>;
+
+        $r4 = $r5.<com.google.api.a.f.n: java.util.List a>;
+
+        $i0 = $r0.<com.google.api.a.f.s: int b>;
+
+        $r1 = interfaceinvoke $r4.<java.util.List: java.lang.Object get(int)>($i0);
+
+        $r6 = (java.lang.String) $r1;
+
+        $r7 = virtualinvoke $r3.<com.google.api.a.f.n: com.google.api.a.f.x a(java.lang.String)>($r6);
+
+        $r0.<com.google.api.a.f.s: com.google.api.a.f.x c> = $r7;
+
+        $r7 = $r0.<com.google.api.a.f.s: com.google.api.a.f.x c>;
+
+        $r2 = $r0.<com.google.api.a.f.s: com.google.api.a.f.q a>;
+
+        $r1 = $r2.<com.google.api.a.f.q: java.lang.Object a>;
+
+        $r1 = virtualinvoke $r7.<com.google.api.a.f.x: java.lang.Object a(java.lang.Object)>($r1);
+
+        $r0.<com.google.api.a.f.s: java.lang.Object d> = $r1;
+
+        goto label1;
+
+     label2:
+        $r1 = $r0.<com.google.api.a.f.s: java.lang.Object d>;
+
+        if $r1 == null goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    public final java.lang.Object next()
+    {
+        com.google.api.a.f.s $r0;
+        com.google.api.a.f.x $r1;
+        boolean $z0;
+        java.util.NoSuchElementException $r2;
+        java.lang.Object $r3;
+        com.google.api.a.f.r $r4;
+        com.google.api.a.f.q $r5;
+
+        $r0 := @this: com.google.api.a.f.s;
+
+        $z0 = virtualinvoke $r0.<com.google.api.a.f.s: boolean hasNext()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new java.util.NoSuchElementException;
+
+        specialinvoke $r2.<java.util.NoSuchElementException: void <init>()>();
+
+        throw $r2;
+
+     label1:
+        $r1 = $r0.<com.google.api.a.f.s: com.google.api.a.f.x c>;
+
+        $r0.<com.google.api.a.f.s: com.google.api.a.f.x g> = $r1;
+
+        $r3 = $r0.<com.google.api.a.f.s: java.lang.Object d>;
+
+        $r0.<com.google.api.a.f.s: boolean f> = 0;
+
+        $r0.<com.google.api.a.f.s: boolean e> = 0;
+
+        $r0.<com.google.api.a.f.s: com.google.api.a.f.x c> = null;
+
+        $r0.<com.google.api.a.f.s: java.lang.Object d> = null;
+
+        $r4 = new com.google.api.a.f.r;
+
+        $r5 = $r0.<com.google.api.a.f.s: com.google.api.a.f.q a>;
+
+        $r1 = $r0.<com.google.api.a.f.s: com.google.api.a.f.x g>;
+
+        specialinvoke $r4.<com.google.api.a.f.r: void <init>(com.google.api.a.f.q,com.google.api.a.f.x,java.lang.Object)>($r5, $r1, $r3);
+
+        return $r4;
+    }
+
+    public final void remove()
+    {
+        com.google.api.a.f.s $r0;
+        com.google.api.a.f.x $r1;
+        boolean $z0;
+        com.google.api.a.f.q $r2;
+        java.lang.Object $r3;
+
+        $r0 := @this: com.google.api.a.f.s;
+
+        $r1 = $r0.<com.google.api.a.f.s: com.google.api.a.f.x g>;
+
+        if $r1 == null goto label2;
+
+        $z0 = $r0.<com.google.api.a.f.s: boolean e>;
+
+        if $z0 != 0 goto label2;
+
+        $z0 = 1;
+
+     label1:
+        staticinvoke <com.google.api.a.f.ao: void b(boolean)>($z0);
+
+        $r0.<com.google.api.a.f.s: boolean e> = 1;
+
+        $r1 = $r0.<com.google.api.a.f.s: com.google.api.a.f.x g>;
+
+        $r2 = $r0.<com.google.api.a.f.s: com.google.api.a.f.q a>;
+
+        $r3 = $r2.<com.google.api.a.f.q: java.lang.Object a>;
+
+        virtualinvoke $r1.<com.google.api.a.f.x: void a(java.lang.Object,java.lang.Object)>($r3, null);
+
+        return;
+
+     label2:
+        $z0 = 0;
+
+        goto label1;
+    }
+}

@@ -1,0 +1,545 @@
+public final class com.google.api.a.c.w extends java.lang.Object
+{
+    com.google.api.a.c.af a;
+    private java.io.InputStream b;
+    private final java.lang.String c;
+    private final java.lang.String d;
+    private final com.google.api.a.c.s e;
+    private final int f;
+    private final java.lang.String g;
+    private final com.google.api.a.c.t h;
+    private int i;
+    private boolean j;
+    private boolean k;
+
+    void <init>(com.google.api.a.c.t, com.google.api.a.c.af)
+    {
+        com.google.api.a.c.w $r0;
+        com.google.api.a.c.t $r1;
+        com.google.api.a.c.af $r2;
+        java.util.logging.Logger $r3;
+        java.lang.String $r4, $r6;
+        com.google.api.a.c.s $r5;
+        int $i0, $i1;
+        boolean $z0;
+        java.util.logging.Level $r7;
+        java.lang.StringBuilder $r8, $r9;
+        com.google.api.a.c.o $r10;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        $r1 := @parameter0: com.google.api.a.c.t;
+
+        $r2 := @parameter1: com.google.api.a.c.af;
+
+        $r5 = null;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.google.api.a.c.w: com.google.api.a.c.t h> = $r1;
+
+        $i0 = virtualinvoke $r1.<com.google.api.a.c.t: int e()>();
+
+        $r0.<com.google.api.a.c.w: int i> = $i0;
+
+        $z0 = virtualinvoke $r1.<com.google.api.a.c.t: boolean f()>();
+
+        $r0.<com.google.api.a.c.w: boolean j> = $z0;
+
+        $r0.<com.google.api.a.c.w: com.google.api.a.c.af a> = $r2;
+
+        $r6 = virtualinvoke $r2.<com.google.api.a.c.af: java.lang.String b()>();
+
+        $r0.<com.google.api.a.c.w: java.lang.String c> = $r6;
+
+        $i0 = virtualinvoke $r2.<com.google.api.a.c.af: int e()>();
+
+        $i1 = $i0;
+
+        if $i0 >= 0 goto label01;
+
+        $i1 = 0;
+
+     label01:
+        $r0.<com.google.api.a.c.w: int f> = $i1;
+
+        $r6 = virtualinvoke $r2.<com.google.api.a.c.af: java.lang.String f()>();
+
+        $r0.<com.google.api.a.c.w: java.lang.String g> = $r6;
+
+        $r3 = <com.google.api.a.c.ab: java.util.logging.Logger a>;
+
+        $z0 = $r0.<com.google.api.a.c.w: boolean j>;
+
+        if $z0 == 0 goto label08;
+
+        $r7 = <java.util.logging.Level: java.util.logging.Level CONFIG>;
+
+        $z0 = virtualinvoke $r3.<java.util.logging.Logger: boolean isLoggable(java.util.logging.Level)>($r7);
+
+        if $z0 == 0 goto label08;
+
+        $z0 = 1;
+
+     label02:
+        if $z0 == 0 goto label12;
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<java.lang.StringBuilder: void <init>()>();
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("-------------- RESPONSE --------------");
+
+        $r4 = <com.google.api.a.f.as: java.lang.String a>;
+
+        virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r4 = virtualinvoke $r2.<com.google.api.a.c.af: java.lang.String d()>();
+
+        if $r4 == null goto label09;
+
+        virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+     label03:
+        $r6 = <com.google.api.a.f.as: java.lang.String a>;
+
+        virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+     label04:
+        $r10 = virtualinvoke $r1.<com.google.api.a.c.t: com.google.api.a.c.o h()>();
+
+        if $z0 == 0 goto label10;
+
+        $r9 = $r8;
+
+     label05:
+        virtualinvoke $r10.<com.google.api.a.c.o: void a(com.google.api.a.c.af,java.lang.StringBuilder)>($r2, $r9);
+
+        $r6 = virtualinvoke $r2.<com.google.api.a.c.af: java.lang.String c()>();
+
+        $r4 = $r6;
+
+        if $r6 != null goto label06;
+
+        $r10 = virtualinvoke $r1.<com.google.api.a.c.t: com.google.api.a.c.o h()>();
+
+        $r4 = virtualinvoke $r10.<com.google.api.a.c.o: java.lang.String b()>();
+
+     label06:
+        $r0.<com.google.api.a.c.w: java.lang.String d> = $r4;
+
+        if $r4 != null goto label11;
+
+     label07:
+        $r0.<com.google.api.a.c.w: com.google.api.a.c.s e> = $r5;
+
+        if $z0 == 0 goto label13;
+
+        $r6 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r3.<java.util.logging.Logger: void config(java.lang.String)>($r6);
+
+        return;
+
+     label08:
+        $z0 = 0;
+
+        goto label02;
+
+     label09:
+        $i0 = $r0.<com.google.api.a.c.w: int f>;
+
+        virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        if $r6 == null goto label03;
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(32);
+
+        virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        goto label03;
+
+     label10:
+        $r9 = null;
+
+        goto label05;
+
+     label11:
+        $r5 = new com.google.api.a.c.s;
+
+        specialinvoke $r5.<com.google.api.a.c.s: void <init>(java.lang.String)>($r4);
+
+        goto label07;
+
+     label12:
+        $r8 = null;
+
+        goto label04;
+
+     label13:
+        return;
+    }
+
+    private java.nio.charset.Charset k()
+    {
+        com.google.api.a.c.w $r0;
+        com.google.api.a.c.s $r1;
+        java.nio.charset.Charset $r2;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        $r1 = $r0.<com.google.api.a.c.w: com.google.api.a.c.s e>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<com.google.api.a.c.w: com.google.api.a.c.s e>;
+
+        $r2 = virtualinvoke $r1.<com.google.api.a.c.s: java.nio.charset.Charset b()>();
+
+        if $r2 != null goto label2;
+
+     label1:
+        $r2 = <com.google.api.a.f.m: java.nio.charset.Charset b>;
+
+        return $r2;
+
+     label2:
+        $r1 = $r0.<com.google.api.a.c.w: com.google.api.a.c.s e>;
+
+        $r2 = virtualinvoke $r1.<com.google.api.a.c.s: java.nio.charset.Charset b()>();
+
+        return $r2;
+    }
+
+    public final java.lang.Object a(java.lang.Class)
+    {
+        com.google.api.a.c.w $r0;
+        java.lang.Class $r1;
+        boolean $z0, $z1;
+        int $i0, $i1;
+        com.google.api.a.c.t $r2;
+        java.lang.String $r3;
+        com.google.api.a.f.am $r4;
+        java.io.InputStream $r5;
+        java.nio.charset.Charset $r6;
+        java.lang.Object $r7;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $z0 = 1;
+
+        $i0 = $r0.<com.google.api.a.c.w: int f>;
+
+        $r2 = $r0.<com.google.api.a.c.w: com.google.api.a.c.t h>;
+
+        $r3 = virtualinvoke $r2.<com.google.api.a.c.t: java.lang.String b()>();
+
+        $z1 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>("HEAD");
+
+        if $z1 != 0 goto label1;
+
+        $i1 = $i0 / 100;
+
+        if $i1 == 1 goto label1;
+
+        if $i0 == 204 goto label1;
+
+        if $i0 != 304 goto label2;
+
+     label1:
+        virtualinvoke $r0.<com.google.api.a.c.w: void h()>();
+
+        $z0 = 0;
+
+     label2:
+        if $z0 != 0 goto label3;
+
+        return null;
+
+     label3:
+        $r2 = $r0.<com.google.api.a.c.w: com.google.api.a.c.t h>;
+
+        $r4 = virtualinvoke $r2.<com.google.api.a.c.t: com.google.api.a.f.am l()>();
+
+        $r5 = virtualinvoke $r0.<com.google.api.a.c.w: java.io.InputStream g()>();
+
+        $r6 = specialinvoke $r0.<com.google.api.a.c.w: java.nio.charset.Charset k()>();
+
+        $r7 = interfaceinvoke $r4.<com.google.api.a.f.am: java.lang.Object a(java.io.InputStream,java.nio.charset.Charset,java.lang.Class)>($r5, $r6, $r1);
+
+        return $r7;
+    }
+
+    public final java.lang.String a()
+    {
+        com.google.api.a.c.w $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        r1 = $r0.<com.google.api.a.c.w: java.lang.String d>;
+
+        return r1;
+    }
+
+    public final com.google.api.a.c.o b()
+    {
+        com.google.api.a.c.w $r0;
+        com.google.api.a.c.o $r1;
+        com.google.api.a.c.t $r2;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        $r2 = $r0.<com.google.api.a.c.w: com.google.api.a.c.t h>;
+
+        $r1 = virtualinvoke $r2.<com.google.api.a.c.t: com.google.api.a.c.o h()>();
+
+        return $r1;
+    }
+
+    public final boolean c()
+    {
+        com.google.api.a.c.w $r0;
+        boolean $z0;
+        int $i0;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        $i0 = $r0.<com.google.api.a.c.w: int f>;
+
+        $z0 = staticinvoke <com.google.api.a.c.aa: boolean a(int)>($i0);
+
+        return $z0;
+    }
+
+    public final int d()
+    {
+        com.google.api.a.c.w $r0;
+        int i0;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        i0 = $r0.<com.google.api.a.c.w: int f>;
+
+        return i0;
+    }
+
+    public final java.lang.String e()
+    {
+        com.google.api.a.c.w $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        r1 = $r0.<com.google.api.a.c.w: java.lang.String g>;
+
+        return r1;
+    }
+
+    public final com.google.api.a.c.t f()
+    {
+        com.google.api.a.c.w $r0;
+        com.google.api.a.c.t r1;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        r1 = $r0.<com.google.api.a.c.w: com.google.api.a.c.t h>;
+
+        return r1;
+    }
+
+    public final java.io.InputStream g()
+    {
+        com.google.api.a.c.w $r0;
+        java.util.logging.Level $r1;
+        int $i0;
+        boolean $z0;
+        com.google.api.a.c.af $r2;
+        java.io.InputStream $r3, $r4;
+        java.lang.String $r5;
+        java.util.zip.GZIPInputStream $r6;
+        java.util.logging.Logger $r7;
+        com.google.api.a.f.ag $r8;
+        java.io.EOFException $r9;
+        java.lang.Throwable $r10, $r11;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        $z0 = $r0.<com.google.api.a.c.w: boolean k>;
+
+        if $z0 != 0 goto label18;
+
+        $r2 = $r0.<com.google.api.a.c.w: com.google.api.a.c.af a>;
+
+        $r3 = virtualinvoke $r2.<com.google.api.a.c.af: java.io.InputStream a()>();
+
+        $r4 = $r3;
+
+        if $r3 == null goto label17;
+
+     label01:
+        $r5 = $r0.<com.google.api.a.c.w: java.lang.String c>;
+
+     label02:
+        if $r5 == null goto label08;
+
+     label03:
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean contains(java.lang.CharSequence)>("gzip");
+
+     label04:
+        if $z0 == 0 goto label08;
+
+     label05:
+        $r6 = new java.util.zip.GZIPInputStream;
+
+     label06:
+        specialinvoke $r6.<java.util.zip.GZIPInputStream: void <init>(java.io.InputStream)>($r3);
+
+     label07:
+        $r4 = $r6;
+
+     label08:
+        $r7 = <com.google.api.a.c.ab: java.util.logging.Logger a>;
+
+        $z0 = $r0.<com.google.api.a.c.w: boolean j>;
+
+     label09:
+        if $z0 == 0 goto label16;
+
+     label10:
+        $r1 = <java.util.logging.Level: java.util.logging.Level CONFIG>;
+
+     label11:
+        $z0 = virtualinvoke $r7.<java.util.logging.Logger: boolean isLoggable(java.util.logging.Level)>($r1);
+
+     label12:
+        if $z0 == 0 goto label16;
+
+     label13:
+        $r8 = new com.google.api.a.f.ag;
+
+        $r1 = <java.util.logging.Level: java.util.logging.Level CONFIG>;
+
+        $i0 = $r0.<com.google.api.a.c.w: int i>;
+
+     label14:
+        specialinvoke $r8.<com.google.api.a.f.ag: void <init>(java.io.InputStream,java.util.logging.Logger,java.util.logging.Level,int)>($r4, $r7, $r1, $i0);
+
+     label15:
+        $r4 = $r8;
+
+     label16:
+        $r0.<com.google.api.a.c.w: java.io.InputStream b> = $r4;
+
+     label17:
+        $r0.<com.google.api.a.c.w: boolean k> = 1;
+
+     label18:
+        $r3 = $r0.<com.google.api.a.c.w: java.io.InputStream b>;
+
+        return $r3;
+
+     label19:
+        $r9 := @caughtexception;
+
+        virtualinvoke $r4.<java.io.InputStream: void close()>();
+
+        goto label17;
+
+     label20:
+        $r10 := @caughtexception;
+
+     label21:
+        virtualinvoke $r3.<java.io.InputStream: void close()>();
+
+        throw $r10;
+
+     label22:
+        $r11 := @caughtexception;
+
+        $r3 = $r4;
+
+        $r10 = $r11;
+
+        goto label21;
+
+        catch java.io.EOFException from label03 to label04 with label19;
+        catch java.io.EOFException from label06 to label07 with label19;
+        catch java.lang.Throwable from label01 to label02 with label20;
+        catch java.lang.Throwable from label03 to label04 with label20;
+        catch java.lang.Throwable from label05 to label07 with label20;
+        catch java.io.EOFException from label11 to label12 with label19;
+        catch java.io.EOFException from label14 to label15 with label19;
+        catch java.lang.Throwable from label08 to label09 with label22;
+        catch java.lang.Throwable from label10 to label12 with label22;
+        catch java.lang.Throwable from label13 to label15 with label22;
+        catch java.lang.Throwable from label16 to label17 with label22;
+    }
+
+    public final void h()
+    {
+        com.google.api.a.c.w $r0;
+        java.io.InputStream $r1;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        $r1 = virtualinvoke $r0.<com.google.api.a.c.w: java.io.InputStream g()>();
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.<java.io.InputStream: void close()>();
+
+     label1:
+        return;
+    }
+
+    public final void i()
+    {
+        com.google.api.a.c.w $r0;
+        com.google.api.a.c.af $r1;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        virtualinvoke $r0.<com.google.api.a.c.w: void h()>();
+
+        $r1 = $r0.<com.google.api.a.c.w: com.google.api.a.c.af a>;
+
+        virtualinvoke $r1.<com.google.api.a.c.af: void h()>();
+
+        return;
+    }
+
+    public final java.lang.String j()
+    {
+        com.google.api.a.c.w $r0;
+        java.io.ByteArrayOutputStream $r1;
+        java.io.InputStream $r2;
+        java.nio.charset.Charset $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.google.api.a.c.w;
+
+        $r2 = virtualinvoke $r0.<com.google.api.a.c.w: java.io.InputStream g()>();
+
+        if $r2 != null goto label1;
+
+        return "";
+
+     label1:
+        $r1 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $r1.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        staticinvoke <com.google.api.a.f.ac: void a(java.io.InputStream,java.io.OutputStream,boolean)>($r2, $r1, 1);
+
+        $r3 = specialinvoke $r0.<com.google.api.a.c.w: java.nio.charset.Charset k()>();
+
+        $r4 = virtualinvoke $r3.<java.nio.charset.Charset: java.lang.String name()>();
+
+        $r4 = virtualinvoke $r1.<java.io.ByteArrayOutputStream: java.lang.String toString(java.lang.String)>($r4);
+
+        return $r4;
+    }
+}

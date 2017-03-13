@@ -1,0 +1,48 @@
+final class com.speedsoftware.rootexplorer.jh extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.speedsoftware.rootexplorer.ge a;
+
+    void <init>(com.speedsoftware.rootexplorer.ge)
+    {
+        com.speedsoftware.rootexplorer.jh $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.jh;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r0.<com.speedsoftware.rootexplorer.jh: com.speedsoftware.rootexplorer.ge a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void onClick(android.content.DialogInterface, int)
+    {
+        com.speedsoftware.rootexplorer.jh $r0;
+        android.content.DialogInterface $r1;
+        int $i0;
+        java.lang.Runnable $r2;
+        android.os.Handler $r3;
+        com.speedsoftware.rootexplorer.ge $r4;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.jh;
+
+        $r1 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        staticinvoke <com.speedsoftware.rootexplorer.ge: void aq()>();
+
+        $r3 = <com.speedsoftware.rootexplorer.ge: android.os.Handler s>;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.jh: com.speedsoftware.rootexplorer.ge a>;
+
+        $r2 = staticinvoke <com.speedsoftware.rootexplorer.ge: java.lang.Runnable B(com.speedsoftware.rootexplorer.ge)>($r4);
+
+        virtualinvoke $r3.<android.os.Handler: boolean post(java.lang.Runnable)>($r2);
+
+        return;
+    }
+}

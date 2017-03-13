@@ -1,0 +1,110 @@
+public class com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty extends java.lang.Object
+{
+    private final java.lang.String _name;
+    private final com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type _type;
+
+    public void <init>(com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type, java.lang.String)
+    {
+        com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty $r0;
+        com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type _type> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty: java.lang.String _name> = $r2;
+
+        return;
+    }
+
+    public static com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty back(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty $r1;
+        com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type $r2;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 = new com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty;
+
+        $r2 = <com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type BACK_REFERENCE>;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty: void <init>(com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type,java.lang.String)>($r2, $r0);
+
+        return $r1;
+    }
+
+    public static com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty managed(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty $r1;
+        com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type $r2;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 = new com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty;
+
+        $r2 = <com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type MANAGED_REFERENCE>;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty: void <init>(com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type,java.lang.String)>($r2, $r0);
+
+        return $r1;
+    }
+
+    public java.lang.String getName()
+    {
+        com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty: java.lang.String _name>;
+
+        return r1;
+    }
+
+    public boolean isBackReference()
+    {
+        com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty $r0;
+        com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type $r1, $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type _type>;
+
+        $r1 = <com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type BACK_REFERENCE>;
+
+        if $r2 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isManagedReference()
+    {
+        com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty $r0;
+        com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type $r1, $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type _type>;
+
+        $r1 = <com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type: com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty$Type MANAGED_REFERENCE>;
+
+        if $r2 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+}

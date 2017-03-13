@@ -1,0 +1,2736 @@
+public final class a.d.bm extends a.e.a.c implements a.d.bb
+{
+    static final byte[] a;
+    static final a.d.ag b;
+    static a.e.e c;
+    static java.util.HashMap d;
+    java.lang.String A;
+    java.net.InetAddress e;
+    int f;
+    a.b g;
+    java.net.Socket h;
+    int i;
+    int j;
+    java.io.OutputStream k;
+    java.io.InputStream l;
+    byte[] m;
+    a.d.x n;
+    long o;
+    java.util.LinkedList p;
+    a.d.v q;
+    java.util.LinkedList r;
+    a.d.bn s;
+    int t;
+    int u;
+    int v;
+    int w;
+    int x;
+    int y;
+    boolean z;
+
+    static void <clinit>()
+    {
+        a.e.e $r0;
+        byte[] $r1;
+        a.d.ag $r2;
+
+        $r1 = newarray (byte)[65535];
+
+        <a.d.bm: byte[] a> = $r1;
+
+        $r2 = new a.d.ag;
+
+        specialinvoke $r2.<a.d.ag: void <init>()>();
+
+        <a.d.bm: a.d.ag b> = $r2;
+
+        $r0 = staticinvoke <a.e.e: a.e.e a()>();
+
+        <a.d.bm: a.e.e c> = $r0;
+
+        <a.d.bm: java.util.HashMap d> = null;
+
+        return;
+    }
+
+    void <init>(a.b, int, java.net.InetAddress, int)
+    {
+        a.d.bm $r0;
+        a.b $r1;
+        int $i0, $i1, $i3;
+        java.net.InetAddress $r2;
+        long $l2, $l4;
+        byte[] $r3;
+        a.d.x $r4;
+        java.util.LinkedList $r5;
+        a.d.bn $r6;
+        boolean $z0;
+
+        $r0 := @this: a.d.bm;
+
+        $r1 := @parameter0: a.b;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.net.InetAddress;
+
+        $i1 := @parameter3: int;
+
+        specialinvoke $r0.<a.e.a.c: void <init>()>();
+
+        $r3 = newarray (byte)[512];
+
+        $r0.<a.d.bm: byte[] m> = $r3;
+
+        $r4 = new a.d.x;
+
+        specialinvoke $r4.<a.d.x: void <init>()>();
+
+        $r0.<a.d.bm: a.d.x n> = $r4;
+
+        $l2 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $i3 = <a.d.bm: int av>;
+
+        $l4 = (long) $i3;
+
+        $l2 = $l2 + $l4;
+
+        $r0.<a.d.bm: long o> = $l2;
+
+        $r5 = new java.util.LinkedList;
+
+        specialinvoke $r5.<java.util.LinkedList: void <init>()>();
+
+        $r0.<a.d.bm: java.util.LinkedList p> = $r5;
+
+        $r0.<a.d.bm: a.d.v q> = null;
+
+        $r5 = new java.util.LinkedList;
+
+        specialinvoke $r5.<java.util.LinkedList: void <init>()>();
+
+        $r0.<a.d.bm: java.util.LinkedList r> = $r5;
+
+        $r6 = new a.d.bn;
+
+        specialinvoke $r6.<a.d.bn: void <init>(a.d.bm)>($r0);
+
+        $r0.<a.d.bm: a.d.bn s> = $r6;
+
+        $i3 = <a.d.bm: int ap>;
+
+        $r0.<a.d.bm: int t> = $i3;
+
+        $i3 = <a.d.bm: int Y>;
+
+        $r0.<a.d.bm: int u> = $i3;
+
+        $i3 = <a.d.bm: int Z>;
+
+        $r0.<a.d.bm: int v> = $i3;
+
+        $i3 = <a.d.bm: int aa>;
+
+        $r0.<a.d.bm: int w> = $i3;
+
+        $i3 = <a.d.bm: int aq>;
+
+        $r0.<a.d.bm: int x> = $i3;
+
+        $r0.<a.d.bm: int y> = 0;
+
+        $z0 = <a.d.bm: boolean ab>;
+
+        $r0.<a.d.bm: boolean z> = $z0;
+
+        $r0.<a.d.bm: java.lang.String A> = null;
+
+        $r0.<a.d.bm: a.b g> = $r1;
+
+        $r0.<a.d.bm: int i> = $i0;
+
+        $r0.<a.d.bm: java.net.InetAddress e> = $r2;
+
+        $r0.<a.d.bm: int f> = $i1;
+
+        return;
+    }
+
+    static a.d.bm a(a.b, int)
+    {
+        a.b $r0;
+        int $i0, $i1;
+        a.d.bm $r1;
+        java.net.InetAddress $r2;
+        java.lang.Throwable $r3;
+
+        $r0 := @parameter0: a.b;
+
+        $i0 := @parameter1: int;
+
+        entermonitor class "a/d/bm";
+
+     label1:
+        $r2 = <a.d.bm: java.net.InetAddress W>;
+
+        $i1 = <a.d.bm: int X>;
+
+        $r1 = staticinvoke <a.d.bm: a.d.bm a(a.b,int,java.net.InetAddress,int)>($r0, $i0, $r2, $i1);
+
+     label2:
+        exitmonitor class "a/d/bm";
+
+        return $r1;
+
+     label3:
+        $r3 := @caughtexception;
+
+        exitmonitor class "a/d/bm";
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    static a.d.bm a(a.b, int, java.net.InetAddress, int)
+    {
+        a.b $r0, $r9;
+        int $i0, $i1, $i2, $i3;
+        java.net.InetAddress $r1, $r10;
+        java.util.LinkedList $r2, $r3;
+        java.util.ListIterator $r4;
+        boolean $z0;
+        java.lang.Object $r5;
+        a.d.bm $r6;
+        java.lang.String $r7, $r8;
+        java.lang.Throwable $r11, $r12;
+
+        $r0 := @parameter0: a.b;
+
+        $i0 := @parameter1: int;
+
+        $r1 := @parameter2: java.net.InetAddress;
+
+        $i1 := @parameter3: int;
+
+        entermonitor class "a/d/bm";
+
+     label01:
+        $r2 = <a.d.bm: java.util.LinkedList at>;
+
+        entermonitor $r2;
+
+     label02:
+        $i2 = <a.d.bm: int au>;
+
+        if $i2 == 1 goto label11;
+
+        $r3 = <a.d.bm: java.util.LinkedList at>;
+
+        $r4 = virtualinvoke $r3.<java.util.LinkedList: java.util.ListIterator listIterator()>();
+
+     label03:
+        $z0 = interfaceinvoke $r4.<java.util.ListIterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label11;
+
+        $r5 = interfaceinvoke $r4.<java.util.ListIterator: java.lang.Object next()>();
+
+        $r6 = (a.d.bm) $r5;
+
+        $r7 = virtualinvoke $r0.<a.b: java.lang.String d()>();
+
+        $r8 = $r6.<a.d.bm: java.lang.String A>;
+
+        if $r8 == null goto label04;
+
+        $r8 = $r6.<a.d.bm: java.lang.String A>;
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r8);
+
+        if $z0 == 0 goto label10;
+
+     label04:
+        $r9 = $r6.<a.d.bm: a.b g>;
+
+        $z0 = virtualinvoke $r0.<a.b: boolean equals(java.lang.Object)>($r9);
+
+        if $z0 == 0 goto label10;
+
+        if $i0 == 0 goto label05;
+
+        $i2 = $r6.<a.d.bm: int i>;
+
+        if $i0 == $i2 goto label05;
+
+        if $i0 != 445 goto label10;
+
+        $i2 = $r6.<a.d.bm: int i>;
+
+        if $i2 != 139 goto label10;
+
+     label05:
+        $r10 = $r6.<a.d.bm: java.net.InetAddress e>;
+
+        if $r1 == $r10 goto label06;
+
+        if $r1 == null goto label10;
+
+        $r10 = $r6.<a.d.bm: java.net.InetAddress e>;
+
+        $z0 = virtualinvoke $r1.<java.net.InetAddress: boolean equals(java.lang.Object)>($r10);
+
+        if $z0 == 0 goto label10;
+
+     label06:
+        $i2 = $r6.<a.d.bm: int f>;
+
+        if $i1 != $i2 goto label10;
+
+        $z0 = 1;
+
+     label07:
+        if $z0 == 0 goto label03;
+
+        $i2 = <a.d.bm: int au>;
+
+        if $i2 == 0 goto label08;
+
+        $r3 = $r6.<a.d.bm: java.util.LinkedList r>;
+
+        $i2 = virtualinvoke $r3.<java.util.LinkedList: int size()>();
+
+        $i3 = <a.d.bm: int au>;
+
+        if $i2 >= $i3 goto label03;
+
+     label08:
+        exitmonitor $r2;
+
+     label09:
+        exitmonitor class "a/d/bm";
+
+        return $r6;
+
+     label10:
+        $z0 = 0;
+
+        goto label07;
+
+     label11:
+        $r6 = new a.d.bm;
+
+        specialinvoke $r6.<a.d.bm: void <init>(a.b,int,java.net.InetAddress,int)>($r0, $i0, $r1, $i1);
+
+        $r3 = <a.d.bm: java.util.LinkedList at>;
+
+        virtualinvoke $r3.<java.util.LinkedList: void add(int,java.lang.Object)>(0, $r6);
+
+        exitmonitor $r2;
+
+     label12:
+        goto label09;
+
+     label13:
+        $r11 := @caughtexception;
+
+     label14:
+        exitmonitor $r2;
+
+        throw $r11;
+
+     label15:
+        $r12 := @caughtexception;
+
+        exitmonitor class "a/d/bm";
+
+        throw $r12;
+
+        catch java.lang.Throwable from label01 to label02 with label15;
+        catch java.lang.Throwable from label02 to label09 with label13;
+        catch java.lang.Throwable from label11 to label12 with label13;
+        catch java.lang.Throwable from label14 to label15 with label15;
+    }
+
+    private void a(int, a.d.u)
+    {
+        a.d.bm $r0;
+        a.d.u $r1;
+        byte[] $r2, $r3, $r14;
+        int $i0, $i3, $i4, $i5;
+        a.b.b $r4, $r13;
+        a.b $r5;
+        java.lang.String $r6;
+        java.net.Socket $r7;
+        java.net.InetAddress $r8;
+        java.net.InetSocketAddress $r9;
+        java.io.OutputStream $r10;
+        java.io.InputStream $r11;
+        a.b.l $r12;
+        a.d.bc $r15;
+        java.lang.Throwable $r16;
+        byte $b1;
+        short $s2;
+        a.b.i $r17;
+        a.e.e $r18;
+        java.lang.StringBuilder $r19;
+        a.d.ag $r20;
+        a.e.a.a $r21;
+        java.io.IOException $r22;
+
+        $r0 := @this: a.d.bm;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: a.d.u;
+
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        entermonitor $r2;
+
+        if $i0 != 139 goto label19;
+
+     label01:
+        $r4 = new a.b.b;
+
+        $r5 = $r0.<a.d.bm: a.b g>;
+
+        $r6 = virtualinvoke $r5.<a.b: java.lang.String a()>();
+
+        specialinvoke $r4.<a.b.b: void <init>(java.lang.String,int,java.lang.String)>($r6, 32, null);
+
+     label02:
+        $r7 = new java.net.Socket;
+
+        specialinvoke $r7.<java.net.Socket: void <init>()>();
+
+        $r0.<a.d.bm: java.net.Socket h> = $r7;
+
+        $r8 = $r0.<a.d.bm: java.net.InetAddress e>;
+
+        if $r8 == null goto label03;
+
+        $r7 = $r0.<a.d.bm: java.net.Socket h>;
+
+        $r9 = new java.net.InetSocketAddress;
+
+        $r8 = $r0.<a.d.bm: java.net.InetAddress e>;
+
+        $i0 = $r0.<a.d.bm: int f>;
+
+        specialinvoke $r9.<java.net.InetSocketAddress: void <init>(java.net.InetAddress,int)>($r8, $i0);
+
+        virtualinvoke $r7.<java.net.Socket: void bind(java.net.SocketAddress)>($r9);
+
+     label03:
+        $r7 = $r0.<a.d.bm: java.net.Socket h>;
+
+        $r9 = new java.net.InetSocketAddress;
+
+        $r5 = $r0.<a.d.bm: a.b g>;
+
+        $r6 = virtualinvoke $r5.<a.b: java.lang.String e()>();
+
+        specialinvoke $r9.<java.net.InetSocketAddress: void <init>(java.lang.String,int)>($r6, 139);
+
+        $i0 = <a.d.bm: int aw>;
+
+        virtualinvoke $r7.<java.net.Socket: void connect(java.net.SocketAddress,int)>($r9, $i0);
+
+        $r7 = $r0.<a.d.bm: java.net.Socket h>;
+
+        $i0 = <a.d.bm: int av>;
+
+        virtualinvoke $r7.<java.net.Socket: void setSoTimeout(int)>($i0);
+
+        $r7 = $r0.<a.d.bm: java.net.Socket h>;
+
+        $r10 = virtualinvoke $r7.<java.net.Socket: java.io.OutputStream getOutputStream()>();
+
+        $r0.<a.d.bm: java.io.OutputStream k> = $r10;
+
+        $r7 = $r0.<a.d.bm: java.net.Socket h>;
+
+        $r11 = virtualinvoke $r7.<java.net.Socket: java.io.InputStream getInputStream()>();
+
+        $r0.<a.d.bm: java.io.InputStream l> = $r11;
+
+        $r12 = new a.b.l;
+
+        $r13 = staticinvoke <a.b.g: a.b.b b()>();
+
+        specialinvoke $r12.<a.b.l: void <init>(a.b.b,a.b.b)>($r4, $r13);
+
+        $r10 = $r0.<a.d.bm: java.io.OutputStream k>;
+
+        $r14 = $r0.<a.d.bm: byte[] m>;
+
+        $r3 = $r0.<a.d.bm: byte[] m>;
+
+        $i0 = virtualinvoke $r12.<a.b.m: int b(byte[])>($r3);
+
+        virtualinvoke $r10.<java.io.OutputStream: void write(byte[],int,int)>($r14, 0, $i0);
+
+        $r11 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $r3 = $r0.<a.d.bm: byte[] m>;
+
+        $i0 = staticinvoke <a.d.bm: int a(java.io.InputStream,byte[],int,int)>($r11, $r3, 0, 4);
+
+     label04:
+        if $i0 >= 4 goto label09;
+
+     label05:
+        $r7 = $r0.<a.d.bm: java.net.Socket h>;
+
+     label06:
+        virtualinvoke $r7.<java.net.Socket: void close()>();
+
+     label07:
+        $r15 = new a.d.bc;
+
+        specialinvoke $r15.<a.d.bc: void <init>(java.lang.String)>("EOF during NetBIOS session request");
+
+        throw $r15;
+
+     label08:
+        $r16 := @caughtexception;
+
+        exitmonitor $r2;
+
+        throw $r16;
+
+     label09:
+        $r3 = $r0.<a.d.bm: byte[] m>;
+
+        $b1 = $r3[0];
+
+        $s2 = $b1 & 255;
+
+        lookupswitch($s2)
+        {
+            case -1: goto label18;
+            case 130: goto label11;
+            case 131: goto label15;
+            default: goto label10;
+        };
+
+     label10:
+        virtualinvoke $r0.<a.d.bm: void b(boolean)>(1);
+
+        $r17 = new a.b.i;
+
+        specialinvoke $r17.<a.b.i: void <init>(int)>(0);
+
+        throw $r17;
+
+     label11:
+        $r18 = <a.d.bm: a.e.e c>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 < 4 goto label12;
+
+        $r18 = <a.d.bm: a.e.e c>;
+
+        $r19 = new java.lang.StringBuilder;
+
+        specialinvoke $r19.<java.lang.StringBuilder: void <init>(java.lang.String)>("session established ok with ");
+
+        $r5 = $r0.<a.d.bm: a.b g>;
+
+        $r19 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        $r6 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r18.<a.e.e: void println(java.lang.String)>($r6);
+
+     label12:
+        $i0 = $r0.<a.d.bm: int j>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<a.d.bm: int j> = $i0;
+
+        if $i0 != 32000 goto label13;
+
+        $r0.<a.d.bm: int j> = 1;
+
+     label13:
+        $r20 = <a.d.bm: a.d.ag b>;
+
+        $i0 = $r0.<a.d.bm: int j>;
+
+        $r20.<a.d.ag: int q> = $i0;
+
+        $r20 = <a.d.bm: a.d.ag b>;
+
+        $r3 = $r0.<a.d.bm: byte[] m>;
+
+        $i0 = virtualinvoke $r20.<a.d.ag: int a(byte[])>($r3);
+
+        $i3 = 65535 & $i0;
+
+        $r3 = $r0.<a.d.bm: byte[] m>;
+
+        staticinvoke <a.e.b: int a(int,byte[])>($i3, $r3);
+
+        $r18 = <a.d.bm: a.e.e c>;
+
+        $i3 = <a.e.e: int a>;
+
+        if $i3 < 4 goto label14;
+
+        $r18 = <a.d.bm: a.e.e c>;
+
+        $r20 = <a.d.bm: a.d.ag b>;
+
+        virtualinvoke $r18.<a.e.e: void println(java.lang.Object)>($r20);
+
+        $r18 = <a.d.bm: a.e.e c>;
+
+        $i3 = <a.e.e: int a>;
+
+        if $i3 < 6 goto label14;
+
+        $r18 = <a.d.bm: a.e.e c>;
+
+        $r3 = $r0.<a.d.bm: byte[] m>;
+
+        staticinvoke <a.e.d: void a(java.io.PrintStream,byte[],int,int)>($r18, $r3, 4, $i0);
+
+     label14:
+        $r10 = $r0.<a.d.bm: java.io.OutputStream k>;
+
+        $r3 = $r0.<a.d.bm: byte[] m>;
+
+        $i3 = $i0 + 4;
+
+        virtualinvoke $r10.<java.io.OutputStream: void write(byte[],int,int)>($r3, 0, $i3);
+
+        $r10 = $r0.<a.d.bm: java.io.OutputStream k>;
+
+        virtualinvoke $r10.<java.io.OutputStream: void flush()>();
+
+        $r21 = virtualinvoke $r0.<a.d.bm: a.e.a.a c()>();
+
+        if $r21 != null goto label22;
+
+        $r22 = new java.io.IOException;
+
+        specialinvoke $r22.<java.io.IOException: void <init>(java.lang.String)>("transport closed in negotiate");
+
+        throw $r22;
+
+     label15:
+        $r11 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $i0 = virtualinvoke $r11.<java.io.InputStream: int read()>();
+
+        $i0 = $i0 & 255;
+
+        lookupswitch($i0)
+        {
+            case 128: goto label17;
+            case 129: goto label16;
+            case 130: goto label17;
+            default: goto label16;
+        };
+
+     label16:
+        virtualinvoke $r0.<a.d.bm: void b(boolean)>(1);
+
+        $r17 = new a.b.i;
+
+        specialinvoke $r17.<a.b.i: void <init>(int)>($i0);
+
+        throw $r17;
+
+     label17:
+        $r7 = $r0.<a.d.bm: java.net.Socket h>;
+
+        virtualinvoke $r7.<java.net.Socket: void close()>();
+
+        $r5 = $r0.<a.d.bm: a.b g>;
+
+        $r6 = virtualinvoke $r5.<a.b: java.lang.String b()>();
+
+        $r4.<a.b.b: java.lang.String b> = $r6;
+
+        if $r6 != null goto label02;
+
+        $r22 = new java.io.IOException;
+
+        $r19 = new java.lang.StringBuilder;
+
+        specialinvoke $r19.<java.lang.StringBuilder: void <init>(java.lang.String)>("Failed to establish session with ");
+
+        $r5 = $r0.<a.d.bm: a.b g>;
+
+        $r19 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        $r6 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r22.<java.io.IOException: void <init>(java.lang.String)>($r6);
+
+        throw $r22;
+
+     label18:
+        virtualinvoke $r0.<a.d.bm: void b(boolean)>(1);
+
+        $r17 = new a.b.i;
+
+        specialinvoke $r17.<a.b.i: void <init>(int)>(-1);
+
+        throw $r17;
+
+     label19:
+        if $i0 != 0 goto label20;
+
+        $i0 = 445;
+
+     label20:
+        $r7 = new java.net.Socket;
+
+        specialinvoke $r7.<java.net.Socket: void <init>()>();
+
+        $r0.<a.d.bm: java.net.Socket h> = $r7;
+
+        $r8 = $r0.<a.d.bm: java.net.InetAddress e>;
+
+        if $r8 == null goto label21;
+
+        $r7 = $r0.<a.d.bm: java.net.Socket h>;
+
+        $r9 = new java.net.InetSocketAddress;
+
+        $r8 = $r0.<a.d.bm: java.net.InetAddress e>;
+
+        $i3 = $r0.<a.d.bm: int f>;
+
+        specialinvoke $r9.<java.net.InetSocketAddress: void <init>(java.net.InetAddress,int)>($r8, $i3);
+
+        virtualinvoke $r7.<java.net.Socket: void bind(java.net.SocketAddress)>($r9);
+
+     label21:
+        $r7 = $r0.<a.d.bm: java.net.Socket h>;
+
+        $r9 = new java.net.InetSocketAddress;
+
+        $r5 = $r0.<a.d.bm: a.b g>;
+
+        $r6 = virtualinvoke $r5.<a.b: java.lang.String e()>();
+
+        specialinvoke $r9.<java.net.InetSocketAddress: void <init>(java.lang.String,int)>($r6, $i0);
+
+        $i0 = <a.d.bm: int aw>;
+
+        virtualinvoke $r7.<java.net.Socket: void connect(java.net.SocketAddress,int)>($r9, $i0);
+
+        $r7 = $r0.<a.d.bm: java.net.Socket h>;
+
+        $i0 = <a.d.bm: int av>;
+
+        virtualinvoke $r7.<java.net.Socket: void setSoTimeout(int)>($i0);
+
+        $r7 = $r0.<a.d.bm: java.net.Socket h>;
+
+        $r10 = virtualinvoke $r7.<java.net.Socket: java.io.OutputStream getOutputStream()>();
+
+        $r0.<a.d.bm: java.io.OutputStream k> = $r10;
+
+        $r7 = $r0.<a.d.bm: java.net.Socket h>;
+
+        $r11 = virtualinvoke $r7.<java.net.Socket: java.io.InputStream getInputStream()>();
+
+        $r0.<a.d.bm: java.io.InputStream l> = $r11;
+
+        goto label12;
+
+     label22:
+        $r3 = $r0.<a.d.bm: byte[] m>;
+
+        $s2 = staticinvoke <a.e.b: short a(byte[])>($r3);
+
+        $i3 = $s2 & 65535;
+
+        if $i3 < 33 goto label23;
+
+        $i4 = $i3 + 4;
+
+        $r3 = $r0.<a.d.bm: byte[] m>;
+
+        $i5 = lengthof $r3;
+
+        if $i4 <= $i5 goto label24;
+
+     label23:
+        $r22 = new java.io.IOException;
+
+        $r19 = new java.lang.StringBuilder;
+
+        specialinvoke $r19.<java.lang.StringBuilder: void <init>(java.lang.String)>("Invalid payload size: ");
+
+        $r19 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i3);
+
+        $r6 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r22.<java.io.IOException: void <init>(java.lang.String)>($r6);
+
+        throw $r22;
+
+     label24:
+        $r11 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $r3 = $r0.<a.d.bm: byte[] m>;
+
+        $i3 = $i3 + -32;
+
+        staticinvoke <a.d.bm: int a(java.io.InputStream,byte[],int,int)>($r11, $r3, 36, $i3);
+
+        $r3 = $r0.<a.d.bm: byte[] m>;
+
+        virtualinvoke $r1.<a.d.u: int b(byte[])>($r3);
+
+        $r18 = <a.d.bm: a.e.e c>;
+
+        $i3 = <a.e.e: int a>;
+
+        if $i3 < 4 goto label25;
+
+        $r18 = <a.d.bm: a.e.e c>;
+
+        virtualinvoke $r18.<a.e.e: void println(java.lang.Object)>($r1);
+
+        $r18 = <a.d.bm: a.e.e c>;
+
+        $i3 = <a.e.e: int a>;
+
+        if $i3 < 6 goto label25;
+
+        $r18 = <a.d.bm: a.e.e c>;
+
+        $r3 = $r0.<a.d.bm: byte[] m>;
+
+        staticinvoke <a.e.d: void a(java.io.PrintStream,byte[],int,int)>($r18, $r3, 4, $i0);
+
+     label25:
+        exitmonitor $r2;
+
+     label26:
+        return;
+
+     label27:
+        $r22 := @caughtexception;
+
+        goto label07;
+
+        catch java.lang.Throwable from label01 to label04 with label08;
+        catch java.io.IOException from label06 to label07 with label27;
+        catch java.lang.Throwable from label05 to label07 with label08;
+        catch java.lang.Throwable from label07 to label08 with label08;
+        catch java.lang.Throwable from label09 to label26 with label08;
+    }
+
+    private void b(a.d.u, a.d.u)
+    {
+        a.d.bm $r0;
+        a.d.u $r1, $r2;
+        int $i0;
+        a.d.bc $r3;
+        a.d.w $r4;
+        a.d.t $r5;
+        java.lang.String $r6;
+        a.d.f $r7;
+        a.d.d $r8;
+        boolean $z0;
+
+        $r0 := @this: a.d.bm;
+
+        $r1 := @parameter0: a.d.u;
+
+        $r2 := @parameter1: a.d.u;
+
+        $i0 = $r2.<a.d.u: int l>;
+
+        $i0 = staticinvoke <a.d.bc: int b(int)>($i0);
+
+        $r2.<a.d.u: int l> = $i0;
+
+        $i0 = $r2.<a.d.u: int l>;
+
+        lookupswitch($i0)
+        {
+            case -2147483643: goto label6;
+            case -1073741802: goto label6;
+            case -1073741790: goto label2;
+            case -1073741718: goto label2;
+            case -1073741715: goto label2;
+            case -1073741714: goto label2;
+            case -1073741713: goto label2;
+            case -1073741712: goto label2;
+            case -1073741711: goto label2;
+            case -1073741710: goto label2;
+            case -1073741428: goto label2;
+            case -1073741260: goto label2;
+            case -1073741225: goto label3;
+            case 0: goto label6;
+            default: goto label1;
+        };
+
+     label1:
+        $r3 = new a.d.bc;
+
+        $i0 = $r2.<a.d.u: int l>;
+
+        specialinvoke $r3.<a.d.bc: void <init>(int)>($i0);
+
+        throw $r3;
+
+     label2:
+        $r4 = new a.d.w;
+
+        $i0 = $r2.<a.d.u: int l>;
+
+        specialinvoke $r4.<a.d.w: void <init>(int)>($i0);
+
+        throw $r4;
+
+     label3:
+        $r5 = $r1.<a.d.u: a.d.t z>;
+
+        if $r5 != null goto label4;
+
+        $r3 = new a.d.bc;
+
+        $i0 = $r2.<a.d.u: int l>;
+
+        specialinvoke $r3.<a.d.bc: void <init>(int)>($i0);
+
+        throw $r3;
+
+     label4:
+        $r5 = $r1.<a.d.u: a.d.t z>;
+
+        $r6 = $r1.<a.d.u: java.lang.String A>;
+
+        $r7 = virtualinvoke $r0.<a.d.bm: a.d.f a(a.d.t,java.lang.String,int)>($r5, $r6, 1);
+
+        if $r7 != null goto label5;
+
+        $r3 = new a.d.bc;
+
+        $i0 = $r2.<a.d.u: int l>;
+
+        specialinvoke $r3.<a.d.bc: void <init>(int)>($i0);
+
+        throw $r3;
+
+     label5:
+        $r8 = <a.d.bd: a.d.d f>;
+
+        $r6 = $r1.<a.d.u: java.lang.String A>;
+
+        virtualinvoke $r8.<a.d.d: void a(java.lang.String,a.d.f)>($r6, $r7);
+
+        throw $r7;
+
+     label6:
+        $z0 = $r2.<a.d.u: boolean y>;
+
+        if $z0 == 0 goto label7;
+
+        $r3 = new a.d.bc;
+
+        specialinvoke $r3.<a.d.bc: void <init>(java.lang.String)>("Signature verification failed.");
+
+        throw $r3;
+
+     label7:
+        return;
+    }
+
+    private void c(a.e.a.a)
+    {
+        a.d.bm $r0;
+        a.e.a.a $r1;
+        java.io.IOException $r2, $r4;
+        a.e.e $r3;
+        int $i0;
+
+        $r0 := @this: a.d.bm;
+
+        $r1 := @parameter0: a.e.a.a;
+
+     label1:
+        virtualinvoke $r0.<a.d.bm: void b(a.e.a.a)>($r1);
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r3 = <a.d.bm: a.e.e c>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 <= 2 goto label4;
+
+        $r3 = <a.d.bm: a.e.e c>;
+
+        virtualinvoke $r2.<java.io.IOException: void printStackTrace(java.io.PrintStream)>($r3);
+
+     label4:
+        virtualinvoke $r0.<a.d.bm: void b(boolean)>(1);
+
+     label5:
+        throw $r2;
+
+     label6:
+        $r4 := @caughtexception;
+
+        $r3 = <a.d.bm: a.e.e c>;
+
+        virtualinvoke $r4.<java.io.IOException: void printStackTrace(java.io.PrintStream)>($r3);
+
+        goto label5;
+
+        catch java.io.IOException from label1 to label2 with label3;
+        catch java.io.IOException from label4 to label5 with label6;
+    }
+
+    final a.d.bk a(a.d.t)
+    {
+        a.d.bm $r0;
+        a.d.t $r1;
+        java.net.InetAddress $r2;
+        java.util.LinkedList $r3;
+        java.util.ListIterator $r4;
+        boolean $z0;
+        java.lang.Object $r5;
+        a.d.bk $r6;
+        int $i0, $i4;
+        long $l1, $l2;
+        byte $b3;
+        java.lang.Throwable $r7;
+        a.b $r8;
+
+        $r0 := @this: a.d.bm;
+
+        $r1 := @parameter0: a.d.t;
+
+        entermonitor $r0;
+
+     label1:
+        $r3 = $r0.<a.d.bm: java.util.LinkedList r>;
+
+        $r4 = virtualinvoke $r3.<java.util.LinkedList: java.util.ListIterator listIterator()>();
+
+     label2:
+        $z0 = interfaceinvoke $r4.<java.util.ListIterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label4;
+
+        $r5 = interfaceinvoke $r4.<java.util.ListIterator: java.lang.Object next()>();
+
+        $r6 = (a.d.bk) $r5;
+
+        $z0 = virtualinvoke $r6.<a.d.bk: boolean a(a.d.t)>($r1);
+
+        if $z0 == 0 goto label2;
+
+        $r6.<a.d.bk: a.d.t f> = $r1;
+
+     label3:
+        exitmonitor $r0;
+
+        return $r6;
+
+     label4:
+        $i0 = <a.d.bm: int av>;
+
+        if $i0 <= 0 goto label8;
+
+        $l1 = $r0.<a.d.bm: long o>;
+
+        $l2 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $b3 = $l1 cmp $l2;
+
+        if $b3 >= 0 goto label8;
+
+        $i0 = <a.d.bm: int av>;
+
+        $l1 = (long) $i0;
+
+        $l1 = $l1 + $l2;
+
+        $r0.<a.d.bm: long o> = $l1;
+
+        $r3 = $r0.<a.d.bm: java.util.LinkedList r>;
+
+        $r4 = virtualinvoke $r3.<java.util.LinkedList: java.util.ListIterator listIterator()>();
+
+     label5:
+        $z0 = interfaceinvoke $r4.<java.util.ListIterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label8;
+
+        $r5 = interfaceinvoke $r4.<java.util.ListIterator: java.lang.Object next()>();
+
+        $r6 = (a.d.bk) $r5;
+
+        $l1 = $r6.<a.d.bk: long g>;
+
+        $b3 = $l1 cmp $l2;
+
+        if $b3 >= 0 goto label5;
+
+        virtualinvoke $r6.<a.d.bk: void a(boolean)>(0);
+
+     label6:
+        goto label5;
+
+     label7:
+        $r7 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r7;
+
+     label8:
+        $r6 = new a.d.bk;
+
+        $r8 = $r0.<a.d.bm: a.b g>;
+
+        $i0 = $r0.<a.d.bm: int i>;
+
+        $r2 = $r0.<a.d.bm: java.net.InetAddress e>;
+
+        $i4 = $r0.<a.d.bm: int f>;
+
+        specialinvoke $r6.<a.d.bk: void <init>(a.b,int,java.net.InetAddress,int,a.d.t)>($r8, $i0, $r2, $i4, $r1);
+
+        $r6.<a.d.bk: a.d.bm e> = $r0;
+
+        $r3 = $r0.<a.d.bm: java.util.LinkedList r>;
+
+        virtualinvoke $r3.<java.util.LinkedList: boolean add(java.lang.Object)>($r6);
+
+     label9:
+        goto label3;
+
+        catch java.lang.Throwable from label1 to label3 with label7;
+        catch java.lang.Throwable from label4 to label6 with label7;
+        catch java.lang.Throwable from label8 to label9 with label7;
+    }
+
+    final a.d.f a(a.d.t, java.lang.String, int)
+    {
+        a.d.bm $r0;
+        a.d.t $r1;
+        java.lang.String $r2, $r5, $r13;
+        a.d.bu $r3;
+        java.lang.String[] $r4;
+        int $i0, $i1, $i2, $i5, $i6, $i7, $i8, $i10;
+        a.d.bk $r6;
+        a.d.bo $r7;
+        a.d.bt $r8;
+        a.d.f $r9, $r12;
+        long $l3, $l4;
+        boolean $z0;
+        a.d.bv[] $r10;
+        a.d.bv $r11;
+        char $c9;
+
+        $r0 := @this: a.d.bm;
+
+        $r1 := @parameter0: a.d.t;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $i1 := @parameter2: int;
+
+        $r6 = virtualinvoke $r0.<a.d.bm: a.d.bk a(a.d.t)>($r1);
+
+        $r7 = virtualinvoke $r6.<a.d.bk: a.d.bo a(java.lang.String,java.lang.String)>("IPC$", null);
+
+        $r3 = new a.d.bu;
+
+        specialinvoke $r3.<a.d.bu: void <init>()>();
+
+        $r8 = new a.d.bt;
+
+        specialinvoke $r8.<a.d.bt: void <init>(java.lang.String)>($r2);
+
+        virtualinvoke $r7.<a.d.bo: void a(a.d.u,a.d.u)>($r8, $r3);
+
+        $i2 = $r3.<a.d.bu: int S>;
+
+        if $i2 != 0 goto label01;
+
+        return null;
+
+     label01:
+        if $i1 == 0 goto label02;
+
+        $i2 = $r3.<a.d.bu: int S>;
+
+        if $i2 >= $i1 goto label03;
+
+     label02:
+        $i1 = $r3.<a.d.bu: int S>;
+
+     label03:
+        $r9 = new a.d.f;
+
+        specialinvoke $r9.<a.d.f: void <init>()>();
+
+        $r4 = newarray (java.lang.String)[4];
+
+        $l3 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $l4 = <a.d.d: long c>;
+
+        $l4 = $l4 * 1000L;
+
+        $l3 = $l3 + $l4;
+
+        $i2 = 0;
+
+     label04:
+        $z0 = $r1.<a.d.t: boolean m>;
+
+        $r9.<a.d.f: boolean g> = $z0;
+
+        $r10 = $r3.<a.d.bu: a.d.bv[] U>;
+
+        $r11 = $r10[$i2];
+
+        $i0 = $r11.<a.d.bv: int a>;
+
+        $l4 = (long) $i0;
+
+        $r9.<a.d.f: long b> = $l4;
+
+        $r9.<a.d.f: long h> = $l3;
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 == 0 goto label06;
+
+        $r10 = $r3.<a.d.bu: a.d.bv[] U>;
+
+        $r11 = $r10[$i2];
+
+        $r5 = $r11.<a.d.bv: java.lang.String b>;
+
+        $r5 = virtualinvoke $r5.<java.lang.String: java.lang.String substring(int)>(1);
+
+        $r5 = virtualinvoke $r5.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r9.<a.d.f: java.lang.String c> = $r5;
+
+     label05:
+        $i0 = $r3.<a.d.bu: int a>;
+
+        $r9.<a.d.f: int a> = $i0;
+
+        $i2 = $i2 + 1;
+
+        if $i2 == $i1 goto label13;
+
+        $r12 = new a.d.f;
+
+        specialinvoke $r12.<a.d.f: void <init>()>();
+
+        virtualinvoke $r9.<a.d.f: void a(a.d.f)>($r12);
+
+        $r9 = $r9.<a.d.f: a.d.f i>;
+
+        goto label04;
+
+     label06:
+        $r10 = $r3.<a.d.bu: a.d.bv[] U>;
+
+        $r11 = $r10[$i2];
+
+        $r5 = $r11.<a.d.bv: java.lang.String c>;
+
+        $i0 = lengthof $r4;
+
+        $i0 = $i0 + -1;
+
+        $i5 = 0;
+
+        $i6 = virtualinvoke $r5.<java.lang.String: int length()>();
+
+        $i7 = 0;
+
+        $i8 = 0;
+
+     label07:
+        if $i8 != $i0 goto label09;
+
+        $r5 = virtualinvoke $r5.<java.lang.String: java.lang.String substring(int)>($i5);
+
+        $r4[$i0] = $r5;
+
+     label08:
+        $r5 = $r4[1];
+
+        $r9.<a.d.f: java.lang.String c> = $r5;
+
+        $r5 = $r4[2];
+
+        $r9.<a.d.f: java.lang.String d> = $r5;
+
+        $r5 = $r4[3];
+
+        $r9.<a.d.f: java.lang.String f> = $r5;
+
+        goto label05;
+
+     label09:
+        if $i7 == $i6 goto label10;
+
+        $c9 = virtualinvoke $r5.<java.lang.String: char charAt(int)>($i7);
+
+        if $c9 != 92 goto label15;
+
+     label10:
+        $r13 = virtualinvoke $r5.<java.lang.String: java.lang.String substring(int,int)>($i5, $i7);
+
+        $r4[$i8] = $r13;
+
+        $i5 = $i7 + 1;
+
+        $i10 = $i8 + 1;
+
+     label11:
+        if $i7 < $i6 goto label14;
+
+     label12:
+        $i0 = lengthof $r4;
+
+        if $i10 >= $i0 goto label08;
+
+        $r4[$i10] = "";
+
+        $i10 = $i10 + 1;
+
+        goto label12;
+
+     label13:
+        $r9 = $r9.<a.d.f: a.d.f i>;
+
+        return $r9;
+
+     label14:
+        $i7 = $i7 + 1;
+
+        $i8 = $i10;
+
+        goto label07;
+
+     label15:
+        $i10 = $i8;
+
+        goto label11;
+    }
+
+    public final void a()
+    {
+        a.d.bm $r0;
+        a.d.bc $r1;
+        int $i0;
+        long $l1;
+        a.e.a.d $r2;
+        java.lang.StringBuilder $r3;
+        a.b $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: a.d.bm;
+
+        $i0 = <a.d.bm: int as>;
+
+        $l1 = (long) $i0;
+
+     label1:
+        specialinvoke $r0.<a.e.a.c: void a(long)>($l1);
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r1 = new a.d.bc;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Failed to connect: ");
+
+        $r4 = $r0.<a.d.bm: a.b g>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<a.d.bc: void <init>(java.lang.String,java.lang.Throwable)>($r5, $r2);
+
+        throw $r1;
+
+        catch a.e.a.d from label1 to label2 with label3;
+    }
+
+    final void a(a.d.u, a.d.u)
+    {
+        a.d.bm $r0;
+        a.d.u $r1, $r2;
+        int $i0, $i1;
+        boolean $z0;
+        a.d.v $r3;
+        byte $b2;
+        a.d.as $r4;
+        a.d.at $r5;
+        a.d.x $r6;
+        long $l3, $l4;
+        java.util.HashMap $r7;
+        java.lang.Object $r8;
+        a.e.a.d $r9;
+        java.lang.StringBuilder $r10;
+        java.lang.String $r11;
+        java.lang.InterruptedException $r12;
+        java.lang.Throwable $r13, $r14, $r15;
+        byte[] $r16;
+        a.d.bc $r17;
+        java.io.IOException $r18;
+
+        $r0 := @this: a.d.bm;
+
+        $r1 := @parameter0: a.d.u;
+
+        $r2 := @parameter1: a.d.u;
+
+        virtualinvoke $r0.<a.d.bm: void a()>();
+
+        $i0 = $r1.<a.d.u: int m>;
+
+        $i1 = $r0.<a.d.bm: int t>;
+
+        $i0 = $i0 | $i1;
+
+        $r1.<a.d.u: int m> = $i0;
+
+        $z0 = $r0.<a.d.bm: boolean z>;
+
+        $r1.<a.d.u: boolean t> = $z0;
+
+        $r1.<a.d.u: a.d.u C> = $r2;
+
+        $r3 = $r1.<a.d.u: a.d.v B>;
+
+        if $r3 != null goto label01;
+
+        $r3 = $r0.<a.d.bm: a.d.v q>;
+
+        $r1.<a.d.u: a.d.v B> = $r3;
+
+     label01:
+        if $r2 != null goto label04;
+
+     label02:
+        specialinvoke $r0.<a.d.bm: void c(a.e.a.a)>($r1);
+
+     label03:
+        return;
+
+     label04:
+        $z0 = $r1 instanceof a.d.as;
+
+        if $z0 == 0 goto label52;
+
+        $b2 = $r1.<a.d.u: byte g>;
+
+        $r2.<a.d.u: byte g> = $b2;
+
+        $r4 = (a.d.as) $r1;
+
+        $r5 = (a.d.at) $r2;
+
+        $i0 = $r0.<a.d.bm: int v>;
+
+        $r4.<a.d.as: int U> = $i0;
+
+     label05:
+        virtualinvoke $r5.<a.d.at: void e()>();
+
+     label06:
+        staticinvoke <a.d.c: void a(a.d.as,a.d.at)>($r4, $r5);
+
+        virtualinvoke $r4.<a.d.as: java.lang.Object nextElement()>();
+
+        $z0 = virtualinvoke $r4.<a.d.as: boolean hasMoreElements()>();
+
+     label07:
+        if $z0 == 0 goto label42;
+
+     label08:
+        $r6 = new a.d.x;
+
+        specialinvoke $r6.<a.d.x: void <init>()>();
+
+        $i0 = <a.d.bm: int as>;
+
+        $l3 = (long) $i0;
+
+        specialinvoke $r0.<a.e.a.c: void a(a.e.a.a,a.e.a.b,long)>($r4, $r6, $l3);
+
+        $i0 = $r6.<a.d.x: int l>;
+
+     label09:
+        if $i0 == 0 goto label11;
+
+     label10:
+        specialinvoke $r0.<a.d.bm: void b(a.d.u,a.d.u)>($r4, $r6);
+
+     label11:
+        virtualinvoke $r4.<a.d.as: java.lang.Object nextElement()>();
+
+     label12:
+        entermonitor $r0;
+
+     label13:
+        $r2.<a.d.u: boolean u> = 0;
+
+        $r5.<a.d.at: boolean e_> = 0;
+
+     label14:
+        $r7 = $r0.<a.d.bm: java.util.HashMap H>;
+
+     label15:
+        virtualinvoke $r7.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r4, $r5);
+
+     label16:
+        specialinvoke $r0.<a.d.bm: void c(a.e.a.a)>($r4);
+
+        $z0 = virtualinvoke $r4.<a.d.as: boolean hasMoreElements()>();
+
+     label17:
+        if $z0 == 0 goto label20;
+
+     label18:
+        $r8 = virtualinvoke $r4.<a.d.as: java.lang.Object nextElement()>();
+
+     label19:
+        if $r8 != null goto label16;
+
+     label20:
+        $i0 = <a.d.bm: int as>;
+
+        $l3 = (long) $i0;
+
+     label21:
+        $l4 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+     label22:
+        $l4 = $l4 + $l3;
+
+        $r5.<a.d.at: long d_> = $l4;
+
+     label23:
+        $z0 = virtualinvoke $r5.<a.d.at: boolean hasMoreElements()>();
+
+     label24:
+        if $z0 == 0 goto label44;
+
+     label25:
+        virtualinvoke $r0.<java.lang.Object: void wait(long)>($l3);
+
+     label26:
+        $l3 = $r5.<a.d.at: long d_>;
+
+     label27:
+        $l4 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+     label28:
+        $l3 = $l3 - $l4;
+
+        $b2 = $l3 cmp 0L;
+
+        if $b2 > 0 goto label23;
+
+        $r9 = new a.e.a.d;
+
+        $r10 = new java.lang.StringBuilder;
+
+     label29:
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r0);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" timedout waiting for response to ");
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<a.e.a.d: void <init>(java.lang.String)>($r11);
+
+     label30:
+        throw $r9;
+
+     label31:
+        $r12 := @caughtexception;
+
+     label32:
+        $r9 = new a.e.a.d;
+
+        specialinvoke $r9.<a.e.a.d: void <init>(java.lang.Throwable)>($r12);
+
+        throw $r9;
+
+     label33:
+        $r13 := @caughtexception;
+
+     label34:
+        $r7 = $r0.<a.d.bm: java.util.HashMap H>;
+
+        virtualinvoke $r7.<java.util.HashMap: java.lang.Object remove(java.lang.Object)>($r4);
+
+        throw $r13;
+
+     label35:
+        $r14 := @caughtexception;
+
+     label36:
+        exitmonitor $r0;
+
+        throw $r14;
+
+     label37:
+        $r15 := @caughtexception;
+
+        $r16 = $r4.<a.d.as: byte[] V>;
+
+     label38:
+        staticinvoke <a.d.c: void a(byte[])>($r16);
+
+     label39:
+        $r16 = $r5.<a.d.at: byte[] O>;
+
+     label40:
+        staticinvoke <a.d.c: void a(byte[])>($r16);
+
+        throw $r15;
+
+     label41:
+        $r17 := @caughtexception;
+
+        throw $r17;
+
+     label42:
+        virtualinvoke $r0.<a.d.bm: void a(a.e.a.a)>($r4);
+
+     label43:
+        goto label12;
+
+     label44:
+        $i0 = $r2.<a.d.u: int l>;
+
+        if $i0 == 0 goto label46;
+
+     label45:
+        specialinvoke $r0.<a.d.bm: void b(a.d.u,a.d.u)>($r4, $r5);
+
+     label46:
+        $r7 = $r0.<a.d.bm: java.util.HashMap H>;
+
+        virtualinvoke $r7.<java.util.HashMap: java.lang.Object remove(java.lang.Object)>($r4);
+
+        exitmonitor $r0;
+
+     label47:
+        $r16 = $r4.<a.d.as: byte[] V>;
+
+     label48:
+        staticinvoke <a.d.c: void a(byte[])>($r16);
+
+     label49:
+        $r16 = $r5.<a.d.at: byte[] O>;
+
+     label50:
+        staticinvoke <a.d.c: void a(byte[])>($r16);
+
+     label51:
+        specialinvoke $r0.<a.d.bm: void b(a.d.u,a.d.u)>($r1, $r2);
+
+        return;
+
+     label52:
+        $b2 = $r1.<a.d.u: byte g>;
+
+        $r2.<a.d.u: byte g> = $b2;
+
+        $i0 = <a.d.bm: int as>;
+
+        $l3 = (long) $i0;
+
+     label53:
+        specialinvoke $r0.<a.e.a.c: void a(a.e.a.a,a.e.a.b,long)>($r1, $r2, $l3);
+
+     label54:
+        goto label51;
+
+     label55:
+        $r18 := @caughtexception;
+
+        $r17 = new a.d.bc;
+
+        $r11 = virtualinvoke $r18.<java.io.IOException: java.lang.String getMessage()>();
+
+        specialinvoke $r17.<a.d.bc: void <init>(java.lang.String,java.lang.Throwable)>($r11, $r18);
+
+        throw $r17;
+
+        catch a.d.bc from label02 to label03 with label41;
+        catch a.d.bc from label05 to label06 with label41;
+        catch java.io.IOException from label02 to label03 with label55;
+        catch java.io.IOException from label05 to label06 with label55;
+        catch java.lang.Throwable from label06 to label07 with label37;
+        catch java.lang.Throwable from label08 to label09 with label37;
+        catch java.lang.Throwable from label10 to label13 with label37;
+        catch java.lang.Throwable from label13 to label14 with label35;
+        catch java.lang.InterruptedException from label15 to label17 with label31;
+        catch java.lang.InterruptedException from label18 to label19 with label31;
+        catch java.lang.InterruptedException from label21 to label22 with label31;
+        catch java.lang.InterruptedException from label23 to label24 with label31;
+        catch java.lang.InterruptedException from label25 to label26 with label31;
+        catch java.lang.InterruptedException from label27 to label28 with label31;
+        catch java.lang.InterruptedException from label29 to label30 with label31;
+        catch java.lang.Throwable from label14 to label31 with label33;
+        catch java.lang.Throwable from label32 to label33 with label33;
+        catch java.lang.Throwable from label34 to label35 with label35;
+        catch java.lang.Throwable from label36 to label37 with label37;
+        catch a.d.bc from label38 to label39 with label41;
+        catch a.d.bc from label40 to label41 with label41;
+        catch java.io.IOException from label38 to label39 with label55;
+        catch java.io.IOException from label40 to label41 with label55;
+        catch java.lang.Throwable from label42 to label43 with label37;
+        catch java.lang.InterruptedException from label45 to label46 with label31;
+        catch java.lang.Throwable from label44 to label46 with label33;
+        catch java.lang.Throwable from label46 to label47 with label35;
+        catch a.d.bc from label48 to label49 with label41;
+        catch a.d.bc from label50 to label51 with label41;
+        catch java.io.IOException from label48 to label49 with label55;
+        catch java.io.IOException from label50 to label51 with label55;
+        catch a.d.bc from label53 to label54 with label41;
+        catch java.io.IOException from label53 to label54 with label55;
+    }
+
+    protected final void a(a.e.a.a)
+    {
+        a.d.bm $r0;
+        a.e.a.a $r1;
+        int $i0;
+        a.d.u $r2;
+
+        $r0 := @this: a.d.bm;
+
+        $r1 := @parameter0: a.e.a.a;
+
+        $i0 = $r0.<a.d.bm: int j>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<a.d.bm: int j> = $i0;
+
+        if $i0 != 32000 goto label1;
+
+        $r0.<a.d.bm: int j> = 1;
+
+     label1:
+        $r2 = (a.d.u) $r1;
+
+        $i0 = $r0.<a.d.bm: int j>;
+
+        $r2.<a.d.u: int q> = $i0;
+
+        return;
+    }
+
+    protected final void a(a.e.a.b)
+    {
+        a.d.bm $r0;
+        a.e.a.b $r1;
+        boolean $z0, $z1;
+        a.d.u $r2;
+        int $i0, $i2, $i3;
+        byte[] $r3, $r4, $r5;
+        short $s1;
+        java.io.IOException $r6;
+        java.lang.StringBuilder $r7;
+        java.lang.String $r8;
+        java.lang.Throwable $r9;
+        byte $b4;
+        a.d.ao $r10;
+        java.io.InputStream $r11;
+        a.d.v $r12;
+        a.e.e $r13;
+        a.d.at $r14;
+
+        $r0 := @this: a.d.bm;
+
+        $r1 := @parameter0: a.e.a.b;
+
+        $z0 = 0;
+
+        $r2 = (a.d.u) $r1;
+
+        $z1 = $r0.<a.d.bm: boolean z>;
+
+        $r2.<a.d.u: boolean t> = $z1;
+
+        $i0 = $r0.<a.d.bm: int x>;
+
+        $i0 = $i0 & -2147483648;
+
+        if $i0 != -2147483648 goto label01;
+
+        $z0 = 1;
+
+     label01:
+        $r2.<a.d.u: boolean v> = $z0;
+
+        $r3 = <a.d.bm: byte[] a>;
+
+        entermonitor $r3;
+
+     label02:
+        $r4 = $r0.<a.d.bm: byte[] m>;
+
+        $r5 = <a.d.bm: byte[] a>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r4, 0, $r5, 0, 36);
+
+        $r4 = <a.d.bm: byte[] a>;
+
+        $s1 = staticinvoke <a.e.b: short a(byte[])>($r4);
+
+        $i0 = 65535 & $s1;
+
+        if $i0 < 33 goto label03;
+
+        $i2 = $i0 + 4;
+
+        $i3 = $r0.<a.d.bm: int w>;
+
+        if $i2 <= $i3 goto label05;
+
+     label03:
+        $r6 = new java.io.IOException;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>("Invalid payload size: ");
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r6.<java.io.IOException: void <init>(java.lang.String)>($r8);
+
+        throw $r6;
+
+     label04:
+        $r9 := @caughtexception;
+
+        exitmonitor $r3;
+
+        throw $r9;
+
+     label05:
+        $r4 = <a.d.bm: byte[] a>;
+
+        $i2 = staticinvoke <a.e.b: int b(byte[],int)>($r4, 9);
+
+        $i2 = $i2 & -1;
+
+        $b4 = $r2.<a.d.u: byte g>;
+
+        if $b4 != 46 goto label12;
+
+        if $i2 == 0 goto label06;
+
+        if $i2 != -2147483643 goto label12;
+
+     label06:
+        $r10 = (a.d.ao) $r2;
+
+        $r11 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $r4 = <a.d.bm: byte[] a>;
+
+        staticinvoke <a.d.bm: int a(java.io.InputStream,byte[],int,int)>($r11, $r4, 36, 27);
+
+        $r4 = <a.d.bm: byte[] a>;
+
+        virtualinvoke $r2.<a.d.u: int b(byte[])>($r4);
+
+        $i2 = $r10.<a.d.ao: int E>;
+
+        $i2 = $i2 + -59;
+
+        $i3 = $r10.<a.d.ao: int s>;
+
+        if $i3 <= 0 goto label07;
+
+        if $i2 <= 0 goto label07;
+
+        if $i2 >= 4 goto label07;
+
+        $r11 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $r4 = <a.d.bm: byte[] a>;
+
+        staticinvoke <a.d.bm: int a(java.io.InputStream,byte[],int,int)>($r11, $r4, 63, $i2);
+
+     label07:
+        $i2 = $r10.<a.d.ao: int D>;
+
+        if $i2 <= 0 goto label08;
+
+        $r11 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $r4 = $r10.<a.d.ao: byte[] b>;
+
+        $i2 = $r10.<a.d.ao: int c>;
+
+        $i3 = $r10.<a.d.ao: int D>;
+
+        staticinvoke <a.d.bm: int a(java.io.InputStream,byte[],int,int)>($r11, $r4, $i2, $i3);
+
+     label08:
+        $r12 = $r0.<a.d.bm: a.d.v q>;
+
+        if $r12 == null goto label09;
+
+        $i2 = $r2.<a.d.u: int l>;
+
+        if $i2 != 0 goto label09;
+
+        $r12 = $r0.<a.d.bm: a.d.v q>;
+
+        $r4 = <a.d.bm: byte[] a>;
+
+        virtualinvoke $r12.<a.d.v: boolean a(byte[],a.d.u)>($r4, $r2);
+
+     label09:
+        $r13 = <a.d.bm: a.e.e c>;
+
+        $i2 = <a.e.e: int a>;
+
+        if $i2 < 4 goto label10;
+
+        $r13 = <a.d.bm: a.e.e c>;
+
+        virtualinvoke $r13.<a.e.e: void println(java.lang.Object)>($r1);
+
+        $r13 = <a.d.bm: a.e.e c>;
+
+        $i2 = <a.e.e: int a>;
+
+        if $i2 < 6 goto label10;
+
+        $r13 = <a.d.bm: a.e.e c>;
+
+        $r4 = <a.d.bm: byte[] a>;
+
+        staticinvoke <a.e.d: void a(java.io.PrintStream,byte[],int,int)>($r13, $r4, 4, $i0);
+
+     label10:
+        exitmonitor $r3;
+
+     label11:
+        return;
+
+     label12:
+        $r11 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $r4 = <a.d.bm: byte[] a>;
+
+        $i2 = $i0 + -32;
+
+        staticinvoke <a.d.bm: int a(java.io.InputStream,byte[],int,int)>($r11, $r4, 36, $i2);
+
+        $r4 = <a.d.bm: byte[] a>;
+
+        virtualinvoke $r2.<a.d.u: int b(byte[])>($r4);
+
+        $z0 = $r2 instanceof a.d.at;
+
+        if $z0 == 0 goto label08;
+
+        $r14 = (a.d.at) $r2;
+
+        virtualinvoke $r14.<a.d.at: java.lang.Object nextElement()>();
+
+     label13:
+        goto label08;
+
+        catch java.lang.Throwable from label02 to label04 with label04;
+        catch java.lang.Throwable from label05 to label11 with label04;
+        catch java.lang.Throwable from label12 to label13 with label04;
+    }
+
+    protected final void a(boolean)
+    {
+        a.d.bm $r0;
+        boolean $z0, $z1;
+        java.util.LinkedList $r1;
+        java.util.ListIterator $r2;
+        java.lang.Object $r3;
+        a.d.bk $r4;
+        java.lang.Throwable $r5;
+        java.net.Socket $r6;
+        java.io.OutputStream $r7;
+        java.io.InputStream $r8;
+
+        $r0 := @this: a.d.bm;
+
+        $z0 := @parameter0: boolean;
+
+        $r1 = $r0.<a.d.bm: java.util.LinkedList r>;
+
+        $r2 = virtualinvoke $r1.<java.util.LinkedList: java.util.ListIterator listIterator()>();
+
+     label1:
+        $z1 = interfaceinvoke $r2.<java.util.ListIterator: boolean hasNext()>();
+
+     label2:
+        if $z1 == 0 goto label6;
+
+     label3:
+        $r3 = interfaceinvoke $r2.<java.util.ListIterator: java.lang.Object next()>();
+
+        $r4 = (a.d.bk) $r3;
+
+        virtualinvoke $r4.<a.d.bk: void a(boolean)>($z0);
+
+     label4:
+        goto label1;
+
+     label5:
+        $r5 := @caughtexception;
+
+        $r0.<a.d.bm: a.d.v q> = null;
+
+        $r0.<a.d.bm: java.net.Socket h> = null;
+
+        $r0.<a.d.bm: java.lang.String A> = null;
+
+        throw $r5;
+
+     label6:
+        $r6 = $r0.<a.d.bm: java.net.Socket h>;
+
+        virtualinvoke $r6.<java.net.Socket: void shutdownOutput()>();
+
+        $r7 = $r0.<a.d.bm: java.io.OutputStream k>;
+
+        virtualinvoke $r7.<java.io.OutputStream: void close()>();
+
+        $r8 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        virtualinvoke $r8.<java.io.InputStream: void close()>();
+
+        $r6 = $r0.<a.d.bm: java.net.Socket h>;
+
+        virtualinvoke $r6.<java.net.Socket: void close()>();
+
+     label7:
+        $r0.<a.d.bm: a.d.v q> = null;
+
+        $r0.<a.d.bm: java.net.Socket h> = null;
+
+        $r0.<a.d.bm: java.lang.String A> = null;
+
+        return;
+
+        catch java.lang.Throwable from label1 to label2 with label5;
+        catch java.lang.Throwable from label3 to label4 with label5;
+        catch java.lang.Throwable from label6 to label7 with label5;
+    }
+
+    final boolean a(int)
+    {
+        a.d.bm $r0;
+        int $i0, $i1;
+        a.d.bc $r1;
+        java.lang.String $r2;
+        long $l2;
+        java.io.IOException $r3;
+
+        $r0 := @this: a.d.bm;
+
+        $i0 := @parameter0: int;
+
+        $i1 = <a.d.bm: int as>;
+
+        $l2 = (long) $i1;
+
+     label1:
+        virtualinvoke $r0.<a.d.bm: void a(long)>($l2);
+
+     label2:
+        $i1 = $r0.<a.d.bm: int x>;
+
+        $i1 = $i1 & $i0;
+
+        if $i1 != $i0 goto label4;
+
+        return 1;
+
+     label3:
+        $r3 := @caughtexception;
+
+        $r1 = new a.d.bc;
+
+        $r2 = virtualinvoke $r3.<java.io.IOException: java.lang.String getMessage()>();
+
+        specialinvoke $r1.<a.d.bc: void <init>(java.lang.String,java.lang.Throwable)>($r2, $r3);
+
+        throw $r1;
+
+     label4:
+        return 0;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    protected final void b()
+    {
+        a.d.bm $r0;
+        short $s0;
+        a.d.ah $r1;
+        a.d.bn $r2;
+        int $i1, $i2;
+        a.d.bc $r3;
+        java.net.ConnectException $r4;
+        java.net.NoRouteToHostException $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r7;
+        a.b $r8;
+        boolean $z0;
+
+        $r0 := @this: a.d.bm;
+
+        $s0 = 445;
+
+        $r1 = new a.d.ah;
+
+        $r2 = $r0.<a.d.bm: a.d.bn s>;
+
+        specialinvoke $r1.<a.d.ah: void <init>(a.d.bn)>($r2);
+
+        $i1 = $r0.<a.d.bm: int i>;
+
+     label01:
+        specialinvoke $r0.<a.d.bm: void a(int,a.d.u)>($i1, $r1);
+
+     label02:
+        $i1 = $r1.<a.d.ah: int a>;
+
+        if $i1 <= 10 goto label09;
+
+        $r3 = new a.d.bc;
+
+        specialinvoke $r3.<a.d.bc: void <init>(java.lang.String)>("This client does not support the negotiated dialect.");
+
+        throw $r3;
+
+     label03:
+        $r4 := @caughtexception;
+
+        $i1 = $r0.<a.d.bm: int i>;
+
+        if $i1 == 0 goto label04;
+
+        $i1 = $r0.<a.d.bm: int i>;
+
+        if $i1 != 445 goto label05;
+
+     label04:
+        $s0 = 139;
+
+     label05:
+        $r0.<a.d.bm: int i> = $s0;
+
+        $i1 = $r0.<a.d.bm: int i>;
+
+        specialinvoke $r0.<a.d.bm: void a(int,a.d.u)>($i1, $r1);
+
+        goto label02;
+
+     label06:
+        $r5 := @caughtexception;
+
+        $i1 = $r0.<a.d.bm: int i>;
+
+        if $i1 == 0 goto label07;
+
+        $i1 = $r0.<a.d.bm: int i>;
+
+        if $i1 != 445 goto label08;
+
+     label07:
+        $s0 = 139;
+
+     label08:
+        $r0.<a.d.bm: int i> = $s0;
+
+        $i1 = $r0.<a.d.bm: int i>;
+
+        specialinvoke $r0.<a.d.bm: void a(int,a.d.u)>($i1, $r1);
+
+        goto label02;
+
+     label09:
+        $r2 = $r0.<a.d.bm: a.d.bn s>;
+
+        $i1 = $r2.<a.d.bn: int d>;
+
+        $i1 = $i1 & -2147483648;
+
+        if $i1 == -2147483648 goto label10;
+
+        $r2 = $r0.<a.d.bm: a.d.bn s>;
+
+        $i1 = $r2.<a.d.bn: int o>;
+
+        if $i1 == 8 goto label10;
+
+        $i1 = <a.d.bm: int ai>;
+
+        if $i1 != 0 goto label10;
+
+        $r3 = new a.d.bc;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("Unexpected encryption key length: ");
+
+        $r2 = $r0.<a.d.bm: a.d.bn s>;
+
+        $i1 = $r2.<a.d.bn: int o>;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<a.d.bc: void <init>(java.lang.String)>($r7);
+
+        throw $r3;
+
+     label10:
+        $r8 = $r0.<a.d.bm: a.b g>;
+
+        $r7 = virtualinvoke $r8.<a.b: java.lang.String d()>();
+
+        $r0.<a.d.bm: java.lang.String A> = $r7;
+
+        $r2 = $r0.<a.d.bm: a.d.bn s>;
+
+        $z0 = $r2.<a.d.bn: boolean j>;
+
+        if $z0 != 0 goto label11;
+
+        $r2 = $r0.<a.d.bm: a.d.bn s>;
+
+        $z0 = $r2.<a.d.bn: boolean i>;
+
+        if $z0 == 0 goto label15;
+
+        $z0 = <a.d.bm: boolean ae>;
+
+        if $z0 == 0 goto label15;
+
+     label11:
+        $i1 = $r0.<a.d.bm: int t>;
+
+        $i1 = $i1 | 4;
+
+        $r0.<a.d.bm: int t> = $i1;
+
+     label12:
+        $i1 = $r0.<a.d.bm: int u>;
+
+        $r2 = $r0.<a.d.bm: a.d.bn s>;
+
+        $i2 = $r2.<a.d.bn: int a>;
+
+        $i1 = staticinvoke <java.lang.Math: int min(int,int)>($i1, $i2);
+
+        $r0.<a.d.bm: int u> = $i1;
+
+        $i1 = $r0.<a.d.bm: int u>;
+
+        if $i1 > 0 goto label13;
+
+        $r0.<a.d.bm: int u> = 1;
+
+     label13:
+        $i1 = $r0.<a.d.bm: int v>;
+
+        $r2 = $r0.<a.d.bm: a.d.bn s>;
+
+        $i2 = $r2.<a.d.bn: int b>;
+
+        $i1 = staticinvoke <java.lang.Math: int min(int,int)>($i1, $i2);
+
+        $r0.<a.d.bm: int v> = $i1;
+
+        $i1 = $r0.<a.d.bm: int x>;
+
+        $r2 = $r0.<a.d.bm: a.d.bn s>;
+
+        $i2 = $r2.<a.d.bn: int d>;
+
+        $i1 = $i1 & $i2;
+
+        $r0.<a.d.bm: int x> = $i1;
+
+        $r2 = $r0.<a.d.bm: a.d.bn s>;
+
+        $i1 = $r2.<a.d.bn: int d>;
+
+        $i1 = $i1 & -2147483648;
+
+        if $i1 != -2147483648 goto label14;
+
+        $i1 = $r0.<a.d.bm: int x>;
+
+        $i1 = $i1 | -2147483648;
+
+        $r0.<a.d.bm: int x> = $i1;
+
+     label14:
+        $i1 = $r0.<a.d.bm: int x>;
+
+        $i1 = $i1 & 4;
+
+        if $i1 != 0 goto label17;
+
+        $z0 = <a.d.bm: boolean ac>;
+
+        if $z0 == 0 goto label16;
+
+        $i1 = $r0.<a.d.bm: int x>;
+
+        $i1 = $i1 | 4;
+
+        $r0.<a.d.bm: int x> = $i1;
+
+        return;
+
+     label15:
+        $i1 = $r0.<a.d.bm: int t>;
+
+        $i1 = $i1 & 65531;
+
+        $r0.<a.d.bm: int t> = $i1;
+
+        goto label12;
+
+     label16:
+        $r0.<a.d.bm: boolean z> = 0;
+
+        $i1 = $r0.<a.d.bm: int t>;
+
+        $i1 = $i1 & 32767;
+
+        $r0.<a.d.bm: int t> = $i1;
+
+     label17:
+        return;
+
+        catch java.net.ConnectException from label01 to label02 with label03;
+        catch java.net.NoRouteToHostException from label01 to label02 with label06;
+    }
+
+    protected final void b(a.e.a.a)
+    {
+        a.d.bm $r0;
+        byte[] $r1, $r4;
+        int $i0, $i1;
+        a.e.a.a $r2;
+        a.d.u $r3;
+        a.e.e $r5;
+        boolean $z0;
+        a.d.b $r6;
+        java.io.OutputStream $r7;
+        java.lang.Throwable $r8;
+
+        $r0 := @this: a.d.bm;
+
+        $r2 := @parameter0: a.e.a.a;
+
+        $r1 = <a.d.bm: byte[] a>;
+
+        entermonitor $r1;
+
+     label1:
+        $r3 = (a.d.u) $r2;
+
+        $r4 = <a.d.bm: byte[] a>;
+
+        $i0 = virtualinvoke $r3.<a.d.u: int a(byte[])>($r4);
+
+        $i1 = 65535 & $i0;
+
+        $r4 = <a.d.bm: byte[] a>;
+
+        staticinvoke <a.e.b: int a(int,byte[])>($i1, $r4);
+
+        $r5 = <a.d.bm: a.e.e c>;
+
+        $i1 = <a.e.e: int a>;
+
+        if $i1 < 4 goto label4;
+
+     label2:
+        $r5 = <a.d.bm: a.e.e c>;
+
+        virtualinvoke $r5.<a.e.e: void println(java.lang.Object)>($r3);
+
+        $z0 = $r3 instanceof a.d.b;
+
+        if $z0 == 0 goto label3;
+
+        $r6 = (a.d.b) $r3;
+
+        $r3 = $r6.<a.d.b: a.d.u a>;
+
+        if $r3 != null goto label2;
+
+     label3:
+        $r5 = <a.d.bm: a.e.e c>;
+
+        $i1 = <a.e.e: int a>;
+
+        if $i1 < 6 goto label4;
+
+        $r5 = <a.d.bm: a.e.e c>;
+
+        $r4 = <a.d.bm: byte[] a>;
+
+        staticinvoke <a.e.d: void a(java.io.PrintStream,byte[],int,int)>($r5, $r4, 4, $i0);
+
+     label4:
+        $r7 = $r0.<a.d.bm: java.io.OutputStream k>;
+
+        $r4 = <a.d.bm: byte[] a>;
+
+        $i0 = $i0 + 4;
+
+        virtualinvoke $r7.<java.io.OutputStream: void write(byte[],int,int)>($r4, 0, $i0);
+
+        exitmonitor $r1;
+
+     label5:
+        return;
+
+     label6:
+        $r8 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r8;
+
+        catch java.lang.Throwable from label1 to label5 with label6;
+    }
+
+    final boolean b(a.d.t)
+    {
+        a.d.bm $r0;
+        a.d.t $r1, $r3;
+        boolean $z0;
+        int $i0;
+        a.d.v $r2;
+
+        $r0 := @this: a.d.bm;
+
+        $r1 := @parameter0: a.d.t;
+
+        $i0 = $r0.<a.d.bm: int t>;
+
+        $i0 = $i0 & 4;
+
+        if $i0 == 0 goto label1;
+
+        $r2 = $r0.<a.d.bm: a.d.v q>;
+
+        if $r2 != null goto label1;
+
+        $r3 = <a.d.t: a.d.t e>;
+
+        if $r1 == $r3 goto label1;
+
+        $r3 = <a.d.t: a.d.t e>;
+
+        $z0 = virtualinvoke $r3.<a.d.t: boolean equals(java.lang.Object)>($r1);
+
+        if $z0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    protected final a.e.a.a c()
+    {
+        a.d.bm $r0;
+        java.io.InputStream $r1;
+        byte[] $r2, $r6;
+        int $i0, $i2;
+        byte $b1;
+        a.e.e $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r5;
+        a.d.x $r7;
+        short $s3;
+
+        $r0 := @this: a.d.bm;
+
+     label1:
+        $r1 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        $i0 = staticinvoke <a.d.bm: int a(java.io.InputStream,byte[],int,int)>($r1, $r2, 0, 4);
+
+        if $i0 >= 4 goto label2;
+
+        return null;
+
+     label2:
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        $b1 = $r2[0];
+
+        if $b1 == -123 goto label1;
+
+        $r1 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        $i0 = staticinvoke <a.d.bm: int a(java.io.InputStream,byte[],int,int)>($r1, $r2, 4, 32);
+
+        if $i0 < 32 goto label8;
+
+        $r3 = <a.d.bm: a.e.e c>;
+
+        $i0 = <a.e.e: int a>;
+
+        if $i0 < 4 goto label3;
+
+        $r3 = <a.d.bm: a.e.e c>;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("New data read: ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r0);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r3.<a.e.e: void println(java.lang.String)>($r5);
+
+        $r3 = <a.d.bm: a.e.e c>;
+
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        staticinvoke <a.e.d: void a(java.io.PrintStream,byte[],int,int)>($r3, $r2, 4, 32);
+
+     label3:
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        $b1 = $r2[0];
+
+        if $b1 != 0 goto label4;
+
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        $b1 = $r2[1];
+
+        if $b1 != 0 goto label4;
+
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        $b1 = $r2[4];
+
+        if $b1 != -1 goto label4;
+
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        $b1 = $r2[5];
+
+        if $b1 != 83 goto label4;
+
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        $b1 = $r2[6];
+
+        if $b1 != 77 goto label4;
+
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        $b1 = $r2[7];
+
+        if $b1 == 66 goto label7;
+
+     label4:
+        $i0 = 0;
+
+     label5:
+        if $i0 >= 35 goto label6;
+
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        $r6 = $r0.<a.d.bm: byte[] m>;
+
+        $i2 = $i0 + 1;
+
+        $b1 = $r6[$i2];
+
+        $r2[$i0] = $b1;
+
+        $i0 = $i0 + 1;
+
+        goto label5;
+
+     label6:
+        $r1 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $i0 = virtualinvoke $r1.<java.io.InputStream: int read()>();
+
+        if $i0 == -1 goto label8;
+
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        $b1 = (byte) $i0;
+
+        $r2[35] = $b1;
+
+        goto label3;
+
+     label7:
+        $r7 = $r0.<a.d.bm: a.d.x n>;
+
+        $r2 = $r0.<a.d.bm: byte[] m>;
+
+        $s3 = staticinvoke <a.e.b: short a(byte[],int)>($r2, 34);
+
+        $i0 = $s3 & 65535;
+
+        $r7.<a.d.x: int q> = $i0;
+
+        $r7 = $r0.<a.d.bm: a.d.x n>;
+
+        return $r7;
+
+     label8:
+        return null;
+    }
+
+    protected final void d()
+    {
+        a.d.bm $r0;
+        byte[] $r1;
+        short $s0;
+        int $i1, $i2, $i3;
+        java.io.InputStream $r2, $r3;
+        long $l4;
+
+        $r0 := @this: a.d.bm;
+
+        $r1 = $r0.<a.d.bm: byte[] m>;
+
+        $s0 = staticinvoke <a.e.b: short a(byte[])>($r1);
+
+        $i1 = $s0 & 65535;
+
+        if $i1 < 33 goto label1;
+
+        $i2 = $i1 + 4;
+
+        $i3 = $r0.<a.d.bm: int w>;
+
+        if $i2 <= $i3 goto label2;
+
+     label1:
+        $r2 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $r3 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $i1 = virtualinvoke $r3.<java.io.InputStream: int available()>();
+
+        $l4 = (long) $i1;
+
+        virtualinvoke $r2.<java.io.InputStream: long skip(long)>($l4);
+
+        return;
+
+     label2:
+        $r2 = $r0.<a.d.bm: java.io.InputStream l>;
+
+        $i1 = $i1 + -32;
+
+        $l4 = (long) $i1;
+
+        virtualinvoke $r2.<java.io.InputStream: long skip(long)>($l4);
+
+        return;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.bm $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        a.b $r3;
+        int $i0;
+
+        $r0 := @this: a.d.bm;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = specialinvoke $r0.<a.e.a.c: java.lang.String toString()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $r3 = $r0.<a.d.bm: a.b g>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(":");
+
+        $i0 = $r0.<a.d.bm: int i>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+}

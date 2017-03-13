@@ -1,0 +1,474 @@
+public final class a.c.c extends a.c.a
+{
+    private static final int b;
+    private static final java.lang.String c;
+    private static final byte[] d;
+    private byte[] e;
+    private java.lang.String f;
+    private byte[] g;
+    private byte[] h;
+
+    static void <clinit>()
+    {
+        int $i0, $i1, $i3, $i4;
+        boolean $z0;
+        short $s2;
+        java.lang.String $r0;
+        byte[] $r1, $r2, $r4;
+        a.b.g $r3;
+        java.net.UnknownHostException $r5;
+        java.io.IOException $r6, $r7;
+
+        $z0 = staticinvoke <a.a: boolean a(java.lang.String,boolean)>("jcifs.smb.client.useUnicode", 1);
+
+        if $z0 == 0 goto label12;
+
+        $s2 = 1;
+
+     label01:
+        $s2 = $s2 | 512;
+
+        <a.c.c: int b> = $s2;
+
+        $r0 = staticinvoke <a.a: java.lang.String b(java.lang.String,java.lang.String)>("jcifs.smb.client.domain", null);
+
+        <a.c.c: java.lang.String c> = $r0;
+
+        $r1 = newarray (byte)[0];
+
+        $r0 = <a.c.c: java.lang.String c>;
+
+        if $r0 == null goto label03;
+
+        $r0 = <a.c.c: java.lang.String c>;
+
+     label02:
+        $r1 = virtualinvoke $r0.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+     label03:
+        $i0 = lengthof $r1;
+
+        $r2 = newarray (byte)[0];
+
+     label04:
+        $r3 = staticinvoke <a.b.g: a.b.g a()>();
+
+        $r0 = virtualinvoke $r3.<a.b.g: java.lang.String g()>();
+
+     label05:
+        if $r0 == null goto label07;
+
+     label06:
+        $r2 = virtualinvoke $r0.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-16LE");
+
+     label07:
+        $i1 = lengthof $r2;
+
+        if $i0 <= 0 goto label13;
+
+        $i3 = $i0 + 4;
+
+     label08:
+        if $i1 <= 0 goto label14;
+
+        $i4 = $i1 + 4;
+
+     label09:
+        $i3 = $i4 + $i3;
+
+        $i3 = $i3 + 4;
+
+        $r4 = newarray (byte)[$i3];
+
+        if $i0 <= 0 goto label18;
+
+        staticinvoke <a.c.c: void b(byte[],int,int)>($r4, 0, 2);
+
+        staticinvoke <a.c.c: void b(byte[],int,int)>($r4, 2, $i0);
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r1, 0, $r4, 4, $i0);
+
+        $i0 = $i0 + 4;
+
+     label10:
+        if $i1 <= 0 goto label11;
+
+        staticinvoke <a.c.c: void b(byte[],int,int)>($r4, $i0, 1);
+
+        $i0 = $i0 + 2;
+
+        staticinvoke <a.c.c: void b(byte[],int,int)>($r4, $i0, $i1);
+
+        $i0 = $i0 + 2;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r2, 0, $r4, $i0, $i1);
+
+     label11:
+        <a.c.c: byte[] d> = $r4;
+
+        return;
+
+     label12:
+        $s2 = 2;
+
+        goto label01;
+
+     label13:
+        $i3 = 0;
+
+        goto label08;
+
+     label14:
+        $i4 = 0;
+
+        goto label09;
+
+     label15:
+        $r5 := @caughtexception;
+
+        goto label07;
+
+     label16:
+        $r6 := @caughtexception;
+
+        goto label07;
+
+     label17:
+        $r7 := @caughtexception;
+
+        goto label03;
+
+     label18:
+        $i0 = 0;
+
+        goto label10;
+
+        catch java.io.IOException from label02 to label03 with label17;
+        catch java.net.UnknownHostException from label04 to label05 with label15;
+        catch java.io.IOException from label06 to label07 with label16;
+    }
+
+    public void <init>()
+    {
+        a.c.c $r0;
+        int $i0;
+
+        $r0 := @this: a.c.c;
+
+        $i0 = <a.c.c: int b>;
+
+        specialinvoke $r0.<a.c.c: void <init>(int)>($i0);
+
+        return;
+    }
+
+    private void <init>(int)
+    {
+        a.c.c $r0;
+        int $i0;
+
+        $r0 := @this: a.c.c;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<a.c.a: void <init>()>();
+
+        virtualinvoke $r0.<a.c.c: void a(int)>($i0);
+
+        $r0.<a.c.c: byte[] e> = null;
+
+        $r0.<a.c.c: java.lang.String f> = null;
+
+        return;
+    }
+
+    public void <init>(byte[])
+    {
+        a.c.c $r0;
+        byte[] $r1, $r2;
+        int $i0, $i3;
+        byte $b1, $b2;
+        java.io.IOException $r3;
+        java.lang.String $r4, $r5;
+
+        $r0 := @this: a.c.c;
+
+        $r1 := @parameter0: byte[];
+
+        specialinvoke $r0.<a.c.a: void <init>()>();
+
+        $i0 = 0;
+
+     label01:
+        if $i0 >= 8 goto label03;
+
+        $b1 = $r1[$i0];
+
+        $r2 = <a.c.c: byte[] a>;
+
+        $b2 = $r2[$i0];
+
+        if $b1 == $b2 goto label02;
+
+        $r3 = new java.io.IOException;
+
+        specialinvoke $r3.<java.io.IOException: void <init>(java.lang.String)>("Not an NTLMSSP message.");
+
+        throw $r3;
+
+     label02:
+        $i0 = $i0 + 1;
+
+        goto label01;
+
+     label03:
+        $i0 = staticinvoke <a.c.c: int a(byte[],int)>($r1, 8);
+
+        if $i0 == 2 goto label04;
+
+        $r3 = new java.io.IOException;
+
+        specialinvoke $r3.<java.io.IOException: void <init>(java.lang.String)>("Not a Type 2 message.");
+
+        throw $r3;
+
+     label04:
+        $i0 = staticinvoke <a.c.c: int a(byte[],int)>($r1, 20);
+
+        virtualinvoke $r0.<a.c.c: void a(int)>($i0);
+
+        $r4 = null;
+
+        $r2 = staticinvoke <a.c.c: byte[] b(byte[],int)>($r1, 12);
+
+        $i3 = lengthof $r2;
+
+        if $i3 == 0 goto label06;
+
+        $r4 = new java.lang.String;
+
+        $i0 = $i0 & 1;
+
+        if $i0 == 0 goto label09;
+
+        $r5 = "UTF-16LE";
+
+     label05:
+        specialinvoke $r4.<java.lang.String: void <init>(byte[],java.lang.String)>($r2, $r5);
+
+     label06:
+        $r0.<a.c.c: java.lang.String f> = $r4;
+
+        $i0 = 24;
+
+     label07:
+        if $i0 >= 32 goto label08;
+
+        $b1 = $r1[$i0];
+
+        if $b1 == 0 goto label10;
+
+        $r2 = newarray (byte)[8];
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r1, 24, $r2, 0, 8);
+
+        $r0.<a.c.c: byte[] e> = $r2;
+
+     label08:
+        $i0 = staticinvoke <a.c.c: int a(byte[],int)>($r1, 16);
+
+        if $i0 == 32 goto label15;
+
+        $i3 = lengthof $r1;
+
+        if $i3 != 32 goto label11;
+
+        return;
+
+     label09:
+        $r5 = staticinvoke <a.c.c: java.lang.String b()>();
+
+        goto label05;
+
+     label10:
+        $i0 = $i0 + 1;
+
+        goto label07;
+
+     label11:
+        $i3 = 32;
+
+     label12:
+        if $i3 >= 40 goto label13;
+
+        $b1 = $r1[$i3];
+
+        if $b1 == 0 goto label14;
+
+        $r2 = newarray (byte)[8];
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r1, 32, $r2, 0, 8);
+
+        $r0.<a.c.c: byte[] g> = $r2;
+
+     label13:
+        if $i0 == 40 goto label15;
+
+        $i0 = lengthof $r1;
+
+        if $i0 == 40 goto label15;
+
+        $r1 = staticinvoke <a.c.c: byte[] b(byte[],int)>($r1, 40);
+
+        $i0 = lengthof $r1;
+
+        if $i0 == 0 goto label15;
+
+        $r0.<a.c.c: byte[] h> = $r1;
+
+        return;
+
+     label14:
+        $i3 = $i3 + 1;
+
+        goto label12;
+
+     label15:
+        return;
+    }
+
+    public final byte[] c()
+    {
+        a.c.c $r0;
+        byte[] r1;
+
+        $r0 := @this: a.c.c;
+
+        r1 = $r0.<a.c.c: byte[] e>;
+
+        return r1;
+    }
+
+    public final byte[] d()
+    {
+        a.c.c $r0;
+        byte[] r1;
+
+        $r0 := @this: a.c.c;
+
+        r1 = $r0.<a.c.c: byte[] h>;
+
+        return r1;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.c.c $r0;
+        byte[] $r1, $r3, $r4;
+        java.lang.String $r2;
+        java.lang.StringBuilder $r5, $r6;
+        int $i0;
+
+        $r0 := @this: a.c.c;
+
+        $r2 = $r0.<a.c.c: java.lang.String f>;
+
+        $r3 = $r0.<a.c.c: byte[] e>;
+
+        $r4 = $r0.<a.c.c: byte[] g>;
+
+        $r1 = $r0.<a.c.c: byte[] h>;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Type2Message[target=");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",challenge=");
+
+        if $r3 != null goto label4;
+
+        $r2 = "null";
+
+     label1:
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",context=");
+
+        if $r4 != null goto label5;
+
+        $r2 = "null";
+
+     label2:
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",targetInformation=");
+
+        if $r1 != null goto label6;
+
+        $r2 = "null";
+
+     label3:
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",flags=0x");
+
+        $i0 = virtualinvoke $r0.<a.c.c: int a()>();
+
+        $r2 = staticinvoke <a.e.d: java.lang.String a(int,int)>($i0, 8);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r2 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+
+     label4:
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("<");
+
+        $i0 = lengthof $r3;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes>");
+
+        $r2 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label1;
+
+     label5:
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("<");
+
+        $i0 = lengthof $r4;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes>");
+
+        $r2 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label2;
+
+     label6:
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("<");
+
+        $i0 = lengthof $r1;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes>");
+
+        $r2 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label3;
+    }
+}

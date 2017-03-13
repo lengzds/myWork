@@ -1,0 +1,105 @@
+final class com.speedsoftware.rootexplorer.gi extends java.lang.Object implements java.lang.Runnable
+{
+    final com.speedsoftware.rootexplorer.ge a;
+
+    void <init>(com.speedsoftware.rootexplorer.ge)
+    {
+        com.speedsoftware.rootexplorer.gi $r0;
+        com.speedsoftware.rootexplorer.ge $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.gi;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ge;
+
+        $r0.<com.speedsoftware.rootexplorer.gi: com.speedsoftware.rootexplorer.ge a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.speedsoftware.rootexplorer.gi $r0;
+        int $i0, $i1;
+        android.app.AlertDialog$Builder $r1;
+        android.content.Context $r2;
+        java.lang.String $r3, $r8;
+        android.app.Activity $r4;
+        byte[] $r5;
+        com.speedsoftware.rootexplorer.gj $r6;
+        com.speedsoftware.rootexplorer.gk $r7;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.gi;
+
+        $i0 = 0;
+
+        $r1 = new android.app.AlertDialog$Builder;
+
+        $r2 = <com.speedsoftware.rootexplorer.ge: android.content.Context r>;
+
+        specialinvoke $r1.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r2);
+
+        $r3 = new java.lang.String;
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        if $r4 != null goto label3;
+
+        $i1 = 0;
+
+     label1:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] dM(int)>($i1);
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r1 = virtualinvoke $r1.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>($r3);
+
+        $r1 = virtualinvoke $r1.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setCancelable(boolean)>(1);
+
+        $r6 = new com.speedsoftware.rootexplorer.gj;
+
+        specialinvoke $r6.<com.speedsoftware.rootexplorer.gj: void <init>(com.speedsoftware.rootexplorer.gi)>($r0);
+
+        $r1 = virtualinvoke $r1.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setOnCancelListener(android.content.DialogInterface$OnCancelListener)>($r6);
+
+        $r3 = new java.lang.String;
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        if $r4 != null goto label4;
+
+     label2:
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] cK(int)>($i0);
+
+        specialinvoke $r3.<java.lang.String: void <init>(byte[])>($r5);
+
+        $r7 = new com.speedsoftware.rootexplorer.gk;
+
+        specialinvoke $r7.<com.speedsoftware.rootexplorer.gk: void <init>(com.speedsoftware.rootexplorer.gi)>($r0);
+
+        $r1 = virtualinvoke $r1.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>($r3, $r7);
+
+        virtualinvoke $r1.<android.app.AlertDialog$Builder: android.app.AlertDialog show()>();
+
+        return;
+
+     label3:
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r8 = virtualinvoke $r4.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label1;
+
+     label4:
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r8 = virtualinvoke $r4.<android.app.Activity: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label2;
+    }
+}

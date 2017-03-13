@@ -1,0 +1,101 @@
+final class com.google.api.a.c.a.d extends org.apache.http.entity.AbstractHttpEntity
+{
+    private final long a;
+    private final com.google.api.a.f.ar b;
+
+    void <init>(long, com.google.api.a.f.ar)
+    {
+        com.google.api.a.c.a.d $r0;
+        long $l0;
+        com.google.api.a.f.ar $r1;
+        java.lang.Object $r2;
+
+        $r0 := @this: com.google.api.a.c.a.d;
+
+        $l0 := @parameter0: long;
+
+        $r1 := @parameter1: com.google.api.a.f.ar;
+
+        specialinvoke $r0.<org.apache.http.entity.AbstractHttpEntity: void <init>()>();
+
+        $r0.<com.google.api.a.c.a.d: long a> = $l0;
+
+        $r2 = staticinvoke <com.google.api.a.e.a.a.a.a.b: java.lang.Object a(java.lang.Object)>($r1);
+
+        $r1 = (com.google.api.a.f.ar) $r2;
+
+        $r0.<com.google.api.a.c.a.d: com.google.api.a.f.ar b> = $r1;
+
+        return;
+    }
+
+    public final java.io.InputStream getContent()
+    {
+        com.google.api.a.c.a.d $r0;
+        java.lang.UnsupportedOperationException $r1;
+
+        $r0 := @this: com.google.api.a.c.a.d;
+
+        $r1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r1.<java.lang.UnsupportedOperationException: void <init>()>();
+
+        throw $r1;
+    }
+
+    public final long getContentLength()
+    {
+        com.google.api.a.c.a.d $r0;
+        long l0;
+
+        $r0 := @this: com.google.api.a.c.a.d;
+
+        l0 = $r0.<com.google.api.a.c.a.d: long a>;
+
+        return l0;
+    }
+
+    public final boolean isRepeatable()
+    {
+        com.google.api.a.c.a.d $r0;
+
+        $r0 := @this: com.google.api.a.c.a.d;
+
+        return 0;
+    }
+
+    public final boolean isStreaming()
+    {
+        com.google.api.a.c.a.d $r0;
+
+        $r0 := @this: com.google.api.a.c.a.d;
+
+        return 1;
+    }
+
+    public final void writeTo(java.io.OutputStream)
+    {
+        com.google.api.a.c.a.d $r0;
+        java.io.OutputStream $r1;
+        long $l0;
+        byte $b1;
+        com.google.api.a.f.ar $r2;
+
+        $r0 := @this: com.google.api.a.c.a.d;
+
+        $r1 := @parameter0: java.io.OutputStream;
+
+        $l0 = $r0.<com.google.api.a.c.a.d: long a>;
+
+        $b1 = $l0 cmp 0L;
+
+        if $b1 == 0 goto label1;
+
+        $r2 = $r0.<com.google.api.a.c.a.d: com.google.api.a.f.ar b>;
+
+        interfaceinvoke $r2.<com.google.api.a.f.ar: void a(java.io.OutputStream)>($r1);
+
+     label1:
+        return;
+    }
+}

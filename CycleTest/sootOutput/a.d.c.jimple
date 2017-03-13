@@ -1,0 +1,208 @@
+public final class a.d.c extends java.lang.Object
+{
+    static java.lang.Object[] a;
+    private static final int b;
+    private static int c;
+
+    static void <clinit>()
+    {
+        int $i0;
+        java.lang.Object[] $r0;
+
+        $i0 = staticinvoke <a.a: int a(java.lang.String,int)>("jcifs.smb.maxBuffers", 16);
+
+        <a.d.c: int b> = $i0;
+
+        $r0 = newarray (java.lang.Object)[$i0];
+
+        <a.d.c: java.lang.Object[] a> = $r0;
+
+        <a.d.c: int c> = 0;
+
+        return;
+    }
+
+    static void a(a.d.as, a.d.at)
+    {
+        a.d.as $r0;
+        a.d.at $r1;
+        java.lang.Object[] $r2;
+        byte[] $r3;
+        java.lang.Throwable $r4;
+
+        $r0 := @parameter0: a.d.as;
+
+        $r1 := @parameter1: a.d.at;
+
+        $r2 = <a.d.c: java.lang.Object[] a>;
+
+        entermonitor $r2;
+
+     label1:
+        $r3 = staticinvoke <a.d.c: byte[] a()>();
+
+        $r0.<a.d.as: byte[] V> = $r3;
+
+        $r3 = staticinvoke <a.d.c: byte[] a()>();
+
+        $r1.<a.d.at: byte[] O> = $r3;
+
+        exitmonitor $r2;
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor $r2;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public static void a(byte[])
+    {
+        byte[] $r0;
+        java.lang.Object[] $r1, $r2;
+        int $i0, $i1;
+        java.lang.Object $r3;
+        java.lang.Throwable $r4;
+
+        $r0 := @parameter0: byte[];
+
+        $r1 = <a.d.c: java.lang.Object[] a>;
+
+        entermonitor $r1;
+
+     label1:
+        $i0 = <a.d.c: int c>;
+
+        $i1 = <a.d.c: int b>;
+
+        if $i0 >= $i1 goto label5;
+
+        $i0 = 0;
+
+     label2:
+        $i1 = <a.d.c: int b>;
+
+        if $i0 >= $i1 goto label5;
+
+        $r2 = <a.d.c: java.lang.Object[] a>;
+
+        $r3 = $r2[$i0];
+
+        if $r3 != null goto label4;
+
+        $r2 = <a.d.c: java.lang.Object[] a>;
+
+        $r2[$i0] = $r0;
+
+        $i0 = <a.d.c: int c>;
+
+        $i0 = $i0 + 1;
+
+        <a.d.c: int c> = $i0;
+
+        exitmonitor $r1;
+
+     label3:
+        return;
+
+     label4:
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label5:
+        exitmonitor $r1;
+
+        return;
+
+     label6:
+        $r4 := @caughtexception;
+
+        exitmonitor $r1;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label3 with label6;
+    }
+
+    public static byte[] a()
+    {
+        java.lang.Object[] $r0, $r1;
+        int $i0, $i1;
+        java.lang.Object $r2;
+        byte[] $r3;
+        java.lang.Throwable $r4;
+
+        $r0 = <a.d.c: java.lang.Object[] a>;
+
+        entermonitor $r0;
+
+     label1:
+        $i0 = <a.d.c: int c>;
+
+        if $i0 <= 0 goto label5;
+
+        $i0 = 0;
+
+     label2:
+        $i1 = <a.d.c: int b>;
+
+        if $i0 >= $i1 goto label5;
+
+        $r1 = <a.d.c: java.lang.Object[] a>;
+
+        $r2 = $r1[$i0];
+
+        if $r2 == null goto label4;
+
+        $r1 = <a.d.c: java.lang.Object[] a>;
+
+        $r2 = $r1[$i0];
+
+        $r3 = (byte[]) $r2;
+
+        $r1 = <a.d.c: java.lang.Object[] a>;
+
+        $r1[$i0] = null;
+
+        $i0 = <a.d.c: int c>;
+
+        $i0 = $i0 + -1;
+
+        <a.d.c: int c> = $i0;
+
+        exitmonitor $r0;
+
+     label3:
+        return $r3;
+
+     label4:
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label5:
+        $r3 = newarray (byte)[65535];
+
+        exitmonitor $r0;
+
+     label6:
+        return $r3;
+
+     label7:
+        $r4 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label3 with label7;
+        catch java.lang.Throwable from label4 to label6 with label7;
+    }
+}

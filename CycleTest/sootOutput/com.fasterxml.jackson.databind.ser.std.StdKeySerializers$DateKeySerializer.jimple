@@ -1,0 +1,71 @@
+public class com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer extends com.fasterxml.jackson.databind.ser.std.StdSerializer
+{
+    protected static final com.fasterxml.jackson.databind.JsonSerializer instance;
+
+    static void <clinit>()
+    {
+        com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer $r0;
+
+        $r0 = new com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer: void <init>()>();
+
+        <com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer: com.fasterxml.jackson.databind.JsonSerializer instance> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdSerializer: void <init>(java.lang.Class)>(class "java/util/Date");
+
+        return;
+    }
+
+    public volatile void serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        java.lang.Object $r3;
+        java.util.Date $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer;
+
+        $r3 := @parameter0: java.lang.Object;
+
+        $r1 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = (java.util.Date) $r3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer: void serialize(java.util.Date,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r4, $r1, $r2);
+
+        return;
+    }
+
+    public void serialize(java.util.Date, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer $r0;
+        java.util.Date $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.StdKeySerializers$DateKeySerializer;
+
+        $r1 := @parameter0: java.util.Date;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.databind.SerializerProvider: void defaultSerializeDateKey(java.util.Date,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        return;
+    }
+}

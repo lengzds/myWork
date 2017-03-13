@@ -1,0 +1,170 @@
+public final class com.google.api.a.c.b.c extends com.google.api.a.c.ab
+{
+    private static final java.lang.String[] b;
+    private final java.net.Proxy c;
+    private final javax.net.ssl.SSLSocketFactory d;
+    private final javax.net.ssl.HostnameVerifier e;
+
+    static void <clinit>()
+    {
+        java.lang.String[] $r0;
+
+        $r0 = newarray (java.lang.String)[7];
+
+        $r0[0] = "DELETE";
+
+        $r0[1] = "GET";
+
+        $r0[2] = "HEAD";
+
+        $r0[3] = "OPTIONS";
+
+        $r0[4] = "POST";
+
+        $r0[5] = "PUT";
+
+        $r0[6] = "TRACE";
+
+        <com.google.api.a.c.b.c: java.lang.String[] b> = $r0;
+
+        staticinvoke <java.util.Arrays: void sort(java.lang.Object[])>($r0);
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.google.api.a.c.b.c $r0;
+
+        $r0 := @this: com.google.api.a.c.b.c;
+
+        specialinvoke $r0.<com.google.api.a.c.b.c: void <init>(byte)>(0);
+
+        return;
+    }
+
+    private void <init>(byte)
+    {
+        com.google.api.a.c.b.c $r0;
+        byte $b0;
+
+        $r0 := @this: com.google.api.a.c.b.c;
+
+        $b0 := @parameter0: byte;
+
+        specialinvoke $r0.<com.google.api.a.c.ab: void <init>()>();
+
+        $r0.<com.google.api.a.c.b.c: java.net.Proxy c> = null;
+
+        $r0.<com.google.api.a.c.b.c: javax.net.ssl.SSLSocketFactory d> = null;
+
+        $r0.<com.google.api.a.c.b.c: javax.net.ssl.HostnameVerifier e> = null;
+
+        return;
+    }
+
+    protected final com.google.api.a.c.ae a(java.lang.String, java.lang.String)
+    {
+        com.google.api.a.c.b.c $r0;
+        java.lang.String $r1, $r2;
+        boolean $z0;
+        java.lang.Object[] $r3;
+        java.net.URL $r4;
+        java.net.Proxy $r5;
+        java.net.URLConnection $r6;
+        java.net.HttpURLConnection $r7;
+        javax.net.ssl.HttpsURLConnection $r8;
+        javax.net.ssl.HostnameVerifier $r9;
+        javax.net.ssl.SSLSocketFactory $r10;
+        com.google.api.a.c.b.a $r11;
+
+        $r0 := @this: com.google.api.a.c.b.c;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $z0 = virtualinvoke $r0.<com.google.api.a.c.b.c: boolean a(java.lang.String)>($r1);
+
+        $r3 = newarray (java.lang.Object)[1];
+
+        $r3[0] = $r1;
+
+        staticinvoke <com.google.api.a.e.a.a.a.a.b: void a(boolean,java.lang.String,java.lang.Object[])>($z0, "HTTP method %s not supported", $r3);
+
+        $r4 = new java.net.URL;
+
+        specialinvoke $r4.<java.net.URL: void <init>(java.lang.String)>($r2);
+
+        $r5 = $r0.<com.google.api.a.c.b.c: java.net.Proxy c>;
+
+        if $r5 != null goto label4;
+
+        $r6 = virtualinvoke $r4.<java.net.URL: java.net.URLConnection openConnection()>();
+
+     label1:
+        $r7 = (java.net.HttpURLConnection) $r6;
+
+        virtualinvoke $r7.<java.net.HttpURLConnection: void setRequestMethod(java.lang.String)>($r1);
+
+        $z0 = $r7 instanceof javax.net.ssl.HttpsURLConnection;
+
+        if $z0 == 0 goto label3;
+
+        $r8 = (javax.net.ssl.HttpsURLConnection) $r7;
+
+        $r9 = $r0.<com.google.api.a.c.b.c: javax.net.ssl.HostnameVerifier e>;
+
+        if $r9 == null goto label2;
+
+        $r9 = $r0.<com.google.api.a.c.b.c: javax.net.ssl.HostnameVerifier e>;
+
+        virtualinvoke $r8.<javax.net.ssl.HttpsURLConnection: void setHostnameVerifier(javax.net.ssl.HostnameVerifier)>($r9);
+
+     label2:
+        $r10 = $r0.<com.google.api.a.c.b.c: javax.net.ssl.SSLSocketFactory d>;
+
+        if $r10 == null goto label3;
+
+        $r10 = $r0.<com.google.api.a.c.b.c: javax.net.ssl.SSLSocketFactory d>;
+
+        virtualinvoke $r8.<javax.net.ssl.HttpsURLConnection: void setSSLSocketFactory(javax.net.ssl.SSLSocketFactory)>($r10);
+
+     label3:
+        $r11 = new com.google.api.a.c.b.a;
+
+        specialinvoke $r11.<com.google.api.a.c.b.a: void <init>(java.net.HttpURLConnection)>($r7);
+
+        return $r11;
+
+     label4:
+        $r5 = $r0.<com.google.api.a.c.b.c: java.net.Proxy c>;
+
+        $r6 = virtualinvoke $r4.<java.net.URL: java.net.URLConnection openConnection(java.net.Proxy)>($r5);
+
+        goto label1;
+    }
+
+    public final boolean a(java.lang.String)
+    {
+        com.google.api.a.c.b.c $r0;
+        java.lang.String $r1;
+        int $i0;
+        java.lang.String[] $r2;
+
+        $r0 := @this: com.google.api.a.c.b.c;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = <com.google.api.a.c.b.c: java.lang.String[] b>;
+
+        $i0 = staticinvoke <java.util.Arrays: int binarySearch(java.lang.Object[],java.lang.Object)>($r2, $r1);
+
+        if $i0 < 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+}

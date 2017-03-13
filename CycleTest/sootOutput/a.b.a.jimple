@@ -1,0 +1,495 @@
+public final class a.b.a extends java.lang.Object
+{
+    private static final java.lang.String a;
+    private static final java.util.Hashtable b;
+    private static long c;
+    private static int d;
+    private static a.e.e e;
+
+    static void <clinit>()
+    {
+        java.lang.String $r0;
+        java.util.Hashtable $r1;
+        a.e.e $r2;
+
+        $r0 = staticinvoke <a.a: java.lang.String a(java.lang.String)>("jcifs.netbios.lmhosts");
+
+        <a.b.a: java.lang.String a> = $r0;
+
+        $r1 = new java.util.Hashtable;
+
+        specialinvoke $r1.<java.util.Hashtable: void <init>()>();
+
+        <a.b.a: java.util.Hashtable b> = $r1;
+
+        <a.b.a: long c> = 1L;
+
+        $r2 = staticinvoke <a.e.e: a.e.e a()>();
+
+        <a.b.a: a.e.e e> = $r2;
+
+        return;
+    }
+
+    static a.b.g a(a.b.b)
+    {
+        a.b.b $r0;
+        long $l0, $l1;
+        a.b.g $r1;
+        java.lang.String $r2;
+        java.io.File $r3;
+        byte $b2;
+        java.util.Hashtable $r4;
+        java.io.FileReader $r5;
+        java.lang.Object $r6;
+        java.io.FileNotFoundException $r7;
+        a.e.e $r8;
+        int $i3;
+        java.lang.StringBuilder $r9;
+        java.lang.Throwable $r10;
+        java.io.IOException $r11;
+
+        $r0 := @parameter0: a.b.b;
+
+        entermonitor class "a/b/a";
+
+        $r1 = null;
+
+     label01:
+        $r2 = <a.b.a: java.lang.String a>;
+
+        if $r2 == null goto label18;
+
+        $r3 = new java.io.File;
+
+        $r2 = <a.b.a: java.lang.String a>;
+
+     label02:
+        specialinvoke $r3.<java.io.File: void <init>(java.lang.String)>($r2);
+
+        $l1 = virtualinvoke $r3.<java.io.File: long lastModified()>();
+
+     label03:
+        $l0 = <a.b.a: long c>;
+
+        $b2 = $l1 cmp $l0;
+
+        if $b2 <= 0 goto label07;
+
+        <a.b.a: long c> = $l1;
+
+        $r4 = <a.b.a: java.util.Hashtable b>;
+
+     label04:
+        virtualinvoke $r4.<java.util.Hashtable: void clear()>();
+
+     label05:
+        <a.b.a: int d> = 0;
+
+        $r5 = new java.io.FileReader;
+
+     label06:
+        specialinvoke $r5.<java.io.FileReader: void <init>(java.io.File)>($r3);
+
+        staticinvoke <a.b.a: void a(java.io.Reader)>($r5);
+
+     label07:
+        $r4 = <a.b.a: java.util.Hashtable b>;
+
+     label08:
+        $r6 = virtualinvoke $r4.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>($r0);
+
+     label09:
+        $r1 = (a.b.g) $r6;
+
+     label10:
+        exitmonitor class "a/b/a";
+
+        return $r1;
+
+     label11:
+        $r7 := @caughtexception;
+
+     label12:
+        $r8 = <a.b.a: a.e.e e>;
+
+        $i3 = <a.e.e: int a>;
+
+        if $i3 <= 1 goto label10;
+
+        $r8 = <a.b.a: a.e.e e>;
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>("lmhosts file: ");
+
+        $r2 = <a.b.a: java.lang.String a>;
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r8.<a.e.e: void println(java.lang.String)>($r2);
+
+        $r8 = <a.b.a: a.e.e e>;
+
+        virtualinvoke $r7.<java.io.FileNotFoundException: void printStackTrace(java.io.PrintStream)>($r8);
+
+     label13:
+        goto label10;
+
+     label14:
+        $r10 := @caughtexception;
+
+        exitmonitor class "a/b/a";
+
+        throw $r10;
+
+     label15:
+        $r11 := @caughtexception;
+
+     label16:
+        $r8 = <a.b.a: a.e.e e>;
+
+        $i3 = <a.e.e: int a>;
+
+        if $i3 <= 0 goto label10;
+
+        $r8 = <a.b.a: a.e.e e>;
+
+        virtualinvoke $r11.<java.io.IOException: void printStackTrace(java.io.PrintStream)>($r8);
+
+     label17:
+        goto label10;
+
+     label18:
+        $r1 = null;
+
+        goto label10;
+
+        catch java.io.FileNotFoundException from label02 to label03 with label11;
+        catch java.io.FileNotFoundException from label04 to label05 with label11;
+        catch java.io.FileNotFoundException from label06 to label07 with label11;
+        catch java.io.FileNotFoundException from label08 to label09 with label11;
+        catch java.io.IOException from label02 to label03 with label15;
+        catch java.io.IOException from label04 to label05 with label15;
+        catch java.io.IOException from label06 to label07 with label15;
+        catch java.io.IOException from label08 to label09 with label15;
+        catch java.lang.Throwable from label01 to label10 with label14;
+        catch java.lang.Throwable from label12 to label13 with label14;
+        catch java.lang.Throwable from label16 to label17 with label14;
+    }
+
+    public static a.b.g a(java.lang.String)
+    {
+        java.lang.String $r0;
+        a.b.g $r1;
+        a.b.b $r2;
+        java.lang.Throwable $r3;
+
+        $r0 := @parameter0: java.lang.String;
+
+        entermonitor class "a/b/a";
+
+     label1:
+        $r2 = new a.b.b;
+
+        specialinvoke $r2.<a.b.b: void <init>(java.lang.String,int,java.lang.String)>($r0, 32, null);
+
+        $r1 = staticinvoke <a.b.a: a.b.g a(a.b.b)>($r2);
+
+     label2:
+        exitmonitor class "a/b/a";
+
+        return $r1;
+
+     label3:
+        $r3 := @caughtexception;
+
+        exitmonitor class "a/b/a";
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    private static void a(java.io.Reader)
+    {
+        java.io.Reader $r0;
+        byte[] $r1;
+        java.io.BufferedReader $r2;
+        java.lang.String $r3;
+        int $i0, $i2, $i3, $i4;
+        char $c1;
+        boolean $z0;
+        java.lang.StringBuilder $r4;
+        java.io.InputStreamReader $r5;
+        a.d.bg $r6;
+        java.io.IOException $r7;
+        a.e.e $r8;
+        char[] $r9;
+        a.b.b $r10;
+        a.b.g $r11;
+        java.util.Hashtable $r12;
+
+        $r0 := @parameter0: java.io.Reader;
+
+        $r2 = new java.io.BufferedReader;
+
+        specialinvoke $r2.<java.io.BufferedReader: void <init>(java.io.Reader)>($r0);
+
+     label01:
+        $r3 = virtualinvoke $r2.<java.io.BufferedReader: java.lang.String readLine()>();
+
+        if $r3 == null goto label17;
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String trim()>();
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        if $i0 == 0 goto label01;
+
+        $c1 = virtualinvoke $r3.<java.lang.String: char charAt(int)>(0);
+
+        if $c1 != 35 goto label09;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean startsWith(java.lang.String)>("#INCLUDE ");
+
+        if $z0 == 0 goto label07;
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int indexOf(int)>(92);
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String substring(int)>($i0);
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("smb:");
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String replace(char,char)>(92, 47);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $i0 = <a.b.a: int d>;
+
+        if $i0 <= 0 goto label06;
+
+        $r5 = new java.io.InputStreamReader;
+
+        $r6 = new a.d.bg;
+
+     label02:
+        specialinvoke $r6.<a.d.bg: void <init>(java.lang.String)>($r3);
+
+        specialinvoke $r5.<java.io.InputStreamReader: void <init>(java.io.InputStream)>($r6);
+
+        staticinvoke <a.b.a: void a(java.io.Reader)>($r5);
+
+     label03:
+        $i0 = <a.b.a: int d>;
+
+        $i0 = $i0 + -1;
+
+        <a.b.a: int d> = $i0;
+
+     label04:
+        $r3 = virtualinvoke $r2.<java.io.BufferedReader: java.lang.String readLine()>();
+
+        if $r3 == null goto label01;
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String trim()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean startsWith(java.lang.String)>("#END_ALTERNATE");
+
+        if $z0 == 0 goto label04;
+
+        goto label01;
+
+     label05:
+        $r7 := @caughtexception;
+
+        $r8 = <a.b.a: a.e.e e>;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("lmhosts URL: ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r8.<a.e.e: void println(java.lang.String)>($r3);
+
+        $r8 = <a.b.a: a.e.e e>;
+
+        virtualinvoke $r7.<java.io.IOException: void printStackTrace(java.io.PrintStream)>($r8);
+
+        goto label01;
+
+     label06:
+        $r5 = new java.io.InputStreamReader;
+
+        $r6 = new a.d.bg;
+
+        specialinvoke $r6.<a.d.bg: void <init>(java.lang.String)>($r3);
+
+        specialinvoke $r5.<java.io.InputStreamReader: void <init>(java.io.InputStream)>($r6);
+
+        staticinvoke <a.b.a: void a(java.io.Reader)>($r5);
+
+        goto label01;
+
+     label07:
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean startsWith(java.lang.String)>("#BEGIN_ALTERNATE");
+
+        if $z0 == 0 goto label08;
+
+        $i0 = <a.b.a: int d>;
+
+        $i0 = $i0 + 1;
+
+        <a.b.a: int d> = $i0;
+
+        goto label01;
+
+     label08:
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean startsWith(java.lang.String)>("#END_ALTERNATE");
+
+        if $z0 == 0 goto label01;
+
+        $i0 = <a.b.a: int d>;
+
+        if $i0 <= 0 goto label01;
+
+        $i0 = <a.b.a: int d>;
+
+        $i0 = $i0 + -1;
+
+        <a.b.a: int d> = $i0;
+
+        $r7 = new java.io.IOException;
+
+        specialinvoke $r7.<java.io.IOException: void <init>(java.lang.String)>("no lmhosts alternate includes loaded");
+
+        throw $r7;
+
+     label09:
+        $c1 = virtualinvoke $r3.<java.lang.String: char charAt(int)>(0);
+
+        $z0 = staticinvoke <java.lang.Character: boolean isDigit(char)>($c1);
+
+        if $z0 == 0 goto label01;
+
+        $r9 = virtualinvoke $r3.<java.lang.String: char[] toCharArray()>();
+
+        $c1 = 46;
+
+        $i2 = 0;
+
+        $i0 = 0;
+
+     label10:
+        $i3 = lengthof $r9;
+
+        if $i2 >= $i3 goto label18;
+
+        if $c1 != 46 goto label18;
+
+        $i3 = 0;
+
+     label11:
+        $i4 = lengthof $r9;
+
+        if $i2 >= $i4 goto label12;
+
+        $c1 = $r9[$i2];
+
+        if $c1 < 48 goto label12;
+
+        if $c1 > 57 goto label12;
+
+        $i3 = $i3 * 10;
+
+        $i3 = $i3 + $c1;
+
+        $i2 = $i2 + 1;
+
+        $i3 = $i3 + -48;
+
+        goto label11;
+
+     label12:
+        $i0 = $i0 << 8;
+
+        $i0 = $i0 + $i3;
+
+        $i2 = $i2 + 1;
+
+        goto label10;
+
+     label13:
+        $i3 = lengthof $r9;
+
+        if $i2 >= $i3 goto label14;
+
+        $c1 = $r9[$i2];
+
+        $z0 = staticinvoke <java.lang.Character: boolean isWhitespace(char)>($c1);
+
+        if $z0 == 0 goto label14;
+
+        $i2 = $i2 + 1;
+
+        goto label13;
+
+     label14:
+        $i3 = $i2;
+
+     label15:
+        $i4 = lengthof $r9;
+
+        if $i3 >= $i4 goto label16;
+
+        $c1 = $r9[$i3];
+
+        $z0 = staticinvoke <java.lang.Character: boolean isWhitespace(char)>($c1);
+
+        if $z0 != 0 goto label16;
+
+        $i3 = $i3 + 1;
+
+        goto label15;
+
+     label16:
+        $r10 = new a.b.b;
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String substring(int,int)>($i2, $i3);
+
+        specialinvoke $r10.<a.b.b: void <init>(java.lang.String,int,java.lang.String)>($r3, 32, null);
+
+        $r11 = new a.b.g;
+
+        $r1 = <a.b.g: byte[] d>;
+
+        specialinvoke $r11.<a.b.g: void <init>(a.b.b,int,boolean,int,boolean,boolean,boolean,boolean,byte[])>($r10, $i0, 0, 0, 0, 0, 1, 1, $r1);
+
+        $r12 = <a.b.a: java.util.Hashtable b>;
+
+        virtualinvoke $r12.<java.util.Hashtable: java.lang.Object put(java.lang.Object,java.lang.Object)>($r10, $r11);
+
+        goto label01;
+
+     label17:
+        return;
+
+     label18:
+        goto label13;
+
+        catch java.io.IOException from label02 to label03 with label05;
+    }
+}

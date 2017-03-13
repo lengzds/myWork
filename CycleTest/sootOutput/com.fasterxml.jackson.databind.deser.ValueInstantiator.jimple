@@ -1,0 +1,452 @@
+public abstract class com.fasterxml.jackson.databind.deser.ValueInstantiator extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean canCreateFromBoolean()
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        return 0;
+    }
+
+    public boolean canCreateFromDouble()
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        return 0;
+    }
+
+    public boolean canCreateFromInt()
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        return 0;
+    }
+
+    public boolean canCreateFromLong()
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        return 0;
+    }
+
+    public boolean canCreateFromObjectWith()
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        return 0;
+    }
+
+    public boolean canCreateFromString()
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        return 0;
+    }
+
+    public boolean canCreateUsingDefault()
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedWithParams $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: com.fasterxml.jackson.databind.introspect.AnnotatedWithParams getDefaultCreator()>();
+
+        if $r1 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean canCreateUsingDelegate()
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        return 0;
+    }
+
+    public boolean canInstantiate()
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: boolean canCreateUsingDefault()>();
+
+        if $z0 != 0 goto label1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: boolean canCreateUsingDelegate()>();
+
+        if $z0 != 0 goto label1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: boolean canCreateFromObjectWith()>();
+
+        if $z0 != 0 goto label1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: boolean canCreateFromString()>();
+
+        if $z0 != 0 goto label1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: boolean canCreateFromInt()>();
+
+        if $z0 != 0 goto label1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: boolean canCreateFromLong()>();
+
+        if $z0 != 0 goto label1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: boolean canCreateFromDouble()>();
+
+        if $z0 != 0 goto label1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: boolean canCreateFromBoolean()>();
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public java.lang.Object createFromBoolean(com.fasterxml.jackson.databind.DeserializationContext, boolean)
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        boolean $z0;
+        com.fasterxml.jackson.databind.JsonMappingException $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $z0 := @parameter1: boolean;
+
+        $r2 = new com.fasterxml.jackson.databind.JsonMappingException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Can not instantiate value of type ");
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: java.lang.String getValueTypeDesc()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" from JSON boolean value");
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.JsonMappingException: void <init>(java.lang.String)>($r4);
+
+        throw $r2;
+    }
+
+    public java.lang.Object createFromDouble(com.fasterxml.jackson.databind.DeserializationContext, double)
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        double $d0;
+        com.fasterxml.jackson.databind.JsonMappingException $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $d0 := @parameter1: double;
+
+        $r2 = new com.fasterxml.jackson.databind.JsonMappingException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Can not instantiate value of type ");
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: java.lang.String getValueTypeDesc()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" from JSON floating-point number");
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.JsonMappingException: void <init>(java.lang.String)>($r4);
+
+        throw $r2;
+    }
+
+    public java.lang.Object createFromInt(com.fasterxml.jackson.databind.DeserializationContext, int)
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        int $i0;
+        com.fasterxml.jackson.databind.JsonMappingException $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $i0 := @parameter1: int;
+
+        $r2 = new com.fasterxml.jackson.databind.JsonMappingException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Can not instantiate value of type ");
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: java.lang.String getValueTypeDesc()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" from JSON int number");
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.JsonMappingException: void <init>(java.lang.String)>($r4);
+
+        throw $r2;
+    }
+
+    public java.lang.Object createFromLong(com.fasterxml.jackson.databind.DeserializationContext, long)
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        long $l0;
+        com.fasterxml.jackson.databind.JsonMappingException $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $l0 := @parameter1: long;
+
+        $r2 = new com.fasterxml.jackson.databind.JsonMappingException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Can not instantiate value of type ");
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: java.lang.String getValueTypeDesc()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" from JSON long number");
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.JsonMappingException: void <init>(java.lang.String)>($r4);
+
+        throw $r2;
+    }
+
+    public java.lang.Object createFromObjectWith(com.fasterxml.jackson.databind.DeserializationContext, java.lang.Object[])
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        java.lang.Object[] $r2;
+        com.fasterxml.jackson.databind.JsonMappingException $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r2 := @parameter1: java.lang.Object[];
+
+        $r3 = new com.fasterxml.jackson.databind.JsonMappingException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Can not instantiate value of type ");
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: java.lang.String getValueTypeDesc()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" with arguments");
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<com.fasterxml.jackson.databind.JsonMappingException: void <init>(java.lang.String)>($r5);
+
+        throw $r3;
+    }
+
+    public java.lang.Object createFromString(com.fasterxml.jackson.databind.DeserializationContext, java.lang.String)
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        java.lang.String $r2;
+        com.fasterxml.jackson.databind.JsonMappingException $r3;
+        java.lang.StringBuilder $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = new com.fasterxml.jackson.databind.JsonMappingException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Can not instantiate value of type ");
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: java.lang.String getValueTypeDesc()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" from JSON String");
+
+        $r2 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<com.fasterxml.jackson.databind.JsonMappingException: void <init>(java.lang.String)>($r2);
+
+        throw $r3;
+    }
+
+    public java.lang.Object createUsingDefault(com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        com.fasterxml.jackson.databind.JsonMappingException $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r2 = new com.fasterxml.jackson.databind.JsonMappingException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Can not instantiate value of type ");
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: java.lang.String getValueTypeDesc()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; no default creator found");
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.JsonMappingException: void <init>(java.lang.String)>($r4);
+
+        throw $r2;
+    }
+
+    public java.lang.Object createUsingDelegate(com.fasterxml.jackson.databind.DeserializationContext, java.lang.Object)
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationContext $r1;
+        java.lang.Object $r2;
+        com.fasterxml.jackson.databind.JsonMappingException $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r3 = new com.fasterxml.jackson.databind.JsonMappingException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Can not instantiate value of type ");
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.ValueInstantiator: java.lang.String getValueTypeDesc()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" using delegate");
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<com.fasterxml.jackson.databind.JsonMappingException: void <init>(java.lang.String)>($r5);
+
+        throw $r3;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedWithParams getDefaultCreator()
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        return null;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedWithParams getDelegateCreator()
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        return null;
+    }
+
+    public com.fasterxml.jackson.databind.JavaType getDelegateType(com.fasterxml.jackson.databind.DeserializationConfig)
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationConfig $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        return null;
+    }
+
+    public com.fasterxml.jackson.databind.deser.SettableBeanProperty[] getFromObjectArguments(com.fasterxml.jackson.databind.DeserializationConfig)
+    {
+        com.fasterxml.jackson.databind.deser.ValueInstantiator $r0;
+        com.fasterxml.jackson.databind.DeserializationConfig $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.ValueInstantiator;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        return null;
+    }
+
+    public abstract java.lang.String getValueTypeDesc();
+}

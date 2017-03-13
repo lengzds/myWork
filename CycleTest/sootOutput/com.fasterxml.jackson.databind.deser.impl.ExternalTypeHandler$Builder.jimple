@@ -1,0 +1,107 @@
+public class com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder extends java.lang.Object
+{
+    private final java.util.HashMap _nameToPropertyIndex;
+    private final java.util.ArrayList _properties;
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder $r0;
+        java.util.ArrayList $r1;
+        java.util.HashMap $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder: java.util.ArrayList _properties> = $r1;
+
+        $r2 = new java.util.HashMap;
+
+        specialinvoke $r2.<java.util.HashMap: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder: java.util.HashMap _nameToPropertyIndex> = $r2;
+
+        return;
+    }
+
+    public void addExternal(com.fasterxml.jackson.databind.deser.SettableBeanProperty, java.lang.String)
+    {
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder $r0;
+        com.fasterxml.jackson.databind.deser.SettableBeanProperty $r1;
+        java.lang.String $r2, $r7;
+        java.util.ArrayList $r3;
+        int $i0;
+        java.lang.Integer $r4;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty $r5;
+        java.util.HashMap $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.deser.SettableBeanProperty;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder: java.util.ArrayList _properties>;
+
+        $i0 = virtualinvoke $r3.<java.util.ArrayList: int size()>();
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder: java.util.ArrayList _properties>;
+
+        $r5 = new com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty;
+
+        specialinvoke $r5.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty: void <init>(com.fasterxml.jackson.databind.deser.SettableBeanProperty,java.lang.String)>($r1, $r2);
+
+        virtualinvoke $r3.<java.util.ArrayList: boolean add(java.lang.Object)>($r5);
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder: java.util.HashMap _nameToPropertyIndex>;
+
+        $r7 = virtualinvoke $r1.<com.fasterxml.jackson.databind.deser.SettableBeanProperty: java.lang.String getName()>();
+
+        virtualinvoke $r6.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r7, $r4);
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder: java.util.HashMap _nameToPropertyIndex>;
+
+        virtualinvoke $r6.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r2, $r4);
+
+        return;
+    }
+
+    public com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler build()
+    {
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder $r0;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler $r1;
+        java.util.ArrayList $r2, $r3;
+        int $i0;
+        com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[] $r4;
+        java.lang.Object[] $r5;
+        java.util.HashMap $r6;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder;
+
+        $r1 = new com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler;
+
+        $r2 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder: java.util.ArrayList _properties>;
+
+        $r3 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder: java.util.ArrayList _properties>;
+
+        $i0 = virtualinvoke $r3.<java.util.ArrayList: int size()>();
+
+        $r4 = newarray (com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty)[$i0];
+
+        $r5 = virtualinvoke $r2.<java.util.ArrayList: java.lang.Object[] toArray(java.lang.Object[])>($r4);
+
+        $r4 = (com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[]) $r5;
+
+        $r6 = $r0.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$Builder: java.util.HashMap _nameToPropertyIndex>;
+
+        specialinvoke $r1.<com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler: void <init>(com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler$ExtTypedProperty[],java.util.HashMap,java.lang.String[],com.fasterxml.jackson.databind.util.TokenBuffer[])>($r4, $r6, null, null);
+
+        return $r1;
+    }
+}

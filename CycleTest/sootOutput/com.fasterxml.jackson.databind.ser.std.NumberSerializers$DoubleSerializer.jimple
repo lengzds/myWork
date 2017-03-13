@@ -1,0 +1,74 @@
+public final class com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer extends com.fasterxml.jackson.databind.ser.std.NonTypedScalarSerializerBase
+{
+    static final com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer instance;
+
+    static void <clinit>()
+    {
+        com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer $r0;
+
+        $r0 = new com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer: void <init>()>();
+
+        <com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer: com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer instance> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.ser.std.NonTypedScalarSerializerBase: void <init>(java.lang.Class)>(class "java/lang/Double");
+
+        return;
+    }
+
+    public final void serialize(java.lang.Double, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer $r0;
+        java.lang.Double $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        com.fasterxml.jackson.databind.SerializerProvider $r3;
+        double $d0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer;
+
+        $r1 := @parameter0: java.lang.Double;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $d0 = virtualinvoke $r1.<java.lang.Double: double doubleValue()>();
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeNumber(double)>($d0);
+
+        return;
+    }
+
+    public final volatile void serialize(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, com.fasterxml.jackson.databind.SerializerProvider)
+    {
+        com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer $r0;
+        com.fasterxml.jackson.core.JsonGenerator $r1;
+        com.fasterxml.jackson.databind.SerializerProvider $r2;
+        java.lang.Object $r3;
+        java.lang.Double $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer;
+
+        $r3 := @parameter0: java.lang.Object;
+
+        $r1 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r2 := @parameter2: com.fasterxml.jackson.databind.SerializerProvider;
+
+        $r4 = (java.lang.Double) $r3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.ser.std.NumberSerializers$DoubleSerializer: void serialize(java.lang.Double,com.fasterxml.jackson.core.JsonGenerator,com.fasterxml.jackson.databind.SerializerProvider)>($r4, $r1, $r2);
+
+        return;
+    }
+}

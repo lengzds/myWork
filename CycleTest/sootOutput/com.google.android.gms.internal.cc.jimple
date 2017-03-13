@@ -1,0 +1,170 @@
+public final class com.google.android.gms.internal.cc extends java.lang.Object
+{
+
+    public static com.google.a.c b(com.google.android.gms.internal.am)
+    {
+        com.google.android.gms.internal.am $r0;
+        int $i0, $i1, $i2;
+        com.google.a.c[] $r1;
+        com.google.a.c $r2;
+        java.lang.String $r3;
+        com.google.android.gms.ads.AdSize $r4;
+
+        $r0 := @parameter0: com.google.android.gms.internal.am;
+
+        $i0 = 0;
+
+        $r1 = newarray (com.google.a.c)[6];
+
+        $r2 = <com.google.a.c: com.google.a.c a>;
+
+        $r1[0] = $r2;
+
+        $r2 = <com.google.a.c: com.google.a.c b>;
+
+        $r1[1] = $r2;
+
+        $r2 = <com.google.a.c: com.google.a.c c>;
+
+        $r1[2] = $r2;
+
+        $r2 = <com.google.a.c: com.google.a.c d>;
+
+        $r1[3] = $r2;
+
+        $r2 = <com.google.a.c: com.google.a.c e>;
+
+        $r1[4] = $r2;
+
+        $r2 = <com.google.a.c: com.google.a.c f>;
+
+        $r1[5] = $r2;
+
+     label1:
+        $i1 = lengthof $r1;
+
+        if $i0 >= $i1 goto label3;
+
+        $r2 = $r1[$i0];
+
+        $i1 = virtualinvoke $r2.<com.google.a.c: int a()>();
+
+        $i2 = $r0.<com.google.android.gms.internal.am: int f>;
+
+        if $i1 != $i2 goto label2;
+
+        $r2 = $r1[$i0];
+
+        $i1 = virtualinvoke $r2.<com.google.a.c: int b()>();
+
+        $i2 = $r0.<com.google.android.gms.internal.am: int c>;
+
+        if $i1 != $i2 goto label2;
+
+        $r2 = $r1[$i0];
+
+        return $r2;
+
+     label2:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label3:
+        $r2 = new com.google.a.c;
+
+        $i0 = $r0.<com.google.android.gms.internal.am: int f>;
+
+        $i1 = $r0.<com.google.android.gms.internal.am: int c>;
+
+        $r3 = $r0.<com.google.android.gms.internal.am: java.lang.String b>;
+
+        $r4 = staticinvoke <com.google.android.gms.ads.a: com.google.android.gms.ads.AdSize a(int,int,java.lang.String)>($i0, $i1, $r3);
+
+        specialinvoke $r2.<com.google.a.c: void <init>(com.google.android.gms.ads.AdSize)>($r4);
+
+        return $r2;
+    }
+
+    public static com.google.a.a.a e(com.google.android.gms.internal.aj)
+    {
+        com.google.android.gms.internal.aj $r0;
+        java.util.Date $r1;
+        android.location.Location $r2;
+        com.google.a.b $r3;
+        java.util.List $r4;
+        java.util.HashSet $r5;
+        com.google.a.a.a $r6;
+        long $l0;
+        int $i1;
+        boolean $z0;
+
+        $r0 := @parameter0: com.google.android.gms.internal.aj;
+
+        $r4 = $r0.<com.google.android.gms.internal.aj: java.util.List e>;
+
+        if $r4 == null goto label2;
+
+        $r5 = new java.util.HashSet;
+
+        $r4 = $r0.<com.google.android.gms.internal.aj: java.util.List e>;
+
+        specialinvoke $r5.<java.util.HashSet: void <init>(java.util.Collection)>($r4);
+
+     label1:
+        $r6 = new com.google.a.a.a;
+
+        $r1 = new java.util.Date;
+
+        $l0 = $r0.<com.google.android.gms.internal.aj: long b>;
+
+        specialinvoke $r1.<java.util.Date: void <init>(long)>($l0);
+
+        $i1 = $r0.<com.google.android.gms.internal.aj: int d>;
+
+        $r3 = staticinvoke <com.google.android.gms.internal.cc: com.google.a.b h(int)>($i1);
+
+        $z0 = $r0.<com.google.android.gms.internal.aj: boolean f>;
+
+        $r2 = $r0.<com.google.android.gms.internal.aj: android.location.Location k>;
+
+        specialinvoke $r6.<com.google.a.a.a: void <init>(java.util.Date,com.google.a.b,java.util.Set,boolean,android.location.Location)>($r1, $r3, $r5, $z0, $r2);
+
+        return $r6;
+
+     label2:
+        $r5 = null;
+
+        goto label1;
+    }
+
+    public static com.google.a.b h(int)
+    {
+        int $i0;
+        com.google.a.b r0;
+
+        $i0 := @parameter0: int;
+
+        lookupswitch($i0)
+        {
+            case 1: goto label3;
+            case 2: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        r0 = <com.google.a.b: com.google.a.b a>;
+
+        return r0;
+
+     label2:
+        r0 = <com.google.a.b: com.google.a.b c>;
+
+        return r0;
+
+     label3:
+        r0 = <com.google.a.b: com.google.a.b b>;
+
+        return r0;
+    }
+}

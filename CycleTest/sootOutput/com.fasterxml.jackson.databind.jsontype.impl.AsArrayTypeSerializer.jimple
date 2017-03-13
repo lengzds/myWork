@@ -1,0 +1,254 @@
+public class com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer extends com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase
+{
+
+    public void <init>(com.fasterxml.jackson.databind.jsontype.TypeIdResolver, com.fasterxml.jackson.databind.BeanProperty)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r0;
+        com.fasterxml.jackson.databind.jsontype.TypeIdResolver $r1;
+        com.fasterxml.jackson.databind.BeanProperty $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.jsontype.TypeIdResolver;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.BeanProperty;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.TypeSerializerBase: void <init>(com.fasterxml.jackson.databind.jsontype.TypeIdResolver,com.fasterxml.jackson.databind.BeanProperty)>($r1, $r2);
+
+        return;
+    }
+
+    public volatile com.fasterxml.jackson.databind.jsontype.TypeSerializer forProperty(com.fasterxml.jackson.databind.BeanProperty)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r0;
+        com.fasterxml.jackson.databind.BeanProperty $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer forProperty(com.fasterxml.jackson.databind.BeanProperty)>($r1);
+
+        return $r0;
+    }
+
+    public com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer forProperty(com.fasterxml.jackson.databind.BeanProperty)
+    {
+        com.fasterxml.jackson.databind.BeanProperty $r0, $r3;
+        com.fasterxml.jackson.databind.jsontype.TypeIdResolver $r1;
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r2, $r4;
+
+        $r2 := @this: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.BeanProperty;
+
+        $r3 = $r2.<com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer: com.fasterxml.jackson.databind.BeanProperty _property>;
+
+        if $r3 != $r0 goto label1;
+
+        return $r2;
+
+     label1:
+        $r4 = new com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r1 = $r2.<com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer: com.fasterxml.jackson.databind.jsontype.TypeIdResolver _idResolver>;
+
+        specialinvoke $r4.<com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer: void <init>(com.fasterxml.jackson.databind.jsontype.TypeIdResolver,com.fasterxml.jackson.databind.BeanProperty)>($r1, $r0);
+
+        return $r4;
+    }
+
+    public void writeCustomTypePrefixForObject(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, java.lang.String)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: java.lang.String;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeStartArray()>();
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeString(java.lang.String)>($r3);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeStartObject()>();
+
+        return;
+    }
+
+    public void writeCustomTypeSuffixForObject(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, java.lang.String)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: java.lang.String;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer: void writeTypeSuffixForObject(java.lang.Object,com.fasterxml.jackson.core.JsonGenerator)>($r1, $r2);
+
+        return;
+    }
+
+    public void writeTypePrefixForArray(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeStartArray()>();
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer: java.lang.String idFromValue(java.lang.Object)>($r1);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeString(java.lang.String)>($r3);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeStartArray()>();
+
+        return;
+    }
+
+    public void writeTypePrefixForObject(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeStartArray()>();
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer: java.lang.String idFromValue(java.lang.Object)>($r1);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeString(java.lang.String)>($r3);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeStartObject()>();
+
+        return;
+    }
+
+    public void writeTypePrefixForScalar(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeStartArray()>();
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer: java.lang.String idFromValue(java.lang.Object)>($r1);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeString(java.lang.String)>($r3);
+
+        return;
+    }
+
+    public void writeTypePrefixForScalar(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator, java.lang.Class)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+        java.lang.Class $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        $r3 := @parameter2: java.lang.Class;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeStartArray()>();
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer: java.lang.String idFromValueAndType(java.lang.Object,java.lang.Class)>($r1, $r3);
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeString(java.lang.String)>($r4);
+
+        return;
+    }
+
+    public void writeTypeSuffixForArray(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeEndArray()>();
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeEndArray()>();
+
+        return;
+    }
+
+    public void writeTypeSuffixForObject(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeEndObject()>();
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeEndArray()>();
+
+        return;
+    }
+
+    public void writeTypeSuffixForScalar(java.lang.Object, com.fasterxml.jackson.core.JsonGenerator)
+    {
+        com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer $r0;
+        java.lang.Object $r1;
+        com.fasterxml.jackson.core.JsonGenerator $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeSerializer;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: com.fasterxml.jackson.core.JsonGenerator;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.JsonGenerator: void writeEndArray()>();
+
+        return;
+    }
+}

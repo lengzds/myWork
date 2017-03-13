@@ -1,0 +1,75 @@
+final class com.google.api.a.b.d.d extends java.lang.Object implements com.google.api.a.c.z
+{
+    final com.google.api.a.c.z a;
+    final com.google.api.a.c.t b;
+    final com.google.api.a.b.d.c c;
+
+    void <init>(com.google.api.a.b.d.c, com.google.api.a.c.z, com.google.api.a.c.t)
+    {
+        com.google.api.a.b.d.d $r0;
+        com.google.api.a.b.d.c $r1;
+        com.google.api.a.c.z $r2;
+        com.google.api.a.c.t $r3;
+
+        $r0 := @this: com.google.api.a.b.d.d;
+
+        $r1 := @parameter0: com.google.api.a.b.d.c;
+
+        $r2 := @parameter1: com.google.api.a.c.z;
+
+        $r3 := @parameter2: com.google.api.a.c.t;
+
+        $r0.<com.google.api.a.b.d.d: com.google.api.a.b.d.c c> = $r1;
+
+        $r0.<com.google.api.a.b.d.d: com.google.api.a.c.z a> = $r2;
+
+        $r0.<com.google.api.a.b.d.d: com.google.api.a.c.t b> = $r3;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void a(com.google.api.a.c.w)
+    {
+        com.google.api.a.b.d.d $r0;
+        com.google.api.a.c.w $r1;
+        com.google.api.a.c.z $r2;
+        boolean $z0;
+        com.google.api.a.c.t $r3;
+        com.google.api.a.b.d.c $r4;
+        java.io.IOException $r5;
+
+        $r0 := @this: com.google.api.a.b.d.d;
+
+        $r1 := @parameter0: com.google.api.a.c.w;
+
+        $r2 = $r0.<com.google.api.a.b.d.d: com.google.api.a.c.z a>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.google.api.a.b.d.d: com.google.api.a.c.z a>;
+
+        interfaceinvoke $r2.<com.google.api.a.c.z: void a(com.google.api.a.c.w)>($r1);
+
+     label1:
+        $z0 = virtualinvoke $r1.<com.google.api.a.c.w: boolean c()>();
+
+        if $z0 != 0 goto label2;
+
+        $r3 = $r0.<com.google.api.a.b.d.d: com.google.api.a.c.t b>;
+
+        $z0 = virtualinvoke $r3.<com.google.api.a.c.t: boolean m()>();
+
+        if $z0 == 0 goto label2;
+
+        $r4 = $r0.<com.google.api.a.b.d.d: com.google.api.a.b.d.c c>;
+
+        $r5 = virtualinvoke $r4.<com.google.api.a.b.d.c: java.io.IOException a(com.google.api.a.c.w)>($r1);
+
+        throw $r5;
+
+     label2:
+        return;
+    }
+}

@@ -1,0 +1,78 @@
+final class com.speedsoftware.rootexplorer.bt extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.speedsoftware.rootexplorer.DisplayText a;
+
+    void <init>(com.speedsoftware.rootexplorer.DisplayText)
+    {
+        com.speedsoftware.rootexplorer.bt $r0;
+        com.speedsoftware.rootexplorer.DisplayText $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bt;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.DisplayText;
+
+        $r0.<com.speedsoftware.rootexplorer.bt: com.speedsoftware.rootexplorer.DisplayText a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void onClick(android.content.DialogInterface, int)
+    {
+        com.speedsoftware.rootexplorer.bt $r0;
+        android.content.DialogInterface $r1;
+        int $i0;
+        java.lang.String $r2, $r8;
+        com.speedsoftware.rootexplorer.DisplayText $r3;
+        android.content.Context $r4, $r5;
+        byte[] $r6;
+        android.widget.Toast $r7;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.bt;
+
+        $r1 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bt: com.speedsoftware.rootexplorer.DisplayText a>;
+
+        $r4 = staticinvoke <com.speedsoftware.rootexplorer.DisplayText: android.content.Context h(com.speedsoftware.rootexplorer.DisplayText)>($r3);
+
+        $r2 = new java.lang.String;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bt: com.speedsoftware.rootexplorer.DisplayText a>;
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.DisplayText: android.content.Context h(com.speedsoftware.rootexplorer.DisplayText)>($r3);
+
+        if $r5 != null goto label2;
+
+        $i0 = 0;
+
+     label1:
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.nb: byte[] ab(int)>($i0);
+
+        specialinvoke $r2.<java.lang.String: void <init>(byte[])>($r6);
+
+        $r7 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r4, $r2, 0);
+
+        virtualinvoke $r7.<android.widget.Toast: void show()>();
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bt: com.speedsoftware.rootexplorer.DisplayText a>;
+
+        virtualinvoke $r3.<com.speedsoftware.rootexplorer.DisplayText: void finish()>();
+
+        return;
+
+     label2:
+        $r3 = $r0.<com.speedsoftware.rootexplorer.bt: com.speedsoftware.rootexplorer.DisplayText a>;
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.DisplayText: android.content.Context h(com.speedsoftware.rootexplorer.DisplayText)>($r3);
+
+        $r8 = virtualinvoke $r5.<android.content.Context: java.lang.String getString(int)>(2131034157);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r8);
+
+        goto label1;
+    }
+}

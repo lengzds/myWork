@@ -1,0 +1,389 @@
+public final class com.fasterxml.jackson.databind.DeserializationConfig extends com.fasterxml.jackson.databind.cfg.MapperConfigBase
+{
+    protected final int _deserFeatures;
+    protected final com.fasterxml.jackson.databind.node.JsonNodeFactory _nodeFactory;
+    protected final com.fasterxml.jackson.databind.util.LinkedNode _problemHandlers;
+
+    private void <init>(com.fasterxml.jackson.databind.DeserializationConfig, int, int)
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0, $r1;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r2;
+        com.fasterxml.jackson.databind.util.LinkedNode $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.cfg.MapperConfigBase: void <init>(com.fasterxml.jackson.databind.cfg.MapperConfigBase,int)>($r1, $i0);
+
+        $r0.<com.fasterxml.jackson.databind.DeserializationConfig: int _deserFeatures> = $i1;
+
+        $r2 = $r1.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.node.JsonNodeFactory _nodeFactory>;
+
+        $r0.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.node.JsonNodeFactory _nodeFactory> = $r2;
+
+        $r3 = $r1.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.util.LinkedNode _problemHandlers>;
+
+        $r0.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.util.LinkedNode _problemHandlers> = $r3;
+
+        return;
+    }
+
+    public void <init>(com.fasterxml.jackson.databind.cfg.BaseSettings, com.fasterxml.jackson.databind.jsontype.SubtypeResolver, java.util.Map)
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        com.fasterxml.jackson.databind.cfg.BaseSettings $r1;
+        com.fasterxml.jackson.databind.jsontype.SubtypeResolver $r2;
+        java.util.Map $r3;
+        int $i0;
+        com.fasterxml.jackson.databind.node.JsonNodeFactory $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.cfg.BaseSettings;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.jsontype.SubtypeResolver;
+
+        $r3 := @parameter2: java.util.Map;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.cfg.MapperConfigBase: void <init>(com.fasterxml.jackson.databind.cfg.BaseSettings,com.fasterxml.jackson.databind.jsontype.SubtypeResolver,java.util.Map)>($r1, $r2, $r3);
+
+        $i0 = staticinvoke <com.fasterxml.jackson.databind.DeserializationConfig: int collectFeatureDefaults(java.lang.Class)>(class "com/fasterxml/jackson/databind/DeserializationFeature");
+
+        $r0.<com.fasterxml.jackson.databind.DeserializationConfig: int _deserFeatures> = $i0;
+
+        $r4 = <com.fasterxml.jackson.databind.node.JsonNodeFactory: com.fasterxml.jackson.databind.node.JsonNodeFactory instance>;
+
+        $r0.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.node.JsonNodeFactory _nodeFactory> = $r4;
+
+        $r0.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.util.LinkedNode _problemHandlers> = null;
+
+        return;
+    }
+
+    public final com.fasterxml.jackson.databind.AnnotationIntrospector getAnnotationIntrospector()
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        com.fasterxml.jackson.databind.MapperFeature $r1;
+        boolean $z0;
+        com.fasterxml.jackson.databind.AnnotationIntrospector $r2;
+        com.fasterxml.jackson.databind.introspect.NopAnnotationIntrospector r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 = <com.fasterxml.jackson.databind.MapperFeature: com.fasterxml.jackson.databind.MapperFeature USE_ANNOTATIONS>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationConfig: boolean isEnabled(com.fasterxml.jackson.databind.MapperFeature)>($r1);
+
+        if $z0 == 0 goto label1;
+
+        $r2 = specialinvoke $r0.<com.fasterxml.jackson.databind.cfg.MapperConfigBase: com.fasterxml.jackson.databind.AnnotationIntrospector getAnnotationIntrospector()>();
+
+        return $r2;
+
+     label1:
+        r3 = <com.fasterxml.jackson.databind.introspect.NopAnnotationIntrospector: com.fasterxml.jackson.databind.introspect.NopAnnotationIntrospector instance>;
+
+        return r3;
+    }
+
+    public final com.fasterxml.jackson.core.Base64Variant getBase64Variant()
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        com.fasterxml.jackson.core.Base64Variant $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.core.Base64Variants: com.fasterxml.jackson.core.Base64Variant getDefaultVariant()>();
+
+        return $r1;
+    }
+
+    public final com.fasterxml.jackson.databind.introspect.VisibilityChecker getDefaultVisibilityChecker()
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        com.fasterxml.jackson.databind.introspect.VisibilityChecker $r1, $r2;
+        com.fasterxml.jackson.databind.MapperFeature $r3;
+        boolean $z0;
+        com.fasterxml.jackson.'annotation'.JsonAutoDetect$Visibility $r4;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.databind.cfg.MapperConfigBase: com.fasterxml.jackson.databind.introspect.VisibilityChecker getDefaultVisibilityChecker()>();
+
+        $r2 = $r1;
+
+        $r3 = <com.fasterxml.jackson.databind.MapperFeature: com.fasterxml.jackson.databind.MapperFeature AUTO_DETECT_SETTERS>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationConfig: boolean isEnabled(com.fasterxml.jackson.databind.MapperFeature)>($r3);
+
+        if $z0 != 0 goto label1;
+
+        $r4 = <com.fasterxml.jackson.'annotation'.JsonAutoDetect$Visibility: com.fasterxml.jackson.annotation.JsonAutoDetect$Visibility NONE>;
+
+        $r2 = interfaceinvoke $r1.<com.fasterxml.jackson.databind.introspect.VisibilityChecker: com.fasterxml.jackson.databind.introspect.VisibilityChecker withSetterVisibility(com.fasterxml.jackson.'annotation'.JsonAutoDetect$Visibility)>($r4);
+
+     label1:
+        $r3 = <com.fasterxml.jackson.databind.MapperFeature: com.fasterxml.jackson.databind.MapperFeature AUTO_DETECT_CREATORS>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationConfig: boolean isEnabled(com.fasterxml.jackson.databind.MapperFeature)>($r3);
+
+        if $z0 != 0 goto label2;
+
+        $r4 = <com.fasterxml.jackson.'annotation'.JsonAutoDetect$Visibility: com.fasterxml.jackson.annotation.JsonAutoDetect$Visibility NONE>;
+
+        $r2 = interfaceinvoke $r2.<com.fasterxml.jackson.databind.introspect.VisibilityChecker: com.fasterxml.jackson.databind.introspect.VisibilityChecker withCreatorVisibility(com.fasterxml.jackson.'annotation'.JsonAutoDetect$Visibility)>($r4);
+
+     label2:
+        $r3 = <com.fasterxml.jackson.databind.MapperFeature: com.fasterxml.jackson.databind.MapperFeature AUTO_DETECT_FIELDS>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationConfig: boolean isEnabled(com.fasterxml.jackson.databind.MapperFeature)>($r3);
+
+        if $z0 != 0 goto label3;
+
+        $r4 = <com.fasterxml.jackson.'annotation'.JsonAutoDetect$Visibility: com.fasterxml.jackson.annotation.JsonAutoDetect$Visibility NONE>;
+
+        $r1 = interfaceinvoke $r2.<com.fasterxml.jackson.databind.introspect.VisibilityChecker: com.fasterxml.jackson.databind.introspect.VisibilityChecker withFieldVisibility(com.fasterxml.jackson.'annotation'.JsonAutoDetect$Visibility)>($r4);
+
+        return $r1;
+
+     label3:
+        return $r2;
+    }
+
+    public final int getDeserializationFeatures()
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        int i0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        i0 = $r0.<com.fasterxml.jackson.databind.DeserializationConfig: int _deserFeatures>;
+
+        return i0;
+    }
+
+    public final com.fasterxml.jackson.databind.node.JsonNodeFactory getNodeFactory()
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        com.fasterxml.jackson.databind.node.JsonNodeFactory r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.node.JsonNodeFactory _nodeFactory>;
+
+        return r1;
+    }
+
+    public final com.fasterxml.jackson.databind.util.LinkedNode getProblemHandlers()
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        com.fasterxml.jackson.databind.util.LinkedNode r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.util.LinkedNode _problemHandlers>;
+
+        return r1;
+    }
+
+    public final com.fasterxml.jackson.databind.BeanDescription introspect(com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        com.fasterxml.jackson.databind.introspect.ClassIntrospector $r2;
+        com.fasterxml.jackson.databind.BeanDescription $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.introspect.ClassIntrospector getClassIntrospector()>();
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.ClassIntrospector: com.fasterxml.jackson.databind.BeanDescription forDeserialization(com.fasterxml.jackson.databind.DeserializationConfig,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.introspect.ClassIntrospector$MixInResolver)>($r0, $r1, $r0);
+
+        return $r3;
+    }
+
+    public final com.fasterxml.jackson.databind.BeanDescription introspectClassAnnotations(com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        com.fasterxml.jackson.databind.introspect.ClassIntrospector $r2;
+        com.fasterxml.jackson.databind.BeanDescription $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.introspect.ClassIntrospector getClassIntrospector()>();
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.ClassIntrospector: com.fasterxml.jackson.databind.BeanDescription forClassAnnotations(com.fasterxml.jackson.databind.cfg.MapperConfig,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.introspect.ClassIntrospector$MixInResolver)>($r0, $r1, $r0);
+
+        return $r3;
+    }
+
+    public final com.fasterxml.jackson.databind.BeanDescription introspectForBuilder(com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        com.fasterxml.jackson.databind.introspect.ClassIntrospector $r2;
+        com.fasterxml.jackson.databind.BeanDescription $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.introspect.ClassIntrospector getClassIntrospector()>();
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.ClassIntrospector: com.fasterxml.jackson.databind.BeanDescription forDeserializationWithBuilder(com.fasterxml.jackson.databind.DeserializationConfig,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.introspect.ClassIntrospector$MixInResolver)>($r0, $r1, $r0);
+
+        return $r3;
+    }
+
+    public final com.fasterxml.jackson.databind.BeanDescription introspectForCreation(com.fasterxml.jackson.databind.JavaType)
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        com.fasterxml.jackson.databind.JavaType $r1;
+        com.fasterxml.jackson.databind.introspect.ClassIntrospector $r2;
+        com.fasterxml.jackson.databind.BeanDescription $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.JavaType;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationConfig: com.fasterxml.jackson.databind.introspect.ClassIntrospector getClassIntrospector()>();
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.ClassIntrospector: com.fasterxml.jackson.databind.BeanDescription forCreation(com.fasterxml.jackson.databind.DeserializationConfig,com.fasterxml.jackson.databind.JavaType,com.fasterxml.jackson.databind.introspect.ClassIntrospector$MixInResolver)>($r0, $r1, $r0);
+
+        return $r3;
+    }
+
+    public final boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        com.fasterxml.jackson.databind.DeserializationFeature $r1;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.DeserializationFeature;
+
+        $i1 = $r0.<com.fasterxml.jackson.databind.DeserializationConfig: int _deserFeatures>;
+
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.databind.DeserializationFeature: int getMask()>();
+
+        $i0 = $i1 & $i0;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final boolean useRootWrapping()
+    {
+        com.fasterxml.jackson.databind.DeserializationConfig $r0;
+        java.lang.String $r1;
+        int $i0;
+        com.fasterxml.jackson.databind.DeserializationFeature $r2;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.DeserializationConfig: java.lang.String _rootName>;
+
+        if $r1 == null goto label2;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.DeserializationConfig: java.lang.String _rootName>;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        if $i0 <= 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+
+     label2:
+        $r2 = <com.fasterxml.jackson.databind.DeserializationFeature: com.fasterxml.jackson.databind.DeserializationFeature UNWRAP_ROOT_VALUE>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationConfig: boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)>($r2);
+
+        return $z0;
+    }
+
+    public final com.fasterxml.jackson.databind.DeserializationConfig 'with'(com.fasterxml.jackson.databind.DeserializationFeature)
+    {
+        com.fasterxml.jackson.databind.DeserializationFeature $r0;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.DeserializationConfig $r1, $r2;
+
+        $r1 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.DeserializationFeature;
+
+        $i0 = $r1.<com.fasterxml.jackson.databind.DeserializationConfig: int _deserFeatures>;
+
+        $i1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationFeature: int getMask()>();
+
+        $i1 = $i1 | $i0;
+
+        $i0 = $r1.<com.fasterxml.jackson.databind.DeserializationConfig: int _deserFeatures>;
+
+        if $i1 != $i0 goto label1;
+
+        return $r1;
+
+     label1:
+        $r2 = new com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $i0 = $r1.<com.fasterxml.jackson.databind.DeserializationConfig: int _mapperFeatures>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.DeserializationConfig: void <init>(com.fasterxml.jackson.databind.DeserializationConfig,int,int)>($r1, $i0, $i1);
+
+        return $r2;
+    }
+
+    public final com.fasterxml.jackson.databind.DeserializationConfig without(com.fasterxml.jackson.databind.DeserializationFeature)
+    {
+        com.fasterxml.jackson.databind.DeserializationFeature $r0;
+        int $i0, $i1;
+        com.fasterxml.jackson.databind.DeserializationConfig $r1, $r2;
+
+        $r1 := @this: com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $r0 := @parameter0: com.fasterxml.jackson.databind.DeserializationFeature;
+
+        $i1 = $r1.<com.fasterxml.jackson.databind.DeserializationConfig: int _deserFeatures>;
+
+        $i0 = virtualinvoke $r0.<com.fasterxml.jackson.databind.DeserializationFeature: int getMask()>();
+
+        $i0 = $i0 ^ -1;
+
+        $i1 = $i0 & $i1;
+
+        $i0 = $r1.<com.fasterxml.jackson.databind.DeserializationConfig: int _deserFeatures>;
+
+        if $i1 != $i0 goto label1;
+
+        return $r1;
+
+     label1:
+        $r2 = new com.fasterxml.jackson.databind.DeserializationConfig;
+
+        $i0 = $r1.<com.fasterxml.jackson.databind.DeserializationConfig: int _mapperFeatures>;
+
+        specialinvoke $r2.<com.fasterxml.jackson.databind.DeserializationConfig: void <init>(com.fasterxml.jackson.databind.DeserializationConfig,int,int)>($r1, $i0, $i1);
+
+        return $r2;
+    }
+}

@@ -1,0 +1,184 @@
+final class a.d.ao extends a.d.b
+{
+    int D;
+    int E;
+    byte[] b;
+    int c;
+    int d;
+
+    void <init>()
+    {
+        a.d.ao $r0;
+
+        $r0 := @this: a.d.ao;
+
+        specialinvoke $r0.<a.d.b: void <init>()>();
+
+        return;
+    }
+
+    void <init>(byte[], int)
+    {
+        a.d.ao $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.ao;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r0.<a.d.b: void <init>()>();
+
+        $r0.<a.d.ao: byte[] b> = $r1;
+
+        $r0.<a.d.ao: int c> = $i0;
+
+        return;
+    }
+
+    final void e(byte[])
+    {
+        a.d.ao $r0;
+        byte[] $r1;
+
+        $r0 := @this: a.d.ao;
+
+        $r1 := @parameter0: byte[];
+
+        $r0.<a.d.ao: byte[] b> = $r1;
+
+        $r0.<a.d.ao: int c> = 0;
+
+        return;
+    }
+
+    final int i(byte[], int)
+    {
+        a.d.ao $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.ao;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int j(byte[], int)
+    {
+        a.d.ao $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.ao;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    final int k(byte[], int)
+    {
+        a.d.ao $r0;
+        byte[] $r1;
+        int $i0, $i1, $i2;
+
+        $r0 := @this: a.d.ao;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        $i1 = $i0 + 2;
+
+        $i2 = staticinvoke <a.d.ao: int d(byte[],int)>($r1, $i1);
+
+        $r0.<a.d.ao: int d> = $i2;
+
+        $i1 = $i1 + 4;
+
+        $i2 = staticinvoke <a.d.ao: int d(byte[],int)>($r1, $i1);
+
+        $r0.<a.d.ao: int D> = $i2;
+
+        $i1 = $i1 + 2;
+
+        $i2 = staticinvoke <a.d.ao: int d(byte[],int)>($r1, $i1);
+
+        $r0.<a.d.ao: int E> = $i2;
+
+        $i1 = $i1 + 12;
+
+        $i0 = $i1 - $i0;
+
+        return $i0;
+    }
+
+    final int l(byte[], int)
+    {
+        a.d.ao $r0;
+        byte[] $r1;
+        int $i0;
+
+        $r0 := @this: a.d.ao;
+
+        $r1 := @parameter0: byte[];
+
+        $i0 := @parameter1: int;
+
+        return 0;
+    }
+
+    public final java.lang.String toString()
+    {
+        a.d.ao $r0;
+        java.lang.String $r1, $r3;
+        java.lang.StringBuilder $r2;
+        int $i0;
+
+        $r0 := @this: a.d.ao;
+
+        $r1 = new java.lang.String;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("SmbComReadAndXResponse[");
+
+        $r3 = specialinvoke $r0.<a.d.b: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",dataCompactionMode=");
+
+        $i0 = $r0.<a.d.ao: int d>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",dataLength=");
+
+        $i0 = $r0.<a.d.ao: int D>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",dataOffset=");
+
+        $i0 = $r0.<a.d.ao: int E>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.String: void <init>(java.lang.String)>($r3);
+
+        return $r1;
+    }
+}

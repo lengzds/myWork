@@ -1,0 +1,402 @@
+public final class com.fasterxml.jackson.core.io.IOContext extends java.lang.Object
+{
+    protected final com.fasterxml.jackson.core.util.BufferRecycler _bufferRecycler;
+    protected char[] _concatCBuffer;
+    protected com.fasterxml.jackson.core.JsonEncoding _encoding;
+    protected final boolean _managedResource;
+    protected char[] _nameCopyBuffer;
+    protected byte[] _readIOBuffer;
+    protected final java.lang.Object _sourceRef;
+    protected char[] _tokenCBuffer;
+    protected byte[] _writeEncodingBuffer;
+
+    public void <init>(com.fasterxml.jackson.core.util.BufferRecycler, java.lang.Object, boolean)
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        com.fasterxml.jackson.core.util.BufferRecycler $r1;
+        java.lang.Object $r2;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.util.BufferRecycler;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $z0 := @parameter2: boolean;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: byte[] _readIOBuffer> = null;
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: byte[] _writeEncodingBuffer> = null;
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _tokenCBuffer> = null;
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _concatCBuffer> = null;
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _nameCopyBuffer> = null;
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.util.BufferRecycler _bufferRecycler> = $r1;
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: java.lang.Object _sourceRef> = $r2;
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: boolean _managedResource> = $z0;
+
+        return;
+    }
+
+    public final char[] allocConcatBuffer()
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        char[] $r1;
+        java.lang.IllegalStateException $r2;
+        com.fasterxml.jackson.core.util.BufferRecycler $r3;
+        com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _concatCBuffer>;
+
+        if $r1 == null goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Trying to call allocConcatBuffer() second time");
+
+        throw $r2;
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.util.BufferRecycler _bufferRecycler>;
+
+        $r4 = <com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType: com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType CONCAT_BUFFER>;
+
+        $r1 = virtualinvoke $r3.<com.fasterxml.jackson.core.util.BufferRecycler: char[] allocCharBuffer(com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType)>($r4);
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _concatCBuffer> = $r1;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _concatCBuffer>;
+
+        return $r1;
+    }
+
+    public final char[] allocNameCopyBuffer(int)
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        int $i0;
+        char[] $r1;
+        java.lang.IllegalStateException $r2;
+        com.fasterxml.jackson.core.util.BufferRecycler $r3;
+        com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _nameCopyBuffer>;
+
+        if $r1 == null goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Trying to call allocNameCopyBuffer() second time");
+
+        throw $r2;
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.util.BufferRecycler _bufferRecycler>;
+
+        $r4 = <com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType: com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType NAME_COPY_BUFFER>;
+
+        $r1 = virtualinvoke $r3.<com.fasterxml.jackson.core.util.BufferRecycler: char[] allocCharBuffer(com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType,int)>($r4, $i0);
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _nameCopyBuffer> = $r1;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _nameCopyBuffer>;
+
+        return $r1;
+    }
+
+    public final byte[] allocReadIOBuffer()
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        byte[] $r1;
+        java.lang.IllegalStateException $r2;
+        com.fasterxml.jackson.core.util.BufferRecycler $r3;
+        com.fasterxml.jackson.core.util.BufferRecycler$ByteBufferType $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.IOContext: byte[] _readIOBuffer>;
+
+        if $r1 == null goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Trying to call allocReadIOBuffer() second time");
+
+        throw $r2;
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.util.BufferRecycler _bufferRecycler>;
+
+        $r4 = <com.fasterxml.jackson.core.util.BufferRecycler$ByteBufferType: com.fasterxml.jackson.core.util.BufferRecycler$ByteBufferType READ_IO_BUFFER>;
+
+        $r1 = virtualinvoke $r3.<com.fasterxml.jackson.core.util.BufferRecycler: byte[] allocByteBuffer(com.fasterxml.jackson.core.util.BufferRecycler$ByteBufferType)>($r4);
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: byte[] _readIOBuffer> = $r1;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.IOContext: byte[] _readIOBuffer>;
+
+        return $r1;
+    }
+
+    public final char[] allocTokenBuffer()
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        char[] $r1;
+        java.lang.IllegalStateException $r2;
+        com.fasterxml.jackson.core.util.BufferRecycler $r3;
+        com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _tokenCBuffer>;
+
+        if $r1 == null goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Trying to call allocTokenBuffer() second time");
+
+        throw $r2;
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.util.BufferRecycler _bufferRecycler>;
+
+        $r4 = <com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType: com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType TOKEN_BUFFER>;
+
+        $r1 = virtualinvoke $r3.<com.fasterxml.jackson.core.util.BufferRecycler: char[] allocCharBuffer(com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType)>($r4);
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _tokenCBuffer> = $r1;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _tokenCBuffer>;
+
+        return $r1;
+    }
+
+    public final com.fasterxml.jackson.core.util.TextBuffer constructTextBuffer()
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        com.fasterxml.jackson.core.util.TextBuffer $r1;
+        com.fasterxml.jackson.core.util.BufferRecycler $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        $r1 = new com.fasterxml.jackson.core.util.TextBuffer;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.util.BufferRecycler _bufferRecycler>;
+
+        specialinvoke $r1.<com.fasterxml.jackson.core.util.TextBuffer: void <init>(com.fasterxml.jackson.core.util.BufferRecycler)>($r2);
+
+        return $r1;
+    }
+
+    public final com.fasterxml.jackson.core.JsonEncoding getEncoding()
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        com.fasterxml.jackson.core.JsonEncoding r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        r1 = $r0.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.JsonEncoding _encoding>;
+
+        return r1;
+    }
+
+    public final java.lang.Object getSourceReference()
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        java.lang.Object r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        r1 = $r0.<com.fasterxml.jackson.core.io.IOContext: java.lang.Object _sourceRef>;
+
+        return r1;
+    }
+
+    public final boolean isResourceManaged()
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        boolean z0;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        z0 = $r0.<com.fasterxml.jackson.core.io.IOContext: boolean _managedResource>;
+
+        return z0;
+    }
+
+    public final void releaseConcatBuffer(char[])
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        char[] $r1, $r2;
+        java.lang.IllegalArgumentException $r3;
+        com.fasterxml.jackson.core.util.BufferRecycler $r4;
+        com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        $r1 := @parameter0: char[];
+
+        if $r1 == null goto label2;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _concatCBuffer>;
+
+        if $r1 == $r2 goto label1;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Trying to release buffer not owned by the context");
+
+        throw $r3;
+
+     label1:
+        $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _concatCBuffer> = null;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.util.BufferRecycler _bufferRecycler>;
+
+        $r5 = <com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType: com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType CONCAT_BUFFER>;
+
+        virtualinvoke $r4.<com.fasterxml.jackson.core.util.BufferRecycler: void releaseCharBuffer(com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType,char[])>($r5, $r1);
+
+     label2:
+        return;
+    }
+
+    public final void releaseNameCopyBuffer(char[])
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        char[] $r1, $r2;
+        java.lang.IllegalArgumentException $r3;
+        com.fasterxml.jackson.core.util.BufferRecycler $r4;
+        com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        $r1 := @parameter0: char[];
+
+        if $r1 == null goto label2;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _nameCopyBuffer>;
+
+        if $r1 == $r2 goto label1;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Trying to release buffer not owned by the context");
+
+        throw $r3;
+
+     label1:
+        $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _nameCopyBuffer> = null;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.util.BufferRecycler _bufferRecycler>;
+
+        $r5 = <com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType: com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType NAME_COPY_BUFFER>;
+
+        virtualinvoke $r4.<com.fasterxml.jackson.core.util.BufferRecycler: void releaseCharBuffer(com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType,char[])>($r5, $r1);
+
+     label2:
+        return;
+    }
+
+    public final void releaseReadIOBuffer(byte[])
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        byte[] $r1, $r2;
+        java.lang.IllegalArgumentException $r3;
+        com.fasterxml.jackson.core.util.BufferRecycler $r4;
+        com.fasterxml.jackson.core.util.BufferRecycler$ByteBufferType $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        $r1 := @parameter0: byte[];
+
+        if $r1 == null goto label2;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.io.IOContext: byte[] _readIOBuffer>;
+
+        if $r1 == $r2 goto label1;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Trying to release buffer not owned by the context");
+
+        throw $r3;
+
+     label1:
+        $r0.<com.fasterxml.jackson.core.io.IOContext: byte[] _readIOBuffer> = null;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.util.BufferRecycler _bufferRecycler>;
+
+        $r5 = <com.fasterxml.jackson.core.util.BufferRecycler$ByteBufferType: com.fasterxml.jackson.core.util.BufferRecycler$ByteBufferType READ_IO_BUFFER>;
+
+        virtualinvoke $r4.<com.fasterxml.jackson.core.util.BufferRecycler: void releaseByteBuffer(com.fasterxml.jackson.core.util.BufferRecycler$ByteBufferType,byte[])>($r5, $r1);
+
+     label2:
+        return;
+    }
+
+    public final void releaseTokenBuffer(char[])
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        char[] $r1, $r2;
+        java.lang.IllegalArgumentException $r3;
+        com.fasterxml.jackson.core.util.BufferRecycler $r4;
+        com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        $r1 := @parameter0: char[];
+
+        if $r1 == null goto label2;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _tokenCBuffer>;
+
+        if $r1 == $r2 goto label1;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Trying to release buffer not owned by the context");
+
+        throw $r3;
+
+     label1:
+        $r0.<com.fasterxml.jackson.core.io.IOContext: char[] _tokenCBuffer> = null;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.util.BufferRecycler _bufferRecycler>;
+
+        $r5 = <com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType: com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType TOKEN_BUFFER>;
+
+        virtualinvoke $r4.<com.fasterxml.jackson.core.util.BufferRecycler: void releaseCharBuffer(com.fasterxml.jackson.core.util.BufferRecycler$CharBufferType,char[])>($r5, $r1);
+
+     label2:
+        return;
+    }
+
+    public final void setEncoding(com.fasterxml.jackson.core.JsonEncoding)
+    {
+        com.fasterxml.jackson.core.io.IOContext $r0;
+        com.fasterxml.jackson.core.JsonEncoding $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.io.IOContext;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonEncoding;
+
+        $r0.<com.fasterxml.jackson.core.io.IOContext: com.fasterxml.jackson.core.JsonEncoding _encoding> = $r1;
+
+        return;
+    }
+}

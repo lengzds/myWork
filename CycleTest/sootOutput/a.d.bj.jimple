@@ -1,0 +1,135 @@
+public final class a.d.bj extends a.d.bd
+{
+    java.io.InputStream p;
+    java.io.OutputStream q;
+    int r;
+
+    public void <init>(java.lang.String, a.d.t)
+    {
+        a.d.bj $r0;
+        java.lang.String $r1;
+        a.d.t $r2;
+
+        $r0 := @this: a.d.bj;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: a.d.t;
+
+        specialinvoke $r0.<a.d.bd: void <init>(java.lang.String,a.d.t)>($r1, $r2);
+
+        $r0.<a.d.bj: int r> = 27198979;
+
+        $r0.<a.d.bj: int k> = 16;
+
+        return;
+    }
+
+    public final java.io.InputStream l()
+    {
+        a.d.bj $r0;
+        java.io.InputStream $r1;
+        int $i0;
+        a.d.cn $r2;
+        a.d.bg $r3;
+
+        $r0 := @this: a.d.bj;
+
+        $r1 = $r0.<a.d.bj: java.io.InputStream p>;
+
+        if $r1 != null goto label2;
+
+        $i0 = $r0.<a.d.bj: int r>;
+
+        $i0 = $i0 & 256;
+
+        if $i0 == 256 goto label1;
+
+        $i0 = $r0.<a.d.bj: int r>;
+
+        $i0 = $i0 & 512;
+
+        if $i0 != 512 goto label3;
+
+     label1:
+        $r2 = new a.d.cn;
+
+        specialinvoke $r2.<a.d.cn: void <init>(a.d.bj)>($r0);
+
+        $r0.<a.d.bj: java.io.InputStream p> = $r2;
+
+     label2:
+        $r1 = $r0.<a.d.bj: java.io.InputStream p>;
+
+        return $r1;
+
+     label3:
+        $r3 = new a.d.bg;
+
+        $i0 = $r0.<a.d.bj: int r>;
+
+        $i0 = $i0 & -65281;
+
+        $i0 = $i0 | 32;
+
+        specialinvoke $r3.<a.d.bg: void <init>(a.d.bd,int)>($r0, $i0);
+
+        $r0.<a.d.bj: java.io.InputStream p> = $r3;
+
+        goto label2;
+    }
+
+    public final java.io.OutputStream m()
+    {
+        a.d.bj $r0;
+        java.io.OutputStream $r1;
+        int $i0;
+        a.d.co $r2;
+        a.d.bh $r3;
+
+        $r0 := @this: a.d.bj;
+
+        $r1 = $r0.<a.d.bj: java.io.OutputStream q>;
+
+        if $r1 != null goto label2;
+
+        $i0 = $r0.<a.d.bj: int r>;
+
+        $i0 = $i0 & 256;
+
+        if $i0 == 256 goto label1;
+
+        $i0 = $r0.<a.d.bj: int r>;
+
+        $i0 = $i0 & 512;
+
+        if $i0 != 512 goto label3;
+
+     label1:
+        $r2 = new a.d.co;
+
+        specialinvoke $r2.<a.d.co: void <init>(a.d.bj)>($r0);
+
+        $r0.<a.d.bj: java.io.OutputStream q> = $r2;
+
+     label2:
+        $r1 = $r0.<a.d.bj: java.io.OutputStream q>;
+
+        return $r1;
+
+     label3:
+        $r3 = new a.d.bh;
+
+        $i0 = $r0.<a.d.bj: int r>;
+
+        $i0 = $i0 & -65281;
+
+        $i0 = $i0 | 32;
+
+        specialinvoke $r3.<a.d.bh: void <init>(a.d.bd,int)>($r0, $i0);
+
+        $r0.<a.d.bj: java.io.OutputStream q> = $r3;
+
+        goto label2;
+    }
+}

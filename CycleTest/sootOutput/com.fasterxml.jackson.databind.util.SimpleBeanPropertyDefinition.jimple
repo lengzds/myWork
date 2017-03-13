@@ -1,0 +1,294 @@
+public class com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition extends com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition
+{
+    protected final com.fasterxml.jackson.databind.introspect.AnnotatedMember _member;
+    protected final java.lang.String _name;
+
+    public void <init>(com.fasterxml.jackson.databind.introspect.AnnotatedMember)
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.databind.introspect.AnnotatedMember: java.lang.String getName()>();
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: void <init>(com.fasterxml.jackson.databind.introspect.AnnotatedMember,java.lang.String)>($r1, $r2);
+
+        return;
+    }
+
+    public void <init>(com.fasterxml.jackson.databind.introspect.AnnotatedMember, java.lang.String)
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        $r1 := @parameter0: com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition: void <init>()>();
+
+        $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member> = $r1;
+
+        $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: java.lang.String _name> = $r2;
+
+        return;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedMember getAccessor()
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMethod getGetter()>();
+
+        if $r1 != null goto label1;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedField getField()>();
+
+        return $r2;
+
+     label1:
+        return $r1;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedParameter getConstructorParameter()
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        boolean $z0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member>;
+
+        $z0 = $r1 instanceof com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member>;
+
+        $r2 = (com.fasterxml.jackson.databind.introspect.AnnotatedParameter) $r1;
+
+        return $r2;
+
+     label1:
+        return null;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedField getField()
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        boolean $z0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member>;
+
+        $z0 = $r1 instanceof com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member>;
+
+        $r2 = (com.fasterxml.jackson.databind.introspect.AnnotatedField) $r1;
+
+        return $r2;
+
+     label1:
+        return null;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedMethod getGetter()
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        int $i0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        boolean $z0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member>;
+
+        $z0 = $r1 instanceof com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member>;
+
+        $r2 = (com.fasterxml.jackson.databind.introspect.AnnotatedMethod) $r1;
+
+        $i0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: int getParameterCount()>();
+
+        if $i0 != 0 goto label1;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member>;
+
+        $r2 = (com.fasterxml.jackson.databind.introspect.AnnotatedMethod) $r1;
+
+        return $r2;
+
+     label1:
+        return null;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedMember getMutator()
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedParameter $r1;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r2;
+        com.fasterxml.jackson.databind.introspect.AnnotatedField $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedParameter getConstructorParameter()>();
+
+        if $r1 != null goto label1;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMethod getSetter()>();
+
+        if $r2 != null goto label2;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedField getField()>();
+
+        return $r3;
+
+     label1:
+        return $r1;
+
+     label2:
+        return $r2;
+    }
+
+    public java.lang.String getName()
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        java.lang.String r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: java.lang.String _name>;
+
+        return r1;
+    }
+
+    public com.fasterxml.jackson.databind.introspect.AnnotatedMethod getSetter()
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        int $i0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        boolean $z0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r2;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member>;
+
+        $z0 = $r1 instanceof com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member>;
+
+        $r2 = (com.fasterxml.jackson.databind.introspect.AnnotatedMethod) $r1;
+
+        $i0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.introspect.AnnotatedMethod: int getParameterCount()>();
+
+        if $i0 != 1 goto label1;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member>;
+
+        $r2 = (com.fasterxml.jackson.databind.introspect.AnnotatedMethod) $r1;
+
+        return $r2;
+
+     label1:
+        return null;
+    }
+
+    public boolean hasConstructorParameter()
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member>;
+
+        $z0 = $r1 instanceof com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
+        return $z0;
+    }
+
+    public boolean hasField()
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMember $r1;
+        boolean $z0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        $r1 = $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMember _member>;
+
+        $z0 = $r1 instanceof com.fasterxml.jackson.databind.introspect.AnnotatedField;
+
+        return $z0;
+    }
+
+    public boolean hasGetter()
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMethod getGetter()>();
+
+        if $r1 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean hasSetter()
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+        com.fasterxml.jackson.databind.introspect.AnnotatedMethod $r1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition: com.fasterxml.jackson.databind.introspect.AnnotatedMethod getSetter()>();
+
+        if $r1 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isExplicitlyIncluded()
+    {
+        com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition;
+
+        return 0;
+    }
+}

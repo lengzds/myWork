@@ -1,0 +1,6339 @@
+public final class com.fasterxml.jackson.core.json.UTF8StreamJsonParser extends com.fasterxml.jackson.core.base.ParserBase
+{
+    private static final int[] sInputCodesLatin1;
+    private static final int[] sInputCodesUtf8;
+    protected boolean _bufferRecyclable;
+    protected byte[] _inputBuffer;
+    protected java.io.InputStream _inputStream;
+    protected com.fasterxml.jackson.core.ObjectCodec _objectCodec;
+    private int _quad1;
+    protected int[] _quadBuffer;
+    protected final com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _symbols;
+    protected boolean _tokenIncomplete;
+
+    static void <clinit>()
+    {
+        int[] $r0;
+
+        $r0 = staticinvoke <com.fasterxml.jackson.core.io.CharTypes: int[] getInputCodeUtf8()>();
+
+        <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] sInputCodesUtf8> = $r0;
+
+        $r0 = staticinvoke <com.fasterxml.jackson.core.io.CharTypes: int[] getInputCodeLatin1()>();
+
+        <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] sInputCodesLatin1> = $r0;
+
+        return;
+    }
+
+    public void <init>(com.fasterxml.jackson.core.io.IOContext, int, java.io.InputStream, com.fasterxml.jackson.core.ObjectCodec, com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer, byte[], int, int, boolean)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        com.fasterxml.jackson.core.io.IOContext $r1;
+        int $i0, $i1, $i2;
+        java.io.InputStream $r2;
+        com.fasterxml.jackson.core.ObjectCodec $r3;
+        com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer $r4;
+        byte[] $r5;
+        boolean $z0;
+        int[] $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.io.IOContext;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.io.InputStream;
+
+        $r3 := @parameter3: com.fasterxml.jackson.core.ObjectCodec;
+
+        $r4 := @parameter4: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer;
+
+        $r5 := @parameter5: byte[];
+
+        $i1 := @parameter6: int;
+
+        $i2 := @parameter7: int;
+
+        $z0 := @parameter8: boolean;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.base.ParserBase: void <init>(com.fasterxml.jackson.core.io.IOContext,int)>($r1, $i0);
+
+        $r6 = newarray (int)[16];
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r6;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete> = 0;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: java.io.InputStream _inputStream> = $r2;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.ObjectCodec _objectCodec> = $r3;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _symbols> = $r4;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer> = $r5;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd> = $i2;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _bufferRecyclable> = $z0;
+
+        return;
+    }
+
+    private final int _decodeUtf8_2(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2;
+        byte[] $r1;
+        byte $b3;
+        short $s4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i2 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r1[$i1];
+
+        $s4 = $b3 & 192;
+
+        if $s4 == 128 goto label2;
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s4, $i1);
+
+     label2:
+        $i0 = $i0 & 31;
+
+        $i0 = $i0 << 6;
+
+        $b3 = $b3 & 63;
+
+        $i0 = $b3 | $i0;
+
+        return $i0;
+    }
+
+    private final int _decodeUtf8_3(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2;
+        byte[] $r1;
+        byte $b3;
+        short $s4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i2 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label1:
+        $i0 = $i0 & 15;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r1[$i1];
+
+        $s4 = $b3 & 192;
+
+        if $s4 == 128 goto label2;
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s4, $i1);
+
+     label2:
+        $i0 = $i0 << 6;
+
+        $b3 = $b3 & 63;
+
+        $i0 = $i0 | $b3;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i2 goto label3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label3:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r1[$i1];
+
+        $s4 = $b3 & 192;
+
+        if $s4 == 128 goto label4;
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s4, $i1);
+
+     label4:
+        $i0 = $i0 << 6;
+
+        $b3 = $b3 & 63;
+
+        $i0 = $i0 | $b3;
+
+        return $i0;
+    }
+
+    private final int _decodeUtf8_3fast(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2;
+        byte[] $r1;
+        byte $b3;
+        short $s4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i0 = $i0 & 15;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r1[$i1];
+
+        $s4 = $b3 & 192;
+
+        if $s4 == 128 goto label1;
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s4, $i1);
+
+     label1:
+        $i0 = $i0 << 6;
+
+        $b3 = $b3 & 63;
+
+        $i0 = $i0 | $b3;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r1[$i1];
+
+        $s4 = $b3 & 192;
+
+        if $s4 == 128 goto label2;
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s4, $i1);
+
+     label2:
+        $i0 = $i0 << 6;
+
+        $b3 = $b3 & 63;
+
+        $i0 = $i0 | $b3;
+
+        return $i0;
+    }
+
+    private final int _decodeUtf8_4(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2;
+        byte[] $r1;
+        byte $b3;
+        short $s4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i2 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r1[$i1];
+
+        $s4 = $b3 & 192;
+
+        if $s4 == 128 goto label2;
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s4, $i1);
+
+     label2:
+        $i0 = $i0 & 7;
+
+        $i0 = $i0 << 6;
+
+        $b3 = $b3 & 63;
+
+        $i0 = $b3 | $i0;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i2 goto label3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label3:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r1[$i1];
+
+        $s4 = $b3 & 192;
+
+        if $s4 == 128 goto label4;
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s4, $i1);
+
+     label4:
+        $i0 = $i0 << 6;
+
+        $b3 = $b3 & 63;
+
+        $i0 = $i0 | $b3;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i2 goto label5;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label5:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r1[$i1];
+
+        $s4 = $b3 & 192;
+
+        if $s4 == 128 goto label6;
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s4, $i1);
+
+     label6:
+        $i0 = $i0 << 6;
+
+        $b3 = $b3 & 63;
+
+        $i0 = $i0 | $b3;
+
+        $i0 = $i0 - 65536;
+
+        return $i0;
+    }
+
+    private final void _finishString2(char[], int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int[] $r1;
+        byte[] $r2;
+        char[] $r3;
+        int $i0, $i1, $i2, $i3, $i5;
+        com.fasterxml.jackson.core.util.TextBuffer $r4;
+        byte $b4;
+        char $c6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r3 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $r1 = <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] sInputCodesUtf8>;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+     label01:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i2 goto label02;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+     label02:
+        $i2 = lengthof $r3;
+
+        if $i0 < $i2 goto label03;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r3 = virtualinvoke $r4.<com.fasterxml.jackson.core.util.TextBuffer: char[] finishCurrentSegment()>();
+
+        $i0 = 0;
+
+     label03:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        $i3 = lengthof $r3;
+
+        $i3 = $i3 - $i0;
+
+        $i3 = $i3 + $i1;
+
+        $i2 = staticinvoke <java.lang.Math: int min(int,int)>($i2, $i3);
+
+     label04:
+        if $i1 >= $i2 goto label09;
+
+        $i3 = $i1 + 1;
+
+        $b4 = $r2[$i1];
+
+        $i1 = $b4 & 255;
+
+        $i5 = $r1[$i1];
+
+        if $i5 == 0 goto label08;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i3;
+
+        if $i1 == 34 goto label17;
+
+        $i2 = $r1[$i1];
+
+        lookupswitch($i2)
+        {
+            case 1: goto label10;
+            case 2: goto label11;
+            case 3: goto label12;
+            case 4: goto label14;
+            default: goto label05;
+        };
+
+     label05:
+        if $i1 >= 32 goto label16;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _throwUnquotedSpace(int,java.lang.String)>($i1, "string value");
+
+     label06:
+        $i2 = lengthof $r3;
+
+        if $i0 < $i2 goto label18;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r3 = virtualinvoke $r4.<com.fasterxml.jackson.core.util.TextBuffer: char[] finishCurrentSegment()>();
+
+        $i2 = 0;
+
+     label07:
+        $i0 = $i2 + 1;
+
+        $c6 = (char) $i1;
+
+        $r3[$i2] = $c6;
+
+        goto label01;
+
+     label08:
+        $c6 = (char) $i1;
+
+        $r3[$i0] = $c6;
+
+        $i1 = $i3;
+
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label09:
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        goto label01;
+
+     label10:
+        $i1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: char _decodeEscaped()>();
+
+        goto label06;
+
+     label11:
+        $i1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeUtf8_2(int)>($i1);
+
+        goto label06;
+
+     label12:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i2 - $i3;
+
+        if $i2 < 2 goto label13;
+
+        $i1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeUtf8_3fast(int)>($i1);
+
+        goto label06;
+
+     label13:
+        $i1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeUtf8_3(int)>($i1);
+
+        goto label06;
+
+     label14:
+        $i2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeUtf8_4(int)>($i1);
+
+        $i1 = $i0 + 1;
+
+        $i3 = $i2 >> 10;
+
+        $i3 = 55296 | $i3;
+
+        $c6 = (char) $i3;
+
+        $r3[$i0] = $c6;
+
+        $i0 = lengthof $r3;
+
+        if $i1 < $i0 goto label15;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r3 = virtualinvoke $r4.<com.fasterxml.jackson.core.util.TextBuffer: char[] finishCurrentSegment()>();
+
+        $i1 = 0;
+
+     label15:
+        $i0 = $i2 & 1023;
+
+        $i2 = $i0 | 56320;
+
+        $i0 = $i1;
+
+        $i1 = $i2;
+
+        goto label06;
+
+     label16:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidChar(int)>($i1);
+
+        goto label06;
+
+     label17:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        virtualinvoke $r4.<com.fasterxml.jackson.core.util.TextBuffer: void setCurrentLength(int)>($i0);
+
+        return;
+
+     label18:
+        $i2 = $i0;
+
+        goto label07;
+    }
+
+    private final com.fasterxml.jackson.core.JsonToken _nextAfterName()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        com.fasterxml.jackson.core.JsonToken $r1, $r2;
+        com.fasterxml.jackson.core.json.JsonReadContext $r3;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _nameCopied> = 0;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _nextToken>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _nextToken> = null;
+
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken START_ARRAY>;
+
+        if $r1 != $r2 goto label2;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _tokenInputRow>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _tokenInputCol>;
+
+        $r3 = virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonReadContext: com.fasterxml.jackson.core.json.JsonReadContext createChildArrayContext(int,int)>($i0, $i1);
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext> = $r3;
+
+     label1:
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = $r1;
+
+        return $r1;
+
+     label2:
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken START_OBJECT>;
+
+        if $r1 != $r2 goto label1;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _tokenInputRow>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _tokenInputCol>;
+
+        $r3 = virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonReadContext: com.fasterxml.jackson.core.json.JsonReadContext createChildObjectContext(int,int)>($i0, $i1);
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext> = $r3;
+
+        goto label1;
+    }
+
+    private final com.fasterxml.jackson.core.JsonToken _nextTokenNotInObject(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        com.fasterxml.jackson.core.JsonToken $r1;
+        com.fasterxml.jackson.core.json.JsonReadContext $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        if $i0 != 34 goto label1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete> = 1;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = $r1;
+
+        return $r1;
+
+     label1:
+        lookupswitch($i0)
+        {
+            case 45: goto label9;
+            case 48: goto label9;
+            case 49: goto label9;
+            case 50: goto label9;
+            case 51: goto label9;
+            case 52: goto label9;
+            case 53: goto label9;
+            case 54: goto label9;
+            case 55: goto label9;
+            case 56: goto label9;
+            case 57: goto label9;
+            case 91: goto label3;
+            case 93: goto label5;
+            case 102: goto label7;
+            case 110: goto label8;
+            case 116: goto label6;
+            case 123: goto label4;
+            case 125: goto label5;
+            default: goto label2;
+        };
+
+     label2:
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _handleUnexpectedValue(int)>($i0);
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = $r1;
+
+        return $r1;
+
+     label3:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _tokenInputRow>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _tokenInputCol>;
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.core.json.JsonReadContext: com.fasterxml.jackson.core.json.JsonReadContext createChildArrayContext(int,int)>($i0, $i1);
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext> = $r2;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken START_ARRAY>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = $r1;
+
+        return $r1;
+
+     label4:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _tokenInputRow>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _tokenInputCol>;
+
+        $r2 = virtualinvoke $r2.<com.fasterxml.jackson.core.json.JsonReadContext: com.fasterxml.jackson.core.json.JsonReadContext createChildObjectContext(int,int)>($i0, $i1);
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext> = $r2;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken START_OBJECT>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = $r1;
+
+        return $r1;
+
+     label5:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportUnexpectedChar(int,java.lang.String)>($i0, "expected a value");
+
+     label6:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _matchToken(java.lang.String,int)>("true", 1);
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_TRUE>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = $r1;
+
+        return $r1;
+
+     label7:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _matchToken(java.lang.String,int)>("false", 1);
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_FALSE>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = $r1;
+
+        return $r1;
+
+     label8:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _matchToken(java.lang.String,int)>("null", 1);
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NULL>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = $r1;
+
+        return $r1;
+
+     label9:
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken parseNumberText(int)>($i0);
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = $r1;
+
+        return $r1;
+    }
+
+    private final com.fasterxml.jackson.core.JsonToken _parseFloatText(char[], int, int, boolean, int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2, $i3, $i4, $i6;
+        boolean $z0, $z1, $z2;
+        char[] $r1;
+        char $c5;
+        com.fasterxml.jackson.core.util.TextBuffer $r2;
+        byte[] $r3;
+        byte $b7;
+        short $s8;
+        com.fasterxml.jackson.core.JsonToken $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $i2 := @parameter2: int;
+
+        $z0 := @parameter3: boolean;
+
+        $i1 := @parameter4: int;
+
+        $i3 = 0;
+
+        $z1 = 0;
+
+        if $i2 != 46 goto label23;
+
+        $i4 = $i0 + 1;
+
+        $c5 = (char) $i2;
+
+        $r1[$i0] = $c5;
+
+     label01:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i6 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i6 goto label15;
+
+        $z2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z2 != 0 goto label15;
+
+        $z1 = 1;
+
+     label02:
+        if $i3 != 0 goto label03;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void reportUnexpectedNumberChar(int,java.lang.String)>($i2, "Decimal point not followed by a digit");
+
+     label03:
+        if $i2 == 101 goto label04;
+
+        if $i2 != 69 goto label21;
+
+     label04:
+        $i0 = lengthof $r1;
+
+        if $i4 < $i0 goto label05;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r1 = virtualinvoke $r2.<com.fasterxml.jackson.core.util.TextBuffer: char[] finishCurrentSegment()>();
+
+        $i4 = 0;
+
+     label05:
+        $i0 = $i4 + 1;
+
+        $c5 = (char) $i2;
+
+        $r1[$i4] = $c5;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i2 < $i4 goto label06;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label06:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $i2 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i4;
+
+        $b7 = $r3[$i2];
+
+        $s8 = $b7 & 255;
+
+        if $s8 == 45 goto label07;
+
+        if $s8 != 43 goto label20;
+
+     label07:
+        $i2 = lengthof $r1;
+
+        if $i0 < $i2 goto label19;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r1 = virtualinvoke $r2.<com.fasterxml.jackson.core.util.TextBuffer: char[] finishCurrentSegment()>();
+
+        $i2 = 0;
+
+     label08:
+        $i0 = $i2 + 1;
+
+        $c5 = (char) $s8;
+
+        $r1[$i2] = $c5;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i2 < $i4 goto label09;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label09:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $i2 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i4;
+
+        $b7 = $r3[$i2];
+
+        $s8 = $b7 & 255;
+
+        $i4 = $i0;
+
+        $i0 = 0;
+
+     label10:
+        if $s8 > 57 goto label18;
+
+        if $s8 < 48 goto label18;
+
+        $i0 = $i0 + 1;
+
+        $i2 = lengthof $r1;
+
+        if $i4 < $i2 goto label11;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r1 = virtualinvoke $r2.<com.fasterxml.jackson.core.util.TextBuffer: char[] finishCurrentSegment()>();
+
+        $i4 = 0;
+
+     label11:
+        $i2 = $i4 + 1;
+
+        $c5 = (char) $s8;
+
+        $r1[$i4] = $c5;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i6 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i4 < $i6 goto label17;
+
+        $z2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z2 != 0 goto label17;
+
+        $z1 = 1;
+
+     label12:
+        if $i0 != 0 goto label13;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void reportUnexpectedNumberChar(int,java.lang.String)>($s8, "Exponent indicator not followed by a digit");
+
+     label13:
+        if $z1 != 0 goto label14;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $i4 + -1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i4;
+
+     label14:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.util.TextBuffer: void setCurrentLength(int)>($i2);
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken resetFloat(boolean,int,int,int)>($z0, $i1, $i3, $i0);
+
+        return $r4;
+
+     label15:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b7 = $r3[$i0];
+
+        $i2 = $b7 & 255;
+
+        if $i2 < 48 goto label02;
+
+        if $i2 > 57 goto label02;
+
+        $i3 = $i3 + 1;
+
+        $i0 = lengthof $r1;
+
+        if $i4 < $i0 goto label22;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r1 = virtualinvoke $r2.<com.fasterxml.jackson.core.util.TextBuffer: char[] finishCurrentSegment()>();
+
+        $i0 = 0;
+
+     label16:
+        $i4 = $i0 + 1;
+
+        $c5 = (char) $i2;
+
+        $r1[$i0] = $c5;
+
+        goto label01;
+
+     label17:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i6 = $i4 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i6;
+
+        $b7 = $r3[$i4];
+
+        $s8 = $b7 & 255;
+
+        $i4 = $i2;
+
+        goto label10;
+
+     label18:
+        $i2 = $i4;
+
+        goto label12;
+
+     label19:
+        $i2 = $i0;
+
+        goto label08;
+
+     label20:
+        $i4 = $i0;
+
+        $i0 = 0;
+
+        goto label10;
+
+     label21:
+        $i2 = $i4;
+
+        $i0 = 0;
+
+        goto label13;
+
+     label22:
+        $i0 = $i4;
+
+        goto label16;
+
+     label23:
+        $i3 = 0;
+
+        $i4 = $i0;
+
+        goto label03;
+    }
+
+    private final com.fasterxml.jackson.core.JsonToken _parserNumber2(char[], int, boolean, int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        char[] $r1;
+        int $i0, $i1, $i2, $i3;
+        boolean $z0, $z1;
+        com.fasterxml.jackson.core.util.TextBuffer $r2;
+        com.fasterxml.jackson.core.JsonToken $r3;
+        byte[] $r4;
+        byte $b4;
+        short $s5;
+        char $c6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $z0 := @parameter2: boolean;
+
+        $i1 := @parameter3: int;
+
+     label1:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i2 < $i3 goto label2;
+
+        $z1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z1 != 0 goto label2;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.util.TextBuffer: void setCurrentLength(int)>($i0);
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken resetInt(boolean,int)>($z0, $i1);
+
+        return $r3;
+
+     label2:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i3 = $i2 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i3;
+
+        $b4 = $r4[$i2];
+
+        $s5 = $b4 & 255;
+
+        if $s5 > 57 goto label3;
+
+        if $s5 >= 48 goto label5;
+
+     label3:
+        if $s5 == 46 goto label4;
+
+        if $s5 == 101 goto label4;
+
+        if $s5 != 69 goto label7;
+
+     label4:
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _parseFloatText(char[],int,int,boolean,int)>($r1, $i0, $s5, $z0, $i1);
+
+        return $r3;
+
+     label5:
+        $i2 = lengthof $r1;
+
+        if $i0 < $i2 goto label8;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r1 = virtualinvoke $r2.<com.fasterxml.jackson.core.util.TextBuffer: char[] finishCurrentSegment()>();
+
+        $i2 = 0;
+
+     label6:
+        $i0 = $i2 + 1;
+
+        $c6 = (char) $s5;
+
+        $r1[$i2] = $c6;
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label7:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i2 + -1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.util.TextBuffer: void setCurrentLength(int)>($i0);
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken resetInt(boolean,int)>($z0, $i1);
+
+        return $r3;
+
+     label8:
+        $i2 = $i0;
+
+        goto label6;
+    }
+
+    private final void _skipCComment()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        int[] $r1;
+        boolean $z0;
+        byte[] $r2;
+        byte $b2;
+        short $s3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.core.io.CharTypes: int[] getInputCodeComment()>();
+
+     label01:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label02;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 == 0 goto label10;
+
+     label02:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        $b2 = $r2[$i1];
+
+        $s3 = $b2 & 255;
+
+        $i0 = $r1[$s3];
+
+        if $i0 == 0 goto label01;
+
+        lookupswitch($i0)
+        {
+            case 2: goto label07;
+            case 3: goto label08;
+            case 4: goto label09;
+            case 10: goto label05;
+            case 13: goto label06;
+            case 42: goto label04;
+            default: goto label03;
+        };
+
+     label03:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidChar(int)>($s3);
+
+        goto label01;
+
+     label04:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $b2 = $r2[$i0];
+
+        if $b2 != 47 goto label01;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        return;
+
+     label05:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipLF()>();
+
+        goto label01;
+
+     label06:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipCR()>();
+
+        goto label01;
+
+     label07:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipUtf8_2(int)>($s3);
+
+        goto label01;
+
+     label08:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipUtf8_3(int)>($s3);
+
+        goto label01;
+
+     label09:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipUtf8_4(int)>($s3);
+
+        goto label01;
+
+     label10:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOF(java.lang.String)>(" in a comment");
+
+        return;
+    }
+
+    private final void _skipComment()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        com.fasterxml.jackson.core.JsonParser$Feature $r1;
+        boolean $z0;
+        byte[] $r2;
+        byte $b2;
+        short $s3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 = <com.fasterxml.jackson.core.JsonParser$Feature: com.fasterxml.jackson.core.JsonParser$Feature ALLOW_COMMENTS>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean isEnabled(com.fasterxml.jackson.core.JsonParser$Feature)>($r1);
+
+        if $z0 != 0 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportUnexpectedChar(int,java.lang.String)>(47, "maybe a (non-standard) comment? (not recognized as one since Feature \'ALLOW_COMMENTS\' not enabled for parser)");
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 != 0 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOF(java.lang.String)>(" in a comment");
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        $b2 = $r2[$i1];
+
+        $s3 = $b2 & 255;
+
+        if $s3 != 47 goto label3;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipCppComment()>();
+
+        return;
+
+     label3:
+        if $s3 != 42 goto label4;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipCComment()>();
+
+        return;
+
+     label4:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportUnexpectedChar(int,java.lang.String)>($s3, "was expecting either \'*\' or \'/\' for a comment");
+
+        return;
+    }
+
+    private final void _skipCppComment()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        int[] $r1;
+        boolean $z0;
+        byte[] $r2;
+        byte $b2;
+        short $s3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.core.io.CharTypes: int[] getInputCodeComment()>();
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 == 0 goto label9;
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        $b2 = $r2[$i1];
+
+        $s3 = $b2 & 255;
+
+        $i0 = $r1[$s3];
+
+        if $i0 == 0 goto label1;
+
+        lookupswitch($i0)
+        {
+            case 2: goto label6;
+            case 3: goto label7;
+            case 4: goto label8;
+            case 10: goto label4;
+            case 13: goto label5;
+            case 42: goto label1;
+            default: goto label3;
+        };
+
+     label3:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidChar(int)>($s3);
+
+        goto label1;
+
+     label4:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipLF()>();
+
+        return;
+
+     label5:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipCR()>();
+
+        return;
+
+     label6:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipUtf8_2(int)>($s3);
+
+        goto label1;
+
+     label7:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipUtf8_3(int)>($s3);
+
+        goto label1;
+
+     label8:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipUtf8_4(int)>($s3);
+
+        goto label1;
+
+     label9:
+        return;
+    }
+
+    private final void _skipUtf8_2(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        byte[] $r1;
+        byte $b2;
+        short $s3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $b2 = $r1[$i0];
+
+        $s3 = $b2 & 192;
+
+        if $s3 == 128 goto label2;
+
+        $s3 = $b2 & 255;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s3, $i0);
+
+     label2:
+        return;
+    }
+
+    private final void _skipUtf8_3(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        byte[] $r1;
+        byte $b2;
+        short $s3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $b2 = $r1[$i0];
+
+        $s3 = $b2 & 192;
+
+        if $s3 == 128 goto label2;
+
+        $s3 = $b2 & 255;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s3, $i0);
+
+     label2:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label3:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $b2 = $r1[$i0];
+
+        $s3 = $b2 & 192;
+
+        if $s3 == 128 goto label4;
+
+        $s3 = $b2 & 255;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s3, $i0);
+
+     label4:
+        return;
+    }
+
+    private final void _skipUtf8_4(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        byte[] $r1;
+        byte $b2;
+        short $s3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $b2 = $r1[$i0];
+
+        $s3 = $b2 & 192;
+
+        if $s3 == 128 goto label2;
+
+        $s3 = $b2 & 255;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s3, $i0);
+
+     label2:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label3;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label3:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $b2 = $r1[$i0];
+
+        $s3 = $b2 & 192;
+
+        if $s3 == 128 goto label4;
+
+        $s3 = $b2 & 255;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s3, $i0);
+
+     label4:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label5;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label5:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $b2 = $r1[$i0];
+
+        $s3 = $b2 & 192;
+
+        if $s3 == 128 goto label6;
+
+        $s3 = $b2 & 255;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int,int)>($s3, $i0);
+
+     label6:
+        return;
+    }
+
+    private final int _skipWS()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        boolean $z0;
+        byte[] $r1;
+        byte $b2;
+        short $s3;
+        java.lang.StringBuilder $r2;
+        com.fasterxml.jackson.core.json.JsonReadContext $r3;
+        java.lang.String $r4;
+        com.fasterxml.jackson.core.JsonParseException $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 == 0 goto label7;
+
+     label2:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        $b2 = $r1[$i1];
+
+        $s3 = $b2 & 255;
+
+        if $s3 <= 32 goto label4;
+
+        if $s3 == 47 goto label3;
+
+        return $s3;
+
+     label3:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipComment()>();
+
+        goto label1;
+
+     label4:
+        if $s3 == 32 goto label1;
+
+        if $s3 != 10 goto label5;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipLF()>();
+
+        goto label1;
+
+     label5:
+        if $s3 != 13 goto label6;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipCR()>();
+
+        goto label1;
+
+     label6:
+        if $s3 == 9 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _throwInvalidSpace(int)>($s3);
+
+        goto label1;
+
+     label7:
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("Unexpected end-of-input within/between ");
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonReadContext: java.lang.String getTypeDesc()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" entries");
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonParseException _constructError(java.lang.String)>($r4);
+
+        throw $r5;
+    }
+
+    private final int _skipWSOrEnd()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        boolean $z0;
+        byte[] $r1;
+        byte $b2;
+        short $s3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 == 0 goto label7;
+
+     label2:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        $b2 = $r1[$i1];
+
+        $s3 = $b2 & 255;
+
+        if $s3 <= 32 goto label4;
+
+        if $s3 == 47 goto label3;
+
+        return $s3;
+
+     label3:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipComment()>();
+
+        goto label1;
+
+     label4:
+        if $s3 == 32 goto label1;
+
+        if $s3 != 10 goto label5;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipLF()>();
+
+        goto label1;
+
+     label5:
+        if $s3 != 13 goto label6;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipCR()>();
+
+        goto label1;
+
+     label6:
+        if $s3 == 9 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _throwInvalidSpace(int)>($s3);
+
+        goto label1;
+
+     label7:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _handleEOF()>();
+
+        return -1;
+    }
+
+    private final int _verifyNoLeadingZeroes()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        boolean $z0;
+        byte[] $r1;
+        byte $b2;
+        short $s3;
+        com.fasterxml.jackson.core.JsonParser$Feature $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 != 0 goto label1;
+
+        return 48;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $b2 = $r1[$i0];
+
+        $s3 = $b2 & 255;
+
+        if $s3 < 48 goto label2;
+
+        if $s3 <= 57 goto label3;
+
+     label2:
+        return 48;
+
+     label3:
+        $r2 = <com.fasterxml.jackson.core.JsonParser$Feature: com.fasterxml.jackson.core.JsonParser$Feature ALLOW_NUMERIC_LEADING_ZEROS>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean isEnabled(com.fasterxml.jackson.core.JsonParser$Feature)>($r2);
+
+        if $z0 != 0 goto label4;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void reportInvalidNumber(java.lang.String)>("Leading zeroes not allowed");
+
+     label4:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        if $s3 != 48 goto label9;
+
+     label5:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i0 goto label6;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 == 0 goto label9;
+
+     label6:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $b2 = $r1[$i0];
+
+        $s3 = $b2 & 255;
+
+        if $s3 < 48 goto label7;
+
+        if $s3 <= 57 goto label8;
+
+     label7:
+        return 48;
+
+     label8:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        if $s3 == 48 goto label5;
+
+     label9:
+        return $s3;
+    }
+
+    private final com.fasterxml.jackson.core.sym.Name addName(int[], int, int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int[] $r1;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i9;
+        com.fasterxml.jackson.core.util.TextBuffer $r2;
+        char[] $r3;
+        byte $b8;
+        char $c10;
+        java.lang.String $r4;
+        com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer $r5;
+        com.fasterxml.jackson.core.sym.Name $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 := @parameter0: int[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 = $i0 << 2;
+
+        $i2 = $i2 + -4;
+
+        $i2 = $i2 + $i1;
+
+        if $i1 >= 4 goto label12;
+
+        $i3 = $i0 + -1;
+
+        $i3 = $r1[$i3];
+
+        $i4 = $i0 + -1;
+
+        $i5 = 4 - $i1;
+
+        $i5 = $i5 << 3;
+
+        $i5 = $i3 << $i5;
+
+        $r1[$i4] = $i5;
+
+     label01:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.core.util.TextBuffer: char[] emptyAndGetCurrentSegment()>();
+
+        $i4 = 0;
+
+        $i5 = 0;
+
+     label02:
+        if $i5 >= $i2 goto label16;
+
+        $i6 = $i5 >> 2;
+
+        $i6 = $r1[$i6];
+
+        $i7 = $i5 & 3;
+
+        $i7 = 3 - $i7;
+
+        $i7 = $i7 << 3;
+
+        $i6 = $i6 >> $i7;
+
+        $i6 = $i6 & 255;
+
+        $i5 = $i5 + 1;
+
+        if $i6 <= 127 goto label18;
+
+        $i7 = $i6 & 224;
+
+        if $i7 != 192 goto label13;
+
+        $i6 = $i6 & 31;
+
+        $b8 = 1;
+
+     label03:
+        $i7 = $i5 + $b8;
+
+        if $i7 <= $i2 goto label04;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOF(java.lang.String)>(" in field name");
+
+     label04:
+        $i7 = $i5 >> 2;
+
+        $i7 = $r1[$i7];
+
+        $i9 = $i5 & 3;
+
+        $i9 = 3 - $i9;
+
+        $i9 = $i9 << 3;
+
+        $i7 = $i7 >> $i9;
+
+        $i5 = $i5 + 1;
+
+        $i9 = $i7 & 192;
+
+        if $i9 == 128 goto label05;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int)>($i7);
+
+     label05:
+        $i6 = $i6 << 6;
+
+        $i7 = $i7 & 63;
+
+        $i6 = $i6 | $i7;
+
+        if $b8 <= 1 goto label08;
+
+        $i7 = $i5 >> 2;
+
+        $i7 = $r1[$i7];
+
+        $i9 = $i5 & 3;
+
+        $i9 = 3 - $i9;
+
+        $i9 = $i9 << 3;
+
+        $i7 = $i7 >> $i9;
+
+        $i5 = $i5 + 1;
+
+        $i9 = $i7 & 192;
+
+        if $i9 == 128 goto label06;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int)>($i7);
+
+     label06:
+        $i6 = $i6 << 6;
+
+        $i7 = $i7 & 63;
+
+        $i6 = $i6 | $i7;
+
+        if $b8 <= 2 goto label08;
+
+        $i7 = $i5 >> 2;
+
+        $i7 = $r1[$i7];
+
+        $i9 = $i5 & 3;
+
+        $i9 = 3 - $i9;
+
+        $i9 = $i9 << 3;
+
+        $i7 = $i7 >> $i9;
+
+        $i5 = $i5 + 1;
+
+        $i9 = $i7 & 192;
+
+        if $i9 == 128 goto label07;
+
+        $i9 = $i7 & 255;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int)>($i9);
+
+     label07:
+        $i6 = $i6 << 6;
+
+        $i7 = $i7 & 63;
+
+        $i6 = $i6 | $i7;
+
+     label08:
+        if $b8 <= 2 goto label18;
+
+        $i7 = $i6 - 65536;
+
+        $i6 = lengthof $r3;
+
+        if $i4 < $i6 goto label09;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.core.util.TextBuffer: char[] expandCurrentSegment()>();
+
+     label09:
+        $i6 = $i4 + 1;
+
+        $i9 = $i7 >> 10;
+
+        $i9 = 55296 + $i9;
+
+        $c10 = (char) $i9;
+
+        $r3[$i4] = $c10;
+
+        $i4 = $i7 & 1023;
+
+        $i7 = $i4 | 56320;
+
+     label10:
+        $i4 = lengthof $r3;
+
+        if $i6 < $i4 goto label11;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.core.util.TextBuffer: char[] expandCurrentSegment()>();
+
+     label11:
+        $i4 = $i6 + 1;
+
+        $c10 = (char) $i7;
+
+        $r3[$i6] = $c10;
+
+        goto label02;
+
+     label12:
+        $i3 = 0;
+
+        goto label01;
+
+     label13:
+        $i7 = $i6 & 240;
+
+        if $i7 != 224 goto label14;
+
+        $i6 = $i6 & 15;
+
+        $b8 = 2;
+
+        goto label03;
+
+     label14:
+        $i7 = $i6 & 248;
+
+        if $i7 != 240 goto label15;
+
+        $i6 = $i6 & 7;
+
+        $b8 = 3;
+
+        goto label03;
+
+     label15:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidInitial(int)>($i6);
+
+        $i6 = 1;
+
+        $b8 = 1;
+
+        goto label03;
+
+     label16:
+        $r4 = new java.lang.String;
+
+        specialinvoke $r4.<java.lang.String: void <init>(char[],int,int)>($r3, 0, $i4);
+
+        if $i1 >= 4 goto label17;
+
+        $i1 = $i0 + -1;
+
+        $r1[$i1] = $i3;
+
+     label17:
+        $r5 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _symbols>;
+
+        $r6 = virtualinvoke $r5.<com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: com.fasterxml.jackson.core.sym.Name addName(java.lang.String,int[],int)>($r4, $r1, $i0);
+
+        return $r6;
+
+     label18:
+        $i7 = $i6;
+
+        $i6 = $i4;
+
+        goto label10;
+    }
+
+    private final com.fasterxml.jackson.core.sym.Name findName(int, int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer $r1;
+        com.fasterxml.jackson.core.sym.Name $r2;
+        int[] $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _symbols>;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: com.fasterxml.jackson.core.sym.Name findName(int)>($i0);
+
+        if $r2 == null goto label1;
+
+        return $r2;
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r3[0] = $i0;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name addName(int[],int,int)>($r3, 1, $i1);
+
+        return $r2;
+    }
+
+    private final com.fasterxml.jackson.core.sym.Name findName(int, int, int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2;
+        com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer $r1;
+        com.fasterxml.jackson.core.sym.Name $r2;
+        int[] $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $i2 := @parameter2: int;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _symbols>;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: com.fasterxml.jackson.core.sym.Name findName(int,int)>($i0, $i1);
+
+        if $r2 == null goto label1;
+
+        return $r2;
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r3[0] = $i0;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r3[1] = $i1;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name addName(int[],int,int)>($r3, 2, $i2);
+
+        return $r2;
+    }
+
+    private final com.fasterxml.jackson.core.sym.Name findName(int[], int, int, int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2, $i3;
+        int[] $r1, $r2;
+        com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer $r3;
+        com.fasterxml.jackson.core.sym.Name $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 := @parameter0: int[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 := @parameter3: int;
+
+        $i3 = lengthof $r1;
+
+        if $i0 < $i3 goto label1;
+
+        $i3 = lengthof $r1;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] growArrayBy(int[],int)>($r1, $i3);
+
+        $r1 = $r2;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r2;
+
+     label1:
+        $i3 = $i0 + 1;
+
+        $r1[$i0] = $i1;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _symbols>;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: com.fasterxml.jackson.core.sym.Name findName(int[],int)>($r1, $i3);
+
+        if $r4 != null goto label2;
+
+        $r4 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name addName(int[],int,int)>($r1, $i3, $i2);
+
+     label2:
+        return $r4;
+    }
+
+    public static int[] growArrayBy(int[], int)
+    {
+        int[] $r0, $r1;
+        int $i0, $i1;
+
+        $r0 := @parameter0: int[];
+
+        $i0 := @parameter1: int;
+
+        if $r0 != null goto label1;
+
+        $r0 = newarray (int)[$i0];
+
+        return $r0;
+
+     label1:
+        $i1 = lengthof $r0;
+
+        $i0 = $i1 + $i0;
+
+        $r1 = newarray (int)[$i0];
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r0, 0, $r1, 0, $i1);
+
+        return $r1;
+    }
+
+    private int nextByte()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        byte[] $r1;
+        byte $b2;
+        short $s3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        $b2 = $r1[$i1];
+
+        $s3 = $b2 & 255;
+
+        return $s3;
+    }
+
+    private final com.fasterxml.jackson.core.sym.Name parseFieldName(int, int, int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2;
+        int[] $r1;
+        com.fasterxml.jackson.core.sym.Name $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $i2 := @parameter2: int;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseEscapedFieldName(int[],int,int,int,int)>($r1, 0, $i0, $i1, $i2);
+
+        return $r2;
+    }
+
+    private final com.fasterxml.jackson.core.sym.Name parseFieldName(int, int, int, int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2, $i3;
+        com.fasterxml.jackson.core.sym.Name $r1;
+        int[] $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $i2 := @parameter2: int;
+
+        $i3 := @parameter3: int;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2[0] = $i0;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseEscapedFieldName(int[],int,int,int,int)>($r2, 1, $i1, $i2, $i3);
+
+        return $r1;
+    }
+
+    protected final void _closeInput()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        java.io.InputStream $r1;
+        com.fasterxml.jackson.core.io.IOContext $r2;
+        boolean $z0;
+        com.fasterxml.jackson.core.JsonParser$Feature $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: java.io.InputStream _inputStream>;
+
+        if $r1 == null goto label3;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.io.IOContext _ioContext>;
+
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.core.io.IOContext: boolean isResourceManaged()>();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = <com.fasterxml.jackson.core.JsonParser$Feature: com.fasterxml.jackson.core.JsonParser$Feature AUTO_CLOSE_SOURCE>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean isEnabled(com.fasterxml.jackson.core.JsonParser$Feature)>($r3);
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: java.io.InputStream _inputStream>;
+
+        virtualinvoke $r1.<java.io.InputStream: void close()>();
+
+     label2:
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: java.io.InputStream _inputStream> = null;
+
+     label3:
+        return;
+    }
+
+    protected final byte[] _decodeBase64(com.fasterxml.jackson.core.Base64Variant)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        com.fasterxml.jackson.core.Base64Variant $r1;
+        com.fasterxml.jackson.core.util.ByteArrayBuilder $r2;
+        int $i0, $i1, $i4;
+        byte[] $r3;
+        byte $b2;
+        short $s3;
+        boolean $z0;
+        java.lang.StringBuilder $r4;
+        char $c5;
+        java.lang.String $r5;
+        java.lang.IllegalArgumentException $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.Base64Variant;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.ByteArrayBuilder _getByteArrayBuilder()>();
+
+     label01:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label02;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label02:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $b2 = $r3[$i0];
+
+        $s3 = $b2 & 255;
+
+        if $s3 <= 32 goto label01;
+
+        $i1 = virtualinvoke $r1.<com.fasterxml.jackson.core.Base64Variant: int decodeBase64Char(int)>($s3);
+
+        $i0 = $i1;
+
+        if $i1 >= 0 goto label04;
+
+        if $s3 != 34 goto label03;
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.core.util.ByteArrayBuilder: byte[] toByteArray()>();
+
+        return $r3;
+
+     label03:
+        $i1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeBase64Escape(com.fasterxml.jackson.core.Base64Variant,int,int)>($r1, $s3, 0);
+
+        $i0 = $i1;
+
+        if $i1 < 0 goto label01;
+
+     label04:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i4 goto label05;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label05:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i4;
+
+        $b2 = $r3[$i1];
+
+        $s3 = $b2 & 255;
+
+        $i4 = virtualinvoke $r1.<com.fasterxml.jackson.core.Base64Variant: int decodeBase64Char(int)>($s3);
+
+        $i1 = $i4;
+
+        if $i4 >= 0 goto label06;
+
+        $i1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeBase64Escape(com.fasterxml.jackson.core.Base64Variant,int,int)>($r1, $s3, 1);
+
+     label06:
+        $i0 = $i0 << 6;
+
+        $i0 = $i1 | $i0;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i4 goto label07;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label07:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i4;
+
+        $b2 = $r3[$i1];
+
+        $s3 = $b2 & 255;
+
+        $i4 = virtualinvoke $r1.<com.fasterxml.jackson.core.Base64Variant: int decodeBase64Char(int)>($s3);
+
+        $i1 = $i4;
+
+        if $i4 >= 0 goto label12;
+
+        if $i4 == -2 goto label09;
+
+        if $s3 != 34 goto label08;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.core.Base64Variant: boolean usesPadding()>();
+
+        if $z0 != 0 goto label08;
+
+        $i0 = $i0 >> 4;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.util.ByteArrayBuilder: void append(int)>($i0);
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.core.util.ByteArrayBuilder: byte[] toByteArray()>();
+
+        return $r3;
+
+     label08:
+        $i1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeBase64Escape(com.fasterxml.jackson.core.Base64Variant,int,int)>($r1, $s3, 2);
+
+     label09:
+        if $i1 != -2 goto label12;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i4 goto label10;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label10:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i4;
+
+        $b2 = $r3[$i1];
+
+        $s3 = $b2 & 255;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.core.Base64Variant: boolean usesPaddingChar(int)>($s3);
+
+        if $z0 != 0 goto label11;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("expected padding character \'");
+
+        $c5 = virtualinvoke $r1.<com.fasterxml.jackson.core.Base64Variant: char getPaddingChar()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: java.lang.IllegalArgumentException reportInvalidBase64Char(com.fasterxml.jackson.core.Base64Variant,int,int,java.lang.String)>($r1, $s3, 3, $r5);
+
+        throw $r6;
+
+     label11:
+        $i0 = $i0 >> 4;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.util.ByteArrayBuilder: void append(int)>($i0);
+
+        goto label01;
+
+     label12:
+        $i0 = $i0 << 6;
+
+        $i0 = $i0 | $i1;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i4 goto label13;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label13:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i4;
+
+        $b2 = $r3[$i1];
+
+        $s3 = $b2 & 255;
+
+        $i4 = virtualinvoke $r1.<com.fasterxml.jackson.core.Base64Variant: int decodeBase64Char(int)>($s3);
+
+        $i1 = $i4;
+
+        if $i4 >= 0 goto label16;
+
+        if $i4 == -2 goto label15;
+
+        if $s3 != 34 goto label14;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.core.Base64Variant: boolean usesPadding()>();
+
+        if $z0 != 0 goto label14;
+
+        $i0 = $i0 >> 2;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.util.ByteArrayBuilder: void appendTwoBytes(int)>($i0);
+
+        $r3 = virtualinvoke $r2.<com.fasterxml.jackson.core.util.ByteArrayBuilder: byte[] toByteArray()>();
+
+        return $r3;
+
+     label14:
+        $i1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeBase64Escape(com.fasterxml.jackson.core.Base64Variant,int,int)>($r1, $s3, 3);
+
+     label15:
+        if $i1 != -2 goto label16;
+
+        $i0 = $i0 >> 2;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.util.ByteArrayBuilder: void appendTwoBytes(int)>($i0);
+
+        goto label01;
+
+     label16:
+        $i0 = $i0 << 6;
+
+        $i0 = $i1 | $i0;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.util.ByteArrayBuilder: void appendThreeBytes(int)>($i0);
+
+        goto label01;
+    }
+
+    protected final int _decodeCharForError(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i3;
+        byte $b2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        if $i0 >= 0 goto label8;
+
+        $i1 = $i0 & 224;
+
+        if $i1 != 192 goto label5;
+
+        $i0 = $i0 & 31;
+
+        $b2 = 1;
+
+     label1:
+        $i1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int nextByte()>();
+
+        $i3 = $i1 & 192;
+
+        if $i3 == 128 goto label2;
+
+        $i3 = $i1 & 255;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int)>($i3);
+
+     label2:
+        $i0 = $i0 << 6;
+
+        $i1 = $i1 & 63;
+
+        $i1 = $i0 | $i1;
+
+        if $b2 <= 1 goto label9;
+
+        $i0 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int nextByte()>();
+
+        $i3 = $i0 & 192;
+
+        if $i3 == 128 goto label3;
+
+        $i3 = $i0 & 255;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int)>($i3);
+
+     label3:
+        $i1 = $i1 << 6;
+
+        $i0 = $i0 & 63;
+
+        $i1 = $i1 | $i0;
+
+        if $b2 <= 2 goto label9;
+
+        $i0 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int nextByte()>();
+
+        $i3 = $i0 & 192;
+
+        if $i3 == 128 goto label4;
+
+        $i3 = $i0 & 255;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int)>($i3);
+
+     label4:
+        $i1 = $i1 << 6;
+
+        $i0 = $i0 & 63;
+
+        $i0 = $i1 | $i0;
+
+        return $i0;
+
+     label5:
+        $i1 = $i0 & 240;
+
+        if $i1 != 224 goto label6;
+
+        $i0 = $i0 & 15;
+
+        $b2 = 2;
+
+        goto label1;
+
+     label6:
+        $i1 = $i0 & 248;
+
+        if $i1 != 240 goto label7;
+
+        $i0 = $i0 & 7;
+
+        $b2 = 3;
+
+        goto label1;
+
+     label7:
+        $i1 = $i0 & 255;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidInitial(int)>($i1);
+
+        $b2 = 1;
+
+        goto label1;
+
+     label8:
+        return $i0;
+
+     label9:
+        return $i1;
+    }
+
+    protected final char _decodeEscaped()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2, $i5;
+        boolean $z0;
+        byte[] $r1;
+        byte $b3;
+        char $c4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 = 0;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i2 goto label01;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 != 0 goto label01;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOF(java.lang.String)>(" in character escape sequence");
+
+     label01:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r1[$i1];
+
+        lookupswitch($b3)
+        {
+            case 34: goto label08;
+            case 47: goto label08;
+            case 92: goto label08;
+            case 98: goto label03;
+            case 102: goto label06;
+            case 110: goto label05;
+            case 114: goto label07;
+            case 116: goto label04;
+            case 117: goto label09;
+            default: goto label02;
+        };
+
+     label02:
+        $i0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeCharForError(int)>($b3);
+
+        $c4 = (char) $i0;
+
+        $c4 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: char _handleUnrecognizedCharacterEscape(char)>($c4);
+
+        return $c4;
+
+     label03:
+        return 8;
+
+     label04:
+        return 9;
+
+     label05:
+        return 10;
+
+     label06:
+        return 12;
+
+     label07:
+        return 13;
+
+     label08:
+        $c4 = (char) $b3;
+
+        return $c4;
+
+     label09:
+        $i1 = 0;
+
+     label10:
+        if $i0 >= 4 goto label13;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i5 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i2 < $i5 goto label11;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 != 0 goto label11;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOF(java.lang.String)>(" in character escape sequence");
+
+     label11:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i5 = $i2 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i5;
+
+        $b3 = $r1[$i2];
+
+        $i2 = staticinvoke <com.fasterxml.jackson.core.io.CharTypes: int charToHex(int)>($b3);
+
+        if $i2 >= 0 goto label12;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportUnexpectedChar(int,java.lang.String)>($b3, "expected a hex-digit for character escape sequence");
+
+     label12:
+        $i1 = $i1 << 4;
+
+        $i1 = $i1 | $i2;
+
+        $i0 = $i0 + 1;
+
+        goto label10;
+
+     label13:
+        $c4 = (char) $i1;
+
+        return $c4;
+    }
+
+    protected final void _finishString()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int[] $r1;
+        byte[] $r2;
+        int $i0, $i1, $i2, $i5;
+        com.fasterxml.jackson.core.util.TextBuffer $r3;
+        char[] $r4;
+        byte $b3;
+        short $s4;
+        char $c6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.core.util.TextBuffer: char[] emptyAndGetCurrentSegment()>();
+
+        $r1 = <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] sInputCodesUtf8>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        $i2 = lengthof $r4;
+
+        $i2 = $i2 + $i0;
+
+        $i1 = staticinvoke <java.lang.Math: int min(int,int)>($i1, $i2);
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i2 = $i0;
+
+        $i0 = 0;
+
+     label2:
+        if $i2 >= $i1 goto label4;
+
+        $b3 = $r2[$i2];
+
+        $s4 = $b3 & 255;
+
+        $i5 = $r1[$s4];
+
+        if $i5 == 0 goto label3;
+
+        if $s4 != 34 goto label4;
+
+        $i1 = $i2 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.core.util.TextBuffer: void setCurrentLength(int)>($i0);
+
+        return;
+
+     label3:
+        $c6 = (char) $s4;
+
+        $r4[$i0] = $c6;
+
+        $i0 = $i0 + 1;
+
+        $i2 = $i2 + 1;
+
+        goto label2;
+
+     label4:
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _finishString2(char[],int)>($r4, $i0);
+
+        return;
+    }
+
+    protected final java.lang.String _getText2(com.fasterxml.jackson.core.JsonToken)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        com.fasterxml.jackson.core.JsonToken $r1;
+        int[] $r2;
+        int $i0;
+        java.lang.String $r3;
+        com.fasterxml.jackson.core.json.JsonReadContext $r4;
+        com.fasterxml.jackson.core.util.TextBuffer $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonToken;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = <com.fasterxml.jackson.core.json.UTF8StreamJsonParser$1: int[] $SwitchMap$com$fasterxml$jackson$core$JsonToken>;
+
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonToken: int ordinal()>();
+
+        $i0 = $r2[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label3;
+            case 2: goto label4;
+            case 3: goto label4;
+            case 4: goto label4;
+            default: goto label2;
+        };
+
+     label2:
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonToken: java.lang.String asString()>();
+
+        return $r3;
+
+     label3:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $r3 = virtualinvoke $r4.<com.fasterxml.jackson.core.json.JsonReadContext: java.lang.String getCurrentName()>();
+
+        return $r3;
+
+     label4:
+        $r5 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r3 = virtualinvoke $r5.<com.fasterxml.jackson.core.util.TextBuffer: java.lang.String contentsAsString()>();
+
+        return $r3;
+    }
+
+    protected final com.fasterxml.jackson.core.JsonToken _handleApostropheValue()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int[] $r1;
+        byte[] $r2;
+        int $i0, $i1, $i2, $i3;
+        com.fasterxml.jackson.core.util.TextBuffer $r3;
+        char[] $r4;
+        byte $b4;
+        short $s5;
+        char $c6;
+        com.fasterxml.jackson.core.JsonToken r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.core.util.TextBuffer: char[] emptyAndGetCurrentSegment()>();
+
+        $r1 = <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] sInputCodesUtf8>;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = 0;
+
+     label01:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i2 < $i3 goto label02;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label02:
+        $i2 = lengthof $r4;
+
+        if $i1 < $i2 goto label03;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.core.util.TextBuffer: char[] finishCurrentSegment()>();
+
+        $i1 = 0;
+
+     label03:
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = lengthof $r4;
+
+        $i0 = $i0 - $i1;
+
+        $i2 = $i2 + $i0;
+
+        if $i2 >= $i3 goto label20;
+
+     label04:
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        if $i3 >= $i2 goto label01;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i3 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        $b4 = $r2[$i3];
+
+        $s5 = $b4 & 255;
+
+        if $s5 == 39 goto label05;
+
+        $i3 = $r1[$s5];
+
+        if $i3 != 0 goto label05;
+
+        $c6 = (char) $s5;
+
+        $r4[$i1] = $c6;
+
+        $i1 = $i1 + 1;
+
+        goto label04;
+
+     label05:
+        if $s5 == 39 goto label17;
+
+        $i2 = $r1[$s5];
+
+        lookupswitch($i2)
+        {
+            case 1: goto label11;
+            case 2: goto label12;
+            case 3: goto label13;
+            case 4: goto label15;
+            default: goto label06;
+        };
+
+     label06:
+        if $s5 >= 32 goto label07;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _throwUnquotedSpace(int,java.lang.String)>($s5, "string value");
+
+     label07:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidChar(int)>($s5);
+
+     label08:
+        $i2 = $s5;
+
+     label09:
+        $i3 = lengthof $r4;
+
+        if $i1 < $i3 goto label18;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.core.util.TextBuffer: char[] finishCurrentSegment()>();
+
+        $i3 = 0;
+
+     label10:
+        $i1 = $i3 + 1;
+
+        $c6 = (char) $i2;
+
+        $r4[$i3] = $c6;
+
+        goto label01;
+
+     label11:
+        if $s5 == 34 goto label08;
+
+        $i2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: char _decodeEscaped()>();
+
+        goto label09;
+
+     label12:
+        $i2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeUtf8_2(int)>($s5);
+
+        goto label09;
+
+     label13:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i2 - $i3;
+
+        if $i2 < 2 goto label14;
+
+        $i2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeUtf8_3fast(int)>($s5);
+
+        goto label09;
+
+     label14:
+        $i2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeUtf8_3(int)>($s5);
+
+        goto label09;
+
+     label15:
+        $i2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeUtf8_4(int)>($s5);
+
+        $i3 = $i1 + 1;
+
+        $i0 = $i2 >> 10;
+
+        $i0 = 55296 | $i0;
+
+        $c6 = (char) $i0;
+
+        $r4[$i1] = $c6;
+
+        $i1 = lengthof $r4;
+
+        if $i3 < $i1 goto label19;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.core.util.TextBuffer: char[] finishCurrentSegment()>();
+
+        $i1 = 0;
+
+     label16:
+        $i2 = $i2 & 1023;
+
+        $i2 = 56320 | $i2;
+
+        goto label09;
+
+     label17:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        virtualinvoke $r3.<com.fasterxml.jackson.core.util.TextBuffer: void setCurrentLength(int)>($i1);
+
+        r5 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        return r5;
+
+     label18:
+        $i3 = $i1;
+
+        goto label10;
+
+     label19:
+        $i1 = $i3;
+
+        goto label16;
+
+     label20:
+        $i2 = $i3;
+
+        goto label04;
+    }
+
+    protected final com.fasterxml.jackson.core.JsonToken _handleInvalidNumberStart(int, boolean)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        boolean $z0, $z1;
+        int $i0, $i1;
+        double $d0;
+        byte[] $r1;
+        java.lang.String $r2;
+        com.fasterxml.jackson.core.JsonParser$Feature $r3;
+        com.fasterxml.jackson.core.JsonToken $r4;
+        java.lang.StringBuilder $r5;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $z0 := @parameter1: boolean;
+
+        $d0 = #-Infinity;
+
+        if $i0 != 73 goto label07;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label01;
+
+        $z1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z1 != 0 goto label01;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOFInValue()>();
+
+     label01:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        $i0 = $r1[$i1];
+
+        if $i0 != 78 goto label08;
+
+        if $z0 == 0 goto label04;
+
+        $r2 = "-INF";
+
+     label02:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _matchToken(java.lang.String,int)>($r2, 3);
+
+        $r3 = <com.fasterxml.jackson.core.JsonParser$Feature: com.fasterxml.jackson.core.JsonParser$Feature ALLOW_NON_NUMERIC_NUMBERS>;
+
+        $z1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean isEnabled(com.fasterxml.jackson.core.JsonParser$Feature)>($r3);
+
+        if $z1 == 0 goto label06;
+
+        if $z0 == 0 goto label05;
+
+     label03:
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken resetAsNaN(java.lang.String,double)>($r2, $d0);
+
+        return $r4;
+
+     label04:
+        $r2 = "+INF";
+
+        goto label02;
+
+     label05:
+        $d0 = #Infinity;
+
+        goto label03;
+
+     label06:
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Non-standard token \'");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\': enable JsonParser.Feature.ALLOW_NON_NUMERIC_NUMBERS to allow");
+
+        $r2 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportError(java.lang.String)>($r2);
+
+     label07:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void reportUnexpectedNumberChar(int,java.lang.String)>($i0, "expected digit (0-9) to follow minus sign, for valid numeric value");
+
+        return null;
+
+     label08:
+        if $i0 != 110 goto label07;
+
+        if $z0 == 0 goto label11;
+
+        $r2 = "-Infinity";
+
+     label09:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _matchToken(java.lang.String,int)>($r2, 3);
+
+        $r3 = <com.fasterxml.jackson.core.JsonParser$Feature: com.fasterxml.jackson.core.JsonParser$Feature ALLOW_NON_NUMERIC_NUMBERS>;
+
+        $z1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean isEnabled(com.fasterxml.jackson.core.JsonParser$Feature)>($r3);
+
+        if $z1 == 0 goto label13;
+
+        if $z0 == 0 goto label12;
+
+     label10:
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken resetAsNaN(java.lang.String,double)>($r2, $d0);
+
+        return $r4;
+
+     label11:
+        $r2 = "+Infinity";
+
+        goto label09;
+
+     label12:
+        $d0 = #Infinity;
+
+        goto label10;
+
+     label13:
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Non-standard token \'");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\': enable JsonParser.Feature.ALLOW_NON_NUMERIC_NUMBERS to allow");
+
+        $r2 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportError(java.lang.String)>($r2);
+
+        goto label07;
+    }
+
+    protected final com.fasterxml.jackson.core.JsonToken _handleUnexpectedValue(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+        com.fasterxml.jackson.core.JsonParser$Feature $r1;
+        boolean $z0;
+        com.fasterxml.jackson.core.JsonToken $r2;
+        byte[] $r3;
+        byte $b2;
+        short $s3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        lookupswitch($i0)
+        {
+            case 39: goto label2;
+            case 43: goto label5;
+            case 78: goto label3;
+            default: goto label1;
+        };
+
+     label1:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportUnexpectedChar(int,java.lang.String)>($i0, "expected a valid value (number, String, array, object, \'true\', \'false\' or \'null\')");
+
+        return null;
+
+     label2:
+        $r1 = <com.fasterxml.jackson.core.JsonParser$Feature: com.fasterxml.jackson.core.JsonParser$Feature ALLOW_SINGLE_QUOTES>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean isEnabled(com.fasterxml.jackson.core.JsonParser$Feature)>($r1);
+
+        if $z0 == 0 goto label1;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _handleApostropheValue()>();
+
+        return $r2;
+
+     label3:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _matchToken(java.lang.String,int)>("NaN", 1);
+
+        $r1 = <com.fasterxml.jackson.core.JsonParser$Feature: com.fasterxml.jackson.core.JsonParser$Feature ALLOW_NON_NUMERIC_NUMBERS>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean isEnabled(com.fasterxml.jackson.core.JsonParser$Feature)>($r1);
+
+        if $z0 == 0 goto label4;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken resetAsNaN(java.lang.String,double)>("NaN", #NaN);
+
+        return $r2;
+
+     label4:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportError(java.lang.String)>("Non-standard token \'NaN\': enable JsonParser.Feature.ALLOW_NON_NUMERIC_NUMBERS to allow");
+
+        goto label1;
+
+     label5:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label6;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 != 0 goto label6;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOFInValue()>();
+
+     label6:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $b2 = $r3[$i0];
+
+        $s3 = $b2 & 255;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _handleInvalidNumberStart(int,boolean)>($s3, 0);
+
+        return $r2;
+    }
+
+    protected final com.fasterxml.jackson.core.sym.Name _handleUnusualFieldName(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2, $i3, $i4;
+        com.fasterxml.jackson.core.JsonParser$Feature $r1;
+        boolean $z0;
+        com.fasterxml.jackson.core.sym.Name $r2;
+        int[] $r3, $r4, $r6;
+        byte[] $r5;
+        byte $b5;
+        short $s6;
+        com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer $r7;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        if $i0 != 39 goto label01;
+
+        $r1 = <com.fasterxml.jackson.core.JsonParser$Feature: com.fasterxml.jackson.core.JsonParser$Feature ALLOW_SINGLE_QUOTES>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean isEnabled(com.fasterxml.jackson.core.JsonParser$Feature)>($r1);
+
+        if $z0 == 0 goto label01;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name _parseApostropheFieldName()>();
+
+        return $r2;
+
+     label01:
+        $r1 = <com.fasterxml.jackson.core.JsonParser$Feature: com.fasterxml.jackson.core.JsonParser$Feature ALLOW_UNQUOTED_FIELD_NAMES>;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean isEnabled(com.fasterxml.jackson.core.JsonParser$Feature)>($r1);
+
+        if $z0 != 0 goto label02;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportUnexpectedChar(int,java.lang.String)>($i0, "was expecting double-quote to start field name");
+
+     label02:
+        $r3 = staticinvoke <com.fasterxml.jackson.core.io.CharTypes: int[] getInputCodeUtf8JsNames()>();
+
+        $i1 = $r3[$i0];
+
+        if $i1 == 0 goto label03;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportUnexpectedChar(int,java.lang.String)>($i0, "was expecting either valid name character (for unquoted name) or double-quote (for quoted) to start field name");
+
+     label03:
+        $i2 = 0;
+
+        $i3 = 0;
+
+        $i1 = 0;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+     label04:
+        if $i2 >= 4 goto label07;
+
+        $i3 = $i3 << 8;
+
+        $i0 = $i0 | $i3;
+
+        $i2 = $i2 + 1;
+
+     label05:
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i3 < $i4 goto label06;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 != 0 goto label06;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOF(java.lang.String)>(" in field name");
+
+     label06:
+        $r5 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $b5 = $r5[$i3];
+
+        $s6 = $b5 & 255;
+
+        $i3 = $r3[$s6];
+
+        if $i3 != 0 goto label09;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i3 = $i3 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i3;
+
+        $i3 = $i0;
+
+        $i0 = $s6;
+
+        goto label04;
+
+     label07:
+        $i2 = lengthof $r4;
+
+        if $i1 < $i2 goto label08;
+
+        $i2 = lengthof $r4;
+
+        $r6 = staticinvoke <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] growArrayBy(int[],int)>($r4, $i2);
+
+        $r4 = $r6;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r6;
+
+     label08:
+        $r4[$i1] = $i3;
+
+        $i2 = 1;
+
+        $i1 = $i1 + 1;
+
+        goto label05;
+
+     label09:
+        if $i2 <= 0 goto label11;
+
+        $i3 = lengthof $r4;
+
+        if $i1 < $i3 goto label10;
+
+        $i3 = lengthof $r4;
+
+        $r3 = staticinvoke <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] growArrayBy(int[],int)>($r4, $i3);
+
+        $r4 = $r3;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r3;
+
+     label10:
+        $r4[$i1] = $i0;
+
+        $i1 = $i1 + 1;
+
+     label11:
+        $r7 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _symbols>;
+
+        $r2 = virtualinvoke $r7.<com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: com.fasterxml.jackson.core.sym.Name findName(int[],int)>($r4, $i1);
+
+        if $r2 != null goto label12;
+
+        $r2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name addName(int[],int,int)>($r4, $i1, $i2);
+
+     label12:
+        return $r2;
+    }
+
+    protected final void _matchToken(java.lang.String, int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        java.lang.String $r1, $r3;
+        int $i0, $i1, $i2, $i3;
+        boolean $z0;
+        byte[] $r2;
+        byte $b4;
+        char $c5;
+        short $s6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+     label1:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i2 < $i3 goto label2;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 != 0 goto label2;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOF(java.lang.String)>(" in a value");
+
+     label2:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $b4 = $r2[$i2];
+
+        $c5 = virtualinvoke $r1.<java.lang.String: char charAt(int)>($i0);
+
+        if $b4 == $c5 goto label3;
+
+        $r3 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidToken(java.lang.String,java.lang.String)>($r3, "\'null\', \'true\', \'false\' or NaN");
+
+     label3:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i2 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $i0 = $i0 + 1;
+
+        if $i0 < $i1 goto label1;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i2 goto label4;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 != 0 goto label4;
+
+        return;
+
+     label4:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $b4 = $r2[$i1];
+
+        $s6 = $b4 & 255;
+
+        if $s6 < 48 goto label5;
+
+        if $s6 == 93 goto label5;
+
+        if $s6 == 125 goto label5;
+
+        $i1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeCharForError(int)>($s6);
+
+        $c5 = (char) $i1;
+
+        $z0 = staticinvoke <java.lang.Character: boolean isJavaIdentifierPart(char)>($c5);
+
+        if $z0 == 0 goto label5;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidToken(java.lang.String,java.lang.String)>($r1, "\'null\', \'true\', \'false\' or NaN");
+
+     label5:
+        return;
+    }
+
+    protected final com.fasterxml.jackson.core.sym.Name _parseApostropheFieldName()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int[] $r1, $r4, $r5;
+        int $i0, $i1, $i3, $i4, $i5;
+        boolean $z0;
+        byte[] $r2;
+        byte $b2;
+        com.fasterxml.jackson.core.sym.Name $r3;
+        com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label01;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 != 0 goto label01;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOF(java.lang.String)>(": was expecting closing \'\'\' for name");
+
+     label01:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $b2 = $r2[$i0];
+
+        $i0 = $b2 & 255;
+
+        if $i0 != 39 goto label02;
+
+        $r3 = staticinvoke <com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: com.fasterxml.jackson.core.sym.Name getEmptyName()>();
+
+        return $r3;
+
+     label02:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r1 = <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] sInputCodesLatin1>;
+
+        $i3 = 0;
+
+        $i4 = 0;
+
+        $i1 = 0;
+
+     label03:
+        if $i0 == 39 goto label17;
+
+        if $i0 == 34 goto label24;
+
+        $i5 = $r1[$i0];
+
+        if $i5 == 0 goto label24;
+
+        if $i0 == 92 goto label11;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _throwUnquotedSpace(int,java.lang.String)>($i0, "name");
+
+     label04:
+        if $i0 <= 127 goto label24;
+
+        if $i3 < 4 goto label23;
+
+        $i3 = lengthof $r4;
+
+        if $i1 < $i3 goto label05;
+
+        $i3 = lengthof $r4;
+
+        $r5 = staticinvoke <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] growArrayBy(int[],int)>($r4, $i3);
+
+        $r4 = $r5;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r5;
+
+     label05:
+        $r4[$i1] = $i4;
+
+        $i4 = 0;
+
+        $i1 = $i1 + 1;
+
+        $i5 = 0;
+
+     label06:
+        if $i0 >= 2048 goto label12;
+
+        $i3 = $i5 << 8;
+
+        $i5 = $i0 >> 6;
+
+        $i5 = $i5 | 192;
+
+        $i3 = $i3 | $i5;
+
+        $i5 = $i4 + 1;
+
+        $i4 = $i3;
+
+        $i3 = $i5;
+
+     label07:
+        $i0 = $i0 & 63;
+
+        $i0 = $i0 | 128;
+
+     label08:
+        if $i3 >= 4 goto label15;
+
+        $i4 = $i4 << 8;
+
+        $i4 = $i0 | $i4;
+
+        $i3 = $i3 + 1;
+
+     label09:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i5 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i5 goto label10;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 != 0 goto label10;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOF(java.lang.String)>(" in field name");
+
+     label10:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i5 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i5 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        $b2 = $r2[$i5];
+
+        $i0 = $b2 & 255;
+
+        goto label03;
+
+     label11:
+        $i0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: char _decodeEscaped()>();
+
+        goto label04;
+
+     label12:
+        $i3 = $i5 << 8;
+
+        $i5 = $i0 >> 12;
+
+        $i5 = $i5 | 224;
+
+        $i3 = $i3 | $i5;
+
+        $i4 = $i4 + 1;
+
+        if $i4 < 4 goto label22;
+
+        $i4 = lengthof $r4;
+
+        if $i1 < $i4 goto label13;
+
+        $i4 = lengthof $r4;
+
+        $r5 = staticinvoke <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] growArrayBy(int[],int)>($r4, $i4);
+
+        $r4 = $r5;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r5;
+
+     label13:
+        $r4[$i1] = $i3;
+
+        $i1 = $i1 + 1;
+
+        $i3 = 0;
+
+        $i5 = 0;
+
+     label14:
+        $i4 = $i5 << 8;
+
+        $i5 = $i0 >> 6;
+
+        $i5 = $i5 & 63;
+
+        $i5 = $i5 | 128;
+
+        $i4 = $i4 | $i5;
+
+        $i3 = $i3 + 1;
+
+        goto label07;
+
+     label15:
+        $i3 = lengthof $r4;
+
+        if $i1 < $i3 goto label16;
+
+        $i3 = lengthof $r4;
+
+        $r5 = staticinvoke <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] growArrayBy(int[],int)>($r4, $i3);
+
+        $r4 = $r5;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r5;
+
+     label16:
+        $r4[$i1] = $i4;
+
+        $i3 = 1;
+
+        $i4 = $i0;
+
+        $i1 = $i1 + 1;
+
+        goto label09;
+
+     label17:
+        if $i3 <= 0 goto label21;
+
+        $i0 = lengthof $r4;
+
+        if $i1 < $i0 goto label18;
+
+        $i0 = lengthof $r4;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] growArrayBy(int[],int)>($r4, $i0);
+
+        $r4 = $r1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r1;
+
+     label18:
+        $r4[$i1] = $i4;
+
+        $r1 = $r4;
+
+        $i0 = $i1 + 1;
+
+     label19:
+        $r6 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _symbols>;
+
+        $r3 = virtualinvoke $r6.<com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: com.fasterxml.jackson.core.sym.Name findName(int[],int)>($r1, $i0);
+
+        if $r3 != null goto label20;
+
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name addName(int[],int,int)>($r1, $i0, $i3);
+
+     label20:
+        return $r3;
+
+     label21:
+        $r1 = $r4;
+
+        $i0 = $i1;
+
+        goto label19;
+
+     label22:
+        $i5 = $i3;
+
+        $i3 = $i4;
+
+        goto label14;
+
+     label23:
+        $i5 = $i4;
+
+        $i4 = $i3;
+
+        goto label06;
+
+     label24:
+        goto label08;
+    }
+
+    protected final com.fasterxml.jackson.core.sym.Name _parseFieldName(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i5;
+        com.fasterxml.jackson.core.sym.Name $r1;
+        byte[] $r2;
+        int[] $r3;
+        byte $b2;
+        short $s3, $s4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        if $i0 == 34 goto label01;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name _handleUnusualFieldName(int)>($i0);
+
+        return $r1;
+
+     label01:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i0 + 9;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 <= $i1 goto label02;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name slowParseFieldName()>();
+
+        return $r1;
+
+     label02:
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $r3 = <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] sInputCodesLatin1>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $b2 = $r2[$i0];
+
+        $s3 = $b2 & 255;
+
+        $i0 = $r3[$s3];
+
+        if $i0 != 0 goto label11;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $b2 = $r2[$i0];
+
+        $s4 = $b2 & 255;
+
+        $i0 = $r3[$s4];
+
+        if $i0 != 0 goto label09;
+
+        $i0 = $s3 << 8;
+
+        $i0 = $i0 | $s4;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i5 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i5;
+
+        $b2 = $r2[$i1];
+
+        $s3 = $b2 & 255;
+
+        $i1 = $r3[$s3];
+
+        if $i1 != 0 goto label07;
+
+        $i0 = $i0 << 8;
+
+        $i0 = $i0 | $s3;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i5 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i5;
+
+        $b2 = $r2[$i1];
+
+        $s3 = $b2 & 255;
+
+        $i1 = $r3[$s3];
+
+        if $i1 != 0 goto label05;
+
+        $i0 = $i0 << 8;
+
+        $i0 = $i0 | $s3;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i5 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i5;
+
+        $b2 = $r2[$i1];
+
+        $s3 = $b2 & 255;
+
+        $i1 = $r3[$s3];
+
+        if $i1 != 0 goto label03;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _quad1> = $i0;
+
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseMediumFieldName(int,int[])>($s3, $r3);
+
+        return $r1;
+
+     label03:
+        if $s3 != 34 goto label04;
+
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name findName(int,int)>($i0, 4);
+
+        return $r1;
+
+     label04:
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseFieldName(int,int,int)>($i0, $s3, 4);
+
+        return $r1;
+
+     label05:
+        if $s3 != 34 goto label06;
+
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name findName(int,int)>($i0, 3);
+
+        return $r1;
+
+     label06:
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseFieldName(int,int,int)>($i0, $s3, 3);
+
+        return $r1;
+
+     label07:
+        if $s3 != 34 goto label08;
+
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name findName(int,int)>($i0, 2);
+
+        return $r1;
+
+     label08:
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseFieldName(int,int,int)>($i0, $s3, 2);
+
+        return $r1;
+
+     label09:
+        if $s4 != 34 goto label10;
+
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name findName(int,int)>($s3, 1);
+
+        return $r1;
+
+     label10:
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseFieldName(int,int,int)>($s3, $s4, 1);
+
+        return $r1;
+
+     label11:
+        if $s3 != 34 goto label12;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: com.fasterxml.jackson.core.sym.Name getEmptyName()>();
+
+        return $r1;
+
+     label12:
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseFieldName(int,int,int)>(0, $s3, 0);
+
+        return $r1;
+    }
+
+    protected final void _releaseBuffers()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        boolean $z0;
+        byte[] $r1;
+        com.fasterxml.jackson.core.io.IOContext $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.base.ParserBase: void _releaseBuffers()>();
+
+        $z0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _bufferRecyclable>;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        if $r1 == null goto label1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer> = null;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.io.IOContext _ioContext>;
+
+        virtualinvoke $r2.<com.fasterxml.jackson.core.io.IOContext: void releaseReadIOBuffer(byte[])>($r1);
+
+     label1:
+        return;
+    }
+
+    protected final void _reportInvalidChar(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        if $i0 >= 32 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _throwInvalidSpace(int)>($i0);
+
+     label1:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidInitial(int)>($i0);
+
+        return;
+    }
+
+    protected final void _reportInvalidInitial(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("Invalid UTF-8 start byte 0x");
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportError(java.lang.String)>($r2);
+
+        return;
+    }
+
+    protected final void _reportInvalidOther(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("Invalid UTF-8 middle byte 0x");
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportError(java.lang.String)>($r2);
+
+        return;
+    }
+
+    protected final void _reportInvalidOther(int, int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidOther(int)>($i0);
+
+        return;
+    }
+
+    protected final void _reportInvalidToken(java.lang.String, java.lang.String)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        java.lang.String $r1, $r2;
+        int $i0, $i1;
+        java.lang.StringBuilder $r3, $r5;
+        boolean $z0;
+        byte[] $r4;
+        byte $b2;
+        char $c3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+     label1:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label2;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 == 0 goto label3;
+
+     label2:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        $b2 = $r4[$i1];
+
+        $i0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _decodeCharForError(int)>($b2);
+
+        $c3 = (char) $i0;
+
+        $z0 = staticinvoke <java.lang.Character: boolean isJavaIdentifierPart(char)>($c3);
+
+        if $z0 == 0 goto label3;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c3);
+
+        goto label1;
+
+     label3:
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Unrecognized token \'");
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r3 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\': was expecting ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportError(java.lang.String)>($r1);
+
+        return;
+    }
+
+    protected final void _skipCR()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        boolean $z0;
+        int $i0, $i1;
+        byte[] $r1;
+        byte $b2;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i1 goto label1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $b2 = $r1[$i0];
+
+        if $b2 != 10 goto label2;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+     label2:
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _currInputRow>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _currInputRow> = $i0;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _currInputRowStart> = $i0;
+
+        return;
+    }
+
+    protected final void _skipLF()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _currInputRow>;
+
+        $i0 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _currInputRow> = $i0;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _currInputRowStart> = $i0;
+
+        return;
+    }
+
+    protected final void _skipString()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2;
+        int[] $r1;
+        byte[] $r2;
+        byte $b3;
+        short $s4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete> = 0;
+
+        $r1 = <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] sInputCodesUtf8>;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+     label01:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i2 goto label02;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+     label02:
+        if $i1 >= $i2 goto label04;
+
+        $i0 = $i1 + 1;
+
+        $b3 = $r2[$i1];
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r1[$s4];
+
+        if $i1 == 0 goto label11;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i0;
+
+        if $s4 == 34 goto label10;
+
+        $i0 = $r1[$s4];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label05;
+            case 2: goto label06;
+            case 3: goto label07;
+            case 4: goto label08;
+            default: goto label03;
+        };
+
+     label03:
+        if $s4 >= 32 goto label09;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _throwUnquotedSpace(int,java.lang.String)>($s4, "string value");
+
+        goto label01;
+
+     label04:
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        goto label01;
+
+     label05:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: char _decodeEscaped()>();
+
+        goto label01;
+
+     label06:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipUtf8_2(int)>($s4);
+
+        goto label01;
+
+     label07:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipUtf8_3(int)>($s4);
+
+        goto label01;
+
+     label08:
+        specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipUtf8_4(int)>($s4);
+
+        goto label01;
+
+     label09:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidChar(int)>($s4);
+
+        goto label01;
+
+     label10:
+        return;
+
+     label11:
+        $i1 = $i0;
+
+        goto label02;
+    }
+
+    public final void close()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer $r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        specialinvoke $r0.<com.fasterxml.jackson.core.base.ParserBase: void close()>();
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _symbols>;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: void release()>();
+
+        return;
+    }
+
+    public final byte[] getBinaryValue(com.fasterxml.jackson.core.Base64Variant)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        com.fasterxml.jackson.core.Base64Variant $r1;
+        com.fasterxml.jackson.core.JsonToken $r2, $r3;
+        byte[] $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r6;
+        boolean $z0;
+        java.lang.IllegalArgumentException $r7;
+        com.fasterxml.jackson.core.JsonParseException $r8;
+        com.fasterxml.jackson.core.util.ByteArrayBuilder $r9;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.Base64Variant;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        $r3 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        if $r2 == $r3 goto label2;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        $r3 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_EMBEDDED_OBJECT>;
+
+        if $r2 != $r3 goto label1;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _binaryValue>;
+
+        if $r4 != null goto label2;
+
+     label1:
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Current token (");
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") not VALUE_STRING or VALUE_EMBEDDED_OBJECT, can not access as binary");
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportError(java.lang.String)>($r6);
+
+     label2:
+        $z0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete>;
+
+        if $z0 == 0 goto label7;
+
+     label3:
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _decodeBase64(com.fasterxml.jackson.core.Base64Variant)>($r1);
+
+     label4:
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _binaryValue> = $r4;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete> = 0;
+
+     label5:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _binaryValue>;
+
+        return $r4;
+
+     label6:
+        $r7 := @caughtexception;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Failed to decode VALUE_STRING as base64 (");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r1);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("): ");
+
+        $r6 = virtualinvoke $r7.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r8 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonParseException _constructError(java.lang.String)>($r6);
+
+        throw $r8;
+
+     label7:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _binaryValue>;
+
+        if $r4 != null goto label5;
+
+        $r9 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.ByteArrayBuilder _getByteArrayBuilder()>();
+
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: java.lang.String getText()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _decodeBase64(java.lang.String,com.fasterxml.jackson.core.util.ByteArrayBuilder,com.fasterxml.jackson.core.Base64Variant)>($r6, $r9, $r1);
+
+        $r4 = virtualinvoke $r9.<com.fasterxml.jackson.core.util.ByteArrayBuilder: byte[] toByteArray()>();
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _binaryValue> = $r4;
+
+        goto label5;
+
+        catch java.lang.IllegalArgumentException from label3 to label4 with label6;
+    }
+
+    public final com.fasterxml.jackson.core.ObjectCodec getCodec()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        com.fasterxml.jackson.core.ObjectCodec r1;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.ObjectCodec _objectCodec>;
+
+        return r1;
+    }
+
+    public final java.lang.Object getEmbeddedObject()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        return null;
+    }
+
+    public final java.lang.String getText()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        com.fasterxml.jackson.core.JsonToken $r1, $r2;
+        boolean $z0;
+        com.fasterxml.jackson.core.util.TextBuffer $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        if $r2 != $r1 goto label2;
+
+        $z0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete>;
+
+        if $z0 == 0 goto label1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete> = 0;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _finishString()>();
+
+     label1:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r4 = virtualinvoke $r3.<com.fasterxml.jackson.core.util.TextBuffer: java.lang.String contentsAsString()>();
+
+        return $r4;
+
+     label2:
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: java.lang.String _getText2(com.fasterxml.jackson.core.JsonToken)>($r2);
+
+        return $r4;
+    }
+
+    public final char[] getTextCharacters()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        com.fasterxml.jackson.core.JsonToken $r1;
+        int[] $r2;
+        int $i0, $i1;
+        char[] $r3;
+        boolean $z0;
+        com.fasterxml.jackson.core.json.JsonReadContext $r4;
+        java.lang.String $r5;
+        com.fasterxml.jackson.core.io.IOContext $r6;
+        com.fasterxml.jackson.core.util.TextBuffer $r7;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        if $r1 == null goto label8;
+
+        $r2 = <com.fasterxml.jackson.core.json.UTF8StreamJsonParser$1: int[] $SwitchMap$com$fasterxml$jackson$core$JsonToken>;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonToken: int ordinal()>();
+
+        $i0 = $r2[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label2;
+            case 2: goto label6;
+            case 3: goto label7;
+            case 4: goto label7;
+            default: goto label1;
+        };
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonToken: char[] asCharArray()>();
+
+        return $r3;
+
+     label2:
+        $z0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _nameCopied>;
+
+        if $z0 != 0 goto label4;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $r5 = virtualinvoke $r4.<com.fasterxml.jackson.core.json.JsonReadContext: java.lang.String getCurrentName()>();
+
+        $i0 = virtualinvoke $r5.<java.lang.String: int length()>();
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: char[] _nameCopyBuffer>;
+
+        if $r3 != null goto label5;
+
+        $r6 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.io.IOContext _ioContext>;
+
+        $r3 = virtualinvoke $r6.<com.fasterxml.jackson.core.io.IOContext: char[] allocNameCopyBuffer(int)>($i0);
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: char[] _nameCopyBuffer> = $r3;
+
+     label3:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: char[] _nameCopyBuffer>;
+
+        virtualinvoke $r5.<java.lang.String: void getChars(int,int,char[],int)>(0, $i0, $r3, 0);
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _nameCopied> = 1;
+
+     label4:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: char[] _nameCopyBuffer>;
+
+        return $r3;
+
+     label5:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: char[] _nameCopyBuffer>;
+
+        $i1 = lengthof $r3;
+
+        if $i1 >= $i0 goto label3;
+
+        $r3 = newarray (char)[$i0];
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: char[] _nameCopyBuffer> = $r3;
+
+        goto label3;
+
+     label6:
+        $z0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete>;
+
+        if $z0 == 0 goto label7;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete> = 0;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _finishString()>();
+
+     label7:
+        $r7 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r3 = virtualinvoke $r7.<com.fasterxml.jackson.core.util.TextBuffer: char[] getTextBuffer()>();
+
+        return $r3;
+
+     label8:
+        return null;
+    }
+
+    public final int getTextLength()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        com.fasterxml.jackson.core.JsonToken $r1;
+        int[] $r2;
+        int $i0;
+        char[] $r3;
+        com.fasterxml.jackson.core.json.JsonReadContext $r4;
+        java.lang.String $r5;
+        boolean $z0;
+        com.fasterxml.jackson.core.util.TextBuffer $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        if $r1 == null goto label5;
+
+        $r2 = <com.fasterxml.jackson.core.json.UTF8StreamJsonParser$1: int[] $SwitchMap$com$fasterxml$jackson$core$JsonToken>;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonToken: int ordinal()>();
+
+        $i0 = $r2[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label2;
+            case 2: goto label3;
+            case 3: goto label4;
+            case 4: goto label4;
+            default: goto label1;
+        };
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonToken: char[] asCharArray()>();
+
+        $i0 = lengthof $r3;
+
+        return $i0;
+
+     label2:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $r5 = virtualinvoke $r4.<com.fasterxml.jackson.core.json.JsonReadContext: java.lang.String getCurrentName()>();
+
+        $i0 = virtualinvoke $r5.<java.lang.String: int length()>();
+
+        return $i0;
+
+     label3:
+        $z0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete>;
+
+        if $z0 == 0 goto label4;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete> = 0;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _finishString()>();
+
+     label4:
+        $r6 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $i0 = virtualinvoke $r6.<com.fasterxml.jackson.core.util.TextBuffer: int size()>();
+
+        return $i0;
+
+     label5:
+        return 0;
+    }
+
+    public final int getTextOffset()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        com.fasterxml.jackson.core.JsonToken $r1;
+        int[] $r2;
+        int $i0;
+        boolean $z0;
+        com.fasterxml.jackson.core.util.TextBuffer $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        if $r1 == null goto label4;
+
+        $r2 = <com.fasterxml.jackson.core.json.UTF8StreamJsonParser$1: int[] $SwitchMap$com$fasterxml$jackson$core$JsonToken>;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        $i0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonToken: int ordinal()>();
+
+        $i0 = $r2[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label1;
+            case 2: goto label2;
+            case 3: goto label3;
+            case 4: goto label3;
+            default: goto label1;
+        };
+
+     label1:
+        return 0;
+
+     label2:
+        $z0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete>;
+
+        if $z0 == 0 goto label3;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete> = 0;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _finishString()>();
+
+     label3:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $i0 = virtualinvoke $r3.<com.fasterxml.jackson.core.util.TextBuffer: int getTextOffset()>();
+
+        return $i0;
+
+     label4:
+        return 0;
+    }
+
+    protected final boolean loadMore()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        long $l0, $l1;
+        int $i2, $i3;
+        java.io.InputStream $r1;
+        byte[] $r2, $r3;
+        java.io.IOException $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $l1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: long _currInputProcessed>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        $l0 = (long) $i2;
+
+        $l0 = $l1 + $l0;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: long _currInputProcessed> = $l0;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _currInputRowStart>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        $i2 = $i2 - $i3;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _currInputRowStart> = $i2;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: java.io.InputStream _inputStream>;
+
+        if $r1 == null goto label2;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: java.io.InputStream _inputStream>;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i2 = lengthof $r3;
+
+        $i2 = virtualinvoke $r1.<java.io.InputStream: int read(byte[],int,int)>($r2, 0, $i2);
+
+        if $i2 <= 0 goto label1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = 0;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd> = $i2;
+
+        return 1;
+
+     label1:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _closeInput()>();
+
+        if $i2 != 0 goto label2;
+
+        $r4 = new java.io.IOException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("InputStream.read() returned 0 characters when trying to read ");
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i2 = lengthof $r2;
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i2);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes");
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.io.IOException: void <init>(java.lang.String)>($r6);
+
+        throw $r4;
+
+     label2:
+        return 0;
+    }
+
+    public final com.fasterxml.jackson.core.JsonToken nextToken()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2, $i5;
+        com.fasterxml.jackson.core.JsonToken $r1, $r2;
+        boolean $z0;
+        long $l3, $l4;
+        com.fasterxml.jackson.core.json.JsonReadContext $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r5;
+        com.fasterxml.jackson.core.sym.Name $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _numTypesValid> = 0;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        $r2 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken FIELD_NAME>;
+
+        if $r1 != $r2 goto label01;
+
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _nextAfterName()>();
+
+        return $r1;
+
+     label01:
+        $z0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete>;
+
+        if $z0 == 0 goto label02;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _skipString()>();
+
+     label02:
+        $i1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _skipWSOrEnd()>();
+
+        $i2 = $i1;
+
+        if $i1 >= 0 goto label03;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void close()>();
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = null;
+
+        return null;
+
+     label03:
+        $l3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: long _currInputProcessed>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $l4 = (long) $i0;
+
+        $l3 = $l3 + $l4;
+
+        $l3 = $l3 - 1L;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: long _tokenInputTotal> = $l3;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _currInputRow>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _tokenInputRow> = $i0;
+
+        $i5 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _currInputRowStart>;
+
+        $i0 = $i5 - $i0;
+
+        $i0 = $i0 + -1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _tokenInputCol> = $i0;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _binaryValue> = null;
+
+        if $i1 != 93 goto label05;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonReadContext: boolean inArray()>();
+
+        if $z0 != 0 goto label04;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportMismatchedEndMarker(int,char)>($i1, 125);
+
+     label04:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $r3 = virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonReadContext: com.fasterxml.jackson.core.json.JsonReadContext getParent()>();
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext> = $r3;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken END_ARRAY>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = $r1;
+
+        return $r1;
+
+     label05:
+        if $i1 != 125 goto label07;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonReadContext: boolean inObject()>();
+
+        if $z0 != 0 goto label06;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportMismatchedEndMarker(int,char)>($i1, 93);
+
+     label06:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $r3 = virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonReadContext: com.fasterxml.jackson.core.json.JsonReadContext getParent()>();
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext> = $r3;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken END_OBJECT>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = $r1;
+
+        return $r1;
+
+     label07:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonReadContext: boolean expectComma()>();
+
+        if $z0 == 0 goto label09;
+
+        if $i1 == 44 goto label08;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("was expecting comma to separate ");
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $r5 = virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonReadContext: java.lang.String getTypeDesc()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" entries");
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportUnexpectedChar(int,java.lang.String)>($i1, $r5);
+
+     label08:
+        $i2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _skipWS()>();
+
+     label09:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $z0 = virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonReadContext: boolean inObject()>();
+
+        if $z0 != 0 goto label10;
+
+        $r1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _nextTokenNotInObject(int)>($i2);
+
+        return $r1;
+
+     label10:
+        $r6 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name _parseFieldName(int)>($i2);
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.json.JsonReadContext _parsingContext>;
+
+        $r5 = virtualinvoke $r6.<com.fasterxml.jackson.core.sym.Name: java.lang.String getName()>();
+
+        virtualinvoke $r3.<com.fasterxml.jackson.core.json.JsonReadContext: void setCurrentName(java.lang.String)>($r5);
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken FIELD_NAME>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken> = $r1;
+
+        $i1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _skipWS()>();
+
+        if $i1 == 58 goto label11;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportUnexpectedChar(int,java.lang.String)>($i1, "was expecting a colon to separate field name and value");
+
+     label11:
+        $i1 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _skipWS()>();
+
+        if $i1 != 34 goto label12;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean _tokenIncomplete> = 1;
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _nextToken> = $r1;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        return $r1;
+
+     label12:
+        lookupswitch($i1)
+        {
+            case 45: goto label21;
+            case 48: goto label21;
+            case 49: goto label21;
+            case 50: goto label21;
+            case 51: goto label21;
+            case 52: goto label21;
+            case 53: goto label21;
+            case 54: goto label21;
+            case 55: goto label21;
+            case 56: goto label21;
+            case 57: goto label21;
+            case 91: goto label15;
+            case 93: goto label17;
+            case 102: goto label19;
+            case 110: goto label20;
+            case 116: goto label18;
+            case 123: goto label16;
+            case 125: goto label17;
+            default: goto label13;
+        };
+
+     label13:
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _handleUnexpectedValue(int)>($i1);
+
+     label14:
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _nextToken> = $r1;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _currToken>;
+
+        return $r1;
+
+     label15:
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken START_ARRAY>;
+
+        goto label14;
+
+     label16:
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken START_OBJECT>;
+
+        goto label14;
+
+     label17:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportUnexpectedChar(int,java.lang.String)>($i1, "expected a value");
+
+     label18:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _matchToken(java.lang.String,int)>("true", 1);
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_TRUE>;
+
+        goto label14;
+
+     label19:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _matchToken(java.lang.String,int)>("false", 1);
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_FALSE>;
+
+        goto label14;
+
+     label20:
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _matchToken(java.lang.String,int)>("null", 1);
+
+        $r1 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_NULL>;
+
+        goto label14;
+
+     label21:
+        $r1 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken parseNumberText(int)>($i1);
+
+        goto label14;
+    }
+
+    protected final com.fasterxml.jackson.core.sym.Name parseEscapedFieldName(int[], int, int, int, int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int[] $r1, $r2, $r3;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        boolean $z0;
+        byte[] $r4;
+        byte $b6;
+        com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer $r5;
+        com.fasterxml.jackson.core.sym.Name $r6;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $r2 := @parameter0: int[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 := @parameter3: int;
+
+        $i3 := @parameter4: int;
+
+        $r1 = <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] sInputCodesLatin1>;
+
+     label01:
+        $i4 = $r1[$i2];
+
+        if $i4 == 0 goto label20;
+
+        if $i2 == 34 goto label15;
+
+        if $i2 == 92 goto label09;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _throwUnquotedSpace(int,java.lang.String)>($i2, "name");
+
+     label02:
+        if $i2 <= 127 goto label20;
+
+        if $i3 < 4 goto label19;
+
+        $i3 = lengthof $r2;
+
+        if $i0 < $i3 goto label03;
+
+        $i3 = lengthof $r2;
+
+        $r3 = staticinvoke <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] growArrayBy(int[],int)>($r2, $i3);
+
+        $r2 = $r3;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r3;
+
+     label03:
+        $i4 = $i0 + 1;
+
+        $r2[$i0] = $i1;
+
+        $i3 = 0;
+
+        $i1 = 0;
+
+     label04:
+        if $i2 >= 2048 goto label10;
+
+        $i0 = $i1 << 8;
+
+        $i1 = $i2 >> 6;
+
+        $i1 = $i1 | 192;
+
+        $i5 = $i1 | $i0;
+
+        $i3 = $i3 + 1;
+
+     label05:
+        $i0 = $i2 & 63;
+
+        $i1 = $i0 | 128;
+
+        $i0 = $i4;
+
+        $i4 = $i5;
+
+     label06:
+        if $i3 >= 4 goto label13;
+
+        $i3 = $i3 + 1;
+
+        $i2 = $i4 << 8;
+
+        $i1 = $i1 | $i2;
+
+     label07:
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i2 < $i4 goto label08;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 != 0 goto label08;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOF(java.lang.String)>(" in field name");
+
+     label08:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $i2 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i4;
+
+        $b6 = $r4[$i2];
+
+        $i2 = $b6 & 255;
+
+        goto label01;
+
+     label09:
+        $i2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: char _decodeEscaped()>();
+
+        goto label02;
+
+     label10:
+        $i0 = $i1 << 8;
+
+        $i1 = $i2 >> 12;
+
+        $i1 = $i1 | 224;
+
+        $i0 = $i1 | $i0;
+
+        $i1 = $i3 + 1;
+
+        if $i1 < 4 goto label18;
+
+        $i1 = lengthof $r2;
+
+        if $i4 < $i1 goto label11;
+
+        $i1 = lengthof $r2;
+
+        $r3 = staticinvoke <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] growArrayBy(int[],int)>($r2, $i1);
+
+        $r2 = $r3;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r3;
+
+     label11:
+        $r2[$i4] = $i0;
+
+        $i0 = $i4 + 1;
+
+        $i1 = 0;
+
+        $i3 = 0;
+
+     label12:
+        $i3 = $i3 << 8;
+
+        $i4 = $i2 >> 6;
+
+        $i4 = $i4 & 63;
+
+        $i4 = $i4 | 128;
+
+        $i5 = $i3 | $i4;
+
+        $i3 = $i1 + 1;
+
+        $i4 = $i0;
+
+        goto label05;
+
+     label13:
+        $i2 = lengthof $r2;
+
+        if $i0 < $i2 goto label14;
+
+        $i2 = lengthof $r2;
+
+        $r3 = staticinvoke <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] growArrayBy(int[],int)>($r2, $i2);
+
+        $r2 = $r3;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r3;
+
+     label14:
+        $r2[$i0] = $i4;
+
+        $i3 = 1;
+
+        $i0 = $i0 + 1;
+
+        goto label07;
+
+     label15:
+        if $i3 <= 0 goto label17;
+
+        $i2 = lengthof $r2;
+
+        if $i0 < $i2 goto label16;
+
+        $i2 = lengthof $r2;
+
+        $r1 = staticinvoke <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] growArrayBy(int[],int)>($r2, $i2);
+
+        $r2 = $r1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r1;
+
+     label16:
+        $r2[$i0] = $i1;
+
+        $i0 = $i0 + 1;
+
+     label17:
+        $r5 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer _symbols>;
+
+        $r6 = virtualinvoke $r5.<com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: com.fasterxml.jackson.core.sym.Name findName(int[],int)>($r2, $i0);
+
+        if $r6 != null goto label21;
+
+        $r6 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name addName(int[],int,int)>($r2, $i0, $i3);
+
+        return $r6;
+
+     label18:
+        $i3 = $i0;
+
+        $i0 = $i4;
+
+        goto label12;
+
+     label19:
+        $i4 = $i0;
+
+        goto label04;
+
+     label20:
+        $i4 = $i1;
+
+        $i1 = $i2;
+
+        goto label06;
+
+     label21:
+        return $r6;
+    }
+
+    protected final com.fasterxml.jackson.core.sym.Name parseLongFieldName(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i2, $i3, $i4;
+        short $s1;
+        int[] $r1, $r4;
+        com.fasterxml.jackson.core.sym.Name $r2;
+        byte[] $r3;
+        byte $b5;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $r1 = <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] sInputCodesLatin1>;
+
+        $i2 = 2;
+
+     label01:
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        $i4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i3 = $i3 - $i4;
+
+        if $i3 >= 4 goto label02;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseEscapedFieldName(int[],int,int,int,int)>($r1, $i2, 0, $i0, 0);
+
+        return $r2;
+
+     label02:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $i3 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i4;
+
+        $b5 = $r3[$i3];
+
+        $s1 = $b5 & 255;
+
+        $i3 = $r1[$s1];
+
+        if $i3 == 0 goto label04;
+
+        if $s1 != 34 goto label03;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name findName(int[],int,int,int)>($r1, $i2, $i0, 1);
+
+        return $r2;
+
+     label03:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseEscapedFieldName(int[],int,int,int,int)>($r1, $i2, $i0, $s1, 1);
+
+        return $r2;
+
+     label04:
+        $i0 = $i0 << 8;
+
+        $i0 = $i0 | $s1;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $i3 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i4;
+
+        $b5 = $r3[$i3];
+
+        $s1 = $b5 & 255;
+
+        $i3 = $r1[$s1];
+
+        if $i3 == 0 goto label06;
+
+        if $s1 != 34 goto label05;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name findName(int[],int,int,int)>($r1, $i2, $i0, 2);
+
+        return $r2;
+
+     label05:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseEscapedFieldName(int[],int,int,int,int)>($r1, $i2, $i0, $s1, 2);
+
+        return $r2;
+
+     label06:
+        $i0 = $i0 << 8;
+
+        $i0 = $i0 | $s1;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $i3 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i4;
+
+        $b5 = $r3[$i3];
+
+        $s1 = $b5 & 255;
+
+        $i3 = $r1[$s1];
+
+        if $i3 == 0 goto label08;
+
+        if $s1 != 34 goto label07;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name findName(int[],int,int,int)>($r1, $i2, $i0, 3);
+
+        return $r2;
+
+     label07:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseEscapedFieldName(int[],int,int,int,int)>($r1, $i2, $i0, $s1, 3);
+
+        return $r2;
+
+     label08:
+        $i0 = $i0 << 8;
+
+        $i3 = $i0 | $s1;
+
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i4 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i4;
+
+        $b5 = $r3[$i0];
+
+        $i0 = $b5 & 255;
+
+        $i4 = $r1[$i0];
+
+        if $i4 == 0 goto label10;
+
+        if $i0 != 34 goto label09;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name findName(int[],int,int,int)>($r1, $i2, $i3, 4);
+
+        return $r2;
+
+     label09:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseEscapedFieldName(int[],int,int,int,int)>($r1, $i2, $i3, $i0, 4);
+
+        return $r2;
+
+     label10:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $i4 = lengthof $r4;
+
+        if $i2 < $i4 goto label11;
+
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r4 = staticinvoke <com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] growArrayBy(int[],int)>($r4, $i2);
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer> = $r4;
+
+     label11:
+        $r4 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r4[$i2] = $i3;
+
+        $i2 = $i2 + 1;
+
+        goto label01;
+    }
+
+    protected final com.fasterxml.jackson.core.sym.Name parseMediumFieldName(int, int[])
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2;
+        int[] $r1;
+        byte[] $r2;
+        byte $b3;
+        short $s4;
+        com.fasterxml.jackson.core.sym.Name $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: int[];
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r2[$i1];
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r1[$s4];
+
+        if $i1 == 0 goto label2;
+
+        if $s4 != 34 goto label1;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _quad1>;
+
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name findName(int,int,int)>($i1, $i0, 1);
+
+        return $r3;
+
+     label1:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _quad1>;
+
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseFieldName(int,int,int,int)>($i1, $i0, $s4, 1);
+
+        return $r3;
+
+     label2:
+        $i0 = $i0 << 8;
+
+        $i0 = $s4 | $i0;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r2[$i1];
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r1[$s4];
+
+        if $i1 == 0 goto label4;
+
+        if $s4 != 34 goto label3;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _quad1>;
+
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name findName(int,int,int)>($i1, $i0, 2);
+
+        return $r3;
+
+     label3:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _quad1>;
+
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseFieldName(int,int,int,int)>($i1, $i0, $s4, 2);
+
+        return $r3;
+
+     label4:
+        $i0 = $i0 << 8;
+
+        $i0 = $i0 | $s4;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r2[$i1];
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r1[$s4];
+
+        if $i1 == 0 goto label6;
+
+        if $s4 != 34 goto label5;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _quad1>;
+
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name findName(int,int,int)>($i1, $i0, 3);
+
+        return $r3;
+
+     label5:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _quad1>;
+
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseFieldName(int,int,int,int)>($i1, $i0, $s4, 3);
+
+        return $r3;
+
+     label6:
+        $i0 = $i0 << 8;
+
+        $i0 = $i0 | $s4;
+
+        $r2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r2[$i1];
+
+        $s4 = $b3 & 255;
+
+        $i1 = $r1[$s4];
+
+        if $i1 == 0 goto label8;
+
+        if $s4 != 34 goto label7;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _quad1>;
+
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name findName(int,int,int)>($i1, $i0, 4);
+
+        return $r3;
+
+     label7:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _quad1>;
+
+        $r3 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseFieldName(int,int,int,int)>($i1, $i0, $s4, 4);
+
+        return $r3;
+
+     label8:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _quad1>;
+
+        $r1[0] = $i1;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r1[1] = $i0;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseLongFieldName(int)>($s4);
+
+        return $r3;
+    }
+
+    protected final com.fasterxml.jackson.core.JsonToken parseNumberText(int)
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        int $i0, $i1, $i2, $i3, $i6;
+        com.fasterxml.jackson.core.util.TextBuffer $r1;
+        char[] $r2;
+        boolean $z0;
+        byte[] $r3;
+        byte $b4;
+        com.fasterxml.jackson.core.JsonToken $r4;
+        char $c5;
+        short $s7;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i0 := @parameter0: int;
+
+        $i2 = 1;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        $r2 = virtualinvoke $r1.<com.fasterxml.jackson.core.util.TextBuffer: char[] emptyAndGetCurrentSegment()>();
+
+        if $i0 != 45 goto label04;
+
+        $z0 = 1;
+
+     label01:
+        if $z0 == 0 goto label13;
+
+        $r2[0] = 45;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i0 < $i3 goto label02;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void loadMoreGuaranteed()>();
+
+     label02:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i0 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i3 = $i0 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i3;
+
+        $b4 = $r3[$i0];
+
+        $i3 = $b4 & 255;
+
+        if $i3 < 48 goto label03;
+
+        if $i3 <= 57 goto label05;
+
+     label03:
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _handleInvalidNumberStart(int,boolean)>($i3, 1);
+
+        return $r4;
+
+     label04:
+        $z0 = 0;
+
+        goto label01;
+
+     label05:
+        $b4 = 1;
+
+     label06:
+        if $i3 != 48 goto label07;
+
+        $i3 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _verifyNoLeadingZeroes()>();
+
+     label07:
+        $i0 = $b4 + 1;
+
+        $c5 = (char) $i3;
+
+        $r2[$b4] = $c5;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = lengthof $r2;
+
+        $i3 = $i3 + $i1;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i3 <= $i1 goto label08;
+
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+     label08:
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        if $i1 < $i3 goto label09;
+
+        $r4 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _parserNumber2(char[],int,boolean,int)>($r2, $i0, $z0, $i2);
+
+        return $r4;
+
+     label09:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i6 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i1 = $i6 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i1;
+
+        $b4 = $r3[$i6];
+
+        $s7 = $b4 & 255;
+
+        if $s7 < 48 goto label10;
+
+        if $s7 > 57 goto label10;
+
+        $i2 = $i2 + 1;
+
+        $c5 = (char) $s7;
+
+        $r2[$i0] = $c5;
+
+        $i0 = $i0 + 1;
+
+        goto label08;
+
+     label10:
+        if $s7 == 46 goto label11;
+
+        if $s7 == 101 goto label11;
+
+        if $s7 != 69 goto label12;
+
+     label11:
+        $r4 = specialinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken _parseFloatText(char[],int,int,boolean,int)>($r2, $i0, $s7, $z0, $i2);
+
+        return $r4;
+
+     label12:
+        $i3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i3 = $i3 + -1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i3;
+
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.util.TextBuffer _textBuffer>;
+
+        virtualinvoke $r1.<com.fasterxml.jackson.core.util.TextBuffer: void setCurrentLength(int)>($i0);
+
+        $r4 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.JsonToken resetInt(boolean,int)>($z0, $i2);
+
+        return $r4;
+
+     label13:
+        $b4 = 0;
+
+        $i3 = $i0;
+
+        goto label06;
+    }
+
+    protected final com.fasterxml.jackson.core.sym.Name slowParseFieldName()
+    {
+        com.fasterxml.jackson.core.json.UTF8StreamJsonParser $r0;
+        short $s0;
+        int $i1, $i2;
+        boolean $z0;
+        byte[] $r1;
+        byte $b3;
+        com.fasterxml.jackson.core.sym.Name $r2;
+        int[] $r3;
+
+        $r0 := @this: com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputEnd>;
+
+        if $i1 < $i2 goto label1;
+
+        $z0 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: boolean loadMore()>();
+
+        if $z0 != 0 goto label1;
+
+        virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: void _reportInvalidEOF(java.lang.String)>(": was expecting closing \'\"\' for name");
+
+     label1:
+        $r1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: byte[] _inputBuffer>;
+
+        $i1 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr>;
+
+        $i2 = $i1 + 1;
+
+        $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int _inputPtr> = $i2;
+
+        $b3 = $r1[$i1];
+
+        $s0 = $b3 & 255;
+
+        if $s0 != 34 goto label2;
+
+        $r2 = staticinvoke <com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer: com.fasterxml.jackson.core.sym.Name getEmptyName()>();
+
+        return $r2;
+
+     label2:
+        $r3 = $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: int[] _quadBuffer>;
+
+        $r2 = virtualinvoke $r0.<com.fasterxml.jackson.core.json.UTF8StreamJsonParser: com.fasterxml.jackson.core.sym.Name parseEscapedFieldName(int[],int,int,int,int)>($r3, 0, 0, $s0, 0);
+
+        return $r2;
+    }
+}

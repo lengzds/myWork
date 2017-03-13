@@ -1,0 +1,1185 @@
+public final class com.speedsoftware.rootexplorer.fy extends android.support.v4.app.FragmentPagerAdapter implements android.support.v4.view.ViewPager$OnPageChangeListener, android.widget.TabHost$OnTabChangeListener
+{
+    final com.speedsoftware.rootexplorer.RootExplorer a;
+    private final android.content.Context b;
+    private final android.widget.TabHost c;
+    private final android.support.v4.view.ViewPager d;
+    private java.util.ArrayList e;
+    private boolean f;
+    private boolean g;
+    private int h;
+    private boolean i;
+
+    public void <init>(com.speedsoftware.rootexplorer.RootExplorer, android.support.v4.app.FragmentActivity, android.widget.TabHost, android.support.v4.view.ViewPager)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        com.speedsoftware.rootexplorer.RootExplorer $r1;
+        android.support.v4.app.FragmentActivity $r2;
+        android.widget.TabHost $r3;
+        android.support.v4.view.ViewPager $r4;
+        android.support.v4.app.FragmentManager $r5;
+        java.util.ArrayList $r6;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.RootExplorer;
+
+        $r2 := @parameter1: android.support.v4.app.FragmentActivity;
+
+        $r3 := @parameter2: android.widget.TabHost;
+
+        $r4 := @parameter3: android.support.v4.view.ViewPager;
+
+        $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a> = $r1;
+
+        $r5 = virtualinvoke $r2.<android.support.v4.app.FragmentActivity: android.support.v4.app.FragmentManager getSupportFragmentManager()>();
+
+        specialinvoke $r0.<android.support.v4.app.FragmentPagerAdapter: void <init>(android.support.v4.app.FragmentManager)>($r5);
+
+        $r6 = new java.util.ArrayList;
+
+        specialinvoke $r6.<java.util.ArrayList: void <init>()>();
+
+        $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e> = $r6;
+
+        $r0.<com.speedsoftware.rootexplorer.fy: boolean f> = 1;
+
+        $r0.<com.speedsoftware.rootexplorer.fy: boolean g> = 0;
+
+        $r0.<com.speedsoftware.rootexplorer.fy: int h> = 0;
+
+        $r0.<com.speedsoftware.rootexplorer.fy: boolean i> = 0;
+
+        $r0.<com.speedsoftware.rootexplorer.fy: android.content.Context b> = $r2;
+
+        $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c> = $r3;
+
+        $r0.<com.speedsoftware.rootexplorer.fy: android.support.v4.view.ViewPager d> = $r4;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        virtualinvoke $r3.<android.widget.TabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)>($r0);
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.fy: android.support.v4.view.ViewPager d>;
+
+        virtualinvoke $r4.<android.support.v4.view.ViewPager: void setAdapter(android.support.v4.view.PagerAdapter)>($r0);
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.fy: android.support.v4.view.ViewPager d>;
+
+        virtualinvoke $r4.<android.support.v4.view.ViewPager: void setOnPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener)>($r0);
+
+        return;
+    }
+
+    static android.widget.TabHost a(com.speedsoftware.rootexplorer.fy)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        android.widget.TabHost r1;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.fy;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        return r1;
+    }
+
+    static void a(com.speedsoftware.rootexplorer.fy, int)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        int $i0, $i1, $i2;
+        android.widget.TabHost $r1;
+        android.widget.TabWidget $r2;
+        android.view.View $r3, $r5;
+        com.speedsoftware.rootexplorer.RootExplorer $r4;
+        android.widget.HorizontalScrollView $r6;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.fy;
+
+        $i0 := @parameter1: int;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        $r2 = virtualinvoke $r1.<android.widget.TabHost: android.widget.TabWidget getTabWidget()>();
+
+        if $r2 == null goto label1;
+
+        $r3 = virtualinvoke $r2.<android.widget.TabWidget: android.view.View getChildAt(int)>($i0);
+
+        $i1 = virtualinvoke $r3.<android.view.View: int getMeasuredWidth()>();
+
+        if $i1 <= 0 goto label1;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r5 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.RootExplorer: android.view.View findViewById(int)>(2131492993);
+
+        $r6 = (android.widget.HorizontalScrollView) $r5;
+
+        $i1 = virtualinvoke $r6.<android.widget.HorizontalScrollView: int getWidth()>();
+
+        $i2 = virtualinvoke $r3.<android.view.View: int getMeasuredWidth()>();
+
+        $i0 = $i2 * $i0;
+
+        $i1 = $i1 / 3;
+
+        $i0 = $i0 - $i1;
+
+        virtualinvoke $r6.<android.widget.HorizontalScrollView: void smoothScrollTo(int,int)>($i0, 0);
+
+     label1:
+        return;
+    }
+
+    static java.util.ArrayList b(com.speedsoftware.rootexplorer.fy)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        java.util.ArrayList r1;
+
+        $r0 := @parameter0: com.speedsoftware.rootexplorer.fy;
+
+        r1 = $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e>;
+
+        return r1;
+    }
+
+    final void a()
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $r0.<com.speedsoftware.rootexplorer.fy: boolean f> = 0;
+
+        return;
+    }
+
+    public final void a(int)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        int $i0, $i1, $i2;
+        java.util.ArrayList $r1, $r7;
+        com.speedsoftware.rootexplorer.RootExplorer $r2;
+        android.support.v4.app.FragmentManager $r3;
+        android.support.v4.app.FragmentTransaction $r4;
+        android.support.v4.app.Fragment$SavedState[] $r5;
+        android.widget.TabHost $r6;
+        java.util.Iterator $r8;
+        boolean $z0;
+        com.speedsoftware.rootexplorer.r $r9;
+        com.speedsoftware.rootexplorer.s $r10;
+        com.speedsoftware.rootexplorer.bn $r11;
+        java.lang.String $r12;
+        java.lang.Object $r13;
+        com.speedsoftware.rootexplorer.gb $r14;
+        android.widget.TabHost$TabSpec $r15;
+        android.support.v4.app.Fragment$SavedState $r16;
+        java.lang.Throwable $r17;
+        java.lang.StringBuilder $r18;
+        java.lang.Class $r19;
+        android.os.Bundle $r20;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $i0 := @parameter0: int;
+
+        $i1 = 0;
+
+     label01:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e>;
+
+        $i2 = virtualinvoke $r1.<java.util.ArrayList: int size()>();
+
+        if $i1 < $i2 goto label14;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r3 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.FragmentManager getSupportFragmentManager()>();
+
+        $r4 = virtualinvoke $r3.<android.support.v4.app.FragmentManager: android.support.v4.app.FragmentTransaction beginTransaction()>();
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e>;
+
+        $i1 = virtualinvoke $r1.<java.util.ArrayList: int size()>();
+
+        $i1 = $i1 + -1;
+
+        $r5 = newarray (android.support.v4.app.Fragment$SavedState)[$i1];
+
+        $r2.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.Fragment$SavedState[] i> = $r5;
+
+        $i1 = $i0;
+
+     label02:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e>;
+
+        $i2 = virtualinvoke $r1.<java.util.ArrayList: int size()>();
+
+        if $i1 < $i2 goto label16;
+
+        virtualinvoke $r4.<android.support.v4.app.FragmentTransaction: int commit()>();
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        $i1 = virtualinvoke $r6.<android.widget.TabHost: int getCurrentTab()>();
+
+        $i2 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i2 >= 14 goto label03;
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        virtualinvoke $r6.<android.widget.TabHost: void setCurrentTab(int)>(0);
+
+     label03:
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $r7 = $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e>;
+
+        $r8 = virtualinvoke $r7.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label04:
+        $z0 = interfaceinvoke $r8.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label19;
+
+     label05:
+        $r0.<com.speedsoftware.rootexplorer.fy: boolean g> = 1;
+
+     label06:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r7 = $r2.<com.speedsoftware.rootexplorer.RootExplorer: java.util.ArrayList t>;
+
+        $i2 = virtualinvoke $r7.<java.util.ArrayList: int size()>();
+
+     label07:
+        if $i2 > $i0 goto label20;
+
+     label08:
+        $r6 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        virtualinvoke $r6.<android.widget.TabHost: void clearAllTabs()>();
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r7 = $r2.<com.speedsoftware.rootexplorer.RootExplorer: java.util.ArrayList t>;
+
+        $r8 = virtualinvoke $r7.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label09:
+        $z0 = interfaceinvoke $r8.<java.util.Iterator: boolean hasNext()>();
+
+     label10:
+        if $z0 != 0 goto label23;
+
+        $i0 = $i0 + 1;
+
+     label11:
+        $i2 = virtualinvoke $r1.<java.util.ArrayList: int size()>();
+
+     label12:
+        if $i0 < $i2 goto label25;
+
+        $r0.<com.speedsoftware.rootexplorer.fy: boolean g> = 0;
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 >= 14 goto label13;
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        virtualinvoke $r6.<android.widget.TabHost: void setCurrentTab(int)>($i1);
+
+     label13:
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.fy: void notifyDataSetChanged()>();
+
+        return;
+
+     label14:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r9 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: com.speedsoftware.rootexplorer.r a(com.speedsoftware.rootexplorer.RootExplorer,int)>($r2, $i1);
+
+        if $r9 == null goto label15;
+
+        $r10 = virtualinvoke $r9.<com.speedsoftware.rootexplorer.r: com.speedsoftware.rootexplorer.s a()>();
+
+        $r11 = $r10.<com.speedsoftware.rootexplorer.s: com.speedsoftware.rootexplorer.bn aN>;
+
+        if $r11 == null goto label15;
+
+        $r10 = virtualinvoke $r9.<com.speedsoftware.rootexplorer.r: com.speedsoftware.rootexplorer.s a()>();
+
+        $r11 = $r10.<com.speedsoftware.rootexplorer.s: com.speedsoftware.rootexplorer.bn aN>;
+
+        $r12 = virtualinvoke $r11.<com.speedsoftware.rootexplorer.bn: java.lang.String aY()>();
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e>;
+
+        $r13 = virtualinvoke $r1.<java.util.ArrayList: java.lang.Object get(int)>($i1);
+
+        $r14 = (com.speedsoftware.rootexplorer.gb) $r13;
+
+        staticinvoke <com.speedsoftware.rootexplorer.gb: void a(com.speedsoftware.rootexplorer.gb,java.lang.String)>($r14, $r12);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r1 = $r2.<com.speedsoftware.rootexplorer.RootExplorer: java.util.ArrayList t>;
+
+        $r13 = virtualinvoke $r1.<java.util.ArrayList: java.lang.Object get(int)>($i1);
+
+        $r15 = (android.widget.TabHost$TabSpec) $r13;
+
+        virtualinvoke $r15.<android.widget.TabHost$TabSpec: android.widget.TabHost$TabSpec setIndicator(java.lang.CharSequence)>($r12);
+
+     label15:
+        $i1 = $i1 + 1;
+
+        goto label01;
+
+     label16:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r9 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: com.speedsoftware.rootexplorer.r a(com.speedsoftware.rootexplorer.RootExplorer,int)>($r2, $i1);
+
+        if $r9 == null goto label18;
+
+        if $i1 <= $i0 goto label17;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r5 = $r2.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.Fragment$SavedState[] i>;
+
+        $i2 = $i1 + -1;
+
+        $r16 = virtualinvoke $r3.<android.support.v4.app.FragmentManager: android.support.v4.app.Fragment$SavedState saveFragmentInstanceState(android.support.v4.app.Fragment)>($r9);
+
+        $r5[$i2] = $r16;
+
+     label17:
+        virtualinvoke $r4.<android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction remove(android.support.v4.app.Fragment)>($r9);
+
+     label18:
+        $i1 = $i1 + 1;
+
+        goto label02;
+
+     label19:
+        $r13 = interfaceinvoke $r8.<java.util.Iterator: java.lang.Object next()>();
+
+        $r14 = (com.speedsoftware.rootexplorer.gb) $r13;
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r14);
+
+        goto label04;
+
+     label20:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r7 = $r2.<com.speedsoftware.rootexplorer.RootExplorer: java.util.ArrayList t>;
+
+        virtualinvoke $r7.<java.util.ArrayList: java.lang.Object remove(int)>($i0);
+
+        $r7 = $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e>;
+
+        virtualinvoke $r7.<java.util.ArrayList: java.lang.Object remove(int)>($i0);
+
+     label21:
+        goto label06;
+
+     label22:
+        $r17 := @caughtexception;
+
+        $r0.<com.speedsoftware.rootexplorer.fy: boolean g> = 0;
+
+        throw $r17;
+
+     label23:
+        $r13 = interfaceinvoke $r8.<java.util.Iterator: java.lang.Object next()>();
+
+        $r15 = (android.widget.TabHost$TabSpec) $r13;
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        virtualinvoke $r6.<android.widget.TabHost: void addTab(android.widget.TabHost$TabSpec)>($r15);
+
+     label24:
+        goto label09;
+
+     label25:
+        $r6 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        $r18 = new java.lang.StringBuilder;
+
+        specialinvoke $r18.<java.lang.StringBuilder: void <init>(java.lang.String)>("tab");
+
+        $r18 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r18 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(1);
+
+        $r12 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r15 = virtualinvoke $r6.<android.widget.TabHost: android.widget.TabHost$TabSpec newTabSpec(java.lang.String)>($r12);
+
+        $r13 = virtualinvoke $r1.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r14 = (com.speedsoftware.rootexplorer.gb) $r13;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.gb: java.lang.String a(com.speedsoftware.rootexplorer.gb)>($r14);
+
+        $r15 = virtualinvoke $r15.<android.widget.TabHost$TabSpec: android.widget.TabHost$TabSpec setIndicator(java.lang.CharSequence)>($r12);
+
+        $r13 = virtualinvoke $r1.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r14 = (com.speedsoftware.rootexplorer.gb) $r13;
+
+        $r19 = staticinvoke <com.speedsoftware.rootexplorer.gb: java.lang.Class b(com.speedsoftware.rootexplorer.gb)>($r14);
+
+        $r13 = virtualinvoke $r1.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r14 = (com.speedsoftware.rootexplorer.gb) $r13;
+
+        $r20 = staticinvoke <com.speedsoftware.rootexplorer.gb: android.os.Bundle c(com.speedsoftware.rootexplorer.gb)>($r14);
+
+        $r13 = virtualinvoke $r1.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r14 = (com.speedsoftware.rootexplorer.gb) $r13;
+
+        $r12 = staticinvoke <com.speedsoftware.rootexplorer.gb: java.lang.String a(com.speedsoftware.rootexplorer.gb)>($r14);
+
+        virtualinvoke $r0.<com.speedsoftware.rootexplorer.fy: void a(android.widget.TabHost$TabSpec,java.lang.Class,android.os.Bundle,java.lang.String)>($r15, $r19, $r20, $r12);
+
+     label26:
+        $i0 = $i0 + 1;
+
+        goto label11;
+
+        catch java.lang.Throwable from label05 to label07 with label22;
+        catch java.lang.Throwable from label08 to label10 with label22;
+        catch java.lang.Throwable from label11 to label12 with label22;
+        catch java.lang.Throwable from label20 to label21 with label22;
+        catch java.lang.Throwable from label23 to label24 with label22;
+        catch java.lang.Throwable from label25 to label26 with label22;
+    }
+
+    public final void a(android.widget.TabHost$TabSpec, java.lang.Class, android.os.Bundle, java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        android.widget.TabHost$TabSpec $r1;
+        java.lang.Class $r2;
+        android.os.Bundle $r3;
+        java.lang.String $r4, $r8;
+        com.speedsoftware.rootexplorer.RootExplorer $r5;
+        com.speedsoftware.rootexplorer.ga $r6;
+        android.content.Context $r7;
+        java.util.ArrayList $r9;
+        int $i0;
+        com.speedsoftware.rootexplorer.gb $r10;
+        android.widget.TabHost $r11;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $r1 := @parameter0: android.widget.TabHost$TabSpec;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r3 := @parameter2: android.os.Bundle;
+
+        $r4 := @parameter3: java.lang.String;
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        virtualinvoke $r5.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.FragmentManager getSupportFragmentManager()>();
+
+        $r6 = new com.speedsoftware.rootexplorer.ga;
+
+        $r7 = $r0.<com.speedsoftware.rootexplorer.fy: android.content.Context b>;
+
+        specialinvoke $r6.<com.speedsoftware.rootexplorer.ga: void <init>(com.speedsoftware.rootexplorer.fy,android.content.Context)>($r0, $r7);
+
+        virtualinvoke $r1.<android.widget.TabHost$TabSpec: android.widget.TabHost$TabSpec setContent(android.widget.TabHost$TabContentFactory)>($r6);
+
+        $r8 = virtualinvoke $r1.<android.widget.TabHost$TabSpec: java.lang.String getTag()>();
+
+        $r9 = $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e>;
+
+        $i0 = virtualinvoke $r9.<java.util.ArrayList: int size()>();
+
+        $i0 = $i0 + 1;
+
+        virtualinvoke $r3.<android.os.Bundle: void putInt(java.lang.String,int)>("tab_no", $i0);
+
+        $r10 = new com.speedsoftware.rootexplorer.gb;
+
+        specialinvoke $r10.<com.speedsoftware.rootexplorer.gb: void <init>(com.speedsoftware.rootexplorer.fy,java.lang.String,java.lang.Class,android.os.Bundle,java.lang.String)>($r0, $r8, $r2, $r3, $r4);
+
+        $r5 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r9 = $r5.<com.speedsoftware.rootexplorer.RootExplorer: java.util.ArrayList t>;
+
+        virtualinvoke $r9.<java.util.ArrayList: boolean add(java.lang.Object)>($r1);
+
+        $r9 = $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e>;
+
+        virtualinvoke $r9.<java.util.ArrayList: boolean add(java.lang.Object)>($r10);
+
+        $r11 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        virtualinvoke $r11.<android.widget.TabHost: void addTab(android.widget.TabHost$TabSpec)>($r1);
+
+        specialinvoke $r0.<android.support.v4.app.FragmentPagerAdapter: void notifyDataSetChanged()>();
+
+        return;
+    }
+
+    public final void b(int)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        int $i0, $i1, $i2;
+        android.widget.TabHost $r1;
+        android.widget.TabWidget $r2;
+        android.view.View $r3, $r5;
+        com.speedsoftware.rootexplorer.RootExplorer $r4;
+        android.widget.HorizontalScrollView $r6;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        $r2 = virtualinvoke $r1.<android.widget.TabHost: android.widget.TabWidget getTabWidget()>();
+
+        if $r2 == null goto label1;
+
+        $r3 = virtualinvoke $r2.<android.widget.TabWidget: android.view.View getChildAt(int)>($i0);
+
+        $i1 = virtualinvoke $r3.<android.view.View: int getMeasuredWidth()>();
+
+        if $i1 <= 0 goto label1;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r5 = virtualinvoke $r4.<com.speedsoftware.rootexplorer.RootExplorer: android.view.View findViewById(int)>(2131492993);
+
+        $r6 = (android.widget.HorizontalScrollView) $r5;
+
+        virtualinvoke $r6.<android.widget.HorizontalScrollView: int getScrollX()>();
+
+        $i1 = virtualinvoke $r6.<android.widget.HorizontalScrollView: int getWidth()>();
+
+        $i2 = virtualinvoke $r3.<android.view.View: int getMeasuredWidth()>();
+
+        $i0 = $i2 * $i0;
+
+        $i1 = $i1 / 3;
+
+        $i0 = $i0 - $i1;
+
+        virtualinvoke $r6.<android.widget.HorizontalScrollView: void smoothScrollTo(int,int)>($i0, 0);
+
+     label1:
+        return;
+    }
+
+    public final void finishUpdate(android.view.ViewGroup)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        android.view.ViewGroup $r1;
+        android.support.v4.view.ViewPager $r2;
+        int $i0, $i1;
+        android.widget.TabHost $r3;
+        boolean $z0;
+        com.speedsoftware.rootexplorer.RootExplorer $r4;
+        android.os.Handler $r5;
+        com.speedsoftware.rootexplorer.fz $r6;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $r1 := @parameter0: android.view.ViewGroup;
+
+        specialinvoke $r0.<android.support.v4.app.FragmentPagerAdapter: void finishUpdate(android.view.ViewGroup)>($r1);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: android.support.v4.view.ViewPager d>;
+
+        $i0 = virtualinvoke $r2.<android.support.v4.view.ViewPager: int getCurrentItem()>();
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        $i1 = virtualinvoke $r3.<android.widget.TabHost: int getCurrentTab()>();
+
+        if $i0 >= $i1 goto label1;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        $i0 = virtualinvoke $r3.<android.widget.TabHost: int getCurrentTab()>();
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: android.support.v4.view.ViewPager d>;
+
+        $i1 = virtualinvoke $r2.<android.support.v4.view.ViewPager: int getChildCount()>();
+
+        if $i0 >= $i1 goto label1;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: android.support.v4.view.ViewPager d>;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        $i0 = virtualinvoke $r3.<android.widget.TabHost: int getCurrentTab()>();
+
+        virtualinvoke $r2.<android.support.v4.view.ViewPager: void setCurrentItem(int)>($i0);
+
+        $z0 = $r0.<com.speedsoftware.rootexplorer.fy: boolean i>;
+
+        if $z0 != 0 goto label1;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r5 = $r4.<com.speedsoftware.rootexplorer.RootExplorer: android.os.Handler a>;
+
+        $r6 = new com.speedsoftware.rootexplorer.fz;
+
+        specialinvoke $r6.<com.speedsoftware.rootexplorer.fz: void <init>(com.speedsoftware.rootexplorer.fy)>($r0);
+
+        virtualinvoke $r5.<android.os.Handler: boolean post(java.lang.Runnable)>($r6);
+
+        $r0.<com.speedsoftware.rootexplorer.fy: boolean i> = 1;
+
+     label1:
+        return;
+    }
+
+    public final int getCount()
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        int $i0;
+        java.util.ArrayList $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e>;
+
+        $i0 = virtualinvoke $r1.<java.util.ArrayList: int size()>();
+
+        return $i0;
+    }
+
+    public final android.support.v4.app.Fragment getItem(int)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        int $i0, $i1;
+        java.util.ArrayList $r1;
+        java.lang.Object $r2;
+        com.speedsoftware.rootexplorer.gb $r3;
+        android.content.Context $r4;
+        java.lang.Class $r5;
+        java.lang.String $r6;
+        android.os.Bundle $r7;
+        android.support.v4.app.Fragment $r8;
+        com.speedsoftware.rootexplorer.RootExplorer $r9;
+        android.support.v4.app.Fragment$SavedState[] $r10;
+        android.support.v4.app.Fragment$SavedState $r11;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e>;
+
+        $r2 = virtualinvoke $r1.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r3 = (com.speedsoftware.rootexplorer.gb) $r2;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.fy: android.content.Context b>;
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.gb: java.lang.Class b(com.speedsoftware.rootexplorer.gb)>($r3);
+
+        $r6 = virtualinvoke $r5.<java.lang.Class: java.lang.String getName()>();
+
+        $r7 = staticinvoke <com.speedsoftware.rootexplorer.gb: android.os.Bundle c(com.speedsoftware.rootexplorer.gb)>($r3);
+
+        $r8 = staticinvoke <android.support.v4.app.Fragment: android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String,android.os.Bundle)>($r4, $r6, $r7);
+
+        $r9 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r10 = $r9.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.Fragment$SavedState[] i>;
+
+        if $r10 == null goto label1;
+
+        $r9 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r10 = $r9.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.Fragment$SavedState[] i>;
+
+        $i1 = lengthof $r10;
+
+        if $i0 >= $i1 goto label1;
+
+        $r9 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r10 = $r9.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.Fragment$SavedState[] i>;
+
+        $r11 = $r10[$i0];
+
+        if $r11 == null goto label1;
+
+        $r9 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r10 = $r9.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.Fragment$SavedState[] i>;
+
+        $r11 = $r10[$i0];
+
+        virtualinvoke $r8.<android.support.v4.app.Fragment: void setInitialSavedState(android.support.v4.app.Fragment$SavedState)>($r11);
+
+        $r9 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r10 = $r9.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.Fragment$SavedState[] i>;
+
+        $r10[$i0] = null;
+
+     label1:
+        return $r8;
+    }
+
+    public final int getItemPosition(java.lang.Object)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        java.lang.Object $r1;
+        com.speedsoftware.rootexplorer.RootExplorer $r2;
+        android.support.v4.app.Fragment $r3;
+        java.lang.String $r4, $r5;
+        int $i0, $i1;
+        java.util.ArrayList $r6;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        virtualinvoke $r2.<com.speedsoftware.rootexplorer.RootExplorer: android.support.v4.app.FragmentManager getSupportFragmentManager()>();
+
+        $r3 = (android.support.v4.app.Fragment) $r1;
+
+        $r4 = virtualinvoke $r3.<android.support.v4.app.Fragment: java.lang.String getTag()>();
+
+        if $r4 != null goto label1;
+
+        return -2;
+
+     label1:
+        $r4 = virtualinvoke $r3.<android.support.v4.app.Fragment: java.lang.String getTag()>();
+
+        $r5 = virtualinvoke $r3.<android.support.v4.app.Fragment: java.lang.String getTag()>();
+
+        $i0 = virtualinvoke $r5.<java.lang.String: int lastIndexOf(int)>(58);
+
+        $i0 = $i0 + 1;
+
+        $r5 = virtualinvoke $r3.<android.support.v4.app.Fragment: java.lang.String getTag()>();
+
+        $i1 = virtualinvoke $r5.<java.lang.String: int length()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.String: java.lang.String substring(int,int)>($i0, $i1);
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r4);
+
+        $i0 = $i0 + 1;
+
+        $r6 = $r0.<com.speedsoftware.rootexplorer.fy: java.util.ArrayList e>;
+
+        $i1 = virtualinvoke $r6.<java.util.ArrayList: int size()>();
+
+        if $i0 > $i1 goto label2;
+
+        return -1;
+
+     label2:
+        return -2;
+    }
+
+    public final void notifyDataSetChanged()
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        specialinvoke $r0.<android.support.v4.app.FragmentPagerAdapter: void notifyDataSetChanged()>();
+
+        return;
+    }
+
+    public final void onPageScrollStateChanged(int)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        int $i0;
+        com.speedsoftware.rootexplorer.RootExplorer $r1;
+        com.speedsoftware.rootexplorer.gc $r2, $r3;
+        android.os.Handler $r4;
+        java.lang.Runnable $r5;
+        boolean $z0;
+        java.util.ArrayList $r6;
+        android.view.View $r7;
+        android.widget.HorizontalScrollView $r8;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $i0 := @parameter0: int;
+
+        if $i0 != 0 goto label1;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: void a(com.speedsoftware.rootexplorer.RootExplorer,boolean)>($r1, 0);
+
+        $r2 = <com.speedsoftware.rootexplorer.RootExplorer: com.speedsoftware.rootexplorer.gc n>;
+
+        $r3 = <com.speedsoftware.rootexplorer.gc: com.speedsoftware.rootexplorer.gc c>;
+
+        if $r2 != $r3 goto label2;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r4 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.os.Handler a>;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r5 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: java.lang.Runnable z>;
+
+        virtualinvoke $r4.<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>($r5, 700L);
+
+        return;
+
+     label1:
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: void a(com.speedsoftware.rootexplorer.RootExplorer,boolean)>($r1, 1);
+
+        $r2 = <com.speedsoftware.rootexplorer.RootExplorer: com.speedsoftware.rootexplorer.gc n>;
+
+        $r3 = <com.speedsoftware.rootexplorer.gc: com.speedsoftware.rootexplorer.gc c>;
+
+        if $r2 != $r3 goto label2;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r4 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.os.Handler a>;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r5 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: java.lang.Runnable z>;
+
+        virtualinvoke $r4.<android.os.Handler: void removeCallbacks(java.lang.Runnable)>($r5);
+
+        $z0 = $r0.<com.speedsoftware.rootexplorer.fy: boolean f>;
+
+        if $z0 != 0 goto label2;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r6 = $r1.<com.speedsoftware.rootexplorer.RootExplorer: java.util.ArrayList t>;
+
+        $i0 = virtualinvoke $r6.<java.util.ArrayList: int size()>();
+
+        if $i0 <= 1 goto label2;
+
+        $r1 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r7 = virtualinvoke $r1.<com.speedsoftware.rootexplorer.RootExplorer: android.view.View findViewById(int)>(2131492993);
+
+        $r8 = (android.widget.HorizontalScrollView) $r7;
+
+        if $r8 == null goto label2;
+
+        $i0 = virtualinvoke $r8.<android.widget.HorizontalScrollView: int getVisibility()>();
+
+        if $i0 != 8 goto label2;
+
+        virtualinvoke $r8.<android.widget.HorizontalScrollView: void setVisibility(int)>(0);
+
+     label2:
+        return;
+    }
+
+    public final void onPageScrolled(int, float, int)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        int $i0, $i1;
+        float $f0;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $i0 := @parameter0: int;
+
+        $f0 := @parameter1: float;
+
+        $i1 := @parameter2: int;
+
+        return;
+    }
+
+    public final void onPageSelected(int)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        int $i0, $i1, $i2, $i3;
+        boolean $z0;
+        com.speedsoftware.rootexplorer.fw $r1;
+        com.speedsoftware.rootexplorer.RootExplorer $r2;
+        android.os.Handler $r3;
+        android.widget.TabHost $r4;
+        android.widget.TabWidget $r5;
+        android.view.View $r6, $r7;
+        android.widget.HorizontalScrollView $r8;
+        com.speedsoftware.rootexplorer.r $r9;
+        com.speedsoftware.rootexplorer.s $r10;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $i0 := @parameter0: int;
+
+        $z0 = $r0.<com.speedsoftware.rootexplorer.fy: boolean g>;
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $z0 = <com.speedsoftware.rootexplorer.ge: boolean co>;
+
+        if $z0 == 0 goto label2;
+
+        $r1 = new com.speedsoftware.rootexplorer.fw;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $i1 = $r0.<com.speedsoftware.rootexplorer.fy: int h>;
+
+        specialinvoke $r1.<com.speedsoftware.rootexplorer.fw: void <init>(com.speedsoftware.rootexplorer.RootExplorer,int)>($r2, $i1);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r3 = $r2.<com.speedsoftware.rootexplorer.RootExplorer: android.os.Handler a>;
+
+        virtualinvoke $r3.<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>($r1, 200L);
+
+     label2:
+        $r4 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        $r5 = virtualinvoke $r4.<android.widget.TabHost: android.widget.TabWidget getTabWidget()>();
+
+        if $r5 == null goto label4;
+
+        $r6 = virtualinvoke $r5.<android.widget.TabWidget: android.view.View getChildAt(int)>($i0);
+
+        $i1 = virtualinvoke $r6.<android.view.View: int getMeasuredWidth()>();
+
+        if $i1 <= 0 goto label3;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r7 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.RootExplorer: android.view.View findViewById(int)>(2131492993);
+
+        $r8 = (android.widget.HorizontalScrollView) $r7;
+
+        $i2 = virtualinvoke $r8.<android.widget.HorizontalScrollView: int getScrollX()>();
+
+        $i1 = virtualinvoke $r8.<android.widget.HorizontalScrollView: int getWidth()>();
+
+        $z0 = $r0.<com.speedsoftware.rootexplorer.fy: boolean i>;
+
+        if $z0 != 0 goto label6;
+
+        $i2 = virtualinvoke $r6.<android.view.View: int getMeasuredWidth()>();
+
+        $i2 = $i2 * $i0;
+
+        $i1 = $i1 / 3;
+
+        $i1 = $i2 - $i1;
+
+        virtualinvoke $r8.<android.widget.HorizontalScrollView: void smoothScrollTo(int,int)>($i1, 0);
+
+     label3:
+        $i1 = virtualinvoke $r5.<android.widget.TabWidget: int getDescendantFocusability()>();
+
+        virtualinvoke $r5.<android.widget.TabWidget: void setDescendantFocusability(int)>(393216);
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        virtualinvoke $r4.<android.widget.TabHost: void setCurrentTab(int)>($i0);
+
+        virtualinvoke $r5.<android.widget.TabWidget: void setDescendantFocusability(int)>($i1);
+
+     label4:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r9 = virtualinvoke $r2.<com.speedsoftware.rootexplorer.RootExplorer: com.speedsoftware.rootexplorer.r a()>();
+
+        if $r9 == null goto label5;
+
+        virtualinvoke $r9.<com.speedsoftware.rootexplorer.r: void b()>();
+
+        $r10 = virtualinvoke $r9.<com.speedsoftware.rootexplorer.r: com.speedsoftware.rootexplorer.s a()>();
+
+        if $r10 == null goto label5;
+
+        $r10 = virtualinvoke $r9.<com.speedsoftware.rootexplorer.r: com.speedsoftware.rootexplorer.s a()>();
+
+        $z0 = virtualinvoke $r10.<com.speedsoftware.rootexplorer.s: boolean aa()>();
+
+        if $z0 == 0 goto label5;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: void h(com.speedsoftware.rootexplorer.RootExplorer)>($r2);
+
+     label5:
+        $r0.<com.speedsoftware.rootexplorer.fy: int h> = $i0;
+
+        return;
+
+     label6:
+        $i3 = virtualinvoke $r6.<android.view.View: int getLeft()>();
+
+        if $i3 >= $i2 goto label7;
+
+        $i1 = $i1 / 3;
+
+        $i1 = $i1 * 2;
+
+        $i1 = $i1 * -1;
+
+        virtualinvoke $r8.<android.widget.HorizontalScrollView: void smoothScrollBy(int,int)>($i1, 0);
+
+        goto label3;
+
+     label7:
+        $i3 = virtualinvoke $r6.<android.view.View: int getRight()>();
+
+        $i2 = $i2 + $i1;
+
+        if $i3 <= $i2 goto label3;
+
+        $i1 = $i1 / 3;
+
+        $i1 = $i1 * 2;
+
+        virtualinvoke $r8.<android.widget.HorizontalScrollView: void smoothScrollBy(int,int)>($i1, 0);
+
+        goto label3;
+    }
+
+    public final void onTabChanged(java.lang.String)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        android.widget.TabHost $r2;
+        int $i0, $i1, $i2;
+        android.support.v4.view.ViewPager $r3;
+        com.speedsoftware.rootexplorer.RootExplorer $r4;
+        java.util.ArrayList $r5;
+        com.speedsoftware.rootexplorer.r $r6;
+        com.speedsoftware.rootexplorer.s $r7;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 = $r0.<com.speedsoftware.rootexplorer.fy: boolean g>;
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r2 = $r0.<com.speedsoftware.rootexplorer.fy: android.widget.TabHost c>;
+
+        $i0 = virtualinvoke $r2.<android.widget.TabHost: int getCurrentTab()>();
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.fy: android.support.v4.view.ViewPager d>;
+
+        if $r3 == null goto label2;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.fy: android.support.v4.view.ViewPager d>;
+
+        $i1 = virtualinvoke $r3.<android.support.v4.view.ViewPager: int getChildCount()>();
+
+        if $i1 <= $i0 goto label2;
+
+        $r3 = $r0.<com.speedsoftware.rootexplorer.fy: android.support.v4.view.ViewPager d>;
+
+        virtualinvoke $r3.<android.support.v4.view.ViewPager: void setCurrentItem(int)>($i0);
+
+     label2:
+        $i1 = 0;
+
+     label3:
+        $r4 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r5 = $r4.<com.speedsoftware.rootexplorer.RootExplorer: java.util.ArrayList t>;
+
+        $i2 = virtualinvoke $r5.<java.util.ArrayList: int size()>();
+
+        if $i1 >= $i2 goto label7;
+
+        $r4 = $r0.<com.speedsoftware.rootexplorer.fy: com.speedsoftware.rootexplorer.RootExplorer a>;
+
+        $r6 = staticinvoke <com.speedsoftware.rootexplorer.RootExplorer: com.speedsoftware.rootexplorer.r a(com.speedsoftware.rootexplorer.RootExplorer,int)>($r4, $i1);
+
+        if $r6 == null goto label5;
+
+        if $i1 != $i0 goto label6;
+
+        $z0 = 1;
+
+     label4:
+        virtualinvoke $r6.<com.speedsoftware.rootexplorer.r: void setUserVisibleHint(boolean)>($z0);
+
+        if $i1 != $i0 goto label5;
+
+        $r7 = virtualinvoke $r6.<com.speedsoftware.rootexplorer.r: com.speedsoftware.rootexplorer.s a()>();
+
+        if $r7 == null goto label5;
+
+        $r7 = virtualinvoke $r6.<com.speedsoftware.rootexplorer.r: com.speedsoftware.rootexplorer.s a()>();
+
+        $z0 = virtualinvoke $r7.<com.speedsoftware.rootexplorer.s: boolean ab()>();
+
+        if $z0 == 0 goto label5;
+
+        $r7 = virtualinvoke $r6.<com.speedsoftware.rootexplorer.r: com.speedsoftware.rootexplorer.s a()>();
+
+        virtualinvoke $r7.<com.speedsoftware.rootexplorer.s: void ac()>();
+
+     label5:
+        $i1 = $i1 + 1;
+
+        goto label3;
+
+     label6:
+        $z0 = 0;
+
+        goto label4;
+
+     label7:
+        return;
+    }
+
+    public final void startUpdate(android.view.ViewGroup)
+    {
+        com.speedsoftware.rootexplorer.fy $r0;
+        android.view.ViewGroup $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.fy;
+
+        $r1 := @parameter0: android.view.ViewGroup;
+
+        specialinvoke $r0.<android.support.v4.app.FragmentPagerAdapter: void startUpdate(android.view.ViewGroup)>($r1);
+
+        return;
+    }
+}

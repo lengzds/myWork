@@ -1,0 +1,326 @@
+class com.google.android.gms.maps.StreetViewPanoramaView$b extends java.lang.Object implements com.google.android.gms.dynamic.LifecycleDelegate
+{
+    private final android.view.ViewGroup a;
+    private final com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate b;
+    private android.view.View c;
+
+    public void <init>(android.view.ViewGroup, com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate)
+    {
+        com.google.android.gms.maps.StreetViewPanoramaView$b $r0;
+        android.view.ViewGroup $r1;
+        com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate $r2;
+        java.lang.Object $r3;
+
+        $r0 := @this: com.google.android.gms.maps.StreetViewPanoramaView$b;
+
+        $r1 := @parameter0: android.view.ViewGroup;
+
+        $r2 := @parameter1: com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r3 = staticinvoke <com.google.android.gms.internal.hn: java.lang.Object f(java.lang.Object)>($r2);
+
+        $r2 = (com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate) $r3;
+
+        $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate b> = $r2;
+
+        $r3 = staticinvoke <com.google.android.gms.internal.hn: java.lang.Object f(java.lang.Object)>($r1);
+
+        $r1 = (android.view.ViewGroup) $r3;
+
+        $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: android.view.ViewGroup a> = $r1;
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        com.google.android.gms.maps.StreetViewPanoramaView$b $r0;
+        android.os.Bundle $r1;
+        com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate $r2;
+        com.google.android.gms.dynamic.d $r3;
+        java.lang.Object $r4;
+        android.view.View $r5;
+        android.view.ViewGroup $r6;
+        android.os.RemoteException $r7;
+        com.google.android.gms.maps.model.RuntimeRemoteException $r8;
+
+        $r0 := @this: com.google.android.gms.maps.StreetViewPanoramaView$b;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        $r2 = $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate b>;
+
+     label1:
+        interfaceinvoke $r2.<com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate: void onCreate(android.os.Bundle)>($r1);
+
+     label2:
+        $r2 = $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate b>;
+
+     label3:
+        $r3 = interfaceinvoke $r2.<com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate: com.google.android.gms.dynamic.d getView()>();
+
+        $r4 = staticinvoke <com.google.android.gms.dynamic.e: java.lang.Object e(com.google.android.gms.dynamic.d)>($r3);
+
+     label4:
+        $r5 = (android.view.View) $r4;
+
+        $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: android.view.View c> = $r5;
+
+        $r6 = $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: android.view.ViewGroup a>;
+
+     label5:
+        virtualinvoke $r6.<android.view.ViewGroup: void removeAllViews()>();
+
+     label6:
+        $r6 = $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: android.view.ViewGroup a>;
+
+        $r5 = $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: android.view.View c>;
+
+     label7:
+        virtualinvoke $r6.<android.view.ViewGroup: void addView(android.view.View)>($r5);
+
+     label8:
+        return;
+
+     label9:
+        $r7 := @caughtexception;
+
+        $r8 = new com.google.android.gms.maps.model.RuntimeRemoteException;
+
+        specialinvoke $r8.<com.google.android.gms.maps.model.RuntimeRemoteException: void <init>(android.os.RemoteException)>($r7);
+
+        throw $r8;
+
+        catch android.os.RemoteException from label1 to label2 with label9;
+        catch android.os.RemoteException from label3 to label4 with label9;
+        catch android.os.RemoteException from label5 to label6 with label9;
+        catch android.os.RemoteException from label7 to label8 with label9;
+    }
+
+    public android.view.View onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
+    {
+        com.google.android.gms.maps.StreetViewPanoramaView$b $r0;
+        android.view.LayoutInflater $r1;
+        android.view.ViewGroup $r2;
+        android.os.Bundle $r3;
+        java.lang.UnsupportedOperationException $r4;
+
+        $r0 := @this: com.google.android.gms.maps.StreetViewPanoramaView$b;
+
+        $r1 := @parameter0: android.view.LayoutInflater;
+
+        $r2 := @parameter1: android.view.ViewGroup;
+
+        $r3 := @parameter2: android.os.Bundle;
+
+        $r4 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r4.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>("onCreateView not allowed on StreetViewPanoramaViewDelegate");
+
+        throw $r4;
+    }
+
+    public void onDestroy()
+    {
+        com.google.android.gms.maps.StreetViewPanoramaView$b $r0;
+        com.google.android.gms.maps.model.RuntimeRemoteException $r1;
+        com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate $r2;
+        android.os.RemoteException $r3;
+
+        $r0 := @this: com.google.android.gms.maps.StreetViewPanoramaView$b;
+
+        $r2 = $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate b>;
+
+     label1:
+        interfaceinvoke $r2.<com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate: void onDestroy()>();
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        $r1 = new com.google.android.gms.maps.model.RuntimeRemoteException;
+
+        specialinvoke $r1.<com.google.android.gms.maps.model.RuntimeRemoteException: void <init>(android.os.RemoteException)>($r3);
+
+        throw $r1;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    public void onDestroyView()
+    {
+        com.google.android.gms.maps.StreetViewPanoramaView$b $r0;
+        java.lang.UnsupportedOperationException $r1;
+
+        $r0 := @this: com.google.android.gms.maps.StreetViewPanoramaView$b;
+
+        $r1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r1.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>("onDestroyView not allowed on StreetViewPanoramaViewDelegate");
+
+        throw $r1;
+    }
+
+    public void onInflate(android.app.Activity, android.os.Bundle, android.os.Bundle)
+    {
+        com.google.android.gms.maps.StreetViewPanoramaView$b $r0;
+        android.app.Activity $r1;
+        android.os.Bundle $r2, $r3;
+        java.lang.UnsupportedOperationException $r4;
+
+        $r0 := @this: com.google.android.gms.maps.StreetViewPanoramaView$b;
+
+        $r1 := @parameter0: android.app.Activity;
+
+        $r2 := @parameter1: android.os.Bundle;
+
+        $r3 := @parameter2: android.os.Bundle;
+
+        $r4 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r4.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>("onInflate not allowed on StreetViewPanoramaViewDelegate");
+
+        throw $r4;
+    }
+
+    public void onLowMemory()
+    {
+        com.google.android.gms.maps.StreetViewPanoramaView$b $r0;
+        com.google.android.gms.maps.model.RuntimeRemoteException $r1;
+        com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate $r2;
+        android.os.RemoteException $r3;
+
+        $r0 := @this: com.google.android.gms.maps.StreetViewPanoramaView$b;
+
+        $r2 = $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate b>;
+
+     label1:
+        interfaceinvoke $r2.<com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate: void onLowMemory()>();
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        $r1 = new com.google.android.gms.maps.model.RuntimeRemoteException;
+
+        specialinvoke $r1.<com.google.android.gms.maps.model.RuntimeRemoteException: void <init>(android.os.RemoteException)>($r3);
+
+        throw $r1;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    public void onPause()
+    {
+        com.google.android.gms.maps.StreetViewPanoramaView$b $r0;
+        com.google.android.gms.maps.model.RuntimeRemoteException $r1;
+        com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate $r2;
+        android.os.RemoteException $r3;
+
+        $r0 := @this: com.google.android.gms.maps.StreetViewPanoramaView$b;
+
+        $r2 = $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate b>;
+
+     label1:
+        interfaceinvoke $r2.<com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate: void onPause()>();
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        $r1 = new com.google.android.gms.maps.model.RuntimeRemoteException;
+
+        specialinvoke $r1.<com.google.android.gms.maps.model.RuntimeRemoteException: void <init>(android.os.RemoteException)>($r3);
+
+        throw $r1;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    public void onResume()
+    {
+        com.google.android.gms.maps.StreetViewPanoramaView$b $r0;
+        com.google.android.gms.maps.model.RuntimeRemoteException $r1;
+        com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate $r2;
+        android.os.RemoteException $r3;
+
+        $r0 := @this: com.google.android.gms.maps.StreetViewPanoramaView$b;
+
+        $r2 = $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate b>;
+
+     label1:
+        interfaceinvoke $r2.<com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate: void onResume()>();
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        $r1 = new com.google.android.gms.maps.model.RuntimeRemoteException;
+
+        specialinvoke $r1.<com.google.android.gms.maps.model.RuntimeRemoteException: void <init>(android.os.RemoteException)>($r3);
+
+        throw $r1;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    public void onSaveInstanceState(android.os.Bundle)
+    {
+        com.google.android.gms.maps.StreetViewPanoramaView$b $r0;
+        android.os.Bundle $r1;
+        com.google.android.gms.maps.model.RuntimeRemoteException $r2;
+        com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate $r3;
+        android.os.RemoteException $r4;
+
+        $r0 := @this: com.google.android.gms.maps.StreetViewPanoramaView$b;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        $r3 = $r0.<com.google.android.gms.maps.StreetViewPanoramaView$b: com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate b>;
+
+     label1:
+        interfaceinvoke $r3.<com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate: void onSaveInstanceState(android.os.Bundle)>($r1);
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        $r2 = new com.google.android.gms.maps.model.RuntimeRemoteException;
+
+        specialinvoke $r2.<com.google.android.gms.maps.model.RuntimeRemoteException: void <init>(android.os.RemoteException)>($r4);
+
+        throw $r2;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    public void onStart()
+    {
+        com.google.android.gms.maps.StreetViewPanoramaView$b $r0;
+
+        $r0 := @this: com.google.android.gms.maps.StreetViewPanoramaView$b;
+
+        return;
+    }
+
+    public void onStop()
+    {
+        com.google.android.gms.maps.StreetViewPanoramaView$b $r0;
+
+        $r0 := @this: com.google.android.gms.maps.StreetViewPanoramaView$b;
+
+        return;
+    }
+}

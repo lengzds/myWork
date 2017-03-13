@@ -1,0 +1,204 @@
+public final class com.dropbox.client2.g extends java.lang.Object
+{
+    public static final com.dropbox.client2.b.a o;
+    public long a;
+    public java.lang.String b;
+    public java.lang.String c;
+    public boolean d;
+    public java.lang.String e;
+    public java.lang.String f;
+    public java.lang.String g;
+    public java.lang.String h;
+    public java.lang.String i;
+    public java.lang.String j;
+    public java.lang.String k;
+    public boolean l;
+    public boolean m;
+    public java.util.List n;
+
+    static void <clinit>()
+    {
+        com.dropbox.client2.h $r0;
+
+        $r0 = new com.dropbox.client2.h;
+
+        specialinvoke $r0.<com.dropbox.client2.h: void <init>()>();
+
+        <com.dropbox.client2.g: com.dropbox.client2.b.a o> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.dropbox.client2.g $r0;
+
+        $r0 := @this: com.dropbox.client2.g;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void <init>(java.util.Map)
+    {
+        com.dropbox.client2.g $r0, $r2;
+        java.util.Map $r1;
+        long $l0;
+        java.lang.Object $r3;
+        java.lang.String $r4;
+        boolean $z0;
+        java.util.ArrayList $r5;
+        b.b.a.a $r6;
+        java.util.Iterator $r7;
+        java.util.List $r8;
+
+        $r0 := @this: com.dropbox.client2.g;
+
+        $r1 := @parameter0: java.util.Map;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $l0 = staticinvoke <com.dropbox.client2.a: long b(java.util.Map,java.lang.String)>($r1, "bytes");
+
+        $r0.<com.dropbox.client2.g: long a> = $l0;
+
+        $r3 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("hash");
+
+        $r4 = (java.lang.String) $r3;
+
+        $r0.<com.dropbox.client2.g: java.lang.String b> = $r4;
+
+        $r3 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("icon");
+
+        $r4 = (java.lang.String) $r3;
+
+        $r0.<com.dropbox.client2.g: java.lang.String c> = $r4;
+
+        $z0 = staticinvoke <com.dropbox.client2.a: boolean a(java.util.Map,java.lang.String)>($r1, "is_dir");
+
+        $r0.<com.dropbox.client2.g: boolean d> = $z0;
+
+        $r3 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("modified");
+
+        $r4 = (java.lang.String) $r3;
+
+        $r0.<com.dropbox.client2.g: java.lang.String e> = $r4;
+
+        $r3 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("client_mtime");
+
+        $r4 = (java.lang.String) $r3;
+
+        $r0.<com.dropbox.client2.g: java.lang.String f> = $r4;
+
+        $r3 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("path");
+
+        $r4 = (java.lang.String) $r3;
+
+        $r0.<com.dropbox.client2.g: java.lang.String g> = $r4;
+
+        $r3 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("root");
+
+        $r4 = (java.lang.String) $r3;
+
+        $r0.<com.dropbox.client2.g: java.lang.String h> = $r4;
+
+        $r3 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("size");
+
+        $r4 = (java.lang.String) $r3;
+
+        $r0.<com.dropbox.client2.g: java.lang.String i> = $r4;
+
+        $r3 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("mime_type");
+
+        $r4 = (java.lang.String) $r3;
+
+        $r0.<com.dropbox.client2.g: java.lang.String j> = $r4;
+
+        $r3 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("rev");
+
+        $r4 = (java.lang.String) $r3;
+
+        $r0.<com.dropbox.client2.g: java.lang.String k> = $r4;
+
+        $z0 = staticinvoke <com.dropbox.client2.a: boolean a(java.util.Map,java.lang.String)>($r1, "thumb_exists");
+
+        $r0.<com.dropbox.client2.g: boolean l> = $z0;
+
+        $z0 = staticinvoke <com.dropbox.client2.a: boolean a(java.util.Map,java.lang.String)>($r1, "is_deleted");
+
+        $r0.<com.dropbox.client2.g: boolean m> = $z0;
+
+        $r3 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>("contents");
+
+        if $r3 == null goto label2;
+
+        $z0 = $r3 instanceof b.b.a.a;
+
+        if $z0 == 0 goto label2;
+
+        $r5 = new java.util.ArrayList;
+
+        specialinvoke $r5.<java.util.ArrayList: void <init>()>();
+
+        $r0.<com.dropbox.client2.g: java.util.List n> = $r5;
+
+        $r6 = (b.b.a.a) $r3;
+
+        $r7 = virtualinvoke $r6.<b.b.a.a: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r7.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r3 = interfaceinvoke $r7.<java.util.Iterator: java.lang.Object next()>();
+
+        $z0 = $r3 instanceof java.util.Map;
+
+        if $z0 == 0 goto label1;
+
+        $r8 = $r0.<com.dropbox.client2.g: java.util.List n>;
+
+        $r2 = new com.dropbox.client2.g;
+
+        $r1 = (java.util.Map) $r3;
+
+        specialinvoke $r2.<com.dropbox.client2.g: void <init>(java.util.Map)>($r1);
+
+        interfaceinvoke $r8.<java.util.List: boolean add(java.lang.Object)>($r2);
+
+        goto label1;
+
+     label2:
+        $r0.<com.dropbox.client2.g: java.util.List n> = null;
+
+     label3:
+        return;
+    }
+
+    public final java.lang.String a()
+    {
+        com.dropbox.client2.g $r0;
+        java.lang.String $r1, $r2;
+        int $i0, $i1;
+
+        $r0 := @this: com.dropbox.client2.g;
+
+        $r1 = $r0.<com.dropbox.client2.g: java.lang.String g>;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int lastIndexOf(int)>(47);
+
+        $r1 = $r0.<com.dropbox.client2.g: java.lang.String g>;
+
+        $i0 = $i0 + 1;
+
+        $r2 = $r0.<com.dropbox.client2.g: java.lang.String g>;
+
+        $i1 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>($i0, $i1);
+
+        return $r1;
+    }
+}

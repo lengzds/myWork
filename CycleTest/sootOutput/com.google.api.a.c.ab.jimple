@@ -1,0 +1,116 @@
+public abstract class com.google.api.a.c.ab extends java.lang.Object
+{
+    static final java.util.logging.Logger a;
+    private static final java.lang.String[] b;
+
+    static void <clinit>()
+    {
+        java.lang.Class $r0;
+        java.lang.String $r1;
+        java.util.logging.Logger $r2;
+        java.lang.String[] $r3;
+
+        $r0 = class "com/google/api/a/c/ab";
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = staticinvoke <java.util.logging.Logger: java.util.logging.Logger getLogger(java.lang.String)>($r1);
+
+        <com.google.api.a.c.ab: java.util.logging.Logger a> = $r2;
+
+        $r3 = newarray (java.lang.String)[4];
+
+        $r3[0] = "DELETE";
+
+        $r3[1] = "GET";
+
+        $r3[2] = "POST";
+
+        $r3[3] = "PUT";
+
+        <com.google.api.a.c.ab: java.lang.String[] b> = $r3;
+
+        staticinvoke <java.util.Arrays: void sort(java.lang.Object[])>($r3);
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.google.api.a.c.ab $r0;
+
+        $r0 := @this: com.google.api.a.c.ab;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    protected abstract com.google.api.a.c.ae a(java.lang.String, java.lang.String);
+
+    public final com.google.api.a.c.u a()
+    {
+        com.google.api.a.c.ab $r0;
+        com.google.api.a.c.u $r1;
+
+        $r0 := @this: com.google.api.a.c.ab;
+
+        $r1 = virtualinvoke $r0.<com.google.api.a.c.ab: com.google.api.a.c.u a(com.google.api.a.c.v)>(null);
+
+        return $r1;
+    }
+
+    public final com.google.api.a.c.u a(com.google.api.a.c.v)
+    {
+        com.google.api.a.c.ab $r0;
+        com.google.api.a.c.v $r1;
+        com.google.api.a.c.u $r2;
+
+        $r0 := @this: com.google.api.a.c.ab;
+
+        $r1 := @parameter0: com.google.api.a.c.v;
+
+        $r2 = new com.google.api.a.c.u;
+
+        specialinvoke $r2.<com.google.api.a.c.u: void <init>(com.google.api.a.c.ab,com.google.api.a.c.v)>($r0, $r1);
+
+        return $r2;
+    }
+
+    public boolean a(java.lang.String)
+    {
+        com.google.api.a.c.ab $r0;
+        java.lang.String $r1;
+        int $i0;
+        java.lang.String[] $r2;
+
+        $r0 := @this: com.google.api.a.c.ab;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = <com.google.api.a.c.ab: java.lang.String[] b>;
+
+        $i0 = staticinvoke <java.util.Arrays: int binarySearch(java.lang.Object[],java.lang.Object)>($r2, $r1);
+
+        if $i0 < 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    final com.google.api.a.c.t b()
+    {
+        com.google.api.a.c.ab $r0;
+        com.google.api.a.c.t $r1;
+
+        $r0 := @this: com.google.api.a.c.ab;
+
+        $r1 = new com.google.api.a.c.t;
+
+        specialinvoke $r1.<com.google.api.a.c.t: void <init>(com.google.api.a.c.ab)>($r0);
+
+        return $r1;
+    }
+}

@@ -1,0 +1,77 @@
+public final class com.dropbox.client2.e extends java.io.FilterInputStream
+{
+    private final org.apache.http.client.methods.HttpUriRequest a;
+    private final com.dropbox.client2.d b;
+
+    public void <init>(org.apache.http.client.methods.HttpUriRequest, org.apache.http.HttpResponse)
+    {
+        com.dropbox.client2.e $r0;
+        org.apache.http.client.methods.HttpUriRequest $r1;
+        org.apache.http.HttpResponse $r2;
+        org.apache.http.HttpEntity $r3;
+        com.dropbox.client2.a.a $r4;
+        java.io.InputStream $r5;
+        com.dropbox.client2.d $r6;
+        java.io.IOException $r7;
+        com.dropbox.client2.a.b $r8;
+
+        $r0 := @this: com.dropbox.client2.e;
+
+        $r1 := @parameter0: org.apache.http.client.methods.HttpUriRequest;
+
+        $r2 := @parameter1: org.apache.http.HttpResponse;
+
+        specialinvoke $r0.<java.io.FilterInputStream: void <init>(java.io.InputStream)>(null);
+
+        $r3 = interfaceinvoke $r2.<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()>();
+
+        if $r3 != null goto label1;
+
+        $r4 = new com.dropbox.client2.a.a;
+
+        specialinvoke $r4.<com.dropbox.client2.a.a: void <init>(java.lang.String)>("Didn\'t get entity from HttpResponse");
+
+        throw $r4;
+
+     label1:
+        $r5 = interfaceinvoke $r3.<org.apache.http.HttpEntity: java.io.InputStream getContent()>();
+
+     label2:
+        $r0.<com.dropbox.client2.e: java.io.InputStream in> = $r5;
+
+        $r0.<com.dropbox.client2.e: org.apache.http.client.methods.HttpUriRequest a> = $r1;
+
+        $r6 = new com.dropbox.client2.d;
+
+        specialinvoke $r6.<com.dropbox.client2.d: void <init>(org.apache.http.HttpResponse,byte)>($r2, 0);
+
+        $r0.<com.dropbox.client2.e: com.dropbox.client2.d b> = $r6;
+
+        return;
+
+     label3:
+        $r7 := @caughtexception;
+
+        $r8 = new com.dropbox.client2.a.b;
+
+        specialinvoke $r8.<com.dropbox.client2.a.b: void <init>(java.io.IOException)>($r7);
+
+        throw $r8;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public final void close()
+    {
+        com.dropbox.client2.e $r0;
+        org.apache.http.client.methods.HttpUriRequest $r1;
+
+        $r0 := @this: com.dropbox.client2.e;
+
+        $r1 = $r0.<com.dropbox.client2.e: org.apache.http.client.methods.HttpUriRequest a>;
+
+        interfaceinvoke $r1.<org.apache.http.client.methods.HttpUriRequest: void abort()>();
+
+        return;
+    }
+}

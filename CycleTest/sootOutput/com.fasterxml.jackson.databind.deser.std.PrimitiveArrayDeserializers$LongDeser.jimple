@@ -1,0 +1,174 @@
+final class com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser extends com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$Base
+{
+
+    public void <init>()
+    {
+        com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser $r0;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser;
+
+        specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$Base: void <init>(java.lang.Class)>(class "[J");
+
+        return;
+    }
+
+    private final long[] handleNonArray(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.core.JsonToken $r3, $r4;
+        com.fasterxml.jackson.databind.DeserializationFeature $r5;
+        boolean $z0;
+        java.lang.String $r6;
+        int $i0;
+        java.lang.Class $r7;
+        com.fasterxml.jackson.databind.JsonMappingException $r8;
+        long[] $r9;
+        long $l1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken getCurrentToken()>();
+
+        $r4 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken VALUE_STRING>;
+
+        if $r3 != $r4 goto label1;
+
+        $r5 = <com.fasterxml.jackson.databind.DeserializationFeature: com.fasterxml.jackson.databind.DeserializationFeature ACCEPT_EMPTY_STRING_AS_NULL_OBJECT>;
+
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)>($r5);
+
+        if $z0 == 0 goto label1;
+
+        $r6 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: java.lang.String getText()>();
+
+        $i0 = virtualinvoke $r6.<java.lang.String: int length()>();
+
+        if $i0 != 0 goto label1;
+
+        return null;
+
+     label1:
+        $r5 = <com.fasterxml.jackson.databind.DeserializationFeature: com.fasterxml.jackson.databind.DeserializationFeature ACCEPT_SINGLE_VALUE_AS_ARRAY>;
+
+        $z0 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: boolean isEnabled(com.fasterxml.jackson.databind.DeserializationFeature)>($r5);
+
+        if $z0 != 0 goto label2;
+
+        $r7 = $r0.<com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser: java.lang.Class _valueClass>;
+
+        $r8 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.JsonMappingException mappingException(java.lang.Class)>($r7);
+
+        throw $r8;
+
+     label2:
+        $r9 = newarray (long)[1];
+
+        $l1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser: long _parseLongPrimitive(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        $r9[0] = $l1;
+
+        return $r9;
+    }
+
+    public final volatile java.lang.Object deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        long[] $r3;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $r3 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser: long[] deserialize(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public final long[] deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)
+    {
+        com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser $r0;
+        com.fasterxml.jackson.core.JsonParser $r1;
+        com.fasterxml.jackson.databind.DeserializationContext $r2;
+        com.fasterxml.jackson.core.JsonToken $r3, $r8;
+        boolean $z0;
+        long[] $r4;
+        com.fasterxml.jackson.databind.util.ArrayBuilders $r5;
+        com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder $r6;
+        java.lang.Object $r7;
+        int $i0, $i2;
+        long $l1;
+
+        $r0 := @this: com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser;
+
+        $r1 := @parameter0: com.fasterxml.jackson.core.JsonParser;
+
+        $r2 := @parameter1: com.fasterxml.jackson.databind.DeserializationContext;
+
+        $z0 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: boolean isExpectedStartArrayToken()>();
+
+        if $z0 != 0 goto label1;
+
+        $r4 = specialinvoke $r0.<com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser: long[] handleNonArray(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        return $r4;
+
+     label1:
+        $r5 = virtualinvoke $r2.<com.fasterxml.jackson.databind.DeserializationContext: com.fasterxml.jackson.databind.util.ArrayBuilders getArrayBuilders()>();
+
+        $r6 = virtualinvoke $r5.<com.fasterxml.jackson.databind.util.ArrayBuilders: com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder getLongBuilder()>();
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder: java.lang.Object resetAndStart()>();
+
+        $r4 = (long[]) $r7;
+
+        $i0 = 0;
+
+     label2:
+        $r8 = virtualinvoke $r1.<com.fasterxml.jackson.core.JsonParser: com.fasterxml.jackson.core.JsonToken nextToken()>();
+
+        $r3 = <com.fasterxml.jackson.core.JsonToken: com.fasterxml.jackson.core.JsonToken END_ARRAY>;
+
+        if $r8 == $r3 goto label4;
+
+        $l1 = virtualinvoke $r0.<com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$LongDeser: long _parseLongPrimitive(com.fasterxml.jackson.core.JsonParser,com.fasterxml.jackson.databind.DeserializationContext)>($r1, $r2);
+
+        $i2 = lengthof $r4;
+
+        if $i0 < $i2 goto label5;
+
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder: java.lang.Object appendCompletedChunk(java.lang.Object,int)>($r4, $i0);
+
+        $i2 = 0;
+
+        $r4 = (long[]) $r7;
+
+     label3:
+        $i0 = $i2 + 1;
+
+        $r4[$i2] = $l1;
+
+        goto label2;
+
+     label4:
+        $r7 = virtualinvoke $r6.<com.fasterxml.jackson.databind.util.ArrayBuilders$LongBuilder: java.lang.Object completeAndClearBuffer(java.lang.Object,int)>($r4, $i0);
+
+        $r4 = (long[]) $r7;
+
+        return $r4;
+
+     label5:
+        $i2 = $i0;
+
+        goto label3;
+    }
+}

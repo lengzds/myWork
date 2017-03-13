@@ -1,0 +1,65 @@
+final class com.speedsoftware.rootexplorer.lt extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.speedsoftware.rootexplorer.ls a;
+
+    void <init>(com.speedsoftware.rootexplorer.ls)
+    {
+        com.speedsoftware.rootexplorer.lt $r0;
+        com.speedsoftware.rootexplorer.ls $r1;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.lt;
+
+        $r1 := @parameter0: com.speedsoftware.rootexplorer.ls;
+
+        $r0.<com.speedsoftware.rootexplorer.lt: com.speedsoftware.rootexplorer.ls a> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public final void onClick(android.content.DialogInterface, int)
+    {
+        com.speedsoftware.rootexplorer.lt $r0;
+        android.content.DialogInterface $r1;
+        int $i0;
+        com.speedsoftware.rootexplorer.ls $r2;
+        com.speedsoftware.rootexplorer.ge $r3;
+        com.speedsoftware.rootexplorer.bn $r4;
+        android.app.Activity $r5;
+        android.content.SharedPreferences $r6;
+        android.content.SharedPreferences$Editor $r7;
+
+        $r0 := @this: com.speedsoftware.rootexplorer.lt;
+
+        $r1 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.lt: com.speedsoftware.rootexplorer.ls a>;
+
+        $r3 = staticinvoke <com.speedsoftware.rootexplorer.ls: com.speedsoftware.rootexplorer.ge a(com.speedsoftware.rootexplorer.ls)>($r2);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.lt: com.speedsoftware.rootexplorer.ls a>;
+
+        $r4 = $r2.<com.speedsoftware.rootexplorer.ls: com.speedsoftware.rootexplorer.bn a>;
+
+        virtualinvoke $r3.<com.speedsoftware.rootexplorer.ge: void m(com.speedsoftware.rootexplorer.bn)>($r4);
+
+        $r2 = $r0.<com.speedsoftware.rootexplorer.lt: com.speedsoftware.rootexplorer.ls a>;
+
+        staticinvoke <com.speedsoftware.rootexplorer.ls: com.speedsoftware.rootexplorer.ge a(com.speedsoftware.rootexplorer.ls)>($r2);
+
+        $r5 = staticinvoke <com.speedsoftware.rootexplorer.ge: android.app.Activity Q()>();
+
+        $r6 = virtualinvoke $r5.<android.app.Activity: android.content.SharedPreferences getPreferences(int)>(0);
+
+        $r7 = interfaceinvoke $r6.<android.content.SharedPreferences: android.content.SharedPreferences$Editor edit()>();
+
+        interfaceinvoke $r7.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putBoolean(java.lang.String,boolean)>("context_warning_accepted", 1);
+
+        interfaceinvoke $r7.<android.content.SharedPreferences$Editor: boolean commit()>();
+
+        return;
+    }
+}
